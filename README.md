@@ -1,9 +1,9 @@
 
 
 <div align="center">
-<picture height="372px" width="372px" aria-label="Pragmatic drag and drop logo">
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexreardon/files/assets/2182637/4405f071-4d88-4ad7-bcc0-a050420f3f3e">
-  <img src="https://github.com/alexreardon/files/assets/2182637/9e57e0bb-aa9b-4552-affa-59aecf70bfc0">
+<picture aria-label="Pragmatic drag and drop logo">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexreardon/files/assets/2182637/4405f071-4d88-4ad7-bcc0-a050420f3f3e" height="372px" width="372px">
+  <img src="https://github.com/alexreardon/files/assets/2182637/9e57e0bb-aa9b-4552-affa-59aecf70bfc0" height="372px" width="372px">
 </picture>
 </div>
 

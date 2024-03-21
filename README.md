@@ -68,7 +68,13 @@ Yep! We have created some design guidelines which embody how we want to achieve 
 
 ## What is `@atlaskit`?
 
-`@atlaskit` is the `npm` namespace that we publish all of our public packages on from inside our monorepo. We _could_ look at creating a separate namespace in the future just for Pragmatic drag and drop. If we do that, we'll release some tooling to help folks automatically switch over.
+The Pragmatic drag and drop packages are published under the `@atlaskit` namespace on `npm`
+
+```ts
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+```
+
+`@atlaskit` is the `npm` namespace that we publish all of our public packages on from inside our internal monorepo. We _could_ look at creating a separate namespace in the future just for Pragmatic drag and drop. If we do that, we'll release some tooling to help folks automatically switch over.
 
 ## Credits
 
@@ -76,11 +82,12 @@ Made with love by:
 
 - [Alex Reardon](https://twitter.com/alexandereardon)
 - [Declan Warn](https://twitter.com/DeclanWarn)
-- [Eleni Misthos](https://www.linkedin.com/in/elenimisthos/)
 - [Lewis Healey](https://twitter.com/lewishealey)
+- [Eleni Misthos](https://www.linkedin.com/in/elenimisthos/)
 - [Jesse Bauer](https://soundcloud.com/jessebauer)
 - [Mitch Gavan](https://twitter.com/MitchG23)
 - [Michael Abrahamian](https://twitter.com/michaelguitars7)
+- [Greta Ritchard](https://www.linkedin.com/in/gretarit/)
 - [Many other folks at Atlassian](https://www.atlassian.com/)
 
 Logo created by [Michelle Holik](https://twitter.com/michelleholik) and [Vojta Holik](https://twitter.com/vojta_holik)

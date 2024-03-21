@@ -16,7 +16,7 @@ _Fast drag and drop for any experience on any tech stack_
 
 ## About
 
-Pragmatic drag and drop is a low level drag and drop toolchain that enables safe and successful usage of the browsers built in drag and drop functionality. Pragmatic drag and drop can be used with any view layer (`react`, `svelt`, `vue` and so on). Pragmatic drag and drop is powering some of the biggest products on the web, including [Trello](https://trello.com), [Jira](https://www.atlassian.com/software/jira) and [Confluence](https://www.atlassian.com/software/confluence).
+Pragmatic drag and drop is a low level drag and drop toolchain that enables safe and successful usage of the browsers built in drag and drop functionality. Pragmatic drag and drop can be used with any view layer ([`react`](https://react.dev/), [`svelte`](https://svelte.dev/), [`vue`](https://vuejs.org/), [`angular`](https://angular.io/) and so on). Pragmatic drag and drop is powering some of the biggest products on the web, including [Trello](https://trello.com), [Jira](https://www.atlassian.com/software/jira) and [Confluence](https://www.atlassian.com/software/confluence).
 
 <details>
     <summary>Capabilities</summary>

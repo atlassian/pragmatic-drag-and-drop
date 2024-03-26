@@ -85,7 +85,7 @@ Made with love by:
 - [Jesse Bauer](https://soundcloud.com/jessebauer)
 - [Mitch Gavan](https://twitter.com/MitchG23)
 - [Michael Abrahamian](https://twitter.com/michaelguitars7)
-- [Tim Kier](https://twitter.com/ReDrUmNZ)
+- [Tim Keir](https://twitter.com/ReDrUmNZ)
 - [Greta Ritchard](https://www.linkedin.com/in/gretarit/)
 - [Many other folks at Atlassian](https://www.atlassian.com/)
 - Logo created by [Michelle Holik](https://twitter.com/michelleholik) and [Vojta Holik](https://twitter.com/vojta_holik)

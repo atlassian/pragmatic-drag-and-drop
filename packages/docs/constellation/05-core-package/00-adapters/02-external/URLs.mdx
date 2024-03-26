@@ -1,0 +1,48 @@
+---
+order: 2
+title: URLs
+description: Helpers to make working with native URL data easier
+---
+
+## `containsURLs`
+
+Useful to know whether URLs (`"text/uri-list"`) is being dragged.
+
+Keep in mind:
+
+- it is possible for multiple urls to be dragged at the same time
+- multiple pieces of data can be dragged at once
+
+```ts
+import { containsURLs } from '@atlaskit/pragmatic-drag-and-drop/external/url';
+
+dropTargetForExternal({
+  element: myElement,
+  canDrop: containsURLs,
+});
+
+monitorForExternal({
+  canMonitor: containsURLs,
+});
+```
+
+## `getURLs`
+
+A helper to extract URL data (`"text/uri-list"`) from drop data. When there are no URLs, `getURLs()` will return an empty array (`[]`).
+
+```ts
+import { getURLs } from '@atlaskit/pragmatic-drag-and-drop/external/url';
+
+dropTargetForExternal({
+  element: myElement,
+  onDrop({ source }) {
+    const urls: string[] = getURLs({ source });
+  },
+});
+
+monitorForExternal({
+  onDrop({ source }) {
+    const urls: string[] = getURLs({ source });
+  },
+});
+```

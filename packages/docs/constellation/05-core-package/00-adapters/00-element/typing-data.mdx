@@ -1,0 +1,82 @@
+---
+order: 2
+title: Typing "data"
+description: How to get better types for "data"
+---
+
+`dropTargetForElements` data (`getData()`) and `draggable` data (`getInitialData()`) is typed as `Record<string | symbol, unknown>`. A loose `Record` type is intentionally used as `dropTargetForElements` and `draggable` entities are spread out throughout an interface, and there are no guarentees that particular pieces are present, and what their `data` shape will look like (this is a similiar problem to typing form and field data).
+
+```ts
+dropTargetForElements({
+  element: myElement,
+  onDrop({ source }) {
+    // `cardId` is typed as as `unknown`
+    const cardId = source.data.cardId;
+
+    // you need to check it's value before you can use it
+    if (typeof cardId !== 'string') {
+      return;
+    }
+
+    // handle drop
+  },
+});
+```
+
+A fantastic pattern that we recommend for _safe_ `data` types, is to leverage small helper functions.
+
+```ts
+// data.ts
+
+// We are using a `Symbol` to guarentee the whole object is a particular shape
+const privateKey = Symbol('Card');
+
+type Card = {
+  [privateKey]: true;
+  cardId: string;
+};
+
+function getCard(data: Omit<Card, typeof privateKey>) {
+  return {
+    [privateKey]: true,
+    ...data,
+  };
+}
+
+export function isCard(data: Record<string | symbol, unknown>): data is Card {
+  return Boolean(data[privateKey]);
+}
+
+// in other files
+
+draggable({
+  element: myDraggable,
+  getInitialData: () => getCard({ cardId: '1' }),
+});
+
+dropTargetForElements({
+  onDrop({ source }) {
+    const data = source.data;
+    if (!isCard(data)) {
+      return;
+    }
+    // data is now correctly typed to `Card`
+    console.log(data);
+  },
+});
+```
+
+A common approach for solving similiar problems is to enable the ability to provide generics to pieces to force it's `data` type.
+
+```ts
+// Note: this is not real API
+dropTargetForElements<{ cardId: string }>({
+  element: myElement,
+  onDrop({ source }) {
+    // cardId would not be typed as `string`
+    const cardId = source.data.cardId;
+  },
+});
+```
+
+The trouble with this approach is that some pieces might not use the generic and so you can get runtime errors. Things also get complicated if you want a piece to handle entities with a lot of `data` types.

@@ -1,0 +1,43 @@
+---
+order: 1
+title: Text
+description: Helpers to make working with native text data easier
+---
+
+## `containsText`
+
+Useful to know whether text data (`"text/plain"`) is being dragged. Keep in mind that multiple pieces of native data can be dragged at once.
+
+```ts
+import { containsText } from '@atlaskit/pragmatic-drag-and-drop/external/text';
+
+dropTargetForExternal({
+  element: myElement,
+  canDrop: containsText,
+});
+
+monitorForExternal({
+  canMonitor: containsText,
+});
+```
+
+## `getText`
+
+A helper to extract text data (`"text/plain"`) from drop data. Get text will return `null` when there is no text data.
+
+```ts
+import { getText } from '@atlaskit/pragmatic-drag-and-drop/external/text';
+
+dropTargetForExternal({
+  element: myElement,
+  onDrop({ source }) {
+    const text: string | null = getText({ source });
+  },
+});
+
+monitorForExternal({
+  onDrop({ source }) {
+    const text: string | null = getText({ source });
+  },
+});
+```

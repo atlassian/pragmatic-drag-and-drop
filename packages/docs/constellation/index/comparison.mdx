@@ -1,0 +1,104 @@
+---
+order: 3
+---
+
+import CheckIcon from '../assets/check-icon';
+import CrossIcon from '../assets/cross-icon';
+import QuestionIcon from '../assets/question-icon';
+import ResultText from '../assets/result-text';
+
+## Performance comparison
+
+Pragmatic drag and drop has been optimized for performance. Truly comparing drag and drop solutions is problematic as there is inevitably tradeoffs that solutions make (feature set, quality, visual experience and so on).
+
+In order to try make a reasonable comparison, we have compared the performance of the [same complete example (including accessibility)](https://drag-and-drop-performance-comparison.vercel.app/), with drag and drop powered by different drag and drop solutions.
+
+<img src="/images/drag-and-drop--board-comparison.png" />
+
+#### Comparison: Startup time
+
+###### Measure: Time to interactive (TTI) - Mobile
+
+| Case                                             | Result   |
+| ------------------------------------------------ | -------- |
+| Baseline (no drag and drop)                      | `+0ms`   |
+| `react-beautiful-dnd`                            | `+275ms` |
+| `react-dnd`                                      | `+387ms` |
+| `@dnd-kit`                                       | `+131ms` |
+| <ResultText>Pragmatic drag and drop</ResultText> | `+6ms`   |
+
+###### Measure: Time to interactive (TTI) - Desktop
+
+| Case                                             | Result   |
+| ------------------------------------------------ | -------- |
+| Baseline (no drag and drop)                      | `+0ms`   |
+| `react-beautiful-dnd`                            | `+180ms` |
+| `react-dnd`                                      | `+166ms` |
+| `@dnd-kit`                                       | `+129ms` |
+| <ResultText>Pragmatic drag and drop</ResultText> | `+1ms`   |
+
+<details>
+    <summary>Details</summary>
+
+###### Method
+
+- Measured using our baseline board example with 48 cards spread over 3 columns
+- 140 runs per URL on the mobile throttling preset
+- 140 runs per URL on the desktop throttling preset
+- A new Chrome instance when a URL or throttle preset changed
+- Runs done in sequence to reduce noise (the job took 5 hours to run!)
+- p50 result (the median) selected after extreme outliers were removed (a value more than 3 standard deviations away from the average)
+
+###### Environment
+
+- GitHub hosted runner
+  - `ubuntu-latest` (Ubuntu `22.04`)
+    - 2-core CPU (x86_64)
+    - `7GB` of RAM
+    - `14GB` of SSD space
+- Lighthouse `9.6.7`
+- Chrome `106.0.5249.91`
+- Next.js `12.3.1`
+- React `18.2.0`
+- Hosted on [vercel](https://vercel.com/)
+
+</details>
+
+#### Comparison: Server side rendering
+
+| Case                                             | Result   | Difference |
+| ------------------------------------------------ | -------- | ---------- |
+| Baseline (no drag and drop)                      | `11.2ms` | `+0ms`     |
+| `react-beautiful-dnd`                            | `22.1ms` | `+10.9ms`  |
+| `react-dnd`                                      | `16.2ms` | `+5ms`     |
+| <ResultText>Pragmatic drag and drop</ResultText> | `11.3ms` | `+0.1ms`   |
+
+<details>
+    <summary>Details</summary>
+
+- Measured using our baseline board example with 99 cards spread over 3 columns.
+- Tested on an Apple M1
+- 6x CPU slowdown applied (the M1 is a beast)
+- Using `react@16`
+- Measured `ReactServer.renderToString()` locally using `storybook-addon-performance` (10 samples per variant)
+
+</details>
+
+## Feature set comparison
+
+| Drag and drop library                           | Pragmatic drag and drop<br/>(element adapter) | React Beautiful DnD | React DnD<br/>(+ `react-dnd-html5-backend`) | DnD kit<br/>(+ `@dnd-kit/modifiers` + `@dnd-kit/sortable`) | Draggable (Shopify) |
+| ----------------------------------------------- | --------------------------------------------- | ------------------- | ------------------------------------------- | ---------------------------------------------------------- | ------------------- |
+| Size (gzip)                                     | 4.7 kB                                        | 31 kB               | 24.8 kB                                     | 26.9 kB                                                    | 11.8 kB             |
+| Size (minified)                                 | 13.5 kB                                       | 105 kB              | 49.6 kB                                     | 56.1 kB                                                    | 68.2kB              |
+| Supports deferred loading                       | <CheckIcon />                                 | <CrossIcon/>        | <CrossIcon/>                                | <CrossIcon/>                                               | <CheckIcon/>        |
+| Accessible                                      | <CheckIcon/> (with provided toolchain)        | <CheckIcon/>        | <CrossIcon/>                                | <CheckIcon/>                                               | <CrossIcon/>        |
+| Pseudomorphism affordances                      | <CrossIcon/> (uses lines and color)           | <CheckIcon/>        | <CrossIcon/> (up to consumer)               | <CheckIcon/>                                               | <CheckIcon/>        |
+| Incremental<br/>(performance for what you use)  | <CheckIcon/>                                  | <CrossIcon/>        | <CrossIcon/>                                | <CheckIcon/>                                               | <CheckIcon/>        |
+| Framework compatibility                         | Any                                           | React only          | React only                                  | React only                                                 | Any                 |
+| Controls dragging item's movement<br/>("rails") | <CrossIcon/> (defer to web platform)          | <CheckIcon/>        | <CheckIcon/>                                | <CheckIcon/>                                               | <CheckIcon/>        |
+| Drags elements                                  | <CheckIcon/>                                  | <CheckIcon/>        | <CheckIcon/>                                | <CheckIcon/>                                               | <CheckIcon/>        |
+| Handles file drops                              | <CheckIcon/>                                  | <CrossIcon/>        | <CheckIcon/>                                | <CrossIcon/>                                               | <CrossIcon/>        |
+| Handles URL, text, image dragging               | <CheckIcon/>                                  | <CrossIcon/>        | <CheckIcon/>                                | <CrossIcon/>                                               | <CrossIcon/>        |
+| Drags across browser windows                    | <CheckIcon/>                                  | <CrossIcon/>        | <CrossIcon/>                                | <CrossIcon/>                                               | <CrossIcon/>        |
+| Can change DOM during a drag                    | <CheckIcon/>                                  | <CrossIcon/>        | <QuestionIcon />                            | <QuestionIcon />                                           | <QuestionIcon />    |
+| Powers drawing interaction                      | <CheckIcon/>                                  | <CrossIcon/>        | <QuestionIcon />                            | <QuestionIcon />                                           | <QuestionIcon />    |

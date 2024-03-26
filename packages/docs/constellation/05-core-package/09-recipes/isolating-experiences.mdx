@@ -1,0 +1,195 @@
+---
+title: Isolating experiences
+description: How to selectively engage with what is dragging
+order: 1
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+By default, [drop targets](./drop-targets) will allow any `draggable` to be dropped on it, and [monitors](./monitors) will listen to _all_ drag operations.
+
+You can limit what _types_ of `draggables` can be dropped on a drop target by using `canDrop()`, and what drag operations a monitor will listen to using `canMonitor()`.
+
+This page explores how you can limit what draggables can be dropped on drop targets, and limit what drag operations a monitor will listen to.
+
+## Entity matching
+
+<SectionMessage>
+
+Something to keep in mind is that the drop target [`canDrop()`](./drop-targets) function is called repeatedly throughout a drag operation, whereas the monitor [`canMonitor()`](./monitors) function is only called once at the start of a drag (or when a monitor is mounted, if it is mounted during a drag).
+
+</SectionMessage>
+
+### Simple "type" checking
+
+A common pattern is to allow only allow dropping / listening when a draggable is of a particular `"type"`
+
+```ts
+// bind our draggable
+draggable({
+  element: myDraggableElement,
+  getInitialData: () => ({
+    // the id of our card
+    cardId,
+    // the id the column belongs to
+    columnId,
+    // specifying this is a "card"
+    type: 'card',
+  }),
+});
+
+dropTargetForElements({
+  element: myDropTargetElement,
+  getData: () => ({ columnId }),
+  // only allow dropping if a "card" is being dragged
+  canDrop: ({ source }) => source.data.type === 'card',
+});
+
+monitorForElements({
+  // only listen for drag operations of "card" draggables
+  canMonitor: ({ source }) => source.data.type === 'card',
+});
+```
+
+### More complex data checking
+
+If you want to make it so that a `"card"` can only be dropped inside of its home list, you could add a further check:
+
+```ts
+// only allow dropping of tasks that started inside this column
+dropTargetForElements({
+  element: myDropTargetElement,
+  getData: () => ({ columnId }),
+  canDrop: ({ source }) =>
+    source.data.type === 'card' && source.data.columnId === columnId,
+});
+
+// only listen for drags of cards that started inside a column with columnId
+monitorForElements({
+  canMonitor: ({ source, initial }) =>
+    source.data.type === 'card' && source.data.columnId === columnId,
+});
+```
+
+## Isolating experiences
+
+There might be cases where you want to embed the same experience multiple times on the same page, and you want to ensure that these experiences do not impact each other. The above approaches would work if each entity on the page has a unique id (eg a unique `columnId`), but sometimes the same logical entity (eg `"card"`) might appear in multiple places.
+
+In these cases, you can give an experience (eg a "board") a unique identitier and then check against that identifier. A unique identifier could be anything from a DOM node to a `Symbol`
+
+### Using a parent child relationship
+
+```ts
+dropTargetForElements({
+  element: myDropTargetElement,
+  getData: () => ({ columnId }),
+  canDrop: ({ source }) => {
+    // our previous check
+    if (source.data.type !== 'card' || source.data.columnId !== columnId) {
+      return false;
+    }
+    // our new additional check: only accept dropping of elements that are inside this list
+    return myDropTargetElement.contains(source.element);
+  },
+});
+```
+
+### Using a shared parent
+
+```ts
+dropTargetForElements({
+  element: myDropTargetElement,
+  getData: () => ({ columnId }),
+  canDrop: ({ source }) => {
+    // our previous check
+    if (source.data.type !== 'card' || source.data.columnId !== columnId) {
+      return false;
+    }
+
+    // our new additional check: only accept dropping if the drop target
+    // and the draggable are inside the same "board" element
+    const boardDropTargetIsIn = myDropTargetElement.closest('.board');
+    const boardDraggableIsIn = source.element.closest('.board');
+
+    return boardDropTargetIsIn === boardDraggableIsIn;
+  },
+});
+```
+
+### Using a unique `react` context value
+
+This is the same as "Using a shared parent", but we are using a unique `react` context value (`instanceId`), rather than DOM nodes, to establish a shared parent relationship.
+
+```tsx
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
+import invariant from 'tiny-invariant';
+
+import {
+  draggable,
+  dropTargetForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+const BoardContext = createContext<Symbol | null>(null);
+
+function Card({ cardId, columnId }: { cardId: string; columnId: string }) {
+  const instanceId = useContext(BoardContext);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    invariant(element);
+    return draggable({
+      element,
+      getInitialData: () => ({ cardId, type: 'card', columnId, instanceId }),
+    });
+  }, [cardId, columnId, instanceId]);
+
+  return <div ref={ref}>Card: {cardId}</div>;
+}
+
+function Column({ columnId }: { columnId: string }) {
+  const instanceId = useContext(BoardContext);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    invariant(element);
+    return dropTargetForElements({
+      element: element,
+      getData: () => ({ columnId }),
+      canDrop: ({ source }) => {
+        // our previous check
+        if (source.data.type !== 'card' || source.data.columnId !== columnId) {
+          return false;
+        }
+        // our new check: only accept dropping within this experience
+        return source.data.instanceId === instanceId;
+      },
+    });
+  }, [columnId, instanceId]);
+
+  return (
+    <div ref={ref}>
+      <Card cardId="hello" columnId={columnId} />
+    </div>
+  );
+}
+
+// each <Board/> will be isolated
+export function Board() {
+  const [instanceId] = useState(() => Symbol('instance-id'));
+
+  return (
+    <BoardContext.Provider value={instanceId}>
+      <Column columnId="first" />
+    </BoardContext.Provider>
+  );
+}
+```

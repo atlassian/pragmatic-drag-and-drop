@@ -1,0 +1,30 @@
+---
+order: 0
+---
+
+import BasicFlashExample from '../../examples/basic';
+import SectionMessage from '@atlaskit/section-message';
+
+This function will cause an element to flash. This is a nice visual affordance to add to an item after it has finished being moved to make it clear where the item has finished.
+
+<SectionMessage>
+
+This function depends on:
+
+- [`@atlaskit/motion`](/components/tokens): Atlassian Design System motion duration
+- [`@atlaskit/tokens`](/components/motion): Atlassian Design System colours for the flash
+
+<br />
+
+This function is simple to implement on your own tech stack if you want to.
+
+</SectionMessage>
+
+```ts
+import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop/flourish';
+
+// trigger post move flash on an element after it has finished moving
+triggerPostMoveFlash(myElement);
+```
+
+<Example Component={BasicFlashExample} />

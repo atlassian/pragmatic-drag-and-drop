@@ -1,0 +1,42 @@
+---
+order: 0
+title: Drag Handle Button
+description: A button styled to look like a drag handle
+---
+
+import { Code } from '@atlaskit/code';
+import SectionMessage from '@atlaskit/section-message';
+
+import DragHandleButtonExample from '../../examples/drag-handle-button';
+import DragHandleButtonSmallExample from '../../examples/drag-handle-button-small';
+import DragHandleDropdownMenuExample from '../../examples/drag-handle-dropdown-menu';
+
+<SectionMessage appearance="warning">
+  This component does not use the <Code>@atlaskit/button</Code> component,
+  because <Code>@atlaskit/button</Code> cancels <Code>mousedown</Code> events
+  and prevents dragging from occurring. Instead this component uses a native{' '}
+  <Code>&lt;button&gt;</Code> element.
+</SectionMessage>
+
+## Default
+
+<Example Component={DragHandleButtonExample} />
+
+## Small variant
+
+A small variant is available through the `/drag-handle-button-small` entrypoint.
+
+It is intended for experiences with very limited space to accomodate a drag handle.
+It is not recommended for general use due to the small target size.
+
+<Example Component={DragHandleButtonSmallExample} />
+
+## Dropdown menu
+
+This component can be composed with [Dropdown menu](/components/dropdown-menu).
+
+Because the Dropdown menu provides a `triggerRef` you will need to merge it
+with your own ref in order to use the trigger as the `dragHandle` in your
+`draggable()` registration.
+
+<Example Component={DragHandleDropdownMenuExample} />

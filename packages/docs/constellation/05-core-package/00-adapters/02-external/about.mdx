@@ -1,0 +1,334 @@
+---
+order: 0
+title: External adapter
+description: Respond and listen to drag opereations that started outside the current window
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+The external adapter is used to listen and respond to:
+
+- drags that started from the users operating system (eg files)
+- drags that started from other `window`s (including from child `<iframe>`s)
+
+The external adapter consists of the following pieces:
+
+- `dropTargetForExternal`: marking an element as a valid [drop target](../../drop-targets) for external entities
+- `monitorForExternal`: create a [monitor](../../monitors) to listen for an external drag operation events anywhere
+- `type`s: all types for this adapter
+
+There are utilities for making working with particular external data types easier:
+
+- [Files](./files)
+- [URLs](./URLs)
+- [Text](./text)
+- [HTML](./HTML)
+- [Custom media](./custom-media)
+
+There are also some utilities for usage with any external data type:
+
+- [some](#filtering-by-native-data-types): combine predicates and return `true` if _any_ predicate matches (eg `some(containsText, containsHTML)`)
+
+<SectionMessage>
+
+It is likely that some [top level utilities](../utilities/) will be helpful for your experience as well
+
+</SectionMessage>
+
+## Drop target for external
+
+A [drop target](../../drop-targets) for external data.
+
+The default `dropEffect` for external drop targets is `"copy"`. This is because when you move data from outside of a `window` into the `window`, you are _generally_ making a _copy_ of the data. You can override this default with `getDropEffect()`.
+
+```ts
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+const cleanup = dropTargetForExternal({
+  element: myElement,
+  onDragEnter: () => console.log('Some external data was dragged over me');
+});
+```
+
+## Monitor for external
+
+A [monitor](../../monitors) for native drags.
+
+```ts
+import {monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+const cleanup = monitorForExternal({
+  onDragStart: () => console.log('An external drag has entered the window');
+});
+```
+
+## Filtering by native data types
+
+If you only want your drop target or monitor to be active when particular types of data is being dragged (eg files), then you can provide a predicate function to `canDrop` and `canMonitor`
+
+```ts
+import {dropTargetForExternal, monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import {containsFiles} from '@atlaskit/pragmatic-drag-and-drop/external/file';
+
+dropTargetForExternal({
+  element: myElement,
+  canDrop: containsFiles,
+  onDragEnter: () => console.log('A file is being dragged over me');
+});
+
+monitorForExternal({
+  canMonitor: containsFiles,
+  onDragStart: () => console.log('A file is being dragged');
+});
+```
+
+If you want a drop target or monitor to listen for multiple types of native drag data, you can use `some()`. `some()` will return true if any predicate function returns `true` (the same as `Array.prototype.some`).
+
+```ts
+import {dropTargetForExternal, monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import {containsFiles} from '@atlaskit/pragmatic-drag-and-drop/external/file';
+import {containsText} from '@atlaskit/pragmatic-drag-and-drop/external/text';
+
+dropTargetForExternal({
+  canMonitor: some(containsFiles, containsText),
+  onDragEnter: () => console.log('A file or text is being dragged over me');
+});
+
+monitorForExternal({
+  canMonitor: some(containsFiles, containsText),
+  onDragStart: () => console.log('A file or text is being dragged');
+});
+```
+
+You can also create your own predicate functions to facilitate your own bespoke checks.
+
+## Events
+
+The external adapter removes some events from the [standard event flow](../events).
+
+- `onGenerateDragPreview` is removed from external _drop targets_ and _monitors_. For external operations the drag preview has already been generated externally.
+- `onDragStart` is removed from external _drop targets_ as an external drag operation can _never start_ from inside a drop target in the `window`
+
+If your drop target element needs to know when a drag is starting (ie a user is dragging a file into the browser), then you can use a monitor
+
+```ts
+dropTargetForExternal({
+  element: el,
+  onDragEnter: () => console.log('user is now over this drop target'),
+  onDragLeave: () => console.log('user is no longer over this drop target'),
+  onDrop: () =>
+    console.log('user dropped on this drop target (or a child drop target)'),
+});
+monitorForExternal({
+  onDragStart: () => console.log('file is entering the window'),
+  onDrop: () => console.log('drag is finished'),
+});
+```
+
+## Cross domain dragging and iframes
+
+The external adapter enables you to drag data from one `window`, other web `window`s, or native applications.
+
+Unfortunately, in `Chrome@122` and `Safari@14.3.1` it is not possible to drag something from a parent `window` to a child `<iframe>`, or from a child `<iframe>` to a parent `window` if they are on _different_ domains.
+
+For clarity, the following is permitted by all browsers:
+
+- dragging from one page to another browser tab on the same domain
+- dragging from one page to another browser tab on a different domain
+- dragging from one page native applications
+- dragging from one page to a child `<iframe>` on the same domain
+- dragging from a child `<iframe>` to a child `<iframe>` on the same domain
+- dragging from one page to an `<iframe>` (on any domain) on a different browser tab (on any domain)
+
+The following is not permitted on `Chrome@122` and `Safari@14.3.1`:
+
+- dragging from one page to a child `<iframe>` on a _different_ domain
+- dragging from a child `<iframe>` to a parent page on a _different_ domain
+
+→ [Open Chrome discussion about the behaviour](https://issues.chromium.org/issues/40077680#comment20)
+
+### Extracting data
+
+Due to the web platform drag and drop security model, you can know what "types" are being dragging during a drag (eg `"text/plain"`), but you can only see what data is being dragged (exposed through `.items`) during a successful "drop" event (`onDrop()`).
+
+```ts
+import {
+  dropTargetForExternal,
+  monitorForExternal,
+} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import {
+  containsFiles,
+  getFiles,
+} from '@atlaskit/pragmatic-drag-and-drop/external/file';
+import {
+  containsText,
+  getText,
+} from '@atlaskit/pragmatic-drag-and-drop/external/text';
+
+dropTargetForExternal({
+  canDrop: some(containsFiles, containsText),
+  onDrop({ source }) {
+    const files = getFiles({ source });
+    const text = getText({ source });
+  },
+});
+
+monitorForExternal({
+  canMonitor: some(containsFiles, containsText),
+  onDrop({ source }) {
+    const files = getFiles({ source });
+    const text = getText({ source });
+  },
+});
+```
+
+Generally, you will only want to interact with `source` using one of our helpers (eg `getText()`). `.items` and `getStringData()` only return meaningful information during a successful "drop" event (`onDrop()`)
+
+## Types
+
+Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript types if you would like to use them.
+
+All [events](../../events) on drop targets and monitors are given the following base payload:
+
+````ts
+type ExternalEventBasePayload = {
+  location: DragLocationHistory;
+  source: ExternalDragPayload;
+};
+
+export type ExternalDragPayload = {
+  /**
+   * The media types that are being dragged during a drag.
+   *
+   * @example
+   *
+   * console.log(source.types);
+   * // → ["text/plain", "text/html"]
+   */
+  types: NativeMediaType[];
+  /**
+   * The entities that are being dragged.
+   * Usually you will not be using these directly, but
+   * our helper functions can leverage them to extract
+   * particular kinds of data (eg files) that are being dragged
+   */
+  items: DataTransferItem[];
+  /**
+   * returns the data for a given media type.
+   *
+   * - `getStringData(mediaType)` will return `null` if there is no data for that media type
+   * - `getStringData(mediaType)` will return the empty string (`""`) if the empty string (`""`)
+   *      was explicitly set as the data for a media type.
+   * - `getStringData(mediaType)` will return null if requesting files (ie `getStringData('Files')`).
+   *      To access files, use `source.items`, or better still, `getFiles({source})`
+   *
+   * Generally we recommend folks use our helpers to read native data rather than `getStringData(mediaType)`
+   *
+   * @example
+   *
+   * ```ts
+   * // Using getStringData()
+   * const text: string | null = source.getStringData("text/plain");
+   *
+   * // Using our text helper
+   * const text: string | null = getText({source});
+   * ```
+   * */
+  getStringData: (mediaType: string) => string | null;
+};
+
+type NativeMediaType =
+  | 'text/uri-list'
+  | 'text/plain'
+  | 'text/html'
+  | 'Files'
+  | string;
+````
+
+For all the arguments for all events, you can use our event map type:
+
+```ts
+type ExternalEventPayloadMap = {
+  onDragStart: ExternalEventBasePayload;
+  // .. the rest of the events
+};
+```
+
+Drop targets are given a little bit more information in each event:
+
+```ts
+type ElementDropTargetEventBasePayload = ExternalEventBasePayload & {
+  /**
+   * A convenance pointer to this drop targets values
+   */
+  self: DropTargetRecord;
+};
+```
+
+For all arguments for all events on drop targets, you can use our event map type:
+
+```ts
+type ExternalDropTargetEventPayloadMap = {
+  onDragStart: ElementDropTargetEventBasePayload;
+  // .. the rest of the events
+};
+```
+
+Drop target feedback functions (`canDrop`, `getData`, `getDropEffect`, `getIsSticky`) are given the following:
+
+```ts
+type ExternalDropTargetGetFeedbackArgs = {
+  /**
+   * The users _current_ input
+   */
+  input: Input;
+  /**
+   * The data associated with the entity being dragged
+   */
+  source: ExternalDragPayload;
+  /**
+   * This drop target's element
+   */
+  element: Element;
+};
+```
+
+The monitor feedback function (`canMonitor`), is given the following:
+
+```ts
+type ExternalMonitorGetFeedbackArgs = {
+  /**
+   * The users `initial` drag location
+   */
+  initial: DragLocation;
+  /**
+   * The data associated with the entity being dragged
+   */
+  source: ExternalDragPayload;
+};
+```
+
+You can get these type from the external adapter import:
+
+```ts
+import type {
+  // The data that is being dragged
+  NativeMediaType,
+  ExternalDragPayload
+  // Base events
+  ExternalEventBasePayload
+  ExternalEventPayloadMap,
+  // Drop target events
+  ElementDropTargetEventBasePayload,
+  ExternalDropTargetEventPayloadMap,
+  // Feedback types
+  ExternalDropTargetGetFeedbackArgs,
+  ExternalMonitorGetFeedbackArgs,
+} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+```
+
+There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be found on our [top level utilities page](../../utilities)
+
+## Blocking unhandled external drags (`preventUnhandled`)
+
+The default behaviour when dropping some external entities into a `window` (eg files) is for that entity to be opened in a new tab. Often, if you have drop targets for external entities on your page, you want drops outside of those drop targets to be ignored, and not to open a new tab. You an use the optional [`preventUnhandled` utility](../utilities) to help with that.

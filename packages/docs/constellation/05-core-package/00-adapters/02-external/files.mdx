@@ -1,0 +1,57 @@
+---
+order: 4
+title: Files
+description: Helpers to make working with file data easier
+---
+
+import FileExample from '../../../../examples/file';
+
+## Accessibility
+
+When handling file dropping, we recommend that you also add a native input for file uploads
+
+```tsx
+<input type="file" />
+```
+
+This will help enable folks leveraging assistive technologies to perform file uploads.
+
+<Example Component={FileExample} appearance="showcase-only" />
+
+## `containsFiles`
+
+Useful to know whether file(s) are being dragged. Keep in mind that multiple pieces of native data can be dragged at once.
+
+```ts
+import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
+
+dropTargetForExternal({
+  element: myElement,
+  canDrop: containsFiles,
+});
+
+monitorForExternal({
+  canMonitor: containsFiles,
+});
+```
+
+## `getFiles`
+
+A helper to extract files from drop data. An empty array (`[]`) will be returned if there were no files being dragged.
+
+```ts
+import { getFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
+
+dropTargetForExternal({
+  element: myElement,
+  onDrop({ source }) {
+    const files: File[] = getFiles({ source });
+  },
+});
+
+monitorForExternal({
+  onDrop({ source }) {
+    const files: File[] = getFiles({ source });
+  },
+});
+```

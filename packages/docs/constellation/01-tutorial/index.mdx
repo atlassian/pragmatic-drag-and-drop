@@ -1,0 +1,358 @@
+---
+order: 0
+title: Tutorial
+description: Building an example together, step by step.
+---
+
+import ChessboardStarterCode from '../../examples/pieces/getting-started/chessboard-starter-code';
+import KingInPlace from '../../examples/pieces/getting-started/draggable-piece-in-place';
+import KingWithState from '../../examples/pieces/getting-started/draggable-piece-with-state';
+import ChessboardDraggable from '../../examples/pieces/getting-started/chessboard-draggable';
+import ChessboardDropTarget from '../../examples/pieces/getting-started/chessboard-drop-target';
+import ChessboardColoredDropTargets from '../../examples/pieces/getting-started/chessboard-colored-drop-targets';
+import ChessboardDropTargetsCanDrop from '../../examples/pieces/getting-started/chessboard-drop-targets-can-drop';
+import ChessboardWithMonitor from '../../examples/pieces/getting-started/chessboard-monitor';
+
+This tutorial will walk you through the basic entities of the Pragmatic drag and drop including [draggables](./core-package/adapters/elements), [drop targets](./core-package/drop-targets) and [monitors](./core-package/monitors).
+To understand how these pieces work together we will be creating a chess board with draggable pieces.
+
+## Starter code
+
+Here is the starter code we'll be using throughout this guide. Notice how none of the pieces can be dragged.
+
+<Example Component={ChessboardStarterCode} />
+
+## Step 1: Making The Pieces Draggable
+
+The first step to make our chess board functional is to allow the pieces to be dragged around.
+
+Pragmatic drag and drop provides a `draggable` function that you attach to an element to enable the draggable behavior.
+When using React this is done in an effect:
+
+```tsx
+function Piece({ image, alt }: PieceProps) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return draggable({
+      element: el,
+    });
+  }, []);
+
+  return <img css={imageStyles} src={image} alt={alt} ref={ref} />;
+}
+```
+
+Our piece now behaves as follows (try dragging it around):
+
+<Example Component={KingInPlace} appearance="showcase-only" />
+
+Although the piece can now be dragged around, it doesn't feel as though the piece is being 'picked up', as the piece stays in place while being dragged.
+
+To make the piece fade while being dragged we can use the `onDragStart` and `onDrop` arguments within `draggable` to set state. We can then use this state to toggle css within the `style` prop to reduce the opacity.
+
+```tsx
+function Piece({ image, alt }: PieceProps) {
+  const ref = useRef(null);
+  const [dragging, setDragging] = useState<boolean>(false); // NEW
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return draggable({
+      element: el,
+      onDragStart: () => setDragging(true), // NEW
+      onDrop: () => setDragging(false), // NEW
+    });
+  }, []);
+
+  return (
+    <img
+      css={[dragging && hidePieceStyles, imageStyles]} // toggling css using state to hide the piece
+      src={image}
+      alt={alt}
+      ref={ref}
+    />
+  );
+}
+```
+
+Now the piece fades when we drag it, making it feel like the piece is being 'picked up'. 🥳
+
+<Example Component={KingWithState} appearance="showcase-only" />
+
+Now let's add it to the board!
+
+<Example Component={ChessboardDraggable} appearance="showcase-only" />
+
+To see the full `draggable` documentation see [this page](./adapters/element-adapter).
+
+## Step 2: Making The Squares Into Drop Targets
+
+Now that we have draggable pieces we want the squares on the board to act as areas that can be 'dropped' onto. For this we will use the `dropTargetForElements` function from Pragmatic drag and drop.
+
+Drop targets are elements that a draggable element can be dropped on.
+
+Creating a drop target follows the same technique as for `draggable`. Let's abstract out the board's squares, which were previously `div`s, into their own component.
+
+```tsx
+function Square({ location, children }: SquareProps) {
+  const ref = useRef(null);
+  const [isDraggedOver, setIsDraggedOver] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: () => setIsDraggedOver(true),
+      onDragLeave: () => setIsDraggedOver(false),
+      onDrop: () => setIsDraggedOver(false),
+    });
+  }, []);
+
+  const isDark = (location[0] + location[1]) % 2 === 1;
+
+  return (
+    <div
+      css={squareStyles}
+      style={{ backgroundColor: getColor(isDraggedOver, isDark) }}
+      ref={ref}
+    >
+      {children}
+    </div>
+  );
+}
+```
+
+Similar to the draggable piece component, we set state on the component based on the dragging behavior.
+
+We then use this state to set the color of the square using the `getColor` function:
+
+```tsx
+function getColor(isDraggedOver: boolean, isDark: boolean): string {
+  if (isDraggedOver) {
+    return 'skyblue';
+  }
+  return isDark ? 'lightgrey' : 'white';
+}
+```
+
+The squares now highlight when dragged over!
+
+<Example Component={ChessboardDropTarget} appearance="showcase-only" />
+
+To take this a step further we can color the square green when a piece is eligible to be dropped onto and red when it is not.
+
+To achieve this we first use the `getInitialData` argument on `draggable` to surface the piece type and starting location of the dragging piece.
+
+```tsx
+function Piece({ location, pieceType, image, alt }: PieceProps) {
+  const ref = useRef(null);
+  const [dragging, setDragging] = useState<boolean>(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return draggable({
+      element: el,
+      getInitialData: () => ({ location, pieceType }), // NEW
+      onDragStart: () => setDragging(true),
+      onDrop: () => setDragging(false),
+    });
+  }, [location, pieceType]);
+
+  /*...*/
+}
+```
+
+We then need to consume this data at the drop targets.
+
+You can see below that the drop target can now access to the draggable element's location and piece type that was surfaced from the `draggable`.
+We've also introduced a new `canMove` function which determines whether a piece can move to a square based on the start and end location, the piece type and whether there is already a piece on that square.
+
+What is important to note is that when using Typescript the type of the data is not carried over from the `draggable` to the drop target's `source`. Therefore we need to call the type guarding functions `isCoord` and `isPieceType` before `canMove` can be called.
+
+```ts
+type HoveredState = 'idle' | 'validMove' | 'invalidMove';
+
+function Square({ pieces, location, children }: SquareProps) {
+  const ref = useRef(null);
+  const [state, setState] = useState<HoveredState>('idle');
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: ({ source }) => {
+        // source is the piece being dragged over the drop target
+        if (
+          // type guards
+          !isCoord(source.data.location) ||
+          !isPieceType(source.data.pieceType)
+        ) {
+          return;
+        }
+
+        if (
+          canMove(source.data.location, location, source.data.pieceType, pieces)
+        ) {
+          setState('validMove');
+        } else {
+          setState('invalidMove');
+        }
+      },
+      onDragLeave: () => setState('idle'),
+      onDrop: () => setState('idle'),
+    });
+  }, [location, pieces]);
+
+  /*...*/
+}
+```
+
+The new state is then used to set the color of the square as before.
+
+```tsx
+function getColor(state: HoveredState, isDark: boolean): string {
+  if (state === 'validMove') {
+    return 'lightgreen';
+  } else if (state === 'invalidMove') {
+    return 'pink';
+  }
+  return isDark ? 'lightgrey' : 'white';
+}
+```
+
+When put all together, the squares now highlight if a move is valid when hovered over.
+
+<Example Component={ChessboardColoredDropTargets} appearance="showcase-only" />
+
+We can also make use of the data we attached to the draggable to prevent interractions with the square it is being dragged from. This makes use of the `canDrop` argument on `dropTargetForElements`.
+
+```tsx
+return dropTargetForElements({
+  element: el,
+  canDrop: ({ source }) => {
+    // NEW
+    if (!isCoord(source.data.location)) {
+      return false;
+    }
+
+    return !isEqualCoord(source.data.location, location);
+  },
+  // ...the rest of our dropTargetForElements arguments
+});
+```
+
+Now we can see that the square the piece is currently in does not change color when hovered over and cannot be dropped onto. This works by disabling the drop target functionality when `canDrop` returns `false`.
+
+<Example Component={ChessboardDropTargetsCanDrop} appearance="showcase-only" />
+
+See [this page](./drop-targets), for the full documentation on drop targets.
+
+## Step 3: Moving The Pieces
+
+Finally let's allow the pieces to move squares when dropped. To achieve this we will use a `monitorForElements` from Pragmatic drag and drop.
+
+Monitors allow you to observe drag and drop interactions from anywhere in your codebase. This allows them to recieve draggable and drop target data and perform operations without needing state to be passed from components.
+
+Therefore we can place a monitor within a `useEffect` at the top level of our chessboard and listen for when pieces are dropped into squares.
+
+To achieve this we first need to surface the location of the squares within the drop target, as we did for the draggable pieces in the previous step:
+
+```tsx
+function Square({ pieces, location, children }: SquareProps) {
+  const ref = useRef(null);
+  const [state, setState] = useState<HoveredState>('idle');
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return dropTargetForElements({
+      element: el,
+      getData: () => ({ location }), // NEW
+
+      /*...*/
+    });
+  });
+
+  /*...*/
+}
+```
+
+We then add a monitor to the chessboard. Much of this logic mirrors the logic explained above for coloring squares.
+
+```tsx
+function Chessboard() {
+  const [pieces, setPieces] = useState<PieceRecord[]>([
+    { type: 'king', location: [3, 2] },
+    { type: 'pawn', location: [1, 6] },
+  ]);
+
+  useEffect(() => {
+    return monitorForElements({
+      onDrop({ source, location }) {
+        const destination = location.current.dropTargets[0];
+        if (!destination) {
+          // if dropped outside of any drop targets
+          return;
+        }
+        const destinationLocation = destination.data.location;
+        const sourceLocation = source.data.location;
+        const pieceType = source.data.pieceType;
+
+        if (
+          // type guarding
+          !isCoord(destinationLocation) ||
+          !isCoord(sourceLocation) ||
+          !isPieceType(pieceType)
+        ) {
+          return;
+        }
+
+        const piece = pieces.find(p =>
+          isEqualCoord(p.location, sourceLocation),
+        );
+        const restOfPieces = pieces.filter(p => p !== piece);
+
+        if (
+          canMove(sourceLocation, destinationLocation, pieceType, pieces) &&
+          piece !== undefined
+        ) {
+          // moving the piece!
+          setPieces([
+            { type: piece.type, location: destinationLocation },
+            ...restOfPieces,
+          ]);
+        }
+      },
+    });
+  }, [pieces]);
+
+  /*...*/
+}
+```
+
+And voila! We now have a chessboard with moving pieces. Go ahead and try dragging the pieces around.
+
+You can also have a look through the code for more detail on the typing, type guarding and other details we skimmed over in writing.
+
+<Example Component={ChessboardWithMonitor} />
+
+See [our monitor page](./monitors), for the full documentation on monitors.
+
+## Now it's Your Turn
+
+You're now ready to start building your own projects with Pragmatic drag and drop.
+
+For more examples see [our example page](./examples), or to see how to drag and drop files with Pragmatic drag and drop see [our external adapter page](./adapters/external) .

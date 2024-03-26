@@ -1,0 +1,17 @@
+diff --git a/node_modules/@types/jest/index.d.ts b/node_modules/@types/jest/index.d.ts
+index 32d0710..f31a185 100644
+--- a/node_modules/@types/jest/index.d.ts
++++ b/node_modules/@types/jest/index.d.ts
+@@ -421,8 +421,11 @@ declare namespace jest {
+     function unmock(moduleName: string): typeof jest;
+     /**
+      * Instructs Jest to use fake versions of the standard timer functions.
++     * 
++     * Augmented to add string type for backwards compatibility with legacy jest versions
+      */
+-    function useFakeTimers(config?: FakeTimersConfig | LegacyFakeTimersConfig): typeof jest;
++    function useFakeTimers(config?: FakeTimersConfig | LegacyFakeTimersConfig | string): typeof jest;
++    
+     /**
+      * Instructs Jest to use the real versions of the standard timer functions.
+      */

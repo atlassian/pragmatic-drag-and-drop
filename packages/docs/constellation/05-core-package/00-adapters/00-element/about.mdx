@@ -1,0 +1,330 @@
+---
+order: 0
+title: Element adapter
+description: Create, respond to and listen to element drag operations
+---
+
+import SectionMessage from '@atlaskit/section-message';
+import NestedDraggablesExample from '../../../../examples/nested-draggables';
+
+The element adapter enables you to create rich drag and drop experiences, such as lists, boards, grids, resizing and so on.
+
+The element adapter contains the essential pieces for element operations:
+
+- [draggable](#draggable): enable dragging of an element.
+- [dropTargetForElements](#drop-target-for-elements): marking an element as a valid [drop target](TODO)
+- [monitorForElements](#monitor-for-elements): create a [monitor](TODO) to listen for element drag operation events anywhere.
+- [types](#types): all types for this adapter.
+
+There are also a number of **optional** element utilities:
+
+- [setCustomNativeDragPreview](./drag-previews): use a new element as the native drag preview
+- [pointerOutsideOfPreview](./drag-previews): native drag preview function to place the users pointer outside of the drag preview
+- [centerUnderPointer](./drag-previews): native drag preview function to place the center of the ntaive drag preview under the users pointer
+- [preserveOffsetOnSource](./drag-previews): native drag preview function to match the pointer position on a native drag preview as close as possible to the pointer position on the draggable element
+- [disableNativeDragPreview](./drag-previews): disable the native drag preview (helpful if you want to use your own custom drag preview or have no drag preview)
+- [scrollJustEnoughIntoView](./drag-previews): scroll an element just enough into view so it is visible (helpful when working with default native drag previews)
+
+<SectionMessage>
+
+It is likely that some [top level utilities](../utilities/) will be helpful for your experience as well
+
+</SectionMessage>
+
+## Draggable
+
+A `draggable` is an `HTMLElement` that can be dragged around by a user.
+
+A `draggable` can be located:
+
+- Outside of any drop targets
+- Inside any amount of levels of nested drop targets
+- So, anywhere!
+
+While a drag operation is occurring:
+
+- You can add new `draggable`s
+- You can remount a `draggable`. See [Reconciliation](../reconciliation)
+- You can change the dimensions of the dragging `draggable` during a drag. But keep in mind that won't change the drag preview image, as that is collected only at the start of the drag (in `onGenerateDragPreview()`)
+- You can remove the dragging `draggable` during a drag operation. When a `draggable` is removed it's event functions (eg `onDrag`) will no longer be called. Being able to remove the dragging `draggable` is a common requirement for virtual lists
+
+### Draggable argument overview
+
+- `element: HTMLElement`: a `HTMLElement` that will be draggable (using `HTMLElement` as that is the interface that allows the `"draggable"` attribute)
+- `dragHandle?: Element`: an optional `Element` that can be used to designate the part of the `draggable` that can exclusively used to drag the whole `draggable`
+- `canDrag?: (args: GetFeedbackArgs) => boolean`: used to conditionally allow dragging (see below)
+- `getInitialData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a one time attaching of data to a draggable as a drag is starting
+- `getInitialDataForExternal?: (args: GetFeedbackArgs) => {[Key in NativeMediaType]?: string;}`: used to attach native data (eg `"text/plain"`) to other `window`s or applications.
+
+```ts
+type GetFeedbackArgs = {
+  /**
+   * The user input as a drag is trying to start (the `initial` input)
+   */
+  input: Input;
+  /**
+   * The `draggable` element
+   */
+  element: HTMLElement;
+  /**
+   * The `dragHandle` element for the `draggable`
+   */
+  dragHandle: Element | null;
+};
+```
+
+- [`onGenerateDragPreview`](../events)
+- [`onDragStart`](../events)
+- [`onDrag`](../events)
+- [`onDropTargetChange`](../events)
+- [`onDrop`](../events)
+
+### Drag handles
+
+A _drag handle_ is the part of your `draggable` element that can be dragged in order to drag the whole `draggable`. By default, the entire `draggable` acts as a _drag handle_. However, you can optionally mark a child element of a `draggable` element as the _drag handle_.
+
+```ts
+draggable({
+  element: myElement,
+  dragHandle: myDragHandleElement,
+});
+```
+
+You can also implement a _drag handle_ by making a small part of an element the `draggable`, and then using [`setCustomNativeDragPreview`](./drag-previews) to generate a preview for the entire entity.
+
+### Conditional dragging (`canDrag()`)
+
+A `draggable` can conditionally allow dragging by using the `canDrag()` function. Returning `true` from `canDrag()` will allow the drag, and returning `false` will prevent a drag.
+
+```ts
+draggable({
+  element: myElement,
+  // disable dragging
+  canDrag: () => false,
+});
+```
+
+<Example Component={NestedDraggablesExample} appearance="showcase-only" />
+
+Disabling a drag by returning `false` from `canDrag()` will prevent any other `draggable` on the page from being dragged. `@atlaskit/pragmatic-drag-and-drop` calls `event.preventDefault()` under the hood when `canDrag()` returns `false`, which cancels the drag operation. Unfortunately, once a drag event has started, a `draggable` element cannot individually opt out of dragging and allow another element to be dragged.
+
+If you want to disable dragging for a `draggable`, but still want a parent `draggable` to be able to be dragged, then rather than using `canDrag()` you can conditionally apply `draggable()`
+
+Here is example of what that could look like using `react`:
+
+```ts
+import {useEffect} from 'react';
+import {draggable} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+function noop(){};
+
+function Item({isDraggingEnabled}: {isDraggingEnabled: boolean}) {
+  const ref = useRef();
+
+  useEffect({
+    // when disabled, don't make the element draggable
+    // this will allow a parent draggable to still be dragged
+    if(!isDraggingEnabled) {
+      return noop;
+    }
+    return draggable({
+      element: ref.current,
+    });
+  }, [isDraggingEnabled]);
+
+  return <div ref={ref}>Draggable item</div>
+};
+```
+
+## Data for external consumers (`getInitialDataForExternal()`)
+
+`getInitialDataForExternal()` allows you want to attach data to a drag operation that can be used by other `windows`s or applications (externally)
+
+```ts
+draggable({
+  element: myElement,
+  getInitialData: () => ({ taskId: task.id }),
+  getInitialDataForExternal: () => ({
+    'text/plain': task.description,
+    'text/uri-list': task.url,
+  }),
+});
+```
+
+We also have a helper `formatURLsForExternal(urls: string[]): string` that allows you to attach multiple urls for external consumers.
+
+```ts
+import { formatURLsForExternal } from '@atlaskit/pragmatic-drag-and-drop/element/format-urls-for-external';
+
+draggable({
+  element: myElement,
+  getInitialData: () => ({ taskId: task.id }),
+  getInitialDataForExternal: () => ({
+    'text/plain': task.description,
+    'text/uri-list': formatURLsForExternal([task.url, task.anotherUrl]),
+  }),
+});
+```
+
+<SectionMessage appearance="warning">
+
+Data attached for external consumers can be accessed by _any_ external consumer that the user drops on. It is important that you don't expose private data.
+
+</SectionMessage>
+
+Attaching external data from a `draggable` will not trigger the [external adapter](../external) in the `window` that the `draggable` started in, but it will trigger the external adapter in other `window`s (eg in `<iframe>`s).
+
+## Drop target for elements
+
+A [drop target](../drop-targets) for elements.
+
+The default `dropEffect` for this type of drop target is `"move"`. This lines up with our [design guides](../../design-guidelines). You can override this default with `getDropEffect()`.
+
+```ts
+import {dropTargetForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+const cleanup = dropTargetForElements({
+  element: myElement,
+  onDragStart: () => console.log('Something started dragging in me!');
+});
+```
+
+## Monitor for elements
+
+A [monitor](../monitors) for elements.
+
+```ts
+import {monitorForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+const cleanup = monitorForElements({
+  onDragStart: () => console.log('Dragging an element');
+});
+```
+
+## Types
+
+Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript types if you would like to use them.
+
+All [events](../../events) on draggables, drop targets and monitors, are given the following base payload:
+
+```ts
+type ElementEventBasePayload = {
+  location: DragLocationHistory;
+  source: ElementDragPayload;
+};
+
+type ElementDragPayload = {
+  element: HTMLElement;
+  dragHandle: Element | null;
+  data: Record<string, unknown>;
+};
+```
+
+For all the arguments for all events, you can use our event map type:
+
+```ts
+type ElementEventPayloadMap = {
+  onDragStart: ElementEventBasePayload;
+  // .. the rest of the events
+};
+```
+
+Draggable feedback functions (`canDrag`, `getInitialData`, `getInitialDataForExternal`) are given the following:
+
+```ts
+type ElementGetFeedbackArgs = {
+  /**
+   * The user input as a drag is trying to start (the `initial` input)
+   */
+  input: Input;
+  /**
+   * The `draggable` element
+   */
+  element: HTMLElement;
+  /**
+   * The `dragHandle` element for the `draggable`
+   */
+  dragHandle: Element | null;
+};
+```
+
+Drop targets are given a little bit more information in each event:
+
+```ts
+type ElementDropTargetEventBasePayload = ElementEventBasePayload & {
+  /**
+   * A convenance pointer to this drop targets values
+   */
+  self: DropTargetRecord;
+};
+```
+
+For all arguments for all events on drop targets, you can use our event map type:
+
+```ts
+type ElementDropTargetEventPayloadMap = {
+  onDragStart: ElementDropTargetEventBasePayload;
+  // .. the rest of the events
+};
+```
+
+Drop target feedback functions (`canDrop`, `getData`, `getDropEffect`, `getIsSticky`) are given the following:
+
+```ts
+type ElementDropTargetGetFeedbackArgs = {
+  /**
+   * The users _current_ input
+   */
+  input: Input;
+  /**
+   * The data associated with the entity being dragged
+   */
+  source: ElementDragPayload;
+  /**
+   * This drop target's element
+   */
+  element: Element;
+};
+```
+
+The monitor feedback function (`canMonitor`), is given the following:
+
+```ts
+type ElementMonitorGetFeedbackArgs = {
+  /**
+   * The users `initial` drag location
+   */
+  initial: DragLocation;
+  /**
+   * The data associated with the entity being dragged
+   */
+  source: ElementDragPayload;
+};
+```
+
+You can get these type from the element adapter import:
+
+```ts
+import type {
+  // Payload for the draggable being dragged
+  ElementDragPayload,
+  // Base events
+  ElementEventBasePayload,
+  ElementEventPayloadMap,
+  // Drop target events
+  ElementDropTargetEventBasePayload,
+  ElementDropTargetEventPayloadMap,
+  // Feedback types
+  ElementGetFeedbackArgs,
+  ElementDropTargetGetFeedbackArgs,
+  ElementMonitorGetFeedbackArgs,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+```
+
+There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be found on our [top level utilities page](../../utilities)
+
+## Further reading
+
+- [Drag preview documentation](./drag-previews) → how to control what the user drags around during a drag
+- [Typing data](./typing-data) → how to improve the types for `"data"`
+- [Unregistered elements](./unregistered-elements)

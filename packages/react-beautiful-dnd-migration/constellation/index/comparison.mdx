@@ -1,0 +1,73 @@
+---
+order: 1
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+<SectionMessage>
+  If any of these changes are a blocker for you, please reach out to discuss
+  options.
+</SectionMessage>
+
+## UX
+
+The user experience (UX) provided by this migration layer differs slightly to that of `react-beautiful-dnd`.
+
+## Sensors
+
+The migration layer does not use the same concept of sensors as `react-beautiful-dnd`.
+
+### Default sensors
+
+Disabling default sensors is no longer supported.
+
+Pointer and keyboard dragging are supported by default, equivalent to the default `react-beautiful-dnd` sensors:
+
+- `useMouseSensor`
+- `useTouchSensor`
+- `useKeyboardSensor`
+
+### Custom sensors
+
+Custom sensors are no longer supported.
+
+## Combining items
+
+Combining items is no longer supported.
+
+The main use case of combining is trees, for which there are more suitable packages.
+If you are looking for a tree package, please reach out to us and we can help you with next steps.
+
+## Props
+
+### Unsupported props
+
+A number of props are no longer supported. They will be accepted but won't have any effect.
+
+#### `<DragDropContext>`
+
+```diff
+# Custom sensors are not supported.
+# The migration layer supports pointer and keyboard dragging.
+- sensors?: Sensors[];
+
+# Disabling default sensors is not supported.
+- enableDefaultSensors?: boolean;
+```
+
+#### `<Droppable>`
+
+```diff
+# Combining items is not supported.
+- isCombineEnabled?: boolean;
+
+# The browser now determines all hit targets.
+- ignoreContainerClipping?: boolean;
+```
+
+#### `<Draggable>`
+
+```diff
+# The browser now determines when drags should occur.
+- shouldRespectForcePress?: boolean;
+```

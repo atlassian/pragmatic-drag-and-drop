@@ -1,0 +1,87 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { ReactNode, useEffect, useRef, useState } from 'react';
+
+import { css, jsx } from '@emotion/react';
+import invariant from 'tiny-invariant';
+
+import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+import {
+  canMove,
+  Coord,
+  isCoord,
+  isPieceType,
+  PieceRecord,
+} from './chessboard-colored-drop-targets';
+
+interface SquareProps {
+  pieces: PieceRecord[];
+  location: Coord;
+  children: ReactNode;
+}
+
+type HoveredState = 'idle' | 'validMove' | 'invalidMove';
+
+const squareStyles = css({
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
+function getColor(state: HoveredState, isDark: boolean): string {
+  if (state === 'validMove') {
+    return 'lightgreen';
+  } else if (state === 'invalidMove') {
+    return 'pink';
+  }
+  return isDark ? 'lightgrey' : 'white';
+}
+
+function Square({ pieces, location, children }: SquareProps) {
+  const ref = useRef(null);
+  const [state, setState] = useState<HoveredState>('idle');
+
+  useEffect(() => {
+    const el = ref.current;
+    invariant(el);
+
+    return dropTargetForElements({
+      element: el,
+      onDragEnter: ({ source }) => {
+        if (
+          !isCoord(source.data.location) ||
+          !isPieceType(source.data.pieceType)
+        ) {
+          return;
+        }
+
+        if (
+          canMove(source.data.location, location, source.data.pieceType, pieces)
+        ) {
+          setState('validMove');
+        } else {
+          setState('invalidMove');
+        }
+      },
+      onDragLeave: () => setState('idle'),
+      onDrop: () => setState('idle'),
+    });
+  }, [location, pieces]);
+
+  const isDark = (location[0] + location[1]) % 2 === 1;
+
+  return (
+    <div
+      css={squareStyles}
+      style={{ backgroundColor: getColor(state, isDark) }}
+      ref={ref}
+    >
+      {children}
+    </div>
+  );
+}
+
+export default Square;

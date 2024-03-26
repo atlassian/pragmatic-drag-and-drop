@@ -1,0 +1,165 @@
+---
+order: 1
+title: Testing
+description: Guidance on how to test your drag and drop experiences
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+Unfortunately, [`jsdom` does not implement `DragEvent`](https://github.com/jsdom/jsdom/issues/2913), and so you will need to setup `DragEvent`s yourself. You can use this [`DragEvent` ponyfill](https://gist.github.com/alexreardon/cbc317ede2212d6db59ba5ff59dcf419), which we plan on exposing in a testing utility package soon.
+
+You can force `@atlaskit/pragmatic-drag-and-drop` to dispatch events by firing native drag events
+
+| Event name    | Description                                    | Target (what element the event is dispatch on) |
+| ------------- | ---------------------------------------------- | ---------------------------------------------- |
+| `"drag"`      | A drag is occurring (_throttled_)              | `draggable` element                            |
+| `"dragend"`   | A drag is finished                             | `draggable` element                            |
+| `"dragenter"` | A drag is entering into an element             | The `Element` being entered                    |
+| `"dragleave"` | A drag is leaving into an element              | The `Element` being left                       |
+| `"dragover"`  | A drag is occuring over a valid _drop target_  | The _drop target_ Element                      |
+| `"dragstart"` | A drag is starting                             | `draggable` element                            |
+| `"drop"`      | A user successfully dropped on a _drop target_ | A _drop target_ `Element`                      |
+
+A few things to keep in mind:
+
+- How we use native events to publish our own events might change in the future, so ideally you don't want to be writing too many tests that rely on how we use native events. Ideally you want to be relying on a small amount of browser testing.
+- `onGenerateDragPreview` fires during `"dragstart"`
+- `onDragStart` fires in the animation frame after `"dragstart"`
+- Internally we do not
+- Any event (eg `onDrop`) will flush any pending `onDragStart` event
+- We don't use `"drag"` events due to a bug in firefox; we rely on `"dragover"`
+- We apply some additional throttling to `"dragover"` so we only fire it at most once per frame
+- We mostly ignore `"dragleave"` and `"drag"` events
+
+<SectionMessage appearance="information">
+  jsdom [does not support](https://github.com/jsdom/jsdom/issues/2913) the
+  `DragEvent` interface. As a consequence, [event
+  properties](https://testing-library.com/docs/dom-testing-library/api-events/#fireeventeventname)
+  passed as a second parameter of the `fireEvent` drag methods (e.g.
+  `dragStart`, `dragOver`...) might be ignored during the test execution. We
+  offer a partial polyfill that you can extend based on your needs further
+  below.
+</SectionMessage>
+
+```ts
+import { fireEvent } from '@testing-library/dom';
+
+import {
+  draggable,
+  dropTargetForElements,
+  monitorForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { appendToBody, getElements } from '../../_util';
+
+afterEach(async () => {
+  // cleanup any pending drags
+  fireEvent.dragEnd(window);
+
+  // Optional: unwind a post-drop browser bug fix
+  // tick forward a micro task to flush a post-drag bug fix
+  await 1;
+  // this will trigger the fix to be released
+  fireEvent.pointerMove(window);
+});
+
+it('should execute callbacks in response to native events', () => {
+  const [A] = getElements();
+  const ordered: string[] = [];
+
+  const cleanup = combine(
+    appendToBody(A),
+    draggable({
+      element: A,
+      onGenerateDragPreview: () => ordered.push('draggable:preview'),
+      onDragStart: () => ordered.push('draggable:start'),
+      onDrag: () => ordered.push('draggable:drag'),
+      onDrop: () => ordered.push('draggable:drop'),
+      onDropTargetChange: () => ordered.push('draggable:change'),
+    }),
+    dropTargetForElements({
+      element: A,
+      onGenerateDragPreview: () => ordered.push('dropTarget:preview'),
+      onDragStart: () => ordered.push('dropTarget:start'),
+      onDrag: () => ordered.push('dropTarget:drag'),
+      onDrop: () => ordered.push('dropTarget:drop'),
+      onDropTargetChange: () => ordered.push('dropTarget:change'),
+      onDragEnter: () => ordered.push('dropTarget:enter'),
+      onDragLeave: () => ordered.push('dropTarget:leave'),
+    }),
+    monitorForElements({
+      onGenerateDragPreview: () => ordered.push('monitor:preview'),
+      onDragStart: () => ordered.push('monitor:start'),
+      onDrag: () => ordered.push('monitor:drag'),
+      onDrop: () => ordered.push('monitor:drop'),
+      onDropTargetChange: () => ordered.push('monitor:change'),
+    }),
+  );
+
+  expect(ordered).toEqual([]);
+
+  // starting a lift, this will trigger the previews to be generated
+  fireEvent.dragStart(A);
+
+  expect(ordered).toEqual([
+    'draggable:preview',
+    'dropTarget:preview',
+    'monitor:preview',
+  ]);
+  ordered.length = 0;
+
+  // ticking forward an animation frame will complete the lift
+  // @ts-expect-error
+  requestAnimationFrame.step();
+  expect(ordered).toEqual([
+    'draggable:start',
+    'dropTarget:start',
+    'monitor:start',
+  ]);
+  ordered.length = 0;
+
+  // [A] -> []
+  fireEvent.dragEnter(document.body);
+  expect(ordered).toEqual([
+    'draggable:change',
+    'dropTarget:change',
+    'dropTarget:leave',
+    'monitor:change',
+  ]);
+  ordered.length = 0;
+
+  // [] -> [A]
+  fireEvent.dragEnter(A);
+  expect(ordered).toEqual([
+    'draggable:change',
+    'dropTarget:change',
+    'dropTarget:enter',
+    'monitor:change',
+  ]);
+  ordered.length = 0;
+
+  // [A] -> [A]
+  fireEvent.dragOver(A, { clientX: 10 });
+  // no updates yet (need to wait for the next animation frame)
+  expect(ordered).toEqual([]);
+
+  // @ts-expect-error
+  requestAnimationFrame.step();
+  expect(ordered).toEqual([
+    'draggable:drag',
+    'dropTarget:drag',
+    'monitor:drag',
+  ]);
+  ordered.length = 0;
+
+  // drop
+  fireEvent.drop(A);
+  expect(ordered).toEqual([
+    'draggable:drop',
+    'dropTarget:drop',
+    'monitor:drop',
+  ]);
+
+  cleanup();
+});
+```

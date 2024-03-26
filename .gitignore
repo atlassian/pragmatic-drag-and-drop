@@ -1,0 +1,13 @@
+node_modules
+dist
+
+**/.DS_Store
+
+.vscode/*
+.idea
+.iml
+*.code-workspace
+
+.env
+yarn-debug.log*
+yarn-error.log*

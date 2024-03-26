@@ -1,0 +1,49 @@
+{
+    "include": [
+      "__tests__/**/*.ts",
+      "__tests__/**/*.tsx",
+      "docs/**/*.ts",
+      "docs/**/*.tsx",
+      "examples/**/*.ts",
+      "examples/**/*.tsx",
+      "src/**/*.ts",
+      "src/**/*.tsx",
+    ],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "allowJs": false,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "importHelpers": true,
+        "jsx": "react",
+        "moduleResolution": "bundler",
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        // Disallow features that require cross-file information for emit
+        "isolatedModules": true,
+        // We default to targetting es2019 so that IDE's will perform the stricter checks that they do
+        // for es2019 (reason is unkown for why targeting es2019 is stricter...)
+        "target": "es2019",
+        "module": "esnext",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "es5",
+            "scripthost",
+            "es2015.core",
+            "es2015.collection",
+            "es2015.symbol",
+            "es2015.iterable",
+            "es2015.promise",
+            "es2016.array.include",
+            "es2017"
+        ]
+    },
+}

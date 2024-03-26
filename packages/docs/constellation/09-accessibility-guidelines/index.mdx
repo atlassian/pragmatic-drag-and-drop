@@ -1,0 +1,134 @@
+---
+order: 1
+title: Accessibility guidelines
+description: Create accessible alternatives to pointer based drag and drop
+---
+
+import BoardExample from '../../examples/board';
+import ListExample from '../../examples/list';
+import TreeExample from '../../examples/tree';
+import ManualFocusRestorationExample from '../../examples/manual-focus-restoration';
+import SectionMessage from '@atlaskit/section-message';
+
+The goal of this guidance is to provide every person with a way to delightfully achieve the same outcomes in Atlassian interfaces, regardless of the technologies being used.
+
+The [core package](./core-package) does not enable accessible controls automatically, as there is no one pattern that works well for all situations. Instead, use these guidelines and our [optional packages](./optional-packages) and [Design System components](/components) to create accessible experiences.
+
+Non Atlassian consumers are encouraged to follow this guideline and substitute our Design System components (eg `@atlaskit/inline-menu`) with their own components. Non Atlassian consumers are also welcome to implement accessibility in another way if they choose.
+
+## Always provide alternatives to dragging
+
+Not all people can successfully complete pointer based drag operations. Provide other ways for people using assistive technologies to achieve the same outcomes as pointer based drag and drop operations.
+
+When building alternative flows, you need to:
+
+1. Let the user trigger an outcome
+2. Tell the user what they achieved
+3. Let the user easily continue to trigger more outcomes
+
+## 1. Let the user trigger an outcome
+
+Provide alternative controls that work well with assistive technologies (for example, a button and a menu) to enable the user trigger outcomes.
+
+### Accessible controls
+
+Use visible and accessible controls (for example, buttons, menus, and forms) to make it easy for people using assistive technologies to trigger the some outcomes as a drag operation.
+
+Our general pattern is to add a button to a draggable entity which can be used to trigger an inline menu (for simple cases), or a modal with a form (for more complex cases). This pattern works well for a lot of cases, but there are other cases where this approach is not appropriate - for those cases please be driven by what would be best for people using assistive technologies.
+
+Your draggable will need have a visible button for triggering outcomes. You can leverage an existing **More actions (...)** button, or your drag handle (which you can make a [drag handle menu](./optional-packages/react-accessibility))
+
+#### Simple cases
+
+When there is only a small set of operations possible for an element, and those operations don't require any input, then we recommend that you add a button to the element that triggers an inline menu containing the possible outcomes.
+
+<Example Component={ListExample} appearance="showcase-only" />
+
+#### Complex cases
+
+If there is a large amount of possible operations, or those operations require further input, we recommend that you add a button to your element that triggers a modal, and inside the modal you can provide a form to filter outcomes and collect input.
+
+<Example Component={TreeExample} appearance="showcase-only" />
+
+<SectionMessage>
+  An inline menu can also contain a form, but we currently don't have an example
+  of that pattern.
+</SectionMessage>
+
+Packages to help you:
+
+- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
+- [inline-menu](/components/inline-menu)
+- [modal](/components/modal)
+- [select](/components/select)
+
+[Figma (Atlassians only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38%3A5623&mode=design&t=LsTwhMGxMe6t08K3-1>)
+
+### More controls on focus
+
+If drag handles or other menus aren't available, make it possible to access more actions on focus.
+
+![A series of actions that allow users to focus on a group of items, then move or rearrange them. ](/images/desin-edit-order-alt.png)
+
+### Assistive names
+
+All interactive elements should have a meaningful name for assistive technology.
+
+Ensure that accessible names for buttons include the name of the element being acted on, for example, “Move task 'clean dishes' to top of backlog”.
+
+For general guidelines on writing meaningful label text, refer to the [accessibility guidelines](/foundations/accessibility/#meaningful-text).
+
+### Avoid directional controls
+
+For most experiences, we recommend not leveraging directional controls (arrow keys). There are a few problems with this approach:
+
+- Directional arrow movement doesn't always make sense when you can't see the interface you are engaging with.
+- Directional arrow movements require [JAWS screen reader](https://www.freedomscientific.com/products/software/jaws/) users to change screen reader mode to use it
+- Directional movement does not translate well to all experiences
+- Complex operations can require many keystrokes
+- The approach takes a significant amount of code to get working
+
+Instead, use accessible controls.
+
+## 2. Tell the user what they achieved
+
+Use live regions to announce content changes to screen readers. Messages in live regions will be announced by screen reader.
+
+Live regions should provide real-time feedback both during and after an interaction. Messages should contain the name of the item being moved, as well as its old and new position.
+
+To create live region feedback for interactions, use the [live region package](/components/pragmatic-drag-and-drop/packages/live-region).
+
+```ts
+import { announce } from '@atlaskit/live-region';
+
+announce('Task "Clean dishes" moved to list "Doing" from "Todo".');
+```
+
+## 3. Let the user easily continue to trigger more outcomes
+
+Make it easy for users to continue using the same entity after an action (where applicable). To achieve this, focus should move to the original trigger element whenever possible. This prevents someone needing to navigate back to the same spot.
+
+If the element no longer exists after the operation, choose a new element using your best judgement.
+
+### Automatic focus restoration
+
+Some frameworks, such as `react`, will automatically restore focus to elements when they are moved in some situations. In this `react` example, items can be reordered within a list. When an item is moved using the menu item, focus remains on the drag handle button without us needing to do anything. `react` is shifting the element and ensuring that focus is maintained for us.
+
+<Example Component={ListExample} appearance="showcase-only" />
+
+### Manual focus restoration
+
+If your framework does not automatically restore focus for some situations, then you will need to restore focus yourself.
+
+In this `react` example, the avatar can move between the two columns by dragging or by pressing the **Swap team** button. If the button has focus when it is selected (by pointer or by keyboard), focus is restored to it after moving.
+
+This requires manual focus restoration because the button is moving to a new parent and will remount. The button in the new column is not the same DOM element as the original button, so focus can't be preserved automatically.
+
+<Example Component={ManualFocusRestorationExample} appearance="showcase-only" />
+
+## Related
+
+- [Atlassian drag and drop design guidelines](./design-guidelines)
+- [Accessibility foundation general guidance](/foundations/accessibility/#meaningful-text)
+- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
+- [Live region package](./optional-packages/live-region)

@@ -1,0 +1,118 @@
+---
+order: 1
+title: Deferred loading
+description: Improve performing by delaying the loading of Pragmatic drag and drop.
+---
+
+You can use _dynamic imports_ to do things like deferring the import of a module until a React `useEffect`.
+
+## Basic usage
+
+```tsx
+import React, {useEffect} from 'react';
+import invariant from 'tiny-invariant';
+
+function Card() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [state, setState] = useState();
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    (async () => {
+      // load in all the modules that you need
+      const modules = await Promise.all([
+        import('@atlaskit/pragmatic-drag-and-drop/element/adapter'),
+        import('@atlaskit/pragmatic-drag-and-drop/combine'),
+      ]);
+      if (controller.signal.aborted) {
+        return;
+      }
+      invariant(el);
+
+      const [{draggable, dropTargetForElements}, {combine}] = modules;
+
+      const cleanup = combine(
+        draggable({
+        element: el,
+        onDragStart: () => setState('dragging'),
+        onDrop: () => setState('idle'),
+      }),
+      dropTargetForElements({
+        element: el,
+        onDrop: () => console.log('dropped on')
+      }));
+
+      controller.signal.addEventListener('abort', cleanup, { once: true });
+    })();
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  return <div ref={ref}>Drag me<div>
+});
+```
+
+## Maximise Deferred
+
+Rather than importing all the modules you need directly, you can pull all your imports and logic out into a seperate file in order to defer more code.
+
+```ts
+// attach.js
+// regular imports
+import {
+  draggable,
+  dropTargetForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import invariant from 'tiny-invariant';
+
+export function attach({ ref, setState }) {
+  // all of this code can get deferred
+  const el = ref.current;
+  invariant(el);
+  return combine(
+    draggable({
+      element: el,
+      onDragStart: () => setState('dragging'),
+      onDrop: () => setState('idle'),
+    }),
+    dropTargetForElements({
+      element: el,
+      onDrop: () => console.log('dropped on'),
+    }),
+  );
+}
+```
+
+```tsx
+import React, {useEffect} from 'react';
+
+function Card() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [state, setState] = useState();
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    (async () => {
+      // just loading in the single module that we need
+      const { attach } = import('./attach');
+      if (controller.signal.aborted) {
+        return;
+      }
+      const cleanup = attach({setState, ref});
+
+      controller.signal.addEventListener('abort', cleanup, { once: true });
+    })();
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  return <div ref={ref}>Drag me<div>
+});
+```

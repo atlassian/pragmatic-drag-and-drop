@@ -1,0 +1,123 @@
+---
+title: Examples
+order: 0
+---
+
+import { Stack } from '@atlaskit/primitives';
+import SectionMessage from '@atlaskit/section-message';
+
+import ListExample from '../../examples/list';
+import BoardExample from '../../examples/board';
+import GridExample from '../../examples/grid';
+import TableExample from '../../examples/table';
+import FileExample from '../../examples/file';
+import DrawingExample from '../../examples/drawing';
+import ResizingExample from '../../examples/resizing';
+import TreeExample from '../../examples/tree';
+import VirtualListExample from '../../examples/virtual-list';
+
+This page demonstrates some of the experiences that Pragmatic drag and drop enables. These examples use a combination of our [core package](./core-package) and [optional packages](./optional-packages).
+
+## List
+
+<Example Component={ListExample} appearance="showcase-only" />
+
+## Board
+
+<Example Component={BoardExample} appearance="showcase-only" />
+
+## Grid
+
+<Example Component={GridExample} appearance="showcase-only" />
+
+## Table
+
+<SectionMessage appearance="information" title="Needs updating">
+
+Our table example does not line up with our [latest design
+guidelines](./design-guidelines) and needs to be updated.
+
+</SectionMessage>
+
+<Example Component={TableExample} appearance="showcase-only" />
+
+## Tree
+
+<Example Component={TreeExample} appearance="showcase-only" />
+
+## File
+
+Use the [external adapter](./adapters/external) to capture files that users drag and drop onto the page.
+
+When requesting files, you should also provide an `<input type="file" />` for
+usability and accessibility reasons.
+
+<Example Component={FileExample} appearance="showcase-only" />
+
+## Drawing
+
+<SectionMessage
+  appearance="information"
+  title="Excepted from Success Criterion 2.1.1 - Keyboard (Level A)"
+>
+  <Stack space="space.200">
+    <p>
+      This example is excepted from the{' '}
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">
+        WCAG Success Criterion 2.1.1 - Keyboard (Level A)
+      </a>
+      . The underlying function (freehand drawing) requires input that depends on
+      the path of the user's movement and not just the endpoints.
+    </p>
+    <p>
+      Due to{' '}
+      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-no-exception">
+        Success Criterion 2.1.3 - Keyboard (No Exception) (Level AAA)
+      </a>
+      , path-dependent input cannot meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-accessible">
+        Guideline 2.1
+      </a> at Level AAA.
+    </p>
+    <p>
+      Wherever possible, this exception should not be relied on, and an
+      alternative input method should be provided.
+    </p>
+  </Stack>
+</SectionMessage>
+
+<Example Component={DrawingExample} appearance="showcase-only" />
+
+## Resizing
+
+<SectionMessage
+  appearance="information"
+  title="Accessibility guidance in progress"
+>
+  <p>
+    An investigation is required to decide on appropriate accessible controls
+    for resizing. If you would like us to prioritise this investigation, please
+    reach out.
+  </p>
+</SectionMessage>
+
+<Example Component={ResizingExample} appearance="showcase-only" />
+
+## Virtual
+
+<SectionMessage appearance="success">
+  <p>
+    Pragmatic drag an drop works with <strong>any virtual experience</strong>:
+    you can add, remove or change any entity you want during a drag operation.
+    This example uses{' '}
+    <a href="https://tanstack.com/virtual/latest">TanStack Virtual</a>, but you
+    can use any virtualization solution you like.
+    <br />
+    See our{' '}
+    <a href="./core-package/improving-performance/virtualization">
+      virtualization guide
+    </a>{' '}
+    for more details.
+  </p>
+</SectionMessage>
+
+<Example Component={VirtualListExample} appearance="showcase-only" />

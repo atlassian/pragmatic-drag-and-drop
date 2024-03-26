@@ -1,0 +1,109 @@
+---
+order: 5
+title: Custom media types
+description: Working with application specific data
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+When attaching data to a native drag store (for usage in external `window`s and applications), you specific a "media type" for a string value.
+
+```ts
+{
+  "text/plain": "hello world"
+}
+```
+
+<SectionMessage>
+
+"Media types" where previously known as "MIME types" (Multipurpose Internet Mail Extensions Type)
+
+</SectionMessage>
+
+When passing data between different applications, it's helpful to use common media types (eg `"text/plain"` and `"text/uri-list"`) as other applications will know what to do with these types of entities.
+
+Sometimes you want to pass your own bespoke type of data to other applications, or to other instances of your application. Passing your own type of data is a helpful signal that a particular type of application entity is being dragged.
+
+```ts
+{
+  // fallback: a url to our trello card
+  "text/uri-list": card.url,
+
+  // helpful information: a trello card is being dragged
+  "application/vnd.trello-card-id": card.id
+}
+```
+
+In the above example, if we see a `"application/vnd.trello-card-id"` dragging, then that is a strong hint that a trello card is being dragged. Whereas, as `"text/uri-list"` does not help us know what kind of entity the URL belongs to.
+
+Things to keep in mind:
+
+- During a drag, only the media types (`types`) of data is visible to you (platform limitation). After a successful drop (`onDrop()`) you can read out data (by using `source.items` or `source.getData(mediaType)`)
+- Custom media types will be visible to all external applications when a user is dragging over them, and the data will be visible if the user drops on that application. So it's important not to expose sensitive data.
+
+## Custom media type naming
+
+When making your own media type, there are some conventions:
+
+<SectionMessage>
+
+Note, these conventions don't appear to be enforced by browsers, but for clarity and wide compatibility, it is worth picking the most accurate one.
+
+</SectionMessage>
+
+- **vendor tree** (prefix: `vnd.`) for publicaly available products (eg `"application/vnd.trello-card-id"`)
+- **personal or vanity tree** (prefix: `prs.`) for non public products or experimental types (eg `"image/prs.btif"`)
+- **unregistered tree** (prefix `x.`) for use only in private environments (eg `"application/x.trello-card-id"`)
+
+→ [More details about media type naming](https://en.wikipedia.org/wiki/Media_type)
+
+## Media type suffixs
+
+You can add a suffix to your media type to add extra information about the type of data being dragged
+
+- `"text/plain+json"`: dragging json data (same as `"application/json"`)
+- `"application/vnd.trello-card+json"`: some json information about a trello card is being dragged
+
+→ [More details about suffixs](https://en.wikipedia.org/wiki/Media_type)
+
+## Attaching custom media
+
+You can attach custom media for external consumers using a `draggable`
+
+```ts
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+draggable({
+  element: myElement,
+  getInitialDataForExternal: () => ({
+    'application/vnd.trello-card-id': card.id,
+  }),
+});
+```
+
+## Consuming custom media
+
+You can consume custom media attached from other `window`s or applications leveraging the external adapter.
+
+```ts
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+dropTargetForExternal({
+  element: myElement,
+  // We are also only enabling dropping if a trello card is being dragged
+  canDrop: ({ source }) =>
+    source.types.includes('application/vnd.trello-card-id'),
+  onDrop: ({ source }) => {
+    const cardId: string | null = source.getData(
+      'application/vnd.trello-card-id',
+    );
+
+    if (cardId == null) {
+      return;
+    }
+    // do drop operation
+  },
+});
+```
+
+Native applications will also have their own mechanisms for extracting data from externally sourced drag operations.

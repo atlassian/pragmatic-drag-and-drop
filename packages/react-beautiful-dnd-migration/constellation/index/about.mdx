@@ -1,0 +1,52 @@
+---
+order: 0
+title: react-beautiful-dnd migration
+description: An optional Pragmatic drag and drop package that enables rapid migration from react-beautiful-dnd to Pragmatic drag and drop
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+<SectionMessage>
+
+This package depends on:
+
+- [the core package](/components/pragmatic-drag-and-drop/core-package)
+- [the hitbox package](/components/pragmatic-drag-and-drop/optional-packages/hitbox)
+- [the live region package](/components/pragmatic-drag-and-drop/optional-packages/live-region)
+- [the react-beautiful-dnd auto scroll package](/components/pragmatic-drag-and-drop/optional-packages/react-beautiful-dnd-autoscroll)
+- [`react`](https://react.dev/)
+- [`@emotion/react`](https://emotion.sh/docs/introduction) for styling
+- [`@atlaskit/tokens`](/components/tokens) for colors
+
+</SectionMessage>
+
+This package exposes the same exports and types of `react-beautiful-dnd@13` and uses `@atlaskit/pragmatic-drag-and-drop` to power those exports.
+
+At a high level, all you need to do is swap your imports of `react-beautiful-dnd` in your code to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` and your drag and drop experience(s) will now be powered by Pragmatic drag and drop.
+
+This package also includes a codemod to help automatically shift over `react-beautiful-dnd@12` and `react-beautiful-dnd@13` to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`.
+
+## Prerequisites
+
+To use `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` you should:
+
+1. Already be using `react-beautiful-dnd`. If this is a new feature, adopt `@atlaskit/pragmatic-drag-and-drop` directly.
+2. Be using major version 12 or 13 of `react-beautiful-dnd`.
+
+## Migration steps
+
+1. Install `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`
+
+2. Run the codemod client with the command `npx @atlaskit/codemod-cli --parser {tsx|babylon} --extensions ts,tsx,js [relativePath]`.
+
+   Select the codemod based on which version of `react-beautiful-dnd` you are using:
+
+   1. For major version 12, select `adoption-from-rbd-12`
+
+   2. For major version 13, select `adoption-from-rbd-13`
+
+3. Acknowledge and remove the comments left by the codemod.
+
+## Troubleshooting
+
+If you run into any issues while migrating, please reach out to us for assistance.

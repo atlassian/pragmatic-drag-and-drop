@@ -1,0 +1,120 @@
+---
+order: 0
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+The **core package** of Pragmatic drag and drop includes all the essential building blocks for any drag and drop experience. The **core package** is vanillaJS library (authored in TypeScript) that can be used with any view library (eg `react`, `svelte`, `vue` etc).
+
+```bash
+# install the core package
+yarn add @atlaskit/pragmatic-drag-and-drop
+```
+
+Pragmatic drag and drop is optimised for performance. A key way this is achieved is by only requiring you include the code you actually use for your experience. Within the **core package**, there are many optional pieces, which are separated into their own entry points
+
+For example:
+
+- [The element adapter](./adapters/element): `/element/adapter` (`@atlaskit/pragmatic-drag-and-drop/element/adapter`)
+- [An array reordering utility](./utilities): `/reorder` (`atlaskit/pragmatic-drag-and-drop/reorder`)
+
+And many more!
+
+You can also use our [optional packages](./optional-packages) to streamline the building of your experiences if you want to. Some of these optional packages are tied to specific view technologies (eg `@atlaskit/pragmatic-drag-and-drop-react-drop-indicator` uses `react` for rendering and `emotion` for styling), and those dependencies are made clear in the packages documentation. Where possible, packages don't have any dependency on a view technology (eg `@atlaskit/pragmatic-drag-and-drop-hitbox` for hitbox information).
+
+<SectionMessage appearance="success">
+
+Be sure to check out our [tutorial](./tutorial) to see how to quickly wire up an experience with Pragmatic drag and drop.
+
+</SectionMessage>
+
+### Adapters
+
+An _adapter_ teaches Pragmatic drag and drop how to handle dragging a particular entity:
+
+- [element adapter](./adapters/element) → handling the dragging of draggable elements
+- [text selection adapter](./adapters/text-selection) → handling the dragging of text selections
+- [external adapter](./adapters/external) → handling drag operations that started outside of the current `window` (eg files and text from other `window`s or applications)
+
+A drag adapter always provides at least two pieces:
+
+1. A way of registering [drop target](./drop-targets) (eg `dropTargetForElements`).
+2. A way to create a [monitor](./monitor) (eg `monitorForExternal`).
+
+```ts
+import {
+  dropTargetForExternal,
+  monitorForExternal,
+} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+import {
+  dropTargetForElements,
+  monitorForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+import {
+  dropTargetForTextSelection,
+  monitorForTextSelection,
+} from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
+```
+
+An adapter can also provide additional pieces. For example, the [element adapter](./adapters/element) provides a `draggable()` function which is a way of registering a `HTMLElement` as being draggable.
+
+```ts
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+const cleanup = draggable({
+  element: myElement,
+});
+```
+
+### Drop targets
+
+An `Element` that can be dropped upon by something that is dragging.
+
+```ts
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+const cleanup = dropTargetForExternal({
+  element: myElement,
+});
+```
+
+Learn more about [drop targets](./drop-targets).
+
+### Monitors
+
+A way of listening for `@atlaskit/pragmatic-drag-and-drop` drag operation events anywhere.
+
+```ts
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+const cleanup = monitorForElements({
+  element: myElement,
+  onDragStart: () => console.log('an element started dragging'),
+});
+```
+
+Learn more about [monitors](./monitors).
+
+### Utilities
+
+Utilities are small helper functions for common tasks, which are included with the main drag and drop package (e.g. `once` for simple memoization, or `combine` to collapse cleanup functions).
+
+```ts
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+
+const cleanup = combine(
+  draggable({
+    element: myElement,
+  }),
+  dropTarget({
+    element: myElement,
+  }),
+);
+```
+
+## What's next
+
+- Head to our [adapter documentation](./adapters) to start installing the pieces you need
+- Learn more about our [design](./design-guidelines) and [accessibility](./accessibility-guidelines) guidelines.

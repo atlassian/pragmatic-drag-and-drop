@@ -1,0 +1,266 @@
+---
+order: 0
+title: Design guidelines
+description: Design consistent drag and drop experiences.
+---
+
+import SectionMessage from '@atlaskit/section-message';
+import ListExample from '../../examples/list';
+import BoardExample from '../../examples/board';
+import TreeExample from '../../examples/tree';
+
+These guidelines provide an opinionated way to implement drag and drop experiences with Pragmatic drag and drop for Atlassian interfaces. These guidelines work within [web platform design constraints](./web-platform-design-constraints) for drag and drop, and aim to optimise clarity and performance. Non-Atlassian consumers are welcome to use these guidelines, or create their own visual language for drag and drop. The [core package](./core-package) does not have any baked in design opinions, but some of the [optional packages](./optional-packages) embody these design choices.
+
+<SectionMessage>
+
+We plan on soon making public our Figma tooling for Pragmatic drag and drop
+
+</SectionMessage>
+
+Cards, lists, and other UI can often be dragged and reordered. Design clear and consistent drag and drop experiences in Atlassian products following these principles:
+
+## Show what is draggable
+
+Use background colors, cursor changes, and icons to show what can be dragged. Choose the affordances based on on type of object and how important dragging is to the experience.
+
+### Hover states and cursor changes
+
+Some experiences, such cards in a board, imply that items can be dragged. Use background or border color changes on hover to show that items are interactive.
+
+Combine hover background color changes with a change to the grab cursor (`cursor:grab`) to show that items can be moved. If the item has other interactions, you can delay the grab cursor till `800ms`.
+
+![A board of cards that can be dragged between columns. The cursor shows a hand grabbing a card where the background-color changes on hover.](/images/design-cards-draggable.png)
+
+Implement with [design tokens](/components/tokens/) and [cursors](./design-guidelines) in code, or use the [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-2098&mode=design>) for designs.
+
+### Drag handle icons
+
+Drag icons help users understand what is draggable.
+
+![Cards in a view where dragging is the main action. Each has a drag handle icon on the left of the card.](/images/design-config-cards-handles.png)
+
+When dragging is the main action for an item, show the drag handle icon on the left of the item at all times. If dragging is possible on the item, but is not considered an important action, only show the drag handle icon on hover to simplify. Cards or other implied draggable entities (like trees or columns) do not require a drag handle icon, but should still have an [action menu](#action-menus-for-move-actions).
+
+In general, make the whole item draggable wherever possible. If the item has lots of interactive parts, such as buttons or links on top of the item, you can also make the drag handle itself the only part that allows grab and drag interactions.
+
+Use the [drag handle component](./optional-packages/react-accessibility) in code or [drag handles in Figma (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38%3A5623&mode=design&t=LsTwhMGxMe6t08K3-1>) for designs.
+
+## Give feedback during a drag
+
+While an item is being dragged, it is important that you give clear feedback to the user about what is being dragged, and what will occur when the user completes the drag.
+
+### Drag previews
+
+A drag preview is a representation of the item being dragged. Generally a drag preview is a picture of the item being dragged around the page, and not the draggable item itself.
+
+When an item is small and simple, the drag preview can be an exact copy of the item being dragged. If an item is larger or more complex, you should simplify the drag preview.
+
+Simplification suggestions:
+
+- Use a maximum of three pieces of information in a preview
+- Use a maximum preview size of `280px x 280px` to prevent [super low drag preview opacity on Windows](./web-platform-design-constraints)
+
+#### Standard
+
+Drag previews should generally be pushed away from the users pointer by `space.100` vertically, and `space.200` horizontally.
+
+```
+{
+  x: token('space.200', '16px'),
+  y: token('space.100', '8px'),
+}
+```
+
+<img
+  src="/images/design-drag-preview-offset.png"
+  alt="A drag preview of a list item with an offset"
+  style="max-width: 400px; margin: 0 auto"
+/>
+
+#### Cards
+
+Cards are to be dragged from the point they're grabbed from (no offset).
+
+<img
+  src="/images/design-drag-preview-no-offset.png"
+  alt="A drag preview of a card with no offset"
+  style="max-width: 300px; margin: 0 auto"
+/>
+
+### Cursor
+
+Due to [web platform constraints](./web-platform-design-constraints), we have limited control of the cursor during a drag operation. The cursor will generally be `cursor:default` during a drag operation.
+
+[More information about cursors](./web-platform-design-constraints#cursors).
+
+### The draggable item
+
+While an item is being dragged, the original item should stay in place and dim to `40%` opacity (`opacity: 0.4`) while the drag preview is being moved around.
+
+![A draggable item left in place during a drag](/images/design-dragging-item-in-place.png)
+
+### Multiple-item drag previews
+
+For multi-item drag previews, use a stacked appearance with a badge indicating the number of items being dragged.
+
+- **Four or more small items** such as list items should appear as a stacked preview under the first item. Less than four small items can appear separately where space allows (all items showing in the preview).
+- **Any more than one large item** (card) should show as a stack with a badge indicating the number underneath.
+
+![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](/images/design-multi-card-drag.png)
+
+Implement with [native drag previews](./adapters/element/drag-previews), or use the [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-5065&mode=design>) in designs.
+
+### Drop placement indication
+
+It is important to communicate during a drag operation, what the result of the operation will be. There are two signals you can use to indicate drop placement:
+
+1. Drop indicator (a line)
+2. Background color (`color.background.selected.hovered`)
+
+#### Drop indicator
+
+The drop indicator line is used to communicate relative placement (for example, before or after an item in a list)
+
+![A list of items where one is being dragged over a new location. The location where the item would drop if released is marked with a blue line and dot. ](/images/design-list-drop-indicator.png)
+
+Drop indicator lines should have a terminal circle. The circle should overlap the far left of the element container where possible. For stacked items, the line should appear in the middle of the gap between the items.
+
+A drop indicator line should _not_ be used when a draggable item is being dragged over a droppable area where there is no relative placement possible (for example, dropping into an empty sibling list).
+
+![dragging over an empty column should not print a line](/images/design-board-background-only.png)
+
+- [Edge detection](./optional-packages/hitbox): determines when and where the drop indicator shows based on the location of the dragged item.
+- [React drop indicator](./optional-packages/react-drop-indicator): draw drop indicators
+- [Figma (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-5065&mode=desig>)
+
+#### Background color
+
+A background color change is used to communicate that an item will be placed within a particular droppable area. Background color changes should be used when there are multiple possible areas of the page a draggable item can be dropped on. The droppable area that the user is currently over should have its background color changed. A background color change should also occur when a draggable item starts in a droppable area, when there are multiple possible droppable areas.
+
+![dragging over a populated column, where a line and background color change is being displayed](/images/design-board-background-and-line.png)
+
+Background color change animation:
+
+- background color: `color.background.selected.hovered`
+- easing: `cubic-bezier(0.15, 1.0, 0.3, 1.0)` (`import {easeInOut} from '@atlaskit/motion'`)
+- duration: `350ms` (`import {mediumDurationMs} from '@atlaskit/motion'`)
+
+When draggable items can only be moved relatively within a single container, then no background color change should be used when the user is dragging something within the experience.
+
+![A list being reordered, where only a drop indication line is being shown and there is no background changes](/images/design-list-drop-indicator.png)
+
+## After a drop, show the item in its new position
+
+After a drop, the drag preview disappears and the original item should to it's new location. To improve clarity about what the user achieved, the background color of the moved item should flash once it has been moved.
+
+Background color flash:
+
+- color: `color.background.selected`
+- easing: `cubic-bezier(0.25, 0.1, 0.25, 1.0)` (not available in `@atlaskit/motion`)
+- duration: `700ms` (`import {largeDurationMs} from '@atlaskit/motion'`)
+
+![A series of actions shown in four slides. Hover state is grey, the drag indicator appears once drag begins, upon drop the color of the item flashes blue, then returns to its normal color.](/images/design-drop-flash.png)
+
+Implement this using [flourish](./optional-packages/flourish) in code or show the color in the [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-5065&mode=design>) for designs.
+
+## Provide accessible controls
+
+<SectionMessage>
+
+Be sure to see our [accessibility guidelines](./accessibility-guidelines)
+
+</SectionMessage>
+
+All draggable items should also have the ability to trigger the same outcomes using assistive technology friendly controls.
+
+## Visible drag handle icons
+
+Please make drag handle icons visible (where possible) as this is a helpful signal for people that an item is draggable.
+
+### Action menus for move actions
+
+If the item already has a more actions (…) menu, put the move actions inside of the menu. This provides a keyboard accessible way to move items that doesn’t rely on mouse clicking and dragging.
+
+![A Jira issue list view where a more actions button appears on the items. The button has three dots as a label ...](/images/design-more-actions-hover.png)
+
+### Drag handle icon menus for move actions
+
+If the entity does not have any more actions (…), make the drag handle icon into a menu button. When triggered, the drag handle button opens a menu that allows the users to move the item.
+
+![An issue details view in Jira. A drag handle icon appears at the left of the assignee field. It is focussable, and opens a menu with options to move the field up or down in the view.](/images/design-drag-handle-menu.png)
+
+Use the [drag handle menu component](./optional-packages/react-accessibility) in code or the [Figma kit drag handle menu (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-2098&mode=design>) in designs.
+
+### Other alternative controls
+
+If an individual item does not have the ability to trigger actions, provide other ways to access movement controls on focus.
+
+![A series of actions that allow users to focus on a group of items, then move or rearrange them. ](/images/desin-edit-order-alt.png)
+
+## Trees
+
+<SectionMessage appearance="information">
+  This design pattern has not yet been converted into a spec. Please refer to
+  the following tree example as our current design guidance.
+</SectionMessage>
+
+<Example Component={TreeExample} appearance="showcase-only" />
+
+## Dragging multiple items
+
+<SectionMessage appearance="warning">
+  This design pattern is under construction
+</SectionMessage>
+
+How to show when more than one element is selected to be dragged.
+
+### Cards and boards
+
+Use `color.background.selected` and `color.border.selected` to show the elements that have been selected, then change to the typical background color at 40% opacity once dragging begins. This shows where the objects are currently, and where they'll return if no drag location is chosen.
+
+Because cards are larger, multiple cards should be stacked under the first card in the preview. Use a badge to show how many items are being moved.
+
+![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](/images/design-multi-card-drag.png)
+
+Checkboxes are highly recommended to show when one or more items are selected.
+
+<!-- TODO Fix example to match ideal design guide -->
+<!-- TODO uncomment this once example is done:
+Try selecting and dragging multiple cards in the board below for an example. -->
+
+<!-- <Example Component={BoardExample} appearance="showcase-only" /> -->
+
+### List items
+
+Use the selected background color token to indicate which items have been selected. Use drag previews as usual, with all items being dragged in a column in the order they’d appear when dropped.
+
+![A list of draggable items where some are selected, shown in blue.](/images/design-multi-select-list.png)
+
+For more than three or four items, show a badge indicating the number and an implied stack beneath the top item.
+
+<!-- TODO: Fix example to match ideal design guide -->
+<!-- <Example Component={ListExample} appearance="showcase-only" /> -->
+
+## Spec
+
+| Visual treatment                     | Token or value                                                                                                                                                      | Implementation                                                                                                                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hover background color               | `color.background.neutral.hovered` (or other hover color)                                                                                                           | [Design token](/components/tokens/all-tokens)                                                                                                                                     |
+| Hover border color                   | `color.border.selected`                                                                                                                                             | [Design token](/components/tokens/all-tokens)                                                                                                                                     |
+| Hover cursor                         | `cursor:grab`                                                                                                                                                       | [Cursor:grab](./design-guidelines)                                                                                                                                                |
+| Drag cursors                         | Reverts to pointer (browser limitation)                                                                                                                             | [Cursor](./design-guidelines)                                                                                                                                                     |
+| Drag handle icon                     | `color.icon.default` (or other icon token with typical hover interaction colors on background)                                                                      | [Drag handle](./optional-packages/react-accessibility) or [Drag handle menu](/components/pragmatic-drag-and-drop/packages/react-accessibility/drag-handle-dropdown-menu/examples) |
+| Drag preview                         | `280px` or smaller to avoid transparency issue                                                                                                                      | [Native drag preview](./adapters/element/drag-previews)                                                                                                                           |
+| Drop indicator stroke                | `2px`                                                                                                                                                               | [React drop indicator](./optional-packages/react-drop-indicator)                                                                                                                  |
+| Drop indicator color                 | `color.border.selected`                                                                                                                                             | [React drop indicator](./optional-packages/react-drop-indicator), [Design token](/components/tokens/all-tokens)                                                                   |
+| Drop indicator terminal circle       | `8px` diameter                                                                                                                                                      | [React drop indicator](./optional-packages/react-drop-indicator)                                                                                                                  |
+| Drop area background color           | `color.background.selected.hovered`                                                                                                                                 | [React drop indicator](./optional-packages/react-drop-indicator), [Design token](/components/tokens/all-tokens)                                                                   |
+| Drop area background color animation | easing: `cubic-bezier(0.15, 1.0, 0.3, 1.0)` (`import {easeInOut} from '@atlaskit/motion'`), duration: `350ms` (`import {mediumDurationMs} from '@atlaskit/motion'`) | [Motion](/components/motion)                                                                                                                                                      |
+| Drop flourish color change           | `color.background.selected`                                                                                                                                         | [Flourish](./optional-packages/flourish), [Design token](/components/tokens/all-tokens)                                                                                           |
+| Drop flourish color change animation | easing: `cubic-bezier(0.25, 0.1, 0.25, 1.0)` (not available in `@atlaskit/motion`), duration: `700ms` (`import {largeDurationMs} from '@atlaskit/motion'`)          | [Flourish](./optional-packages/flourish), [Motion](/components/motion)                                                                                                            |
+
+## Related
+
+- [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=0%3A1&mode=design&t=4UwHqNt2ffApWviO-1>)
+- [Accessibility guide](./accessibility-guidelines)]
+- [More examples](/components/pragmatic-drag-and-drop/examples)

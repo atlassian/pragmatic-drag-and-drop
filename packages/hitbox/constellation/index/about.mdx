@@ -1,0 +1,212 @@
+---
+order: 0
+title: Hitbox
+description: An optional package that enables the attaching of interaction information to a drop target.
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+<SectionMessage>
+
+This package depends on [the core package](/components/pragmatic-drag-and-drop/core-package).
+
+This package has no dependency on any view library (eg `react`), or on the Atlassian Design System.
+
+</SectionMessage>
+
+- **[Closest edge](#closest-edge):** Detects the closest edge (`"top", "right", "bottom", "left"`) for a drop target being dragged over.
+- **[Tree item](#tree-item):** Determines the operation (`"reorder-above", "reorder-below", "make-child", "reparent"`) to be performed when when a tree item is dropped.
+- **Hitbox types:** A way to import the types of this package without any implementation (includes the `Edge`, `Instruction`, and `ItemMode` types).
+
+## Addons
+
+### Closest edge
+
+The closest edge addon is used to know what the closest edge is when dragging over a drop target. Knowing the closest edge can be helpful when doing reordering and moving operations. This addon leverages the fact that `getData()` is repeatedly called throughout a drag and drop operation.
+
+The `attachClosestEdge()` function adds a unique `Symbol` to your drop target's `data` object, which allows for type safe lookups with `extractClosestEdge()`.
+
+```ts
+type Edge = 'top' | 'right' | 'bottom' | 'left';
+```
+
+```ts
+import {
+  attachClosestEdge,
+  extractClosestEdge,
+  Edge,
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/addon/closest-edge';
+
+dropTargetForElements({
+  element: myElement,
+  getData: ({ input, element }) => {
+    // your base data you want to attach to the drop target
+    const data = {
+      itemId: 'A',
+    };
+    // this will 'attach' the closest edge to your `data` object
+    return attachClosestEdge(data, {
+      input,
+      element,
+      // you can specify what edges you want to allow the user to be closest to
+      allowedEdges: ['top', 'bottom'],
+    });
+  },
+  onDrop: args => {
+    const closestEdgeOfTarget: Edge | null = extractClosestEdge(args.self.data);
+  },
+});
+```
+
+### Tree item
+
+The tree item addon is used to know what operation should be performed when a tree item is dropped. The possible drag operations are:
+
+- **reorder-above**: the draggable item should be moved above the item it's dropped on.
+- **reorder-below**: the draggable item should be moved below the item it's dropped on.
+- **make-child**: the draggable item should be made a child of the item it's dropped on.
+- **reparent**: the level of the draggable item should change to a parent of the item it's dropped on.
+
+Any drag operation can also be blocked.
+
+Along with the drag position, the current level and the mode of the tree item being dragged over are used to determine the drag operation that should be performed. Below is a visual example of a tree hitbox demonstrating this:
+
+<img src="images/tree-hitbox.jpg" alt="Tree hitbox" />
+
+The `attachInstruction()` function adds a unique `Symbol` to your drop target's `data` object, which allows for type safe lookups with `extractInstruction()`. This addon leverages the fact that `getData()` is repeatedly called throughout a drag and drop operation.
+
+```ts
+type ItemMode = 'standard' | 'expanded' | 'last-in-group';
+```
+
+```ts
+type Instruction =
+  | {
+      type: 'reorder-above';
+      currentLevel: number;
+      indentPerLevel: number;
+    }
+  | {
+      type: 'reorder-below';
+      currentLevel: number;
+      indentPerLevel: number;
+    }
+  | {
+      type: 'make-child';
+      currentLevel: number;
+      indentPerLevel: number;
+    }
+  | {
+      type: 'reparent';
+      currentLevel: number;
+      indentPerLevel: number;
+      desiredLevel: number;
+    }
+  | {
+      type: 'instruction-blocked';
+      desired: Exclude<Instruction, { type: 'instruction-blocked' }>;
+    };
+```
+
+```ts
+import {
+  attachInstruction,
+  extractInstruction,
+  Instruction,
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+
+dropTargetForElements({
+  element: myElement,
+  getData: ({ input, element }) => {
+    // your base data you want to attach to the drop target
+    const data = {
+      itemId: 'A',
+    };
+    // this will 'attach' the instruction to your `data` object
+    return attachInstruction(data, {
+      input,
+      element,
+      currentLevel: 2,
+      indentPerLevel: 20,
+      mode: 'standard',
+      // you can specify instructions to block
+      block: ['reorder-below'],
+    });
+  },
+  onDrag: args => {
+    const instruction: Instruction | null = extractInstruction(args.self.data);
+  },
+});
+```
+
+## Utilities
+
+### `getReorderDestinationIndex`
+
+When you are rendering _drop indicators_ (eg lines) between items in a list, it can be difficult to know what the `index` the dropped item should go into. The final `index` will depend on what the closest `Edge` is. `getReorderDestinationIndex` can give you the final `index` for a reordering operation, taking into account which `Edge` is closest
+
+```ts
+import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
+
+// Dragging A on the left of B
+// A should stay in the same spot
+expect(
+  getReorderDestinationIndex({
+    // list: ['A', 'B', 'C'],
+    // move A to left of B
+    startIndex: 0,
+    indexOfTarget: 1,
+    closestEdgeOfTarget: 'left',
+    axis: 'horizontal',
+  }),
+  // results in no change: ['A', 'B', 'C']
+).toEqual(0);
+
+// Dragging A on the right of B
+// A should go after B
+expect(
+  getReorderDestinationIndex({
+    // list: ['A', 'B', 'C'],
+    // move A to right of B
+    startIndex: 0,
+    indexOfTarget: 1,
+    closestEdgeOfTarget: 'right',
+    axis: 'horizontal',
+  }),
+  // A moved forward ['B', 'A', 'C']
+).toEqual(1);
+```
+
+### `reorderWithEdge`
+
+Performs an array reorder operation that takes into account the closest `Edge`. `reorderWithEdge` uses `getReorderDestinationIndex` internally as well as `reorder` to reorder the array (`@atlaskit/pragmatic-drag-and-drop/reorder`)
+
+```ts
+import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
+
+// Dragging A on the left of B
+// A should stay in the same spot
+expect(
+  reorderWithEdge({
+    list: ['A', 'B', 'C'],
+    // move A to left of B
+    startIndex: 0,
+    indexOfTarget: 1,
+    closestEdgeOfTarget: 'left',
+    axis: 'horizontal',
+  }),
+  // results in no change
+).toEqual(['A', 'B', 'C']);
+
+// Dragging A on the right of B
+// A should go after B
+expect(
+  reorderWithEdge({
+    list: ['A', 'B', 'C'],
+    startIndex: 0,
+    indexOfTarget: 1,
+    closestEdgeOfTarget: 'right',
+    axis: 'horizontal',
+  }),
+).toEqual(['B', 'A', 'C']);
+```

@@ -1,0 +1,25 @@
+---
+title: Packages
+description: This page contains all the available packages and entry points for @atlaskit/pragmatic-drag-and-drop related packages.
+---
+
+import SectionMessage from '@atlaskit/section-message';
+
+<SectionMessage>
+
+At this stage we are using [entry points](https://nodejs.org/api/packages.html#package-entry-points) rather than exporting everything from the root of the package to ensure that _everybody_ gets the best possible bundle size without needing to rely on [tree shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking).
+
+</SectionMessage>
+
+[Required core package](./core-package)
+
+Optional packages:
+
+- [hitbox](./hitbox): Add additional impact information to a drop target when it is being dragged over (plain js)
+- [react-drop-indicator](./react-drop-indicator): Used to render drop indicators (eg lines)
+- [flourish](./flourish): Minor effects to make drag operations more delightful (eg flash on drop) (plain js)
+- [auto-scroll](./auto-scroll): More delightful automatic scrolling during a drag operation (plain js)
+- [react-accessibility](./react-accessibility): Opinionated `react` components for adding common accessibility controls
+- [live-region](./live-region): a helper for announcing messages to screen reader users
+- [react-beautiful-dnd-migration](./react-beautiful-dnd-migration): enables rapid migrations from `react-beautiful-dnd` to Pragmatic drag and drop
+- [react-beautiful-dnd-autoscroll](./react-beautiful-dnd-autoscroll): automatic scroller port from `react-beautiful-dnd` (deprecated in favour of `auto-scroll`)

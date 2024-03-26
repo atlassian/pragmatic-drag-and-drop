@@ -1,0 +1,361 @@
+---
+order: 1
+title: Drag previews
+description: How to control what is under the users pointer while a drag is occurring
+---
+
+import SectionMessage from '@atlaskit/section-message';
+import CheckIcon from '../../../assets/check-icon';
+import CrossIcon from '../../../assets/cross-icon';
+
+A **drag preview** is the thing that a user drags around during a drag operation. We have a number of supported techniques for controlling what the drag preview looks like.
+
+## Native drag previews
+
+<SectionMessage appearance="success">
+
+We recommend using **native drag previews** where possible as they have great performance characteristics (they are not rendered on the main thread) and they can be dragged between applications
+
+</SectionMessage>
+
+Browsers have built in "native" mechanisms for rendering a drag preview
+
+There are a few techniques you can use to control what a native drag preview will look like:
+
+### Approach 1: Use a custom native drag preview
+
+You can ask the browser to take a photo of another visible element on the page and use that as the drag preview.
+
+<SectionMessage appearance="success">
+
+There are lots of platform gotchas when working with custom native drag previews. We recommend using our `setCustomNativeDragPreview()` as it makes it safe and easy to work with custom native drag previews.
+
+</SectionMessage>
+
+More information about [drag preview design constraints](../../web-platform-design-constraints/)
+
+#### Mounting a new element with `setCustomNativeDragPreview`
+
+You can use `setCustomNativeDragPreview` to mount a new element to the page to be used as the drag preview. `setCustomNativeDragPreview` will call your `cleanup` function to remove the preview element from the page after the browser has taken a photo of the element. `setCustomNativeDragPreview` adds the `container` `Element` to the `document.body` and will remove the `container` `Element` after your `cleanup` function is called.
+
+`setCustomNativeDragPreview` has been designed to work with any view abstraction.
+
+Note: you are welcome to use the [`onGenerateDragPreview | nativeSetDragImage`](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/setDragImage) API directly. However, we recommend you use `setCustomNativeDragPreview` as it covers over a number of gotchas.
+
+#### Usage example: `react` portals
+
+This technique requires your component to be re-rendered, but maintains the current `react` `context`
+
+```tsx
+type State =
+  | {
+      type: 'idle';
+    }
+  | {
+      type: 'preview';
+      container: HTMLElement;
+    };
+
+function Item() {
+  const [state, setState] = useState<State>({ type: 'idle' });
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    invariant(ref.current);
+
+    return draggable({
+      element: ref.current,
+      onGenerateDragPreview({ nativeSetDragImage }) {
+        setCustomNativeDragPreview({
+          render({ container }) {
+            // Cause a `react` re-render to create your portal synchronously
+            setState({ type: 'preview', container });
+            // In our cleanup function: cause a `react` re-render to create remove your portal
+            // Note: you can also remove the portal in `onDragStart`,
+            // which is when the cleanup function is called
+            return () => setState({ type: 'idle' });
+          },
+          nativeSetDragImage,
+        });
+      },
+    });
+  }, []);
+
+  return (
+    <>
+      <div ref={ref}>Drag Me</div>
+      {state.type === 'preview'
+        ? ReactDOM.createPortal(<Preview />, state.container)
+        : null}
+    </>
+  );
+}
+```
+
+#### Usage example: A new `react` application
+
+This technique requires no re-rendering of your component, but does not maintain the current `react` `context`
+
+```tsx
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage }) => {
+    setCustomNativeDragPreview({
+      render: function render({ container }) {
+        ReactDOM.render(<Preview item={item} />, container);
+        return function cleanup() {
+          ReactDOM.unmountComponentAtNode(container);
+        };
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+#### Positioning the drag preview
+
+You can control where the custom native drag preview is placed by using the `getOffset()` argument.
+
+You can return an `{x: number, y: number}` object from `getOffset()` which will control where the native drag preview is rendered relative to the users pointer. `{x: 0, y: 0}` represents having the users pointer user the top left corner of the drag preview.
+
+For clarity:
+
+> `const rect = container.getBoundingClientRect()`
+
+- `{x: 0, y: 0}` → top left of the `container` will be under the users pointer **(default)**
+- `{x: rect.width, y: 0}` top right of the `container` will be under the users pointer
+- `{x: rect.width, y: rect.height}` bottom right of the `container` will be under the users pointer
+- `{x: 0, y: rect.height}` bottom left of the `container` will be under the users pointer
+
+```ts
+type GetOffsetFn = (args: { container: HTMLElement }) => {
+  x: number;
+  y: number;
+};
+```
+
+Notes:
+
+- `GetOffsetFn` needs to return `x` and `y` as numbers as that is what the platform requires
+- You cannot use negative values (not supported by browsers). If you want to push the drag preview away from the users pointer, use `offsetFromPointer` (see below)
+- The max offset value for an axis is the `border-box`. Values greater than the `border-box` get trimmed to be the `border-box` value
+
+`{x: rect.width + 1, y: rect.height + 1}` effectively becomes `{x: rect.width, y: rect.height}`.
+
+```tsx
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage }) => {
+    setCustomNativeDragPreview({
+      // place the (near) top middle of the `container` under the users pointer
+      getOffset: () => {
+        const rect = container.getBoundingClientRect();
+        return { x: rect.width / 2, y: 16 };
+      },
+      render: function render({ container }) {
+        ReactDOM.render(<Preview item={item} />, container);
+        return function cleanup() {
+          ReactDOM.unmountComponentAtNode(container);
+        };
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+We have `getOffset()` helpers for `setCustomnativeDragPreview()`:
+
+1. `centerUnderPointer`: centers the custom native drag preview under the users cursor
+
+```ts
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/center-under-pointer';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage }) => {
+    setCustomNativeDragPreview({
+      getOffset: centerUnderPointer,
+      render: function render({ container }) {
+        /* ... */
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+2. `pointerOutsideOfPreview`: a cross browser mechanism to place the pointer outside of the drag preview
+
+```ts
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/offset-from-pointer';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage }) => {
+    setCustomNativeDragPreview({
+      // `x` and `y` can be any CSS value
+      getOffset: pointerOutsideOfPreview({
+        x: '8px',
+        y: 'calc(var(--grid) * 2)',
+      }),
+      render: function render({ container }) {
+        /* ... */
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+Note: if you are using css variables inside of your `getOffset()` you need to be sure your css variables are available at the `<body>` element, as the `container` is temporarily mounted as a child of `<body>`
+
+3. `preserveOffsetOnSource`: applies the initial cursor offset to the custom native drag preview for a seamless experience
+
+```ts
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/element/preserve-offset-on-source';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage, location, source }) => {
+    setCustomNativeDragPreview({
+      getOffset: preserveOffsetOnSource({
+        element: source.element,
+        input: location.current.input,
+      }),
+      render: function render({ container }) {
+        /* ... */
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+Note: this helper works best when the rendered preview has the same dimensions as the dragged element
+
+#### Gotcha: CSS transforms
+
+When creating custom drag preview element with `setCustomNativeDragPreview`, there is mixed support for applying CSS transforms to the drag preview element.
+
+|                   | Scale                  | Rotate                 | Translate (avoid)      |
+| ----------------- | ---------------------- | ---------------------- | ---------------------- |
+| Chrome (`114.0`)  | <CheckIcon />          | <CheckIcon />          | <CheckIcon />          |
+| Firefox (`115.0`) | <CheckIcon />          | <CheckIcon />          | <CheckIcon />          |
+| Safari (`16.5.2`) | <CrossIcon /> (broken) | <CrossIcon /> (broken) | <CrossIcon /> (broken) |
+
+<SectionMessage>
+
+Avoid using `translate` for positioning a drag preview (or pushing it away from the cursor). Please use `setCustomNativeDragPreview > getOffset` for that (see above)
+
+</SectionMessage>
+
+You can use CSS transforms as a _progressive enhancement_. For Chrome and Firefox you can use CSS transforms, but for Safari you cannot. You will need do a browser check for Safari, and only add CSS transforms to your preview element when the browser is not Safari.
+
+```tsx
+const isSafari: boolean =
+  navigator.userAgent.includes('AppleWebKit') &&
+  !navigator.userAgent.includes('Chrome');
+
+const transformStyles = css({
+  transform: 'scale(4deg)',
+});
+
+function Preview() {
+  return <div css={isSafari ? transformStyles : undefined}>Drag preview</div>;
+}
+```
+
+### Approach 2: Change the appearance of a `draggable`
+
+<SectionMessage>
+
+This approach has the best performance characteristics, but is subject to a number of gotchas. For most consumers we recommend using `setCustomNativeDragPreview`
+
+</SectionMessage>
+
+If you do nothing, then the browser will use a picture of the `draggable` element as the drag preview. By leveraging event timings you can control the appearance of the drag preview that the browser generates:
+
+1. in `onGenerateDragPreview` make whatever visual changes you want to the `draggable` element and those changes will be captured in the drag preview
+2. in `onDragStart`:
+
+   2a. revert changes of step 1. The user will never see the `draggable` element with the styles applied in `onGenerateDragPreview` due to paint timings
+
+   2b. apply visual changes to the `draggable` element to make it clear to the user what element is being dragged
+
+3. in `onDrop` remove any visual changes you applied to the `draggable` element during the drag
+
+> [More information about how this technique works 🧑‍🔬](https://twitter.com/alexandereardon/status/1510826920023248900)
+
+There are a few constraints imposed by browsers that you need to follow if you want to use this technique:
+
+- Your `draggable` needs to be _completely_ visible and unobfiscated at the start of the drag. This can involve insuring that your `draggable` is not cut off by scroll (see `scrollJustEnoughIntoView`), and has no layers currently on top of the `draggable` (for example, you might need to close some popups)
+- The users pointer still needs to be over the `draggable` after the changes you make to the `draggable` element in `onGenerateDragPreview`. Generally this means that you should not be changing the dimensions of the `draggable` element.
+- Avoid CSS `transform` on your `draggable`. In Safari, CSS `transform`s that impact a `draggable` can mess up native drag previews.
+  - [Bug 1](https://bugs.webkit.org/show_bug.cgi?id=246734) when a `transform` impacts a `draggable` _before_ a drag starts:
+  - [Bug 2](https://twitter.com/alexandereardon/status/1511148574943240194) when CSS `transform` is applied to a `draggable` element in `onGenerateDragPreview`
+
+## Non-native custom drag previews
+
+In some situations, you might want to completely disable the native drag preview and render your own drag preview. The advantage of this technique is that you can update the drag preview during a drag. The downsides of this approach is that it is not as fast, and you cannot drag the non-native drag preview outside of a browser window.
+
+To use this technique:
+
+1. disable the native drag preview
+
+```ts
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview({ setNativeDragPreview }) {
+    disableNativeDragPreview({ setNativeDragPreview });
+  },
+});
+```
+
+> This technique renders a `1x1` transparent image as the native drag preview. There are a few alternative techniques for hiding the drag preview, but this technique yielded the best results across many browsers and devices.
+
+2. render your own element in `onDragStart` (ideally in a portal), and under the user's pointer (you can use `location.initial.input` to get the users initial position)
+3. move the new element around in response to `onDrag` events (use `location.current.input` to get the users current pointer position)
+4. remove the new element in `onDrop`
+
+If you are doing this technique, you will likely want to use the [`preventUnhandled` utility](../../utilities). Using that addon will prevent the strange situation where when the user does not drop on a drop target there is a fairly large pause before the drop event. This is because the browser does a drop animation when the user does not drop on a drop target; a "return home" animation. Because you have hidden the native drag preview, the user won't see this return home drop animation, but will experience a delay. Using the [`preventUnhandled` utility](../../utilities) ensures that the return home drop animation won't run
+
+## No drag preview
+
+For some experiences you might not want any drag preview (for example, resizing). All you need to do is disable the native drag preview and you are good to go.
+
+```ts
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview({ setNativeDragPreview }) {
+    disableNativeDragPreview({ setNativeDragPreview });
+  },
+});
+```
+
+## `scrollJustEnoughIntoView`
+
+A little utility to quickly scroll something into view before a drag preview is captured. This is helpful if you are leveraging default drag previews (ie not using `setCustomNativeDragPreview`). If the `draggable` element is not completely in view, then the drag preview can be cut off.
+
+```ts
+import { scrollJustEnoughIntoView } from '@atlaskit/pragmatic-drag-and-drop/scroll-just-enough-into-view';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview({ source }) {
+    scrollJustEnoughIntoView({ element: source.element });
+  },
+});
+```

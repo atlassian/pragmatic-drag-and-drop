@@ -1,0 +1,16 @@
+## Codemod
+
+1. Install `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` as a runtime dependency.
+
+2. Run the codemod client with the following command.
+
+   ```
+   npx @atlaskit/codemod-cli --parser tsx --extensions ts,tsx,js [relativePath]
+   ```
+
+3. Select the codemod based on which version of `react-beautiful-dnd` you are migrating from:
+
+   - Use `adoption-from-rbd-12` for major version 12.
+   - Use `adoption-from-rbd-13` for major version 13.
+
+4. Acknowledge and remove the comments left by the codemod.

@@ -1,0 +1,26 @@
+---
+title: Virtualization
+description: How to be successful using Pragmatic drag and drop with virtualized solutions.
+---
+
+Virtualization (or "windowing") is a technique where you only render what is visible to the user. Virtualization is a powerful way to improve performance for large data sets. Pragmatic drag and drop works well with virtualization techniques. This page explains what you need to know about the underlying web platform to be successful with virtualization.
+
+## Draggables
+
+If you are using a `draggable` (from `@atlaskit/pragmatic-drag-and-drop/element/adapter`), it is completely okay for your original `draggable` element to be removed during a drag. This can happen if your `draggable` element scrolls out of view during a drag operation. Keep in mind that if your `draggable` is removed, it will stop getting [events](/components/pragmatic-drag-and-drop/events). So if you want to listen to events on a `draggable` in a virtualized view, you will want to listen for events on entities that are not being removed during a drag (eg a seperate [monitor](/components/pragmatic-drag-and-drop/monitors) or a [drop target](/components/pragmatic-drag-and-drop/drop-targets)).
+
+## onDrop events
+
+`@atlaskit/pragmatic-drag-and-drop` looks for three seperate things to determine if a drag is finished:
+
+1. `"drop"`: fires on the innermost valid drop target.
+2. `"dragend"`: fires on the `draggable` element that is being dragged.
+3. Other user events (eg `"pointermove"`): only fire after a drag operation is finished, if we see these then we know a drag operation must have finished.
+
+Determining when a drop occurs for virtual solutions can be difficult:
+
+- If your dragging `draggable` is removed during a drag operation then no `"dragend"` event will fire as `"dragend"` fires on the `draggable` element.
+- If the user drops on a _drop target_ then we will get a `"drop"` event and we will be able to fire `onDrop()` immediately.
+- If the user does not drop on a valid _drop target_ and the dragging `draggable` is removed, then we have to rely on detecting other user input events to see if the drag operation is finished. This is not ideal as it means the user needs to do a small amount of movement after releasing their pointer before we can fire `onDrop`.
+
+To get around this problem you want to make it easy for a user to always drop on a valid _drop target_ so we always get the `"drop"` event. To do this, you can make a sufficiently high element a _drop target_ (eg a virtual list container or the `body`).

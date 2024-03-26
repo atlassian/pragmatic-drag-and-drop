@@ -1,0 +1,129 @@
+---
+title: Monitors
+description: Monitors can listen to all events for a draggable entity, such as an element or file.
+---
+
+Monitors are a way of listening for drag and drop operation events anywhere.
+
+## Basic usage
+
+```ts
+// monitors are exposed through adapters
+import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+// listen for all drag events for files
+const cleanup = monitorForExternal({
+  onDragStart: () =>
+    console.log('I am called whenever any external enters this window'),
+});
+```
+
+A _monitor_ can be located anywhere and is not tied to any element.
+
+```tsx
+// basic usage with react
+import React, { useEffect, useRef } from 'react';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+
+function App() {
+  // It is often convenient to tie monitors to components using effects
+  // By doing this you can ensure you monitors are cleaned up
+  // when a component is no longer being used.
+  useEffect(() => {
+    return monitorForElements({
+      onDragStart: () =>
+        console.log('I am called whenever any element drag starts'),
+    });
+  }, []);
+
+  return <div>{/*...*/}</div>;
+}
+```
+
+## Conditional monitoring
+
+A _monitor_ can be conditionally activated for a drag operation by using the `canMonitor()` function.
+
+- `canMonitor?: (args: MonitorGetFeedbackArgs<DragType>) => boolean`
+
+```ts
+type MonitorGetFeedbackArgs = {
+  /**
+   * The users initial drag location
+   */
+  initial: DragLocation;
+  /**
+   * The data associated with the entity being dragged
+   */
+  source: DragType['payload'];
+};
+```
+
+```ts
+monitorForElements({
+  canMonitor: ({ source }) => source.data.type === 'card',
+  onDragStart: () =>
+    console.log('I will only be activated when dragging a card!'),
+});
+```
+
+`canMonitor()` is only called once for a monitor during a drag operation as the drag is starting. If a _monitor_ is added during an active drag, then `canMonitor()` will be called as it is created with the _intial_ drag source value and initial drag location. All monitors are called with the same `MonitorGetFeedbackArgs` value during the same drag operation. We wanted to make this behvaiour clear as the `source` value can change for external drag types in the `"onDrop"` event (eg files).
+
+If you want to do more complicated checks, you can do those inside of your _monitor_ event listeners:
+
+```ts
+monitorForElements({
+  // filtering will opt the monitor into the whole drag operation
+  canMonitor: ({ source }) => source.data.type === 'card',
+  onDrag: ({ location }) => {
+    // Additional action filtering based on changes during the drag
+    if (location.current.data.action === 'delete') {
+      console.log('about to delete');
+    }
+  },
+});
+```
+
+## Event ordering
+
+All events flow through the system in the same way:
+
+1. drag source (eg `draggable`) if relevant
+2. drop targets - inner most upwards (bubble ordering) `grandChild -> child -> parent`
+3. monitors (in the order that they were created)
+
+_monitors_ are called in the same order in which they are created. Over time it can be hard to reason about what this ordering is as a consumer as you might be creating / destroying monitors frequently. So it is safe to expect that "monitors are called last", but you need to be careful if you want to rely on any ordering relationships between _monitors_.
+
+```tsx
+function App() {
+  useEffect(() => {
+    const cleanup = monitorForElements({
+      onDragStart: () => 'This monitor gets created on each render!',
+    });
+    return cleanup;
+  });
+
+  return null;
+}
+```
+
+[Learn more about event ordering](../events)
+
+## Adding monitors during an event
+
+A _monitor_ that is added during an event (eg `onDragStart`) will not be called for the current event. This is to prevent the accidental creation of infinite loops. This behaviour matches native [`EventTargets`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) where an event listener cannot add another event listener during an active event to the same event target in the same event phase.
+
+```ts
+const monitor1 = monitorForElements({
+  onGenerateDragPreview: () => {
+    const monitor2 = monitorForElements({
+      // Setting up another monitor during `onGenerateDragPreview`
+      onGenerateDragPreview: () => {
+        // monitor2 will not be called for the _current_ `onGenerateDragPreview` event
+      },
+      // The monitor will be called for subsequent events
+      onDragStart: () => {},
+    });
+  },
+});
+```

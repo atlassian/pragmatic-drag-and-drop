@@ -44,6 +44,7 @@ const itemStyles = css({
   borderRadius: token('border.radius.100', '4px'),
   boxShadow: token('elevation.shadow.raised', 'none'),
   transition: `all ${smallDurationMs}ms ${easeInOut}`,
+  '-webkit-touch-callout': 'none', // needed to avoid a "save image" popup on iOS
 });
 
 type State = 'idle' | 'dragging' | 'over';
@@ -85,7 +86,7 @@ const Item = memo(function Item({ src }: { src: string }) {
       dropTargetForElements({
         element: el,
         getData: () => ({ src }),
-        getDropEffect: () => 'link',
+        getIsSticky: () => true,
         canDrop: ({ source }) =>
           source.data.instanceId === instanceId &&
           source.data.type === 'grid-item' &&

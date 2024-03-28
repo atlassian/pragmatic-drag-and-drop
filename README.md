@@ -33,7 +33,7 @@ These pieces are unopinionated about visual language or accessibility, and have 
 - _Incremental_: Only use the pieces that you need
 - _Headless_: Full rendering and style control
 - _Framework agnostic_: Works with any frontend framework
-- _Deferred compatible_: Delay the loading the cord packages and optional packages in order to further improve page load speeds
+- _Deferred compatible_: Delay the loading the core packages and optional packages in order to further improve page load speeds
 - _Flexible_: create any experience you want, make any changes you want during a drag operation.
 - _Works everywhere_: Full feature support in Firefox, Safari, and Chrome, iOS and Android
 - _Virtualization support_: create any virtual experience you want!

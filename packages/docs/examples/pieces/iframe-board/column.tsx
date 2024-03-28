@@ -6,7 +6,6 @@ import invariant from 'tiny-invariant';
 import Heading from '@atlaskit/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { mediumDurationMs } from '@atlaskit/motion/durations';
-import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
@@ -159,32 +158,72 @@ export function Column({ columnId }: { columnId: string }) {
     }
 
     return combine(
-      monitorForElements({
-        canMonitor: isHomeColumn,
-        onDrop({ source, location }) {
+      dropTargetForElements({
+        element: cardList,
+        getData: () => getColumnDropTarget({ columnId }),
+        canDrop: isHomeColumn,
+        getIsSticky: () => true,
+        onDragEnter: () => setState(isCardOver),
+        onDragLeave: () => setState(idle),
+        onDragStart: () => {
+          setState(isCardOver);
+        },
+        onDrop: ({ source, location }) => {
+          setState(idle);
+
           const data = source.data;
           if (!isCard(data)) {
             return;
           }
 
-          // dropped locally - don't do anything
-          if (location.current.dropTargets.length) {
+          const innerMost = location.current.dropTargets[0];
+          // this should not happen
+          if (!innerMost) {
             return;
           }
-
-          const cardId = localStorage.getItem(
-            dropHandledExternallyLocalStorageKey,
+          const startIndex = items.findIndex(
+            item => item.userId === data.cardId,
           );
-          if (!cardId) {
+
+          const dropTargetData = innerMost.data;
+          // dropped on a card: swap as needed
+          if (isCardDropTarget(dropTargetData)) {
+            const closestEdge = extractClosestEdge(dropTargetData);
+            // data setup issue
+            invariant(closestEdge);
+
+            const indexOfTarget = items.findIndex(
+              item => item.userId === dropTargetData.cardId,
+            );
+            invariant(
+              startIndex !== -1 && indexOfTarget !== -1,
+              'Could not find items',
+            );
+
+            const newItems = reorderWithEdge({
+              list: items,
+              startIndex,
+              indexOfTarget,
+              closestEdgeOfTarget: closestEdge,
+              axis: 'vertical',
+            });
+
+            setItems(newItems);
             return;
           }
 
-          if (cardId !== data.cardId) {
+          // dropped on the column: move item into last place
+          if (isColumnDropTarget(dropTargetData)) {
+            console.log('dropped on a column', 'moving to last place');
+
+            const newItems = reorder({
+              list: items,
+              startIndex,
+              finishIndex: items.length - 1,
+            });
+            setItems(newItems);
             return;
           }
-
-          const newItems = items.filter(item => item.userId !== data.cardId);
-          setItems(newItems);
         },
       }),
       dropTargetForExternal({
@@ -258,77 +297,36 @@ export function Column({ columnId }: { columnId: string }) {
           }
         },
       }),
-      dropTargetForElements({
-        element: cardList,
-        getData: () => getColumnDropTarget({ columnId }),
-        canDrop: isHomeColumn,
-        getIsSticky: () => true,
-        onDragEnter: () => setState(isCardOver),
-        onDragLeave: () => setState(idle),
-        onDragStart: () => {
-          setState(isCardOver);
-        },
-        onDrop: ({ source, location }) => {
-          setState(idle);
-
+      // Using a monitor to listen to 'onDrop'
+      // as when we drop externally we are no
+      // longer over the home drop target
+      monitorForElements({
+        canMonitor: isHomeColumn,
+        onDrop({ source, location }) {
           const data = source.data;
           if (!isCard(data)) {
             return;
           }
 
-          const innerMost = location.current.dropTargets[0];
-          // this should not happen
-          if (!innerMost) {
+          // dropped locally - don't do anything
+          if (location.current.dropTargets.length) {
             return;
           }
-          const startIndex = items.findIndex(
-            item => item.userId === data.cardId,
+
+          const cardId = localStorage.getItem(
+            dropHandledExternallyLocalStorageKey,
           );
-
-          const dropTargetData = innerMost.data;
-          // dropped on a card: swap as needed
-          if (isCardDropTarget(dropTargetData)) {
-            const closestEdge = extractClosestEdge(dropTargetData);
-            // data setup issue
-            invariant(closestEdge);
-
-            const indexOfTarget = items.findIndex(
-              item => item.userId === dropTargetData.cardId,
-            );
-            invariant(
-              startIndex !== -1 && indexOfTarget !== -1,
-              'Could not find items',
-            );
-
-            const newItems = reorderWithEdge({
-              list: items,
-              startIndex,
-              indexOfTarget,
-              closestEdgeOfTarget: closestEdge,
-              axis: 'vertical',
-            });
-
-            setItems(newItems);
+          if (!cardId) {
             return;
           }
 
-          // dropped on the column: move item into last place
-          if (isColumnDropTarget(dropTargetData)) {
-            console.log('dropped on a column', 'moving to last place');
-
-            const newItems = reorder({
-              list: items,
-              startIndex,
-              finishIndex: items.length - 1,
-            });
-            setItems(newItems);
+          if (cardId !== data.cardId) {
             return;
           }
+
+          const newItems = items.filter(item => item.userId !== data.cardId);
+          setItems(newItems);
         },
-      }),
-      autoScrollForElements({
-        element: scrollable,
-        canScroll: isHomeColumn,
       }),
     );
   }, [items, columnId]);

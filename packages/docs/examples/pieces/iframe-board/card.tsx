@@ -176,35 +176,6 @@ export const Card = memo(function Card({
         },
         onDrop: () => setState(idleState),
       }),
-      dropTargetForExternal({
-        element,
-        canDrop: ({ source }) => {
-          return source.types.includes(externalCardMediaType);
-        },
-        getDropEffect: () => 'move',
-        getIsSticky: () => true,
-        getData: ({ input, element }) => {
-          const data = getCardDropTarget({ cardId: userId, columnId });
-
-          return attachClosestEdge(data, {
-            input,
-            element,
-            allowedEdges: ['top', 'bottom'],
-          });
-        },
-        onDragEnter: args => {
-          setClosestEdge(extractClosestEdge(args.self.data));
-        },
-        onDrag: args => {
-          setClosestEdge(extractClosestEdge(args.self.data));
-        },
-        onDragLeave: () => {
-          setClosestEdge(null);
-        },
-        onDrop: () => {
-          setClosestEdge(null);
-        },
-      }),
       dropTargetForElements({
         element: element,
         canDrop: ({ source }) => {
@@ -232,6 +203,35 @@ export const Card = memo(function Card({
           if (args.source.data.cardId !== userId) {
             setClosestEdge(extractClosestEdge(args.self.data));
           }
+        },
+        onDragLeave: () => {
+          setClosestEdge(null);
+        },
+        onDrop: () => {
+          setClosestEdge(null);
+        },
+      }),
+      dropTargetForExternal({
+        element,
+        canDrop: ({ source }) => {
+          return source.types.includes(externalCardMediaType);
+        },
+        getDropEffect: () => 'move',
+        getIsSticky: () => true,
+        getData: ({ input, element }) => {
+          const data = getCardDropTarget({ cardId: userId, columnId });
+
+          return attachClosestEdge(data, {
+            input,
+            element,
+            allowedEdges: ['top', 'bottom'],
+          });
+        },
+        onDragEnter: args => {
+          setClosestEdge(extractClosestEdge(args.self.data));
+        },
+        onDrag: args => {
+          setClosestEdge(extractClosestEdge(args.self.data));
         },
         onDragLeave: () => {
           setClosestEdge(null);

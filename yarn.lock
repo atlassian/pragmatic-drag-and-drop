@@ -61,10 +61,10 @@
     "@atlaskit/primitives" "^5.1.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/button@^17.7.0":
-  version "17.7.2"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.7.2.tgz#e670d3dc2ecbfeb4bfbb4cff83298282f39053ea"
-  integrity sha512-zRnEhMCKsA4iyICz6oRSRmvcC84qAV230j2z97QhCUlQHvpl89Ohudi03Bj7IuxzQNirx3Q75sgSC1DLA/1Oug==
+"@atlaskit/button@^17.8.0":
+  version "17.8.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.8.0.tgz#de7e420072373a3a11f797b4df14ac4b806cea99"
+  integrity sha512-spZTtSD/oiZBpqKdLzgVzXuPqIXzpzN5ejqvnR7Z2/JCgqCVTtjAi40ODGhTYYhHGmB+8xD8NsYH/hefbrwINw==
   dependencies:
     "@atlaskit/analytics-next" "^9.2.0"
     "@atlaskit/ds-lib" "^2.2.0"
@@ -73,7 +73,7 @@
     "@atlaskit/interaction-context" "^2.1.0"
     "@atlaskit/primitives" "^5.1.0"
     "@atlaskit/spinner" "^16.0.0"
-    "@atlaskit/theme" "^12.6.0"
+    "@atlaskit/theme" "^12.7.0"
     "@atlaskit/tokens" "^1.42.0"
     "@atlaskit/visually-hidden" "^1.2.4"
     "@babel/runtime" "^7.0.0"

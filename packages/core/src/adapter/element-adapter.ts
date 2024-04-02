@@ -123,18 +123,17 @@ const adapter = makeAdapter<ElementDragType>({
           return;
         }
 
-        // the closest parent that is a draggable element will be marked as
-        // the `event.target` for the event
-        const target: EventTarget | null = event.target;
+        const targets = event.composedPath();
+        const target = targets.find((t) => t instanceof HTMLElement && draggableRegistry.has(t));
 
         // this source is only for elements
         // Note: only HTMLElements can have the "draggable" attribute
-        if (!(target instanceof HTMLElement)) {
+        if (!target) {
           return null;
         }
 
         // see if the thing being dragged is owned by us
-        const entry: DraggableArgs | undefined = draggableRegistry.get(target);
+        const entry: DraggableArgs | undefined = draggableRegistry.get(target as HTMLElement);
 
         // no matching element found
         // → dragging an element with `draggable="true"` that is not controlled by us
@@ -159,7 +158,8 @@ const adapter = makeAdapter<ElementDragType>({
 
         // Check: is there a drag handle and is the user using it?
         if (entry.dragHandle) {
-          const over = document.elementFromPoint(input.clientX, input.clientY);
+          const dragHandleSource = (target as HTMLElement).shadowRoot || document;
+          const over = dragHandleSource.elementFromPoint(input.clientX, input.clientY);
 
           // if we are not dragging from the drag handle (or something inside the drag handle)
           // then we will cancel the active drag

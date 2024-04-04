@@ -33,7 +33,7 @@ These pieces are unopinionated about visual language or accessibility, and have 
 - _Incremental_: Only use the pieces that you need
 - _Headless_: Full rendering and style control
 - _Framework agnostic_: Works with any frontend framework
-- _Deferred compatible_: Delay the loading the cord packages and optional packages in order to further improve page load speeds
+- _Deferred compatible_: Delay the loading the core packages and optional packages in order to further improve page load speeds
 - _Flexible_: create any experience you want, make any changes you want during a drag operation.
 - _Works everywhere_: Full feature support in Firefox, Safari, and Chrome, iOS and Android
 - _Virtualization support_: create any virtual experience you want!
@@ -52,7 +52,15 @@ The optional assistive controls we provide are based on the Atlassian Design Sys
 
 ## What is this repository?
 
-This repository is currently one way mirror from our internal monorepo that contains all the code for Pragmatic drag and drop. The intention of this repository is to make public our code, but not to accept code contributions (at this stage). In the future we could explore setting up a two way mirror so that contributions to this repo can also make their way back to our monorepo. You are still welcome to raise issues or suggestions on this repository!
+This repository is currently one way mirror from our internal monorepo that contains all the code for Pragmatic drag and drop.
+
+<div align="center">
+
+<img src="https://github.com/alexreardon/files/assets/2182637/b45c2dfe-2c54-459e-a3e6-68b2342fe97b" alt="Diagram of how the mirror works" width="600px">
+
+</div>
+
+ The intention of this repository is to make public our code, but not to accept code contributions (at this stage). In the future we could explore setting up a two way mirror so that contributions to this repo can also make their way back to our monorepo. You are still welcome to raise issues or suggestions on this repository!
 
 All documentation and `npm` packages are public and available for use by everyone
 

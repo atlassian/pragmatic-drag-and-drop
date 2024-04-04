@@ -1,12 +1,24 @@
 let node: HTMLElement | null = null;
 
-/**
- * These styles are recommended in
- * our Accessibility Standards for Hidden Content.
- */
+const size = '1px';
+
 const visuallyHiddenStyles = {
+  // Standard visually hidden styles.
+  // Copied from our VisuallyHidden (react) package.
+  width: size,
+  height: size,
+  padding: '0',
   position: 'absolute',
-  clip: 'rect(0 0 0 0)',
+  border: '0',
+  clip: `rect(${size}, ${size}, ${size}, ${size})`,
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  // Pulling upwards slightly to prevent the page
+  // from growing when appended to a body that contains
+  // an element with height:100%
+  marginTop: `-${size}`,
+  // Just being safe and letting this element not interfere with hitboxes
+  pointerEvents: 'none',
 };
 
 /**

@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-live-region
 
+## 1.0.4
+
+### Patch Changes
+
+- [#86309](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/86309) [`1827ac58bb32`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/1827ac58bb32) - There were some cases where our visually hidden styles could case the page to slightly increase in size. This has now been fixed.
+
 ## 1.0.3
 
 ### Patch Changes

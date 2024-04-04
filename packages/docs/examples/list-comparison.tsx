@@ -14,6 +14,7 @@ import Tabs, {
   TabList,
   TabPanelProps,
 } from '@atlaskit/tabs';
+import { fontFallback } from '@atlaskit/theme/typography';
 import { token } from '@atlaskit/tokens';
 
 import AsanaFields from './pieces/pinned-fields/experience/asana';
@@ -182,10 +183,7 @@ function ItemCaption({
 }
 
 const bigTitleStyles = css({
-  font: token(
-    'font.heading.xxlarge',
-    'normal 500 2.1875rem/2.5rem ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, system-ui, "Helvetica Neue", sans-serif',
-  ),
+  font: token('font.heading.xxlarge', fontFallback.heading.xxlarge),
   fontWeight: token('font.weight.bold', 'bold'),
   margin: 0,
 });
@@ -216,10 +214,7 @@ const sectionHeaderStyles = xcss({
 });
 
 const sectionHeaderDescriptionStyles = css({
-  font: token(
-    'font.heading.medium',
-    'normal 500 1.25rem/1.5rem ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, system-ui, "Helvetica Neue", sans-serif',
-  ),
+  font: token('font.heading.medium', fontFallback.heading.medium),
   color: token('color.text.subtle', 'currentColor'),
 });
 
@@ -252,18 +247,12 @@ const subSectionHeaderStyles = xcss({
 });
 
 const subSectionHeaderTitleStyles = css({
-  font: token(
-    'font.heading.large',
-    'normal 500 1.5rem/1.75rem ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, system-ui, "Helvetica Neue", sans-serif',
-  ),
+  font: token('font.heading.large', fontFallback.heading.large),
   fontWeight: token('font.weight.bold', 'bold'),
 });
 
 const subSectionHeaderDescriptionStyles = css({
-  font: token(
-    'font.body.large',
-    'normal 400 16px/24px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, system-ui, "Helvetica Neue", sans-serif',
-  ),
+  font: token('font.body.large', fontFallback.body.large),
   fontWeight: token('font.weight.medium', 'medium'),
   color: token('color.text.subtle', 'currentColor'),
   maxWidth: '70ch',

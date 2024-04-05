@@ -103,11 +103,40 @@ draggable({
   element: myElement,
   onGenerateDragPreview: ({ nativeSetDragImage }) => {
     setCustomNativeDragPreview({
-      render: function render({ container }) {
+      render({ container }) {
         ReactDOM.render(<Preview item={item} />, container);
         return function cleanup() {
           ReactDOM.unmountComponentAtNode(container);
         };
+      },
+      nativeSetDragImage,
+    });
+  },
+});
+```
+
+#### Usage example: plain JavaScript
+
+```ts
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+
+draggable({
+  element: myElement,
+  onGenerateDragPreview: ({ nativeSetDragImage }) => {
+    setCustomNativeDragPreview({
+      render({ container }) {
+        // Create our preview element
+        const preview = document.createElement('div');
+
+        // Populate and style the preview element however you like
+        preview.textContent = 'My Preview';
+        Object.assign(preview.style, {
+          padding: '20px',
+          backgroundColor: 'lightpink',
+        });
+
+        // put the "preview" element into the container element
+        container.appendChild(preview);
       },
       nativeSetDragImage,
     });
@@ -157,7 +186,7 @@ draggable({
         const rect = container.getBoundingClientRect();
         return { x: rect.width / 2, y: 16 };
       },
-      render: function render({ container }) {
+      render({ container }) {
         ReactDOM.render(<Preview item={item} />, container);
         return function cleanup() {
           ReactDOM.unmountComponentAtNode(container);
@@ -182,7 +211,7 @@ draggable({
   onGenerateDragPreview: ({ nativeSetDragImage }) => {
     setCustomNativeDragPreview({
       getOffset: centerUnderPointer,
-      render: function render({ container }) {
+      render({ container }) {
         /* ... */
       },
       nativeSetDragImage,
@@ -206,7 +235,7 @@ draggable({
         x: '8px',
         y: 'calc(var(--grid) * 2)',
       }),
-      render: function render({ container }) {
+      render({ container }) {
         /* ... */
       },
       nativeSetDragImage,
@@ -231,7 +260,7 @@ draggable({
         element: source.element,
         input: location.current.input,
       }),
-      render: function render({ container }) {
+      render({ container }) {
         /* ... */
       },
       nativeSetDragImage,

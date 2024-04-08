@@ -1,5 +1,5 @@
 {
-  "name": "@atlaskit/pragmatic-drag-and-drop-hitbox",
+  "name": "@talavera-app/pragmatic-drag-and-drop-hitbox",
   "version": "1.0.3",
   "description": "An optional package for Pragmatic drag and drop that enables the attaching of interaction information to a drop target",
   "author": "Atlassian Pty Ltd",
@@ -22,7 +22,7 @@
     "./util/get-reorder-destination-index": "./src/get-reorder-destination-index.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.1.0",
+    "@talavera-app/pragmatic-drag-and-drop": "^1.1.0",
     "@babel/runtime": "^7.0.0"
   },
   "peerDependencies": {},

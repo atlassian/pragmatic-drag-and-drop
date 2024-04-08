@@ -1,5 +1,5 @@
 {
-  "name": "@atlaskit/pragmatic-drag-and-drop",
+  "name": "@talavera-app/pragmatic-drag-and-drop",
   "version": "1.1.3",
   "description": "The core package for Pragmatic drag and drop - enabling fast drag and drop for any experience on any tech stack",
   "repository": "https://github.com/atlassian/pragmatic-drag-and-drop",

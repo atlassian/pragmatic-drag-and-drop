@@ -1,5 +1,5 @@
 {
-  "name": "@atlaskit/pragmatic-drag-and-drop-auto-scroll",
+  "name": "@talavera-app/pragmatic-drag-and-drop-auto-scroll",
   "version": "1.0.3",
   "description": "An optional Pragmatic drag and drop package that enables automatic scrolling during a drag operation",
   "author": "Atlassian Pty Ltd",
@@ -22,7 +22,7 @@
     "./unsafe-overflow/text-selection": "./src/entry-point/unsafe-overflow/text-selection.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.1.0",
+    "@talavera-app/pragmatic-drag-and-drop": "^1.1.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {

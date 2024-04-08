@@ -1,5 +1,5 @@
 {
-  "name": "@atlaskit/pragmatic-drag-and-drop-live-region",
+  "name": "@talavera-app/pragmatic-drag-and-drop-live-region",
   "version": "1.0.4",
   "description": "An optional package for Pragmatic drag and drop that enables screen reader messaging for alternative flows",
   "publishConfig": {

@@ -20,7 +20,7 @@
     "@emotion/react": "^11.7.1"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.5",

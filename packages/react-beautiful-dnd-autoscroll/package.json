@@ -28,7 +28,7 @@
     "wait-for-expect": "^1.2.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"
 }

@@ -29,6 +29,23 @@ Some experiences, such cards in a board, imply that items can be dragged. Use ba
 
 Combine hover background color changes with a change to the grab cursor (`cursor:grab`) to show that items can be moved. If the item has other interactions, you can delay the grab cursor till `800ms`.
 
+[You can implement this behaviour just using CSS](https://twitter.com/alexandereardon/status/1702192381007917452) (no JS needed!)
+
+```css
+.item:hover {
+  animation-duration: 0s;
+  animation-name: change-cursor;
+  animation-delay: 800ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes change-cursor {
+  to {
+    cursor: grab;
+  }
+}
+```
+
 ![A board of cards that can be dragged between columns. The cursor shows a hand grabbing a card where the background-color changes on hover.](/images/design-cards-draggable.png)
 
 Implement with [design tokens](/components/tokens/) and [cursors](./design-guidelines) in code, or use the [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-2098&mode=design>) for designs.
@@ -262,5 +279,5 @@ For more than three or four items, show a badge indicating the number and an imp
 ## Related
 
 - [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=0%3A1&mode=design&t=4UwHqNt2ffApWviO-1>)
-- [Accessibility guide](./accessibility-guidelines)]
+- [Accessibility guide](./accessibility-guidelines)
 - [More examples](/components/pragmatic-drag-and-drop/examples)

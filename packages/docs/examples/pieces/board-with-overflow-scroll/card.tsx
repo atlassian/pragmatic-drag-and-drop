@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import Avatar from '@atlaskit/avatar';
-import Button from '@atlaskit/button';
+import { IconButton } from '@atlaskit/button/new';
 import Heading from '@atlaskit/heading';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import {
@@ -93,7 +93,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(
           </Heading>
           <small css={noMarginStyles}>{role}</small>
         </Stack>
-        <Button iconBefore={<MoreIcon label="..." />} appearance="subtle" />
+        <IconButton icon={MoreIcon} appearance="subtle" label="..." />
         {state.type === 'is-card-over' && state.closestEdge && (
           <DropIndicator edge={state.closestEdge} gap={`${cardGap}px`} />
         )}

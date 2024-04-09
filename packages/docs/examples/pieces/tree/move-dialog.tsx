@@ -12,7 +12,7 @@ import {
 import { jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import Form, { Field } from '@atlaskit/form';
 import Modal, {
   ModalBody,

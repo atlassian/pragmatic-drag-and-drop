@@ -12,7 +12,7 @@ import { css, jsx } from '@emotion/react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import ImageIcon from '@atlaskit/icon/glyph/image';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { largeDurationMs, mediumDurationMs } from '@atlaskit/motion/durations';

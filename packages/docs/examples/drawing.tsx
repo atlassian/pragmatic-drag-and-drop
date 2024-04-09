@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import FocusRing from '@atlaskit/focus-ring';
 import CheckIcon from '@atlaskit/icon/glyph/check';
 import TrashIcon from '@atlaskit/icon/glyph/trash';
@@ -271,7 +271,7 @@ export default function DrawingExample() {
         <div css={dividerStyles} />
         <Button
           appearance="danger"
-          iconBefore={<TrashIcon label="" />}
+          iconBefore={TrashIcon}
           onClick={clearCanvas}
         >
           Reset

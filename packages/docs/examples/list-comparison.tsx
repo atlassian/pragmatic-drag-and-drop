@@ -242,7 +242,7 @@ function SectionHeader({
 }
 
 const subSectionHeaderStyles = xcss({
-  marginTop: token('space.400', '16px'),
+  marginTop: 'space.400',
   textAlign: 'center',
 });
 

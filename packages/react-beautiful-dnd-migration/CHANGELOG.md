@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.1.0
+
+### Minor Changes
+
+- [#87853](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/87853) [`54e884fd8d96`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/54e884fd8d96) - Increasing `react` `peerDependency` range to include `react@17` and `react@18`.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 1.0.3
 
 ### Patch Changes

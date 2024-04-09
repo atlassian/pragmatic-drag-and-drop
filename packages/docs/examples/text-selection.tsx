@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { jsx } from '@emotion/react';
 import { bindAll } from 'bind-event-listener';
 
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import { Stack } from '@atlaskit/primitives';
 
 export default function TextSelection() {

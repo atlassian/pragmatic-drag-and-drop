@@ -11,23 +11,23 @@ To listen for all events for a specific type of draggable item (element or file)
 
 - `onGenerateDragPreview` - Drag is about to start. Make changes you want to see in the drag preview.
 - `onDragStart` - Something has started dragging. You can make visual changes and they _will not_ be captured in the drag preview.
-- `onDrag` - (_throttled_) - High fidelity updates with latest user input. Useful for drawing
-- `onDropTargetChange` - Drop target hierarchy has changed in some way
-- `onDrop` - Drag operation completed
+- `onDropTargetChange` - The drop target hierarchy has changed in some way.
+- `onDrag` - (_throttled_) - High fidelity updates throughout a drag with the latest details about the drag and user input.
+- `onDrop` - Drag operation completed.
 
 ## Derived events on drop targets
 
-- `onDragEnter` (derived from `onDropTargetChange`)
-- `onDragLeave` (derived from `onDropTargetChange`)
+- `onDragEnter` (derived from `onDropTargetChange`) - a drop target is being entered into.
+- `onDragLeave` (derived from `onDropTargetChange`) - a drop target is being exited from.
 
-Derived events are not their own events in the system; rather they are events derived from other events.
+Derived drop target events are not their own events in the system; rather they are derived from other events. If a drop target wants to know about child drop target changes, then please use the `onDropTargetChange` event.
 
 ## Event ordering
 
 All events flow through the system in the same way:
 
 1. drag source (e.g. `draggable`) if relevant
-2. drop targets - inner most upwards (bubble ordering) `grandChild -> child -> parent`
+2. drop targets - inner most upwards (bubble ordering) `grandChild → child → parent`
 3. monitors (in the order that they were created)
 
 ```ts
@@ -230,7 +230,7 @@ Flow (high level)
 - `onDropTargetChange` fires on all _previous_ drop targets in bubble order (inside out)
 - `onDropTargetChange` fires on any **new** _current_ drop targets in bubble order
 
-> Scenario: [B, A] -> [C, A]
+> Scenario: [B, A] → [C, A]
 
 - `onDropTargetChange` fires on `draggable`
 - `onDropTargetChange` fires on `dropTarget(B)`
@@ -238,7 +238,7 @@ Flow (high level)
 - _now going to fire on newly added drop targets in bubble order_
 - `onDropTargetChange` fires on `dropTarget(C)`
 
-> Scenario: [B, A] -> [D, C]
+> Scenario: [B, A] → [D, C]
 
 - `onDropTargetChange` fires on `draggable`
 - `onDropTargetChange` fires on `dropTarget(B)`
@@ -254,7 +254,7 @@ The `onDropTargetChange` event allows you to know a lot of information about dro
 
 The `onDragEnter` and `onDragLeave` events are not _strictly_ their own events, but travel along side the bubbling of `onDropTargetChange`.
 
-> Scenario: [B, A] -> [C, A]
+> Scenario: [B, A] → [C, A]
 
 - `onDropTargetChange` fires on `draggable`
 - `onDropTargetChange` fires on `dropTarget(B)`
@@ -264,7 +264,7 @@ The `onDragEnter` and `onDragLeave` events are not _strictly_ their own events, 
   - `onDragEnter` fires on `dropTarget(C)` → _derived event_
 - `onDropTargetChange` fires on all monitors
 
-> Scenario: [B, A] -> [D, C]
+> Scenario: [B, A] → [D, C]
 
 - `onDropTargetChange` fires on `draggable`
 - `onDropTargetChange` fires on `dropTarget(B)`

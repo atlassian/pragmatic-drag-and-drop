@@ -1,11 +1,19 @@
 /** @jsx jsx */
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  memo,
+  Ref,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { css, jsx, SerializedStyles } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button';
+import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, {
   CustomTriggerProps,
   DropdownItem,
@@ -330,11 +338,12 @@ function DropdownMenuTrigger({
   ...triggerProps
 }: CustomTriggerProps) {
   return (
-    <Button
-      ref={triggerRef}
+    <IconButton
+      ref={triggerRef as Ref<HTMLButtonElement>}
       {...triggerProps}
       appearance="subtle"
-      iconBefore={<MoreIcon label="Actions" />}
+      icon={MoreIcon}
+      label="Actions"
     />
   );
 }

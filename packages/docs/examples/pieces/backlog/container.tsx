@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
-import Button from '@atlaskit/button';
+import Button, { IconButton } from '@atlaskit/button/new';
 import ChevronDownIcon from '@atlaskit/icon/glyph/chevron-down';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
@@ -62,7 +62,7 @@ function BacklogHeader() {
             <Badge appearance="added">0d</Badge>
           </Inline>
           <Button>Complete sprint</Button>
-          <Button iconBefore={<MoreIcon label="more actions" />} />
+          <IconButton icon={MoreIcon} label="more actions" />
         </Inline>
       </Inline>
       <Inline
@@ -73,10 +73,7 @@ function BacklogHeader() {
         {Array.from({ length: 5 }, (_, index) => (
           <Avatar key={index} size="small" />
         ))}
-        <Button
-          iconBefore={<MoreIcon label="more actions" />}
-          appearance="subtle"
-        />
+        <IconButton icon={MoreIcon} appearance="subtle" label="more actions" />
       </Inline>
     </Stack>
   );

@@ -10,7 +10,7 @@ import type { DragHandleIconProps } from './types';
 
 const iconSmallStyles = xcss({
   display: 'inline-flex',
-  marginInline: token('space.negative.050'),
+  marginInline: 'space.negative.050',
 });
 
 export function DragHandleIconSmall({ label }: DragHandleIconProps) {

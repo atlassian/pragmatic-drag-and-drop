@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { triggerPostMoveFlash } from '../src/trigger-post-move-flash';

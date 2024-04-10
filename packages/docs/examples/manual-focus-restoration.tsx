@@ -11,7 +11,7 @@ import React, {
 import invariant from 'tiny-invariant';
 
 import Avatar from '@atlaskit/avatar';
-import Button from '@atlaskit/button';
+import Button from '@atlaskit/button/new';
 import {
   draggable,
   dropTargetForElements,

@@ -115,7 +115,7 @@ High level:
 
 ### Optional arguments
 
-- `getData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a function that returns data you want to attach to the drop target. `getData()` is called _repeatedly_ while the user is dragging over the drop target in order to power addons. If your `getData()` function is expensive, consider using the [`once` utility function](/components/pragmatic-drag-and-drop/packages/core/about#once). `getData()` is called with `GetFeedbackArgs` (see below) which contains limited information about the current drag operation. Try to make your `getData()` function _pure_ (same input results in the same output)
+- `getData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a function that returns data you want to attach to the drop target. `getData()` is called _repeatedly_ while the user is dragging over the drop target in order to power addons. If your `getData()` function is expensive, consider using the [`once` utility function](./utilities). `getData()` is called with `GetFeedbackArgs` (see below) which contains limited information about the current drag operation. Try to make your `getData()` function _pure_ (same input results in the same output)
 
 ```ts
 const cleanup = dropTargetForExternal({

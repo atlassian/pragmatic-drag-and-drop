@@ -12,8 +12,8 @@ The element adapter enables you to create rich drag and drop experiences, such a
 The element adapter contains the essential pieces for element operations:
 
 - [draggable](#draggable): enable dragging of an element.
-- [dropTargetForElements](#drop-target-for-elements): marking an element as a valid [drop target](TODO)
-- [monitorForElements](#monitor-for-elements): create a [monitor](TODO) to listen for element drag operation events anywhere.
+- [dropTargetForElements](#drop-target-for-elements): marking an element as a valid [drop target](../../drop-targets)
+- [monitorForElements](#monitor-for-elements): create a [monitor](../../monitors) to listen for element drag operation events anywhere.
 - [types](#types): all types for this adapter.
 
 There are also a number of **optional** element utilities:
@@ -44,7 +44,7 @@ A `draggable` can be located:
 While a drag operation is occurring:
 
 - You can add new `draggable`s
-- You can remount a `draggable`. See [Reconciliation](../reconciliation)
+- You can remount a `draggable`. See [Reconciliation](../../reconciliation)
 - You can change the dimensions of the dragging `draggable` during a drag. But keep in mind that won't change the drag preview image, as that is collected only at the start of the drag (in `onGenerateDragPreview()`)
 - You can remove the dragging `draggable` during a drag operation. When a `draggable` is removed it's event functions (eg `onDrag`) will no longer be called. Being able to remove the dragging `draggable` is a common requirement for virtual lists
 
@@ -176,7 +176,7 @@ Attaching external data from a `draggable` will not trigger the [external adapte
 
 ## Drop target for elements
 
-A [drop target](../drop-targets) for elements.
+A [drop target](../../drop-targets) for elements.
 
 The default `dropEffect` for this type of drop target is `"move"`. This lines up with our [design guides](../../design-guidelines). You can override this default with `getDropEffect()`.
 
@@ -191,7 +191,7 @@ const cleanup = dropTargetForElements({
 
 ## Monitor for elements
 
-A [monitor](../monitors) for elements.
+A [monitor](../../monitors) for elements.
 
 ```ts
 import {monitorForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';

@@ -12,7 +12,7 @@ import invariant from 'tiny-invariant';
 
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
-import Button from '@atlaskit/button';
+import { IconButton } from '@atlaskit/button/new';
 import { Checkbox } from '@atlaskit/checkbox';
 import Story16Icon from '@atlaskit/icon-object/glyph/story/16';
 import MoreIcon from '@atlaskit/icon/glyph/more';
@@ -271,7 +271,7 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
             <MinorPriorityIcon />
             <Avatar size="small" />
             <Box xcss={actionStyles}>
-              <Button iconBefore={<MoreIcon label="more actions" />} />
+              <IconButton icon={MoreIcon} label="more actions" />
             </Box>
           </Inline>
         </Inline>

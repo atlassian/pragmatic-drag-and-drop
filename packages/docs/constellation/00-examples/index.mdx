@@ -8,6 +8,7 @@ import SectionMessage from '@atlaskit/section-message';
 
 import ListExample from '../../examples/list';
 import BoardExample from '../../examples/board';
+import MultiDragExample from '../../examples/board-with-multi-drag';
 import GridExample from '../../examples/grid';
 import TableExample from '../../examples/table';
 import FileExample from '../../examples/file';
@@ -127,3 +128,27 @@ usability and accessibility reasons.
 </SectionMessage>
 
 <Example Component={VirtualListExample} appearance="showcase-only" />
+
+## Multi Drag
+
+<SectionMessage>
+
+<Stack space="space.200">
+  <p>
+    Dragging multiple items at once ("multi drag") involves creating a selection
+    mechanism on top of your experience. The selection experience in this
+    example is based on how selection works in MacOS finder. This example
+    follows the multi drag specifications as outlined in the
+    [react-beautiful-dnd multi drag
+    guide](https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/patterns/multi-drag.md).
+  </p>
+  <p>
+    This example doesn't have accessible controls right now. Check out the{' '}
+    <a href="#board">Board example</a> above to see how accessible controls are
+    done. We're aiming to add similar functionality to this example soon.
+  </p>
+</Stack>
+
+</SectionMessage>
+
+<Example Component={MultiDragExample} appearance="showcase-only" />

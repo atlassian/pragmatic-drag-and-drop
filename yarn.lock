@@ -131,10 +131,18 @@
     "@emotion/react" "^11.7.1"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/ds-lib@^2.2.0", "@atlaskit/ds-lib@^2.2.3":
+"@atlaskit/ds-lib@^2.2.0":
   version "2.2.5"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-2.2.5.tgz#c5a0a28deded9686248523373840602c436476e2"
   integrity sha512-fE7uEuB4uAJvNGncY5k+ofUYmJmVcS43MDChvhz1qG2dweYx4hktFVOowiDjt7+RtLQOXuvs7WTn3wIy25er3w==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^2.1.1"
+
+"@atlaskit/ds-lib@^2.3.0":
+  version "2.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-2.3.0.tgz#ed82039b1ca1c2e3b865864f11a05e955a93e06c"
+  integrity sha512-ULU9ZTVBvlQ9QUwKXhCju3/fUWT79zdX5omNYOIL3nUrAtBCPX7inNpIJ/D4Lx35O6XSWJRKuNFL5tR75FEYKQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^2.1.1"

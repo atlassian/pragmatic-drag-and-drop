@@ -4,6 +4,8 @@ title: Typing "data"
 description: How to get better types for "data"
 ---
 
+import SectionMessage from '@atlaskit/section-message';
+
 `dropTargetForElements` data (`getData()`) and `draggable` data (`getInitialData()`) is typed as `Record<string | symbol, unknown>`. A loose `Record` type is intentionally used as `dropTargetForElements` and `draggable` entities are spread out throughout an interface, and there are no guarentees that particular pieces are present, and what their `data` shape will look like (this is a similiar problem to typing form and field data).
 
 ```ts
@@ -23,10 +25,16 @@ dropTargetForElements({
 });
 ```
 
+## Leveraging helper functions
+
 A fantastic pattern that we recommend for _safe_ `data` types, is to leverage small helper functions.
 
 ```ts
-// data.ts
+import {
+  draggable,
+  dropTargetForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import invariant from 'tiny-invariant';
 
 // We are using a `Symbol` to guarentee the whole object is a particular shape
 const privateKey = Symbol('Card');
@@ -47,14 +55,19 @@ export function isCard(data: Record<string | symbol, unknown>): data is Card {
   return Boolean(data[privateKey]);
 }
 
-// in other files
+const myDraggable = document.querySelector('#my-draggable');
+invariant(myDraggable instanceof HTMLElement);
 
 draggable({
   element: myDraggable,
-  getInitialData: () => getCard({ cardId: '1' }),
+  getInitialData: () =>
+    getCard({
+      cardId: '1',
+    }),
 });
 
 dropTargetForElements({
+  element: myDraggable,
   onDrop({ source }) {
     const data = source.data;
     if (!isCard(data)) {
@@ -65,6 +78,49 @@ dropTargetForElements({
   },
 });
 ```
+
+## Leveraging zod
+
+You can also leverage runtime type checking libraries like [zod](https://zod.dev/) to type your `data`.
+
+```ts
+import { z } from 'zod';
+import {
+  draggable,
+  dropTargetForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import invariant from 'tiny-invariant';
+
+const CardSchema = z.object({
+  cardId: z.string(),
+});
+
+type Card = z.infer<typeof CardSchema>;
+
+const myDraggable = document.querySelector('#my-draggable');
+invariant(myDraggable instanceof HTMLElement);
+
+draggable({
+  element: myDraggable,
+  getInitialData: (): Card => ({
+    cardId: '1',
+  }),
+});
+
+dropTargetForElements({
+  element: myDraggable,
+  onDrop({ source }) {
+    const result = CardSchema.safeParse(source.data);
+    if (!result.success) {
+      return;
+    }
+    // result.data is now correctly typed to `Card`
+    console.log(result.data);
+  },
+});
+```
+
+## Why we don't leverage generics
 
 A common approach for solving similiar problems is to enable the ability to provide generics to pieces to force it's `data` type.
 
@@ -79,4 +135,72 @@ dropTargetForElements<{ cardId: string }>({
 });
 ```
 
-The trouble with this approach is that some pieces might not use the generic and so you can get runtime errors. Things also get complicated if you want a piece to handle entities with a lot of `data` types.
+This approach has some drawbacks for our use case though:
+
+- Because entities (eg `draggables` and drop targets) can be in disconnected source files and or in disconnected pieces of the interface, there are no guarentees that particular pieces will exist in an interface, or that those pieces will provide the data shapes expected.
+- Some pieces in your system might not use Generics, or might use the wrong Generics, and so you could get runtime errors.
+- Things get complicated if you want a single event handler to handle the dropping of many different types of `data`.
+- To use the example above, `onDrop` would be called with _all_ drop events, so the generic would not always be accurate.
+
+<details>
+    <summary>Exploring a built in guard (eg <tt>acceptData()</tt>)</summary>
+
+<br />
+
+<SectionMessage>
+
+The intention of this section is to show that we have thought about adding a built in guard function, but that doing so doesn't work out that well.
+
+</SectionMessage>
+
+<br />
+
+Conceptually we could introduce an `acceptData()` guard.
+
+```ts
+type Card = { cardId: string; instanceId: symbol };
+
+dropTargetForElements<Card>({
+  element: myElement,
+  // Note: this is not real API.
+  // Validate that `data` is the right type
+  acceptData({ data }): data is Card {
+    // We need to assert that `data` is a `Card`
+    return isCard(data);
+  },
+  canDrop({ data }) {
+    // let's assume that this is called after `acceptData` and
+    // `data` is now typed. Now we can do our additional checks.
+    return data.instanceId === ourInstanceId;
+  },
+  onDrop({ source }) {
+    // cardId could be typed as `string`
+    const cardId = source.data.cardId;
+  },
+});
+```
+
+- We still need to do run time checking (it's now just in a seperate place)
+- `canDrop` checks are split up into different functions
+
+<br />
+
+It seems to be cleaner to let consumers do their own runtime checking and not introduce an additional `acceptData()` guard.
+
+```ts
+// Real API
+dropTargetForElements({
+  element: myElement,
+  canDrop({ source }) {
+    return isCard(source.data) && source.data.instanceId === ourInstanceId;
+  },
+  onDrop({ source }) {
+    if (!isCard(source.data)) {
+      return;
+    }
+    // source.data is now typed as `Card`.
+  },
+});
+```
+
+</details>

@@ -28,15 +28,6 @@
     prop-types "^15.5.10"
     use-memo-one "^1.1.1"
 
-"@atlaskit/app-provider@^1.0.0":
-  version "1.0.1"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/app-provider/-/app-provider-1.0.1.tgz#ecb7399218702592a635feecf2597d8e5313e841"
-  integrity sha512-TnJC2h9gaoe765iUdG5/GzLbywIWU33C0XgA1k3WNOARqLzjdKXSe3f24E8To4M8t/S/2QH/1nOggbT00Y8nqA==
-  dependencies:
-    "@atlaskit/tokens" "^1.42.0"
-    "@babel/runtime" "^7.0.0"
-    bind-event-listener "^2.1.1"
-
 "@atlaskit/app-provider@^1.1.0":
   version "1.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/app-provider/-/app-provider-1.1.0.tgz#962fc1c65406a6046c5f51cd1de00874eb5154b8"
@@ -156,12 +147,12 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/grid@^0.11.0":
-  version "0.11.17"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.11.17.tgz#474fec6e357fc02687030c76cb25c3dc61d97688"
-  integrity sha512-MmDYDmeC/9IcQY0yFfihADX29lTw0s4Zhg8+uCJngCeqM9+daCIOpeFhGh8vbz3QV5pPKci581FgmL+WVe4czw==
+"@atlaskit/grid@^0.12.0":
+  version "0.12.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.12.0.tgz#d4db8f8e04e17cabf8f0cf2e21e0f1c5da7f61c7"
+  integrity sha512-x97w4vEKrnfkOpnwzmKR5C9jsDIiQ7f9lvvfNJ7j3wKhm42+0a8xhprFRN7o4fppKj3xMZAAZLtYbKQ9ISlogw==
   dependencies:
-    "@atlaskit/primitives" "^5.1.0"
+    "@atlaskit/primitives" "^5.5.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     tiny-invariant "^1.2.0"
@@ -232,23 +223,6 @@
   dependencies:
     "@atlaskit/theme" "^12.6.0"
     "@babel/runtime" "^7.0.0"
-
-"@atlaskit/primitives@^5.1.0":
-  version "5.1.2"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-5.1.2.tgz#1969bbb5840a683b0d076d4dce1182f600b0b975"
-  integrity sha512-PUrih8oCB906Jq1xBXSU8X9kk6ojeWnCNK1oG8mO8CXdws26seudgSh3tfHASWZ/7uvLjVaIiJ+fn0+Jh4/c+A==
-  dependencies:
-    "@atlaskit/analytics-next" "^9.2.0"
-    "@atlaskit/app-provider" "^1.0.0"
-    "@atlaskit/css" "^0.0.5"
-    "@atlaskit/ds-lib" "^2.2.0"
-    "@atlaskit/interaction-context" "^2.1.0"
-    "@atlaskit/tokens" "^1.42.0"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.1.0"
-    bind-event-listener "^2.1.1"
-    tiny-invariant "^1.2.0"
 
 "@atlaskit/primitives@^5.5.0":
   version "5.5.0"

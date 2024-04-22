@@ -68,6 +68,10 @@ draggable({
 
 dropTargetForElements({
   element: myDraggable,
+  // only allow dropping if dragging a card
+  canDrop({ source }) {
+    return isCard(source.data);
+  },
   onDrop({ source }) {
     const data = source.data;
     if (!isCard(data)) {
@@ -109,6 +113,10 @@ draggable({
 
 dropTargetForElements({
   element: myDraggable,
+  // only allow dropping if dragging a card
+  canDrop({ source }) {
+    return CardSchema.safeParse(source.data).success;
+  },
   onDrop({ source }) {
     const result = CardSchema.safeParse(source.data);
     if (!result.success) {
@@ -129,7 +137,7 @@ A common approach for solving similiar problems is to enable the ability to prov
 dropTargetForElements<{ cardId: string }>({
   element: myElement,
   onDrop({ source }) {
-    // cardId would not be typed as `string`
+    // cardId would be typed as `string` by the Generic
     const cardId = source.data.cardId;
   },
 });

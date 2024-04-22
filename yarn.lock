@@ -157,12 +157,12 @@
     "@emotion/react" "^11.7.1"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/heading@^2.1.0":
-  version "2.1.2"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-2.1.2.tgz#93b20715a22a25588a1fd8081433ec882ffc5119"
-  integrity sha512-IdjJttSlOmpe0envKMTufm0p30b7p+wzv+6eb3yY3NeQ+Rdon1OnQMfAyTMjqRFW1YJ5d27t7QwS9IagykjWXQ==
+"@atlaskit/heading@^2.2.0":
+  version "2.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-2.2.0.tgz#942b35dc45ee8a1af6de7763c528f85e4d2f8d74"
+  integrity sha512-TV698vO/VYOM1YbCbf1+wPhXM8wuX/Yp3iQCLxx3C6rNHI212tmUQ6AqflBU7T0llBn/GprQahesZ8L36cz+hQ==
   dependencies:
-    "@atlaskit/tokens" "^1.42.0"
+    "@atlaskit/tokens" "^1.43.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 

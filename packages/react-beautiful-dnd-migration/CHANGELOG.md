@@ -1,5 +1,20 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.1.1
+
+### Patch Changes
+
+- [#92913](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/92913) [`8f7e827e0978`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/8f7e827e0978) - Some Pragmatic drag and drop packages did not have `"author"` and or `"license"` attributes set in their `package.json` file. These missing attributes have now been added where required.
+
+  ```diff
+  + "author": "Atlassian Pty Ltd",
+  + "license": "Apache-2.0",
+  ```
+
+  All Pragmatic drag and drop packages were already licensed under `Apache-2.0` (see `LICENSE` files), but the `"license"` attribute in some `package.json` files was missing.
+
+- [#92913](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/92913) [`96a6f6a19a73`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/96a6f6a19a73) - Adding missing Apache 2.0 license file. This package has always been licensed under Apache 2.0 (same as the other Pragmatic drag and drop packages).
+
 ## 1.1.0
 
 ### Minor Changes

@@ -8,6 +8,7 @@ import BoardExample from '../../examples/board';
 import ListExample from '../../examples/list';
 import TreeExample from '../../examples/tree';
 import ManualFocusRestorationExample from '../../examples/manual-focus-restoration';
+import AccessibilityTriggers from '../../examples/accessibility-triggers';
 import SectionMessage from '@atlaskit/section-message';
 
 The goal of this guidance is to provide every person with a way to delightfully achieve the same outcomes in Atlassian interfaces, regardless of the technologies being used.
@@ -28,25 +29,30 @@ When building alternative flows, you need to:
 
 ## 1. Let the user trigger an outcome
 
-Provide alternative controls that work well with assistive technologies (for example, a button and a menu) to enable the user trigger outcomes.
+Use visible and accessible controls (for example, buttons, menus, and forms) to make it easy for people using assistive technologies to trigger the same outcomes as a drag operation.
 
-### Accessible controls
+### General pattern: buttons and menus
 
-Use visible and accessible controls (for example, buttons, menus, and forms) to make it easy for people using assistive technologies to trigger the some outcomes as a drag operation.
+Draggable entities should have a button that can be used to trigger an inline menu containing outcomes.
 
-Our general pattern is to add a button to a draggable entity which can be used to trigger an inline menu (for simple cases), or a modal with a form (for more complex cases). This pattern works well for a lot of cases, but there are other cases where this approach is not appropriate - for those cases please be driven by what would be best for people using assistive technologies.
+- A draggable entity should almost always have a drag handle icon to clearly show the entity is draggable. See [design guidelines](./design-guidelines).
+- Movement outcomes should be added to an existing **More button (...)** on a draggable entity. Having a **More button (...)** does not remove the need for a drag handle icon.
+- If no **More button (...)** exists, and movement outcomes are the only possible actions for the entity, then you can convert the drag handle icon into a [drag handle menu button](./optional-packages/react-accessibility) that triggers an inline menu with movement outcomes.
+- A draggable entity should _not_ have a **More button (...)** and a [drag handle menu button](./optional-packages/react-accessibility).
 
-Your draggable will need have a visible button for triggering outcomes. You can leverage an existing **More actions (...)** button, or your drag handle (which you can make a [drag handle menu](./optional-packages/react-accessibility))
+<Example Component={AccessibilityTriggers} appearance="showcase-only" />
+
+This pattern works well for a lot of cases, but there are other cases where this approach is not appropriate - for those cases please be driven by what would be best for people using assistive technologies.
 
 #### Simple cases
 
-When there is only a small set of operations possible for an element, and those operations don't require any input, then we recommend that you add a button to the element that triggers an inline menu containing the possible outcomes.
+When there is only a small set of operations possible for an element, and those operations don't require any input, then we recommend that you add inline menu items for each available outcome (eg "move to top").
 
 <Example Component={ListExample} appearance="showcase-only" />
 
 #### Complex cases
 
-If there is a large amount of possible operations, or those operations require further input, we recommend that you add a button to your element that triggers a modal, and inside the modal you can provide a form to filter outcomes and collect input.
+If a particular outcome requires additional input, then relevant menu items should trigger a modal containing a form to gather that additional input from the user.
 
 <Example Component={TreeExample} appearance="showcase-only" />
 
@@ -64,7 +70,7 @@ Packages to help you:
 
 [Figma (Atlassians only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38%3A5623&mode=design&t=LsTwhMGxMe6t08K3-1>)
 
-### More controls on focus
+### Alternative pattern: focus only controls
 
 If drag handles or other menus aren't available, make it possible to access more actions on focus.
 
@@ -125,6 +131,13 @@ In this `react` example, the avatar can move between the two columns by dragging
 This requires manual focus restoration because the button is moving to a new parent and will remount. The button in the new column is not the same DOM element as the original button, so focus can't be preserved automatically.
 
 <Example Component={ManualFocusRestorationExample} appearance="showcase-only" />
+
+## Related
+
+- [Atlassian drag and drop design guidelines](./design-guidelines)
+- [Accessibility foundation general guidance](/foundations/accessibility/#meaningful-text)
+- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
+- [Live region package](./optional-packages/live-region)
 
 ## Related
 

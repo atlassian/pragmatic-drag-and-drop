@@ -27,11 +27,12 @@ import {
 import { Card } from './card';
 import {
   dropHandledExternallyLocalStorageKey,
-  externalCardMediaType,
   getColumnDropTarget,
+  getDroppedExternalCardId,
   isCard,
   isCardDropTarget,
   isColumnDropTarget,
+  isDraggingExternalCard,
 } from './data';
 
 const columnStyles = xcss({
@@ -49,7 +50,7 @@ const scrollContainerStyles = xcss({
 
 const cardListStyles = xcss({
   boxSizing: 'border-box',
-  minHeight: '100%',
+  minHeight: '200px',
   padding: 'space.100',
   gap: 'space.100',
 });
@@ -71,9 +72,7 @@ const isCardOver: State = { type: 'is-card-over' };
 const stateStyles: {
   [key in State['type']]: ReturnType<typeof xcss> | undefined;
 } = {
-  idle: xcss({
-    cursor: 'grab',
-  }),
+  idle: undefined,
   'is-card-over': xcss({
     backgroundColor: 'color.background.selected.hovered',
   }),
@@ -111,7 +110,6 @@ export function Column({ columnId }: { columnId: string }) {
 
   const columnRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const cardListRef = useRef<HTMLDivElement | null>(null);
   const scrollableRef = useRef<HTMLDivElement | null>(null);
   const [state, setState] = useState<State>(idle);
 
@@ -145,9 +143,7 @@ export function Column({ columnId }: { columnId: string }) {
   useEffect(() => {
     const column = columnRef.current;
     const header = headerRef.current;
-    const cardList = cardListRef.current;
     const scrollable = scrollableRef.current;
-    invariant(cardList);
     invariant(column);
     invariant(header);
     invariant(scrollable);
@@ -159,9 +155,9 @@ export function Column({ columnId }: { columnId: string }) {
 
     return combine(
       dropTargetForElements({
-        element: cardList,
-        getData: () => getColumnDropTarget({ columnId }),
+        element: column,
         canDrop: isHomeColumn,
+        getData: () => getColumnDropTarget({ columnId }),
         getIsSticky: () => true,
         onDragEnter: () => setState(isCardOver),
         onDragLeave: () => setState(idle),
@@ -227,25 +223,29 @@ export function Column({ columnId }: { columnId: string }) {
         },
       }),
       dropTargetForExternal({
-        element: cardList,
+        element: column,
         getDropEffect: () => 'move',
-        canDrop: ({ source }) => source.types.includes(externalCardMediaType),
+        canDrop: isDraggingExternalCard,
+        getData: () => getColumnDropTarget({ columnId }),
         getIsSticky: () => true,
         onDragEnter: () => setState(isCardOver),
         onDragLeave: () => setState(idle),
         onDrop: ({ source, location }) => {
           setState(idle);
 
-          const cardId = source.getStringData(externalCardMediaType);
+          const cardId = getDroppedExternalCardId({ source });
           if (!cardId) {
             return;
           }
 
+          // Note: could use `zod` or similar to validate shape
           const position = Number(cardId.replace('id:', ''));
-          invariant(
-            Number.isInteger(position),
-            `${position} was not an integer`,
-          );
+
+          if (!Number.isInteger(position)) {
+            // external value was not formed how we expected.
+            return;
+          }
+
           const person = getPersonFromPosition({ position });
 
           const innerMost = location.current.dropTargets[0];
@@ -316,10 +316,14 @@ export function Column({ columnId }: { columnId: string }) {
           const cardId = localStorage.getItem(
             dropHandledExternallyLocalStorageKey,
           );
+
+          // not handled externally
           if (!cardId) {
             return;
           }
 
+          // sanity check: validating that what was registered
+          // as handled matches what was being dragged
           if (cardId !== data.cardId) {
             return;
           }
@@ -344,7 +348,7 @@ export function Column({ columnId }: { columnId: string }) {
         </Heading>
       </Inline>
       <Box xcss={scrollContainerStyles} ref={scrollableRef}>
-        <Stack xcss={cardListStyles} ref={cardListRef} space="space.100">
+        <Stack xcss={cardListStyles} space="space.100">
           {items.map(item => (
             <Card item={item} key={item.userId} columnId={columnId} />
           ))}

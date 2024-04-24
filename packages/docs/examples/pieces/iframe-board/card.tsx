@@ -37,10 +37,11 @@ import { Person } from '../../data/people';
 
 import {
   dropHandledExternallyLocalStorageKey,
-  externalCardMediaType,
   getCard,
+  getCardDataForExternal,
   getCardDropTarget,
   isCard,
+  isDraggingExternalCard,
 } from './data';
 
 type State =
@@ -150,9 +151,8 @@ export const Card = memo(function Card({
       draggable({
         element: element,
         getInitialData: () => getCard({ cardId: userId, columnId }),
-        getInitialDataForExternal: () => ({
-          [externalCardMediaType]: userId,
-        }),
+        getInitialDataForExternal: () =>
+          getCardDataForExternal({ cardId: userId }),
         onGenerateDragPreview: ({ location, source, nativeSetDragImage }) => {
           const rect = source.element.getBoundingClientRect();
 
@@ -213,9 +213,7 @@ export const Card = memo(function Card({
       }),
       dropTargetForExternal({
         element,
-        canDrop: ({ source }) => {
-          return source.types.includes(externalCardMediaType);
-        },
+        canDrop: isDraggingExternalCard,
         getDropEffect: () => 'move',
         getIsSticky: () => true,
         getData: ({ input, element }) => {

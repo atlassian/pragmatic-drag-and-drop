@@ -28,6 +28,17 @@
     prop-types "^15.5.10"
     use-memo-one "^1.1.1"
 
+"@atlaskit/analytics-next@^9.3.0":
+  version "9.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/analytics-next/-/analytics-next-9.3.0.tgz#eace7b9e2de486778213ba53a64f7b1909a9c0b9"
+  integrity sha512-mR5CndP92k2gFl8sWu4DJZZEpEQ4bnp5Z3fWCZE1oySiOKK8iM+KzKH4FMCaSUGOhWW6/5VeuXCcXvaogaAmsA==
+  dependencies:
+    "@atlaskit/analytics-next-stable-react-context" "1.0.1"
+    "@atlaskit/platform-feature-flags" "^0.2.2"
+    "@babel/runtime" "^7.0.0"
+    prop-types "^15.5.10"
+    use-memo-one "^1.1.1"
+
 "@atlaskit/app-provider@^1.1.0":
   version "1.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/app-provider/-/app-provider-1.1.0.tgz#962fc1c65406a6046c5f51cd1de00874eb5154b8"
@@ -62,12 +73,12 @@
     "@atlaskit/primitives" "^5.5.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/button@^17.13.0":
-  version "17.13.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.13.0.tgz#9a004967da77a415222a38ceb42c378cda0c4d31"
-  integrity sha512-Wk//8s+XmO7ayF6g64ujSAMR/rbiD7NUqEHyK1FyEQeTvr6rgoZoBDlg9lQi+laSIDkCCTwv8TUdiJ1NficeXw==
+"@atlaskit/button@^17.14.0":
+  version "17.14.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.14.0.tgz#50d459afa40a3bd0b24fc03607f608bf84b785fb"
+  integrity sha512-7QeADH50mSok2nAgHSc6x0tchaa8Jl1P/3jkYBxlTGGfxSCbZhAhXxbvXuDOJk+O2rM67bgbwRRSNHtajh2l2g==
   dependencies:
-    "@atlaskit/analytics-next" "^9.2.0"
+    "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/focus-ring" "^1.3.9"
     "@atlaskit/icon" "^22.1.0"

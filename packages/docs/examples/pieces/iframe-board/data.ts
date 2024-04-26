@@ -1,4 +1,7 @@
 import type { ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+
+import { Person } from '../../data/people';
+
 const cardKey = Symbol('card');
 export type TCard = {
   cardId: string;
@@ -77,23 +80,24 @@ export function isCardDropTarget(
 // not exporting directly. Can only be accessed through helpers
 const externalCardMediaType = 'application/x.card';
 
-export function getCardDataForExternal({ cardId }: { cardId: string }) {
-  const base = {
-    [externalCardMediaType]: cardId,
-  };
+export function getCardDataForExternal(person: Person) {
   if (!isAndroid()) {
-    return base;
+    return {
+      [externalCardMediaType]: person.userId,
+      // bonus: data for external applications
+      ['text/plain']: `${person.name}: ${person.role}`,
+      ['text/uri-list']: window.location.href,
+    };
   }
 
   // Note: for a production application, you might want to consider
   // adding a value to `localStorage` as a way to communicate _what_
   // is dragging across iframes for Android as a few different things
   // _could_ trigger a text drag.
-  const fallback = {
-    ...base,
-    ['text/plain']: cardId,
+  return {
+    [externalCardMediaType]: person.userId, // being hopeful
+    ['text/plain']: person.userId,
   };
-  return fallback;
 }
 
 export const dropHandledExternallyLocalStorageKey =

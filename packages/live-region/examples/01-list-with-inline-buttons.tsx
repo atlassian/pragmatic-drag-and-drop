@@ -5,7 +5,8 @@ import { useCallback, useReducer } from 'react';
 
 import { css, jsx } from '@emotion/react';
 
-import Button, { ButtonGroup } from '@atlaskit/button';
+import ButtonGroup from '@atlaskit/button/button-group';
+import { IconButton } from '@atlaskit/button/new';
 import ArrowDownIcon from '@atlaskit/icon/glyph/arrow-down';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 import { token } from '@atlaskit/tokens';
@@ -63,21 +64,23 @@ const ListItem = ({
       <ButtonGroup>
         <Tooltip content={`Move ${children} up`}>
           {tooltipProps => (
-            <Button
+            <IconButton
               {...tooltipProps}
               onClick={moveUp}
-              iconBefore={<ArrowUpIcon label="" />}
+              icon={ArrowUpIcon}
               aria-disabled={isFirst}
+              label=""
             />
           )}
         </Tooltip>
         <Tooltip content={`Move ${children} down`}>
           {tooltipProps => (
-            <Button
+            <IconButton
               {...tooltipProps}
               onClick={moveDown}
-              iconBefore={<ArrowDownIcon label="" />}
+              icon={ArrowDownIcon}
               aria-disabled={isLast}
+              label=""
             />
           )}
         </Tooltip>

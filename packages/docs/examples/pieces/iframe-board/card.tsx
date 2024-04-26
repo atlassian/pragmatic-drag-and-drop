@@ -151,8 +151,7 @@ export const Card = memo(function Card({
       draggable({
         element: element,
         getInitialData: () => getCard({ cardId: userId, columnId }),
-        getInitialDataForExternal: () =>
-          getCardDataForExternal({ cardId: userId }),
+        getInitialDataForExternal: () => getCardDataForExternal(item),
         onGenerateDragPreview: ({ location, source, nativeSetDragImage }) => {
           const rect = source.element.getBoundingClientRect();
 

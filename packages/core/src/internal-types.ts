@@ -358,6 +358,11 @@ export type DropTargetArgs<DragType extends AllDragTypes> = {
    *
    * Return `false` if you want to block a drop.
    *
+   * Blocking dropping on a drop target will not block
+   * dropping on child or parent drop targets.
+   * If you want child or parent drop targets to block dropping,
+   * then they will need to return `false` from their `canDrop()`
+   *
    * `canDrop()` is called _repeatedly_ while a drop target
    * is being dragged over to allow you to dynamically
    * change your mind as to whether a drop target can be

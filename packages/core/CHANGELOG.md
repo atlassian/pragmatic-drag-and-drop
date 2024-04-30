@@ -1,5 +1,23 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.1.6
+
+### Patch Changes
+
+- [#94759](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94759) [`140fc0d20c02`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/140fc0d20c02) - Fixing our Safari workaround in `setCustomNativeDragPreview()` for a [Safari drag preview bug](https://bugs.webkit.org/show_bug.cgi?id=266025) so that it works correctly for `react@18+` usage.
+
+## 1.1.5
+
+### Patch Changes
+
+- [#94316](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94316) [`35fd5ed8e1d7`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/35fd5ed8e1d7) - Upgrading internal dependency `bind-event-listener` to `@^3.0.0`
+
+## 1.1.4
+
+### Patch Changes
+
+- [#94302](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94302) [`66ca9d1d1602`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/66ca9d1d1602) - Improving jsdoc for the drop target `canDrop` function
+
 ## 1.1.3
 
 ### Patch Changes

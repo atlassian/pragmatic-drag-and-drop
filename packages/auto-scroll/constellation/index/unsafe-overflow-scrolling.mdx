@@ -37,10 +37,12 @@ When doing standard 'over element' auto scrolling, we can leverage the DOM hiera
 Registering unsafe overflow scrolling will only enable scrolling when outside of the element. If you want the element to be scrollable when over the element, then you will also need to add 'over element' auto scrolling as well (eg `autoScrollForElements()`).
 
 ```ts
+// each adapter type has its own overflow auto scroller
 import { unsafeOverflowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
-import { unsafeOverflowForFiles } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/file';
+import { unsafeOverflowForExternal } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/external';
+import { unsafeOverflowForTextSelection } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/text-selection';
+
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
-import { autoScrollForNative } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/file';
 
 const cleanup = combine(
   // Enabling scrolling when over an element

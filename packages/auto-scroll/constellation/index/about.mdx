@@ -25,9 +25,10 @@ This package has no dependency on any view library (eg `react`), or on the Atlas
 Elements that are _registered_ for auto scrolling will be scrolled as a user drags close to the edges of the element.
 
 ```ts
+// each adapter type has its own auto scroller
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { autoScrollForExternal } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/external';
-import { autoScrollForInternalUncontrolled } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/internal-uncontrolled';
+import { autoScrollForTextSelection } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/text-selection';
 
 // enable better auto scrolling
 const cleanup = autoScrollForElements({

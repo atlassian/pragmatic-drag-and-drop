@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-docs",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "This package holds the documentation for Pragmatic drag and drop in one place. It is not intended to be consumed directly by consumers. The package is used by other tools for sharing examples",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -34,9 +34,9 @@
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^1.1.0",
     "@atlaskit/primitives": "^5.6.0",
     "@atlaskit/theme": "^12.7.0",
-    "@atlaskit/tokens": "^1.43.0",
+    "@atlaskit/tokens": "^1.44.0",
     "@emotion/react": "^11.7.1",
-    "bind-event-listener": "^2.1.1",
+    "bind-event-listener": "^3.0.0",
     "memoize-one": "^6.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",

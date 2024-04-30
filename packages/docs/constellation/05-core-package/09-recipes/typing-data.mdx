@@ -1,12 +1,12 @@
 ---
-order: 2
+order: 1
 title: Typing "data"
 description: How to get better types for "data"
 ---
 
 import SectionMessage from '@atlaskit/section-message';
 
-`dropTargetForElements` data (`getData()`) and `draggable` data (`getInitialData()`) is typed as `Record<string | symbol, unknown>`. A loose `Record` type is intentionally used as `dropTargetForElements` and `draggable` entities are spread out throughout an interface, and there are no guarentees that particular pieces are present, and what their `data` shape will look like (this is a similiar problem to typing form and field data).
+`dropTargetForElements` data (`getData()`) and `draggable` data (`getInitialData()`) are typed as `Record<string | symbol, unknown>`. A loose `Record` type is intentionally used as `dropTargetForElements` and `draggable` entities are spread out throughout an interface, and there are no guarentees that particular pieces are present, and what their `data` shape will look like (this is a similiar problem to typing form and field data).
 
 ```ts
 dropTargetForElements({

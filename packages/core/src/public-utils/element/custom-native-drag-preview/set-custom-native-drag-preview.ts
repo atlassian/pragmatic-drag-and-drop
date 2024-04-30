@@ -92,6 +92,7 @@ export function setCustomNativeDragPreview({
    * On `Safari@17.1` if a drag preview element has some opacity,
    * Safari will include elements behind the drag preview element
    * in the drag preview.
+   * Bug: https://bugs.webkit.org/show_bug.cgi?id=266025
    *
    * **Fix**
    * We push the drag preview so it is _almost_ completely offscreen so that
@@ -109,8 +110,24 @@ export function setCustomNativeDragPreview({
    * → Wrecks the opacity of the drag preview element
    */
   if (isSafari()) {
-    const rect = container.getBoundingClientRect();
-    container.style.left = `-${rect.width - 0.0001}px`;
+    /**
+     *  For some frameworks (eg `react@18+` with `ReactDOM.createRoot().render()`) the rendering
+     *  inside the `container` does not occur until after a microtask.
+     *
+     *  Notes:
+     *    - This will run before the browser takes it's picture of the element
+     *    - This will run before the animation frame that removes `container`.
+     **/
+    queueMicrotask(() => {
+      const rect = container.getBoundingClientRect();
+
+      // We cannot apply this fix if nothing has been rendered into the `container`
+      if (rect.width === 0) {
+        return;
+      }
+
+      container.style.left = `-${rect.width - 0.0001}px`;
+    });
   }
 
   nativeSetDragImage?.(container, previewOffset.x, previewOffset.y);

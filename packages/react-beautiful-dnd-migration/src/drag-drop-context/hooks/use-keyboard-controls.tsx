@@ -349,7 +349,6 @@ export function useKeyboardControls({
       const cleanupFn = bindAll(window, [
         {
           type: 'keydown',
-          // @ts-expect-error - the type inference is broken
           listener(event: KeyboardEvent) {
             /**
              * Ignores the keydown event which triggered the drag start,

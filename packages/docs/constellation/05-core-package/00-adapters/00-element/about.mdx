@@ -53,7 +53,7 @@ While a drag operation is occurring:
 - `element: HTMLElement`: a `HTMLElement` that will be draggable (using `HTMLElement` as that is the interface that allows the `"draggable"` attribute)
 - `dragHandle?: Element`: an optional `Element` that can be used to designate the part of the `draggable` that can exclusively used to drag the whole `draggable`
 - `canDrag?: (args: GetFeedbackArgs) => boolean`: used to conditionally allow dragging (see below)
-- `getInitialData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a one time attaching of data to a draggable as a drag is starting
+- `getInitialData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a one time attaching of data to a draggable as a drag is starting. If you want to understand the _type_ of data attached to a drop target elsewhere in your application, see our [typing data guide](../../recipes/typing-data).
 - `getInitialDataForExternal?: (args: GetFeedbackArgs) => {[Key in NativeMediaType]?: string;}`: used to attach native data (eg `"text/plain"`) to other `window`s or applications.
 
 ```ts
@@ -326,5 +326,5 @@ There are also some types (eg `DropTargetLocation`) that can be used for all ada
 ## Further reading
 
 - [Drag preview documentation](./drag-previews) → how to control what the user drags around during a drag
-- [Typing data](./typing-data) → how to improve the types for `"data"`
+- [Typing data](../../recipes/typing-data) → how to improve the types for `"data"`
 - [Unregistered elements](./unregistered-elements)

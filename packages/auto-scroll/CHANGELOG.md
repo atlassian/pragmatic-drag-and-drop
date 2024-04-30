@@ -1,5 +1,23 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 1.1.0
+
+### Minor Changes
+
+- [#94454](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94454) [`4b40eb010074`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4b40eb010074) - Exposing the unsafe overflow auto scroller for external drags (`unsafeOverflowAutoScrollForExternal()`). This already existed, but it was not exposed publicly 🤦‍♂️.
+
+  ```diff
+  import {unsafeOverflowAutoScrollForElements from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
+  import {unsafeOverflowAutoScrollForTextSelection} from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/text-selection';
+  + import {unsafeOverflowAutoScrollForExternal} from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/external';
+  ```
+
+## 1.0.4
+
+### Patch Changes
+
+- [#94316](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94316) [`35fd5ed8e1d7`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/35fd5ed8e1d7) - Upgrading internal dependency `bind-event-listener` to `@^3.0.0`
+
 ## 1.0.3
 
 ### Patch Changes

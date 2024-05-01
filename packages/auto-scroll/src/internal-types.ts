@@ -42,9 +42,13 @@ export type InternalConfig = {
   maxPixelScrollPerSecond: number;
   timeDampeningDurationMs: number;
   maxMainAxisHitboxSize: number;
+  allowedAxis: AllowedAxis;
 };
 
-export type PublicConfig = Partial<{ maxScrollSpeed: 'standard' | 'fast' }>;
+export type PublicConfig = Partial<{
+  maxScrollSpeed: 'standard' | 'fast';
+  allowedAxis: AllowedAxis;
+}>;
 
 export type ElementAutoScrollArgs<DragType extends AllDragTypes> = {
   element: Element;
@@ -59,3 +63,4 @@ export type WindowAutoScrollArgs<DragType extends AllDragTypes> = {
 
 export type Side = 'start' | 'end';
 export type Axis = 'vertical' | 'horizontal';
+export type AllowedAxis = Axis | 'all';

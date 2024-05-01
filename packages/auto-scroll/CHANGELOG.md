@@ -1,5 +1,21 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 1.2.0
+
+### Minor Changes
+
+- [#94103](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94103) [`4e3fb63eb288`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4e3fb63eb288) - Added axis locking functionality.
+
+  ```diff
+  autoScrollForElements({
+    element: myElement,
+    getConfiguration: () => ({
+      maxScrollSpeed: 'fast' | 'standard',
+  +    allowedAxis: 'horizontal' | 'vertical' | 'all',
+    }),
+  })
+  ```
+
 ## 1.1.0
 
 ### Minor Changes

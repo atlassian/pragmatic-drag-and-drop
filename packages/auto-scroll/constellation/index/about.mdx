@@ -7,6 +7,7 @@ description: An optional package that enables automatic scrolling during a drag 
 import SectionMessage from '@atlaskit/section-message';
 import OverElementExample from '../../examples/over-element';
 import LazyLoadedExample from '../../examples/lazy-loaded';
+import AxisLocking from '../../examples/axis-locking';
 
 This package works with any configuration of scrollable entities, and you can change the configuration of your scrollable entities in any way you like during a drag.
 
@@ -126,7 +127,10 @@ export type ElementGetFeedbackArgs = {
 ```ts
 autoScrollForElements({
   element: myElement,
-  getConfiguration: () => ({ maxScrollSpeed : 'fast' })
+  getConfiguration: () => ({
+    maxScrollSpeed: 'fast',
+    allowedAxis: 'vertical',
+  })
 }),
 ```
 
@@ -319,11 +323,26 @@ In this example, we start loading the auto scroller code after the drag has star
 
 See our [deferred loading guide](../improving-performance/deferred-loading) for more information.
 
-## Axis locking
+## Axis Locking
 
-Browsers have built in auto scrolling during a drag operation. Unfortunately, this auto scrolling does not work super well. The browser's built in auto scroller cannot be disabled. This package works with the built in auto scroller to provide an experience that feels fantastic.
+This package provides support for axis locking, which allows you to disable auto scrolling on a specific axis. However, there are some important considerations to keep in mind.
 
-Because we cannot opt out of the browser's auto scrolling, we cannot provide axis locking functionality (where auto scrolling would only occur horizontally or vertically). You can achieve 'axis locking' by changing a scroll container so that it can only be scrolled in one direction; and you can make that change when a drag is occurring if you'd like.
+```typescript
+autoScrollForElements({
+  element: myElement,
+  getConfiguration: () => ({ allowedAxis: 'vertical' })
+}),
+```
+
+Browsers have built in auto scrolling during a drag operation, which does not provide a great experience and it cannot be disabled. This package has been designed to complement built in auto scrolling. Additionally, a user can manually scroll any scroll container during a drag.
+
+Due to the inability to disable the browser's built-in auto scroller, full axis locking functionality cannot be provided by this package alone. To achieve complete axis locking, you must modify the scroll container to restrict scrolling to a single direction. This is typically accomplished by setting `overflowX` or `overflowY` to `hidden` on the scroll container.
+
+Please note that even with the `allowedAxis` prop set to a specific axis, the browser's built-in auto scroller will continue to scroll on all scrollable axes. The `allowedAxis` prop only restricts the axis from the perspective of this package, not the browser's perspective.
+
+One important aspect to note is that time dampening is not cancelled when changing the allowed axis mid-drag. This is different from the `canScroll` function, where changing it's return value does reset time dampening. This means that if you switch the allowed axis during a drag, the auto scroller will continue at its current speed on the newly allowed axis. We decided not to reset time dampening on allowed axis changes for now as it would introduce a decent amount of internal complexity.
+
+<Example Component={AxisLocking} appearance="showcase-only" />
 
 ## Declarative vs automatic scrollable entity registration
 

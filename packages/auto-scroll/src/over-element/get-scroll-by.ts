@@ -7,9 +7,10 @@ import type {
   InternalConfig,
 } from '../internal-types';
 import { canScrollOnEdge } from '../shared/can-scroll-on-edge';
-import { edges } from '../shared/edges';
+import { edgeAxisLookup, edges } from '../shared/edges';
 import { getOverElementHitbox } from '../shared/get-over-element-hitbox';
 import { getScrollChange } from '../shared/get-scroll-change';
+import { isAxisAllowed } from '../shared/is-axis-allowed';
 import { isWithin } from '../shared/is-within';
 
 type ScrollableEdge = {
@@ -41,10 +42,20 @@ export function getScrollBy({
     y: input.clientY,
   };
   const clientRect: DOMRect = getRect(element);
+  const { allowedAxis } = config;
 
   const scrollableEdges: Map<Edge, ScrollableEdge> = edges.reduce(
     (map, edge) => {
       const hitbox = getOverElementHitbox[edge]({ clientRect, config });
+      const axis = edgeAxisLookup[edge];
+
+      // Note: changing the allowed axis during a drag will not
+      // reset time dampening. It was decided it would be too
+      // complex to implement initially, and we can add it
+      // later if needed.
+      if (!isAxisAllowed(axis, allowedAxis)) {
+        return map;
+      }
 
       if (!isWithin({ client, clientRect: hitbox })) {
         return map;

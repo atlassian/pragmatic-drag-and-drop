@@ -71,15 +71,13 @@
     "@emotion/serialize" "^1.1.0"
     react-uid "^2.2.0"
 
-"@atlaskit/badge@^16.0.0":
-  version "16.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-16.0.0.tgz#e30deb24373bf01420291f75368b76198e9c0e8d"
-  integrity sha512-cqRn7Al2iVs2lmvo1RJefBL/5JwUm4YePYbnNToNdaPQkOC9fRAERGLHcNOW3QtUAXUjIZDXwCfmqBS4wbSIJw==
+"@atlaskit/badge@^16.1.0":
+  version "16.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-16.1.0.tgz#13871fa43a6110a80d9cdc782622040814db20f0"
+  integrity sha512-vQwKcc/gSOTjjIet2iDbBOsnr49iBOQQiOORw1SuWf/PkX9wDryMx2f+e++QB3nlV+IR3r+0aNBN9VWWtU45KQ==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
-    "@atlaskit/ds-explorations" "^3.4.0"
-    "@atlaskit/platform-feature-flags" "^0.2.5"
-    "@atlaskit/primitives" "^5.5.0"
+    "@atlaskit/primitives" "^5.6.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/button@^17.14.0":
@@ -140,16 +138,6 @@
     "@atlaskit/tokens" "^1.43.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.17.0"
-
-"@atlaskit/ds-explorations@^3.4.0":
-  version "3.4.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-explorations/-/ds-explorations-3.4.0.tgz#0ac847b423701abd321933bd1669841d27d9910b"
-  integrity sha512-UV9CyF75x7i/KqGRz1avobyJLvBTSkKgP8Y6fyD02JxkpTF16HmoWN3YofMlNzb9rak7P5JmA/dHCyhJfSTu4g==
-  dependencies:
-    "@atlaskit/tokens" "^1.43.0"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    tiny-invariant "^1.2.0"
 
 "@atlaskit/ds-lib@^2.2.0":
   version "2.2.5"
@@ -228,7 +216,7 @@
     "@emotion/react" "^11.7.1"
     bind-event-listener "^2.1.1"
 
-"@atlaskit/platform-feature-flags@^0.2.0", "@atlaskit/platform-feature-flags@^0.2.2", "@atlaskit/platform-feature-flags@^0.2.5":
+"@atlaskit/platform-feature-flags@^0.2.0", "@atlaskit/platform-feature-flags@^0.2.2":
   version "0.2.5"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/platform-feature-flags/-/platform-feature-flags-0.2.5.tgz#bc36b042bc960efaa5f2d71bc9b815f14c0f7f25"
   integrity sha512-0fD2aDxn2mE59D4acUhVib+YF2HDYuuPH50aYwpQdcV/CsVkAaJsMKy8WhWSulcRFeMYp72kfIfdy0qGdRB7Uw==

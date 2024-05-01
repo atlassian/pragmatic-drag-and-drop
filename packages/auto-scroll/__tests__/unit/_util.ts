@@ -456,3 +456,146 @@ export const mainAxisForSide: { [T in Edge]: Axis } = {
   left: 'horizontal',
   right: 'horizontal',
 };
+
+export type AxisScroll = Record<Axis, number>;
+export type AxisMovement = Record<Axis, boolean>;
+export type Event = { type: string } & Partial<AxisMovement>;
+export type Scenario = {
+  label: string;
+  startPosition: Position;
+  endPosition: Position;
+  expectedMovement: AxisMovement;
+};
+
+export function getScenarios(rect: DOMRect, offset: number = 0): Scenario[] {
+  return [
+    {
+      label: 'top left',
+      startPosition: {
+        x: rect.left,
+        y: rect.top,
+      },
+      endPosition: {
+        x: rect.left - offset,
+        y: rect.top - offset,
+      },
+      expectedMovement: { horizontal: true, vertical: true },
+    },
+    {
+      label: 'top',
+      startPosition: {
+        x: rect.left + rect.width / 2,
+        y: rect.top,
+      },
+      endPosition: {
+        x: rect.left + rect.width / 2,
+        y: rect.top - offset,
+      },
+      expectedMovement: { horizontal: false, vertical: true },
+    },
+    {
+      label: 'top right',
+      startPosition: {
+        x: rect.right,
+        y: rect.top,
+      },
+      endPosition: {
+        x: rect.right + offset,
+        y: rect.top - offset,
+      },
+      expectedMovement: { horizontal: true, vertical: true },
+    },
+    {
+      label: 'right',
+      startPosition: {
+        x: rect.right,
+        y: rect.top + rect.height / 2,
+      },
+      endPosition: {
+        x: rect.right + offset,
+        y: rect.top + rect.height / 2,
+      },
+      expectedMovement: { horizontal: true, vertical: false },
+    },
+    {
+      label: 'bottom right',
+      startPosition: {
+        x: rect.right,
+        y: rect.bottom,
+      },
+      endPosition: {
+        x: rect.right + offset,
+        y: rect.bottom + offset,
+      },
+      expectedMovement: { horizontal: true, vertical: true },
+    },
+    {
+      label: 'bottom',
+      startPosition: {
+        x: rect.left + rect.width / 2,
+        y: rect.bottom,
+      },
+      endPosition: {
+        x: rect.left + rect.width / 2,
+        y: rect.bottom + offset,
+      },
+      expectedMovement: { horizontal: false, vertical: true },
+    },
+    {
+      label: 'bottom left',
+      startPosition: {
+        x: rect.left,
+        y: rect.bottom,
+      },
+      endPosition: {
+        x: rect.left - offset,
+        y: rect.bottom + offset,
+      },
+      expectedMovement: { horizontal: true, vertical: true },
+    },
+    {
+      label: 'left',
+      startPosition: {
+        x: rect.left,
+        y: rect.top + rect.height / 2,
+      },
+      endPosition: {
+        x: rect.left - offset,
+        y: rect.top + rect.height / 2,
+      },
+      expectedMovement: { horizontal: true, vertical: false },
+    },
+  ];
+}
+
+export function getAxisScroll(container: HTMLElement): AxisScroll {
+  return {
+    horizontal: container.scrollLeft,
+    vertical: container.scrollTop,
+  };
+}
+
+export function hasAxisScrolled(
+  container: HTMLElement,
+  previousScroll: AxisScroll,
+): AxisMovement {
+  return {
+    horizontal: container.scrollLeft !== previousScroll.horizontal,
+    vertical: container.scrollTop !== previousScroll.vertical,
+  };
+}
+
+export function isExpectingScrollEvent(movement: AxisMovement): boolean {
+  return Object.values(movement).some(Boolean);
+}
+
+export function getExpectedEvents(movement: AxisMovement): Event[] {
+  return isExpectingScrollEvent(movement)
+    ? [
+        {
+          type: 'scroll event',
+          ...movement,
+        },
+      ]
+    : [];
+}

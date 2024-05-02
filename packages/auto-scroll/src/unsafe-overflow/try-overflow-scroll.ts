@@ -3,11 +3,11 @@ import type {
   Input,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import { ElementGetFeedbackArgs } from '../internal-types';
+import { type ElementGetFeedbackArgs } from '../internal-types';
 import { getInternalConfig } from '../shared/configuration';
 
 import { getScrollBy } from './get-scroll-by';
-import { UnsafeOverflowAutoScrollArgs } from './types';
+import { type UnsafeOverflowAutoScrollArgs } from './types';
 
 export function tryOverflowScrollElements<DragType extends AllDragTypes>({
   input,
@@ -48,11 +48,13 @@ export function tryOverflowScrollElements<DragType extends AllDragTypes>({
     }
 
     const config = getInternalConfig(entry.getConfiguration?.(feedback));
+    const allowedAxis = entry.getAllowedAxis?.(feedback) ?? 'all';
 
     const scrollBy = getScrollBy({
       entry,
       input,
       timeSinceLastFrame,
+      allowedAxis,
       config,
     });
 

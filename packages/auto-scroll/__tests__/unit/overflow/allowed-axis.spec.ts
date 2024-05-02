@@ -8,12 +8,12 @@ import {
   dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
-import { AllowedAxis } from '../../../src/internal-types';
+import { type AllowedAxis } from '../../../src/internal-types';
 import {
   advanceTimersToNextFrame,
   appendToBody,
-  AxisScroll,
-  Event,
+  type AxisScroll,
+  type Event,
   getAxisScroll,
   getExpectedEvents,
   getScenarios,
@@ -88,7 +88,7 @@ describe('allowed axis', () => {
               bottom: 100,
             },
           }),
-          getConfiguration: () => ({ allowedAxis }),
+          getAllowedAxis: () => allowedAxis,
         }),
         bind(parentScrollContainer, {
           type: 'scroll',

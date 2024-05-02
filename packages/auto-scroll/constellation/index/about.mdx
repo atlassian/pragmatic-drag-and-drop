@@ -122,6 +122,8 @@ export type ElementGetFeedbackArgs = {
 };
 ```
 
+- _(optional)_: `getAllowedAxis: (args: ElementGetFeedbackArgs) => AllowedAxis`: used to enable auto scrolling only on a particular axis. [See Axis locking guide](#axis-locking).
+
 - _(optional)_: `getConfiguration: (args: ElementGetFeedbackArgs) => PublicConfig`: used to control some aspects of auto scrolling
 
 ```ts
@@ -129,7 +131,6 @@ autoScrollForElements({
   element: myElement,
   getConfiguration: () => ({
     maxScrollSpeed: 'fast',
-    allowedAxis: 'vertical',
   })
 }),
 ```
@@ -330,7 +331,7 @@ This package provides support for axis locking, which allows you to disable auto
 ```typescript
 autoScrollForElements({
   element: myElement,
-  getConfiguration: () => ({ allowedAxis: 'vertical' })
+  getAllowedAxis: () => 'vertical',
 }),
 ```
 

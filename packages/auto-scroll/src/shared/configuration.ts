@@ -52,6 +52,5 @@ export function getInternalConfig(
     // only allowing limited control over the config at this stage
     maxPixelScrollPerSecond:
       maxPixelScrollPerSecond[provided?.maxScrollSpeed ?? 'standard'],
-    allowedAxis: provided?.allowedAxis ?? 'all',
   };
 }

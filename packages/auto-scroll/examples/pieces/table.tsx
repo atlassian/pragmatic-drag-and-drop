@@ -77,11 +77,7 @@ export function Table() {
       }),
       autoScrollForElements({
         element,
-        getConfiguration() {
-          return {
-            allowedAxis: 'vertical',
-          };
-        },
+        getAllowedAxis: () => 'vertical',
       }),
       autoScrollWindowForElements(),
     );

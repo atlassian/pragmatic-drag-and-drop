@@ -4,11 +4,12 @@ import type {
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import {
-  ElementAutoScrollArgs,
-  ElementGetFeedbackArgs,
-  EngagementHistoryEntry,
-  InternalConfig,
-  WindowAutoScrollArgs,
+  type AllowedAxis,
+  type ElementAutoScrollArgs,
+  type ElementGetFeedbackArgs,
+  type EngagementHistoryEntry,
+  type InternalConfig,
+  type WindowAutoScrollArgs,
 } from '../internal-types';
 import { getInternalConfig } from '../shared/configuration';
 import { markAndGetEngagement } from '../shared/engagement-history';
@@ -92,11 +93,15 @@ function tryScrollElements<DragType extends AllDragTypes>({
     container.getConfiguration?.(feedback),
   );
 
+  const allowedAxis: AllowedAxis =
+    container.getAllowedAxis?.(feedback) ?? 'all';
+
   const scrollBy = getScrollBy({
     element,
     engagement,
     input,
     timeSinceLastFrame,
+    allowedAxis,
     config,
   });
 
@@ -158,11 +163,14 @@ function tryScrollWindow<DragType extends AllDragTypes>({
       entry.getConfiguration?.(feedback),
     );
 
+    const allowedAxis: AllowedAxis = entry.getAllowedAxis?.(feedback) ?? 'all';
+
     const scrollBy = getScrollBy({
       element,
       engagement,
       input,
       config,
+      allowedAxis,
       getRect: (element: Element) =>
         DOMRect.fromRect({
           y: 0,

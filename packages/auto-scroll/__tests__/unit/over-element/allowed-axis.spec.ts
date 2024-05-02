@@ -7,12 +7,12 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
-import { AllowedAxis } from '../../../src/internal-types';
+import { type AllowedAxis } from '../../../src/internal-types';
 import {
   advanceTimersToNextFrame,
   appendToBody,
-  AxisScroll,
-  Event,
+  type AxisScroll,
+  type Event,
   getAxisScroll,
   getExpectedEvents,
   getScenarios,
@@ -62,7 +62,7 @@ describe('allowed axis', () => {
           }),
           autoScrollForElements({
             element: parent,
-            getConfiguration: () => ({ allowedAxis }),
+            getAllowedAxis: () => allowedAxis,
           }),
           setElementFromPointToBe(child),
           bind(parent, {
@@ -185,11 +185,11 @@ it('should scroll on available parent axis if child axis are not allowed', () =>
     }),
     autoScrollForElements({
       element: parent,
-      getConfiguration: () => ({ allowedAxis: parentAllowedAxis }),
+      getAllowedAxis: () => parentAllowedAxis,
     }),
     autoScrollForElements({
       element: grandParent,
-      getConfiguration: () => ({ allowedAxis: grandParentAllowedAxis }),
+      getAllowedAxis: () => grandParentAllowedAxis,
     }),
     setElementFromPointToBe(child),
     bind(parent, {

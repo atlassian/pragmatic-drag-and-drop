@@ -1,6 +1,7 @@
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import type {
+  AllowedAxis,
   Axis,
   Edge,
   EngagementHistoryEntry,
@@ -28,12 +29,14 @@ export function getScrollBy({
   timeSinceLastFrame,
   engagement,
   config,
+  allowedAxis,
   getRect = getRectDefault,
 }: {
   element: Element;
   input: Input;
   engagement: EngagementHistoryEntry;
   timeSinceLastFrame: number;
+  allowedAxis: AllowedAxis;
   config: InternalConfig;
   getRect?: (element: Element) => DOMRect;
 }): Required<Pick<ScrollToOptions, 'top' | 'left'>> {
@@ -42,7 +45,6 @@ export function getScrollBy({
     y: input.clientY,
   };
   const clientRect: DOMRect = getRect(element);
-  const { allowedAxis } = config;
 
   const scrollableEdges: Map<Edge, ScrollableEdge> = edges.reduce(
     (map, edge) => {

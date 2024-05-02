@@ -1,8 +1,33 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 1.3.0
+
+### Minor Changes
+
+- [#95426](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/95426) [`a58266bf88e6`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/a58266bf88e6) - Adding axis locking functionality
+
+  ```diff
+  + // `getAllowedAxis` added to element, text selection and external auto scrollers
+
+    autoScrollForElements({
+      element: myElement,
+  +    getAllowedAxis: (args: ElementGetFeedbackArgs<DragType>) =>  'horizontal' | 'vertical' | 'all',
+    });
+
+    autoScrollWindowForElements({
+  +    getAllowedAxis: (args: WindowGetFeedbackArgs<DragType>) =>  'horizontal' | 'vertical' | 'all',
+    });
+
+    unsafeOverflowAutoScrollForElements({
+  +    getAllowedAxis?: (args: ElementGetFeedbackArgs<DragType>) => AllowedAxis;
+    })
+  ```
+
 ## 1.2.0
 
 ### Minor Changes
+
+> `1.2.0` is deprecated on `npm` and should not be used. Shortly after release we decided to change this API
 
 - [#94103](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/94103) [`4e3fb63eb288`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4e3fb63eb288) - Added axis locking functionality.
 

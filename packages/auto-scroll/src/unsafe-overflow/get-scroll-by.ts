@@ -4,7 +4,13 @@ import type {
   Position,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import type { Axis, Edge, InternalConfig, Spacing } from '../internal-types';
+import type {
+  AllowedAxis,
+  Axis,
+  Edge,
+  InternalConfig,
+  Spacing,
+} from '../internal-types';
 import { canScrollOnEdge } from '../shared/can-scroll-on-edge';
 import { edgeAxisLookup, edges } from '../shared/edges';
 import { markAndGetEngagement } from '../shared/engagement-history';
@@ -54,9 +60,11 @@ export function getScrollBy<DragType extends AllDragTypes>({
   timeSinceLastFrame,
   input,
   config,
+  allowedAxis,
 }: {
   entry: UnsafeOverflowAutoScrollArgs<DragType>;
   input: Input;
+  allowedAxis: AllowedAxis;
   timeSinceLastFrame: number;
   config: InternalConfig;
 }): Pick<ScrollToOptions, 'top' | 'left'> | null {
@@ -138,8 +146,6 @@ export function getScrollBy<DragType extends AllDragTypes>({
   // Even if no edges are scrollable, we are marking the element
   // as being engaged with to start applying time dampening
   const engagement = markAndGetEngagement(entry.element);
-
-  const { allowedAxis } = config;
 
   // Note: changing the allowed axis during a drag will not
   // reset time dampening. It was decided it would be too

@@ -1,13 +1,8 @@
+import { isFirefox } from '../is-firefox';
 import { isSafari } from '../is-safari';
 
 import { isLeavingWindowInSafari } from './count-events-for-safari';
-
-// We cannot do `target instanceof Node` as the `target` might
-// be from a different `window`.
-// We are doing some "duck typing" here to have a good signal as
-function isNodeLike(target: EventTarget): target is Node {
-  return 'nodeName' in target;
-}
+import { isFromAnotherWindow } from './is-from-another-window';
 
 export function isLeavingWindow({
   dragLeave,
@@ -28,32 +23,33 @@ export function isLeavingWindow({
     return true;
   }
 
-  /** 😤 Exceptions (`iframe`s)
+  /**
+   * 🦊 Exception: `iframe` in Firefox (`125.0`)
    *
-   * 🌏 Chrome (`121.0`)
+   * Case 1: parent `window` → child `iframe`
+   * `dragLeave.relatedTarget` is element _inside_ the child `iframe`
+   * (foreign element)
    *
-   * Case: parent `window` → child `iframe`
-   * `relatedTarget` is the `iframe` in the parent `window`
-   *
-   * Case: child `iframe` → parent `window`
-   * `relatedTarget` is `null` *(standard check)*
-   *
-   * 🦊 Firefox (`122.0`)
-   *
-   * Case: parent `window` → child `iframe`
-   * `relatedTarget` can be an element _inside_ the child `iframe`
-   *
-   * Case: child `iframe` → parent `window`
-   * `relatedTarget` can be an element _inside_ the parent `window`
-   *
+   * Case 2: child `iframe` → parent `window`
+   * `dragLeave.relatedTarget` is the `iframe` in the parent `window`
+   * (foreign element)
    */
 
-  // For Chrome
-  // Can use `instanceof` as `iframe` is in the same `window`
-  if (relatedTarget instanceof HTMLIFrameElement) {
-    return true;
+  if (isFirefox()) {
+    return isFromAnotherWindow(relatedTarget);
   }
 
-  // For Firefox
-  return isNodeLike(relatedTarget) && !document.contains(relatedTarget);
+  /**
+   * 🌏 Exception: `iframe` in Chrome (`124.0`)
+   *
+   * Case 1: parent `window` → child `iframe`
+   * `dragLeave.relatedTarget` is the `iframe` in the parent `window`
+   *
+   * Case 2: child `iframe` → parent `window`
+   * `dragLeave.relatedTarget` is `null` *(standard check)*
+   */
+
+  // Case 2
+  // Using `instanceof` check as the element will be in the same `window`
+  return relatedTarget instanceof HTMLIFrameElement;
 }

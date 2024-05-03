@@ -1,17 +1,17 @@
 import { bind, bindAll } from 'bind-event-listener';
 
 import {
-  AdapterAPI,
-  BaseEventPayload,
-  CleanupFn,
-  DropTargetEventBasePayload,
-  DropTargetEventPayloadMap,
-  DropTargetGetFeedbackArgs,
-  EventPayloadMap,
-  ExternalDragPayload,
-  ExternalDragType,
-  MonitorGetFeedbackArgs,
-  NativeMediaType,
+  type AdapterAPI,
+  type BaseEventPayload,
+  type CleanupFn,
+  type DropTargetEventBasePayload,
+  type DropTargetEventPayloadMap,
+  type DropTargetGetFeedbackArgs,
+  type EventPayloadMap,
+  type ExternalDragPayload,
+  type ExternalDragType,
+  type MonitorGetFeedbackArgs,
+  type NativeMediaType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { androidFallbackText } from '../util/android';

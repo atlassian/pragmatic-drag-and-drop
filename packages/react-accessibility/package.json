@@ -19,7 +19,7 @@
     "./drag-handle-button-small": "./src/drag-handle-button-small.tsx"
   },
   "dependencies": {
-    "@atlaskit/focus-ring": "^1.3.4",
+    "@atlaskit/focus-ring": "^1.4.0",
     "@atlaskit/icon": "^22.1.0",
     "@atlaskit/primitives": "^5.7.0",
     "@atlaskit/tokens": "^1.44.0",

@@ -155,12 +155,21 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^2.1.1"
 
-"@atlaskit/focus-ring@^1.2.0", "@atlaskit/focus-ring@^1.3.4", "@atlaskit/focus-ring@^1.3.9":
+"@atlaskit/focus-ring@^1.3.9":
   version "1.3.9"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/focus-ring/-/focus-ring-1.3.9.tgz#9a728218c6e75e80b76ecb23bfac1a2a394ed8fa"
   integrity sha512-C1saje9usb7mtldqRL3dxQToKGOwMm2Phy8pr0kYYUMmwCL8ZLJ1YWKiGlPZjIHdyK8YIgljCLXjfP5p1jGnFg==
   dependencies:
     "@atlaskit/tokens" "^1.42.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+
+"@atlaskit/focus-ring@^1.4.0":
+  version "1.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/focus-ring/-/focus-ring-1.4.0.tgz#e8d18e02a1e5c091f6be26ce4c3dfc30b7f10b02"
+  integrity sha512-YFsPMjvKcfDv/7koMXRk/VuT279tJovsXAD2rYwVAoLu2VlV1akA7n9O6qWjoFPqt5u/lS4WPvVH66CDLkfHiw==
+  dependencies:
+    "@atlaskit/tokens" "^1.44.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
@@ -295,16 +304,16 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/radio@^6.1.3":
-  version "6.1.3"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/radio/-/radio-6.1.3.tgz#2d164545041b70ea466d31cdfd9b9bf961cf25e8"
-  integrity sha512-yqv+r2rqFGZarZ3hMiU+XLzjvQZmCbsMGT2U4Gj1qI4/+tA6cOwZhFx1FQhBXYQl66fwQzuFuhVTA0ePPjYT7w==
+"@atlaskit/radio@^6.2.0":
+  version "6.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/radio/-/radio-6.2.0.tgz#e7eb417122a4ce2e4e548344928f6eaa7728ec39"
+  integrity sha512-T5tEoG+bLbQ+COCEYOxzLFKM1AawzXFpLWqP7MM2aDJ+HKjm3EVxnMKFMy+CC09ZiVc3U78bFDtJYtNvndU9Dw==
   dependencies:
-    "@atlaskit/analytics-next" "^9.2.0"
+    "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/platform-feature-flags" "^0.2.0"
     "@atlaskit/theme" "^12.7.0"
-    "@atlaskit/tokens" "^1.43.0"
+    "@atlaskit/tokens" "^1.44.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 

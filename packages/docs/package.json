@@ -20,10 +20,10 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^21.7.0",
+    "@atlaskit/avatar": "^21.8.0",
     "@atlaskit/badge": "^16.1.0",
     "@atlaskit/button": "^17.14.0",
-    "@atlaskit/code": "^15.1.0",
+    "@atlaskit/code": "^15.2.0",
     "@atlaskit/focus-ring": "^1.4.0",
     "@atlaskit/grid": "^0.12.0",
     "@atlaskit/heading": "^2.3.0",
@@ -33,8 +33,8 @@
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^1.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^1.1.0",
     "@atlaskit/primitives": "^6.1.0",
-    "@atlaskit/theme": "^12.7.0",
-    "@atlaskit/tokens": "^1.45.0",
+    "@atlaskit/theme": "^12.8.0",
+    "@atlaskit/tokens": "^1.46.0",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",
     "memoize-one": "^6.0.0",

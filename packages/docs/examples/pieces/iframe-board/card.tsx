@@ -2,7 +2,7 @@ import React, {
   forwardRef,
   Fragment,
   memo,
-  Ref,
+  type Ref,
   useEffect,
   useRef,
   useState,
@@ -18,7 +18,7 @@ import Heading from '@atlaskit/heading';
 // ongoing icon project
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -33,7 +33,7 @@ import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/externa
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
-import { Person } from '../../data/people';
+import { type Person } from '../../data/people';
 
 import {
   dropHandledExternallyLocalStorageKey,

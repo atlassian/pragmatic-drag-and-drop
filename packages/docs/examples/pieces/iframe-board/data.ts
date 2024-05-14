@@ -1,6 +1,6 @@
 import type { ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 
-import { Person } from '../../data/people';
+import { type Person } from '../../data/people';
 
 const cardKey = Symbol('card');
 export type TCard = {

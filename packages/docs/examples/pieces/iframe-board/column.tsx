@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -11,7 +11,7 @@ import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/r
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
   dropTargetForElements,
-  ElementDragPayload,
+  type ElementDragPayload,
   monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
@@ -21,7 +21,7 @@ import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import {
   getPeopleFromPosition,
   getPersonFromPosition,
-  Person,
+  type Person,
 } from '../../data/people';
 
 import { Card } from './card';
@@ -104,7 +104,6 @@ function getPeopleFromSharedPool(): Person[] {
 
   return getPeopleFromPosition({ amount, startIndex });
 }
-
 export function Column({ columnId }: { columnId: string }) {
   const [items, setItems] = useState<Person[]>(() => getPeopleFromSharedPool());
 
@@ -113,7 +112,19 @@ export function Column({ columnId }: { columnId: string }) {
   const scrollableRef = useRef<HTMLDivElement | null>(null);
   const [state, setState] = useState<State>(idle);
 
-  useLayoutEffect(() => {
+  const isHomeColumn = useCallback(
+    ({ source }: { source: ElementDragPayload }): boolean => {
+      const column = columnRef.current;
+      invariant(column);
+      return isCard(source.data) && column.contains(source.element);
+    },
+    [],
+  );
+
+  // in Safari `document.body.scrollHeight` is not updated
+  // by the time a `useLayoutEffect` runs.
+  // For simplicity, using a `useEffect` instead.
+  useEffect(() => {
     const isInIframe: boolean =
       typeof window !== 'undefined' && window.parent !== window;
 
@@ -125,11 +136,17 @@ export function Column({ columnId }: { columnId: string }) {
       return;
     }
 
-    frame.setAttribute('height', `${document.body.scrollHeight}`);
+    const updateIframeHeight = () => {
+      // Adding a little buffer as there seems to be some
+      // sub pixel rounding at various zoom levels.
+      // If we don't add the buffer, a scroll bar can appear
+      const buffer = 1;
+      frame.setAttribute('height', `${document.body.scrollHeight + buffer}`);
+    };
 
-    const observer = new MutationObserver(() => {
-      frame.setAttribute('height', `${document.body.scrollHeight}`);
-    });
+    updateIframeHeight();
+
+    const observer = new MutationObserver(() => updateIframeHeight());
 
     observer.observe(document.body, {
       childList: true,
@@ -147,11 +164,6 @@ export function Column({ columnId }: { columnId: string }) {
     invariant(column);
     invariant(header);
     invariant(scrollable);
-
-    function isHomeColumn({ source }: { source: ElementDragPayload }): boolean {
-      invariant(column);
-      return isCard(source.data) && column.contains(source.element);
-    }
 
     return combine(
       dropTargetForElements({
@@ -182,6 +194,7 @@ export function Column({ columnId }: { columnId: string }) {
           );
 
           const dropTargetData = innerMost.data;
+
           // dropped on a card: swap as needed
           if (isCardDropTarget(dropTargetData)) {
             const closestEdge = extractClosestEdge(dropTargetData);
@@ -210,8 +223,6 @@ export function Column({ columnId }: { columnId: string }) {
 
           // dropped on the column: move item into last place
           if (isColumnDropTarget(dropTargetData)) {
-            console.log('dropped on a column', 'moving to last place');
-
             const newItems = reorder({
               list: items,
               startIndex,
@@ -256,10 +267,11 @@ export function Column({ columnId }: { columnId: string }) {
 
           const dropTargetData = innerMost.data;
 
-          function update(newItems: Person[]) {
-            setItems(newItems);
+          function update(people: Person[]) {
+            setItems(people);
 
-            // put a signal in local storage that this drag was handled
+            // note: no longer using this signal
+            // due to timing issue in browsers
             localStorage.setItem(
               dropHandledExternallyLocalStorageKey,
               person.userId,
@@ -288,8 +300,6 @@ export function Column({ columnId }: { columnId: string }) {
 
           // dropped on the column: move item into last place
           if (isColumnDropTarget(dropTargetData)) {
-            console.log('dropped on a column', 'add to last place');
-
             const newItems = [...items, person];
 
             update(newItems);
@@ -297,43 +307,59 @@ export function Column({ columnId }: { columnId: string }) {
           }
         },
       }),
-      // Using a monitor to listen to 'onDrop'
-      // as when we drop externally we are no
-      // longer over the home drop target
-      monitorForElements({
-        canMonitor: isHomeColumn,
-        onDrop({ source, location }) {
-          const data = source.data;
-          if (!isCard(data)) {
-            return;
-          }
-
-          // dropped locally - don't do anything
-          if (location.current.dropTargets.length) {
-            return;
-          }
-
-          const cardId = localStorage.getItem(
-            dropHandledExternallyLocalStorageKey,
-          );
-
-          // not handled externally
-          if (!cardId) {
-            return;
-          }
-
-          // sanity check: validating that what was registered
-          // as handled matches what was being dragged
-          if (cardId !== data.cardId) {
-            return;
-          }
-
-          const newItems = items.filter(item => item.userId !== data.cardId);
-          setItems(newItems);
-        },
-      }),
     );
-  }, [items, columnId]);
+  }, [items, columnId, isHomeColumn]);
+
+  useEffect(() => {
+    return monitorForElements({
+      canMonitor: isHomeColumn,
+      onDrop({ location, source }) {
+        // drop handled locally
+        if (location.current.dropTargets.length) {
+          return;
+        }
+
+        /**
+         * Was previously looking at `localStorage` in `onDrop` but this
+         * does not work `Firefox@125.0` and `Safari @17.4.1` due to a
+         * timing bug with drag events.
+         *
+         * - 🍎 https://bugs.webkit.org/show_bug.cgi?id=274069
+         * - 🦊 https://bugzilla.mozilla.org/show_bug.cgi?id=1896323
+         *
+         * Could listen for "storage" events to know when a card is handled
+         * externally. There is a non-trivial amount of code for this as you
+         * also need to handle that the timing differences
+         *  - In Chrome you don't want to remove the dragging item when you
+         *    get the "storage" event, as then you remove the dragging item
+         *    and you no longer get a "dragend" (until our fallback drag end
+         *    logic kicks in).
+         *
+         * For now using the _weak_ signal of `dropEffect` (not public API)
+         * */
+        const wasHandledExternally: boolean = (() => {
+          const event = window.event;
+          if (!(event instanceof DragEvent)) {
+            return false;
+          }
+          return event.dataTransfer?.dropEffect === 'move';
+        })();
+
+        if (!wasHandledExternally) {
+          return;
+        }
+
+        const data = source.data;
+        if (!isCard(data)) {
+          return;
+        }
+
+        setItems(current =>
+          current.filter(item => item.userId !== data.cardId),
+        );
+      },
+    });
+  }, [isHomeColumn]);
 
   return (
     <Stack ref={columnRef} xcss={[columnStyles, stateStyles[state.type]]}>

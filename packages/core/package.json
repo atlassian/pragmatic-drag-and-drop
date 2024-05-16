@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "The core package for Pragmatic drag and drop - enabling fast drag and drop for any experience on any tech stack",
   "repository": "https://github.com/atlassian/pragmatic-drag-and-drop",
   "author": "Atlassian Pty Ltd",
@@ -9,7 +9,7 @@
   "module": "dist/esm/index.js",
   "module:es2019": "dist/es2019/index.js",
   "types": "dist/types/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": true,
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

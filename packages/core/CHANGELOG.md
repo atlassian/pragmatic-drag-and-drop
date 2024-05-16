@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.1.8
+
+### Patch Changes
+
+-   [#100196](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/100196)
+    [`da322bbbe7f5`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/da322bbbe7f5) -
+    Setting `sideEffects: true` in `package.json` as a few essential files in `core` have side
+    effects. Unfortunately we require side effects to work around browser bugs and strangeness 😅.
+
 ## 1.1.7
 
 ### Patch Changes

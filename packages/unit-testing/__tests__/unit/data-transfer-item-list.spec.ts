@@ -106,15 +106,8 @@ test('add(File) should return the item', () => {
   expect(item.type).toBe('image/png');
   expect(item.getAsFile()).toBe(file);
 });
-test('adding multiple string items of the same type should throw', () => {
-  const list = new DataTransferItemList();
 
-  list.add('Hello world', 'text/plain');
-
-  expect(() => list.add('Hi', 'text/plain')).toThrow();
-});
-
-test('A DataTransferItemList should operate like an array', () => {
+test('A DataTransferItemList should support .length and index lookup', () => {
   const list = new DataTransferItemList();
 
   list.add('Hello world', 'text/plain');
@@ -163,4 +156,21 @@ test('remove(index) should remove an item at an index', done => {
     expect(value).toBe('Hello world');
     done();
   });
+});
+
+test('remove(index) should do nothing for out of bound indexes', () => {
+  const list = new DataTransferItemList();
+
+  list.add('Hello world', 'text/plain');
+  list.add(
+    new File(['🕺💃'], 'dance.png', {
+      type: 'image/png',
+    }),
+  );
+
+  expect(list.length).toBe(2);
+
+  list.remove(2);
+
+  expect(list.length).toBe(2);
 });

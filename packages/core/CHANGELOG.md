@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.1.9
+
+### Patch Changes
+
+-   [#100243](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/100243)
+    [`1ba7a4e942d4`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/1ba7a4e942d4) -
+    Fixing typos in dev time warnings
+
 ## 1.1.8
 
 ### Patch Changes

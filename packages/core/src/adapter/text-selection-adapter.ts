@@ -1,16 +1,16 @@
 import { bindAll } from 'bind-event-listener';
 
 import {
-  AdapterAPI,
-  BaseEventPayload,
-  CleanupFn,
-  DropTargetEventBasePayload,
-  DropTargetEventPayloadMap,
-  DropTargetGetFeedbackArgs,
-  EventPayloadMap,
-  MonitorGetFeedbackArgs,
-  TextSelectionDragPayload,
-  TextSelectionDragType,
+  type AdapterAPI,
+  type BaseEventPayload,
+  type CleanupFn,
+  type DropTargetEventBasePayload,
+  type DropTargetEventPayloadMap,
+  type DropTargetGetFeedbackArgs,
+  type EventPayloadMap,
+  type MonitorGetFeedbackArgs,
+  type TextSelectionDragPayload,
+  type TextSelectionDragType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { isSafari } from '../util/is-safari';
@@ -94,7 +94,7 @@ const adapter = makeAdapter<TextSelectionDragType>({
                 `
                 It appears as though you have are not testing DragEvents correctly.
 
-                - If you are unit testing, ensure you have pollyfilled DragEvent.
+                - If you are unit testing, ensure you have polyfilled DragEvent.
                 - If you are browser testing, ensure you are dispatching drag events correctly.
 
                 Please see our testing guides for more information:

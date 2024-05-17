@@ -6,7 +6,7 @@ description: Guidance on how to test your drag and drop experiences
 
 import SectionMessage from '@atlaskit/section-message';
 
-Unfortunately, [`jsdom` does not implement `DragEvent`](https://github.com/jsdom/jsdom/issues/2913), and so you will need to setup `DragEvent`s yourself. You can use this [`DragEvent` ponyfill](https://gist.github.com/alexreardon/cbc317ede2212d6db59ba5ff59dcf419), which we plan on exposing in a testing utility package soon.
+[`jsdom` does not implement `DragEvent`](https://github.com/jsdom/jsdom/issues/2913). We have created a [`DragEvent` polyfill](/packages/pragmatic-drag-and-drop/optional-packages/unit-testing) which implements `DragEvent` for `jsdom`.
 
 You can force `@atlaskit/pragmatic-drag-and-drop` to dispatch events by firing native drag events
 

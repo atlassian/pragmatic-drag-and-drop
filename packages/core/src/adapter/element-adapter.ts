@@ -1,18 +1,18 @@
 import { bind } from 'bind-event-listener';
 
 import {
-  AdapterAPI,
-  AllEvents,
-  BaseEventPayload,
-  CleanupFn,
-  DropTargetEventBasePayload,
-  DropTargetEventPayloadMap,
-  DropTargetGetFeedbackArgs,
-  ElementDragType,
-  EventPayloadMap,
-  Input,
-  MonitorGetFeedbackArgs,
-  NativeMediaType,
+  type AdapterAPI,
+  type AllEvents,
+  type BaseEventPayload,
+  type CleanupFn,
+  type DropTargetEventBasePayload,
+  type DropTargetEventPayloadMap,
+  type DropTargetGetFeedbackArgs,
+  type ElementDragType,
+  type EventPayloadMap,
+  type Input,
+  type MonitorGetFeedbackArgs,
+  type NativeMediaType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { combine } from '../public-utils/combine';
@@ -112,7 +112,7 @@ const adapter = makeAdapter<ElementDragType>({
               `
               It appears as though you have are not testing DragEvents correctly.
 
-              - If you are unit testing, ensure you have pollyfilled DragEvent.
+              - If you are unit testing, ensure you have polyfilled DragEvent.
               - If you are browser testing, ensure you are dispatching drag events correctly.
 
               Please see our testing guides for more information:

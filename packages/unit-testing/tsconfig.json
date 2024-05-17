@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "__tests__/**/*.ts",
+    "__tests__/**/*.tsx",
+    "examples/**/*.ts",
+    "examples/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/drag-event-polyfill.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ""
+  }
+}

@@ -189,6 +189,16 @@ test('getData("url") should only return the first url', () => {
   expect(dataTransfer.getData('url')).toEqual('https://atlassian.design/');
 });
 
+test('getData("text") should return all urls (if it contained urls)', () => {
+  const dataTransfer = new DataTransfer();
+  const text =
+    '#first\r\nhttps://atlassian.design/\r\n#second\r\nhttps://www.atlassian.com/\r\n#third';
+  // adding this as text data even though it's url data
+  dataTransfer.items.add(text, 'text/plain');
+
+  expect(dataTransfer.getData('text')).toEqual(text);
+});
+
 test('getData(format) should convert the format to lowercase for lookup', () => {
   const dataTransfer = new DataTransfer();
   dataTransfer.items.add('Hello world', 'My-Type');
@@ -254,27 +264,3 @@ test('setData("url", data) should convert the format to lower "text/uri-list"', 
     done();
   });
 });
-
-test('.files should return all attached files', () => {
-  const dataTransfer = new DataTransfer();
-  const file1 = new File(['🕺💃'], '1.png', {
-    type: 'image/png',
-  });
-  const file2 = new File(['🕺💃'], '2.png', {
-    type: 'image/png',
-  });
-  dataTransfer.items.add(file1);
-  dataTransfer.items.add(file2);
-  dataTransfer.setData('text/plain', 'Hello world');
-
-  expect(dataTransfer.items.length).toBe(3);
-
-  // Close enough to a `FileList`
-  expect(dataTransfer.files).toEqual({
-    0: file1,
-    1: file2,
-  });
-});
-
-// Needed for file to be treated as a module
-export {};

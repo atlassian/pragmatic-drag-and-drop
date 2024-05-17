@@ -96,7 +96,7 @@ const adapter = makeAdapter<ExternalDragType>({
               `
               It appears as though you have are not testing DragEvents correctly.
 
-              - If you are unit testing, ensure you have pollyfilled DragEvent.
+              - If you are unit testing, ensure you have polyfilled DragEvent.
               - If you are browser testing, ensure you are dispatching drag events correctly.
 
               Please see our testing guides for more information:

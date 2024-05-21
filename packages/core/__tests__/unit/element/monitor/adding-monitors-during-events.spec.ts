@@ -5,7 +5,7 @@ import {
   draggable,
   monitorForElements,
 } from '../../../../src/entry-point/element/adapter';
-import { CleanupFn } from '../../../../src/entry-point/types';
+import { type CleanupFn } from '../../../../src/entry-point/types';
 import { appendToBody, getElements, reset } from '../../_util';
 
 afterEach(reset);

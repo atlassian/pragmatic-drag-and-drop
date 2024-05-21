@@ -1,6 +1,6 @@
 import { bindAll } from 'bind-event-listener';
 
-import { CleanupFn } from '../internal-types';
+import { type CleanupFn } from '../internal-types';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';
 
 function acceptDrop(event: DragEvent) {

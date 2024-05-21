@@ -4,7 +4,7 @@ import { combine } from '../../../../src/entry-point/combine';
 import {
   draggable,
   dropTargetForElements,
-  ElementDropTargetGetFeedbackArgs,
+  type ElementDropTargetGetFeedbackArgs,
 } from '../../../../src/entry-point/element/adapter';
 import type { DropTargetAllowedDropEffect } from '../../../../src/entry-point/types';
 import {

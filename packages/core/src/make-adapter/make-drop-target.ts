@@ -1,13 +1,13 @@
 import {
-  AllDragTypes,
-  CleanupFn,
-  DropTargetAllowedDropEffect,
-  DropTargetAPI,
-  DropTargetArgs,
-  DropTargetGetFeedbackArgs,
-  DropTargetRecord,
-  EventPayloadMap,
-  Input,
+  type AllDragTypes,
+  type CleanupFn,
+  type DropTargetAllowedDropEffect,
+  type DropTargetAPI,
+  type DropTargetArgs,
+  type DropTargetGetFeedbackArgs,
+  type DropTargetRecord,
+  type EventPayloadMap,
+  type Input,
 } from '../internal-types';
 import { combine } from '../public-utils/combine';
 import { addAttribute } from '../util/add-attribute';

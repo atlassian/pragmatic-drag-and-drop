@@ -5,12 +5,12 @@ import { combine } from '../../../src/entry-point/combine';
 import {
   draggable,
   dropTargetForElements,
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
   monitorForElements,
 } from '../../../src/entry-point/element/adapter';
 import {
-  DragLocationHistory,
-  DropTargetRecord,
+  type DragLocationHistory,
+  type DropTargetRecord,
 } from '../../../src/entry-point/types';
 import {
   appendToBody,

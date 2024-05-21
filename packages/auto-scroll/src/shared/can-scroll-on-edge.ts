@@ -1,4 +1,4 @@
-import { Edge } from '../internal-types';
+import { type Edge } from '../internal-types';
 
 export const canScrollOnEdge: {
   [key in Edge]: (element: Element) => boolean;

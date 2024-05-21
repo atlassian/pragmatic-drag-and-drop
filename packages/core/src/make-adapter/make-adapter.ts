@@ -1,9 +1,9 @@
 import {
-  AdapterAPI,
-  AllDragTypes,
-  CleanupFn,
-  DropTargetAllowedDropEffect,
-  EventPayloadMap,
+  type AdapterAPI,
+  type AllDragTypes,
+  type CleanupFn,
+  type DropTargetAllowedDropEffect,
+  type EventPayloadMap,
 } from '../internal-types';
 import { lifecycle } from '../ledger/lifecycle-manager';
 import { register } from '../ledger/usage-ledger';

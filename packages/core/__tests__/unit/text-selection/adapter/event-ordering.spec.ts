@@ -4,8 +4,8 @@ import { combine } from '../../../../src/entry-point/combine';
 import {
   dropTargetForTextSelection,
   monitorForTextSelection,
-  TextSelectionDragPayload,
-  TextSelectionEventBasePayload,
+  type TextSelectionDragPayload,
+  type TextSelectionEventBasePayload,
 } from '../../../../src/entry-point/text-selection/adapter';
 import {
   appendToBody,

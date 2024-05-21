@@ -8,7 +8,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
-import { Axis, Side } from '../../../src/internal-types';
+import { type Axis, type Side } from '../../../src/internal-types';
 import { axisLookup } from '../../../src/shared/axis';
 import { getInternalConfig } from '../../../src/shared/configuration';
 import {

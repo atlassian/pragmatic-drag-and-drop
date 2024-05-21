@@ -4,10 +4,10 @@ import { combine } from '../../../../src/entry-point/combine';
 import {
   draggable,
   dropTargetForElements,
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
   monitorForElements,
 } from '../../../../src/entry-point/element/adapter';
-import { DropTargetRecord, Input } from '../../../../src/entry-point/types';
+import { type DropTargetRecord, type Input } from '../../../../src/entry-point/types';
 import {
   appendToBody,
   getBubbleOrderedTree,

@@ -5,7 +5,7 @@ import {
   draggable,
   dropTargetForElements,
 } from '../../../../src/entry-point/element/adapter';
-import { Input } from '../../../../src/entry-point/types';
+import { type Input } from '../../../../src/entry-point/types';
 import {
   appendToBody,
   getBubbleOrderedTree,

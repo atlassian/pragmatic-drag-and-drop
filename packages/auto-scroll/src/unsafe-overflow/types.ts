@@ -1,6 +1,6 @@
 import type { AllDragTypes } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import { Edge, ElementAutoScrollArgs, Spacing } from '../internal-types';
+import { type Edge, type ElementAutoScrollArgs, type Spacing } from '../internal-types';
 
 type OppositeSide<T extends Edge> = T extends 'top'
   ? 'bottom'

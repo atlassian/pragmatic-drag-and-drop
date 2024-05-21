@@ -3,8 +3,8 @@ import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 import {
   attachInstruction,
   extractInstruction,
-  Instruction,
-  ItemMode,
+  type Instruction,
+  type ItemMode,
 } from '../../src/tree-item';
 
 import { getDefaultInput, getElements, getRect } from './_util';

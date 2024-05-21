@@ -5,7 +5,7 @@ import { elementAdapterNativeDataKey } from '../../../../src/adapter/element-ada
 import { combine } from '../../../../src/entry-point/combine';
 import {
   dropTargetForExternal,
-  ExternalEventBasePayload,
+  type ExternalEventBasePayload,
   monitorForExternal,
 } from '../../../../src/entry-point/external/adapter';
 import {

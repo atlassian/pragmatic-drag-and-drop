@@ -1,4 +1,4 @@
-import { EngagementHistoryEntry } from '../internal-types';
+import { type EngagementHistoryEntry } from '../internal-types';
 
 const ledger: Map<Element, EngagementHistoryEntry> = new Map();
 const requested: Set<Element> = new Set();

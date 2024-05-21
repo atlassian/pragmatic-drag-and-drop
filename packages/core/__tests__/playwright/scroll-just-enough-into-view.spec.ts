@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant';
 
-import { expect, Locator, test } from '@af/integration-testing';
+import { expect, type Locator, test } from '@af/integration-testing';
 
 async function getScrollTop(locator: Locator) {
   return await locator.evaluate(element => element.scrollTop);

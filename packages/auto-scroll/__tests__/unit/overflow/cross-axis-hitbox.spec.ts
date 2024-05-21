@@ -8,7 +8,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { unsafeOverflowAutoScrollForElements } from '../../../src/entry-point/unsafe-overflow/element';
-import { Axis, Edge, Side } from '../../../src/internal-types';
+import { type Axis, type Edge, type Side } from '../../../src/internal-types';
 import { axisLookup } from '../../../src/shared/axis';
 import { getInternalConfig } from '../../../src/shared/configuration';
 import { getOverElementHitbox } from '../../../src/shared/get-over-element-hitbox';

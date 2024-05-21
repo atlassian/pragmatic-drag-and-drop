@@ -1,5 +1,5 @@
 import {
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
   monitorForElements,
 } from '../../../adapter/element-adapter';
 import type { Position } from '../../../internal-types';

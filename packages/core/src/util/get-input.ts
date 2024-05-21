@@ -1,4 +1,4 @@
-import { Input } from '../internal-types';
+import { type Input } from '../internal-types';
 
 export function getInput(event: DragEvent): Input {
   return {

@@ -1,4 +1,4 @@
-import { AllDragTypes, CleanupFn } from '../internal-types';
+import { type AllDragTypes, type CleanupFn } from '../internal-types';
 
 type Entry<TypeKey extends AllDragTypes['type']> = {
   typeKey: TypeKey;

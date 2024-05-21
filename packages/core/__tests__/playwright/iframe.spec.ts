@@ -1,4 +1,4 @@
-import { BROWSERS, expect, fixTest, Page, test } from '@af/integration-testing';
+import { BROWSERS, expect, fixTest, type Page, test } from '@af/integration-testing';
 
 async function setup({ page }: { page: Page }) {
   await page.visitExample('pragmatic-drag-and-drop', 'core', 'iframe');

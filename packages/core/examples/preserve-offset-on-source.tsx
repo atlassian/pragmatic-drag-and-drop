@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Fragment, useEffect, useRef, useState } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 import ReactDOM from 'react-dom';
 
 import { combine } from '../src/entry-point/combine';

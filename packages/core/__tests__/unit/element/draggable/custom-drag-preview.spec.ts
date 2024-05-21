@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/dom';
 import { combine } from '../../../../src/entry-point/combine';
 import {
   draggable,
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
 } from '../../../../src/entry-point/element/adapter';
 import { appendToBody, getEmptyHistory, reset } from '../../_util';
 

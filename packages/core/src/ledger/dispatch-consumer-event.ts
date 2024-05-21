@@ -1,10 +1,10 @@
 import rafSchd from 'raf-schd';
 
 import {
-  AllDragTypes,
-  DragLocation,
-  DragLocationHistory,
-  EventPayloadMap,
+  type AllDragTypes,
+  type DragLocation,
+  type DragLocationHistory,
+  type EventPayloadMap,
 } from '../internal-types';
 
 const scheduleOnDrag = rafSchd((fn: () => void) => fn());

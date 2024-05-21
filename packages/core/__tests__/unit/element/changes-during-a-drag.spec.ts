@@ -4,7 +4,7 @@ import { combine } from '../../../src/entry-point/combine';
 import {
   draggable,
   dropTargetForElements,
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
   monitorForElements,
 } from '../../../src/entry-point/element/adapter';
 import {

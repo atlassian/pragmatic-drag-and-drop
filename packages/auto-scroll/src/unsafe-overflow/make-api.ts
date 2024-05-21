@@ -8,7 +8,7 @@ import type {
 import { getScheduler } from '../shared/scheduler';
 
 import { tryOverflowScrollElements } from './try-overflow-scroll';
-import { UnsafeOverflowAutoScrollArgs } from './types';
+import { type UnsafeOverflowAutoScrollArgs } from './types';
 
 export function makeApi<DragType extends AllDragTypes>({
   monitor,

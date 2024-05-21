@@ -3,7 +3,7 @@ import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
 import {
   attachInstruction,
   extractInstruction,
-  Instruction,
+  type Instruction,
 } from '../../src/tree-item';
 
 import { getDefaultInput, getElements, getRect } from './_util';

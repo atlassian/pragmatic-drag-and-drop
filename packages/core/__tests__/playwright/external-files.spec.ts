@@ -3,7 +3,7 @@ import path from 'path';
 
 import invariant from 'tiny-invariant';
 
-import { expect, Page, test } from '@af/integration-testing';
+import { expect, type Page, test } from '@af/integration-testing';
 
 async function getElement(page: Page, selector: string) {
   const result = page.locator(selector);

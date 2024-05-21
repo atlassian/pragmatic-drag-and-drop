@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant';
 import { combine } from '../../../../src/entry-point/combine';
 import {
   draggable,
-  ElementEventPayloadMap,
+  type ElementEventPayloadMap,
 } from '../../../../src/entry-point/element/adapter';
 import { centerUnderPointer } from '../../../../src/entry-point/element/center-under-pointer';
 import { setCustomNativeDragPreview } from '../../../../src/entry-point/element/set-custom-native-drag-preview';

@@ -1,4 +1,4 @@
-import { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import type {
   Axis,

@@ -2,15 +2,15 @@ import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import {
-  CleanupFn,
-  DragLocation,
-  DragLocationHistory,
-  DropTargetRecord,
-  Input,
-  Position,
+  type CleanupFn,
+  type DragLocation,
+  type DragLocationHistory,
+  type DropTargetRecord,
+  type Input,
+  type Position,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import { Axis, Edge } from '../../src/internal-types';
+import { type Axis, type Edge } from '../../src/internal-types';
 
 export function getDefaultInput(overrides: Partial<Input> = {}): Input {
   const defaults: Input = {

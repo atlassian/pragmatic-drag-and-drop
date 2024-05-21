@@ -1,6 +1,6 @@
 import { urlMediaType } from '../../util/media-types/url-media-type';
 
-import { ContainsSource } from './native-types';
+import { type ContainsSource } from './native-types';
 
 export function containsURLs({ source }: ContainsSource): boolean {
   return source.types.includes(urlMediaType);

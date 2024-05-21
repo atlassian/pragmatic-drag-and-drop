@@ -3,7 +3,7 @@ import invariant from 'tiny-invariant';
 import { combine } from '../../../../../src/entry-point/combine';
 import {
   dropTargetForExternal,
-  ExternalEventBasePayload,
+  type ExternalEventBasePayload,
   monitorForExternal,
 } from '../../../../../src/entry-point/external/adapter';
 import { getText } from '../../../../../src/entry-point/external/text';

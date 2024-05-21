@@ -5,7 +5,7 @@ import {
   dropTargetForExternal,
   monitorForExternal,
 } from '../../../../src/entry-point/external/adapter';
-import { CleanupFn } from '../../../../src/entry-point/types';
+import { type CleanupFn } from '../../../../src/entry-point/types';
 import { appendToBody, getElements, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

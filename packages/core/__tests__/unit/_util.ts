@@ -2,13 +2,13 @@ import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import {
-  CleanupFn,
-  DragLocation,
-  DragLocationHistory,
-  DropTargetRecord,
-  Input,
+  type CleanupFn,
+  type DragLocation,
+  type DragLocationHistory,
+  type DropTargetRecord,
+  type Input,
 } from '../../src/entry-point/types';
-import { NativeMediaType } from '../../src/internal-types';
+import { type NativeMediaType } from '../../src/internal-types';
 
 export function getDefaultInput(overrides: Partial<Input> = {}): Input {
   const defaults: Input = {

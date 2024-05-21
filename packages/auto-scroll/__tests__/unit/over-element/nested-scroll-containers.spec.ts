@@ -5,7 +5,7 @@ import {
   draggable,
   dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import { isWithin } from '../../../src/shared/is-within'; // this internal util is helpful for what we are trying to do

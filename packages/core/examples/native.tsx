@@ -11,12 +11,12 @@ import { token } from '@atlaskit/tokens';
 import { combine } from '../src/entry-point/combine';
 import {
   dropTargetForElements,
-  ElementDragPayload,
+  type ElementDragPayload,
   monitorForElements,
 } from '../src/entry-point/element/adapter';
 import {
   dropTargetForExternal,
-  ExternalDragPayload,
+  type ExternalDragPayload,
   monitorForExternal,
 } from '../src/entry-point/external/adapter';
 import { getFiles } from '../src/entry-point/external/file';
@@ -27,7 +27,7 @@ import { preventUnhandled } from '../src/entry-point/prevent-unhandled';
 import {
   dropTargetForTextSelection,
   monitorForTextSelection,
-  TextSelectionDragPayload,
+  type TextSelectionDragPayload,
 } from '../src/entry-point/text-selection/adapter';
 
 import { fallbackColor } from './_util/fallback';

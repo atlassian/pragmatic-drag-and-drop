@@ -1,4 +1,4 @@
-import { ContainsSource, PredicateFn } from './native-types';
+import { type ContainsSource, type PredicateFn } from './native-types';
 
 /**
  * Will return `true` when any native predicate function returns `true`.

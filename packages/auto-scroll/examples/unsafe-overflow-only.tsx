@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { autoScrollForElements } from '../src/entry-point/element';
+import { type autoScrollForElements } from '../src/entry-point/element';
 import { unsafeOverflowAutoScrollForElements } from '../src/entry-point/unsafe-overflow/element';
 
 import { Board } from './pieces/board';
-import { BoardContext, TBoardContext } from './pieces/board-context';
+import { BoardContext, type TBoardContext } from './pieces/board-context';
 
 const context: TBoardContext = {
   autoScrollBoard: (

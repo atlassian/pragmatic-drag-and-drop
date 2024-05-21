@@ -3,9 +3,9 @@ import invariant from 'tiny-invariant';
 import { combine } from '../../../../src/entry-point/combine';
 import {
   dropTargetForExternal,
-  ExternalDragPayload,
+  type ExternalDragPayload,
   monitorForExternal,
-  NativeMediaType,
+  type NativeMediaType,
 } from '../../../../src/entry-point/external/adapter';
 import { getFiles } from '../../../../src/entry-point/external/file';
 import { getHTML } from '../../../../src/entry-point/external/html';

@@ -5,9 +5,9 @@ import {
   draggable,
   dropTargetForElements,
   // ElementDropTargetArgs,
-  ElementDropTargetEventPayloadMap,
+  type ElementDropTargetEventPayloadMap,
 } from '../../../../src/entry-point/element/adapter';
-import { DropTargetRecord, Input } from '../../../../src/entry-point/types';
+import { type DropTargetRecord, type Input } from '../../../../src/entry-point/types';
 import {
   appendToBody,
   getDefaultInput,

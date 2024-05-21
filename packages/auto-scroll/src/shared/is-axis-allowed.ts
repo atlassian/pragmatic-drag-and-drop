@@ -1,4 +1,4 @@
-import { AllowedAxis, Axis } from '../internal-types';
+import { type AllowedAxis, type Axis } from '../internal-types';
 
 export function isAxisAllowed(axis: Axis, allowedAxis: AllowedAxis) {
   return allowedAxis === 'all' || axis === allowedAxis;

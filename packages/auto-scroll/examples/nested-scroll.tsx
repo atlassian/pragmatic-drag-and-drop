@@ -1,6 +1,6 @@
 /* eslint-disable @atlaskit/design-system/no-nested-styles */
 /** @jsx jsx */
-import { Fragment, ReactElement, useEffect, useRef, useState } from 'react';
+import { Fragment, type ReactElement, useEffect, useRef, useState } from 'react';
 
 import { css, Global, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';

@@ -9,7 +9,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { unsafeOverflowAutoScrollForElements } from '../../../src/entry-point/unsafe-overflow/element';
-import { Axis, Edge, Side } from '../../../src/internal-types';
+import { type Axis, type Edge, type Side } from '../../../src/internal-types';
 import { isWithin } from '../../../src/shared/is-within';
 import { mainAxisSideLookup } from '../../../src/shared/side';
 import {

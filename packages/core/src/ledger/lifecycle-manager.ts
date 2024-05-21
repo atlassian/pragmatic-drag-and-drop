@@ -1,12 +1,12 @@
 import { bindAll } from 'bind-event-listener';
 
 import {
-  AllDragTypes,
-  DragLocation,
-  DropTargetAPI,
-  DropTargetRecord,
-  EventPayloadMap,
-  Input,
+  type AllDragTypes,
+  type DragLocation,
+  type DropTargetAPI,
+  type DropTargetRecord,
+  type EventPayloadMap,
+  type Input,
 } from '../internal-types';
 import { isLeavingWindow } from '../util/changing-window/is-leaving-window';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';

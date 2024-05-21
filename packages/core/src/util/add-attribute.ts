@@ -1,4 +1,4 @@
-import { CleanupFn } from '../internal-types';
+import { type CleanupFn } from '../internal-types';
 
 export function addAttribute(
   element: Element,

@@ -5,7 +5,7 @@ import { axisLookup } from '../shared/axis';
 // line up perfectly with the 'over element' edge calculations
 import { getOverElementHitbox } from '../shared/get-over-element-hitbox';
 
-import { HitboxSpacing } from './types';
+import { type HitboxSpacing } from './types';
 
 function makeGetHitbox({ axis, side }: { axis: Axis; side: Side }) {
   return function hitbox({

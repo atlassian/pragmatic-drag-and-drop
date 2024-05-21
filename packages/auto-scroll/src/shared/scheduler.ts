@@ -1,8 +1,8 @@
 import {
-  AllDragTypes,
-  BaseEventPayload,
-  CleanupFn,
-  MonitorArgs,
+  type AllDragTypes,
+  type BaseEventPayload,
+  type CleanupFn,
+  type MonitorArgs,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import {

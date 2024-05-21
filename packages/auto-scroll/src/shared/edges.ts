@@ -1,4 +1,4 @@
-import { Axis, Edge } from '../internal-types';
+import { type Axis, type Edge } from '../internal-types';
 
 export const edges: Edge[] = ['top', 'right', 'bottom', 'left'];
 

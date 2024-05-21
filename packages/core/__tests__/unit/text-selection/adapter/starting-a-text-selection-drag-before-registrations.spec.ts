@@ -5,7 +5,7 @@ import {
   dropTargetForTextSelection,
   monitorForTextSelection,
 } from '../../../../src/entry-point/text-selection/adapter';
-import { CleanupFn } from '../../../../src/entry-point/types';
+import { type CleanupFn } from '../../../../src/entry-point/types';
 import { appendToBody, getElements, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

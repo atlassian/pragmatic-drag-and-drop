@@ -1,9 +1,9 @@
 import {
-  AllDragTypes,
-  CleanupFn,
-  EventPayloadMap,
-  MonitorArgs,
-  MonitorGetFeedbackArgs,
+  type AllDragTypes,
+  type CleanupFn,
+  type EventPayloadMap,
+  type MonitorArgs,
+  type MonitorGetFeedbackArgs,
 } from '../internal-types';
 
 type DraggingState<DragType extends AllDragTypes> = {

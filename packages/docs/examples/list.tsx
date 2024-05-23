@@ -24,7 +24,7 @@ import Lozenge from '@atlaskit/lozenge';
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
@@ -251,18 +251,17 @@ function ListItem({
     useState<DraggableState>(idleState);
 
   useEffect(() => {
-    invariant(ref.current);
-    invariant(dragHandleRef.current);
-
     const element = ref.current;
+    const dragHandle = dragHandleRef.current;
+    invariant(element);
+    invariant(dragHandle);
 
     const data = getItemData({ item, index, instanceId });
 
     return combine(
       registerItem({ itemId: item.id, element }),
       draggable({
-        element,
-        dragHandle: dragHandleRef.current,
+        element: dragHandle,
         getInitialData: () => data,
         onGenerateDragPreview({ nativeSetDragImage }) {
           setCustomNativeDragPreview({

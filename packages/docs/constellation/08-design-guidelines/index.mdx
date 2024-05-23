@@ -152,9 +152,11 @@ A drop indicator line should _not_ be used when a draggable item is being dragge
 
 #### Background color
 
-A background color change is used to communicate that an item will be placed within a particular droppable area. Background color changes should be used when there are multiple possible areas of the page a draggable item can be dropped on. The droppable area that the user is currently over should have its background color changed. A background color change should also occur when a draggable item starts in a droppable area, when there are multiple possible droppable areas.
+A background color change is used to communicate that an item will be placed within a particular droppable area.  Background color changes should be used when there are multiple possible areas of the page a draggable item can be dropped on. The droppable area that the user is currently over should have its background color changed. A background color change should also occur when a draggable item starts in a droppable area, when there are multiple possible droppable areas.
 
 ![dragging over a populated column, where a line and background color change is being displayed](/images/design-board-background-and-line.png)
+
+A background color change to communicate that dropping is possible should only be applied when a user can perform a drop operation. Sometimes an entity (eg a column) only allows dropping on a subset of that entity. Only the subset that allows dropping should have a background color change, and only when the user is dragging over that subset. We don't want to have a situation where a background color changes, but when the user drops, nothing happens.
 
 Background color change animation:
 

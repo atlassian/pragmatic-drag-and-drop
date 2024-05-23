@@ -12,7 +12,7 @@ import invariant from 'tiny-invariant';
 
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, {
-  CustomTriggerProps,
+  type CustomTriggerProps,
   DropdownItem,
   DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';
@@ -27,7 +27,7 @@ import { mediumDurationMs } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -41,13 +41,13 @@ import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/el
 import { Box, Flex, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
-import { ColumnType } from '../../data/people';
+import { type ColumnType } from '../../data/people';
 
 import { useBoardContext } from './board-context';
 import { Card } from './card';
 import {
   ColumnContext,
-  ColumnContextProps,
+  type ColumnContextProps,
   useColumnContext,
 } from './column-context';
 
@@ -151,8 +151,8 @@ const isDraggingStyles = xcss({
 export const Column = memo(function Column({ column }: { column: ColumnType }) {
   const columnId = column.columnId;
   const columnRef = useRef<HTMLDivElement | null>(null);
+  const columnInnerRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const cardListRef = useRef<HTMLDivElement | null>(null);
   const scrollableRef = useRef<HTMLDivElement | null>(null);
   const [state, setState] = useState<State>(idle);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -161,8 +161,8 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 
   useEffect(() => {
     invariant(columnRef.current);
+    invariant(columnInnerRef.current);
     invariant(headerRef.current);
-    invariant(cardListRef.current);
     invariant(scrollableRef.current);
     return combine(
       registerColumn({
@@ -205,7 +205,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
         },
       }),
       dropTargetForElements({
-        element: cardListRef.current,
+        element: columnInnerRef.current,
         getData: () => ({ columnId }),
         canDrop: ({ source }) => {
           return (
@@ -299,32 +299,38 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
         direction="column"
         xcss={[columnStyles, stateStyles[state.type]]}
       >
-        {/* Applying dragging styles to a child of our column,
-            so that they will not impact the drop indicator */}
-        <Stack xcss={[stackStyles, isDragging ? isDraggingStyles : undefined]}>
-          <Inline
-            xcss={columnHeaderStyles}
-            ref={headerRef}
-            testId={`column-header-${columnId}`}
-            spread="space-between"
-            alignBlock="center"
+        {/* This element takes up the same visual space as the column.
+          We are using a separate element so we can have two drop targets
+          that take up the same visual space (one for cards, one for columns)
+        */}
+        <Stack xcss={stackStyles} ref={columnInnerRef}>
+          <Stack
+            xcss={[stackStyles, isDragging ? isDraggingStyles : undefined]}
           >
-            <Heading
-              level="h300"
-              as="span"
-              testId={`column-header-title-${columnId}`}
+            <Inline
+              xcss={columnHeaderStyles}
+              ref={headerRef}
+              testId={`column-header-${columnId}`}
+              spread="space-between"
+              alignBlock="center"
             >
-              {column.title}
-            </Heading>
-            <ActionMenu />
-          </Inline>
-          <Box xcss={scrollContainerStyles} ref={scrollableRef}>
-            <Stack xcss={cardListStyles} ref={cardListRef} space="space.100">
-              {column.items.map(item => (
-                <Card item={item} key={item.userId} />
-              ))}
-            </Stack>
-          </Box>
+              <Heading
+                level="h300"
+                as="span"
+                testId={`column-header-title-${columnId}`}
+              >
+                {column.title}
+              </Heading>
+              <ActionMenu />
+            </Inline>
+            <Box xcss={scrollContainerStyles} ref={scrollableRef}>
+              <Stack xcss={cardListStyles} space="space.100">
+                {column.items.map(item => (
+                  <Card item={item} key={item.userId} />
+                ))}
+              </Stack>
+            </Box>
+          </Stack>
         </Stack>
         {state.type === 'is-column-over' && state.closestEdge && (
           <DropIndicator

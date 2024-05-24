@@ -82,10 +82,10 @@
     "@atlaskit/primitives" "^5.6.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/button@^17.15.0":
-  version "17.15.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.15.0.tgz#6930fc2e63c5e6cbf6888e7ebf10dbd440e1c688"
-  integrity sha512-RRPSRN5aLVnZs16EzqtrC+cBdyIBJphFFaxbfoSbQYhVvf7erwoxUWG9aZN5GMs4AfkrGD5kZZuIVgYS0WPVXw==
+"@atlaskit/button@^17.16.0":
+  version "17.16.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-17.16.0.tgz#c6b00c1f6aaafdc6c2c72f24e7a7c4cd1e08c523"
+  integrity sha512-xw7K7fSHVsq/kROnJVlmwbcgTNz2g3OUdHPWlN5qD3Pxq9zxgsRQb7QtX/1VImb3LEq8VRgJi4qO2APHceAICA==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"

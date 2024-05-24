@@ -22,7 +22,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^21.9.0",
     "@atlaskit/badge": "^16.1.0",
-    "@atlaskit/button": "^17.15.0",
+    "@atlaskit/button": "^17.16.0",
     "@atlaskit/code": "^15.2.0",
     "@atlaskit/focus-ring": "^1.4.0",
     "@atlaskit/grid": "^0.12.0",

@@ -8,7 +8,7 @@ import React, {
 
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
 import {
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
@@ -18,7 +18,7 @@ import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 import { Stack, xcss } from '@atlaskit/primitives';
 
 import { ListContext } from './context';
-import { defaultItems, ItemData } from './data';
+import { defaultItems, type ItemData } from './data';
 import { ListItem } from './list-item';
 
 // function LazyDropdownContent({ itemData }: { itemData: ItemData }) {

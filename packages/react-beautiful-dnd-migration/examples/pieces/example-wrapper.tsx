@@ -1,9 +1,9 @@
 /** @jsx jsx */
 
 import {
-  ComponentType,
+  type ComponentType,
   createContext,
-  ReactNode,
+  type ReactNode,
   useCallback,
   useContext,
   useState,

@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';

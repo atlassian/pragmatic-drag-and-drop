@@ -1,8 +1,8 @@
 /* eslint-disable @atlaskit/design-system/no-nested-styles */
 /** @jsx jsx */
-import { Fragment, ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Code from '@atlaskit/code/inline';
 import Grid, { GridItem } from '@atlaskit/grid';
@@ -12,7 +12,7 @@ import Tabs, {
   TabPanel as AkTabPanel,
   Tab,
   TabList,
-  TabPanelProps,
+  type TabPanelProps,
 } from '@atlaskit/tabs';
 import { fontFallback } from '@atlaskit/theme/typography';
 import { token } from '@atlaskit/tokens';

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Fragment, memo, ReactNode, useEffect, useRef } from 'react';
+import { Fragment, memo, type ReactNode, useEffect, useRef } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';

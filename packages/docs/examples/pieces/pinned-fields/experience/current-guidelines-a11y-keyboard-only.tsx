@@ -14,7 +14,7 @@ import type { ReorderItem } from '../../subtasks/hooks/use-top-level-wiring';
 import { initialData } from '../data';
 import {
   Field,
-  FieldProps,
+  type FieldProps,
   PinnedFieldsContainer,
   PinnedFieldsList,
 } from '../index';

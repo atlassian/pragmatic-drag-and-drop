@@ -8,7 +8,7 @@ import type { DraggableStateSnapshot } from 'react-beautiful-dnd';
 
 import { zIndex } from '../../../../../../src/draggable/constants';
 import { setElementFromPoint } from '../../../../_util';
-import App, { RenderItem } from '../_utils/app';
+import App, { type RenderItem } from '../_utils/app';
 import { mouse, simpleLift } from '../_utils/controls';
 import {
   getLast,

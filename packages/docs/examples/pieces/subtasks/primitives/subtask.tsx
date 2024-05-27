@@ -1,8 +1,8 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';

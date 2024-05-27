@@ -1,6 +1,6 @@
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 
-import { Person } from '../../data/people';
+import { type Person } from '../../data/people';
 
 export type Status = 'todo' | 'in-progress' | 'done';
 

@@ -4,14 +4,14 @@ import { useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 
-import { DragState, useSortableField } from '../../hooks/use-sortable-field';
+import { type DragState, useSortableField } from '../../hooks/use-sortable-field';
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 import { initialData } from '../data';
 import { DropIndicator } from '../primitives/notion/drop-indicator';
 import {
   Subtask,
-  SubtaskAppearance,
-  SubtaskProps,
+  type SubtaskAppearance,
+  type SubtaskProps,
 } from '../primitives/notion/subtask';
 import { SubtaskContainer } from '../primitives/notion/subtask-container';
 

@@ -1,4 +1,4 @@
-import core, { Collection } from 'jscodeshift';
+import { type Collection, type default as core } from 'jscodeshift';
 
 import { addCommentBefore } from '@atlaskit/codemod-utils';
 

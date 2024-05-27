@@ -15,8 +15,8 @@ import invariant from 'tiny-invariant';
 
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
 import {
-  Instruction,
-  ItemMode,
+  type Instruction,
+  type ItemMode,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
 import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
@@ -26,13 +26,13 @@ import { token } from '@atlaskit/tokens';
 import {
   getInitialTreeState,
   tree,
-  TreeItem as TreeItemType,
+  type TreeItem as TreeItemType,
   treeStateReducer,
 } from './data/tree';
 import {
   DependencyContext,
   TreeContext,
-  TreeContextValue,
+  type TreeContextValue,
 } from './pieces/tree/tree-context';
 import TreeItem from './pieces/tree/tree-item';
 

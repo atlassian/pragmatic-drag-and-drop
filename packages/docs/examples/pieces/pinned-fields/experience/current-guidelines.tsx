@@ -11,7 +11,7 @@ import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 import { initialData } from '../data';
 import {
   Field,
-  FieldProps,
+  type FieldProps,
   PinnedFieldsContainer,
   PinnedFieldsList,
 } from '../index';

@@ -1,6 +1,6 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { Fragment, ReactNode, useCallback, useRef, useState } from 'react';
+import { Fragment, type ReactNode, useCallback, useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
@@ -21,7 +21,7 @@ import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';
 import { useSortableField } from '../../hooks/use-sortable-field';
 import { Field, FieldLabel } from '../index';
 import PinnedFieldsAtlassianTemplate, {
-  DraggableFieldProps,
+  type DraggableFieldProps,
 } from '../templates/atlassian';
 
 /**

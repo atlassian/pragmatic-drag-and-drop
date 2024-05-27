@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-import { fireEvent, render, RenderResult } from '@testing-library/react';
+import { fireEvent, render, type RenderResult } from '@testing-library/react';
 import type {
   BeforeCapture,
   DraggableId,

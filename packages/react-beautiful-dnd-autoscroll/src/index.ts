@@ -1,7 +1,7 @@
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { scroll } from './internal/scroll';
-import { ScrollBehavior } from './internal/types';
+import { type ScrollBehavior } from './internal/types';
 
 type WhileDragging = {
   dragStartTime: number;

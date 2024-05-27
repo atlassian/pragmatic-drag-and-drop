@@ -1,7 +1,7 @@
 import React, {
   Fragment,
-  ReactNode,
-  Ref,
+  type ReactNode,
+  type Ref,
   useEffect,
   useRef,
   useState,

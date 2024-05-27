@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

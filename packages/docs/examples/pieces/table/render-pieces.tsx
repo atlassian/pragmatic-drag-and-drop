@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, ReactElement } from 'react';
+import { Fragment, type ReactElement } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

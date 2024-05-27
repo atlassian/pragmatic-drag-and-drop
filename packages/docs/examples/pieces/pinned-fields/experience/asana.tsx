@@ -1,4 +1,4 @@
-import React, { ReactNode, RefObject, useEffect, useRef } from 'react';
+import React, { type ReactNode, type RefObject, useEffect, useRef } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -8,7 +8,7 @@ import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/ad
 import { useSortableField } from '../../hooks/use-sortable-field';
 import { DropIndicator } from '../primitives/asana/drop-indicator';
 import { Field, FieldPreview } from '../primitives/asana/field';
-import AsanaFieldsTemplate, { DraggableFieldProps } from '../templates/asana';
+import AsanaFieldsTemplate, { type DraggableFieldProps } from '../templates/asana';
 
 const type = 'asana';
 

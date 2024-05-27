@@ -12,7 +12,7 @@ import type {
 } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import { defaultItemRender, Item, RenderItem } from './app';
+import { defaultItemRender, type Item, type RenderItem } from './app';
 
 export function getOffset(el: HTMLElement): Position {
   const style: CSSStyleDeclaration = el.style;

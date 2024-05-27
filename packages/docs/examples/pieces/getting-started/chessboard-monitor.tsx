@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { ReactElement, useEffect, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

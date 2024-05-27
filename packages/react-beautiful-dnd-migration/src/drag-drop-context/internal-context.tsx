@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useMemo } from 'react';
+import React, { createContext, type ReactNode, useContext, useMemo } from 'react';
 
 import type { DroppableRegistry } from './droppable-registry';
 import { rbdInvariant } from './rbd-invariant';

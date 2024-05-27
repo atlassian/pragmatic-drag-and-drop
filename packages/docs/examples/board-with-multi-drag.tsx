@@ -8,7 +8,7 @@ import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hi
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
-import { ColumnMap, ColumnType, getBasicData, Person } from './data/people';
+import { type ColumnMap, type ColumnType, getBasicData, type Person } from './data/people';
 import Board from './pieces/board-with-multi-drag/board';
 import { Column } from './pieces/board-with-multi-drag/column';
 

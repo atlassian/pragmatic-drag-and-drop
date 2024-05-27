@@ -9,7 +9,7 @@ import { mediumDurationMs } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -20,9 +20,9 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/center-under-pointer';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
-import { Box, Inline, Stack, XCSS, xcss } from '@atlaskit/primitives';
+import { Box, Inline, Stack, type XCSS, xcss } from '@atlaskit/primitives';
 
-import { ColumnType } from '../../data/people';
+import { type ColumnType } from '../../data/people';
 import { columnGap } from '../../util/constants';
 
 import { Card } from './card';

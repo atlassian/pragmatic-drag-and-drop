@@ -8,7 +8,7 @@ import {
   Droppable,
 } from '../../../../../../../src';
 import { setup } from '../../../../../_utils/setup';
-import { Control, forEachSensor, simpleLift } from '../../_utils/controls';
+import { type Control, forEachSensor, simpleLift } from '../../_utils/controls';
 import { isDragging } from '../../_utils/helpers';
 
 beforeAll(() => {

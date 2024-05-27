@@ -22,7 +22,7 @@ import { token } from '@atlaskit/tokens';
 
 import { getItems } from './pieces/table/data';
 import { Row } from './pieces/table/row';
-import { ItemContextValue, TableContext } from './pieces/table/table-context';
+import { type ItemContextValue, TableContext } from './pieces/table/table-context';
 import { TableHeader } from './pieces/table/table-header';
 import type {
   Item,

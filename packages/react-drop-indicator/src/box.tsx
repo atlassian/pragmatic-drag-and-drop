@@ -7,7 +7,7 @@
 
 import type { CSSProperties } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 

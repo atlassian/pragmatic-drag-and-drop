@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { CSSProperties, ReactElement } from 'react';
+import { type CSSProperties, type ReactElement } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

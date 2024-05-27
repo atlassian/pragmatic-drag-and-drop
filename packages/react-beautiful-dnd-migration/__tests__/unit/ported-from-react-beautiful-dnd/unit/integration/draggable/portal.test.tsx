@@ -11,7 +11,7 @@ import type {
 import ReactDOM from 'react-dom';
 
 import { setElementFromPoint } from '../../../../_util';
-import App, { Item } from '../_utils/app';
+import App, { type Item } from '../_utils/app';
 import { mouse, simpleLift } from '../_utils/controls';
 import { isDragging } from '../_utils/helpers';
 

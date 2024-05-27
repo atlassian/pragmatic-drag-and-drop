@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useEffect, useRef } from 'react';
+import React, { memo, type ReactNode, useEffect, useRef } from 'react';
 
 import invariant from 'tiny-invariant';
 

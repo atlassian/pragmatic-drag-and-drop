@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { type ReactNode, useState } from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
 import type {

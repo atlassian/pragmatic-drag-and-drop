@@ -1,9 +1,9 @@
 import React, {
   forwardRef,
-  KeyboardEvent,
+  type KeyboardEvent,
   memo,
   type MouseEvent,
-  MouseEventHandler,
+  type MouseEventHandler,
   useEffect,
   useRef,
   useState,
@@ -16,7 +16,7 @@ import Avatar from '@atlaskit/avatar';
 import Heading from '@atlaskit/heading';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -28,7 +28,7 @@ import {
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
-import { Person } from '../../data/people';
+import { type Person } from '../../data/people';
 import { cardGap } from '../../util/constants';
 
 type DraggableState =

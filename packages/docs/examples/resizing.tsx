@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import {
-  CSSProperties,
+  type CSSProperties,
   Fragment,
   memo,
   useEffect,

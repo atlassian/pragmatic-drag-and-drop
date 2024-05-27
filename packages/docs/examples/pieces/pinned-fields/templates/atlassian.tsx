@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
+import React, { type ReactElement } from 'react';
 
 import {
-  ReorderItem,
+  type ReorderItem,
   useTopLevelWiring,
 } from '../../hooks/use-top-level-wiring';
-import { DataItem, initialData } from '../data';
+import { type DataItem, initialData } from '../data';
 import { PinnedFieldsContainer, PinnedFieldsList } from '../index';
 
 export type DraggableFieldProps = {

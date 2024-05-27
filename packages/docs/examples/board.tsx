@@ -17,9 +17,9 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 
-import { ColumnMap, ColumnType, getBasicData, Person } from './data/people';
+import { type ColumnMap, type ColumnType, getBasicData, type Person } from './data/people';
 import Board from './pieces/board/board';
-import { BoardContext, BoardContextValue } from './pieces/board/board-context';
+import { BoardContext, type BoardContextValue } from './pieces/board/board-context';
 import { Column } from './pieces/board/column';
 import { createRegistry } from './pieces/board/registry';
 

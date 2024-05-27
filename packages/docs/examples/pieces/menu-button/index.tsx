@@ -1,12 +1,12 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { ReactElement, useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 
 import { css, jsx } from '@emotion/react';
 
 import Button from '@atlaskit/button';
 import DropdownMenu, {
-  CustomTriggerProps,
+  type CustomTriggerProps,
   DropdownItem,
   DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';

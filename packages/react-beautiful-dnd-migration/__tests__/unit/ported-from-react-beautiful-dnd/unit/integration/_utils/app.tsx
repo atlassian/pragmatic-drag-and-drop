@@ -1,7 +1,7 @@
 // This file was copied from `react-beautiful-dnd` with some adjustments.
 // <https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.1/test/unit/integration/util/app.jsx>
 
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { type ReactNode, useMemo, useState } from 'react';
 
 import type {
   Direction,

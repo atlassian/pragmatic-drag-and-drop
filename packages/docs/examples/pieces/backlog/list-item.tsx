@@ -19,7 +19,7 @@ import MoreIcon from '@atlaskit/icon/glyph/more';
 import Lozenge from '@atlaskit/lozenge';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -34,7 +34,7 @@ import { Box, Inline, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 import { useListContext } from './context';
-import { ItemData } from './data';
+import { type ItemData } from './data';
 import { MinorPriorityIcon } from './minor-priority-icon';
 
 const listItemContainerStyles = xcss({

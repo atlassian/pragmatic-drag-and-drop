@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import { setup } from '../../../_utils/setup';
 
 import App from './_utils/app';
-import { Control, forEachSensor, simpleLift } from './_utils/controls';
+import { type Control, forEachSensor, simpleLift } from './_utils/controls';
 import { isDragging } from './_utils/helpers';
 
 beforeAll(() => {

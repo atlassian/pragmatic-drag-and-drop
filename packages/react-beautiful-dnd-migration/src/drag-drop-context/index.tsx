@@ -1,6 +1,6 @@
 import React, {
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   useCallback,
   useEffect,
   useMemo,
@@ -32,7 +32,7 @@ import { getClosestPositionedElement } from '../utils/get-closest-positioned-ele
 import { cancelPointerDrag } from './cancel-drag';
 import { isSameLocation } from './draggable-location';
 import {
-  DroppableRegistryEntry,
+  type DroppableRegistryEntry,
   useDroppableRegistry,
 } from './droppable-registry';
 import { ErrorBoundary } from './error-boundary';

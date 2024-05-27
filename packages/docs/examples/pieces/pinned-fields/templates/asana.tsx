@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { type ReactElement } from 'react';
 
 import CalendarIcon from '@atlaskit/icon/glyph/calendar';
 import CheckCircleOutlineIcon from '@atlaskit/icon/glyph/check-circle-outline';

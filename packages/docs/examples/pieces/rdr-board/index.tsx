@@ -17,9 +17,9 @@ import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/ad
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 
 import Board from './board';
-import { BoardContext, BoardContextProps } from './board-context';
+import { BoardContext, type BoardContextProps } from './board-context';
 import { Column } from './column';
-import { CardData, ColumnMap, ColumnType, getInitialData } from './data';
+import { type CardData, type ColumnMap, type ColumnType, getInitialData } from './data';
 
 type Operation =
   | {

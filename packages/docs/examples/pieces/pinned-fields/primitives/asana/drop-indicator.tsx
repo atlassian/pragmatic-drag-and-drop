@@ -3,7 +3,7 @@
 
 import { css, jsx } from '@emotion/react';
 
-import { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { type Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { token } from '@atlaskit/tokens';
 
 import { gapSize } from './constants';

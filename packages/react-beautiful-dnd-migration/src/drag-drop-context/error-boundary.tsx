@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect, useRef } from 'react';
+import React, { type ReactElement, useCallback, useEffect, useRef } from 'react';
 
 import { bind } from 'bind-event-listener';
 

@@ -15,7 +15,7 @@ import DropdownMenu, {
 } from '@atlaskit/dropdown-menu';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -30,7 +30,7 @@ import { Box, Grid, Inline, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 import { useListContext } from './context';
-import { ItemData } from './data';
+import { type ItemData } from './data';
 import { DragHandleButton } from './drag-handle-button';
 
 const listItemContainerStyles = xcss({

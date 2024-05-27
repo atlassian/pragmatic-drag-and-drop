@@ -3,7 +3,7 @@ import {
   forwardRef,
   Fragment,
   memo,
-  Ref,
+  type Ref,
   useCallback,
   useEffect,
   useRef,
@@ -28,7 +28,7 @@ import PullRequestIcon from '@atlaskit/icon/glyph/bitbucket/pullrequests';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -44,7 +44,7 @@ import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { useBoardContext } from './board-context';
 import { CardStack } from './card-stack';
 import { useColumnContext } from './column-context';
-import { CardData, ColumnType } from './data';
+import { type CardData, type ColumnType } from './data';
 import { EpicLozenge } from './epic-lozenge';
 
 type DraggableState =

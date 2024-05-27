@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, RefObject, useEffect, useRef } from 'react';
+import { Fragment, type RefObject, useEffect, useRef } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
@@ -9,7 +9,7 @@ import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/ad
 import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';
-import { DragState, useSortableField } from '../../hooks/use-sortable-field';
+import { type DragState, useSortableField } from '../../hooks/use-sortable-field';
 import {
   subtaskGap,
   subtaskIconWidth,
@@ -18,11 +18,11 @@ import {
 } from '../primitives/linear/constants';
 import {
   Subtask,
-  SubtaskAppearance,
+  type SubtaskAppearance,
   SubtaskPreview,
-  SubtaskProps,
+  type SubtaskProps,
 } from '../primitives/linear/subtask';
-import { DraggableSubtaskProps } from '../templates/_base';
+import { type DraggableSubtaskProps } from '../templates/_base';
 import { LinearTemplate } from '../templates/linear';
 
 const type = 'subtasks--linear-clone';

@@ -3,13 +3,13 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import {
-  DraggableProvided,
-  DraggableStateSnapshot,
+  type DraggableProvided,
+  type DraggableStateSnapshot,
 } from '../../../../../../../src';
 import { setup } from '../../../../../_utils/setup';
-import App, { Item } from '../../_utils/app';
+import App, { type Item } from '../../_utils/app';
 import {
-  Control,
+  type Control,
   forEachSensor,
   mouseLiftExtended,
   simpleLift,

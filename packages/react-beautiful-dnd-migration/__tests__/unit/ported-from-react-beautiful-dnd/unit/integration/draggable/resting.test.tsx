@@ -6,7 +6,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import type { DraggableRubric } from 'react-beautiful-dnd';
 
-import App, { Item, RenderItem } from '../_utils/app';
+import App, { type Item, type RenderItem } from '../_utils/app';
 import {
   atRest,
   getRubricsFor,

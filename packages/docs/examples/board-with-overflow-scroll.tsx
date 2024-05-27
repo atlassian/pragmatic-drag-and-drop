@@ -9,7 +9,7 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 
-import { ColumnMap, ColumnType, getData, Person } from './data/people';
+import { type ColumnMap, type ColumnType, getData, type Person } from './data/people';
 import Board from './pieces/board-with-overflow-scroll/board';
 import { Column } from './pieces/board-with-overflow-scroll/column';
 

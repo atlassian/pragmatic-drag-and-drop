@@ -1,6 +1,6 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { ReactNode, useCallback, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
@@ -18,16 +18,16 @@ import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/el
 import { token } from '@atlaskit/tokens';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';
-import { DragState, useSortableField } from '../../hooks/use-sortable-field';
+import { type DragState, useSortableField } from '../../hooks/use-sortable-field';
 import {
-  ReorderItem,
+  type ReorderItem,
   useTopLevelWiring,
 } from '../../hooks/use-top-level-wiring';
 import { initialData } from '../data';
 import {
   Subtask,
-  SubtaskAppearance,
-  SubtaskProps,
+  type SubtaskAppearance,
+  type SubtaskProps,
 } from '../primitives/subtask';
 import { SubtaskContainer } from '../primitives/subtask-container';
 import { SubtaskObjectIcon } from '../primitives/subtask-icon';

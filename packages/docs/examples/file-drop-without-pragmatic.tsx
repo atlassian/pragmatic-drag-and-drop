@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { DragEventHandler, Fragment, useCallback, useState } from 'react';
+import { type DragEventHandler, Fragment, useCallback, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

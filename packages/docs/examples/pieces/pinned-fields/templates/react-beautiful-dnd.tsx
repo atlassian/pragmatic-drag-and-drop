@@ -1,7 +1,7 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
 
-import { ReactElement, useCallback, useState } from 'react';
+import { type ReactElement, useCallback, useState } from 'react';
 
 import { jsx } from '@emotion/react';
 import type {
@@ -16,11 +16,11 @@ import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 import { initialData } from '../data';
 import {
   Field,
-  FieldProps,
+  type FieldProps,
   PinnedFieldsContainer,
   PinnedFieldsList,
 } from '../index';
-import { DroppableAreaOverlayProps } from '../primitives/droppable-area-overlay';
+import { type DroppableAreaOverlayProps } from '../primitives/droppable-area-overlay';
 
 function DraggableField({
   index,

@@ -8,10 +8,10 @@ import type { DraggableStateSnapshot } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
 import { setElementFromPoint } from '../../../../_util';
-import App, { RenderItem } from '../_utils/app';
+import App, { type RenderItem } from '../_utils/app';
 import { forEachSensor, mouse, simpleLift } from '../_utils/controls';
 import {
-  Call,
+  type Call,
   getCallsFor,
   getLast,
   isClone,

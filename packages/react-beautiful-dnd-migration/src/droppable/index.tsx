@@ -35,7 +35,7 @@ import { useDroppableData } from './data';
 import { DraggableClone } from './draggable-clone';
 import { DropIndicator } from './drop-indicator';
 import {
-  DroppableContextProps,
+  type DroppableContextProps,
   DroppableContextProvider,
   useParentDroppableId,
 } from './droppable-context';

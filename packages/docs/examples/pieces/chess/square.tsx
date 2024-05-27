@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { memo, ReactNode, useEffect, useRef, useState } from 'react';
+import { memo, type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
@@ -13,10 +13,10 @@ import {
 
 import {
   canMove,
-  coord,
+  type coord,
   isCoord,
   isEqualCoord,
-  PieceRecord,
+  type PieceRecord,
 } from '../../chess';
 
 import { isPieceType } from './piece';

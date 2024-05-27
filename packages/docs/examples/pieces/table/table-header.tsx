@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { Fragment, useContext, useEffect, useRef, useState } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box-without-terminal';
@@ -27,7 +27,7 @@ import { minColumnWidth } from './constants';
 import { ColumnMenuButton } from './menu-button';
 import { getField, getProperty } from './render-pieces';
 import { TableContext } from './table-context';
-import { Item } from './types';
+import { type Item } from './types';
 
 type HeaderState =
   | {

@@ -1,6 +1,6 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { forwardRef, HTMLAttributes, ReactNode, Ref } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode, type Ref } from 'react';
 
 import { css, jsx } from '@emotion/react';
 

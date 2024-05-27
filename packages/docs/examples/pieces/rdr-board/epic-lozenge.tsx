@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Lozenge, {
-  ThemeAppearance as LozengeAppearance,
+  type ThemeAppearance as LozengeAppearance,
 } from '@atlaskit/lozenge';
 
 import type { Epic } from './data';

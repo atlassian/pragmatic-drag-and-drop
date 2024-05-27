@@ -1,4 +1,4 @@
-import { expect, Page, test } from '@af/integration-testing';
+import { expect, type Page, test } from '@af/integration-testing';
 
 /**
  * The header is the draggable part of a column.

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { memo, ReactElement, useEffect, useRef, useState } from 'react';
+import { memo, type ReactElement, useEffect, useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';

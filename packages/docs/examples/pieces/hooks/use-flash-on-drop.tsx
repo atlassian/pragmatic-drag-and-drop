@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect } from 'react';
+import { type RefObject, useCallback, useEffect } from 'react';
 
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';

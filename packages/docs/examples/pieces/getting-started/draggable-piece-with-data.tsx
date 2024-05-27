@@ -9,7 +9,7 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import king from '../../icons/king.png';
 import pawn from '../../icons/pawn.png';
 
-import { Coord } from './chessboard-drop-target';
+import { type Coord } from './chessboard-drop-target';
 
 export type PieceType = 'king' | 'pawn';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SubtaskContainer } from '../primitives/linear/subtask-container';
 
-import { SubtasksBaseTemplate, SubtasksBaseTemplateProps } from './_base';
+import { SubtasksBaseTemplate, type SubtasksBaseTemplateProps } from './_base';
 
 type LinearTemplateProps = Omit<SubtasksBaseTemplateProps, 'Wrapper'>;
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, ReactNode, useEffect } from 'react';
+import React, { forwardRef, memo, type ReactNode, useEffect } from 'react';
 
 import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { Box, xcss } from '@atlaskit/primitives';

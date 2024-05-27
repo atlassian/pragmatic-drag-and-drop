@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { RefObject, useRef } from 'react';
+import { type RefObject, useRef } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
@@ -8,14 +8,14 @@ import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indi
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';
-import { DragState, useSortableField } from '../../hooks/use-sortable-field';
+import { type DragState, useSortableField } from '../../hooks/use-sortable-field';
 import {
   Subtask,
-  SubtaskAppearance,
+  type SubtaskAppearance,
   SubtaskPreview,
-  SubtaskProps,
+  type SubtaskProps,
 } from '../primitives/linear/subtask';
-import { DraggableSubtaskProps } from '../templates/_base';
+import { type DraggableSubtaskProps } from '../templates/_base';
 import { LinearTemplate } from '../templates/linear';
 
 const type = 'subtasks--linear-clone--native-preview';

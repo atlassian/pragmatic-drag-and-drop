@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {
   memo,
-  Ref,
+  type Ref,
   useCallback,
   useEffect,
   useMemo,
@@ -9,13 +9,13 @@ import {
   useState,
 } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, {
-  CustomTriggerProps,
+  type CustomTriggerProps,
   DropdownItem,
   DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';
@@ -25,7 +25,7 @@ import { easeInOut } from '@atlaskit/motion/curves';
 import { mediumDurationMs } from '@atlaskit/motion/durations';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -44,10 +44,10 @@ import { useBoardContext } from './board-context';
 import { Card } from './card';
 import {
   ColumnContext,
-  ColumnContextProps,
+  type ColumnContextProps,
   useColumnContext,
 } from './column-context';
-import { ColumnType } from './data';
+import { type ColumnType } from './data';
 
 const columnStyles = css({
   display: 'flex',

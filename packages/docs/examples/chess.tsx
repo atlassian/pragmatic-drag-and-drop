@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/react';
 
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
-import { isPieceType, pieceLookup, PieceType } from './pieces/chess/piece';
+import { isPieceType, pieceLookup, type PieceType } from './pieces/chess/piece';
 import Square from './pieces/chess/square';
 
 export type coord = [number, number];

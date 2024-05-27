@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { css, jsx } from '@emotion/react';
 
 import DropdownMenu, {
-  CustomTriggerProps,
+  type CustomTriggerProps,
   DropdownItem,
   DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';

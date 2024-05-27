@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Icon, { CustomGlyphProps, GlyphProps } from '@atlaskit/icon';
+import Icon, { type CustomGlyphProps, type GlyphProps } from '@atlaskit/icon';
 
 function SubtaskDraggableIconGlyph(props: CustomGlyphProps) {
   return (

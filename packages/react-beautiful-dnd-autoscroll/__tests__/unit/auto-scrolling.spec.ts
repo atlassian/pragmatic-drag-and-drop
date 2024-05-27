@@ -1,4 +1,4 @@
-import { replaceRaf, Stub } from 'raf-stub';
+import { replaceRaf, type Stub } from 'raf-stub';
 
 import { autoScroller } from '../../src';
 import config from '../../src/internal/config';

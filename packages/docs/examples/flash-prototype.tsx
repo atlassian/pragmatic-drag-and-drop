@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { type ReactNode, useCallback, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -14,7 +14,7 @@ import {
 } from '@atlaskit/motion';
 import { Inline, Stack, xcss } from '@atlaskit/primitives';
 import { RadioGroup } from '@atlaskit/radio';
-import { OptionsPropType } from '@atlaskit/radio/types';
+import { type OptionsPropType } from '@atlaskit/radio/types';
 import { token } from '@atlaskit/tokens';
 
 import List from './pieces/post-drop-flash/list';

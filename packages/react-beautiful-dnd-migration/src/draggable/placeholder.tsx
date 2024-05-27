@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, Ref, useMemo } from 'react';
+import React, { forwardRef, memo, type Ref, useMemo } from 'react';
 
 import { useDragDropContext } from '../drag-drop-context/internal-context';
 import { useDraggableDimensions } from '../hooks/use-captured-dimensions';

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Fragment, memo, useEffect, useRef, useState } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
@@ -13,7 +13,7 @@ import { autoScrollForExternal } from '@atlaskit/pragmatic-drag-and-drop-auto-sc
 import { unsafeOverflowAutoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -26,7 +26,7 @@ import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/ce
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { token } from '@atlaskit/tokens';
 
-import { ColumnType } from '../../data/people';
+import { type ColumnType } from '../../data/people';
 import { cardGap, columnGap } from '../../util/constants';
 
 import { Card } from './card';

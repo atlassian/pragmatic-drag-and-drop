@@ -8,7 +8,7 @@ import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/el
 import { useSortableField } from '../../hooks/use-sortable-field';
 import { DropIndicator } from '../primitives/asana/drop-indicator';
 import { Field, FieldPreview } from '../primitives/asana/field';
-import AsanaFieldsTemplate, { DraggableFieldProps } from '../templates/asana';
+import AsanaFieldsTemplate, { type DraggableFieldProps } from '../templates/asana';
 
 const type = 'asana--native-preview';
 

@@ -4,13 +4,13 @@ import {
   DragDropContext,
   Draggable,
   Droppable,
-  OnDragEndResponder,
+  type OnDragEndResponder,
 } from 'react-beautiful-dnd';
 
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 
 import { initialData } from '../data';
-import { Subtask, SubtaskProps } from '../primitives/subtask';
+import { Subtask, type SubtaskProps } from '../primitives/subtask';
 import { SubtaskContainer } from '../primitives/subtask-container';
 
 type DraggableSubtaskProps = SubtaskProps & {

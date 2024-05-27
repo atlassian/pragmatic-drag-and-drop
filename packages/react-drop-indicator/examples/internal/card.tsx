@@ -8,7 +8,7 @@ import { token } from '@atlaskit/tokens';
 
 import {
   DropIndicator as defaultDropIndicator,
-  DropIndicatorProps,
+  type DropIndicatorProps,
 } from '../../src/box';
 
 type CardProps = {

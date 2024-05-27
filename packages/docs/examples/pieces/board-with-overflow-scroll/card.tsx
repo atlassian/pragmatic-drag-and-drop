@@ -11,7 +11,7 @@ import Heading from '@atlaskit/heading';
 import MoreIcon from '@atlaskit/icon/glyph/more';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -24,7 +24,7 @@ import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/el
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
-import { Person } from '../../data/people';
+import { type Person } from '../../data/people';
 import { cardGap } from '../../util/constants';
 
 type DraggableState =

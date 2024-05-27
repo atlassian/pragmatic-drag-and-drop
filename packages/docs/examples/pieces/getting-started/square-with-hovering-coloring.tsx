@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
@@ -9,10 +9,10 @@ import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element
 
 import {
   canMove,
-  Coord,
+  type Coord,
   isCoord,
   isPieceType,
-  PieceRecord,
+  type PieceRecord,
 } from './chessboard-colored-drop-targets';
 
 interface SquareProps {

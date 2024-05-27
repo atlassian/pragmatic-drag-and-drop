@@ -1,14 +1,14 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /** @jsx jsx */
-import { forwardRef, HTMLAttributes, memo, ReactNode, Ref } from 'react';
+import { forwardRef, type HTMLAttributes, memo, type ReactNode, type Ref } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
 import Lozenge from '@atlaskit/lozenge';
 import { token } from '@atlaskit/tokens';
 
-import { DragState } from '../../../hooks/use-sortable-field';
+import { type DragState } from '../../../hooks/use-sortable-field';
 
 const subtaskStyles = css({
   background: 'transparent',

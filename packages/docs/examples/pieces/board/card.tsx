@@ -2,7 +2,7 @@ import React, {
   forwardRef,
   Fragment,
   memo,
-  Ref,
+  type Ref,
   useCallback,
   useEffect,
   useRef,
@@ -26,7 +26,7 @@ import Heading from '@atlaskit/heading';
 import MoreIcon from '@atlaskit/icon/glyph/editor/more';
 import {
   attachClosestEdge,
-  Edge,
+  type Edge,
   extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
@@ -41,7 +41,7 @@ import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/externa
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
-import { ColumnType, Person } from '../../data/people';
+import { type ColumnType, type Person } from '../../data/people';
 
 import { useBoardContext } from './board-context';
 import { useColumnContext } from './column-context';

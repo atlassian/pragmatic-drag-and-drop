@@ -2,7 +2,7 @@
 
 import { forwardRef } from 'react';
 
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import FocusRing from '@atlaskit/focus-ring';
 import { token } from '@atlaskit/tokens';

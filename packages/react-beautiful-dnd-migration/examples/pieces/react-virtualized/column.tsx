@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 import { css, jsx } from '@emotion/react';
 import { findDOMNode } from 'react-dom';
-import { List, ListRowProps } from 'react-virtualized';
+import { List, type ListRowProps } from 'react-virtualized';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';

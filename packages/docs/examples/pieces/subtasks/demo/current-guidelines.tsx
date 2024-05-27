@@ -6,13 +6,13 @@ import { css, jsx } from '@emotion/react';
 
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 
-import { DragState, useSortableField } from '../../hooks/use-sortable-field';
+import { type DragState, useSortableField } from '../../hooks/use-sortable-field';
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 import { initialData } from '../data';
 import {
   Subtask,
-  SubtaskAppearance,
-  SubtaskProps,
+  type SubtaskAppearance,
+  type SubtaskProps,
 } from '../primitives/subtask';
 import { SubtaskContainer } from '../primitives/subtask-container';
 

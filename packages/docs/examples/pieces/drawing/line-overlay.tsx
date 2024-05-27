@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {
   forwardRef,
-  RefObject,
+  type RefObject,
   useCallback,
   useImperativeHandle,
   useRef,

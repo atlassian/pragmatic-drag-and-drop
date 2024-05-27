@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { bindAll, Binding } from 'bind-event-listener';
+import { bindAll, type Binding } from 'bind-event-listener';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction } from 'react-beautiful-dnd';
 

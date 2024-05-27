@@ -1,7 +1,7 @@
-import React, { ComponentType, Fragment, ReactNode } from 'react';
+import React, { type ComponentType, Fragment, type ReactNode } from 'react';
 
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
-import { DataItem, initialData } from '../data';
+import { type DataItem, initialData } from '../data';
 
 export type DraggableSubtaskProps = { index: number; item: DataItem };
 

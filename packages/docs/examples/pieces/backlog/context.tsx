@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant';
 
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 
-import { ItemData } from './data';
+import { type ItemData } from './data';
 
 type ItemPosition = 'first' | 'last' | 'middle' | 'only';
 

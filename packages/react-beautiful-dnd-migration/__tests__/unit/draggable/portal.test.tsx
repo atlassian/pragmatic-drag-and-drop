@@ -16,7 +16,7 @@ import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-e
 
 import { setElementFromPoint } from '../_util';
 import App, {
-  Item,
+  type Item,
 } from '../ported-from-react-beautiful-dnd/unit/integration/_utils/app';
 import {
   mouse,

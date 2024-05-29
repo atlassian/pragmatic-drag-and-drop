@@ -243,6 +243,7 @@ export const DropIndicator = ({ direction, mode }: DropIndicatorProps) => {
         isVirtual && virtualStyles,
         isHidden && visuallyHiddenStyles,
       ]}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
       style={dynamicStyles}
       {...dropIndicatorData}
     />

@@ -72,6 +72,7 @@ export function CardStack({
       {children}
 
       {numCards >= 2 && (
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         <div style={{ position: 'absolute', top: -8, right: -8 }}>
           <Badge appearance="primary">{numCards}</Badge>
         </div>

@@ -247,6 +247,7 @@ export default function Tree() {
 
   return (
     <TreeContext.Provider value={context}>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       <div style={{ display: 'flex', justifyContent: 'center', padding: 24 }}>
         <div css={treeStyles} id="tree" ref={ref}>
           {data.map((item, index, array) => {

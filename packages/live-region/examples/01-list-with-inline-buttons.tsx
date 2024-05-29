@@ -60,6 +60,7 @@ const ListItem = ({
 
   return (
     <li css={listItemStyles}>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       <strong style={{ flex: 1, padding: '0 8px' }}>{children}</strong>
       <ButtonGroup>
         <Tooltip content={`Move ${children} up`}>
@@ -122,6 +123,7 @@ export default function App() {
 
   return (
     <div>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       <ul style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
         {items.map(({ id, label }, index) => (
           <ListItem

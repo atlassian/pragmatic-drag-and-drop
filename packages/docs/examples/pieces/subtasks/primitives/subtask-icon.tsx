@@ -47,15 +47,22 @@ export default function SubtaskIcon({ isIconHidden = false }) {
   return (
     <div
       style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         width: 16,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         height: 16,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         display: 'grid',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         placeItems: 'center',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         overflow: 'hidden',
         opacity: isIconHidden ? 0 : 1,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         pointerEvents: 'none',
       }}
     >
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       <div style={{ display: 'var(--subtask-drag-handle-icon-display, none)' }}>
         <SubtaskDraggableIcon />
       </div>

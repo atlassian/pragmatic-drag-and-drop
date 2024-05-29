@@ -82,6 +82,7 @@ export function DropIndicator({ edge, gap = '0px' }: DropIndicatorProps) {
   return (
     <div
       css={[lineStyles, edge && edgeStyles[edge]]}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
       style={{ '--local-line-offset': lineOffset } as CSSProperties}
     />
   );

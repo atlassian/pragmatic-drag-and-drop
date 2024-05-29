@@ -88,6 +88,7 @@ export function Table() {
       <Box as="table" xcss={tableStyles}>
         <colgroup>
           {columns.map((_, index) => (
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
             <col key={index} style={{ width: '150px' }} />
           ))}
         </colgroup>

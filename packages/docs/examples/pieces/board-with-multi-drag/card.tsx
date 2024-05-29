@@ -121,6 +121,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(
             <div
               {...props}
               ref={props.ref as React.Ref<HTMLDivElement>}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
               style={{ pointerEvents: 'none' }}
             />
           )}
@@ -307,6 +308,7 @@ export const Card = memo(function Card({
                * Using `border-box` sizing here is not necessary in this
                * specific example, but it is safer to include generally.
                */
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
               boxSizing: 'border-box',
               width: state.rect.width,
               height: state.rect.height,

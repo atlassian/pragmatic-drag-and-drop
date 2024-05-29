@@ -228,8 +228,11 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
             >
               <div
                 style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                   gridArea: 'stack',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                   opacity: 'calc(1 - var(--action-opacity))',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                   display: 'var(--icon-display)',
                 }}
               >
@@ -237,7 +240,9 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
               </div>
               <div
                 style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                   gridArea: 'stack',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                   marginTop: '-4px',
                 }}
               >

@@ -429,6 +429,7 @@ describe('keyboard dragging', () => {
             {provided => (
               <div
                 data-testid="scrollable-parent"
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                 style={{ overflowY: 'scroll' }}
               >
                 <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -453,6 +454,7 @@ describe('keyboard dragging', () => {
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 data-testid="scrollable-droppable"
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                 style={{ overflowY: 'scroll' }}
               >
                 <Draggable draggableId="B" index={0}>

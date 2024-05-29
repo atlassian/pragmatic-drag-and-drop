@@ -232,6 +232,7 @@ function SectionHeader({
       {elementBefore}
       <h2
         css={bigTitleStyles}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         style={elementBefore ? { marginTop: '24px' } : undefined}
       >
         {title}
@@ -587,11 +588,15 @@ export default function ListComparison() {
                         This example introduces a few affordances for improving
                         the experience:
                       </p>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
                       <table style={{ tableLayout: 'fixed' }}>
                         <thead>
                           <tr>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
                             <th style={{ width: '33.3%' }}>Affordance</th>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
                             <th style={{ width: '33.3%' }}>Effect</th>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
                             <th style={{ width: '33.3%' }}>Note(s)</th>
                           </tr>
                         </thead>

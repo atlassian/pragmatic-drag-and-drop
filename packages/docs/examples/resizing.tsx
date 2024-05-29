@@ -213,6 +213,7 @@ function Sidebar() {
           sidebarContentStyles,
           state.type === 'dragging' ? noPointerEventsStyles : undefined,
         ]}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         style={
           { '--local-initial-width': `${initialWidth}px` } as CSSProperties
         }

@@ -350,11 +350,16 @@ const ListItem = memo(function ListItem({
       <Box
         xcss={itemOuterStyles}
         style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
           position: 'absolute',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
           top: 0,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
           left: 0,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
           width: '100%',
           height: `${virtualItem.size}px`,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
           boxSizing: 'border-box',
           transform: `translateY(${virtualItem.start}px)`,
           // Our items are pressed up next to each other, and are
@@ -371,6 +376,7 @@ const ListItem = memo(function ListItem({
          */}
         <Box
           style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
             position: 'relative',
             height: sizes.item.inner,
           }}
@@ -676,7 +682,9 @@ export default function ListExample() {
         <div
           style={{
             height: `${rowVirtualizer.getTotalSize()}px`,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
             width: '100%',
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
             position: 'relative',
           }}
         >

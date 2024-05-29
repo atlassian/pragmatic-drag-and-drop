@@ -107,6 +107,7 @@ function OptionLabel({
       <Inline alignBlock="center" space="space.100">
         {children}
       </Inline>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       {description && <small style={{ margin: 0 }}>{description}</small>}
     </Stack>
   );

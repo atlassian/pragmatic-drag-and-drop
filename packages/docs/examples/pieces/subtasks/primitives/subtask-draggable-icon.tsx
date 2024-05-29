@@ -9,6 +9,7 @@ function SubtaskDraggableIconGlyph(props: CustomGlyphProps) {
       height="16"
       viewBox="0 0 24 24"
       role="presentation"
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
       style={{ pointerEvents: 'none' }}
       {...props}
     >

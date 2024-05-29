@@ -411,6 +411,7 @@ const TreeItem = memo(function TreeItem({
     <Fragment>
       <div
         css={[state === 'idle' ? outerHoverStyles : undefined]}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         style={{ position: 'relative' }}
       >
         <FocusRing isInset>
@@ -459,6 +460,7 @@ const TreeItem = memo(function TreeItem({
               }
               {...triggerProps}
               spacing="compact"
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
               style={{ position: 'absolute', top: 8, right: 8 }}
               appearance="subtle"
             />

@@ -48,6 +48,7 @@ export const SubtaskContainer = forwardRef<
 >(function SubtaskContainer({ children, ...props }, ref) {
   return (
     <div ref={ref} css={subtaskContainerStyles} {...props}>
+{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
       <div style={{ paddingLeft: 24 }}>
         <div css={headingRowStyles}>
           <Heading>

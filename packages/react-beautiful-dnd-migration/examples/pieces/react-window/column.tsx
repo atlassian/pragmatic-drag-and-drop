@@ -56,9 +56,13 @@ const innerElementType = forwardRef<
   return (
     <div
       style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         ...style,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         paddingLeft: GUTTER_SIZE,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         paddingTop: GUTTER_SIZE,
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         paddingBottom: GUTTER_SIZE,
         height: style.height - GUTTER_SIZE,
         width: `calc(${style.width} - ${GUTTER_SIZE}px)`,
@@ -91,6 +95,7 @@ const CardRenderer = ({
   return (
     <div
       style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         ...style,
         left: style.left + GUTTER_SIZE,
         width: `calc(100% - ${2 * GUTTER_SIZE}px)`,
@@ -170,6 +175,7 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
                     innerElementType={innerElementType}
                     itemData={column.items}
                     outerRef={provided.innerRef}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                     style={style}
                   >
                     {CardRenderer}

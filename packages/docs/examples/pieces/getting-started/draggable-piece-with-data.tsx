@@ -39,6 +39,7 @@ const Piece = ({ location, pieceType, image, alt }: PieceProps) => {
   return (
     <img
       css={imageStyles}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
       style={dragging ? { opacity: 0.4 } : {}} // fading the piece during dragging
       src={image}
       alt={alt}

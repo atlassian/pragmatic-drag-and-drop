@@ -104,6 +104,7 @@ export function App() {
     <div
       id="scroll-container"
       style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         height: 400,
         /**
          * Using `hidden` for `overflow-x` to avoid a horizontal scrollbar.
@@ -111,6 +112,7 @@ export function App() {
          * When using `auto` one would appear initially, but would disappear
          * after starting a drag. This caused a layout shift, and broke things.
          */
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
         overflow: 'hidden auto',
       }}
     >

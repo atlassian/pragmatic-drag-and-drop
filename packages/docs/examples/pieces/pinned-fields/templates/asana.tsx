@@ -47,6 +47,7 @@ export default function AsanaFieldsTemplate({
 }: AsanaFieldsTemplateProps) {
   const { data } = useTopLevelWiring({ initialData, type: instanceId });
   return (
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {data.map((item, index) => (
         <DraggableField key={item.id} index={index} item={item} />

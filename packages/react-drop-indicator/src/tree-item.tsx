@@ -117,13 +117,16 @@ function getElement({
   } as CSSProperties;
 
   if (instruction.type === 'reorder-above') {
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
     return <div css={[lineStyles, lineAboveStyles]} style={style} />;
   }
   if (instruction.type === 'reorder-below') {
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
     return <div css={[lineStyles, lineBelowStyles]} style={style} />;
   }
 
   if (instruction.type === 'make-child') {
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
     return <div css={[outlineStyles]} style={style} />;
   }
 
@@ -132,6 +135,7 @@ function getElement({
       instruction.desiredLevel * instruction.indentPerLevel
     }px`;
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
     return <div css={[lineStyles, lineBelowStyles]} style={style} />;
   }
   return null;

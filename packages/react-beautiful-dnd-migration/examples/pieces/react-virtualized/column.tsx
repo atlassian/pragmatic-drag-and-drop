@@ -122,6 +122,7 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
                         }
                       }
                     }}
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                     style={style}
                     rowRenderer={({ index, style }: ListRowProps) => {
                       const item = column.items[index];
@@ -138,6 +139,7 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
                         <div
                           key={item.itemId}
                           style={{
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                             ...style,
                             left: style.left + GUTTER_SIZE,
                             width: `calc(100% - ${2 * GUTTER_SIZE}px)`,

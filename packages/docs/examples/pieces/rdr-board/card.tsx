@@ -436,6 +436,7 @@ export const Card = memo(function Card({ item }: { item: CardData }) {
                  * Using `border-box` sizing here is not necessary in this
                  * specific example, but it is safer to include generally.
                  */
+// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
                 boxSizing: 'border-box',
                 width: state.rect.width,
                 height: state.rect.height,

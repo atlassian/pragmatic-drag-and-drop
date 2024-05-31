@@ -67,7 +67,6 @@ const containerStyles = xcss({
   position: 'relative',
 
   backgroundColor: 'elevation.surface.raised',
-  // @ts-expect-error
   borderRadius: '4px',
   paddingInline: 'space.200',
   paddingBlock: 'space.150',

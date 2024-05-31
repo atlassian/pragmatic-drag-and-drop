@@ -3,7 +3,6 @@ import React, { type ReactNode } from 'react';
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 const containerStyles = xcss({
-  // @ts-expect-error
   borderRadius: '4px',
   borderWidth: 'border.width',
   borderStyle: 'solid',

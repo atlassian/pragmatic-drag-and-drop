@@ -345,8 +345,8 @@ import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/elem
 
 draggable({
   element: myElement,
-  onGenerateDragPreview({ setNativeDragPreview }) {
-    disableNativeDragPreview({ setNativeDragPreview });
+  onGenerateDragPreview({ nativeSetDragImage }) {
+    disableNativeDragPreview({ nativeSetDragImage });
   },
 });
 ```
@@ -368,8 +368,8 @@ import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/elem
 
 draggable({
   element: myElement,
-  onGenerateDragPreview({ setNativeDragPreview }) {
-    disableNativeDragPreview({ setNativeDragPreview });
+  onGenerateDragPreview({ nativeSetDragImage }) {
+    disableNativeDragPreview({ nativeSetDragImage });
   },
 });
 ```

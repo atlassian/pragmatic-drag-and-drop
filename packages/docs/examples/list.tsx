@@ -339,7 +339,7 @@ function ListItem({
       <Box ref={ref} xcss={listItemContainerStyles}>
         <Grid
           alignItems="center"
-          columnGap="space.100"
+          columnGap="space.050"
           templateColumns="auto 1fr auto"
           xcss={[
             listItemStyles,

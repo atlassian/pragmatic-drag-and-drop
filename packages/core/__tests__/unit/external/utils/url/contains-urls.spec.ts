@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../../src/entry-point/combine';
@@ -31,14 +32,16 @@ test('when dragging no urls, containsURLs() should return false', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -50,7 +53,7 @@ test('when dragging no urls, containsURLs() should return false', () => {
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -58,11 +61,16 @@ test('when dragging no urls, containsURLs() should return false', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -82,14 +90,16 @@ test('when dragging urls, containsURLs() should return true', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -101,7 +111,7 @@ test('when dragging urls, containsURLs() should return true', () => {
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -109,11 +119,16 @@ test('when dragging urls, containsURLs() should return true', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -135,14 +150,16 @@ test('when dragging multiple types of native data (including urls), containsURLs
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -157,7 +174,7 @@ test('when dragging multiple types of native data (including urls), containsURLs
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -165,11 +182,16 @@ test('when dragging multiple types of native data (including urls), containsURLs
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);

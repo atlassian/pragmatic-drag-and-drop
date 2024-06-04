@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../src/entry-point/combine';
@@ -33,6 +34,8 @@ it('should pass when all drag types that match', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       canMonitor: some(containsText, containsHTML),
@@ -64,11 +67,15 @@ it('should pass when all drag types that match', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['monitor:drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -87,6 +94,8 @@ it('should pass when any drag type matches', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       canMonitor: some(containsText, containsHTML),
@@ -115,11 +124,15 @@ it('should pass when any drag type matches', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['monitor:drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -138,6 +151,8 @@ it('should not pass when no drag type matches', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       canMonitor: some(containsText, containsHTML),

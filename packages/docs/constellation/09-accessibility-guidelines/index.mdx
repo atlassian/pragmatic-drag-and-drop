@@ -8,7 +8,7 @@ import BoardExample from '../../examples/board';
 import ListExample from '../../examples/list';
 import TreeExample from '../../examples/tree';
 import ManualFocusRestorationExample from '../../examples/manual-focus-restoration';
-import AccessibilityTriggers from '../../examples/accessibility-triggers';
+import { ActionMenuVariants } from '../../examples/guidelines/action-menu-variants';
 import SectionMessage from '@atlaskit/section-message';
 
 The goal of this guidance is to provide every person with a way to delightfully achieve the same outcomes in Atlassian interfaces, regardless of the technologies being used.
@@ -35,12 +35,19 @@ Use visible and accessible controls (for example, buttons, menus, and forms) to 
 
 Draggable entities should have a button that can be used to trigger an inline menu containing outcomes.
 
-- A draggable entity should almost always have a drag handle icon to clearly show the entity is draggable. See [design guidelines](./design-guidelines).
-- Movement outcomes should be added to an existing **More button (...)** on a draggable entity. Having a **More button (...)** does not remove the need for a drag handle icon.
-- If no **More button (...)** exists, and movement outcomes are the only possible actions for the entity, then you can convert the drag handle icon into a [drag handle menu button](./optional-packages/react-accessibility) that triggers an inline menu with movement outcomes.
-- A draggable entity should _not_ have a **More button (...)** and a [drag handle menu button](./optional-packages/react-accessibility).
+<SectionMessage>
 
-<Example Component={AccessibilityTriggers} appearance="showcase-only" />
+Please refer to our [design guidelines](./design-guidelines) for guidance about drag handle icons.
+
+</SectionMessage>
+
+- Movement outcomes can be added to a draggable entity by using a **More button (...)**
+- Having a **More button (...)** does not remove the need for a drag handle icon. See [design guidelines](./design-guidelines).
+- If no **More button (...)** exists on a draggable entity, and movement outcomes are the only possible actions for the entity, then you can convert the drag handle icon into a [drag handle menu button](./optional-packages/react-accessibility) that triggers an inline menu with movement outcomes.
+- A draggable entity should only have one button for triggering actions. An entity should _not_ have a **More button (...)** and a [drag handle menu button](./optional-packages/react-accessibility) (an entity should only)
+- A draggable that does not have a drag handle icon because it is "implied" to be draggable (eg a card) should still have a **More button (...)**.
+
+<Example Component={ActionMenuVariants} appearance="showcase-only" />
 
 This pattern works well for a lot of cases, but there are other cases where this approach is not appropriate - for those cases please be driven by what would be best for people using assistive technologies.
 

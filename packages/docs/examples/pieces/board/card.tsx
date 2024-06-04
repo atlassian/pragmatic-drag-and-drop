@@ -159,15 +159,17 @@ function LazyDropdownItems({ userId }: { userId: string }) {
           Move to bottom
         </DropdownItem>
       </DropdownItemGroup>
-      <DropdownItemGroup title="Move to">
-        {moveColumnOptions.map(column => (
-          <MoveToOtherColumnItem
-            key={column.columnId}
-            targetColumn={column}
-            startIndex={startIndex}
-          />
-        ))}
-      </DropdownItemGroup>
+      {moveColumnOptions.length ? (
+        <DropdownItemGroup title="Move to">
+          {moveColumnOptions.map(column => (
+            <MoveToOtherColumnItem
+              key={column.columnId}
+              targetColumn={column}
+              startIndex={startIndex}
+            />
+          ))}
+        </DropdownItemGroup>
+      ) : null}
     </Fragment>
   );
 }
@@ -197,7 +199,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(
               {...props}
               // Workaround to make `Avatar` not draggable.
               // Ideally `Avatar` would have a `draggable` prop.
-// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+              // eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
               style={{ pointerEvents: 'none' }}
               ref={props.ref as Ref<HTMLDivElement>}
             />
@@ -346,7 +348,7 @@ export const Card = memo(function Card({ item }: { item: Person }) {
                * Using `border-box` sizing here is not necessary in this
                * specific example, but it is safer to include generally.
                */
-// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+              // eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
               boxSizing: 'border-box',
               width: state.rect.width,
               height: state.rect.height,

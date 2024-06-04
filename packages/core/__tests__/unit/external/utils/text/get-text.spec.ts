@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../../src/entry-point/combine';
@@ -24,14 +25,16 @@ test('when dragging no text, getText() should return null', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -43,7 +46,7 @@ test('when dragging no text, getText() should return null', () => {
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -51,11 +54,16 @@ test('when dragging no text, getText() should return null', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -72,14 +80,16 @@ test('when dragging text, getText() should return the text', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -90,7 +100,7 @@ test('when dragging text, getText() should return the text', () => {
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -98,11 +108,16 @@ test('when dragging text, getText() should return the text', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items: [{ data: 'Alex says hello', type: 'text/plain' }],
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -119,14 +134,16 @@ test('when dragging multiple types of native data (including text), getText() sh
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -141,7 +158,7 @@ test('when dragging multiple types of native data (including text), getText() sh
   });
 
   // when starting a drag, no html are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -149,11 +166,16 @@ test('when dragging multiple types of native data (including text), getText() sh
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);

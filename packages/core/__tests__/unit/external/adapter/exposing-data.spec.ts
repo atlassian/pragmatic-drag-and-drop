@@ -1,3 +1,5 @@
+import { fireEvent } from '@testing-library/dom';
+import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../src/entry-point/combine';
@@ -15,6 +17,7 @@ import {
   addItemsToEvent,
   appendToBody,
   getBubbleOrderedTree,
+  nativeDrag,
   reset,
 } from '../../_util';
 
@@ -359,6 +362,75 @@ test('data should not be exposed during a cancel', () => {
     ordered.length = 0;
     payloads.length = 0;
   }
+
+  cleanup();
+});
+
+test('data should not be exposed if a "drop" event occurs due to an unmanaged drop target', () => {
+  const [A] = getBubbleOrderedTree();
+  const ordered: string[] = [];
+  // Using an array rather than `NativePayload | null` as TS was incorrectly narrowing
+  // the value to `null` if it is only set inside of the pdnd callbacks
+  const payloads: ExternalDragPayload[] = [];
+
+  const cleanup = combine(
+    appendToBody(A),
+    bindAll(A, [
+      {
+        type: 'dragover',
+        listener: event => {
+          event.preventDefault();
+        },
+      },
+      {
+        type: 'dragenter',
+        listener: event => {
+          ordered.push('unmanaged:enter');
+          event.preventDefault();
+        },
+      },
+    ]),
+    monitorForExternal({
+      onDragStart: args => {
+        ordered.push(`start:external`);
+      },
+      onDrop: args => {
+        ordered.push(`drop:external`);
+        payloads.push(args.source);
+      },
+    }),
+  );
+
+  nativeDrag.startExternal({
+    items: [{ type: 'text/plain', data: 'hello' }],
+  });
+
+  expect(ordered).toEqual(['start:external']);
+  ordered.length = 0;
+
+  fireEvent.dragEnter(A);
+  expect(ordered).toEqual(['unmanaged:enter']);
+
+  ordered.length = 0;
+  payloads.length = 0;
+
+  const event = nativeDrag.drop({
+    items: [{ type: 'text/plain', data: 'hello' }],
+    target: A,
+  });
+
+  // onDrop will be called
+  expect(payloads.length).toBe(1);
+  const payload = payloads.at(-1);
+  invariant(payload);
+  expect(payload.types).toEqual(['text/plain']);
+
+  // no items in the payload as pdnd did not handle the "drop"
+  expect(payload.items.length).toBe(0);
+  expect(getText({ source: payload })).toEqual(null);
+
+  // data exists on the "drop" event - we are just not exposing it
+  expect(event.dataTransfer?.getData('text/plain')).toBe('hello');
 
   cleanup();
 });

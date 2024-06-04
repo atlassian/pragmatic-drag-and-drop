@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../../src/entry-point/combine';
@@ -24,14 +25,16 @@ test('when dragging no files, getFiles() should return no files', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -42,7 +45,7 @@ test('when dragging no files, getFiles() should return no files', () => {
   });
 
   // when starting a drag, no files are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -50,11 +53,16 @@ test('when dragging no files, getFiles() should return no files', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items: [{ data: 'Hello', type: 'text/plain' }],
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -71,14 +79,16 @@ test('when dragging one file, getFiles() should return the file', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -92,7 +102,7 @@ test('when dragging one file, getFiles() should return the file', () => {
   });
 
   // when starting a drag, no files are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -100,11 +110,16 @@ test('when dragging one file, getFiles() should return the file', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items: [file],
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -121,14 +136,16 @@ test('when dragging multiple files, getFiles() should return all files', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -145,7 +162,7 @@ test('when dragging multiple files, getFiles() should return all files', () => {
   });
 
   // when starting a drag, no files are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -153,11 +170,16 @@ test('when dragging multiple files, getFiles() should return all files', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items: [file1, file2],
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -174,14 +196,16 @@ test('when dragging multiple types of native data (including files), getFiles() 
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -199,7 +223,7 @@ test('when dragging multiple types of native data (including files), getFiles() 
   });
 
   // when starting a drag, no files are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -207,11 +231,16 @@ test('when dragging multiple types of native data (including files), getFiles() 
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);

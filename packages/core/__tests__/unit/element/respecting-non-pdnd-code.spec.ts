@@ -1,5 +1,5 @@
-import { fireEvent } from '@testing-library/dom';
-import { bind } from 'bind-event-listener';
+import { createEvent, fireEvent } from '@testing-library/dom';
+import { bind, bindAll } from 'bind-event-listener';
 
 import { combine } from '../../../src/entry-point/combine';
 import {
@@ -12,6 +12,7 @@ import {
   getElements,
   nativeDrag,
   reset,
+  userEvent,
 } from '../_util';
 
 afterEach(reset);
@@ -291,6 +292,65 @@ test('a unmanaged child draggable should not start dragging if a managed parent 
   fireEvent.dragStart(parent);
 
   expect(ordered).toEqual(['parent:preview']);
+
+  cleanup();
+});
+
+test('an unmanaged "drop" event should not be cancelled', () => {
+  const [draggableEl, unmanagedDropTarget] = getElements('div');
+  const ordered: string[] = [];
+  const cleanup = combine(
+    appendToBody(draggableEl, unmanagedDropTarget),
+    draggable({
+      element: draggableEl,
+      onDragStart: () => ordered.push('draggable:start'),
+      onDrop: ({ location }) =>
+        ordered.push(
+          `draggable:drop - drop targets: ${location.current.dropTargets.length}`,
+        ),
+    }),
+    bindAll(unmanagedDropTarget, [
+      {
+        type: 'dragover',
+        listener: event => {
+          ordered.push('unmanaged:over');
+          event.preventDefault();
+        },
+      },
+      {
+        type: 'dragenter',
+        listener: event => {
+          event.preventDefault();
+          ordered.push('unmanaged:enter');
+        },
+      },
+      {
+        type: 'drop',
+        listener: () => {
+          ordered.push('unmanaged:drop');
+        },
+      },
+    ]),
+  );
+
+  userEvent.lift(draggableEl);
+
+  expect(ordered).toEqual(['draggable:start']);
+  ordered.length = 0;
+
+  fireEvent.dragEnter(unmanagedDropTarget);
+
+  expect(ordered).toEqual(['unmanaged:enter']);
+  ordered.length = 0;
+
+  const event = createEvent.drop(unmanagedDropTarget);
+  fireEvent(unmanagedDropTarget, event);
+
+  expect(event.defaultPrevented).toBe(false);
+  expect(ordered).toEqual([
+    'draggable:drop - drop targets: 0',
+    'unmanaged:drop',
+  ]);
 
   cleanup();
 });

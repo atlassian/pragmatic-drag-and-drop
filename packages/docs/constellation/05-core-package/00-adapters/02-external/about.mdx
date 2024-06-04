@@ -184,6 +184,13 @@ monitorForExternal({
 
 Generally, you will only want to interact with `source` using one of our helpers (eg `getText()`). `.items` and `getStringData()` only return meaningful information during a successful "drop" event (`onDrop()`)
 
+`source.items` (`DataTransferItem[]`) will only be populated with data:
+
+1. in the `onDrop()` event, and
+2. when the user is dropping on a [drop target](../../drop-targets) (including when over a drop target due to stickiness)
+
+Otherwise, `source.items` will be unpopulated (`[]`).
+
 ## Types
 
 Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript types if you would like to use them.

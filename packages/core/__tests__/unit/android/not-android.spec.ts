@@ -1,9 +1,13 @@
+import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../src/entry-point/combine';
 import { draggable } from '../../../src/entry-point/element/adapter';
-import { monitorForExternal } from '../../../src/entry-point/external/adapter';
+import {
+  dropTargetForExternal,
+  monitorForExternal,
+} from '../../../src/entry-point/external/adapter';
 import { getHTML } from '../../../src/public-utils/external/html';
 import { androidFallbackText } from '../../../src/util/android';
 import { textMediaType } from '../../../src/util/media-types/text-media-type';
@@ -63,11 +67,16 @@ it('should not add a fake "text/plain" entry', () => {
 });
 
 it('should not expose a "text/plain" type (or item) to the external adapter if the data is the fake android data', () => {
-  const [element] = getElements('div');
+  const [A] = getElements('div');
   const ordered: string[] = [];
 
   const cleanup = combine(
-    appendToBody(element),
+    appendToBody(A),
+    dropTargetForExternal({
+      element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
+    }),
     monitorForExternal({
       onDragStart: ({ source }) => {
         ordered.push('monitor:start');
@@ -102,14 +111,19 @@ it('should not expose a "text/plain" type (or item) to the external adapter if t
   expect(ordered).toEqual(['monitor:start']);
   ordered.length = 0;
 
+  fireEvent.dragEnter(A);
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items: [
       { type: textMediaType, data: androidFallbackText },
       { type: 'text/html', data: '<strong>Hello</strong>' },
     ],
+    target: A,
   });
 
-  expect(ordered).toEqual(['monitor:drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
 
   cleanup();
 });

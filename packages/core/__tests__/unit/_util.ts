@@ -246,10 +246,11 @@ export const nativeDrag = {
   }: {
     items?: SimpleItem[];
     target?: Element;
-  }) {
+  }): DragEvent {
     const event = new DragEvent('drop', { cancelable: true, bubbles: true });
     addItemsToEvent({ event, items });
     target.dispatchEvent(event);
+    return event;
   },
 };
 

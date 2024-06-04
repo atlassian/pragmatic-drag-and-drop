@@ -251,12 +251,25 @@ function start<DragType extends AllDragTypes>({
         },
       },
       {
+        // A "drop" can only happen if the browser allowed the drop
         type: 'drop',
         listener(event: DragEvent) {
-          // A "drop" can only happen if the browser allowed the drop
+          /** If there are no drop targets, then we will get
+           * a "drop" event if:
+           * - `preventUnhandled()` is being used
+           * - there is an unmanaged drop target (eg another library)
+           * In these cases, it's up to the consumer
+           * to handle the drop if it's not over one of our drop targets
+           * - `preventUnhandled()` will cancel the "drop"
+           * - unmanaged drop targets can handle the "drop" how they want to
+           * We won't call `event.preventDefault()` in this call path */
 
-          // Accepting drop operation.
-          // Also: opting out of standard browser drop behaviour for the drag
+          if (!state.current.dropTargets.length) {
+            cancel();
+            // not applying our post drop fix as we are not managing the drop
+            return;
+          }
+
           event.preventDefault();
 
           // applying the latest drop effect to the event

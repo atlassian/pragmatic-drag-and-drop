@@ -105,6 +105,8 @@ it('should accept drops, even when over no drop targets', () => {
 
   expect(ordered).toEqual(['drop']);
   expect(event.dataTransfer?.dropEffect).toEqual('none');
+  // opting out of the browsers default "drop" behaviour
+  expect(event.defaultPrevented).toBe(true);
 
   cleanup();
 });

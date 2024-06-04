@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
 import { combine } from '../../../../../src/entry-point/combine';
@@ -25,14 +26,16 @@ test('when dragging no urls, getURLs() should return []', () => {
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -44,7 +47,7 @@ test('when dragging no urls, getURLs() should return []', () => {
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -52,11 +55,16 @@ test('when dragging no urls, getURLs() should return []', () => {
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);
@@ -116,14 +124,16 @@ scenarios.forEach(scenario => {
       appendToBody(A),
       dropTargetForExternal({
         element: A,
+        onDragEnter: () => ordered.push('A:enter'),
+        onDrop: () => ordered.push('A:drop'),
       }),
       monitorForExternal({
         onDragStart: args => {
-          ordered.push('start');
+          ordered.push('monitor:start');
           payloads.push(args);
         },
         onDrop: args => {
-          ordered.push('drop');
+          ordered.push('monitor:drop');
           payloads.push(args);
         },
       }),
@@ -135,7 +145,7 @@ scenarios.forEach(scenario => {
     });
 
     // when starting a drag, no items are exposed
-    expect(ordered).toEqual(['start']);
+    expect(ordered).toEqual(['monitor:start']);
     expect(payloads.length).toBe(1);
     const first = payloads[0];
     invariant(first);
@@ -143,11 +153,14 @@ scenarios.forEach(scenario => {
     ordered.length = 0;
     payloads.length = 0;
 
+    fireEvent.dragEnter(A);
+    expect(ordered).toEqual(['A:enter']);
+    ordered.length = 0;
     nativeDrag.drop({
       items,
     });
 
-    expect(ordered).toEqual(['drop']);
+    expect(ordered).toEqual(['A:drop', 'monitor:drop']);
     expect(payloads.length).toBe(1);
     const second = payloads[0];
     invariant(second);
@@ -172,14 +185,16 @@ test('when dragging multiple types of native data (including urls), getURLs() sh
     appendToBody(A),
     dropTargetForExternal({
       element: A,
+      onDragEnter: () => ordered.push('A:enter'),
+      onDrop: () => ordered.push('A:drop'),
     }),
     monitorForExternal({
       onDragStart: args => {
-        ordered.push('start');
+        ordered.push('monitor:start');
         payloads.push(args);
       },
       onDrop: args => {
-        ordered.push('drop');
+        ordered.push('monitor:drop');
         payloads.push(args);
       },
     }),
@@ -194,7 +209,7 @@ test('when dragging multiple types of native data (including urls), getURLs() sh
   });
 
   // when starting a drag, no items are exposed
-  expect(ordered).toEqual(['start']);
+  expect(ordered).toEqual(['monitor:start']);
   expect(payloads.length).toBe(1);
   const first = payloads[0];
   invariant(first);
@@ -202,11 +217,16 @@ test('when dragging multiple types of native data (including urls), getURLs() sh
   ordered.length = 0;
   payloads.length = 0;
 
+  fireEvent.dragEnter(A);
+
+  expect(ordered).toEqual(['A:enter']);
+  ordered.length = 0;
+
   nativeDrag.drop({
     items,
   });
 
-  expect(ordered).toEqual(['drop']);
+  expect(ordered).toEqual(['A:drop', 'monitor:drop']);
   expect(payloads.length).toBe(1);
   const second = payloads[0];
   invariant(second);

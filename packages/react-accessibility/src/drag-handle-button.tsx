@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 
+import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+
 import { DragHandleButtonBase } from './drag-handle-button-base';
-import { DragHandleIcon } from './drag-handle-icon';
 import type { DragHandleButtonProps } from './types';
 
 /**
@@ -10,13 +11,13 @@ import type { DragHandleButtonProps } from './types';
  * This component uses a native button because the `@atlaskit/button`
  * cancels `mouseDown` events, which prevents dragging.
  */
-export const DragHandleButton = forwardRef<
-  HTMLButtonElement,
-  DragHandleButtonProps
->(function DragHandleButton({ label, ...buttonProps }, ref) {
-  return (
-    <DragHandleButtonBase ref={ref} {...buttonProps}>
-      <DragHandleIcon label={label} />
-    </DragHandleButtonBase>
-  );
-});
+export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
+	function DragHandleButton({ label, ...buttonProps }, ref) {
+		return (
+			<DragHandleButtonBase ref={ref} {...buttonProps}>
+				{/* Relying on currentColor for color */}
+				<DragHandlerIcon label={label} />
+			</DragHandleButtonBase>
+		);
+	},
+);

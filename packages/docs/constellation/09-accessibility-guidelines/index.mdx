@@ -77,12 +77,6 @@ Packages to help you:
 
 [Figma (Atlassians only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38%3A5623&mode=design&t=LsTwhMGxMe6t08K3-1>)
 
-### Alternative pattern: focus only controls
-
-If drag handles or other menus aren't available, make it possible to access more actions on focus.
-
-![A series of actions that allow users to focus on a group of items, then move or rearrange them. ](/images/desin-edit-order-alt.png)
-
 ### Assistive names
 
 All interactive elements should have a meaningful name for assistive technology.
@@ -138,13 +132,6 @@ In this `react` example, the avatar can move between the two columns by dragging
 This requires manual focus restoration because the button is moving to a new parent and will remount. The button in the new column is not the same DOM element as the original button, so focus can't be preserved automatically.
 
 <Example Component={ManualFocusRestorationExample} appearance="showcase-only" />
-
-## Related
-
-- [Atlassian drag and drop design guidelines](./design-guidelines)
-- [Accessibility foundation general guidance](/foundations/accessibility/#meaningful-text)
-- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
-- [Live region package](./optional-packages/live-region)
 
 ## Related
 

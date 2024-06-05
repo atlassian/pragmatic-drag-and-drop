@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.1.11
+
+### Patch Changes
+
+- [#107751](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/107751)
+  [`ac9352b7e0ce`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/ac9352b7e0ce) -
+  Fixing timing issue with `preventUnhandled()` introduced in the prior release.
+  `preventUnhandled.stop()` called inside of `onDrop()` will now correctly cancel a native `"drop"`
+  event.
+
 ## 1.1.10
 
 ### Patch Changes

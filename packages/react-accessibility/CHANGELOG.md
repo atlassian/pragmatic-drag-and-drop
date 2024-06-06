@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 1.1.4
+
+### Patch Changes
+
+- [#107125](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/107125)
+  [`bba5df29ef98`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/bba5df29ef98) -
+  ts-ignore css prop error to unblock local consumption in jira
+
 ## 1.1.3
 
 ### Patch Changes

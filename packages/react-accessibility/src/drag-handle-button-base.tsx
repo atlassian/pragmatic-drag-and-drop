@@ -85,6 +85,8 @@ export const DragHandleButtonBase = forwardRef<
 		<FocusRing>
 			<button
 				ref={ref}
+				// @ts-ignore - This was added when `@atlaskit/pragmatic-drag-and-drop-react-accessibility` was enrolled into JFE local consumption
+				// There seems to be an incompatibility in the `css` prop between jira and platform
 				css={[buttonStyles, buttonAppearanceStyles[appearance]]}
 				data-testid={testId}
 				type={type}

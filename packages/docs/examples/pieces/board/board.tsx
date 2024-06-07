@@ -6,33 +6,31 @@ import { Box, xcss } from '@atlaskit/primitives';
 import { useBoardContext } from './board-context';
 
 type BoardProps = {
-  children: ReactNode;
+	children: ReactNode;
 };
 
 const boardStyles = xcss({
-  display: 'flex',
-  justifyContent: 'center',
-  gap: 'space.200',
-  flexDirection: 'row',
-  height: '480px',
+	display: 'flex',
+	justifyContent: 'center',
+	gap: 'space.200',
+	flexDirection: 'row',
+	height: '480px',
 });
 
-const Board = forwardRef<HTMLDivElement, BoardProps>(
-  ({ children }: BoardProps, ref) => {
-    const { instanceId } = useBoardContext();
+const Board = forwardRef<HTMLDivElement, BoardProps>(({ children }: BoardProps, ref) => {
+	const { instanceId } = useBoardContext();
 
-    useEffect(() => {
-      return autoScrollWindowForElements({
-        canScroll: ({ source }) => source.data.instanceId === instanceId,
-      });
-    }, [instanceId]);
+	useEffect(() => {
+		return autoScrollWindowForElements({
+			canScroll: ({ source }) => source.data.instanceId === instanceId,
+		});
+	}, [instanceId]);
 
-    return (
-      <Box xcss={boardStyles} ref={ref}>
-        {children}
-      </Box>
-    );
-  },
-);
+	return (
+		<Box xcss={boardStyles} ref={ref}>
+			{children}
+		</Box>
+	);
+});
 
 export default memo(Board);

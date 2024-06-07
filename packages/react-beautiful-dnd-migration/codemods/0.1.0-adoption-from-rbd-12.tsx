@@ -16,9 +16,6 @@ import { shouldRunCodemodOnFile } from './utils';
  * The `updateImports` transform should occur last,
  * as the previous transforms only operate on imports from `react-beautiful-dnd`.
  */
-const transformer = createTransformer(
-  [migrate12to13, ...migrations],
-  shouldRunCodemodOnFile,
-);
+const transformer = createTransformer([migrate12to13, ...migrations], shouldRunCodemodOnFile);
 
 export default transformer;

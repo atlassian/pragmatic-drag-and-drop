@@ -2,5 +2,5 @@
 import { jsx } from '@emotion/react';
 
 export function ActivityLog() {
-  return <div>Activity log</div>;
+	return <div>Activity log</div>;
 }

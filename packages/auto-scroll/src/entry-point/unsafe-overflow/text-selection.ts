@@ -4,5 +4,4 @@ import { makeApi } from '../../unsafe-overflow/make-api';
 
 const api = makeApi({ monitor: monitorForTextSelection });
 
-export const unsafeOverflowAutoScrollForTextSelection =
-  api.unsafeOverflowAutoScroll;
+export const unsafeOverflowAutoScrollForTextSelection = api.unsafeOverflowAutoScroll;

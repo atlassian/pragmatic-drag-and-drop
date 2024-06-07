@@ -10,22 +10,22 @@ import { Content } from './content';
 import { DropTarget } from './drop-target';
 
 const appStyles = css({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  padding: 'var(--grid)',
-  gap: 'calc(var(--grid) * 2)',
-  maxWidth: '1000px',
+	display: 'grid',
+	gridTemplateColumns: '1fr 1fr 1fr',
+	padding: 'var(--grid)',
+	gap: 'calc(var(--grid) * 2)',
+	maxWidth: '1000px',
 });
 
 export function App() {
-  return (
-    <Fragment>
-      <GlobalStyles />
-      <div css={appStyles}>
-        <Content />
-        <DropTarget />
-        <ActivityLog />
-      </div>
-    </Fragment>
-  );
+	return (
+		<Fragment>
+			<GlobalStyles />
+			<div css={appStyles}>
+				<Content />
+				<DropTarget />
+				<ActivityLog />
+			</div>
+		</Fragment>
+	);
 }

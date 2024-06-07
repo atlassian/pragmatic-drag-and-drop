@@ -29,5 +29,5 @@
  * ```
  */
 export function formatURLsForExternal(urls: string[]): string {
-  return urls.join('\r\n');
+	return urls.join('\r\n');
 }

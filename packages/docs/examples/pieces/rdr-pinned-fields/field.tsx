@@ -5,35 +5,29 @@ import type { ReactNode } from 'react';
 import { css, jsx } from '@emotion/react';
 
 const fieldContentWithIconStyles = css({
-  display: 'grid',
-  gridTemplateColumns: '24px 1fr',
-  alignItems: 'center',
-  gap: 12,
+	display: 'grid',
+	gridTemplateColumns: '24px 1fr',
+	alignItems: 'center',
+	gap: 12,
 });
 
 const fieldContentIconStyles = css({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: 24,
-  height: 24,
-  pointerEvents: 'none',
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	width: 24,
+	height: 24,
+	pointerEvents: 'none',
 });
 
 /**
  * Used to emulate a select
  */
-export function FieldContentWithIcon({
-  children,
-  icon,
-}: {
-  children: ReactNode;
-  icon: ReactNode;
-}) {
-  return (
-    <div css={fieldContentWithIconStyles}>
-      <div css={fieldContentIconStyles}>{icon}</div>
-      <div>{children}</div>
-    </div>
-  );
+export function FieldContentWithIcon({ children, icon }: { children: ReactNode; icon: ReactNode }) {
+	return (
+		<div css={fieldContentWithIconStyles}>
+			<div css={fieldContentIconStyles}>{icon}</div>
+			<div>{children}</div>
+		</div>
+	);
 }

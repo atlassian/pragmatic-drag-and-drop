@@ -13,14 +13,14 @@
  * cached('Declan'); // original result of `sayHello` call is returned
  */
 export function cacheFirst<TFunc extends (...args: any[]) => any>(
-  fn: TFunc,
+	fn: TFunc,
 ): (...args: Parameters<TFunc>) => ReturnType<TFunc> {
-  let result: { value: ReturnType<TFunc> } | null = null;
+	let result: { value: ReturnType<TFunc> } | null = null;
 
-  return function single(...args: Parameters<TFunc>): ReturnType<TFunc> {
-    if (!result) {
-      result = { value: fn(...args) };
-    }
-    return result.value;
-  };
+	return function single(...args: Parameters<TFunc>): ReturnType<TFunc> {
+		if (!result) {
+			result = { value: fn(...args) };
+		}
+		return result.value;
+	};
 }

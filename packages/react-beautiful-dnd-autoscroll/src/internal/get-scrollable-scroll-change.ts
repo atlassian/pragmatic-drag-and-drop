@@ -7,24 +7,24 @@ import getScroll from './get-scroll';
 import type { Scrollable } from './types';
 
 type Args = {
-  scrollable: Scrollable;
-  center: Position;
-  dragStartTime: number;
-  shouldUseTimeDampening: boolean;
+	scrollable: Scrollable;
+	center: Position;
+	dragStartTime: number;
+	shouldUseTimeDampening: boolean;
 };
 
 export default ({
-  scrollable,
-  center,
-  dragStartTime,
-  shouldUseTimeDampening,
+	scrollable,
+	center,
+	dragStartTime,
+	shouldUseTimeDampening,
 }: Args): Position | null => {
-  const scroll: Position | null = getScroll({
-    dragStartTime,
-    container: scrollable.container,
-    center,
-    shouldUseTimeDampening,
-  });
+	const scroll: Position | null = getScroll({
+		dragStartTime,
+		container: scrollable.container,
+		center,
+		shouldUseTimeDampening,
+	});
 
-  return scroll && canScrollScrollable(scrollable, scroll) ? scroll : null;
+	return scroll && canScrollScrollable(scrollable, scroll) ? scroll : null;
 };

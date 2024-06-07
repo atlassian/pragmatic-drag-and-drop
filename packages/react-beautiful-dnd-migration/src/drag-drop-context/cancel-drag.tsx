@@ -7,5 +7,5 @@
  * an external adapter could pick it up as a new drag.
  */
 export function cancelPointerDrag() {
-  window.dispatchEvent(new DragEvent('dragend'));
+	window.dispatchEvent(new DragEvent('dragend'));
 }

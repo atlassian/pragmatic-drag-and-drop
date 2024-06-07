@@ -24,6 +24,6 @@ import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 // window.pageYOffset: updates to whole number
 
 export default (): Position => ({
-  x: window.pageXOffset,
-  y: window.pageYOffset,
+	x: window.pageXOffset,
+	y: window.pageYOffset,
 });

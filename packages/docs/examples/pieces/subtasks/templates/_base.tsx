@@ -6,23 +6,23 @@ import { type DataItem, initialData } from '../data';
 export type DraggableSubtaskProps = { index: number; item: DataItem };
 
 export type SubtasksBaseTemplateProps = {
-  instanceId: string;
-  DraggableSubtask: ComponentType<DraggableSubtaskProps>;
-  Wrapper?: ComponentType<{ children: ReactNode }>;
+	instanceId: string;
+	DraggableSubtask: ComponentType<DraggableSubtaskProps>;
+	Wrapper?: ComponentType<{ children: ReactNode }>;
 };
 
 export function SubtasksBaseTemplate({
-  instanceId,
-  DraggableSubtask,
-  Wrapper = Fragment,
+	instanceId,
+	DraggableSubtask,
+	Wrapper = Fragment,
 }: SubtasksBaseTemplateProps) {
-  const { data } = useTopLevelWiring({ initialData, type: instanceId });
+	const { data } = useTopLevelWiring({ initialData, type: instanceId });
 
-  return (
-    <Wrapper>
-      {data.map((item, index) => (
-        <DraggableSubtask key={item.id} index={index} item={item} />
-      ))}
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			{data.map((item, index) => (
+				<DraggableSubtask key={item.id} index={index} item={item} />
+			))}
+		</Wrapper>
+	);
 }

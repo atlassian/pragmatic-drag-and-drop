@@ -7,10 +7,10 @@ import { warnAboutUnsupportedProps } from './migrations/warn-about-unsupported-p
 import { shouldRunCodemodOnFile } from './utils';
 
 export const migrations = [
-  warnAboutRemovedExports,
-  warnAboutUnsupportedProps,
-  warnAboutReactBeautifulDndNext,
-  updateImports,
+	warnAboutRemovedExports,
+	warnAboutUnsupportedProps,
+	warnAboutReactBeautifulDndNext,
+	updateImports,
 ];
 
 /**

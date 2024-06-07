@@ -9,30 +9,30 @@ import { token } from '@atlaskit/tokens';
 const lineThickness = 4;
 
 const dropIndicatorStyles = css({
-  position: 'absolute',
-  left: 0,
-  width: '100%',
-  height: lineThickness,
-  background: token('color.border.selected'),
+	position: 'absolute',
+	left: 0,
+	width: '100%',
+	height: lineThickness,
+	background: token('color.border.selected'),
 });
 
 const dropIndicatorEdgeStyles = {
-  top: css({
-    top: `calc(-1 * (var(--gap) / 2 + ${lineThickness}px / 2))`,
-  }),
-  bottom: css({
-    bottom: `calc(-1 * (var(--gap) / 2 + ${lineThickness}px / 2))`,
-  }),
-  left: {},
-  right: {},
+	top: css({
+		top: `calc(-1 * (var(--gap) / 2 + ${lineThickness}px / 2))`,
+	}),
+	bottom: css({
+		bottom: `calc(-1 * (var(--gap) / 2 + ${lineThickness}px / 2))`,
+	}),
+	left: {},
+	right: {},
 };
 
 export function DropIndicator({ edge, gap }: { edge: Edge; gap: string }) {
-  return (
-    <div
-// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-      style={{ '--gap': gap } as React.CSSProperties}
-      css={[dropIndicatorStyles, dropIndicatorEdgeStyles[edge]]}
-    />
-  );
+	return (
+		<div
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+			style={{ '--gap': gap } as React.CSSProperties}
+			css={[dropIndicatorStyles, dropIndicatorEdgeStyles[edge]]}
+		/>
+	);
 }

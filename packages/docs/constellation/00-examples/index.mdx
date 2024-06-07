@@ -16,11 +16,29 @@ import ResizingExample from '../../examples/resizing';
 import TreeExample from '../../examples/tree';
 import VirtualListExample from '../../examples/virtual-list';
 
-This page demonstrates some of the experiences that Pragmatic drag and drop enables. These examples use a combination of our [core package](./core-package) and [optional packages](./optional-packages).
+This page demonstrates some of the experiences that Pragmatic drag and drop enables. These examples
+use a combination of our [core package](./core-package) and
+[optional packages](./optional-packages).
 
 ## List
 
 <Example Component={ListExample} appearance="showcase-only" />
+
+### Simple list on other stacks
+
+We have created [simple list example](https://github.com/alexreardon/pdnd-react-tailwind) which does not leverage any other Atlassian Design System outputs.
+
+<a href="https://stackblitz.com/github/alexreardon/pdnd-react-tailwind?startScript=dev" target="_blank">
+	 {/* using inline styles as Gatsby does not like passing source onto another component */}
+	<img src="/images/pdnd-standalone-simple-example.png" alt="Simple list example" style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"/>
+</a>
+
+In order to demonstrate how to use Pragmatic drag and drop on different tech stacks, the community has ported this [simple list example](https://github.com/alexreardon/pdnd-react-tailwind) to various tech stacks:
+
+
+| Technologies                     | Source                                                 | Standalone example                                                                           | Author(s)                                         |
+| -------------------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| React + TailwindCSS + TypeScript | [Github](https://github.com/alexreardon/pdnd-react-tailwind) | [Run on StackBlitz](https://stackblitz.com/github/alexreardon/pdnd-react-tailwind?startScript=dev) | [@alexandereardon](https://x.com/alexandereardon) |
 
 ## Board
 
@@ -30,7 +48,9 @@ This page demonstrates some of the experiences that Pragmatic drag and drop enab
 
 <SectionMessage appearance="information">
 
-This grid example does a simple "swap" when dropping. You can do whatever operations you like with grids (including inserting items based on closest edge). This example does not currently have accessibility wired up.
+This grid example does a simple "swap" when dropping. You can do whatever operations you like with
+grids (including inserting items based on closest edge). This example does not currently have
+accessibility wired up.
 
 </SectionMessage>
 
@@ -40,8 +60,8 @@ This grid example does a simple "swap" when dropping. You can do whatever operat
 
 <SectionMessage appearance="information" title="Needs updating">
 
-Our table example does not line up with our [latest design
-guidelines](./design-guidelines) and needs to be updated.
+Our table example does not line up with our [latest design guidelines](./design-guidelines) and
+needs to be updated.
 
 </SectionMessage>
 
@@ -53,57 +73,54 @@ guidelines](./design-guidelines) and needs to be updated.
 
 ## File
 
-Use the [external adapter](./adapters/external) to capture files that users drag and drop onto the page.
+Use the [external adapter](./adapters/external) to capture files that users drag and drop onto the
+page.
 
-When requesting files, you should also provide an `<input type="file" />` for
-usability and accessibility reasons.
+When requesting files, you should also provide an `<input type="file" />` for usability and
+accessibility reasons.
 
 <Example Component={FileExample} appearance="showcase-only" />
 
 ## Drawing
 
 <SectionMessage
-  appearance="information"
-  title="Excepted from Success Criterion 2.1.1 - Keyboard (Level A)"
+	appearance="information"
+	title="Excepted from Success Criterion 2.1.1 - Keyboard (Level A)"
 >
-  <Stack space="space.200">
-    <p>
-      This example is excepted from the{' '}
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">
-        WCAG Success Criterion 2.1.1 - Keyboard (Level A)
-      </a>
-      . The underlying function (freehand drawing) requires input that depends on
-      the path of the user's movement and not just the endpoints.
-    </p>
-    <p>
-      Due to{' '}
-      <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-no-exception">
-        Success Criterion 2.1.3 - Keyboard (No Exception) (Level AAA)
-      </a>
-      , path-dependent input cannot meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-accessible">
-        Guideline 2.1
-      </a> at Level AAA.
-    </p>
-    <p>
-      Wherever possible, this exception should not be relied on, and an
-      alternative input method should be provided.
-    </p>
-  </Stack>
+	<Stack space="space.200">
+		<p>
+			This example is excepted from the{' '}
+			<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard">
+				WCAG Success Criterion 2.1.1 - Keyboard (Level A)
+			</a>
+			. The underlying function (freehand drawing) requires input that depends on the path of the user's
+			movement and not just the endpoints.
+		</p>
+		<p>
+			Due to{' '}
+			<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-no-exception">
+				Success Criterion 2.1.3 - Keyboard (No Exception) (Level AAA)
+			</a>
+			, path-dependent input cannot meet <a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard-accessible">
+				Guideline 2.1
+			</a> at Level AAA.
+		</p>
+		<p>
+			Wherever possible, this exception should not be relied on, and an alternative input method
+			should be provided.
+		</p>
+	</Stack>
 </SectionMessage>
 
 <Example Component={DrawingExample} appearance="showcase-only" />
 
 ## Resizing
 
-<SectionMessage
-  appearance="information"
-  title="Accessibility guidance in progress"
->
-  <p>
-    An investigation is required to decide on appropriate accessible controls
-    for resizing. If you would like us to prioritise this investigation, please
-    reach out.
-  </p>
+<SectionMessage appearance="information" title="Accessibility guidance in progress">
+	<p>
+		An investigation is required to decide on appropriate accessible controls for resizing. If you
+		would like us to prioritise this investigation, please reach out.
+	</p>
 </SectionMessage>
 
 <Example Component={ResizingExample} appearance="showcase-only" />
@@ -111,19 +128,17 @@ usability and accessibility reasons.
 ## Virtual
 
 <SectionMessage appearance="success">
-  <p>
-    Pragmatic drag an drop works with <strong>any virtual experience</strong>:
-    you can add, remove or change any entity you want during a drag operation.
-    This example uses{' '}
-    <a href="https://tanstack.com/virtual/latest">TanStack Virtual</a>, but you
-    can use any virtualization solution you like.
-    <br />
-    See our{' '}
-    <a href="./core-package/improving-performance/virtualization">
-      virtualization guide
-    </a>{' '}
-    for more details.
-  </p>
+	<p>
+		Pragmatic drag an drop works with <strong>any virtual experience</strong>: you can add, remove
+		or change any entity you want during a drag operation. This example uses{' '}
+		<a href="https://tanstack.com/virtual/latest">TanStack Virtual</a>, but you can use any
+		virtualization solution you like.
+		<br />
+		See our <a href="./core-package/improving-performance/virtualization">
+			virtualization guide
+		</a>{' '}
+		for more details.
+	</p>
 </SectionMessage>
 
 <Example Component={VirtualListExample} appearance="showcase-only" />

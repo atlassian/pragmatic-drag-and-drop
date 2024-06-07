@@ -15,66 +15,66 @@ import { getDropReason, isDragging } from '../../_utils/helpers';
 HTMLElement.prototype.scrollIntoView = jest.fn();
 
 it('should prevent default on the event that causes a drop', () => {
-  const onDragEnd = jest.fn();
-  const { getByText } = render(<App onDragEnd={onDragEnd} />);
-  const handle: HTMLElement = getByText('item: 0');
+	const onDragEnd = jest.fn();
+	const { getByText } = render(<App onDragEnd={onDragEnd} />);
+	const handle: HTMLElement = getByText('item: 0');
 
-  simpleLift(keyboard, handle);
-  expect(isDragging(handle)).toBe(true);
+	simpleLift(keyboard, handle);
+	expect(isDragging(handle)).toBe(true);
 
-  const event: Event = createEvent.keyDown(handle, { key: ' ' });
-  fireEvent(handle, event);
+	const event: Event = createEvent.keyDown(handle, { key: ' ' });
+	fireEvent(handle, event);
 
-  expect(event.defaultPrevented).toBe(true);
-  expect(getDropReason(onDragEnd)).toBe('DROP');
+	expect(event.defaultPrevented).toBe(true);
+	expect(getDropReason(onDragEnd)).toBe('DROP');
 });
 
 it('should prevent default on an escape press', () => {
-  const onDragEnd = jest.fn();
-  const { getByText } = render(<App onDragEnd={onDragEnd} />);
-  const handle: HTMLElement = getByText('item: 0');
+	const onDragEnd = jest.fn();
+	const { getByText } = render(<App onDragEnd={onDragEnd} />);
+	const handle: HTMLElement = getByText('item: 0');
 
-  simpleLift(keyboard, handle);
-  expect(isDragging(handle)).toBe(true);
+	simpleLift(keyboard, handle);
+	expect(isDragging(handle)).toBe(true);
 
-  const event: Event = createEvent.keyDown(handle, { key: 'Escape' });
-  fireEvent(handle, event);
+	const event: Event = createEvent.keyDown(handle, { key: 'Escape' });
+	fireEvent(handle, event);
 
-  expect(event.defaultPrevented).toBe(true);
-  expect(getDropReason(onDragEnd)).toBe('CANCEL');
+	expect(event.defaultPrevented).toBe(true);
+	expect(getDropReason(onDragEnd)).toBe('CANCEL');
 });
 
 it('should not prevent the default behaviour for an indirect cancel', () => {
-  [
-    'mousedown',
-    'mouseup',
-    'click',
-    'touchstart',
-    'resize',
-    'wheel',
-    // rbd also tested the browser prefixed versions of this event,
-    // but browser support now is good so I removed them
-    'visibilitychange',
-  ].forEach((eventName: string) => {
-    const onDragEnd = jest.fn();
-    const { getByText, unmount } = render(<App onDragEnd={onDragEnd} />);
-    const handle: HTMLElement = getByText('item: 0');
+	[
+		'mousedown',
+		'mouseup',
+		'click',
+		'touchstart',
+		'resize',
+		'wheel',
+		// rbd also tested the browser prefixed versions of this event,
+		// but browser support now is good so I removed them
+		'visibilitychange',
+	].forEach((eventName: string) => {
+		const onDragEnd = jest.fn();
+		const { getByText, unmount } = render(<App onDragEnd={onDragEnd} />);
+		const handle: HTMLElement = getByText('item: 0');
 
-    simpleLift(keyboard, handle);
-    expect(isDragging(handle)).toBe(true);
+		simpleLift(keyboard, handle);
+		expect(isDragging(handle)).toBe(true);
 
-    const event: Event = new Event(eventName, {
-      bubbles: true,
-      cancelable: true,
-      // target: handle,
-    });
+		const event: Event = new Event(eventName, {
+			bubbles: true,
+			cancelable: true,
+			// target: handle,
+		});
 
-    fireEvent(handle, event);
+		fireEvent(handle, event);
 
-    // not an explicit cancel
-    expect(event.defaultPrevented).toBe(false);
-    expect(getDropReason(onDragEnd)).toBe('CANCEL');
+		// not an explicit cancel
+		expect(event.defaultPrevented).toBe(false);
+		expect(getDropReason(onDragEnd)).toBe('CANCEL');
 
-    unmount();
-  });
+		unmount();
+	});
 });

@@ -3,8 +3,8 @@ jest.autoMockOff();
 import { createTransformer } from '@atlaskit/codemod-utils';
 
 import {
-  warnAboutRemovedExports,
-  warningMessageForRemovedExports,
+	warnAboutRemovedExports,
+	warningMessageForRemovedExports,
 } from '../../migrations/warn-about-removed-exports';
 
 const transformer = createTransformer([warnAboutRemovedExports]);
@@ -15,42 +15,42 @@ const transform = { default: transformer, parser: 'tsx' };
 const transformOptions = { printOptions: { quote: 'single' } };
 
 function getExpectedComment({ indent }: { indent: number }) {
-  /**
-   * The raw warning message has no indent formatting.
-   *
-   * The expected message will be indented based on its context.
-   */
-  const formattedMessage = warningMessageForRemovedExports.replace(
-    /\n/g,
-    `\n${' '.repeat(indent)}`,
-  );
-  return `TODO: (from codemod) ${formattedMessage}`;
+	/**
+	 * The raw warning message has no indent formatting.
+	 *
+	 * The expected message will be indented based on its context.
+	 */
+	const formattedMessage = warningMessageForRemovedExports.replace(
+		/\n/g,
+		`\n${' '.repeat(indent)}`,
+	);
+	return `TODO: (from codemod) ${formattedMessage}`;
 }
 
 describe('warn about removed exports', () => {
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import {
       useMouseSensor,
       DragDropContext
     } from 'react-beautiful-dnd';
     `,
-    `
+		`
     import {
       /* ${getExpectedComment({ indent: 6 })} */
       useMouseSensor,
       DragDropContext
     } from 'react-beautiful-dnd';
     `,
-    'should remove a single sensor import and add a comment',
-  );
+		'should remove a single sensor import and add a comment',
+	);
 
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import {
       useMouseSensor,
       useTouchSensor,
@@ -58,7 +58,7 @@ describe('warn about removed exports', () => {
       DragDropContext
     } from 'react-beautiful-dnd';
     `,
-    `
+		`
     import {
       /* ${getExpectedComment({ indent: 6 })} */
       useMouseSensor,
@@ -69,20 +69,20 @@ describe('warn about removed exports', () => {
       DragDropContext
     } from 'react-beautiful-dnd';
     `,
-    'should remove multiple sensor imports and add a comment',
-  );
+		'should remove multiple sensor imports and add a comment',
+	);
 
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import {
       useMouseSensor as Draggable
     } from 'react-beautiful-dnd';
 
     import somethingElse from 'another-package';
     `,
-    `
+		`
     import {
       /* ${getExpectedComment({ indent: 6 })} */
       useMouseSensor as Draggable
@@ -90,23 +90,23 @@ describe('warn about removed exports', () => {
 
     import somethingElse from 'another-package';
     `,
-    'should work if the sensor import is aliased',
-  );
+		'should work if the sensor import is aliased',
+	);
 
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import { useMouseSensor } from 'react-beautiful-dnd';
 
     import somethingElse from 'another-package';
     `,
-    `
+		`
     import { /* ${getExpectedComment({ indent: 4 })} */
     useMouseSensor } from 'react-beautiful-dnd';
 
     import somethingElse from 'another-package';
     `,
-    'should work for single line imports',
-  );
+		'should work for single line imports',
+	);
 });

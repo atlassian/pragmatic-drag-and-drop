@@ -13,10 +13,10 @@ const transformOptions = { printOptions: { quote: 'single' } };
  * This is essentially an integration test for all of the individual units.
  */
 describe('adoption transformer', () => {
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import React from 'react';
 
     import {
@@ -69,7 +69,7 @@ describe('adoption transformer', () => {
       );
     }
     `,
-    `
+		`
     import React from 'react';
 
     import {
@@ -157,6 +157,6 @@ describe('adoption transformer', () => {
       );
     }
     `,
-    'should correctly handle basic usage',
-  );
+		'should correctly handle basic usage',
+	);
 });

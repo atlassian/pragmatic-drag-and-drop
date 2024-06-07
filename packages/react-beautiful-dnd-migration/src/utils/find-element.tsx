@@ -17,45 +17,38 @@ type SelectorFragment = { attribute: string; value?: string };
  * ) === '[my-attribute="my-value"][another-attribute]'
  */
 function getSelector(...fragments: SelectorFragment[]): string {
-  const parts = fragments.map(({ attribute, value }) => {
-    if (value) {
-      // `CSS.escape` is widely supported, the lint rule is wrong.
-      // It avoids problems caused by some values which are not valid in
-      // selectors.
-      // eslint-disable-next-line compat/compat
-      return `[${attribute}="${CSS.escape(value)}"]`;
-    }
-    return `[${attribute}]`;
-  });
+	const parts = fragments.map(({ attribute, value }) => {
+		if (value) {
+			// `CSS.escape` is widely supported, the lint rule is wrong.
+			// It avoids problems caused by some values which are not valid in
+			// selectors.
+			// eslint-disable-next-line compat/compat
+			return `[${attribute}="${CSS.escape(value)}"]`;
+		}
+		return `[${attribute}]`;
+	});
 
-  return parts.join('');
+	return parts.join('');
 }
 
 /**
  * Queries an element based on the provided selector fragments.
  */
-export function findElement(
-  ...fragments: SelectorFragment[]
-): HTMLElement | null {
-  const selector = getSelector(...fragments);
-  return document.querySelector(selector);
+export function findElement(...fragments: SelectorFragment[]): HTMLElement | null {
+	const selector = getSelector(...fragments);
+	return document.querySelector(selector);
 }
 
-export function findElementAll(
-  ...fragments: SelectorFragment[]
-): HTMLElement[] {
-  const selector = getSelector(...fragments);
-  return Array.from(document.querySelectorAll(selector));
+export function findElementAll(...fragments: SelectorFragment[]): HTMLElement[] {
+	const selector = getSelector(...fragments);
+	return Array.from(document.querySelectorAll(selector));
 }
 
 /**
  * Queries an element, ensuring it exists.
  */
 export function getElement(...fragments: SelectorFragment[]): HTMLElement {
-  const result = findElement(...fragments);
-  rbdInvariant(
-    result,
-    'There is a matching HTMLElement for selector ' + getSelector(...fragments),
-  );
-  return result;
+	const result = findElement(...fragments);
+	rbdInvariant(result, 'There is a matching HTMLElement for selector ' + getSelector(...fragments));
+	return result;
 }

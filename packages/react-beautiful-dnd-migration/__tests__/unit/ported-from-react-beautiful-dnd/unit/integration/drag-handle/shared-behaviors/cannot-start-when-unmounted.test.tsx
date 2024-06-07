@@ -7,14 +7,14 @@ import { type Control, forEachSensor, simpleLift } from '../../_utils/controls';
 import { isDragging } from '../../_utils/helpers';
 
 forEachSensor((control: Control) => {
-  it('should not allow starting after the handle is unmounted', () => {
-    const { getByText, unmount } = render(<App />);
-    const handle: HTMLElement = getByText('item: 0');
+	it('should not allow starting after the handle is unmounted', () => {
+		const { getByText, unmount } = render(<App />);
+		const handle: HTMLElement = getByText('item: 0');
 
-    unmount();
+		unmount();
 
-    simpleLift(control, handle);
+		simpleLift(control, handle);
 
-    expect(isDragging(handle)).toBe(false);
-  });
+		expect(isDragging(handle)).toBe(false);
+	});
 });

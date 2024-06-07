@@ -4,22 +4,19 @@ import type { AxisDirection, HorizontalAxis, VerticalAxis } from './types';
 export const minScroll = 1;
 
 export const vertical: VerticalAxis = {
-  direction: 'vertical',
-  start: 'top',
-  end: 'bottom',
-  size: 'height',
-  scrollAxis: 'scrollTop',
+	direction: 'vertical',
+	start: 'top',
+	end: 'bottom',
+	size: 'height',
+	scrollAxis: 'scrollTop',
 };
 
 export const horizontal: HorizontalAxis = {
-  direction: 'horizontal',
-  start: 'left',
-  end: 'right',
-  size: 'width',
-  scrollAxis: 'scrollLeft',
+	direction: 'horizontal',
+	start: 'left',
+	end: 'right',
+	size: 'width',
+	scrollAxis: 'scrollLeft',
 };
 
-export const defaultAllowedAxis: AxisDirection[] = [
-  horizontal.direction,
-  vertical.direction,
-];
+export const defaultAllowedAxis: AxisDirection[] = [horizontal.direction, vertical.direction];

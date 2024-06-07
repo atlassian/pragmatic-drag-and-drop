@@ -5,34 +5,34 @@ import { useDraggableDimensions } from '../hooks/use-captured-dimensions';
 import { attributes } from '../utils/attributes';
 
 export const Placeholder = memo(
-  forwardRef(function Placeholder(
-    { style: styleProp }: { style?: React.CSSProperties },
-    ref: Ref<HTMLDivElement>,
-  ) {
-    const dimensions = useDraggableDimensions();
+	forwardRef(function Placeholder(
+		{ style: styleProp }: { style?: React.CSSProperties },
+		ref: Ref<HTMLDivElement>,
+	) {
+		const dimensions = useDraggableDimensions();
 
-    const { contextId } = useDragDropContext();
-    const dataAttributes = {
-      [attributes.placeholder.contextId]: contextId,
-    };
+		const { contextId } = useDragDropContext();
+		const dataAttributes = {
+			[attributes.placeholder.contextId]: contextId,
+		};
 
-    const style: React.CSSProperties | undefined = useMemo(() => {
-      if (!dimensions) {
-        return;
-      }
+		const style: React.CSSProperties | undefined = useMemo(() => {
+			if (!dimensions) {
+				return;
+			}
 
-      const { margin, rect } = dimensions;
+			const { margin, rect } = dimensions;
 
-      return {
-        boxSizing: 'border-box',
-        width: rect.width,
-        height: rect.height,
-        margin: margin,
-        ...styleProp,
-      };
-    }, [dimensions, styleProp]);
+			return {
+				boxSizing: 'border-box',
+				width: rect.width,
+				height: rect.height,
+				margin: margin,
+				...styleProp,
+			};
+		}, [dimensions, styleProp]);
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-    return <div ref={ref} style={style} {...dataAttributes} />;
-  }),
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+		return <div ref={ref} style={style} {...dataAttributes} />;
+	}),
 );

@@ -13,31 +13,31 @@ const transform = { default: transformer, parser: 'tsx' };
 const transformOptions = { printOptions: { quote: 'single' } };
 
 describe('update imports', () => {
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
     `,
-    `
+		`
     import { DragDropContext, Draggable, Droppable } from '${migrationPackageName}';
     `,
-    'should correctly handle basic usage',
-  );
+		'should correctly handle basic usage',
+	);
 
-  defineInlineTest(
-    transform,
-    transformOptions,
-    `
+	defineInlineTest(
+		transform,
+		transformOptions,
+		`
     import type { DraggableProps, DroppableProps } from 'react-beautiful-dnd';
 
     import { DragDropContext, Draggable, Droppable } from '${migrationPackageName}';
     `,
-    `
+		`
     import type { DraggableProps, DroppableProps } from '${migrationPackageName}';
 
     import { DragDropContext, Draggable, Droppable } from '${migrationPackageName}';
     `,
-    'should not merge declarations',
-  );
+		'should not merge declarations',
+	);
 });

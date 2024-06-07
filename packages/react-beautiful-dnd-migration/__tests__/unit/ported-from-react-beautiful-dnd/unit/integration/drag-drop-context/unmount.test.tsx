@@ -8,27 +8,21 @@ import { render } from '@testing-library/react';
 import { DragDropContext } from '../../../../../../src';
 
 it('should not throw when unmounting', () => {
-  const { unmount } = render(
-    <DragDropContext onDragEnd={() => {}}>{null}</DragDropContext>,
-  );
+	const { unmount } = render(<DragDropContext onDragEnd={() => {}}>{null}</DragDropContext>);
 
-  expect(() => unmount()).not.toThrow();
+	expect(() => unmount()).not.toThrow();
 });
 
 it('should clean up any window event handlers', () => {
-  const addEventListener = jest.spyOn(window, 'addEventListener');
-  const removeEventListener = jest.spyOn(window, 'removeEventListener');
+	const addEventListener = jest.spyOn(window, 'addEventListener');
+	const removeEventListener = jest.spyOn(window, 'removeEventListener');
 
-  const { unmount } = render(
-    <DragDropContext onDragEnd={() => {}}>{null}</DragDropContext>,
-  );
+	const { unmount } = render(<DragDropContext onDragEnd={() => {}}>{null}</DragDropContext>);
 
-  unmount();
+	unmount();
 
-  expect(addEventListener.mock.calls).toHaveLength(
-    removeEventListener.mock.calls.length,
-  );
-  // validation
-  expect(addEventListener).toHaveBeenCalled();
-  expect(removeEventListener).toHaveBeenCalled();
+	expect(addEventListener.mock.calls).toHaveLength(removeEventListener.mock.calls.length);
+	// validation
+	expect(addEventListener).toHaveBeenCalled();
+	expect(removeEventListener).toHaveBeenCalled();
 });

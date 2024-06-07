@@ -1,22 +1,16 @@
-export {
-  monitorForExternal,
-  dropTargetForExternal,
-} from '../../adapter/external-adapter';
+export { monitorForExternal, dropTargetForExternal } from '../../adapter/external-adapter';
 
 // The data that is being dragged
-export type {
-  NativeMediaType,
-  ExternalDragPayload,
-} from '../../internal-types';
+export type { NativeMediaType, ExternalDragPayload } from '../../internal-types';
 
 export type {
-  // Base events
-  ExternalEventBasePayload,
-  ExternalEventPayloadMap,
-  // Drop target events
-  ElementDropTargetEventBasePayload,
-  ExternalDropTargetEventPayloadMap,
-  // Feedback types
-  ExternalMonitorGetFeedbackArgs,
-  ExternalDropTargetGetFeedbackArgs,
+	// Base events
+	ExternalEventBasePayload,
+	ExternalEventPayloadMap,
+	// Drop target events
+	ElementDropTargetEventBasePayload,
+	ExternalDropTargetEventPayloadMap,
+	// Feedback types
+	ExternalMonitorGetFeedbackArgs,
+	ExternalDropTargetGetFeedbackArgs,
 } from '../../adapter/external-adapter';

@@ -7,10 +7,10 @@ import { getPercentage } from '../../get-percentage';
 import type { DistanceThresholds } from './get-distance-thresholds';
 
 export const getValueFromDistance = (
-  distanceToEdge: number,
-  thresholds: DistanceThresholds,
+	distanceToEdge: number,
+	thresholds: DistanceThresholds,
 ): number => {
-  /*
+	/*
   // This function only looks at the distance to one edge
   // Example: looking at bottom edge
   |----------------------------------|
@@ -29,35 +29,33 @@ export const getValueFromDistance = (
   |----------------------------------|
   */
 
-  // too far away to auto scroll
-  if (distanceToEdge > thresholds.startScrollingFrom) {
-    return 0;
-  }
+	// too far away to auto scroll
+	if (distanceToEdge > thresholds.startScrollingFrom) {
+		return 0;
+	}
 
-  // use max speed when on or over boundary
-  if (distanceToEdge <= thresholds.maxScrollValueAt) {
-    return config.maxPixelScroll;
-  }
+	// use max speed when on or over boundary
+	if (distanceToEdge <= thresholds.maxScrollValueAt) {
+		return config.maxPixelScroll;
+	}
 
-  // when just going on the boundary return the minimum integer
-  if (distanceToEdge === thresholds.startScrollingFrom) {
-    return minScroll;
-  }
+	// when just going on the boundary return the minimum integer
+	if (distanceToEdge === thresholds.startScrollingFrom) {
+		return minScroll;
+	}
 
-  // to get the % past startScrollingFrom we will calculate
-  // the % the value is from maxScrollValueAt and then invert it
-  const percentageFromMaxScrollValueAt: number = getPercentage({
-    startOfRange: thresholds.maxScrollValueAt,
-    endOfRange: thresholds.startScrollingFrom,
-    current: distanceToEdge,
-  });
+	// to get the % past startScrollingFrom we will calculate
+	// the % the value is from maxScrollValueAt and then invert it
+	const percentageFromMaxScrollValueAt: number = getPercentage({
+		startOfRange: thresholds.maxScrollValueAt,
+		endOfRange: thresholds.startScrollingFrom,
+		current: distanceToEdge,
+	});
 
-  const percentageFromStartScrollingFrom: number =
-    1 - percentageFromMaxScrollValueAt;
+	const percentageFromStartScrollingFrom: number = 1 - percentageFromMaxScrollValueAt;
 
-  const scroll: number =
-    config.maxPixelScroll * config.ease(percentageFromStartScrollingFrom);
+	const scroll: number = config.maxPixelScroll * config.ease(percentageFromStartScrollingFrom);
 
-  // scroll will always be a positive integer
-  return Math.ceil(scroll);
+	// scroll will always be a positive integer
+	return Math.ceil(scroll);
 };

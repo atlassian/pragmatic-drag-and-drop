@@ -7,21 +7,10 @@
  * first.
  */
 
-import React, {
-  createContext,
-  type ReactNode,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import React, { createContext, type ReactNode, useCallback, useContext, useState } from 'react';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import type {
-  DraggableId,
-  DraggableLocation,
-  DragStart,
-  DragUpdate,
-} from 'react-beautiful-dnd';
+import type { DraggableId, DraggableLocation, DragStart, DragUpdate } from 'react-beautiful-dnd';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 
@@ -35,86 +24,83 @@ import { rbdInvariant } from './rbd-invariant';
  * The data associated with each type of lifecycle event.
  */
 type DispatchData = {
-  onPendingDragStart: {
-    start: DragStart;
-    droppable: DroppableRegistryEntry;
-  };
-  onPrePendingDragUpdate: {
-    update: DragUpdate;
-    targetLocation: DraggableLocation | null;
-  };
-  onPendingDragUpdate: DispatchData['onPrePendingDragUpdate'] & {
-    droppable: DroppableRegistryEntry | null;
-  };
-  onBeforeDragEnd: {
-    draggableId: DraggableId;
-  };
+	onPendingDragStart: {
+		start: DragStart;
+		droppable: DroppableRegistryEntry;
+	};
+	onPrePendingDragUpdate: {
+		update: DragUpdate;
+		targetLocation: DraggableLocation | null;
+	};
+	onPendingDragUpdate: DispatchData['onPrePendingDragUpdate'] & {
+		droppable: DroppableRegistryEntry | null;
+	};
+	onBeforeDragEnd: {
+		draggableId: DraggableId;
+	};
 };
 
 type LifecycleResponders = {
-  [Key in keyof DispatchData]: (args: DispatchData[Key]) => void;
+	[Key in keyof DispatchData]: (args: DispatchData[Key]) => void;
 };
 
 type LifecycleEvent = keyof LifecycleResponders;
 
 type Registry = {
-  [Key in keyof LifecycleResponders]: LifecycleResponders[Key][];
+	[Key in keyof LifecycleResponders]: LifecycleResponders[Key][];
 };
 
 type AddResponder = <Event extends LifecycleEvent>(
-  event: Event,
-  responder: LifecycleResponders[Event],
+	event: Event,
+	responder: LifecycleResponders[Event],
 ) => CleanupFn;
 
-type Dispatch = <Event extends LifecycleEvent>(
-  event: Event,
-  data: DispatchData[Event],
-) => void;
+type Dispatch = <Event extends LifecycleEvent>(event: Event, data: DispatchData[Event]) => void;
 
 type LifecycleManager = {
-  addResponder: AddResponder;
-  dispatch: Dispatch;
+	addResponder: AddResponder;
+	dispatch: Dispatch;
 };
 
 function createRegistry(): Registry {
-  return {
-    onPendingDragStart: [],
-    onPrePendingDragUpdate: [],
-    onPendingDragUpdate: [],
-    onBeforeDragEnd: [],
-  };
+	return {
+		onPendingDragStart: [],
+		onPrePendingDragUpdate: [],
+		onPendingDragUpdate: [],
+		onBeforeDragEnd: [],
+	};
 }
 
 function createLifecycleManager(): LifecycleManager {
-  const registry = createRegistry();
+	const registry = createRegistry();
 
-  const addResponder: AddResponder = (event, responder) => {
-    registry[event].push(responder);
+	const addResponder: AddResponder = (event, responder) => {
+		registry[event].push(responder);
 
-    return () => {
-      // @ts-expect-error - type narrowing issues
-      registry[event] = registry[event].filter(value => value !== responder);
-    };
-  };
+		return () => {
+			// @ts-expect-error - type narrowing issues
+			registry[event] = registry[event].filter((value) => value !== responder);
+		};
+	};
 
-  const dispatch: Dispatch = (event, data) => {
-    batchUpdatesForReact16(() => {
-      for (const responder of registry[event]) {
-        responder(data);
-      }
-    });
-  };
+	const dispatch: Dispatch = (event, data) => {
+		batchUpdatesForReact16(() => {
+			for (const responder of registry[event]) {
+				responder(data);
+			}
+		});
+	};
 
-  return { addResponder, dispatch };
+	return { addResponder, dispatch };
 }
 
 /**
  * Creates a new lifecycle manager, returning methods for interfacing with it.
  */
 export function useLifecycle(): LifecycleManager {
-  const [lifecycleManager] = useState<LifecycleManager>(createLifecycleManager);
+	const [lifecycleManager] = useState<LifecycleManager>(createLifecycleManager);
 
-  return lifecycleManager;
+	return lifecycleManager;
 }
 
 type MonitorForLifecycle = (args: Partial<LifecycleResponders>) => CleanupFn;
@@ -122,49 +108,44 @@ type MonitorForLifecycle = (args: Partial<LifecycleResponders>) => CleanupFn;
 const LifecycleContext = createContext<MonitorForLifecycle | null>(null);
 
 export function LifecycleContextProvider({
-  children,
-  lifecycle,
+	children,
+	lifecycle,
 }: {
-  children: ReactNode;
-  lifecycle: LifecycleManager;
+	children: ReactNode;
+	lifecycle: LifecycleManager;
 }) {
-  /**
-   * Allows for `<Draggable>` and `<Droppable>` instances to know about the
-   * lifecycle timings.
-   *
-   * Designed to have a similar API to the pdnd monitors.
-   */
-  const monitorForLifecycle: MonitorForLifecycle = useCallback(
-    responders => {
-      const cleanupFns = [];
+	/**
+	 * Allows for `<Draggable>` and `<Droppable>` instances to know about the
+	 * lifecycle timings.
+	 *
+	 * Designed to have a similar API to the pdnd monitors.
+	 */
+	const monitorForLifecycle: MonitorForLifecycle = useCallback(
+		(responders) => {
+			const cleanupFns = [];
 
-      for (const entry of Object.entries(responders)) {
-        const [event, responder] = entry as [
-          LifecycleEvent,
-          LifecycleResponders[LifecycleEvent],
-        ];
+			for (const entry of Object.entries(responders)) {
+				const [event, responder] = entry as [LifecycleEvent, LifecycleResponders[LifecycleEvent]];
 
-        cleanupFns.push(lifecycle.addResponder(event, responder));
-      }
+				cleanupFns.push(lifecycle.addResponder(event, responder));
+			}
 
-      return combine(...cleanupFns);
-    },
-    [lifecycle],
-  );
+			return combine(...cleanupFns);
+		},
+		[lifecycle],
+	);
 
-  return (
-    <LifecycleContext.Provider value={monitorForLifecycle}>
-      {children}
-    </LifecycleContext.Provider>
-  );
+	return (
+		<LifecycleContext.Provider value={monitorForLifecycle}>{children}</LifecycleContext.Provider>
+	);
 }
 
 export function useMonitorForLifecycle(): MonitorForLifecycle {
-  const monitorForLifecycle = useContext(LifecycleContext);
-  rbdInvariant(
-    monitorForLifecycle !== null,
-    'useLifecycle() should only be called inside of a <DragDropContext />',
-  );
+	const monitorForLifecycle = useContext(LifecycleContext);
+	rbdInvariant(
+		monitorForLifecycle !== null,
+		'useLifecycle() should only be called inside of a <DragDropContext />',
+	);
 
-  return monitorForLifecycle;
+	return monitorForLifecycle;
 }

@@ -18,65 +18,65 @@ import { isDragging } from '../../_utils/helpers';
 HTMLElement.prototype.scrollIntoView = jest.fn();
 
 function getRuntimeError(): Event {
-  return new window.ErrorEvent('error', {
-    error: new Error('non-rbd'),
-    cancelable: true,
-  });
+	return new window.ErrorEvent('error', {
+		error: new Error('non-rbd'),
+		cancelable: true,
+	});
 }
 
 function getRbdErrorEvent(): Event {
-  return new window.ErrorEvent('error', {
-    error: new RbdInvariant('my invariant'),
-    cancelable: true,
-  });
+	return new window.ErrorEvent('error', {
+		error: new RbdInvariant('my invariant'),
+		cancelable: true,
+	});
 }
 
 const cases = [
-  { id: 'mouse', control: mouse },
-  { id: 'keyboard', control: keyboard },
+	{ id: 'mouse', control: mouse },
+	{ id: 'keyboard', control: keyboard },
 ];
 
 cases.forEach(({ id, control }) => {
-  it(`should abort any active drag (rbd error) (${id})`, () => {
-    const { getByTestId } = render(<App />);
-    control.lift(getByTestId('0'));
-    expect(isDragging(getByTestId('0'))).toBe(true);
-    const event: Event = getRbdErrorEvent();
+	it(`should abort any active drag (rbd error) (${id})`, () => {
+		const { getByTestId } = render(<App />);
+		control.lift(getByTestId('0'));
+		expect(isDragging(getByTestId('0'))).toBe(true);
+		const event: Event = getRbdErrorEvent();
 
-    withWarn(() => {
-      withError(() => {
-        act(() => {
-          window.dispatchEvent(event);
-        });
-      });
-    });
+		withWarn(() => {
+			withError(() => {
+				act(() => {
+					window.dispatchEvent(event);
+				});
+			});
+		});
 
-    // drag aborted
-    expect(isDragging(getByTestId('0'))).toBe(false);
-    // error event prevented
-    expect(event.defaultPrevented).toBe(true);
-  });
+		// drag aborted
+		expect(isDragging(getByTestId('0'))).toBe(false);
+		// error event prevented
+		expect(event.defaultPrevented).toBe(true);
+	});
 
-  it(`should abort any active drag (non-rbd error) (${id})`, async () => {
-    const { getByTestId } = render(<App />);
-    setElementFromPoint(getByTestId('0'));
-    simpleLift(control, getByTestId('0'));
-    expect(isDragging(getByTestId('0'))).toBe(true);
-    const event: Event = getRuntimeError();
+	it(`should abort any active drag (non-rbd error) (${id})`, async () => {
+		const { getByTestId } = render(<App />);
+		setElementFromPoint(getByTestId('0'));
+		simpleLift(control, getByTestId('0'));
+		expect(isDragging(getByTestId('0'))).toBe(true);
+		const event: Event = getRuntimeError();
 
-    // not logging the raw error
-    withoutError(() => {
-      // logging that the drag was aborted
-      withWarn(() => {
-        act(() => {
-          window.dispatchEvent(event);
-        });
-      });
-    });
+		// not logging the raw error
+		withoutError(() => {
+			// logging that the drag was aborted
+			withWarn(() => {
+				act(() => {
+					window.dispatchEvent(event);
+				});
+			});
+		});
 
-    // drag aborted
-    expect(isDragging(getByTestId('0'))).toBe(false);
-    // error event not prevented
-    expect(event.defaultPrevented).toBe(false);
-  });
+		// drag aborted
+		expect(isDragging(getByTestId('0'))).toBe(false);
+		// error event not prevented
+		expect(event.defaultPrevented).toBe(false);
+	});
 });

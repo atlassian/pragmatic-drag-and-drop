@@ -5,29 +5,29 @@ import type { CleanupFn } from '../internal-types';
 const noop = () => {};
 
 function createCleanupManager() {
-  let cleanupFn = noop;
+	let cleanupFn = noop;
 
-  const setCleanupFn = (newCleanupFn: CleanupFn) => {
-    cleanupFn = newCleanupFn;
-  };
+	const setCleanupFn = (newCleanupFn: CleanupFn) => {
+		cleanupFn = newCleanupFn;
+	};
 
-  const runCleanupFn = () => {
-    cleanupFn();
-    cleanupFn = noop;
-  };
+	const runCleanupFn = () => {
+		cleanupFn();
+		cleanupFn = noop;
+	};
 
-  return { setCleanupFn, runCleanupFn };
+	return { setCleanupFn, runCleanupFn };
 }
 
 export function useCleanupFn() {
-  const [cleanupManager] = useState(createCleanupManager);
+	const [cleanupManager] = useState(createCleanupManager);
 
-  /**
-   * Run the cleanup function on unmount.
-   */
-  useEffect(() => {
-    return cleanupManager.runCleanupFn;
-  }, [cleanupManager.runCleanupFn]);
+	/**
+	 * Run the cleanup function on unmount.
+	 */
+	useEffect(() => {
+		return cleanupManager.runCleanupFn;
+	}, [cleanupManager.runCleanupFn]);
 
-  return cleanupManager;
+	return cleanupManager;
 }

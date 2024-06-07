@@ -6,15 +6,15 @@ import { findElement } from './find-element';
  * `provided.dragHandleProps`
  */
 export function findDragHandle({
-  contextId,
-  draggableId,
+	contextId,
+	draggableId,
 }: {
-  contextId: string;
-  draggableId: string;
+	contextId: string;
+	draggableId: string;
 }): HTMLElement | null {
-  // Otherwise the drag handle is a descendant.
-  return findElement(
-    { attribute: attributes.dragHandle.contextId, value: contextId },
-    { attribute: attributes.dragHandle.draggableId, value: draggableId },
-  );
+	// Otherwise the drag handle is a descendant.
+	return findElement(
+		{ attribute: attributes.dragHandle.contextId, value: contextId },
+		{ attribute: attributes.dragHandle.draggableId, value: draggableId },
+	);
 }

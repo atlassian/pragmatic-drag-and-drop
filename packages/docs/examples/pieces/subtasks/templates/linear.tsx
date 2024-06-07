@@ -6,15 +6,12 @@ import { SubtasksBaseTemplate, type SubtasksBaseTemplateProps } from './_base';
 
 type LinearTemplateProps = Omit<SubtasksBaseTemplateProps, 'Wrapper'>;
 
-export function LinearTemplate({
-  instanceId,
-  DraggableSubtask,
-}: LinearTemplateProps) {
-  return (
-    <SubtasksBaseTemplate
-      instanceId={instanceId}
-      DraggableSubtask={DraggableSubtask}
-      Wrapper={SubtaskContainer}
-    />
-  );
+export function LinearTemplate({ instanceId, DraggableSubtask }: LinearTemplateProps) {
+	return (
+		<SubtasksBaseTemplate
+			instanceId={instanceId}
+			DraggableSubtask={DraggableSubtask}
+			Wrapper={SubtaskContainer}
+		/>
+	);
 }

@@ -5,10 +5,7 @@ import { N200 } from '@atlaskit/theme/colors';
 import { token } from '@atlaskit/tokens';
 
 export default function CheckIcon() {
-  return (
-    <AkQuestionIcon
-      label="unknown support"
-      primaryColor={token('color.icon.accent.gray', N200)}
-    />
-  );
+	return (
+		<AkQuestionIcon label="unknown support" primaryColor={token('color.icon.accent.gray', N200)} />
+	);
 }

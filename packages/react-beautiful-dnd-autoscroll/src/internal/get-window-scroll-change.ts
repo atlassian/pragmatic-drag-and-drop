@@ -7,24 +7,24 @@ import getScroll from './get-scroll';
 import type { Viewport } from './types';
 
 type Args = {
-  viewport: Viewport;
-  center: Position;
-  dragStartTime: number;
-  shouldUseTimeDampening: boolean;
+	viewport: Viewport;
+	center: Position;
+	dragStartTime: number;
+	shouldUseTimeDampening: boolean;
 };
 
 export default ({
-  viewport,
-  center,
-  dragStartTime,
-  shouldUseTimeDampening,
+	viewport,
+	center,
+	dragStartTime,
+	shouldUseTimeDampening,
 }: Args): Position | null => {
-  const scroll: Position | null = getScroll({
-    dragStartTime,
-    container: viewport.container,
-    center,
-    shouldUseTimeDampening,
-  });
+	const scroll: Position | null = getScroll({
+		dragStartTime,
+		container: viewport.container,
+		center,
+		shouldUseTimeDampening,
+	});
 
-  return scroll && canScrollWindow(viewport, scroll) ? scroll : null;
+	return scroll && canScrollWindow(viewport, scroll) ? scroll : null;
 };

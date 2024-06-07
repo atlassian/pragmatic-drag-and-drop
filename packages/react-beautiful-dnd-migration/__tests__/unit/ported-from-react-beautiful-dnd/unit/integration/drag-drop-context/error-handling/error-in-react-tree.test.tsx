@@ -16,8 +16,8 @@ HTMLElement.prototype.scrollIntoView = jest.fn();
 const error = jest.spyOn(console, 'error').mockImplementation(() => {});
 
 afterEach(() => {
-  mouse.cancel(document.body);
-  error.mockClear();
+	mouse.cancel(document.body);
+	error.mockClear();
 });
 
 /**
@@ -26,82 +26,82 @@ afterEach(() => {
  * Now there is coverage for both types of input.
  */
 
-forEachSensor(control => {
-  it('should recover from rbd errors', () => {
-    let hasThrown: boolean = false;
-    function CanThrow(props: { shouldThrow: boolean }) {
-      if (!hasThrown && props.shouldThrow) {
-        hasThrown = true;
-        rbdInvariant(false, 'throwing');
-      }
-      return null;
-    }
+forEachSensor((control) => {
+	it('should recover from rbd errors', () => {
+		let hasThrown: boolean = false;
+		function CanThrow(props: { shouldThrow: boolean }) {
+			if (!hasThrown && props.shouldThrow) {
+				hasThrown = true;
+				rbdInvariant(false, 'throwing');
+			}
+			return null;
+		}
 
-    const { rerender, getByTestId } = render(
-      <App anotherChild={<CanThrow shouldThrow={false} />} />,
-    );
+		const { rerender, getByTestId } = render(
+			<App anotherChild={<CanThrow shouldThrow={false} />} />,
+		);
 
-    setElementFromPoint(getByTestId('0'));
-    simpleLift(control, getByTestId('0'));
-    expect(isDragging(getByTestId('0'))).toBe(true);
+		setElementFromPoint(getByTestId('0'));
+		simpleLift(control, getByTestId('0'));
+		expect(isDragging(getByTestId('0'))).toBe(true);
 
-    expect(() => {
-      rerender(<App anotherChild={<CanThrow shouldThrow />} />);
-    }).not.toThrow();
+		expect(() => {
+			rerender(<App anotherChild={<CanThrow shouldThrow />} />);
+		}).not.toThrow();
 
-    expect(error).toHaveBeenCalled();
+		expect(error).toHaveBeenCalled();
 
-    expect(isDragging(getByTestId('0'))).toBe(false);
-  });
+		expect(isDragging(getByTestId('0'))).toBe(false);
+	});
 
-  it('should not recover from non-rbd errors', () => {
-    let hasThrown: boolean = false;
-    function CanThrow(props: { shouldThrow: boolean }) {
-      if (!hasThrown && props.shouldThrow) {
-        hasThrown = true;
-        throw new Error('Boom');
-      }
-      return null;
-    }
+	it('should not recover from non-rbd errors', () => {
+		let hasThrown: boolean = false;
+		function CanThrow(props: { shouldThrow: boolean }) {
+			if (!hasThrown && props.shouldThrow) {
+				hasThrown = true;
+				throw new Error('Boom');
+			}
+			return null;
+		}
 
-    const { rerender, getByTestId } = render(
-      <App anotherChild={<CanThrow shouldThrow={false} />} />,
-    );
+		const { rerender, getByTestId } = render(
+			<App anotherChild={<CanThrow shouldThrow={false} />} />,
+		);
 
-    setElementFromPoint(getByTestId('0'));
-    simpleLift(control, getByTestId('0'));
-    expect(isDragging(getByTestId('0'))).toBe(true);
+		setElementFromPoint(getByTestId('0'));
+		simpleLift(control, getByTestId('0'));
+		expect(isDragging(getByTestId('0'))).toBe(true);
 
-    expect(() => {
-      rerender(<App anotherChild={<CanThrow shouldThrow />} />);
-    }).toThrow();
+		expect(() => {
+			rerender(<App anotherChild={<CanThrow shouldThrow />} />);
+		}).toThrow();
 
-    expect(error).toHaveBeenCalled();
-  });
+		expect(error).toHaveBeenCalled();
+	});
 
-  it('should not recover from runtime errors', () => {
-    let hasThrown: boolean = false;
-    function CanThrow(props: { shouldThrow: boolean }) {
-      if (!hasThrown && props.shouldThrow) {
-        hasThrown = true;
-        // @ts-expect-error - intentionally calling nonexistent function
-        window.foo();
-      }
-      return null;
-    }
+	it('should not recover from runtime errors', () => {
+		let hasThrown: boolean = false;
+		function CanThrow(props: { shouldThrow: boolean }) {
+			if (!hasThrown && props.shouldThrow) {
+				hasThrown = true;
+				// @ts-expect-error - intentionally calling nonexistent function
+				window.foo();
+			}
+			return null;
+		}
 
-    const { rerender, getByTestId } = render(
-      <App anotherChild={<CanThrow shouldThrow={false} />} />,
-    );
+		const { rerender, getByTestId } = render(
+			<App anotherChild={<CanThrow shouldThrow={false} />} />,
+		);
 
-    setElementFromPoint(getByTestId('0'));
-    simpleLift(control, getByTestId('0'));
-    expect(isDragging(getByTestId('0'))).toBe(true);
+		setElementFromPoint(getByTestId('0'));
+		simpleLift(control, getByTestId('0'));
+		expect(isDragging(getByTestId('0'))).toBe(true);
 
-    expect(() => {
-      rerender(<App anotherChild={<CanThrow shouldThrow />} />);
-    }).toThrow();
+		expect(() => {
+			rerender(<App anotherChild={<CanThrow shouldThrow />} />);
+		}).toThrow();
 
-    expect(error).toHaveBeenCalled();
-  });
+		expect(error).toHaveBeenCalled();
+	});
 });

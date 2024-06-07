@@ -8,44 +8,40 @@ import { type Control, forEachSensor, simpleLift } from '../../_utils/controls';
 import { isDragging } from '../../_utils/helpers';
 
 beforeAll(() => {
-  setup();
+	setup();
 });
 
 function getCallCount(mySpy: jest.SpyInstance): number {
-  return mySpy.mock.calls.length;
+	return mySpy.mock.calls.length;
 }
 
 const addEventListener = jest.spyOn(window, 'addEventListener');
 const removeEventListener = jest.spyOn(window, 'removeEventListener');
 
 beforeEach(() => {
-  addEventListener.mockClear();
-  removeEventListener.mockClear();
+	addEventListener.mockClear();
+	removeEventListener.mockClear();
 });
 
 forEachSensor((control: Control) => {
-  it('should remove all window listeners when unmounting', () => {
-    const { unmount } = render(<App />);
+	it('should remove all window listeners when unmounting', () => {
+		const { unmount } = render(<App />);
 
-    unmount();
+		unmount();
 
-    expect(getCallCount(addEventListener)).toEqual(
-      getCallCount(removeEventListener),
-    );
-  });
+		expect(getCallCount(addEventListener)).toEqual(getCallCount(removeEventListener));
+	});
 
-  it('should remove all window listeners when unmounting mid drag', () => {
-    const { unmount, getByText } = render(<App />);
-    const handle: HTMLElement = getByText('item: 0');
+	it('should remove all window listeners when unmounting mid drag', () => {
+		const { unmount, getByText } = render(<App />);
+		const handle: HTMLElement = getByText('item: 0');
 
-    // mid drag
-    simpleLift(control, handle);
-    expect(isDragging(handle)).toEqual(true);
+		// mid drag
+		simpleLift(control, handle);
+		expect(isDragging(handle)).toEqual(true);
 
-    unmount();
+		unmount();
 
-    expect(getCallCount(addEventListener)).toEqual(
-      getCallCount(removeEventListener),
-    );
-  });
+		expect(getCallCount(addEventListener)).toEqual(getCallCount(removeEventListener));
+	});
 });

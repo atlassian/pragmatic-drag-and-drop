@@ -11,47 +11,47 @@ import RecentIcon from '@atlaskit/icon/glyph/recent';
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 
 export type DataItem = {
-  id: string;
-  label: string;
-  icon: ReactElement;
+	id: string;
+	label: string;
+	icon: ReactElement;
 };
 
 const initialData: DataItem[] = [
-  { icon: <PersonIcon label="" />, label: 'Created by', id: 'created-by' },
-  { icon: <CalendarIcon label="" />, label: 'Due date', id: 'due' },
-  { icon: <RecentIcon label="" />, label: 'Created on', id: 'created-on' },
-  {
-    icon: <EditIcon label="" />,
-    label: 'Last modified on',
-    id: 'last-modified-on',
-  },
-  {
-    icon: <CheckCircleOutlineIcon label="" />,
-    label: 'Completed on',
-    id: 'completed-on',
-  },
-  { icon: <IssuesIcon label="" />, label: 'Projects', id: 'projects' },
-  { icon: <LabelIcon label="" />, label: 'Tags', id: 'tags' },
+	{ icon: <PersonIcon label="" />, label: 'Created by', id: 'created-by' },
+	{ icon: <CalendarIcon label="" />, label: 'Due date', id: 'due' },
+	{ icon: <RecentIcon label="" />, label: 'Created on', id: 'created-on' },
+	{
+		icon: <EditIcon label="" />,
+		label: 'Last modified on',
+		id: 'last-modified-on',
+	},
+	{
+		icon: <CheckCircleOutlineIcon label="" />,
+		label: 'Completed on',
+		id: 'completed-on',
+	},
+	{ icon: <IssuesIcon label="" />, label: 'Projects', id: 'projects' },
+	{ icon: <LabelIcon label="" />, label: 'Tags', id: 'tags' },
 ];
 
 export type DraggableFieldProps = { index: number; item: DataItem };
 
 type AsanaFieldsTemplateProps = {
-  DraggableField: (props: DraggableFieldProps) => ReactElement;
-  instanceId: string;
+	DraggableField: (props: DraggableFieldProps) => ReactElement;
+	instanceId: string;
 };
 
 export default function AsanaFieldsTemplate({
-  DraggableField,
-  instanceId,
+	DraggableField,
+	instanceId,
 }: AsanaFieldsTemplateProps) {
-  const { data } = useTopLevelWiring({ initialData, type: instanceId });
-  return (
-// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {data.map((item, index) => (
-        <DraggableField key={item.id} index={index} item={item} />
-      ))}
-    </div>
-  );
+	const { data } = useTopLevelWiring({ initialData, type: instanceId });
+	return (
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+		<div style={{ display: 'flex', flexDirection: 'column' }}>
+			{data.map((item, index) => (
+				<DraggableField key={item.id} index={index} item={item} />
+			))}
+		</div>
+	);
 }

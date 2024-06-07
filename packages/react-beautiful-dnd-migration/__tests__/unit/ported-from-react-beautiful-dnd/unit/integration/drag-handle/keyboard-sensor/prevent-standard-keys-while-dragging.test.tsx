@@ -15,15 +15,15 @@ import { isDragging } from '../../_utils/helpers';
 HTMLElement.prototype.scrollIntoView = jest.fn();
 
 it('should prevent enter or tab being pressed during a drag', () => {
-  const { getByText } = render(<App />);
-  const handle: HTMLElement = getByText('item: 0');
+	const { getByText } = render(<App />);
+	const handle: HTMLElement = getByText('item: 0');
 
-  simpleLift(keyboard, handle);
-  expect(isDragging(handle)).toBe(true);
+	simpleLift(keyboard, handle);
+	expect(isDragging(handle)).toBe(true);
 
-  ['Enter', 'Tab'].forEach(key => {
-    const event: Event = createEvent.keyDown(handle, { key });
-    fireEvent(handle, event);
-    expect(event.defaultPrevented).toBe(true);
-  });
+	['Enter', 'Tab'].forEach((key) => {
+		const event: Event = createEvent.keyDown(handle, { key });
+		fireEvent(handle, event);
+		expect(event.defaultPrevented).toBe(true);
+	});
 });

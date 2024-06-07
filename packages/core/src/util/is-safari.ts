@@ -7,10 +7,10 @@ import { cacheFirst } from './cache-first';
  * Returns `true` if the browser is running on iOS (they are all Safari).
  * */
 export const isSafari = cacheFirst(function isSafari(): boolean {
-  if (process.env.NODE_ENV === 'test') {
-    return false;
-  }
+	if (process.env.NODE_ENV === 'test') {
+		return false;
+	}
 
-  const { userAgent } = navigator;
-  return userAgent.includes('AppleWebKit') && !userAgent.includes('Chrome');
+	const { userAgent } = navigator;
+	return userAgent.includes('AppleWebKit') && !userAgent.includes('Chrome');
 });

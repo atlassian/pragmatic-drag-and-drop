@@ -2,20 +2,20 @@ import { bind } from 'bind-event-listener';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
-  draggable,
-  dropTargetForElements,
+	draggable,
+	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import {
-  advanceTimersToNextFrame,
-  appendToBody,
-  reset,
-  setElementFromPointToBe,
-  setStartSystemTime,
-  setupBasicScrollContainer,
-  stepScrollBy,
-  userEvent,
+	advanceTimersToNextFrame,
+	appendToBody,
+	reset,
+	setElementFromPointToBe,
+	setStartSystemTime,
+	setupBasicScrollContainer,
+	stepScrollBy,
+	userEvent,
 } from '../_util';
 
 // Using modern timers as it is important that the system clock moves in sync with the frames.
@@ -26,230 +26,230 @@ setStartSystemTime();
 beforeEach(reset);
 
 it('should not scroll scrollable elements that are not registered', () => {
-  const { child, parentScrollContainer } = setupBasicScrollContainer();
-  const ordered: string[] = [];
+	const { child, parentScrollContainer } = setupBasicScrollContainer();
+	const ordered: string[] = [];
 
-  // not marking outerScrollContainer as a scroll container
-  const cleanup = combine(
-    appendToBody(parentScrollContainer),
-    setElementFromPointToBe(child),
-    draggable({
-      element: child,
-      onDragStart: () => ordered.push('draggable:start'),
-      onDrop: () => ordered.push('draggable:drop'),
-    }),
-    dropTargetForElements({
-      element: child,
-      onDragStart: () => ordered.push('dropTarget:start'),
-      onDragEnter: () => ordered.push('dropTarget:enter'),
-      onDragLeave: () => ordered.push('dropTarget:leave'),
-      onDrop: () => ordered.push('dropTarget:drop'),
-    }),
-    bind(parentScrollContainer, {
-      type: 'scroll',
-      listener() {
-        ordered.push(`scroll event`);
-      },
-    }),
-  );
+	// not marking outerScrollContainer as a scroll container
+	const cleanup = combine(
+		appendToBody(parentScrollContainer),
+		setElementFromPointToBe(child),
+		draggable({
+			element: child,
+			onDragStart: () => ordered.push('draggable:start'),
+			onDrop: () => ordered.push('draggable:drop'),
+		}),
+		dropTargetForElements({
+			element: child,
+			onDragStart: () => ordered.push('dropTarget:start'),
+			onDragEnter: () => ordered.push('dropTarget:enter'),
+			onDragLeave: () => ordered.push('dropTarget:leave'),
+			onDrop: () => ordered.push('dropTarget:drop'),
+		}),
+		bind(parentScrollContainer, {
+			type: 'scroll',
+			listener() {
+				ordered.push(`scroll event`);
+			},
+		}),
+	);
 
-  // setting an initial scroll
-  parentScrollContainer.scrollTop = 500;
+	// setting an initial scroll
+	parentScrollContainer.scrollTop = 500;
 
-  userEvent.lift(child, {
-    clientX:
-      parentScrollContainer.getBoundingClientRect().left +
-      parentScrollContainer.getBoundingClientRect().width / 2,
-    clientY: parentScrollContainer.getBoundingClientRect().top,
-  });
+	userEvent.lift(child, {
+		clientX:
+			parentScrollContainer.getBoundingClientRect().left +
+			parentScrollContainer.getBoundingClientRect().width / 2,
+		clientY: parentScrollContainer.getBoundingClientRect().top,
+	});
 
-  expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
-  ordered.length = 0;
+	expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
+	ordered.length = 0;
 
-  // on first frame, there is no auto scroll as
-  // we don't know what the scroll speed should be until
-  // a single frame has passed
-  advanceTimersToNextFrame();
+	// on first frame, there is no auto scroll as
+	// we don't know what the scroll speed should be until
+	// a single frame has passed
+	advanceTimersToNextFrame();
 
-  expect(ordered).toEqual([]);
+	expect(ordered).toEqual([]);
 
-  // on second frame - there would be a scroll is there was a registered scroll container
-  advanceTimersToNextFrame();
-  stepScrollBy();
+	// on second frame - there would be a scroll is there was a registered scroll container
+	advanceTimersToNextFrame();
+	stepScrollBy();
 
-  expect(ordered).toEqual([]);
+	expect(ordered).toEqual([]);
 
-  cleanup();
+	cleanup();
 });
 
 it('should not scroll scrollable elements that are no longer registered', () => {
-  const { child, parentScrollContainer } = setupBasicScrollContainer();
-  const ordered: string[] = [];
+	const { child, parentScrollContainer } = setupBasicScrollContainer();
+	const ordered: string[] = [];
 
-  const cleanup = combine(
-    appendToBody(parentScrollContainer),
-    draggable({
-      element: child,
-      onDragStart: () => ordered.push('draggable:start'),
-      onDrop: () => ordered.push('draggable:drop'),
-    }),
-    dropTargetForElements({
-      element: child,
-      onDragStart: () => ordered.push('dropTarget:start'),
-      onDragEnter: () => ordered.push('dropTarget:enter'),
-      onDragLeave: () => ordered.push('dropTarget:leave'),
-      onDrop: () => ordered.push('dropTarget:drop'),
-    }),
-    setElementFromPointToBe(child),
-    bind(parentScrollContainer, {
-      type: 'scroll',
-      listener() {
-        ordered.push(`scroll event`);
-      },
-    }),
-  );
-  const unbindAutoScrolling = autoScrollForElements({
-    element: parentScrollContainer,
-  });
+	const cleanup = combine(
+		appendToBody(parentScrollContainer),
+		draggable({
+			element: child,
+			onDragStart: () => ordered.push('draggable:start'),
+			onDrop: () => ordered.push('draggable:drop'),
+		}),
+		dropTargetForElements({
+			element: child,
+			onDragStart: () => ordered.push('dropTarget:start'),
+			onDragEnter: () => ordered.push('dropTarget:enter'),
+			onDragLeave: () => ordered.push('dropTarget:leave'),
+			onDrop: () => ordered.push('dropTarget:drop'),
+		}),
+		setElementFromPointToBe(child),
+		bind(parentScrollContainer, {
+			type: 'scroll',
+			listener() {
+				ordered.push(`scroll event`);
+			},
+		}),
+	);
+	const unbindAutoScrolling = autoScrollForElements({
+		element: parentScrollContainer,
+	});
 
-  // setting an initial scroll
-  parentScrollContainer.scrollTop = 500;
+	// setting an initial scroll
+	parentScrollContainer.scrollTop = 500;
 
-  // top center of scroll container
-  userEvent.lift(child, {
-    clientX:
-      parentScrollContainer.getBoundingClientRect().left +
-      parentScrollContainer.getBoundingClientRect().width / 2,
-    clientY: parentScrollContainer.getBoundingClientRect().top,
-  });
+	// top center of scroll container
+	userEvent.lift(child, {
+		clientX:
+			parentScrollContainer.getBoundingClientRect().left +
+			parentScrollContainer.getBoundingClientRect().width / 2,
+		clientY: parentScrollContainer.getBoundingClientRect().top,
+	});
 
-  expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
-  ordered.length = 0;
+	expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
+	ordered.length = 0;
 
-  // on first frame, there is no auto scroll as
-  // we don't know what the scroll speed should be until
-  // a single frame has passed
-  advanceTimersToNextFrame();
+	// on first frame, there is no auto scroll as
+	// we don't know what the scroll speed should be until
+	// a single frame has passed
+	advanceTimersToNextFrame();
 
-  expect(ordered).toEqual([]);
+	expect(ordered).toEqual([]);
 
-  // on second frame we will get a scroll
-  advanceTimersToNextFrame();
-  stepScrollBy();
+	// on second frame we will get a scroll
+	advanceTimersToNextFrame();
+	stepScrollBy();
 
-  expect(ordered).toEqual(['scroll event']);
-  ordered.length = 0;
+	expect(ordered).toEqual(['scroll event']);
+	ordered.length = 0;
 
-  // we will no longer get scroll updates after unregistered
-  unbindAutoScrolling();
+	// we will no longer get scroll updates after unregistered
+	unbindAutoScrolling();
 
-  advanceTimersToNextFrame();
-  stepScrollBy();
+	advanceTimersToNextFrame();
+	stepScrollBy();
 
-  expect(ordered).toEqual([]);
+	expect(ordered).toEqual([]);
 
-  cleanup();
+	cleanup();
 });
 
 it('should scroll scrollable elements are registered mid drag', () => {
-  const { child, parentScrollContainer } = setupBasicScrollContainer();
-  const ordered: string[] = [];
+	const { child, parentScrollContainer } = setupBasicScrollContainer();
+	const ordered: string[] = [];
 
-  const cleanup = combine(
-    appendToBody(parentScrollContainer),
-    draggable({
-      element: child,
-      onDragStart: () => ordered.push('draggable:start'),
-      onDrop: () => ordered.push('draggable:drop'),
-    }),
-    dropTargetForElements({
-      element: child,
-      onDragStart: () => ordered.push('dropTarget:start'),
-      onDragEnter: () => ordered.push('dropTarget:enter'),
-      onDragLeave: () => ordered.push('dropTarget:leave'),
-      onDrop: () => ordered.push('dropTarget:drop'),
-    }),
-    setElementFromPointToBe(child),
-    bind(parentScrollContainer, {
-      type: 'scroll',
-      listener() {
-        ordered.push(`scroll event`);
-      },
-    }),
-  );
+	const cleanup = combine(
+		appendToBody(parentScrollContainer),
+		draggable({
+			element: child,
+			onDragStart: () => ordered.push('draggable:start'),
+			onDrop: () => ordered.push('draggable:drop'),
+		}),
+		dropTargetForElements({
+			element: child,
+			onDragStart: () => ordered.push('dropTarget:start'),
+			onDragEnter: () => ordered.push('dropTarget:enter'),
+			onDragLeave: () => ordered.push('dropTarget:leave'),
+			onDrop: () => ordered.push('dropTarget:drop'),
+		}),
+		setElementFromPointToBe(child),
+		bind(parentScrollContainer, {
+			type: 'scroll',
+			listener() {
+				ordered.push(`scroll event`);
+			},
+		}),
+	);
 
-  // setting an initial scroll
-  parentScrollContainer.scrollTop = 500;
+	// setting an initial scroll
+	parentScrollContainer.scrollTop = 500;
 
-  // top center of scroll container
-  userEvent.lift(child, {
-    clientX:
-      parentScrollContainer.getBoundingClientRect().left +
-      parentScrollContainer.getBoundingClientRect().width / 2,
-    clientY: parentScrollContainer.getBoundingClientRect().top,
-  });
+	// top center of scroll container
+	userEvent.lift(child, {
+		clientX:
+			parentScrollContainer.getBoundingClientRect().left +
+			parentScrollContainer.getBoundingClientRect().width / 2,
+		clientY: parentScrollContainer.getBoundingClientRect().top,
+	});
 
-  expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
-  ordered.length = 0;
+	expect(ordered).toEqual(['draggable:start', 'dropTarget:start']);
+	ordered.length = 0;
 
-  // on first frame, there is no auto scroll as
-  // we don't know what the scroll speed should be until
-  // a single frame has passed
-  advanceTimersToNextFrame();
+	// on first frame, there is no auto scroll as
+	// we don't know what the scroll speed should be until
+	// a single frame has passed
+	advanceTimersToNextFrame();
 
-  expect(ordered).toEqual([]);
+	expect(ordered).toEqual([]);
 
-  // on second frame there is no scroll
-  advanceTimersToNextFrame();
-  stepScrollBy();
+	// on second frame there is no scroll
+	advanceTimersToNextFrame();
+	stepScrollBy();
 
-  expect(ordered).toEqual([]);
-  ordered.length = 0;
+	expect(ordered).toEqual([]);
+	ordered.length = 0;
 
-  // there will be a registration for the third frame, so we will get a scroll
-  const unbindAutoScrolling = autoScrollForElements({
-    element: parentScrollContainer,
-  });
-  advanceTimersToNextFrame();
-  stepScrollBy();
+	// there will be a registration for the third frame, so we will get a scroll
+	const unbindAutoScrolling = autoScrollForElements({
+		element: parentScrollContainer,
+	});
+	advanceTimersToNextFrame();
+	stepScrollBy();
 
-  expect(ordered).toEqual(['scroll event']);
+	expect(ordered).toEqual(['scroll event']);
 
-  unbindAutoScrolling();
-  cleanup();
+	unbindAutoScrolling();
+	cleanup();
 });
 
 it('should warn if an elements is registered but are not scrollable', () => {
-  const { child } = setupBasicScrollContainer();
-  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+	const { child } = setupBasicScrollContainer();
+	const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-  const cleanup = autoScrollForElements({
-    element: child,
-  });
+	const cleanup = autoScrollForElements({
+		element: child,
+	});
 
-  expect(warn).toHaveBeenCalled();
+	expect(warn).toHaveBeenCalled();
 
-  cleanup();
-  warn.mockRestore();
+	cleanup();
+	warn.mockRestore();
 });
 
 it('should log a warning if an existing registration exists for an element', () => {
-  const { parentScrollContainer } = setupBasicScrollContainer();
-  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+	const { parentScrollContainer } = setupBasicScrollContainer();
+	const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-  const cleanup1 = autoScrollForElements({
-    element: parentScrollContainer,
-  });
+	const cleanup1 = autoScrollForElements({
+		element: parentScrollContainer,
+	});
 
-  expect(warn).not.toHaveBeenCalled();
+	expect(warn).not.toHaveBeenCalled();
 
-  const cleanup2 = autoScrollForElements({
-    element: parentScrollContainer,
-  });
+	const cleanup2 = autoScrollForElements({
+		element: parentScrollContainer,
+	});
 
-  expect(warn).toHaveBeenCalled();
+	expect(warn).toHaveBeenCalled();
 
-  cleanup1();
-  cleanup2();
-  warn.mockRestore();
+	cleanup1();
+	cleanup2();
+	warn.mockRestore();
 });

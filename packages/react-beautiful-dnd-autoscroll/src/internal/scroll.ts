@@ -8,79 +8,79 @@ import type { Scrollable, ScrollBehavior } from './types';
 import getViewport from './window/get-viewport';
 
 type Args = {
-  input: Input;
-  dragStartTime: number;
-  shouldUseTimeDampening: boolean;
-  scrollElement: (element: Element, change: Position) => void;
-  scrollWindow: (change: Position) => void;
-  behavior: ScrollBehavior;
+	input: Input;
+	dragStartTime: number;
+	shouldUseTimeDampening: boolean;
+	scrollElement: (element: Element, change: Position) => void;
+	scrollWindow: (change: Position) => void;
+	behavior: ScrollBehavior;
 };
 
 export const scroll = ({
-  input,
-  dragStartTime,
-  shouldUseTimeDampening,
-  scrollElement,
-  scrollWindow,
-  behavior,
+	input,
+	dragStartTime,
+	shouldUseTimeDampening,
+	scrollElement,
+	scrollWindow,
+	behavior,
 }: Args) => {
-  const tryScrollWindow = () => {
-    const viewport = getViewport();
-    const windowScrollChange: Position | null = getWindowScrollChange({
-      dragStartTime,
-      viewport,
-      center: {
-        x: input.clientX + viewport.scroll.current.x,
-        y: input.clientY + viewport.scroll.current.y,
-      },
-      shouldUseTimeDampening,
-    });
+	const tryScrollWindow = () => {
+		const viewport = getViewport();
+		const windowScrollChange: Position | null = getWindowScrollChange({
+			dragStartTime,
+			viewport,
+			center: {
+				x: input.clientX + viewport.scroll.current.x,
+				y: input.clientY + viewport.scroll.current.y,
+			},
+			shouldUseTimeDampening,
+		});
 
-    if (windowScrollChange) {
-      scrollWindow(windowScrollChange);
-      return true;
-    }
+		if (windowScrollChange) {
+			scrollWindow(windowScrollChange);
+			return true;
+		}
 
-    return false;
-  };
+		return false;
+	};
 
-  const tryScrollContainer = () => {
-    const over = document.elementFromPoint(input.clientX, input.clientY);
-    const closestScrollable: Element | null = getClosestScrollableElement(over);
+	const tryScrollContainer = () => {
+		const over = document.elementFromPoint(input.clientX, input.clientY);
+		const closestScrollable: Element | null = getClosestScrollableElement(over);
 
-    if (!closestScrollable) {
-      return false;
-    }
+		if (!closestScrollable) {
+			return false;
+		}
 
-    const scrollable: Scrollable = getScrollable({
-      closestScrollable,
-    });
+		const scrollable: Scrollable = getScrollable({
+			closestScrollable,
+		});
 
-    const scrollableScrollChange: Position | null = getScrollableScrollChange({
-      dragStartTime,
-      scrollable,
-      center: { x: input.clientX, y: input.clientY },
-      shouldUseTimeDampening,
-    });
+		const scrollableScrollChange: Position | null = getScrollableScrollChange({
+			dragStartTime,
+			scrollable,
+			center: { x: input.clientX, y: input.clientY },
+			shouldUseTimeDampening,
+		});
 
-    if (scrollableScrollChange) {
-      scrollElement(closestScrollable, scrollableScrollChange);
-      return true;
-    }
+		if (scrollableScrollChange) {
+			scrollElement(closestScrollable, scrollableScrollChange);
+			return true;
+		}
 
-    return false;
-  };
+		return false;
+	};
 
-  if (behavior === 'container-only') {
-    tryScrollContainer();
-  }
-  if (behavior === 'window-only') {
-    tryScrollWindow();
-  }
-  if (behavior === 'container-then-window') {
-    tryScrollContainer() || tryScrollWindow();
-  }
-  if (behavior === 'window-then-container') {
-    tryScrollWindow() || tryScrollContainer();
-  }
+	if (behavior === 'container-only') {
+		tryScrollContainer();
+	}
+	if (behavior === 'window-only') {
+		tryScrollWindow();
+	}
+	if (behavior === 'container-then-window') {
+		tryScrollContainer() || tryScrollWindow();
+	}
+	if (behavior === 'window-then-container') {
+		tryScrollWindow() || tryScrollContainer();
+	}
 };

@@ -8,34 +8,34 @@ import { Box, Flex, xcss } from '@atlaskit/primitives';
 import { GlobalStyles } from '../../util/global-styles';
 
 const boardStyles = xcss({
-  margin: '0 auto',
-  gap: 'space.200',
-  flexDirection: 'row',
-  height: '100%',
-  boxSizing: 'border-box',
+	margin: '0 auto',
+	gap: 'space.200',
+	flexDirection: 'row',
+	height: '100%',
+	boxSizing: 'border-box',
 });
 
 const scrollContainerStyles = xcss({
-  overflowY: 'auto',
-  height: '600px',
+	overflowY: 'auto',
+	height: '600px',
 });
 
 function Board({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    invariant(ref.current);
-    return autoScrollForElements({
-      element: ref.current,
-    });
-  }, []);
-  return (
-    <>
-      <Box ref={ref} xcss={scrollContainerStyles}>
-        <Flex xcss={boardStyles}>{children}</Flex>
-      </Box>
-      <GlobalStyles />
-    </>
-  );
+	const ref = useRef<HTMLDivElement | null>(null);
+	useEffect(() => {
+		invariant(ref.current);
+		return autoScrollForElements({
+			element: ref.current,
+		});
+	}, []);
+	return (
+		<>
+			<Box ref={ref} xcss={scrollContainerStyles}>
+				<Flex xcss={boardStyles}>{children}</Flex>
+			</Box>
+			<GlobalStyles />
+		</>
+	);
 }
 
 export default memo(Board);

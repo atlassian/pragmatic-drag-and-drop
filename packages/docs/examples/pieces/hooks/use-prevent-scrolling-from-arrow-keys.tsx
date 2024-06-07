@@ -9,22 +9,22 @@ import { bind } from 'bind-event-listener';
  * while navigating a dropdown menu.
  */
 export function usePreventScrollingFromArrowKeys({
-  shouldPreventScrolling,
+	shouldPreventScrolling,
 }: {
-  shouldPreventScrolling: boolean;
+	shouldPreventScrolling: boolean;
 }) {
-  useEffect(() => {
-    if (!shouldPreventScrolling) {
-      return;
-    }
+	useEffect(() => {
+		if (!shouldPreventScrolling) {
+			return;
+		}
 
-    return bind(window, {
-      type: 'keydown',
-      listener(event) {
-        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-          event.preventDefault();
-        }
-      },
-    });
-  }, [shouldPreventScrolling]);
+		return bind(window, {
+			type: 'keydown',
+			listener(event) {
+				if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+					event.preventDefault();
+				}
+			},
+		});
+	}, [shouldPreventScrolling]);
 }

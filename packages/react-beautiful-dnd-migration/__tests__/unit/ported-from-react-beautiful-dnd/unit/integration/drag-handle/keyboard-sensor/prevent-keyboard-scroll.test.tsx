@@ -15,18 +15,18 @@ import { isDragging } from '../../_utils/helpers';
 HTMLElement.prototype.scrollIntoView = jest.fn();
 
 it('should prevent using keyboard keys that modify scroll', () => {
-  const keys = ['PageUp', 'PageDown', 'Home', 'End'];
-  const { getByText } = render(<App />);
-  const handle: HTMLElement = getByText('item: 0');
+	const keys = ['PageUp', 'PageDown', 'Home', 'End'];
+	const { getByText } = render(<App />);
+	const handle: HTMLElement = getByText('item: 0');
 
-  simpleLift(keyboard, handle);
-  expect(isDragging(handle)).toBe(true);
+	simpleLift(keyboard, handle);
+	expect(isDragging(handle)).toBe(true);
 
-  keys.forEach(key => {
-    const event: Event = createEvent.keyDown(handle, { key });
-    fireEvent(handle, event);
+	keys.forEach((key) => {
+		const event: Event = createEvent.keyDown(handle, { key });
+		fireEvent(handle, event);
 
-    expect(event.defaultPrevented).toBe(true);
-    expect(isDragging(handle)).toBe(true);
-  });
+		expect(event.defaultPrevented).toBe(true);
+		expect(isDragging(handle)).toBe(true);
+	});
 });

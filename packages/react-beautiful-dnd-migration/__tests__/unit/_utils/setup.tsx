@@ -1,3 +1,3 @@
 export function setup() {
-  HTMLElement.prototype.scrollIntoView = jest.fn();
+	HTMLElement.prototype.scrollIntoView = jest.fn();
 }

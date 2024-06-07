@@ -11,20 +11,20 @@ type ItemPosition = 'first' | 'last' | 'middle' | 'only';
 type CleanupFn = () => void;
 
 type ListContextProps = {
-  getItemIndex: ({ id }: { id: string }) => number;
-  getItemPosition: (itemData: ItemData) => ItemPosition;
-  registerItem: (args: { id: string; element: HTMLElement }) => CleanupFn;
-  reorderItem: (args: {
-    startIndex: number;
-    indexOfTarget: number;
-    closestEdgeOfTarget: Edge | null;
-  }) => void;
+	getItemIndex: ({ id }: { id: string }) => number;
+	getItemPosition: (itemData: ItemData) => ItemPosition;
+	registerItem: (args: { id: string; element: HTMLElement }) => CleanupFn;
+	reorderItem: (args: {
+		startIndex: number;
+		indexOfTarget: number;
+		closestEdgeOfTarget: Edge | null;
+	}) => void;
 };
 
 export const ListContext = createContext<ListContextProps | null>(null);
 
 export function useListContext() {
-  const listContext = useContext(ListContext);
-  invariant(listContext !== null);
-  return listContext;
+	const listContext = useContext(ListContext);
+	invariant(listContext !== null);
+	return listContext;
 }

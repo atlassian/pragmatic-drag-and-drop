@@ -8,17 +8,14 @@ import { getElementByDraggableLocation } from '../../utils/get-element-by-dragga
 import { getDistance } from './get-distance';
 
 function getDroppableId(element: HTMLElement) {
-  return getAttribute(element, customAttributes.draggable.droppableId);
+	return getAttribute(element, customAttributes.draggable.droppableId);
 }
 
 function getIndex(element: HTMLElement): number {
-  const value = getAttribute(element, customAttributes.draggable.index);
-  const index = parseInt(value);
-  rbdInvariant(
-    Number.isInteger(index),
-    `invalid index: '${index}' is not an integer`,
-  );
-  return index;
+	const value = getAttribute(element, customAttributes.draggable.index);
+	const index = parseInt(value);
+	rbdInvariant(Number.isInteger(index), `invalid index: '${index}' is not an integer`);
+	return index;
 }
 
 /**
@@ -27,73 +24,72 @@ function getIndex(element: HTMLElement): number {
  * - If there is an adjacent element, it is rendered.
  */
 export function calculateGap({
-  element,
-  where,
-  direction,
-  contextId,
+	element,
+	where,
+	direction,
+	contextId,
 }: {
-  element: HTMLElement;
-  where: 'before' | 'after';
-  direction: Direction;
-  contextId: string;
+	element: HTMLElement;
+	where: 'before' | 'after';
+	direction: Direction;
+	contextId: string;
 }): number {
-  const droppableId = getDroppableId(element);
-  const index = getIndex(element);
+	const droppableId = getDroppableId(element);
+	const index = getIndex(element);
 
-  const indexBefore = index - 1;
-  const indexAfter = index + 1;
+	const indexBefore = index - 1;
+	const indexAfter = index + 1;
 
-  const isBefore = where === 'before';
+	const isBefore = where === 'before';
 
-  const adjacentElement = getElementByDraggableLocation(contextId, {
-    droppableId,
-    index: isBefore ? indexBefore : indexAfter,
-  });
+	const adjacentElement = getElementByDraggableLocation(contextId, {
+		droppableId,
+		index: isBefore ? indexBefore : indexAfter,
+	});
 
-  if (adjacentElement === null) {
-    /**
-     * If there is no adjacent element, we can guess based on margins.
-     */
-    const { marginTop, marginRight, marginBottom, marginLeft } =
-      getComputedStyle(element);
+	if (adjacentElement === null) {
+		/**
+		 * If there is no adjacent element, we can guess based on margins.
+		 */
+		const { marginTop, marginRight, marginBottom, marginLeft } = getComputedStyle(element);
 
-    if (direction === 'horizontal') {
-      return parseFloat(marginLeft) + parseFloat(marginRight);
-    }
+		if (direction === 'horizontal') {
+			return parseFloat(marginLeft) + parseFloat(marginRight);
+		}
 
-    return parseFloat(marginTop) + parseFloat(marginBottom);
-  }
+		return parseFloat(marginTop) + parseFloat(marginBottom);
+	}
 
-  const distance = getDistance({
-    direction,
-    a: element.getBoundingClientRect(),
-    b: adjacentElement.getBoundingClientRect(),
-  });
+	const distance = getDistance({
+		direction,
+		a: element.getBoundingClientRect(),
+		b: adjacentElement.getBoundingClientRect(),
+	});
 
-  return distance;
+	return distance;
 }
 
 export function getGapOffset({
-  element,
-  where,
-  direction,
-  contextId,
+	element,
+	where,
+	direction,
+	contextId,
 }: {
-  element: HTMLElement;
-  where: 'before' | 'after';
-  direction: Direction;
-  contextId: string;
+	element: HTMLElement;
+	where: 'before' | 'after';
+	direction: Direction;
+	contextId: string;
 }): number {
-  const gap = calculateGap({
-    element,
-    where,
-    direction,
-    contextId,
-  });
+	const gap = calculateGap({
+		element,
+		where,
+		direction,
+		contextId,
+	});
 
-  if (where === 'before') {
-    return -gap / 2;
-  }
+	if (where === 'before') {
+		return -gap / 2;
+	}
 
-  return gap / 2;
+	return gap / 2;
 }

@@ -5,10 +5,5 @@ import { G400 } from '@atlaskit/theme/colors';
 import { token } from '@atlaskit/tokens';
 
 export default function CheckIcon() {
-  return (
-    <AkCheckIcon
-      label="supported"
-      primaryColor={token('color.icon.success', G400)}
-    />
-  );
+	return <AkCheckIcon label="supported" primaryColor={token('color.icon.success', G400)} />;
 }

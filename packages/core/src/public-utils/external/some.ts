@@ -19,7 +19,7 @@ import { type ContainsSource, type PredicateFn } from './native-types';
  * ```
  */
 export function some(...predicates: PredicateFn[]): PredicateFn {
-  return function combined(payload: ContainsSource): boolean {
-    return predicates.some(fn => fn(payload));
-  };
+	return function combined(payload: ContainsSource): boolean {
+		return predicates.some((fn) => fn(payload));
+	};
 }

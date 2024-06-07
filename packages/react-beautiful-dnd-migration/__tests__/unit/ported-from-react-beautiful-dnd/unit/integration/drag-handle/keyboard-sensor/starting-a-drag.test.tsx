@@ -14,12 +14,12 @@ import { isDragging } from '../../_utils/helpers';
 HTMLElement.prototype.scrollIntoView = jest.fn();
 
 it('should prevent the default keyboard action when lifting', () => {
-  const { getByText } = render(<App />);
-  const handle: HTMLElement = getByText('item: 0');
+	const { getByText } = render(<App />);
+	const handle: HTMLElement = getByText('item: 0');
 
-  const event: Event = createEvent.keyDown(handle, { key: ' ' });
-  fireEvent(handle, event);
+	const event: Event = createEvent.keyDown(handle, { key: ' ' });
+	fireEvent(handle, event);
 
-  expect(isDragging(handle)).toBe(true);
-  expect(event.defaultPrevented).toBe(true);
+	expect(isDragging(handle)).toBe(true);
+	expect(event.defaultPrevented).toBe(true);
 });

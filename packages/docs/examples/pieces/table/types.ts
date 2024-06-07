@@ -5,20 +5,20 @@ import { type Person } from '../../data/people';
 export type Status = 'todo' | 'in-progress' | 'done';
 
 export type Item = {
-  id: string;
-  status: Status;
-  description: string;
-  assignee: Person;
+	id: string;
+	status: Status;
+	description: string;
+	assignee: Person;
 };
 
 export type ItemRegistration = {
-  item: Item;
-  element: HTMLElement;
-  index: number;
+	item: Item;
+	element: HTMLElement;
+	index: number;
 };
 
 export type ReorderFunction = (args: {
-  startIndex: number;
-  indexOfTarget: number;
-  closestEdgeOfTarget?: Edge | null;
+	startIndex: number;
+	indexOfTarget: number;
+	closestEdgeOfTarget?: Edge | null;
 }) => void;

@@ -336,10 +336,10 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^6.5.0":
-  version "6.5.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-6.5.0.tgz#282e8893f9b657c36a3ab45c4f1681b3bbc78bfd"
-  integrity sha512-I1Zb6oYOZe1dOID25cxWat6gHVbd2WePq4FP1Caq5B4Fjj5lGLOzGqAV9EV4zXrPiVUu4x/519mRSV5qFc41qA==
+"@atlaskit/primitives@^7.0.0":
+  version "7.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.0.0.tgz#8edb0046382177a9b5f2c8c54c8f1de2dfc623a0"
+  integrity sha512-ZBb2y//Rq6q4CSL3jQPgZqQuL4hyjmQzt1sCh21uBZ+FliKgk5K86qpJOUAq3Zs4Tn0G9r6/Nq29IbIYMyc3Xw==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/app-provider" "^1.3.0"
@@ -395,6 +395,16 @@
     "@atlaskit/codemod-utils" "^4.2.0"
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/tokens" "^1.46.0"
+    "@babel/runtime" "^7.0.0"
+
+"@atlaskit/theme@^12.9.0":
+  version "12.9.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-12.9.0.tgz#3e4f4fc315a9d889c51eb0a9c36ccef2c028c4b5"
+  integrity sha512-LnFCUobWQWBYnIVSZIkc32s74s7O5hn1Mhry4r58ZJ/GrPMWTyvme34n7SeSdAgWcjYH84LfUGUv/b2QsqgkEw==
+  dependencies:
+    "@atlaskit/codemod-utils" "^4.2.0"
+    "@atlaskit/ds-lib" "^2.3.0"
+    "@atlaskit/tokens" "^1.49.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/tokens@^1.42.0":

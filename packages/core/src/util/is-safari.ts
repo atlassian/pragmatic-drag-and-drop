@@ -1,4 +1,4 @@
-import { cacheFirst } from './cache-first';
+import { once } from '../public-utils/once';
 
 // using `cache` as our `isSafari()` result will not change in a browser
 
@@ -6,7 +6,7 @@ import { cacheFirst } from './cache-first';
  * Returns `true` if a `Safari` browser.
  * Returns `true` if the browser is running on iOS (they are all Safari).
  * */
-export const isSafari = cacheFirst(function isSafari(): boolean {
+export const isSafari = once(function isSafari(): boolean {
 	if (process.env.NODE_ENV === 'test') {
 		return false;
 	}

@@ -23,6 +23,7 @@ const lineStyles = css({
 	pointerEvents: 'none',
 
 	// Terminal
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		display: 'block',
 		content: '""',
@@ -35,12 +36,14 @@ const lineStyles = css({
 		left: 0,
 		background: 'transparent',
 		borderColor: 'var(--indicator-color)',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		borderWidth: line.thickness,
 		borderRadius: '50%',
 		borderStyle: 'solid',
 	},
 
 	// Line
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::after': {
 		display: 'block',
 		content: '""',
@@ -48,6 +51,7 @@ const lineStyles = css({
 		zIndex: 1,
 		background: 'var(--indicator-color)',
 		left: 'calc(var(--terminal-size) / 2)', // putting the line to the right of the terminal
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		height: line.thickness,
 		right: 0,
 	},
@@ -55,25 +59,31 @@ const lineStyles = css({
 
 const lineAboveStyles = css({
 	// terminal
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		top: 0,
 		// move to position to be a 'cap' on the line
 		transform: `translate(calc(-0.5 * var(--terminal-size)), calc(-0.5 * var(--terminal-size)))`,
 	},
 	// line
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::after': {
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		top: `${-0.5 * line.thickness}px`,
 	},
 });
 
 const lineBelowStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		bottom: 0,
 		// move to position to be a 'cap' on the line
 		transform: `translate(calc(-0.5 * var(--terminal-size)), calc(0.5 * var(--terminal-size)))`,
 	},
 	// line
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::after': {
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		bottom: `${-0.5 * line.thickness}px`,
 	},
 });
@@ -90,6 +100,7 @@ const outlineStyles = css({
 	// We don't want to cause any additional 'dragenter' events
 	pointerEvents: 'none',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	border: `${line.thickness}px solid var(--indicator-color)`,
 	// TODO: make this a prop?
 	// For now: matching the Confluence tree item border radius

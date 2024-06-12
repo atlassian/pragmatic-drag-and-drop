@@ -20,38 +20,40 @@ This will help enable folks leveraging assistive technologies to perform file up
 
 ## `containsFiles`
 
-Useful to know whether file(s) are being dragged. Keep in mind that multiple pieces of native data can be dragged at once.
+Useful to know whether file(s) are being dragged. Keep in mind that multiple pieces of native data
+can be dragged at once.
 
 ```ts
 import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
 
 dropTargetForExternal({
-  element: myElement,
-  canDrop: containsFiles,
+	element: myElement,
+	canDrop: containsFiles,
 });
 
 monitorForExternal({
-  canMonitor: containsFiles,
+	canMonitor: containsFiles,
 });
 ```
 
 ## `getFiles`
 
-A helper to extract files from drop data. An empty array (`[]`) will be returned if there were no files being dragged.
+A helper to extract files from drop data. An empty array (`[]`) will be returned if there were no
+files being dragged.
 
 ```ts
 import { getFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
 
 dropTargetForExternal({
-  element: myElement,
-  onDrop({ source }) {
-    const files: File[] = getFiles({ source });
-  },
+	element: myElement,
+	onDrop({ source }) {
+		const files: File[] = getFiles({ source });
+	},
 });
 
 monitorForExternal({
-  onDrop({ source }) {
-    const files: File[] = getFiles({ source });
-  },
+	onDrop({ source }) {
+		const files: File[] = getFiles({ source });
+	},
 });
 ```

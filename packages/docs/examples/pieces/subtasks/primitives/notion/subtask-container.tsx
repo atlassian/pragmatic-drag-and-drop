@@ -33,6 +33,7 @@ const headingStyles = css({
 	alignItems: 'center',
 	padding: 8,
 	gap: 4,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:first-of-type)': {
 		borderLeft: `1px solid ${token('color.border')}`,
 	},

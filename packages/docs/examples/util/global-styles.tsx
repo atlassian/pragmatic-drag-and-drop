@@ -1,7 +1,9 @@
 /** @jsx jsx */
+// eslint-disable-next-line @atlaskit/ui-styling-standard/no-global-styles -- Ignored via go/DSP-18766
 import { css, Global, jsx } from '@emotion/react';
 
 const globalStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':root': {
 		'--grid': '8px',
 		'--border-radius': '2px',

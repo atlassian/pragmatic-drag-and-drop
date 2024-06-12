@@ -4,19 +4,27 @@ title: Web platform design constraints
 
 import SectionMessage from '@atlaskit/section-message';
 
-Pragmatic drag and drop is powered by the web platforms built in drag and drop functionality. Embracing the web platform unlocks huge speed and flexibility wins. However, leveraging the web platform does mean embracing a few design constraints.
+Pragmatic drag and drop is powered by the web platforms built in drag and drop functionality.
+Embracing the web platform unlocks huge speed and flexibility wins. However, leveraging the web
+platform does mean embracing a few design constraints.
 
 <SectionMessage>
 
-These constraints are are shared for all native powered drag and drop operations on the web, so users will be familiar with these affordances.
+These constraints are are shared for all native powered drag and drop operations on the web, so
+users will be familiar with these affordances.
 
 </SectionMessage>
 
 ## Cursors
 
-[The specification for web platform drag and drop](https://html.spec.whatwg.org/multipage/dnd.html#dom-datatransfer-dropeffect) currently gives very little flexibility when it comes to what `cursor` is used Ideally we would have `cursor:grabbing` while dragging!
+[The specification for web platform drag and drop](https://html.spec.whatwg.org/multipage/dnd.html#dom-datatransfer-dropeffect)
+currently gives very little flexibility when it comes to what `cursor` is used Ideally we would have
+`cursor:grabbing` while dragging!
 
-While a drag operation is occurring, the `cursor` is **exclusively** controlled by the [`dropEffect`](https://html.spec.whatwg.org/multipage/dnd.html#dom-datatransfer-dropeffect) associated with the drag operation. You can control the `dropEffect` by using the `getDropEffect()` [drop target API](./drop-targets).
+While a drag operation is occurring, the `cursor` is **exclusively** controlled by the
+[`dropEffect`](https://html.spec.whatwg.org/multipage/dnd.html#dom-datatransfer-dropeffect)
+associated with the drag operation. You can control the `dropEffect` by using the `getDropEffect()`
+[drop target API](./drop-targets).
 
 | `dropEffect` | `cursor`         | Notes                           |
 | ------------ | ---------------- | ------------------------------- |
@@ -27,8 +35,10 @@ While a drag operation is occurring, the `cursor` is **exclusively** controlled 
 
 ### Known web platform bugs
 
-- Chrome: sometimes the `cursor` can inconsistently use the `cursor` value of the element being dragged over
-- Chrome: the `cursor` can sometimes flash `cursor:copy` when a drag is first starting - [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1356797)
+- Chrome: sometimes the `cursor` can inconsistently use the `cursor` value of the element being
+  dragged over
+- Chrome: the `cursor` can sometimes flash `cursor:copy` when a drag is first starting -
+  [bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1356797)
 
 ## Native drag previews
 
@@ -41,7 +51,10 @@ These styles can vary slightly between browsers.
 
 <SectionMessage appearance="warning" title="Low opacity on large previews for Windows">
 
-Unfortunately, for all browsers on Windows, when a native drag previews is wider than `280px` or taller than `280px`, then the preview opacity is significantly lowered. If you would not like your previews dimmed on Windows, then you will need to make your native previews smaller than `280px`x`280px`.
+Unfortunately, for all browsers on Windows, when a native drag previews is wider than `280px` or
+taller than `280px`, then the preview opacity is significantly lowered. If you would not like your
+previews dimmed on Windows, then you will need to make your native previews smaller than
+`280px`x`280px`.
 
 You can also have smaller native previews just for Windows users if you like:
 
@@ -49,8 +62,8 @@ You can also have smaller native previews just for Windows users if you like:
 const preview = document.createElement('div');
 
 if (navigator.platform.includes('Win32')) {
-  preview.style.maxWidth = '280px';
-  preview.style.maxHeight = '280px';
+	preview.style.maxWidth = '280px';
+	preview.style.maxHeight = '280px';
 }
 ```
 

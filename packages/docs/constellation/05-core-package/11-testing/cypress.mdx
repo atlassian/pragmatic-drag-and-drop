@@ -4,49 +4,52 @@ title: Testing
 description: Guidance on how to test your drag and drop experiences
 ---
 
-With [`cypress`](https://www.cypress.io/), you need to ensure that when you trigger a drag event (eg `"dragstart"`), you need to add [`{force: true}`](https://docs.cypress.io/guides/core-concepts/interacting-with-elements#Forcing). This will ensure that the drag events fire on the correct elements.
+With [`cypress`](https://www.cypress.io/), you need to ensure that when you trigger a drag event (eg
+`"dragstart"`), you need to add
+[`{force: true}`](https://docs.cypress.io/guides/core-concepts/interacting-with-elements#Forcing).
+This will ensure that the drag events fire on the correct elements.
 
-You will also need to ensure that `cypress` triggers `DragEvent`s correctly. By default, a `.trigger('dragstart')`, fires an `Event`, not a `DragEvent`. So you will need to set the `eventConstructor` to be `DragEvent`, and pass through a `DataTransfer` (which can be empty).
+You will also need to ensure that `cypress` triggers `DragEvent`s correctly. By default, a
+`.trigger('dragstart')`, fires an `Event`, not a `DragEvent`. So you will need to set the
+`eventConstructor` to be `DragEvent`, and pass through a `DataTransfer` (which can be empty).
 
 ```ts
 it('should allow drag and drop between columns', () => {
-  const options = {
-    force: true,
-    eventConstructor: 'DragEvent',
-    // If you wanted to fake dragging particular data,
-    // you can add it to this `DataTransfer` with `.setData()`
-    // See: https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
-    dataTransfer: new DataTransfer(),
-  };
+	const options = {
+		force: true,
+		eventConstructor: 'DragEvent',
+		// If you wanted to fake dragging particular data,
+		// you can add it to this `DataTransfer` with `.setData()`
+		// See: https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
+		dataTransfer: new DataTransfer(),
+	};
 
-  cy.visit('/scenario/atlaskit-drag-and-drop');
+	cy.visit('/scenario/atlaskit-drag-and-drop');
 
-  // waiting for our board to be visible
-  cy.get('[data-testid="item-A0"]').should('be.visible');
+	// waiting for our board to be visible
+	cy.get('[data-testid="item-A0"]').should('be.visible');
 
-  // asserting initial list sizes
-  cy.get('[data-testid="column-A--card-list"]')
-    .find('[draggable="true"]')
-    .should('have.length', 16);
+	// asserting initial list sizes
+	cy.get('[data-testid="column-A--card-list"]')
+		.find('[draggable="true"]')
+		.should('have.length', 16);
 
-  cy.get('[data-testid="column-B--card-list"]')
-    .find('[draggable="true"]')
-    .should('have.length', 16);
+	cy.get('[data-testid="column-B--card-list"]')
+		.find('[draggable="true"]')
+		.should('have.length', 16);
 
-  // Move A0 to column B
-  cy.get('[data-testid="item-A0"]').trigger('dragstart', options);
+	// Move A0 to column B
+	cy.get('[data-testid="item-A0"]').trigger('dragstart', options);
 
-  cy.get('[data-testid="item-B0"]')
-    .trigger('dragenter', options)
-    .trigger('drop', options);
+	cy.get('[data-testid="item-B0"]').trigger('dragenter', options).trigger('drop', options);
 
-  // asserting list sizes after drag and drop
-  cy.get('[data-testid="column-A--card-list"]')
-    .find('[draggable="true"]')
-    .should('have.length', 15);
+	// asserting list sizes after drag and drop
+	cy.get('[data-testid="column-A--card-list"]')
+		.find('[draggable="true"]')
+		.should('have.length', 15);
 
-  cy.get('[data-testid="column-B--card-list"]')
-    .find('[draggable="true"]')
-    .should('have.length', 17);
+	cy.get('[data-testid="column-B--card-list"]')
+		.find('[draggable="true"]')
+		.should('have.length', 17);
 });
 ```

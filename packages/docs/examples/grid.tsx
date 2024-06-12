@@ -44,6 +44,7 @@ type State = 'idle' | 'dragging' | 'over';
 
 const itemStateStyles: { [Key in State]: undefined | SerializedStyles } = {
 	idle: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		':hover': {
 			background: token('elevation.surface.overlay', '#FFF'),
 			boxShadow: token('elevation.shadow.overlay', 'none'),

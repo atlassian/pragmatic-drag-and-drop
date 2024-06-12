@@ -15,11 +15,14 @@ import { columnGap, gridSize } from '../../util/constants';
 import { GlobalStyles } from '../../util/global-styles';
 
 const boardStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	'--grid': `${gridSize}px`,
 	display: 'flex',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	gap: columnGap,
 	flexDirection: 'row',
 	height: '100%',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	padding: columnGap,
 	boxSizing: 'border-box',
 	width: 'min-content', // doing this so that we get the correct padding around the element

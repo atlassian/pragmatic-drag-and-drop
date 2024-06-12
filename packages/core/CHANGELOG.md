@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.1.12
+
+### Patch Changes
+
+- [#109670](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/109670)
+  [`8eb3fe4136d55`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/8eb3fe4136d55) -
+  Internal consolidation of `once()` code
+
 ## 1.1.11
 
 ### Patch Changes

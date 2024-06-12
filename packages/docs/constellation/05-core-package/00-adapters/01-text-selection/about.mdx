@@ -6,17 +6,22 @@ description: Listen and respond to the dragging of text selections in a document
 
 import SectionMessage from '@atlaskit/section-message';
 
-The text selection adapter allows you to listen and respond to text selections being dragged around in a `window`. Text selection is seperate from the [element adapter](../element) as text selections are not based on elements, but rather, whatever text the user has wanted to select.
+The text selection adapter allows you to listen and respond to text selections being dragged around
+in a `window`. Text selection is seperate from the [element adapter](../element) as text selections
+are not based on elements, but rather, whatever text the user has wanted to select.
 
 The text selection adapter consists of the following pieces:
 
-- `dropTargetForTextSelection`: marking an element as a valid [drop target](../../drop-targets) for text selection drag operations
-- `monitorForTextSelection`: create a [monitor](../../monitors) to listen to text selection drag operations anywhere
+- `dropTargetForTextSelection`: marking an element as a valid [drop target](../../drop-targets) for
+  text selection drag operations
+- `monitorForTextSelection`: create a [monitor](../../monitors) to listen to text selection drag
+  operations anywhere
 - `type`s: all types for this adapter
 
 <SectionMessage>
 
-It is likely that some [top level utilities](../utilities/) will be helpful for your experience as well
+It is likely that some [top level utilities](../utilities/) will be helpful for your experience as
+well
 
 </SectionMessage>
 
@@ -24,7 +29,9 @@ It is likely that some [top level utilities](../utilities/) will be helpful for 
 
 A [drop target](../drop-targets) for text selection drag operations.
 
-The default `dropEffect` for this type of drop target is `"copy"` as generally you will be copying dragged text. However, if that is not the case for your drop target, then please update it's drop effect through `getDropEffect()`.
+The default `dropEffect` for this type of drop target is `"copy"` as generally you will be copying
+dragged text. However, if that is not the case for your drop target, then please update it's drop
+effect through `getDropEffect()`.
 
 ```ts
 import {dropTargetForTextSelection} from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
@@ -49,27 +56,28 @@ const cleanup = monitorForTextSelection({
 
 ## Types
 
-Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript types if you would like to use them.
+Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript
+types if you would like to use them.
 
 All [events](../../events) on drop targets and monitors are given the following base payload:
 
 ```ts
 type TextSelectionEventBasePayload = {
-  location: DragLocationHistory;
-  source: TextSelectionDragPayload;
+	location: DragLocationHistory;
+	source: TextSelectionDragPayload;
 };
 
 type TextSelectionDragPayload = {
-  /**
-   * The `Text` node that is the user started the drag from.
-   * Note: the `Text` node does not include all text being dragged.
-   * Use the `plain` or `html` properties to get the full selection
-   */
-  target: Text;
-  /** The plain text of the selection */
-  plain: string;
-  /** the HTML of the selection */
-  HTML: string;
+	/**
+	 * The `Text` node that is the user started the drag from.
+	 * Note: the `Text` node does not include all text being dragged.
+	 * Use the `plain` or `html` properties to get the full selection
+	 */
+	target: Text;
+	/** The plain text of the selection */
+	plain: string;
+	/** the HTML of the selection */
+	HTML: string;
 };
 ```
 
@@ -77,8 +85,8 @@ For all the arguments for all events, you can use our event map type:
 
 ```ts
 type TextSelectionEventPayloadMap = {
-  onDragStart: TextSelectionEventBasePayload;
-  // .. the rest of the events
+	onDragStart: TextSelectionEventBasePayload;
+	// .. the rest of the events
 };
 ```
 
@@ -86,10 +94,10 @@ Drop targets are given a little bit more information in each event:
 
 ```ts
 type TextSelectionDropTargetEventBasePayload = TextSelectionEventBasePayload & {
-  /**
-   * A convenance pointer to this drop targets values
-   */
-  self: DropTargetRecord;
+	/**
+	 * A convenance pointer to this drop targets values
+	 */
+	self: DropTargetRecord;
 };
 ```
 
@@ -97,27 +105,28 @@ For all arguments for all events on drop targets, you can use our event map type
 
 ```ts
 type TextSelectionDropTargetEventPayloadMap = {
-  onDragStart: TextSelectionDropTargetEventBasePayload;
-  // .. the rest of the events
+	onDragStart: TextSelectionDropTargetEventBasePayload;
+	// .. the rest of the events
 };
 ```
 
-Drop target feedback functions (`canDrop`, `getData`, `getDropEffect`, `getIsSticky`) are given the following:
+Drop target feedback functions (`canDrop`, `getData`, `getDropEffect`, `getIsSticky`) are given the
+following:
 
 ```ts
 type TextSelectionDropTargetGetFeedbackArgs = {
-  /**
-   * The users _current_ input
-   */
-  input: Input;
-  /**
-   * The data associated with the entity being dragged
-   */
-  source: TextSelectionDragPayload;
-  /**
-   * This drop target's element
-   */
-  element: Element;
+	/**
+	 * The users _current_ input
+	 */
+	input: Input;
+	/**
+	 * The data associated with the entity being dragged
+	 */
+	source: TextSelectionDragPayload;
+	/**
+	 * This drop target's element
+	 */
+	element: Element;
 };
 ```
 
@@ -125,14 +134,14 @@ The monitor feedback function (`canMonitor`), is given the following:
 
 ```ts
 type TextSelectionMonitorGetFeedbackArgs = {
-  /**
-   * The users `initial` drag location
-   */
-  initial: DragLocation;
-  /**
-   * The data associated with the entity being dragged
-   */
-  source: TextSelectionDragPayload;
+	/**
+	 * The users `initial` drag location
+	 */
+	initial: DragLocation;
+	/**
+	 * The data associated with the entity being dragged
+	 */
+	source: TextSelectionDragPayload;
 };
 ```
 
@@ -154,4 +163,5 @@ import type {
 } from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
 ```
 
-There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be found on our [top level utilities page](../../utilities)
+There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be
+found on our [top level utilities page](../../utilities)

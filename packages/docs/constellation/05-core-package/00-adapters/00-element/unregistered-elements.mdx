@@ -4,23 +4,28 @@ title: Unregistered elements
 description: How the element adapter works with draggable elements that are not registered
 ---
 
-Any `HTMLElement` can become draggable in the browser by adding the attribute `draggable="true"` to that element. Additionally, `<a>` and `<img>` elements are draggable by default (as if they had `draggable="true"` set on them).
+Any `HTMLElement` can become draggable in the browser by adding the attribute `draggable="true"` to
+that element. Additionally, `<a>` and `<img>` elements are draggable by default (as if they had
+`draggable="true"` set on them).
 
-The element adapter is only activated by explicitly registered elements (ie `draggable({element})`). The element adapter will not be activated by other draggable elements on the page.
+The element adapter is only activated by explicitly registered elements (ie `draggable({element})`).
+The element adapter will not be activated by other draggable elements on the page.
 
-If you want the element adapter to be activated by any element (including `<a>` or `<img>` elements), then you need to register it as a `draggable()`
+If you want the element adapter to be activated by any element (including `<a>` or `<img>`
+elements), then you need to register it as a `draggable()`
 
 ```ts
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 draggable({
-  element: myAnchor,
+	element: myAnchor,
 });
 ```
 
 ## Disable default dragging of anchors and images
 
-If you want to disable browsers default setting of `draggable="true"` on `<a>` and `<img>` elements, you can set `draggable="false"`
+If you want to disable browsers default setting of `draggable="true"` on `<a>` and `<img>` elements,
+you can set `draggable="false"`
 
 ```html
 <a href="/home" draggable="false">Home</a>
@@ -28,9 +33,11 @@ If you want to disable browsers default setting of `draggable="true"` on `<a>` a
 
 ## External data for anchors and images
 
-When dragging a `<a>` or `<img>` element, they will automatically attach some data for external consumers. For example `<a>` will attach `"text/uri-list"` matching the dragging URL.
+When dragging a `<a>` or `<img>` element, they will automatically attach some data for external
+consumers. For example `<a>` will attach `"text/uri-list"` matching the dragging URL.
 
-Registering anchors or images as a `draggable()` does not impact this default assignment of external data
+Registering anchors or images as a `draggable()` does not impact this default assignment of external
+data
 
 ```ts
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -38,7 +45,7 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 // "text/plain" and "text/uri-list" external data will automatically be attached
 // by the browser
 draggable({
-  element: myAnchor,
+	element: myAnchor,
 });
 ```
 
@@ -48,18 +55,20 @@ You can change the default external data values by using `getInitialDataForExter
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 draggable({
-  element: myAnchor,
-  getInitialDataForExternal: () => ({
-    // overiding the standard "text/uri-list" value
-    'text/uri-list': someOtherUrl,
-    // adding some new value
-    'application/x.something-custom': myCustomData,
-  }),
+	element: myAnchor,
+	getInitialDataForExternal: () => ({
+		// overiding the standard "text/uri-list" value
+		'text/uri-list': someOtherUrl,
+		// adding some new value
+		'application/x.something-custom': myCustomData,
+	}),
 });
 ```
 
 ## Drag previews for anchors and images
 
-Browsers will automatically generate a drag preview when dragging `<a>` or `<img>` elements, even when those elements are registered as a `draggable()`.
+Browsers will automatically generate a drag preview when dragging `<a>` or `<img>` elements, even
+when those elements are registered as a `draggable()`.
 
-You can control this drag preview in the same way you could any other element. See [drag previews](../drag-previews).
+You can control this drag preview in the same way you could any other element. See
+[drag previews](../drag-previews).

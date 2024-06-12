@@ -20,18 +20,23 @@ const dropTargetStyles = css({
 	padding: 'calc(var(--grid) * 6) calc(var(--grid) * 4)',
 	alignItems: 'center',
 	justifyContent: 'center',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('elevation.surface.sunken', fallbackColor),
 	borderRadius: 'var(--border-radius)',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	color: token('color.text.disabled', fallbackColor),
 	fontSize: '1.4rem',
 });
 
 const overStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('color.background.selected.hovered', fallbackColor),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	color: token('color.text.selected', fallbackColor),
 });
 
 const potentialStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('color.background.discovery', fallbackColor),
 });
 

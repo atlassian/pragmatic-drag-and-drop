@@ -113,6 +113,7 @@ const sidebarDividerStyles = css({
 	position: 'relative',
 	background: 'transparent',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		background: token('color.border.brand', '#0C66E4'),
 		content: '""',
@@ -203,7 +204,7 @@ function Sidebar() {
 			<div
 				ref={contentRef}
 				css={[sidebarContentStyles, state.type === 'dragging' ? noPointerEventsStyles : undefined]}
-				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 				style={{ '--local-initial-width': `${initialWidth}px` } as CSSProperties}
 			>
 				<Menu />

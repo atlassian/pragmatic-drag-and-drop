@@ -4,36 +4,38 @@ title: Testing
 description: Guidance on how to test your drag and drop experiences
 ---
 
-With [`Playwright`](https://playwright.dev/), you can use the [`dragTo` method](https://playwright.dev/docs/input#drag-and-drop) to perform drop and drop operations.
+With [`Playwright`](https://playwright.dev/), you can use the
+[`dragTo` method](https://playwright.dev/docs/input#drag-and-drop) to perform drop and drop
+operations.
 
 ```ts
 import { test, expect } from '@playwright/test';
 
 test('should allow drag and drop between columns', async ({ page }) => {
-  await page.goto('https://localhost:9000/atlaskit-drag-and-drop');
+	await page.goto('https://localhost:9000/atlaskit-drag-and-drop');
 
-  // waiting for our board to be visible
-  await expect(page.getByTestId('item-A0')).toBeVisible();
+	// waiting for our board to be visible
+	await expect(page.getByTestId('item-A0')).toBeVisible();
 
-  // asserting initial list sizes
-  await expect(
-    page.getByTestId('column-A--card-list').locator('[draggable="true"]'),
-  ).toHaveCount(16);
+	// asserting initial list sizes
+	await expect(page.getByTestId('column-A--card-list').locator('[draggable="true"]')).toHaveCount(
+		16,
+	);
 
-  await expect(
-    page.getByTestId('column-B--card-list').locator('[draggable="true"]'),
-  ).toHaveCount(16);
+	await expect(page.getByTestId('column-B--card-list').locator('[draggable="true"]')).toHaveCount(
+		16,
+	);
 
-  // Move A0 to column B
-  await page.getByTestId('item-A0').dragTo(page.getByTestId('item-B0'));
+	// Move A0 to column B
+	await page.getByTestId('item-A0').dragTo(page.getByTestId('item-B0'));
 
-  // asserting list sizes after drag and drop
-  await expect(
-    page.getByTestId('column-A--card-list').locator('[draggable="true"]'),
-  ).toHaveCount(15);
+	// asserting list sizes after drag and drop
+	await expect(page.getByTestId('column-A--card-list').locator('[draggable="true"]')).toHaveCount(
+		15,
+	);
 
-  await expect(
-    page.getByTestId('column-B--card-list').locator('[draggable="true"]'),
-  ).toHaveCount(17);
+	await expect(page.getByTestId('column-B--card-list').locator('[draggable="true"]')).toHaveCount(
+		17,
+	);
 });
 ```

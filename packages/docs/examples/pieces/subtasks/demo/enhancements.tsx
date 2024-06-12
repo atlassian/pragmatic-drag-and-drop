@@ -72,6 +72,7 @@ const elementBeforeStyles = css({
 	top: 0,
 	left: 0,
 	'--button-opacity': 0,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':has(:focus-visible), :has([aria-expanded="true"])': {
 		'--button-opacity': 1,
 	},

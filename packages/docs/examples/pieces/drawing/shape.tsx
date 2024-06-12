@@ -25,21 +25,27 @@ const shapeStyles = css({
 	position: 'relative',
 	strokeWidth,
 	stroke: token('color.border', '#091E4224'),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(1)': {
 		fill: token('color.background.accent.red.bolder', '#CA3521'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(2)': {
 		fill: token('color.background.accent.orange.bolder', '#B65C02'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(3)': {
 		fill: token('color.background.accent.yellow.bolder', '#946F00'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(4)': {
 		fill: token('color.background.accent.green.bolder', '#1F845A'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(5)': {
 		fill: token('color.background.accent.blue.bolder', '#0C66E4'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':nth-of-type(6)': {
 		fill: token('color.background.accent.purple.bolder', '#6E5DC6'),
 	},

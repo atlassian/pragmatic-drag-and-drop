@@ -28,6 +28,7 @@ const menuButtonContainerStyles = css({
 	paddingLeft: 24,
 	clipPath: 'inset(0px 0px 0px -32px)',
 	maskImage: 'linear-gradient(to right, transparent, black 16px)',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':focus-within': {
 		background: token('elevation.surface'),
 	},

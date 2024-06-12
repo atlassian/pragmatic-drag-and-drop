@@ -16,13 +16,16 @@ const dragHandleButtonStyles = css({
 	borderRadius: '3px',
 	opacity: 'var(--action-opacity)',
 	color: token('color.icon.subtle', '#626F86'),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':focus-visible': {
 		opacity: 1,
 	},
 	cursor: 'grab',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
 		backgroundColor: token('color.background.neutral.subtle.hovered', '#091E420F'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':active': {
 		backgroundColor: token('color.background.neutral.subtle.pressed', '#091E4224'),
 	},

@@ -97,6 +97,7 @@ function TreeItem({
 			style={
 				{
 					'--horizontal-indent': `${indentPerLevel * currentLevel}px`,
+					// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 				} as CSSProperties
 			}
 		>

@@ -15,6 +15,7 @@ import MoreIcon from '@atlaskit/icon/glyph/more';
 import { usePreventScrollingFromArrowKeys } from '../hooks/use-prevent-scrolling-from-arrow-keys';
 import type { ReorderItem } from '../subtasks/hooks/use-top-level-wiring';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 const hiddenStyles = css({ opacity: 0, ':focus-within': { opacity: 1 } });
 
 type ChildrenRenderFn = (args: { children: ReactElement; isSelected: boolean }) => ReactElement;

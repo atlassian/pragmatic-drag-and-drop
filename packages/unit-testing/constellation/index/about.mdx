@@ -6,7 +6,9 @@ description: An optional package for Pragmatic drag and drop with helpers for un
 
 ## `DragEvent` polyfill
 
-Pragmatic drag and drop heavily leverages `DragEvent`. However, many unit testing environments (eg [jsdom](https://github.com/jsdom/jsdom)) don't polyfill `DragEvent`. We have created a `DragEvent` polyfill will allow you to start leveraging `DragEvent` in unit testing environments.
+Pragmatic drag and drop heavily leverages `DragEvent`. However, many unit testing environments (eg
+[jsdom](https://github.com/jsdom/jsdom)) don't polyfill `DragEvent`. We have created a `DragEvent`
+polyfill will allow you to start leveraging `DragEvent` in unit testing environments.
 
 ```ts
 import '@atlaskit/pragmatic-drag-and-drop/unit-testing/drag-event-polyfill';
@@ -17,7 +19,7 @@ Setup using [`jest`](https://jestjs.io/):
 ```ts
 // jest.config.js
 module.exports = {
-  setupFiles: ['./test/setup-drag-events.js']
+	setupFiles: ['./test/setup-drag-events.js'],
 };
 
 // ./test/setup-drag-events.js
@@ -31,12 +33,16 @@ This polyfill will polyfill [`DragEvent`] as well the other globals that `DragEv
 
 ### Differences from the specifications
 
-This test environment polyfill intentially does not implement [permissions](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) (`"read/write"`, `"read-only"`, or `"protected"`) for `DataTransfer` or `DataTransferItemList`. Implementing these permissions would prevent the adding of data to the data transfer during the creation of a `DragEvent`, which is super helpful for testing.
+This test environment polyfill intentially does not implement
+[permissions](https://html.spec.whatwg.org/multipage/dnd.html#the-drag-data-store) (`"read/write"`,
+`"read-only"`, or `"protected"`) for `DataTransfer` or `DataTransferItemList`. Implementing these
+permissions would prevent the adding of data to the data transfer during the creation of a
+`DragEvent`, which is super helpful for testing.
 
 ```ts
 const event = new DragEvent('dragenter', {
-  cancelable: true,
-  bubbles: true,
+	cancelable: true,
+	bubbles: true,
 });
 event.dataTransfer?.items.add('hello world', 'text/plain');
 

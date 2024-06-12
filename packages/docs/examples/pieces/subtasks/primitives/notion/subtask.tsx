@@ -52,6 +52,7 @@ const dragHandleButtonStyles = css({
 	borderRadius: 3,
 	background: token('color.background.neutral.subtle'),
 	cursor: 'pointer',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
 		background: token('color.background.neutral.subtle.hovered'),
 	},
@@ -72,6 +73,7 @@ const cellStyles = css({
 	padding: 8,
 	height: '100%',
 	boxSizing: 'border-box',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:first-of-type)': {
 		borderLeft: `1px solid ${token('color.border')}`,
 	},

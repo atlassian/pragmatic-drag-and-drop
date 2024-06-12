@@ -35,6 +35,7 @@ const lineStyles = css({
 	display: 'block',
 	position: 'absolute',
 	zIndex: 1,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	background: line.backgroundColor,
 	content: '""',
 	pointerEvents: 'none',
@@ -42,24 +43,28 @@ const lineStyles = css({
 
 const edgeStyles: Record<Edge, SerializedStyles> = {
 	top: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		height: line.thickness,
 		top: 'var(--local-line-offset)',
 		right: 0,
 		left: 0,
 	}),
 	right: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		width: line.thickness,
 		top: 0,
 		right: 'var(--local-line-offset)',
 		bottom: 0,
 	}),
 	bottom: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		height: line.thickness,
 		right: 0,
 		bottom: 'var(--local-line-offset)',
 		left: 0,
 	}),
 	left: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		width: line.thickness,
 		top: 0,
 		bottom: 0,
@@ -82,7 +87,7 @@ export function DropIndicator({ edge, gap = '0px' }: DropIndicatorProps) {
 	return (
 		<div
 			css={[lineStyles, edge && edgeStyles[edge]]}
-			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 			style={{ '--local-line-offset': lineOffset } as CSSProperties}
 		/>
 	);

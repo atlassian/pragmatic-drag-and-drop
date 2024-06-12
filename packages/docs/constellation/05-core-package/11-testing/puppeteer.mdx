@@ -4,51 +4,53 @@ title: Testing
 description: Guidance on how to test your drag and drop experiences
 ---
 
-When using [`puppeteer`](https://pptr.dev/) you must call [`page.setDragInterception(true)`](https://pub.dev/documentation/puppeteer/latest/puppeteer/Page/setDragInterception.html) to successfully leverage drag events.
+When using [`puppeteer`](https://pptr.dev/) you must call
+[`page.setDragInterception(true)`](https://pub.dev/documentation/puppeteer/latest/puppeteer/Page/setDragInterception.html)
+to successfully leverage drag events.
 
 ```ts
 import puppeteer, { Protocol } from 'puppeteer';
 import invariant from 'tiny-invariant';
 
 it('should support dropping of many files at once', async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto('https://localhost:3000/my-awesome-example');
+	const browser = await puppeteer.launch();
+	const page = await browser.newPage();
+	await page.goto('https://localhost:3000/my-awesome-example');
 
-  // waiting for the drop target to be visible as a way to ensure the example
-  // is completely loaded (preemptively avoiding flakiness)
-  await page.waitForSelector('[data-testid="drop-target"]', {
-    visible: true,
-  });
+	// waiting for the drop target to be visible as a way to ensure the example
+	// is completely loaded (preemptively avoiding flakiness)
+	await page.waitForSelector('[data-testid="drop-target"]', {
+		visible: true,
+	});
 
-  const body = await getElement('body');
-  const dropTarget = await getElement('[data-testid="drop-target"]');
-  invariant(dropTarget, `drop target not found`);
+	const body = await getElement('body');
+	const dropTarget = await getElement('[data-testid="drop-target"]');
+	invariant(dropTarget, `drop target not found`);
 
-  // Allowing capturing of drag events
-  // https://pub.dev/documentation/puppeteer/latest/puppeteer/Page/setDragInterception.html
-  await page.setDragInterception(true);
-  const data: Protocol.Input.DragData = {
-    dragOperationsMask: 1,
-    files: ['./package.json', './tsconfig.json'],
-    items: [],
-  };
+	// Allowing capturing of drag events
+	// https://pub.dev/documentation/puppeteer/latest/puppeteer/Page/setDragInterception.html
+	await page.setDragInterception(true);
+	const data: Protocol.Input.DragData = {
+		dragOperationsMask: 1,
+		files: ['./package.json', './tsconfig.json'],
+		items: [],
+	};
 
-  await body.dragEnter(data);
-  await dropTarget.dragEnter(data);
-  await dropTarget.drop(data);
+	await body.dragEnter(data);
+	await dropTarget.dragEnter(data);
+	await dropTarget.drop(data);
 
-  // just incase there are any delays in the processing of files
-  // we will wait until the `dropped-files` element is visible
-  // before continuing
-  // (eg if the update is delayed by react)
-  await page.waitForSelector('[data-testid="dropped-files"]', {
-    visible: true,
-  });
+	// just incase there are any delays in the processing of files
+	// we will wait until the `dropped-files` element is visible
+	// before continuing
+	// (eg if the update is delayed by react)
+	await page.waitForSelector('[data-testid="dropped-files"]', {
+		visible: true,
+	});
 
-  const results = await getElement('[data-testid="dropped-files"]');
-  const text = await results.evaluate(el => el.textContent);
-  expect(text?.includes('package.json')).toBe(true);
-  expect(text?.includes('tsconfig.json')).toBe(true);
+	const results = await getElement('[data-testid="dropped-files"]');
+	const text = await results.evaluate((el) => el.textContent);
+	expect(text?.includes('package.json')).toBe(true);
+	expect(text?.includes('tsconfig.json')).toBe(true);
 });
 ```

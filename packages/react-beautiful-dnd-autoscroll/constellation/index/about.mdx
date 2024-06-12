@@ -1,14 +1,18 @@
 ---
 order: 0
 title: react-beautiful-dnd autoscroll
-description: An optional package that enables automatic scrolling during a drag operation. This package is a port of the react-beautiful-dnd auto scroller
+description:
+  An optional package that enables automatic scrolling during a drag operation. This package is a
+  port of the react-beautiful-dnd auto scroller
 ---
 
 import SectionMessage from '@atlaskit/section-message';
 
 <SectionMessage appearance="warning" title="Please use our new auto scroller">
 
-This package is a port of the auto scroller from [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd). Please now use our [new auto scroller](../auto-scroll).
+This package is a port of the auto scroller from
+[`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd). Please now use our
+[new auto scroller](../auto-scroll).
 
 Advantages of our new auto scroller:
 
@@ -28,16 +32,20 @@ This package has no dependency on any view library (eg `react`), or on the Atlas
 
 </SectionMessage>
 
-Out of the box, Pragmatic drag and drop leverages the browsers built in auto scrolling for drag and drop operations.
+Out of the box, Pragmatic drag and drop leverages the browsers built in auto scrolling for drag and
+drop operations.
 
 Auto scroll is an optional addon that provides a more natural feeling auto scrolling experience.
-This auto scroller has been ported from [`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd).
+This auto scroller has been ported from
+[`react-beautiful-dnd`](https://github.com/atlassian/react-beautiful-dnd).
 
 ## API
 
-- `autoScroller.start({ input, behavior })`: Starts monitoring drag input. Call this inside of `onDragStart`.
+- `autoScroller.start({ input, behavior })`: Starts monitoring drag input. Call this inside of
+  `onDragStart`.
 - `autoScroller.stop()`: Stops monitoring drag input. Call this inside of `onDrop`.
-- `autoScroller.updateInput({ input })`: Provides drag input data used to determine where to scroll. Call this inside of `onDrag`.
+- `autoScroller.updateInput({ input })`: Provides drag input data used to determine where to scroll.
+  Call this inside of `onDrag`.
 
 ```tsx
 import React, { useEffect } from 'react';

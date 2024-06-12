@@ -30,7 +30,7 @@ const tableStyles = css({
 
 	// Adding a bit more space to the first column for consistency and to give room
 	// for the drop indicator and the drag handle
-	// eslint-disable-next-line @atlaskit/design-system/no-nested-styles
+	// eslint-disable-next-line @atlaskit/design-system/no-nested-styles, @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'th:first-of-type, td:first-of-type': {
 		paddingLeft: 40,
 	},

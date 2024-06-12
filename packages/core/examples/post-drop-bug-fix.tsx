@@ -30,6 +30,7 @@ const isDraggingClass = 'is-dragging';
 const interactiveStyles = css({
 	position: 'relative',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	[`body:not(.${isDraggingClass}) &::before`]: {
 		content: '""',
 		position: 'absolute',
@@ -38,10 +39,12 @@ const interactiveStyles = css({
 		left: 0,
 		padding: 'var(--grid)',
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	[`body:not(.${isDraggingClass}) &:hover::before`]: {
 		content: '":hover"',
 		background: token('color.background.accent.green.subtler', 'transparent'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	[`body:not(.${isDraggingClass}) &:active::before`]: {
 		content: '":active"',
 		background: token('color.background.accent.blue.subtler', 'transparent'),
@@ -49,7 +52,9 @@ const interactiveStyles = css({
 });
 
 const cardStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	boxShadow: token('elevation.shadow.raised', fallbackColor),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('elevation.surface.raised', fallbackColor),
 	justifyContent: 'center',
 	borderRadius: 'var(--border-radius)',
@@ -78,6 +83,7 @@ const stackStyles = css({
 	flexDirection: 'column',
 	gap: 'var(--grid)',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
 	'> *': {
 		margin: 0,
 	},

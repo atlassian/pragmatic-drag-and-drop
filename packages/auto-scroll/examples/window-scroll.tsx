@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { Fragment, useEffect, useRef } from 'react';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/no-global-styles -- Ignored via go/DSP-18766
 import { css, Global, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
@@ -15,9 +16,11 @@ import { Box, xcss } from '@atlaskit/primitives';
 import { autoScrollWindowForElements } from '../src/entry-point/element';
 
 const globalStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':root': {
 		'--grid': '8px',
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
 	body: {
 		height: '150vh',
 	},

@@ -6,7 +6,9 @@ description: An optional package for that enables screen reader messaging for al
 
 import SectionMessage from '@atlaskit/section-message';
 
-This package can be used to provide [post drop announcements](/components/pragmatic-drag-and-drop/accessibility-guidelines) for assistive technology users.
+This package can be used to provide
+[post drop announcements](/components/pragmatic-drag-and-drop/accessibility-guidelines) for
+assistive technology users.
 
 <SectionMessage>
 
@@ -18,9 +20,11 @@ This package does not depend on any view library, or on any other `@atlaskit` pa
 
 The `announce` function announces the provided message to assistive technology.
 
-Internally, a single live region will be created and reused across function calls. The live region is created with `role="alert"`, equivalent to setting:
+Internally, a single live region will be created and reused across function calls. The live region
+is created with `role="alert"`, equivalent to setting:
 
-- `aria-live="assertive"`, meaning that messages will be announced immediately and interrupt any message currently being announced.
+- `aria-live="assertive"`, meaning that messages will be announced immediately and interrupt any
+  message currently being announced.
 - `aria-atomic="true"`, meaning that messages will always be read in full.
 
 ```ts
@@ -33,7 +37,8 @@ announce('Task "Clean dishes" moved to list "Doing" from "Todo".');
 
 The `cleanup` function will remove the live region created by announce from the DOM.
 
-If a live region does not exist, no error will be thrown and nothing will happen. This means that the function is safe to call optimistically.
+If a live region does not exist, no error will be thrown and nothing will happen. This means that
+the function is safe to call optimistically.
 
 ```ts
 import { cleanup } from '@atlaskit/live-region';

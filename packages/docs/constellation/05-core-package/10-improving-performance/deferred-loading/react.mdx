@@ -4,7 +4,8 @@ title: Deferred loading
 description: Improve performing by delaying the loading of Pragmatic drag and drop.
 ---
 
-You can use _dynamic imports_ to do things like deferring the import of a module until a React `useEffect`.
+You can use _dynamic imports_ to do things like deferring the import of a module until a React
+`useEffect`.
 
 ## Basic usage
 
@@ -57,33 +58,34 @@ function Card() {
 
 ## Maximise Deferred
 
-Rather than importing all the modules you need directly, you can pull all your imports and logic out into a seperate file in order to defer more code.
+Rather than importing all the modules you need directly, you can pull all your imports and logic out
+into a seperate file in order to defer more code.
 
 ```ts
 // attach.js
 // regular imports
 import {
-  draggable,
-  dropTargetForElements,
+	draggable,
+	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import invariant from 'tiny-invariant';
 
 export function attach({ ref, setState }) {
-  // all of this code can get deferred
-  const el = ref.current;
-  invariant(el);
-  return combine(
-    draggable({
-      element: el,
-      onDragStart: () => setState('dragging'),
-      onDrop: () => setState('idle'),
-    }),
-    dropTargetForElements({
-      element: el,
-      onDrop: () => console.log('dropped on'),
-    }),
-  );
+	// all of this code can get deferred
+	const el = ref.current;
+	invariant(el);
+	return combine(
+		draggable({
+			element: el,
+			onDragStart: () => setState('dragging'),
+			onDrop: () => setState('idle'),
+		}),
+		dropTargetForElements({
+			element: el,
+			onDrop: () => console.log('dropped on'),
+		}),
+	);
 }
 ```
 

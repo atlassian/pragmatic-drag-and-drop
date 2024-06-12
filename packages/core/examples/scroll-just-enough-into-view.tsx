@@ -20,7 +20,9 @@ const cardStyles = css({
 	display: 'flex',
 	flexShrink: 0,
 	alignItems: 'center',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	boxShadow: token('elevation.shadow.raised', fallbackColor),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('elevation.surface.raised', fallbackColor),
 	width: '100%',
 	justifyContent: 'center',

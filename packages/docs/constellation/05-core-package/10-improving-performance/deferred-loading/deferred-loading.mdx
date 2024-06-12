@@ -4,34 +4,42 @@ title: Deferred loading
 description: Improve performing by delaying the loading of Pragmatic drag and drop.
 ---
 
-If you want to, you can defer the loading of Pragmatic drag and drop (and other packages) at a point after initial page load using _dynamic imports_.
+If you want to, you can defer the loading of Pragmatic drag and drop (and other packages) at a point
+after initial page load using _dynamic imports_.
 
 Deferring the loading of drag and drop behavior has some advantages:
 
 - Faster initial page loads
-- The ability to load in drag and drop behavior when it is needed, rather than in the critical bundle
+- The ability to load in drag and drop behavior when it is needed, rather than in the critical
+  bundle
 
 There are also some drawbacks:
 
 - Additional complexity as you are no longer simply importing a module and using it
-- _Potential_ to miss an interaction: let's say a user starts trying to drag before `@atlaskit/pragmatic-drag-and-drop` is loaded, then the user would not be able to perform a drag operation. You can add some instrumentation to detect when these 'misses' occur. In our initial observations we have found the 'readiness' gap to be extremely small.
+- _Potential_ to miss an interaction: let's say a user starts trying to drag before
+  `@atlaskit/pragmatic-drag-and-drop` is loaded, then the user would not be able to perform a drag
+  operation. You can add some instrumentation to detect when these 'misses' occur. In our initial
+  observations we have found the 'readiness' gap to be extremely small.
 
-Given `@atlaskit/pragmatic-drag-and-drop` is tiny, you will already get great performance by simply using the library. Deferred loading unlocks another level of wins.
+Given `@atlaskit/pragmatic-drag-and-drop` is tiny, you will already get great performance by simply
+using the library. Deferred loading unlocks another level of wins.
 
 ## Dynamic imports
 
-Modern bundles often support _dynamic imports_; which sounds scary, but in user land it is straightforward:
+Modern bundles often support _dynamic imports_; which sounds scary, but in user land it is
+straightforward:
 
 ```ts
-import('module-name').then(module => {
-  // use the module
+import('module-name').then((module) => {
+	// use the module
 });
 
 // or using await
 const module = await import('@atlaskit/pragmatic-drag-and-drop/element');
 ```
 
-You can use _dynamic imports_ to do things like deferring the import of a module until a `react` `useEffect`.
+You can use _dynamic imports_ to do things like deferring the import of a module until a `react`
+`useEffect`.
 
 ```ts
 import React, {useEffect} from 'react';

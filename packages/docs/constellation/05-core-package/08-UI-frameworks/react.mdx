@@ -1,6 +1,7 @@
 ## Attaching behavior
 
-We advise that you attach drag and drop behaviour to elements using [the `useEffect` hook](https://reactjs.org/docs/hooks-effect.html).
+We advise that you attach drag and drop behaviour to elements using
+[the `useEffect` hook](https://reactjs.org/docs/hooks-effect.html).
 
 ```tsx
 // card.tsx
@@ -33,7 +34,9 @@ export default function Card({ item }: { item: Item }) {
 };
 ```
 
-It is fine if your `draggable` or `dropTargetForElements` effect is cleaned up and re-created, even during a drag. For both of `draggable` and _drop targets_, the `element` is used as the _key_ for the entity. For more information, see [entity equality](TODO?);
+It is fine if your `draggable` or `dropTargetForElements` effect is cleaned up and re-created, even
+during a drag. For both of `draggable` and _drop targets_, the `element` is used as the _key_ for
+the entity. For more information, see [entity equality](TODO?);
 
 ## Monitors
 
@@ -57,7 +60,8 @@ export function App() {
 
 ## Deferred loading
 
-React lazy loading is based on components ([more details](https://reactjs.org/docs/code-splitting.html)).
+React lazy loading is based on components
+([more details](https://reactjs.org/docs/code-splitting.html)).
 
 You can use this component pattern with Pragmatic drag and drop:
 
@@ -72,7 +76,8 @@ function App() {
 }
 ```
 
-Since this framework is not tied to `react`, you can also attach drag and drop behavior at some point after a component has already been rendered:
+Since this framework is not tied to `react`, you can also attach drag and drop behavior at some
+point after a component has already been rendered:
 
 ```tsx
 function Card({ item }: { item: Item }) {
@@ -128,4 +133,5 @@ function Card({ item }: { item: Item }) {
 };
 ```
 
-For more details, see our [deferred loading guide](/components/pragmatic-drag-and-drop/improving-performance/deferred-loading/deferred-loading).
+For more details, see our
+[deferred loading guide](/components/pragmatic-drag-and-drop/improving-performance/deferred-loading/deferred-loading).

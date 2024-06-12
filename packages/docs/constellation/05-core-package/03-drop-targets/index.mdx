@@ -7,7 +7,8 @@ description: Drop targets are elements that items can be dropped on.
 import SectionMessage from '@atlaskit/section-message';
 import NestedDropTargetExample from '../../../examples/nested-drop-targets';
 
-Drop targets are elements that can be dropped upon by something that is dragging. There are different drop targets for different types of draggable items, such as elements or files.
+Drop targets are elements that can be dropped upon by something that is dragging. There are
+different drop targets for different types of draggable items, such as elements or files.
 
 ## Basic usage
 
@@ -16,7 +17,7 @@ Drop targets are elements that can be dropped upon by something that is dragging
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 
 const cleanup = dropTargetForExternal({
-  element: myElement,
+	element: myElement,
 });
 ```
 
@@ -45,33 +46,35 @@ function DropTarget() {
 
 ## Rules
 
-- Drop targets are scoped to a particular entity type. For example, `dropTargetForElements` is a _drop target_ for elements, and `dropTargetForExternal` is a drop target for files.
+- Drop targets are scoped to a particular entity type. For example, `dropTargetForElements` is a
+  _drop target_ for elements, and `dropTargetForExternal` is a drop target for files.
 - A single `element` can be used as a drop target for multiple entity types.
 
 ```ts
 // ✅ Using the same element as a drop target for elements and for files
 const cleanup = combine(
-  dropTargetForElements({
-    element: myElement,
-  }),
-  dropTargetForExternal({
-    element: myElement,
-  }),
+	dropTargetForElements({
+		element: myElement,
+	}),
+	dropTargetForExternal({
+		element: myElement,
+	}),
 );
 ```
 
-- A single `element` cannot be used to create multiple drop targets for the same entity type (you will get a warning in your `console` if you make a mistake).
+- A single `element` cannot be used to create multiple drop targets for the same entity type (you
+  will get a warning in your `console` if you make a mistake).
 
 ```ts
 // ❌ Using the same element for two drop targets of the same entity type is not allowed
 const cleanup = combine(
-  dropTargetForElements({
-    element: myElement,
-  }),
-  // ⚠️ A warning will be logged if this is detected
-  dropTargetForElements({
-    element: myElement,
-  }),
+	dropTargetForElements({
+		element: myElement,
+	}),
+	// ⚠️ A warning will be logged if this is detected
+	dropTargetForElements({
+		element: myElement,
+	}),
 );
 ```
 
@@ -79,10 +82,10 @@ const cleanup = combine(
 
 ```ts
 dropTargetForElements({
-  element: parentElement,
+	element: parentElement,
 });
 dropTargetForElements({
-  element: childElement,
+	element: childElement,
 });
 ```
 
@@ -102,7 +105,8 @@ High level:
 - `getData()` - data to associate with the drop target
 - `canDrop()` - whether the drop target can be dropped on
 - `getDropEffect()` - control the cursor when over a drop target
-- `getIsSticky()` - whether the drop target will hold onto selection after no longer being dragged over
+- `getIsSticky()` - whether the drop target will hold onto selection after no longer being dragged
+  over
 - [`onGenerateDragPreview`](/components/pragmatic-drag-and-drop/events)
 - [`onDragStart`](/components/pragmatic-drag-and-drop/events)
 - [`onDrag`](/components/pragmatic-drag-and-drop/events)
@@ -125,18 +129,23 @@ getData?: (args: GetFeedbackArgs) => Record<string, unknown>;
 
 `getData()` is a function that returns data you want to attach to the drop target.
 
-`getData()` is called with `GetFeedbackArgs` (see below) which contains limited information about the current drag operation. Try to make your `getData()` function _pure_ (same input results in the same output)
+`getData()` is called with `GetFeedbackArgs` (see below) which contains limited information about
+the current drag operation. Try to make your `getData()` function _pure_ (same input results in the
+same output)
 
 ```ts
 const cleanup = dropTargetForExternal({
-  element: myElement,
-  getData: () => ({ id: 'Alex' }),
+	element: myElement,
+	getData: () => ({ id: 'Alex' }),
 });
 ```
 
-`getData()` is called _repeatedly_ while the user is dragging over the drop target in order to power addons. If your `getData()` function is expensive, consider using the [`once` utility function](./utilities).
+`getData()` is called _repeatedly_ while the user is dragging over the drop target in order to power
+addons. If your `getData()` function is expensive, consider using the
+[`once` utility function](./utilities).
 
-If you want to understand the _type_ of data attached to a drop target elsewhere in your application, see our [typing data guide](./recipes/typing-data).
+If you want to understand the _type_ of data attached to a drop target elsewhere in your
+application, see our [typing data guide](./recipes/typing-data).
 
 ### `canDrop`
 
@@ -146,33 +155,39 @@ canDrop?: (args: GetFeedbackArgs) => boolean
 
 `canDrop()` is used to conditionally block dropping on a drop target.
 
-Returning `false` from `canDrop()` will not block dropping on parent or child drop targets. All drop targets that want to not allow dropping, need to return `false` from their `canDrop()` function.
+Returning `false` from `canDrop()` will not block dropping on parent or child drop targets. All drop
+targets that want to not allow dropping, need to return `false` from their `canDrop()` function.
 
-When looking for valid drop targets, a lookup starts from the deepest part of the DOM tree the user is currently over and searches upwards for valid targets. If a drop target blocks dragging (`canDrop()` returns `false`), then that drop target is ignored and the search upwards continues.
+When looking for valid drop targets, a lookup starts from the deepest part of the DOM tree the user
+is currently over and searches upwards for valid targets. If a drop target blocks dragging
+(`canDrop()` returns `false`), then that drop target is ignored and the search upwards continues.
 
-`canDrop()` is called _repeatedly_ while a drop target is being dragged over to allow you to dynamically change your mind as to whether a drop target can be dropped on (including after it has already been entered into). This could be helpful in a situation where you are waiting on some permission information from a backend service.
+`canDrop()` is called _repeatedly_ while a drop target is being dragged over to allow you to
+dynamically change your mind as to whether a drop target can be dropped on (including after it has
+already been entered into). This could be helpful in a situation where you are waiting on some
+permission information from a backend service.
 
 ```ts
 // I can never be dropped on!
 dropTargetForExternal({
-  element: myElement,
-  canDrop: () => false,
+	element: myElement,
+	canDrop: () => false,
 });
 
 // only allow 'cards' to be dropped on this drop target
 dropTargetForElements({
-  element: myOtherElement,
-  canDrop: ({ source }: GetFeedbackArgs) => {
-    return source.data.type === 'card';
-  },
+	element: myOtherElement,
+	canDrop: ({ source }: GetFeedbackArgs) => {
+		return source.data.type === 'card';
+	},
 });
 ```
 
 ```ts
 type GetFeedbackArgs = {
-  input: Input;
-  source: SourcePayload; // this payload type will be different for different adapters
-  element: Element;
+	input: Input;
+	source: SourcePayload; // this payload type will be different for different adapters
+	element: Element;
 };
 ```
 
@@ -182,21 +197,26 @@ type GetFeedbackArgs = {
 getDropEffect?: (args: GetFeedbackArgs) => DataTransfer['dropEffect']
 ```
 
-The `dropEffect` property will control the visual feedback (cursor) when dragging over it. As with `getData()`, `getDropEffect()` is repeatedly called throughout a drag operation. The default `dropEffect` is dependent on the adapter.
+The `dropEffect` property will control the visual feedback (cursor) when dragging over it. As with
+`getData()`, `getDropEffect()` is repeatedly called throughout a drag operation. The default
+`dropEffect` is dependent on the adapter.
 
 ```ts
 dropTargetForLinks({
-  getDropEffect: () => 'link',
+	getDropEffect: () => 'link',
 });
 ```
 
-`getDropEffect()` is called _repeatedly_ while a drop target is being dragged over to allow you change your mind about which drop effect should be applied.
+`getDropEffect()` is called _repeatedly_ while a drop target is being dragged over to allow you
+change your mind about which drop effect should be applied.
 
-When working with nested _drop targets_, the inner most drop targets `dropEffect` is the one that will be applied; even if inner most drop target is using the default value (`"move"`).
+When working with nested _drop targets_, the inner most drop targets `dropEffect` is the one that
+will be applied; even if inner most drop target is using the default value (`"move"`).
 
 <SectionMessage>
 
-For more information about controlling the users cursor while dragging, see [our cursor guide](./cursors)
+For more information about controlling the users cursor while dragging, see
+[our cursor guide](./cursors)
 
 </SectionMessage>
 
@@ -208,28 +228,33 @@ getIsSticky?: (args: GetFeedbackArgs) => boolean;
 
 Used to control whether a drop target is "sticky" or not.
 
-Drop targets are generally calculated based on where the user's pointer is currently located. In some scenarios you might want to _hold on_ to a previous drop target (make it "sticky"), even when the drop target is no longer being directly dragged over. This is useful if you want to maintain a selection while you are in _gaps_ between drop targets.
+Drop targets are generally calculated based on where the user's pointer is currently located. In
+some scenarios you might want to _hold on_ to a previous drop target (make it "sticky"), even when
+the drop target is no longer being directly dragged over. This is useful if you want to maintain a
+selection while you are in _gaps_ between drop targets.
 
-`getIsSticky()` is called `repeatedly` while a drop target is no longer being dragged over to determine whether a drop target should be sticky.
+`getIsSticky()` is called `repeatedly` while a drop target is no longer being dragged over to
+determine whether a drop target should be sticky.
 
 ```ts
 dropTargetForElements({
-  element: myElement,
-  getIsSticky: () => true,
+	element: myElement,
+	getIsSticky: () => true,
 });
 
 dropTargetForElements({
-  element: myElement,
-  getIsSticky: ({ source }: GetFeedbackArgs): boolean => {
-    // only be sticky when dragging something with 'author: Alex'
-    return source.data.author === 'Alex';
-  },
+	element: myElement,
+	getIsSticky: ({ source }: GetFeedbackArgs): boolean => {
+		// only be sticky when dragging something with 'author: Alex'
+		return source.data.author === 'Alex';
+	},
 });
 ```
 
 #### The stickiness algorithm
 
-A _drop target_ that otherwise would not be dragged over any more due to changes in the users pointer, will continue to be marked as "dragged over" when:
+A _drop target_ that otherwise would not be dragged over any more due to changes in the users
+pointer, will continue to be marked as "dragged over" when:
 
 - The drop target is still mounted in the DOM, AND
 - The drop target `canDrop()` returns `true` AND
@@ -300,12 +325,19 @@ _Stickiness is not maintained when an old drop target is unmounted_
 
 ##### Other notes:
 
-- All _drop targets_, regardless of stickiness, will no longer be "dragged over" when the users pointer moves out of the `window`.
-- Drop targets that are no longer dragged over, but are still active due to stickiness, will _not_ have their data recomputed with `getData()`, or drop effect recomputed with `getDropEffect()`. The last `data` and `dropEffect` created when a drop target is actively being dragged over is preserved.
+- All _drop targets_, regardless of stickiness, will no longer be "dragged over" when the users
+  pointer moves out of the `window`.
+- Drop targets that are no longer dragged over, but are still active due to stickiness, will _not_
+  have their data recomputed with `getData()`, or drop effect recomputed with `getDropEffect()`. The
+  last `data` and `dropEffect` created when a drop target is actively being dragged over is
+  preserved.
 
 ## Nested drop targets
 
-When calculating what _drop targets_ are currently being dragged over, we look from the deepest possible _drop target_ upwards (bubble ordering). We will search up to the document root to find any available drop targets. If a _drop target_ specifies that it cannot be dropped on (`canDrop()` returns `false`), then it will be ignored and the search will continue upwards.
+When calculating what _drop targets_ are currently being dragged over, we look from the deepest
+possible _drop target_ upwards (bubble ordering). We will search up to the document root to find any
+available drop targets. If a _drop target_ specifies that it cannot be dropped on (`canDrop()`
+returns `false`), then it will be ignored and the search will continue upwards.
 
 ##### Scenario `[] -> [B, A(blocked)]`
 
@@ -331,22 +363,26 @@ Flow:
 
 ### Handling `onDrop()` for nested drop targets
 
-When you have nested _drop targets_ all of them will have their `onDrop()` callbacks executed on a drop. Let's say we have two _drop targets_ `parent` and `child`. You might want to perform one operation if `parent` is dropped on, and a different operation if `child` is dropped on. In `parent`s `onDrop()` how do you tell if `child` was dropped on?
+When you have nested _drop targets_ all of them will have their `onDrop()` callbacks executed on a
+drop. Let's say we have two _drop targets_ `parent` and `child`. You might want to perform one
+operation if `parent` is dropped on, and a different operation if `child` is dropped on. In
+`parent`s `onDrop()` how do you tell if `child` was dropped on?
 
-We can leverage the fact that `location.current.dropTargets` is always bubbled ordered, so inner drop targets come before outer ones
+We can leverage the fact that `location.current.dropTargets` is always bubbled ordered, so inner
+drop targets come before outer ones
 
 ```ts
 dropTargetForElements({
-  element: parent,
-  onDrop({ location, self }) {
-    // we know that if 'self' is in the first position, then no inner drop target was dropped on
-    if (location.current.dropTargets[0]?.element === self.element) {
-      action1();
-      return;
-    }
-    // at this point we know that an inner drop target was dropped on
-    action2();
-  },
+	element: parent,
+	onDrop({ location, self }) {
+		// we know that if 'self' is in the first position, then no inner drop target was dropped on
+		if (location.current.dropTargets[0]?.element === self.element) {
+			action1();
+			return;
+		}
+		// at this point we know that an inner drop target was dropped on
+		action2();
+	},
 });
 ```
 

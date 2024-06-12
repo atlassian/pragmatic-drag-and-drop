@@ -2,7 +2,8 @@
 title: Utilities
 ---
 
-All of the utilities on this page are optional. You can also substitute them for your own similiar utilities if you want to.
+All of the utilities on this page are optional. You can also substitute them for your own similiar
+utilities if you want to.
 
 ## `combine`
 
@@ -10,9 +11,9 @@ _draggables_, _drop targets_ and _monitors_ return cleanup functions to remove t
 
 ```ts
 import {
-  draggable,
-  dropTargetForElements,
-  monitorForElements,
+	draggable,
+	dropTargetForElements,
+	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 // You don't need to use this type explicitly, but including this import so you
@@ -21,7 +22,7 @@ import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 const cleanupDraggable: CleanupFn = draggable({ element: myElement });
 const cleanupDropTarget: CleanupFn = dropTargetForElements({
-  element: myElement,
+	element: myElement,
 });
 const cleanupMonitor: CleanupFn = monitorForElements({ element: myElement });
 
@@ -35,11 +36,11 @@ cleanupMonitor();
 
 ```ts
 const cleanup: CleanupFn = combine(
-  draggable({ element: myElement }),
-  dropTargetForElements({
-    element: myElement,
-  }),
-  monitorForElements({ element: myElement }),
+	draggable({ element: myElement }),
+	dropTargetForElements({
+		element: myElement,
+	}),
+	monitorForElements({ element: myElement }),
 );
 
 // unbind all functionality
@@ -50,25 +51,25 @@ Using `combine()` is helpful when working with `react` effects:
 
 ```ts
 useEffect(() => {
-  const cleanup = combine(
-    draggable({ element: myElement }),
-    dropTargetForElements({
-      element: myElement,
-    }),
-    monitorForElements({ element: myElement }),
-  );
-  return cleanup;
+	const cleanup = combine(
+		draggable({ element: myElement }),
+		dropTargetForElements({
+			element: myElement,
+		}),
+		monitorForElements({ element: myElement }),
+	);
+	return cleanup;
 }, []);
 
 // or even simpler:
 useEffect(() => {
-  return combine(
-    draggable({ element: myElement }),
-    dropTargetForElements({
-      element: myElement,
-    }),
-    monitorForElements({ element: myElement }),
-  );
+	return combine(
+		draggable({ element: myElement }),
+		dropTargetForElements({
+			element: myElement,
+		}),
+		monitorForElements({ element: myElement }),
+	);
 }, []);
 ```
 
@@ -84,7 +85,7 @@ This is useful if your drop target `getData()` is expensive to calculate.
 
 ```ts
 dropTargetForExternal({
-  getData: once(getExpensiveData),
+	getData: once(getExpensiveData),
 });
 ```
 
@@ -92,7 +93,7 @@ dropTargetForExternal({
 // calculate your data outside of get data
 const data = getExpensiveData();
 dropTargetForExternal({
-  getData: () => data,
+	getData: () => data,
 });
 ```
 
@@ -100,24 +101,25 @@ dropTargetForExternal({
 // have expensive data along with updated addons
 const getDataOnce = once(getExpensiveData);
 dropTargetForExternal({
-  getData: ({ input, element }) => {
-    const data = getDataOnce();
-    return attachClosestEdge(data, { input, element, allowedEdges: ['top'] });
-  },
+	getData: ({ input, element }) => {
+		const data = getDataOnce();
+		return attachClosestEdge(data, { input, element, allowedEdges: ['top'] });
+	},
 });
 ```
 
 ## `reorder`
 
-A function to make common array reordering operations easier. It is helpful when reordering lists. `reorder` returns a new array and does not modify the provided `list`.
+A function to make common array reordering operations easier. It is helpful when reordering lists.
+`reorder` returns a new array and does not modify the provided `list`.
 
 ```ts
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 
 const reordered = reorder({
-  list: [A, B, C],
-  startIndex: 0,
-  finishIndex: 1,
+	list: [A, B, C],
+	startIndex: 0,
+	finishIndex: 1,
 });
 
 console.log(reordered); // [B, A, C]
@@ -125,10 +127,13 @@ console.log(reordered); // [B, A, C]
 
 ## `preventUnhandled`
 
-In some situations, you want to explicitly allow "drop" operations to occur, even if no drop target accepts the drag. This is helpful for the following cases:
+In some situations, you want to explicitly allow "drop" operations to occur, even if no drop target
+accepts the drag. This is helpful for the following cases:
 
-- Your are disabling a native drag preview and you want to prevent the default "cancel" animation on a cancelled drag
-- You want to always prevent the default behaviour when dropping an external entity (eg prevent a file drop from opening a new page)
+- Your are disabling a native drag preview and you want to prevent the default "cancel" animation on
+  a cancelled drag
+- You want to always prevent the default behaviour when dropping an external entity (eg prevent a
+  file drop from opening a new page)
 
 You can use `preventUnhandled` inside a monitor
 
@@ -138,47 +143,51 @@ import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unha
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 
 monitorForExternal({
-  onDragStart: () => {
-    // when any drag starts for files block unhandled drags
-    preventUnhandled.start();
-  },
+	onDragStart: () => {
+		// when any drag starts for files block unhandled drags
+		preventUnhandled.start();
+	},
 });
 ```
 
-`preventUnhandled.start()` only applies for the current drag operation. You need to call it again for each drag operation you want to use it for. You can use `prevenUnhandled.stop()` to stop blocking events during a drag operation if you like.
+`preventUnhandled.start()` only applies for the current drag operation. You need to call it again
+for each drag operation you want to use it for. You can use `prevenUnhandled.stop()` to stop
+blocking events during a drag operation if you like.
 
 ## `types`
 
-Pragmatic drag and drop has a specific entry point just for shared TypeScript types. You don't need to use these types explicitly as you can leverage inference, or use `typeof` to pull out the types you need (eg `type CleanupFn = ReturnType<typeof draggable>`).
+Pragmatic drag and drop has a specific entry point just for shared TypeScript types. You don't need
+to use these types explicitly as you can leverage inference, or use `typeof` to pull out the types
+you need (eg `type CleanupFn = ReturnType<typeof draggable>`).
 
 In addition to these shared types, [adapters](../adapters) also expose adapter specific types.
 
 ```ts
 export type {
-  // information about a drop target
-  DropTargetRecord,
+	// information about a drop target
+	DropTargetRecord,
 
-  // Used for coordinates
-  // {x: number, y: number}
-  Position,
+	// Used for coordinates
+	// {x: number, y: number}
+	Position,
 
-  // What the current user input is
-  Input,
+	// What the current user input is
+	Input,
 
-  // Information about the current state of a drag.
-  // Includes `Input` and `DropTargetRecord[]`
-  DragLocation,
+	// Information about the current state of a drag.
+	// Includes `Input` and `DropTargetRecord[]`
+	DragLocation,
 
-  // The `initial`, `current`, and `previous` `DragLocations`
-  DragLocationHistory,
+	// The `initial`, `current`, and `previous` `DragLocations`
+	DragLocationHistory,
 
-  // The type of our cleanup functions
-  CleanupFn,
+	// The type of our cleanup functions
+	CleanupFn,
 
-  // These types are not needed for consumers.
-  // They are mostly helpful for other packages
-  AllDragTypes,
-  MonitorArgs,
-  BaseEventPayload,
+	// These types are not needed for consumers.
+	// They are mostly helpful for other packages
+	AllDragTypes,
+	MonitorArgs,
+	BaseEventPayload,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 ```

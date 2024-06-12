@@ -78,6 +78,7 @@ const outerButtonStyles = css({
 const outerHoverStyles = css({
 	borderRadius: 3,
 	cursor: 'pointer',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
 		background: token('color.background.neutral.subtle.hovered', 'rgba(9, 30, 66, 0.06)'),
 	},
@@ -392,6 +393,7 @@ const TreeItem = memo(function TreeItem({
 						onClick={toggleOpen}
 						ref={buttonRef}
 						type="button"
+						// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 						style={{ paddingLeft: level * indentPerLevel }}
 						data-index={index}
 						data-level={level}

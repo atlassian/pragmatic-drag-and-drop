@@ -137,6 +137,7 @@ const itemOuterStyles = xcss({
 const listItemInnerStyles = xcss({
 	width: '100%',
 	flexShrink: '0', // locking the size
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	height: `${sizes.item.inner}px`,
 	boxSizing: 'border-box',
 	display: 'flex',

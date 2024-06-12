@@ -9,7 +9,9 @@ import Hero from './assets/hero';
 
 <Hero />
 
-Pragmatic drag and drop is a **performance focused drag and drop library** that can be used to power **any drag and drop experience** on **any tech stack**. Pragmatic drag and drop makes working with the browsers powerful and flexible built in drag and drop functionality safe and easy.
+Pragmatic drag and drop is a **performance focused drag and drop library** that can be used to power
+**any drag and drop experience** on **any tech stack**. Pragmatic drag and drop makes working with
+the browsers powerful and flexible built in drag and drop functionality safe and easy.
 
 <Example Component={BoardExample} appearance="showcase-only" />
 
@@ -25,28 +27,37 @@ Pragmatic drag and drop consists of a few high level pieces:
 
 1. **Low level drag and drop behavior**
 
-Pragmatic drag and drop contains a core package, and a number of optional packages, that provide you the pieces to create _any_ drag and drop experience.
+Pragmatic drag and drop contains a core package, and a number of optional packages, that provide you
+the pieces to create _any_ drag and drop experience.
 
-These pieces are unopinionated about visual language or accessibility, and have no dependency on the Atlassian Design System.
+These pieces are unopinionated about visual language or accessibility, and have no dependency on the
+Atlassian Design System.
 
 - _Tiny_: ~`4.7kB` core
 - _Incremental_: Only use the pieces that you need
 - _Headless_: Full rendering and style control
 - _Framework agnostic_: Works with any frontend framework
-- _Deferred compatible_: Delay the loading the core packages and optional packages in order to further improve page load speeds
+- _Deferred compatible_: Delay the loading the core packages and optional packages in order to
+  further improve page load speeds
 - _Flexible_: create any experience you want, make any changes you want during a drag operation.
 - _Works everywhere_: Full feature support in Firefox, Safari, and Chrome, iOS and Android
 - _Virtualization support_: create any virtual experience you want!
 
 2. **Optional visual outputs**
 
-We have created optional visual outputs (eg our drop indicator) to make it super fast for us to build consistent Atlassian user experiences. Non Atlassian consumers are welcome to use these outputs, create their own that copy the visual styling, or go a totally different direction.
+We have created optional visual outputs (eg our drop indicator) to make it super fast for us to
+build consistent Atlassian user experiences. Non Atlassian consumers are welcome to use these
+outputs, create their own that copy the visual styling, or go a totally different direction.
 
 3. **Optional assistive technology controls**
 
-Not all users can achieve pointer based drag and drop experiences. In order to achieve fantastic experiences for assistive technology users, we provide a toolchain to allow you to quickly wire up performant assistive technology friendly flows for any experience.
+Not all users can achieve pointer based drag and drop experiences. In order to achieve fantastic
+experiences for assistive technology users, we provide a toolchain to allow you to quickly wire up
+performant assistive technology friendly flows for any experience.
 
-The optional assistive controls we provide are based on the Atlassian Design System. If you do not want to use the Atlassian Design System, you can use our guidelines and substitute our components with your own components, or you can go about accessibility in a different way if you choose.
+The optional assistive controls we provide are based on the Atlassian Design System. If you do not
+want to use the Atlassian Design System, you can use our guidelines and substitute our components
+with your own components, or you can go about accessibility in a different way if you choose.
 
 <details>
     <summary>Detailed capabilities</summary>
@@ -67,10 +78,12 @@ The optional assistive controls we provide are based on the Atlassian Design Sys
 - Conditional dragging
 - Nested `draggable` elements
 - Flexible `draggable` sizes
-- Many options to customize the appearance of the _drag preview_ (the thing that a user drags around during a drag)
+- Many options to customize the appearance of the _drag preview_ (the thing that a user drags around
+  during a drag)
 - Can add, remove, or change `draggables` while dragging (even the dragging `draggable`)
 - An element can be a drop target, `draggable` or both
-- An element can be a drop target for different entities (eg `dropTargetForElements` and `dropTargetForExternal`)
+- An element can be a drop target for different entities (eg `dropTargetForElements` and
+  `dropTargetForExternal`)
 
 </details>
 

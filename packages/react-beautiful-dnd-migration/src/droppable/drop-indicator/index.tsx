@@ -34,6 +34,7 @@ const baseStyles = css({
 	 *
 	 * Otherwise it will hug the edge of the container and be hard to see.
 	 */
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	scrollMarginTop,
 	/**
 	 * The bottom margin needs to be slightly bigger for the gap to look
@@ -41,6 +42,7 @@ const baseStyles = css({
 	 *
 	 * It's unclear why, this was found through testing.
 	 */
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	scrollMarginBottom: scrollMarginTop + lineOffset,
 });
 
@@ -61,13 +63,17 @@ const visuallyHiddenStyles = css({ opacity: 0 });
 
 const directionStyles: Record<Direction, SerializedStyles> = {
 	horizontal: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		width: lineThickness,
 		height: '100%',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 		marginLeft: -lineThickness,
 	}),
 	vertical: css({
 		width: '100%',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		height: lineThickness,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 		marginTop: -lineThickness,
 	}),
 };

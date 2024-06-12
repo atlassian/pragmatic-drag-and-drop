@@ -6,38 +6,40 @@ description: Helpers to make working with native HTML data easier
 
 ## `containsHTML`
 
-Useful to know whether text data (`"text/html"`) is being dragged. Keep in mind that multiple pieces of native data can be dragged at once.
+Useful to know whether text data (`"text/html"`) is being dragged. Keep in mind that multiple pieces
+of native data can be dragged at once.
 
 ```ts
 import { containsHTML } from '@atlaskit/pragmatic-drag-and-drop/external/html';
 
 dropTargetForExternal({
-  element: myElement,
-  canDrop: containsHTML,
+	element: myElement,
+	canDrop: containsHTML,
 });
 
 monitorForExternal({
-  canMonitor: containsHTML,
+	canMonitor: containsHTML,
 });
 ```
 
 ## `getHTML`
 
-A helper to extract text data (`"text/html"`) from drop data. Get text will return `null` when there is no html data.
+A helper to extract text data (`"text/html"`) from drop data. Get text will return `null` when there
+is no html data.
 
 ```ts
 import { getHTML } from '@atlaskit/pragmatic-drag-and-drop/external/html';
 
 dropTargetForExternal({
-  element: myElement,
-  onDrop({ source }) {
-    const html: string | null = getHTML({ source });
-  },
+	element: myElement,
+	onDrop({ source }) {
+		const html: string | null = getHTML({ source });
+	},
 });
 
 monitorForExternal({
-  onDrop({ source }) {
-    const html: string | null = getHTML({ source });
-  },
+	onDrop({ source }) {
+		const html: string | null = getHTML({ source });
+	},
 });
 ```

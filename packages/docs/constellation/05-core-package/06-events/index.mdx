@@ -3,16 +3,21 @@ title: Events
 description: Events allow you to respond to a drag and drop operation.
 ---
 
-Events fire based on specific user actions and the part of Pragmatic drag and drop involved in the interaction (such as a `draggable` and drop target).
+Events fire based on specific user actions and the part of Pragmatic drag and drop involved in the
+interaction (such as a `draggable` and drop target).
 
-To listen for all events for a specific type of draggable item (element or file), you can use a [monitor](./monitor).
+To listen for all events for a specific type of draggable item (element or file), you can use a
+[monitor](./monitor).
 
 ## Available events
 
-- `onGenerateDragPreview` - Drag is about to start. Make changes you want to see in the drag preview.
-- `onDragStart` - Something has started dragging. You can make visual changes and they _will not_ be captured in the drag preview.
+- `onGenerateDragPreview` - Drag is about to start. Make changes you want to see in the drag
+  preview.
+- `onDragStart` - Something has started dragging. You can make visual changes and they _will not_ be
+  captured in the drag preview.
 - `onDropTargetChange` - The drop target hierarchy has changed in some way.
-- `onDrag` - (_throttled_) - High fidelity updates throughout a drag with the latest details about the drag and user input.
+- `onDrag` - (_throttled_) - High fidelity updates throughout a drag with the latest details about
+  the drag and user input.
 - `onDrop` - Drag operation completed.
 
 ## Derived events on drop targets
@@ -20,7 +25,9 @@ To listen for all events for a specific type of draggable item (element or file)
 - `onDragEnter` (derived from `onDropTargetChange`) - a drop target is being entered into.
 - `onDragLeave` (derived from `onDropTargetChange`) - a drop target is being exited from.
 
-Derived drop target events are not their own events in the system; rather they are derived from other events. If a drop target wants to know about child drop target changes, then please use the `onDropTargetChange` event.
+Derived drop target events are not their own events in the system; rather they are derived from
+other events. If a drop target wants to know about child drop target changes, then please use the
+`onDropTargetChange` event.
 
 ## Event ordering
 
@@ -32,17 +39,17 @@ All events flow through the system in the same way:
 
 ```ts
 const unbind = combine(
-  monitorForElements({
-    onDragStart: () => 'monitor:start',
-  }),
-  draggable({
-    element: myElement,
-    onDragStart: () => 'draggable:start',
-  }),
-  dropTargetForElements({
-    element: myElement,
-    onDragStart: () => 'dropTarget:start',
-  }),
+	monitorForElements({
+		onDragStart: () => 'monitor:start',
+	}),
+	draggable({
+		element: myElement,
+		onDragStart: () => 'draggable:start',
+	}),
+	dropTargetForElements({
+		element: myElement,
+		onDragStart: () => 'dropTarget:start',
+	}),
 );
 
 // After `onDragStart`
@@ -54,83 +61,81 @@ const unbind = combine(
 
 ## Shared event payload
 
-All events are provided the following base data. Particular event types add additional data. Additionally, event listeners (e.g. `dropTargetForExternal({ onDragStart })`) can be given additional localized data for convenience.
+All events are provided the following base data. Particular event types add additional data.
+Additionally, event listeners (e.g. `dropTargetForExternal({ onDragStart })`) can be given
+additional localized data for convenience.
 
 ```ts
-import {
-  Input,
-  DragLocation,
-  DragLocationHistory,
-} from '@atlaskit/pragmatic-drag-and-drop/types';
+import { Input, DragLocation, DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 ```
 
 ```ts
 export type Input = {
-  // user input
-  altKey: boolean;
-  button: number;
-  buttons: number;
-  ctrlKey: boolean;
-  metaKey: boolean;
-  shiftKey: boolean;
+	// user input
+	altKey: boolean;
+	button: number;
+	buttons: number;
+	ctrlKey: boolean;
+	metaKey: boolean;
+	shiftKey: boolean;
 
-  // coordinates
-  clientX: number;
-  clientY: number;
-  pageX: number;
-  pageY: number;
+	// coordinates
+	clientX: number;
+	clientY: number;
+	pageX: number;
+	pageY: number;
 };
 
 export type DragLocation = {
-  /**
-   * A users input at a point in time
-   */
-  input: Input;
-  /**
-   * A _bubble_ ordered (innermost upwards) list of active drop targets
-   *
-   * @example
-   * [grandChildRecord, childRecord, parentRecord]
-   *
-   */
-  dropTargets: DropTargetRecord[];
+	/**
+	 * A users input at a point in time
+	 */
+	input: Input;
+	/**
+	 * A _bubble_ ordered (innermost upwards) list of active drop targets
+	 *
+	 * @example
+	 * [grandChildRecord, childRecord, parentRecord]
+	 *
+	 */
+	dropTargets: DropTargetRecord[];
 };
 
 export type DragLocationHistory = {
-  /**
-   * Where the drag operation started
-   */
-  initial: DragLocation;
-  /**
-   * Where the user currently is
-   */
-  current: DragLocation;
-  /**
-   * Where the user was previously.
-   * `previous` points to what `current` was in the last dispatched event
-   *
-   * `previous` is particularly useful for `onDropTargetChange`
-   * (and the derived `onDragEnter` and `onDragLeave`)
-   * as you can know what the delta of the change
-   *
-   * Exception: `onGenerateDragPreview` and `onDragStart` will have the
-   * same `current` and `previous` values. This is done so that the data
-   * received in `onDragStart` feels logical
-   * (`location.previous` should be `[]` in `onDragStart`)
-   */
-  previous: Pick<DragLocation, 'dropTargets'>;
+	/**
+	 * Where the drag operation started
+	 */
+	initial: DragLocation;
+	/**
+	 * Where the user currently is
+	 */
+	current: DragLocation;
+	/**
+	 * Where the user was previously.
+	 * `previous` points to what `current` was in the last dispatched event
+	 *
+	 * `previous` is particularly useful for `onDropTargetChange`
+	 * (and the derived `onDragEnter` and `onDragLeave`)
+	 * as you can know what the delta of the change
+	 *
+	 * Exception: `onGenerateDragPreview` and `onDragStart` will have the
+	 * same `current` and `previous` values. This is done so that the data
+	 * received in `onDragStart` feels logical
+	 * (`location.previous` should be `[]` in `onDragStart`)
+	 */
+	previous: Pick<DragLocation, 'dropTargets'>;
 };
 
 // Each drag type (eg files) has their own base payload type
 // This allows different types of drags to have different source data
 type BaseEventPayload = {
-  location: DragLocationHistory;
-  // source is different for different drag types
-  source: {
-    element: Element;
-    dragHandle: Element | null;
-    data: Record<string, unknown>;
-  };
+	location: DragLocationHistory;
+	// source is different for different drag types
+	source: {
+		element: Element;
+		dragHandle: Element | null;
+		data: Record<string, unknown>;
+	};
 };
 
 import { ElementBaseEventPayload } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -138,40 +143,45 @@ import { ElementBaseEventPayload } from '@atlaskit/pragmatic-drag-and-drop/eleme
 
 ## Convenience data for `dropTarget`s (of all types)
 
-All _drop targets_ add a `self` property (type: `DropTargetRecord`) that contains a convenience object with information about the drop target that the event is firing on.
+All _drop targets_ add a `self` property (type: `DropTargetRecord`) that contains a convenience
+object with information about the drop target that the event is firing on.
 
-You could get all this information from the outer scope (or from `location.current.dropTargets`), but having it available inline is convenient.
+You could get all this information from the outer scope (or from `location.current.dropTargets`),
+but having it available inline is convenient.
 
 ```ts
 type AllowedDropTargetDropEffect = Exclude<DataTransfer['dropEffect'], 'none'>;
 
 type DropTargetRecord = {
-  element: Element;
-  // data provided using .getData()
-  data: Record<string | symbol, unknown>;
-  // dropEffect provided by using getDropEffect()
-  dropEffect: AllowedDropTargetDropEffect;
+	element: Element;
+	// data provided using .getData()
+	data: Record<string | symbol, unknown>;
+	// dropEffect provided by using getDropEffect()
+	dropEffect: AllowedDropTargetDropEffect;
 };
 ```
 
 ```ts
 dropTargetForExternal({
-  element: myElement,
-  getData: () => ({ name: 'Alex' }),
-  getDropEffect: () => 'move',
-  onDragStart: ({ self }) => {
-    console.log(self.element); // myElement
-    console.log(self.data); // {name: 'Alex'}
-    console.log(self.dropEffect); // 'move'
-  },
+	element: myElement,
+	getData: () => ({ name: 'Alex' }),
+	getDropEffect: () => 'move',
+	onDragStart: ({ self }) => {
+		console.log(self.element); // myElement
+		console.log(self.data); // {name: 'Alex'}
+		console.log(self.dropEffect); // 'move'
+	},
 });
 ```
 
 ## External drag sources
 
-Sometimes a user is dragging something that started outside the current browser window, for example a local file.
+Sometimes a user is dragging something that started outside the current browser window, for example
+a local file.
 
-When a user first drags an external entity into the webpage, `@atlaskit/pragmatic-drag-and-drop` considers this the _start_ of the drag operation. The drag operation will _finish_ if the user drags the external entity out of the browser.
+When a user first drags an external entity into the webpage, `@atlaskit/pragmatic-drag-and-drop`
+considers this the _start_ of the drag operation. The drag operation will _finish_ if the user drags
+the external entity out of the browser.
 
 By following this model, all entity types follow the same event lifecycle.
 
@@ -191,27 +201,35 @@ BaseEventPayload & {
 Flow
 
 - `onGenerateDragPreview` fires on the drag source (eg a `draggable`)
-- `onGenerateDragPreview` on the any parent drop targets of the drag sources in bubble order (innermost upwards)
+- `onGenerateDragPreview` on the any parent drop targets of the drag sources in bubble order
+  (innermost upwards)
 - `onGenerateDragPreview` on _monitors_
 
 ## Event: `onDragStart`
 
-A drag operation has started. You can make changes to the DOM and those changes won't be reflected in your _drag preview_.
+A drag operation has started. You can make changes to the DOM and those changes won't be reflected
+in your _drag preview_.
 
 Flow
 
 - `onDragStart` fires on the drag source (eg a `draggable`)
-- `onDragStart` on the any parent drop targets of the drag sources in bubble order (innermost upwards)
+- `onDragStart` on the any parent drop targets of the drag sources in bubble order (innermost
+  upwards)
 - `onDragStart` on _monitors_
 
 ## Event: `onDrag`
 
-A throttled update of where the the user is currently dragging. Useful if you want to create a high fidelity experience such as drawing. `@atlaskit/pragmatic-drag-and-drop` throttles native `drag` events using `requestAnimationFrame` so `onDrag` events will fire around 60 times a second.
+A throttled update of where the the user is currently dragging. Useful if you want to create a high
+fidelity experience such as drawing. `@atlaskit/pragmatic-drag-and-drop` throttles native `drag`
+events using `requestAnimationFrame` so `onDrag` events will fire around 60 times a second.
 
 Flow
 
 - `onDrag` fires on the drag source (eg a `draggable`)
-- `onDrag` on the _current_ parent drop targets of the drag sources in bubble order (innermost outwards). The _current_ drop targets are the drop targets that the user is currently dragging over. If you want to listen for _all_ `onDrag` events from the _initial_ drop targets, you can use a _monitor_.
+- `onDrag` on the _current_ parent drop targets of the drag sources in bubble order (innermost
+  outwards). The _current_ drop targets are the drop targets that the user is currently dragging
+  over. If you want to listen for _all_ `onDrag` events from the _initial_ drop targets, you can use
+  a _monitor_.
 - `onDrag` on _monitors_
 
 ## Event: `onDropTargetChange`
@@ -222,7 +240,8 @@ In a single native drag event:
 
 - drop targets can be exited
 - drop targets can be entered into
-- the hierarchy of drop targets can change (such as by dynamically adding a new parent `dropTarget` during a drag - although you are unlikely to run into this one!)
+- the hierarchy of drop targets can change (such as by dynamically adding a new parent `dropTarget`
+  during a drag - although you are unlikely to run into this one!)
 
 Flow (high level)
 
@@ -250,9 +269,14 @@ Flow (high level)
 
 ### Derived events: `onDragEnter` and `onDragLeave`
 
-The `onDropTargetChange` event allows you to know a lot of information about drop target hierarchy changes. One of the most common use cases for a `dropTarget` is to know when it starts being dragged over, and when it is no longer being dragged over. To support this common use case, the `onDragEnter` and `onDragLeave` callbacks are executed on a `dropTarget` as required when the `dropTarget` receives a `onDropTargetChange` event.
+The `onDropTargetChange` event allows you to know a lot of information about drop target hierarchy
+changes. One of the most common use cases for a `dropTarget` is to know when it starts being dragged
+over, and when it is no longer being dragged over. To support this common use case, the
+`onDragEnter` and `onDragLeave` callbacks are executed on a `dropTarget` as required when the
+`dropTarget` receives a `onDropTargetChange` event.
 
-The `onDragEnter` and `onDragLeave` events are not _strictly_ their own events, but travel along side the bubbling of `onDropTargetChange`.
+The `onDragEnter` and `onDragLeave` events are not _strictly_ their own events, but travel along
+side the bubbling of `onDropTargetChange`.
 
 > Scenario: [B, A] → [C, A]
 
@@ -280,21 +304,33 @@ The `onDragEnter` and `onDragLeave` events are not _strictly_ their own events, 
 
 ## Event: `onDrop`
 
-The `onDrop` event occurs when a user has finished a drag and drop operation. The `onDrop` event will fire when the drag operation finishes, regardless of how the drag operation finished (e.g. due to an explicit drop, the drag being canceled, recovering from an error and so on).
+The `onDrop` event occurs when a user has finished a drag and drop operation. The `onDrop` event
+will fire when the drag operation finishes, regardless of how the drag operation finished (e.g. due
+to an explicit drop, the drag being canceled, recovering from an error and so on).
 
-Using the information that the web platform provides, we cannot distinguish between dropping on no drop targets, an explicit cancel, or dropping externally, so we do not publish any information about _how_ the drag ended, only that it ended. The `location.current` property will accurately contain the final drop targets.
+Using the information that the web platform provides, we cannot distinguish between dropping on no
+drop targets, an explicit cancel, or dropping externally, so we do not publish any information about
+_how_ the drag ended, only that it ended. The `location.current` property will accurately contain
+the final drop targets.
 
 Flow
 
 - `onDrop` fires on the drag source (eg a `draggable`)
-- `onDrop` fires on all `dropTarget`s currently being dragged over (all those in `location.current.dropTargets`) in bubble event ordering (inner most `dropTarget` upwards)
+- `onDrop` fires on all `dropTarget`s currently being dragged over (all those in
+  `location.current.dropTargets`) in bubble event ordering (inner most `dropTarget` upwards)
 - `onDrop` fires on _monitors_
 
-For drags that start within the current `window` ([element adapter](./adapters/element), [text selection adapter](./adapters/text-selection)), the drag finishes when the drag operation finish, which might be while the user is outside of the current `window`. For drags that start outside of the current `windows` ([external adapter](./adapters/external)), a drag finishes when the user leaves the `window`.
+For drags that start within the current `window` ([element adapter](./adapters/element),
+[text selection adapter](./adapters/text-selection)), the drag finishes when the drag operation
+finish, which might be while the user is outside of the current `window`. For drags that start
+outside of the current `windows` ([external adapter](./adapters/external)), a drag finishes when the
+user leaves the `window`.
 
 ## Cancelling
 
-If a user is currently over drop target(s) when a drag is cancelled, then the exiting current drop targets(s) are cleared with an `onDropTargetChange` event. This matches how cancelling works with the browser's drag and drop API.
+If a user is currently over drop target(s) when a drag is cancelled, then the exiting current drop
+targets(s) are cleared with an `onDropTargetChange` event. This matches how cancelling works with
+the browser's drag and drop API.
 
 Flow
 

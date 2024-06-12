@@ -25,6 +25,7 @@ const dragHandleStyles = css({
 });
 
 const dragHandleIdleStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':focus-visible': {
 		opacity: 1,
 	},
@@ -59,9 +60,11 @@ const dragHandleInnerStyles = css({
 	boxSizing: 'border-box',
 	padding: 4,
 	background: token('color.background.neutral'),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover, :focus': {
 		background: token('color.background.neutral.hovered'),
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':active': {
 		background: token('color.background.neutral.pressed'),
 	},
@@ -70,6 +73,7 @@ const dragHandleInnerStyles = css({
 const dragHandleInnerSelectedStyles = css({
 	color: token('color.text.selected'),
 	background: token('color.background.selected'),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover, :focus, :active': {
 		background: token('color.background.selected'),
 	},

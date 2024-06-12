@@ -36,6 +36,7 @@ import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 const itemStyles = css({
 	display: 'flex',
 	position: 'relative',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': { '--trigger-opacity': 1 },
 });
 

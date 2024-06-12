@@ -106,9 +106,11 @@ const solutionLabelColorStyles: Record<Solution, SerializedStyles> = {
 
 const tableStyles = css({
 	tableLayout: 'auto',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
 	tbody: {
 		borderBottom: 'none',
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
 	'tr > td': {
 		width: '100%',
 	},
@@ -119,6 +121,7 @@ const itemCaptionHeadingStyles = css({
 });
 
 const itemCaptionTableRowStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
 	'> th, > td': {
 		paddingBlock: 8,
 	},
@@ -173,6 +176,7 @@ function ItemCaption({
 }
 
 const bigTitleStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	font: token('font.heading.xxlarge', fontFallback.heading.xxlarge),
 	fontWeight: token('font.weight.bold', 'bold'),
 	margin: 0,
@@ -180,6 +184,7 @@ const bigTitleStyles = css({
 
 const sectionStyles = xcss({
 	paddingBlock: 'space.800',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':first-of-type': {
 		border: 'none',
 	},
@@ -198,6 +203,7 @@ const sectionHeaderStyles = xcss({
 });
 
 const sectionHeaderDescriptionStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	font: token('font.heading.medium', fontFallback.heading.medium),
 	color: token('color.text.subtle', 'currentColor'),
 });
@@ -232,11 +238,13 @@ const subSectionHeaderStyles = xcss({
 });
 
 const subSectionHeaderTitleStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	font: token('font.heading.large', fontFallback.heading.large),
 	fontWeight: token('font.weight.bold', 'bold'),
 });
 
 const subSectionHeaderDescriptionStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	font: token('font.body.large', fontFallback.body.large),
 	fontWeight: token('font.weight.medium', 'medium'),
 	color: token('color.text.subtle', 'currentColor'),

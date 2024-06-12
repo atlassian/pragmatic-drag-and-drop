@@ -18,13 +18,16 @@ const dropIndicatorStyles = css({
 	height: lineThickness,
 	background: token('color.border.selected'),
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		content: '""',
 		width: terminalRadius * 2,
 		height: terminalRadius * 2,
 		background: token('color.border.selected'),
 		position: 'absolute',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		left: -terminalRadius * 2,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		top: -terminalRadius + lineThickness / 2,
 		borderRadius: '50%',
 	},
@@ -32,9 +35,11 @@ const dropIndicatorStyles = css({
 
 const dropIndicatorEdgeStyles = {
 	top: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 		top: -(gapSize / 2 + lineThickness),
 	}),
 	bottom: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 		bottom: -(gapSize / 2 + lineThickness),
 	}),
 	left: {},

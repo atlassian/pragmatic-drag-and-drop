@@ -15,6 +15,7 @@ import { gapSize } from './constants';
  * when the pointer leaves the list.
  */
 const fieldContainerStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	padding: `${gapSize / 2}px 0px`,
 	width: 'max-content',
 });
@@ -35,6 +36,7 @@ const fieldStyles = css({
 	position: 'relative',
 	cursor: 'grab',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
 		borderColor: token('color.border.bold'),
 	},

@@ -98,6 +98,7 @@ const resizerStyles = css({
 	top: 0,
 	height: 'var(--table-height)',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		opacity: 0,
 		'--local-line-width': token('border.width', '2px'),
@@ -114,6 +115,7 @@ const resizerStyles = css({
 		transition: 'opacity 0.2s ease',
 	},
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover::before': {
 		opacity: 1,
 	},
@@ -124,6 +126,7 @@ const resizingStyles = css({
 	// while resizing. The browser controls the cursor while dragging, but the browser
 	// can sometimes bug out.
 	cursor: 'unset',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		opacity: 1,
 	},

@@ -12,10 +12,9 @@ import DragHandleButtonSmallExample from '../../examples/drag-handle-button-smal
 import DragHandleDropdownMenuExample from '../../examples/drag-handle-dropdown-menu';
 
 <SectionMessage appearance="warning">
-  This component does not use the <Code>@atlaskit/button</Code> component,
-  because <Code>@atlaskit/button</Code> cancels <Code>mousedown</Code> events
-  and prevents dragging from occurring. Instead this component uses a native{' '}
-  <Code>&lt;button&gt;</Code> element.
+	This component does not use the <Code>@atlaskit/button</Code> component, because{' '}
+	<Code>@atlaskit/button</Code> cancels <Code>mousedown</Code> events and prevents dragging from
+	occurring. Instead this component uses a native <Code>&lt;button&gt;</Code> element.
 </SectionMessage>
 
 ## Default
@@ -26,8 +25,8 @@ import DragHandleDropdownMenuExample from '../../examples/drag-handle-dropdown-m
 
 A small variant is available through the `/drag-handle-button-small` entrypoint.
 
-It is intended for experiences with very limited space to accomodate a drag handle.
-It is not recommended for general use due to the small target size.
+It is intended for experiences with very limited space to accomodate a drag handle. It is not
+recommended for general use due to the small target size.
 
 <Example Component={DragHandleButtonSmallExample} />
 
@@ -35,8 +34,7 @@ It is not recommended for general use due to the small target size.
 
 This component can be composed with [Dropdown menu](/components/dropdown-menu).
 
-Because the Dropdown menu provides a `triggerRef` you will need to merge it
-with your own ref in order to use the trigger as the `dragHandle` in your
-`draggable()` registration.
+Because the Dropdown menu provides a `triggerRef` you will need to merge it with your own ref in
+order to use the trigger as the `dragHandle` in your `draggable()` registration.
 
 <Example Component={DragHandleDropdownMenuExample} />

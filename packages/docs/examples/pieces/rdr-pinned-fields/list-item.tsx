@@ -33,6 +33,7 @@ const listItemContainerStyles = xcss({
 		// @ts-expect-error
 		'--action-opacity': 1,
 	},
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
 		borderWidth: 'border.width.0',
 		borderBottomLeftRadius: '4px',
@@ -90,6 +91,7 @@ const fieldLayoutStyles = xcss({
 });
 
 const dragHandleRegionStyles = xcss({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-important-styles -- Ignored via go/DSP-18766
 	cursor: 'grab !important',
 });
 

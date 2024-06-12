@@ -25,15 +25,18 @@ const lineStyles = css({
 	// Blocking pointer events to prevent the line from triggering drag events
 	// Dragging over the line should count as dragging over the element behind it
 	pointerEvents: 'none',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	background: line.backgroundColor,
 
 	// Terminal
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		content: '""',
 		width: terminalSize,
 		height: terminalSize,
 		boxSizing: 'border-box',
 		position: 'absolute',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		border: `${line.thickness}px solid ${line.backgroundColor}`,
 		borderRadius: '50%',
 	},
@@ -66,20 +69,28 @@ type Orientation = 'horizontal' | 'vertical';
 
 const orientationStyles: Record<Orientation, SerializedStyles> = {
 	horizontal: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		height: line.thickness,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		left: lineOffset,
 		right: 0,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
 			// Horizontal indicators have the terminal on the left
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			left: -terminalSize,
 		},
 	}),
 	vertical: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		width: line.thickness,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		top: lineOffset,
 		bottom: 0,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
 			// Vertical indicators have the terminal at the top
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			top: -terminalSize,
 		},
 	}),
@@ -95,25 +106,33 @@ const edgeToOrientationMap: Record<Edge, Orientation> = {
 const edgeStyles: Record<Edge, SerializedStyles> = {
 	top: css({
 		top: 'var(--local-line-offset)',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			top: offsetToAlignTerminalWithLine,
 		},
 	}),
 	right: css({
 		right: 'var(--local-line-offset)',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			right: offsetToAlignTerminalWithLine,
 		},
 	}),
 	bottom: css({
 		bottom: 'var(--local-line-offset)',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			bottom: offsetToAlignTerminalWithLine,
 		},
 	}),
 	left: css({
 		left: 'var(--local-line-offset)',
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		'::before': {
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 			left: offsetToAlignTerminalWithLine,
 		},
 	}),
@@ -136,7 +155,7 @@ export function DropIndicator({ edge, gap = '0px' }: DropIndicatorProps) {
 	return (
 		<div
 			css={[lineStyles, orientationStyles[orientation], edgeStyles[edge]]}
-			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 			style={{ '--local-line-offset': lineOffset } as CSSProperties}
 		/>
 	);

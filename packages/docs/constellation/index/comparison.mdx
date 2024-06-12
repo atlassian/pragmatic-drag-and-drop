@@ -9,9 +9,13 @@ import ResultText from '../assets/result-text';
 
 ## Performance comparison
 
-Pragmatic drag and drop has been optimized for performance. Truly comparing drag and drop solutions is problematic as there is inevitably tradeoffs that solutions make (feature set, quality, visual experience and so on).
+Pragmatic drag and drop has been optimized for performance. Truly comparing drag and drop solutions
+is problematic as there is inevitably tradeoffs that solutions make (feature set, quality, visual
+experience and so on).
 
-In order to try make a reasonable comparison, we have compared the performance of the [same complete example (including accessibility)](https://drag-and-drop-performance-comparison.vercel.app/), with drag and drop powered by different drag and drop solutions.
+In order to try make a reasonable comparison, we have compared the performance of the
+[same complete example (including accessibility)](https://drag-and-drop-performance-comparison.vercel.app/),
+with drag and drop powered by different drag and drop solutions.
 
 <img src="/images/drag-and-drop--board-comparison.png" />
 
@@ -47,7 +51,8 @@ In order to try make a reasonable comparison, we have compared the performance o
 - 140 runs per URL on the desktop throttling preset
 - A new Chrome instance when a URL or throttle preset changed
 - Runs done in sequence to reduce noise (the job took 5 hours to run!)
-- p50 result (the median) selected after extreme outliers were removed (a value more than 3 standard deviations away from the average)
+- p50 result (the median) selected after extreme outliers were removed (a value more than 3 standard
+  deviations away from the average)
 
 ###### Environment
 
@@ -80,7 +85,8 @@ In order to try make a reasonable comparison, we have compared the performance o
 - Tested on an Apple M1
 - 6x CPU slowdown applied (the M1 is a beast)
 - Using `react@16`
-- Measured `ReactServer.renderToString()` locally using `storybook-addon-performance` (10 samples per variant)
+- Measured `ReactServer.renderToString()` locally using `storybook-addon-performance` (10 samples
+  per variant)
 
 </details>
 

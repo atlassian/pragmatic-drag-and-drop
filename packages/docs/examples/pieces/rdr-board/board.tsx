@@ -15,6 +15,7 @@ const boardStyles = css({
 	justifyContent: 'center',
 	gap: 8,
 	flexDirection: 'row',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	'--grid': `${gridSize}px`,
 	height: 480,
 });

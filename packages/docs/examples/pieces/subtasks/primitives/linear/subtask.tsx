@@ -18,6 +18,7 @@ const subtaskStyles = css({
 	position: 'relative',
 	boxSizing: 'border-box',
 
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:last-child)': {
 		borderBottom: `1px solid ${token('color.border')}`,
 	},
@@ -27,7 +28,9 @@ const subtaskInnerStyles = css({
 	display: 'grid',
 	height: '100%',
 	gridTemplateColumns: 'auto 1fr auto',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	padding: `0px ${subtaskInlinePadding}px`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	gap: subtaskGap,
 	alignItems: 'center',
 });
@@ -35,6 +38,7 @@ const subtaskInnerStyles = css({
 const subtaskIdStyles = css({
 	color: token('color.text.subtlest'),
 	fontSize: 12,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	width: subtaskIdWidth,
 	textAlign: 'center',
 });
@@ -47,6 +51,7 @@ const subtaskTimeStyles = css({
 const subtaskGroupStyles = css({
 	display: 'flex',
 	alignItems: 'center',
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	gap: subtaskGap,
 });
 
@@ -58,6 +63,7 @@ export type SubtaskAppearance = 'default' | 'overlay' | 'disabled';
 
 const subtaskAppearanceStyles: Record<SubtaskAppearance, SerializedStyles> = {
 	default: css({
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		':hover': {
 			background: token('color.background.neutral.subtle.hovered'),
 			'--subtask-drag-handle-icon-display': 'inline-flex',

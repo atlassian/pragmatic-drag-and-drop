@@ -1,7 +1,9 @@
 ---
 order: 0
 title: react-beautiful-dnd migration
-description: An optional Pragmatic drag and drop package that enables rapid migration from react-beautiful-dnd to Pragmatic drag and drop
+description:
+  An optional Pragmatic drag and drop package that enables rapid migration from react-beautiful-dnd
+  to Pragmatic drag and drop
 ---
 
 import SectionMessage from '@atlaskit/section-message';
@@ -20,24 +22,30 @@ This package depends on:
 
 </SectionMessage>
 
-This package exposes the same exports and types of `react-beautiful-dnd@13` and uses `@atlaskit/pragmatic-drag-and-drop` to power those exports.
+This package exposes the same exports and types of `react-beautiful-dnd@13` and uses
+`@atlaskit/pragmatic-drag-and-drop` to power those exports.
 
-At a high level, all you need to do is swap your imports of `react-beautiful-dnd` in your code to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` and your drag and drop experience(s) will now be powered by Pragmatic drag and drop.
+At a high level, all you need to do is swap your imports of `react-beautiful-dnd` in your code to
+`@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` and your drag and drop
+experience(s) will now be powered by Pragmatic drag and drop.
 
-This package also includes a codemod to help automatically shift over `react-beautiful-dnd@12` and `react-beautiful-dnd@13` to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`.
+This package also includes a codemod to help automatically shift over `react-beautiful-dnd@12` and
+`react-beautiful-dnd@13` to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`.
 
 ## Prerequisites
 
 To use `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` you should:
 
-1. Already be using `react-beautiful-dnd`. If this is a new feature, adopt `@atlaskit/pragmatic-drag-and-drop` directly.
+1. Already be using `react-beautiful-dnd`. If this is a new feature, adopt
+   `@atlaskit/pragmatic-drag-and-drop` directly.
 2. Be using major version 12 or 13 of `react-beautiful-dnd`.
 
 ## Migration steps
 
 1. Install `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`
 
-2. Run the codemod client with the command `npx @atlaskit/codemod-cli --parser {tsx|babylon} --extensions ts,tsx,js [relativePath]`.
+2. Run the codemod client with the command
+   `npx @atlaskit/codemod-cli --parser {tsx|babylon} --extensions ts,tsx,js [relativePath]`.
 
    Select the codemod based on which version of `react-beautiful-dnd` you are using:
 

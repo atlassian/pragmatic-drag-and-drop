@@ -26,6 +26,7 @@ const subtaskStyles = css({
 });
 
 const subtaskNotLastItemStyles = css({
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:last-child)': {
 		borderColor: token('color.border'),
 	},
@@ -52,6 +53,7 @@ const subtaskLabelStyles = css({
 	overflow: 'hidden',
 	whiteSpace: 'nowrap',
 	color: token('color.text'),
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
 		color: token('color.text'),
 	},
@@ -62,6 +64,7 @@ export type SubtaskAppearance = 'default' | 'overlay' | 'disabled';
 const subtaskAppearanceStyles: Record<SubtaskAppearance, SerializedStyles> = {
 	default: css({
 		'--subtask-hover': 0,
+		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		':hover': {
 			background: token('color.background.neutral.subtle.hovered'),
 			'--subtask-drag-handle-icon-display': 'inline-flex',

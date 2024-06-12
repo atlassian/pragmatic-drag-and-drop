@@ -17,32 +17,33 @@ Keep in mind:
 import { containsURLs } from '@atlaskit/pragmatic-drag-and-drop/external/url';
 
 dropTargetForExternal({
-  element: myElement,
-  canDrop: containsURLs,
+	element: myElement,
+	canDrop: containsURLs,
 });
 
 monitorForExternal({
-  canMonitor: containsURLs,
+	canMonitor: containsURLs,
 });
 ```
 
 ## `getURLs`
 
-A helper to extract URL data (`"text/uri-list"`) from drop data. When there are no URLs, `getURLs()` will return an empty array (`[]`).
+A helper to extract URL data (`"text/uri-list"`) from drop data. When there are no URLs, `getURLs()`
+will return an empty array (`[]`).
 
 ```ts
 import { getURLs } from '@atlaskit/pragmatic-drag-and-drop/external/url';
 
 dropTargetForExternal({
-  element: myElement,
-  onDrop({ source }) {
-    const urls: string[] = getURLs({ source });
-  },
+	element: myElement,
+	onDrop({ source }) {
+		const urls: string[] = getURLs({ source });
+	},
 });
 
 monitorForExternal({
-  onDrop({ source }) {
-    const urls: string[] = getURLs({ source });
-  },
+	onDrop({ source }) {
+		const urls: string[] = getURLs({ source });
+	},
 });
 ```

@@ -1,26 +1,26 @@
 {
-    "name": "pragmatic-drag-and-drop",
-    "private": true,
-    "version": "1.0.0",
-    "description": "Pragmatic drag and drop is a low level toolchain that enables fast and successful usage of the browsers built in drag and drop capabilities, for everyone",
-    "author": "Atlassian Pty Ltd",
-    "license": "Apache-2.0",
-    "scripts": {
-        "postinstall": "patch-package",
-        "test": "jest --forceExit"
-    },
-    "workspaces": [
-        "packages/*"
-    ],
-    "dependencies": {
-      "tslib": "^2.4.0"
-    },
-    "devDependencies": {
-      "@types/jest": "^29.5.12",
-      "jest": "^29.7.0",
-      "jest-environment-jsdom": "^29.7.0",
-      "patch-package": "^8.0.0",
-      "postinstall-postinstall": "^2.1.0",
-      "typescript": "~5.4.2"
-    }
+	"name": "pragmatic-drag-and-drop",
+	"private": true,
+	"version": "1.0.0",
+	"description": "Pragmatic drag and drop is a low level toolchain that enables fast and successful usage of the browsers built in drag and drop capabilities, for everyone",
+	"author": "Atlassian Pty Ltd",
+	"license": "Apache-2.0",
+	"scripts": {
+		"postinstall": "patch-package",
+		"test": "jest --forceExit"
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"dependencies": {
+		"tslib": "^2.4.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.5.12",
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"patch-package": "^8.0.0",
+		"postinstall-postinstall": "^2.1.0",
+		"typescript": "~5.4.2"
+	}
 }

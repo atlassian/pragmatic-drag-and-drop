@@ -336,22 +336,23 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^7.0.0":
-  version "7.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.0.0.tgz#8edb0046382177a9b5f2c8c54c8f1de2dfc623a0"
-  integrity sha512-ZBb2y//Rq6q4CSL3jQPgZqQuL4hyjmQzt1sCh21uBZ+FliKgk5K86qpJOUAq3Zs4Tn0G9r6/Nq29IbIYMyc3Xw==
+"@atlaskit/primitives@^7.1.0":
+  version "7.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.1.0.tgz#5efdf6bcafd2a206ea6d83dbef1db8c6b06341cc"
+  integrity sha512-Z1TALt2mOqG03ymXxGYu3gPf+ag2VgGuIhe+5/gfS+wB90w1nFiQSXCbRufTa75dgyeJY9vUiG4NE4powthJuw==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/app-provider" "^1.3.0"
     "@atlaskit/css" "^0.1.0"
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/interaction-context" "^2.1.0"
-    "@atlaskit/tokens" "^1.49.0"
+    "@atlaskit/tokens" "^1.50.0"
     "@atlaskit/visually-hidden" "^1.3.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"
     bind-event-listener "^3.0.0"
+    react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
 "@atlaskit/radio@^6.3.0":

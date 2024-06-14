@@ -3,9 +3,14 @@ order: 0
 title: Upgrade guide
 ---
 
-For `1.0` we have made a number of naming and path changes, but is otherwise a safe upgrade. We have taken the opportunity with `1.0` to shift things around in response to how our outputs have organically grown.
+For `1.0` we have made a number of naming and path changes, but is otherwise a safe upgrade. We have
+taken the opportunity with `1.0` to shift things around in response to how our outputs have
+organically grown.
 
-We have created a codemod (an automated code change tool) which will safely upgrade most usages. People using the (old) _file adapter_ will need to perform some additional (minor) manual steps to move to our new _external adapter_. The codemod will add the next steps as comments for _file adapter_ consumers in the files that need to be updated.
+We have created a codemod (an automated code change tool) which will safely upgrade most usages.
+People using the (old) _file adapter_ will need to perform some additional (minor) manual steps to
+move to our new _external adapter_. The codemod will add the next steps as comments for _file
+adapter_ consumers in the files that need to be updated.
 
 ## Step 0: A new adapter model
 
@@ -14,15 +19,22 @@ The big conceptual change for `1.0` is our new adapter setup. Previously, we had
 1. element adapter
 2. file adapter
 
-The original thinking was that there would be lots of adapters for different entity types (eg a "text" adapter). However, that thinking did not pan out well, so we have moved in a different direction.
+The original thinking was that there would be lots of adapters for different entity types (eg a
+"text" adapter). However, that thinking did not pan out well, so we have moved in a different
+direction.
 
 There are now three adapters:
 
-1. [element adapter](/components/pragmatic-drag-and-drop/core-package/adapters/element) → handling the dragging of draggable elements
-2. [text selection adapter](/components/pragmatic-drag-and-drop/core-package/adapters/text-selection) **(new)** → handling the dragging of text selections
-3. [external adapter](/components/pragmatic-drag-and-drop/core-package/adapters/external) **(new)** → handling drag operations that started outside of the current `window` (eg files and text from other `window`s or applications)
+1. [element adapter](/components/pragmatic-drag-and-drop/core-package/adapters/element) → handling
+   the dragging of draggable elements
+2. [text selection adapter](/components/pragmatic-drag-and-drop/core-package/adapters/text-selection)
+   **(new)** → handling the dragging of text selections
+3. [external adapter](/components/pragmatic-drag-and-drop/core-package/adapters/external) **(new)**
+   → handling drag operations that started outside of the current `window` (eg files and text from
+   other `window`s or applications)
 
-The _external adapter_ can be used to handle file dropping (as the old _file adapter_ did), as well as any other native data type (eg `"text/plain"`).
+The _external adapter_ can be used to handle file dropping (as the old _file adapter_ did), as well
+as any other native data type (eg `"text/plain"`).
 
 ## Step 1: react-indicator → react-drop-indicator
 
@@ -33,7 +45,8 @@ We have renamed our drop indicator package to improve naming consistency across 
 + @atlaskit/pragmatic-drag-and-drop-react-drop-indicator
 ```
 
-After running _step 1_ your application will be broken as your imports will not yet be updated in your code. In _step 3_ your imports will be fixed.
+After running _step 1_ your application will be broken as your imports will not yet be updated in
+your code. In _step 3_ your imports will be fixed.
 
 ```bash
 # Using yarn
@@ -61,7 +74,8 @@ yarn upgrade @atlaskit/pragmatic-drag-and-drop@^1.0.0
 # or use our bash script below
 ```
 
-Here is an optional `bash` script that will upgrade all your installed Pragmatic drag and drop packages with `yarn`
+Here is an optional `bash` script that will upgrade all your installed Pragmatic drag and drop
+packages with `yarn`
 
 ```bash
 #!/bin/bash
@@ -93,7 +107,9 @@ done
 
 ## Step 3: Run our codemod
 
-Use our [codemod-cli](https://www.npmjs.com/package/@atlaskit/codemod-cli) package to run our `upgrade-pragmatic-drag-and-drop-to-stable` codemod. This will automatically shift over all usage to our `1.0` API (except for the file adapter)
+Use our [codemod-cli](https://www.npmjs.com/package/@atlaskit/codemod-cli) package to run our
+`upgrade-pragmatic-drag-and-drop-to-stable` codemod. This will automatically shift over all usage to
+our `1.0` API (except for the file adapter)
 
 ```bash
 # Example usage
@@ -102,9 +118,16 @@ npx @atlaskit/codemod-cli@latest --preset upgrade-pragmatic-drag-and-drop-to-sta
 
 ## Step 4: Add our `DragEvent` ponyfill for Jest
 
-If you are doing testing of Pragmatic drag and drop using `[Jest](https://jestjs.io/)` (+ [`jsdom`](https://github.com/jsdom/jsdom)), then you will likely need to start ponyfiling [`DragEvent`](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent). Unfortunately, [jsdom does not ponyfill `DragEvent`](https://github.com/jsdom/jsdom/issues/2913). `0.x` got away with not having `DragEvent` pollyfiled, but `1.x` requires `DragEvent` to be setup correctly. Trying to rely on `DragEvent` not being setup would have required non-trival changes to the library code, as well as a strange test experience where some things would work, but other things would not.
+If you are doing testing of Pragmatic drag and drop using `[Jest](https://jestjs.io/)` (+
+[`jsdom`](https://github.com/jsdom/jsdom)), then you will likely need to start ponyfiling
+[`DragEvent`](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent). Unfortunately,
+[jsdom does not ponyfill `DragEvent`](https://github.com/jsdom/jsdom/issues/2913). `0.x` got away
+with not having `DragEvent` pollyfiled, but `1.x` requires `DragEvent` to be setup correctly. Trying
+to rely on `DragEvent` not being setup would have required non-trival changes to the library code,
+as well as a strange test experience where some things would work, but other things would not.
 
-We plan on creating a package for easy consumption of our `DragEvent` polyfill, but in the meantime, you can copy it from [Github](https://gist.github.com/alexreardon/cbc317ede2212d6db59ba5ff59dcf419)
+We plan on creating a package for easy consumption of our `DragEvent` polyfill, but in the meantime,
+you can copy it from [Github](https://gist.github.com/alexreardon/cbc317ede2212d6db59ba5ff59dcf419)
 
 ## Full changes
 
@@ -151,28 +174,33 @@ The following entry point paths have been changed, but their exports are unchang
 + @atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge
 ```
 
-`cancelUnhandled` has been renamed to `preventUnhandled` to more accurately reflect what it is achieving, and the entry point path changed too.
+`cancelUnhandled` has been renamed to `preventUnhandled` to more accurately reflect what it is
+achieving, and the entry point path changed too.
 
 ```diff
 - import {cancelUnhandled} from '@atlaskit/pragmatic-drag-and-drop/addon/cancel-unhandled';
 + import {preventUnhandled} from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
 ```
 
-`offsetFromPointer` has been renamed to `pointerOutsideOfPreview` as `offsetFromPointer` was found to be misleading for folks. The entry point path has been changed too.
+`offsetFromPointer` has been renamed to `pointerOutsideOfPreview` as `offsetFromPointer` was found
+to be misleading for folks. The entry point path has been changed too.
 
 ```diff
 - import { offsetFromPointer } from '@atlaskit/pragmatic-drag-and-drop/util/offset-from-pointer';
 + import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 ```
 
-The `ElementMonitorCanMonitorArgs` type has been renamed to `ElementMonitorGetFeedbackArgs` to improve naming consistency with other feedback types
+The `ElementMonitorCanMonitorArgs` type has been renamed to `ElementMonitorGetFeedbackArgs` to
+improve naming consistency with other feedback types
 
 ```diff
 - import type { ElementMonitorCanMonitorArgs } from '@atlaskit/pragmatic-drag-and-drop/adapter/element';
 + import type { ElementMonitorGetFeedbackArgs } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 ```
 
-The type `SourceCanStartArgs` is no longer being exported from `'@atlaskit/pragmatic-drag-and-drop/types'` as the type was never being used and was incorrect. Please use the appropriate `*GetFeedbackArgs` type instead.
+The type `SourceCanStartArgs` is no longer being exported from
+`'@atlaskit/pragmatic-drag-and-drop/types'` as the type was never being used and was incorrect.
+Please use the appropriate `*GetFeedbackArgs` type instead.
 
 ```diff
 - import type { SourceCanStartArgs } from '@atlaskit/pragmatic-drag-and-drop/type';
@@ -183,7 +211,8 @@ The type `SourceCanStartArgs` is no longer being exported from `'@atlaskit/pragm
 + import type { DropTargetGetFeedbackArgs } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 ```
 
-The `@atlaskit/pragmatic-drag-and-drop-auto-scroll` named exports have been updated to reflect our updated adapter names
+The `@atlaskit/pragmatic-drag-and-drop-auto-scroll` named exports have been updated to reflect our
+updated adapter names
 
 ```diff
 - import {autoScrollForFiles} from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/file';
@@ -193,58 +222,56 @@ The `@atlaskit/pragmatic-drag-and-drop-auto-scroll` named exports have been upda
 + import {unsafeOverflowAutoScrollForExternal} from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/external';
 ```
 
-Our _file adapter_ has been replaced by a new [_external adapter_](/components/pragmatic-drag-and-drop/core-package/adapters/external).
+Our _file adapter_ has been replaced by a new
+[_external adapter_](/components/pragmatic-drag-and-drop/core-package/adapters/external).
 
 ```ts
 /** 0.x API **/
 
-import {
-  dropTargetForFiles,
-  monitorForFiles,
-} from '@atlaskit/pragmatic-drag-and-drop/file';
+import { dropTargetForFiles, monitorForFiles } from '@atlaskit/pragmatic-drag-and-drop/file';
 
 dropTargetForFiles({
-  element: myElement,
-  onDrop({ source }) {
-    // 😬 Not to easy to get files!
+	element: myElement,
+	onDrop({ source }) {
+		// 😬 Not to easy to get files!
 
-    if (!source.items) {
-      return;
-    }
+		if (!source.items) {
+			return;
+		}
 
-    const files: File[] = [...source.items]
-      .filter(item => item.kind === 'file')
-      .map(item => item.getAsFile())
-      .filter((file: File | null): file is File => file != null);
-  },
+		const files: File[] = [...source.items]
+			.filter((item) => item.kind === 'file')
+			.map((item) => item.getAsFile())
+			.filter((file: File | null): file is File => file != null);
+	},
 });
 
 /** 1.0 API **/
 
 import {
-  dropTargetForExternal,
-  monitorForExternal,
+	dropTargetForExternal,
+	monitorForExternal,
 } from '@atlaskit/pragmatic-drag-and-drop/external';
-import {
-  containsFiles,
-  getFiles,
-} from '@atlaskit/pragmatic-drag-and-drop/external/file';
+import { containsFiles, getFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
 
 dropTargetForExternal({
-  canDrop: containsFiles,
-  onDrop({ source }) {
-    // 🤩 Easy to get files!
-    const files: File[] = getFiles({ source });
-  },
+	canDrop: containsFiles,
+	onDrop({ source }) {
+		// 🤩 Easy to get files!
+		const files: File[] = getFiles({ source });
+	},
 });
 ```
 
 ## Auto scrolling
 
-While we are talking about changes, we encourage all consumers to move off our legacy auto scroller packages, and onto our new, faster, more flexible and more delightful auto scroller package:
+While we are talking about changes, we encourage all consumers to move off our legacy auto scroller
+packages, and onto our new, faster, more flexible and more delightful auto scroller package:
 
-**Old:** [`@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll`](/components/pragmatic-drag-and-drop/optional-packages/react-beautiful-dnd-autoscroll)
+**Old:**
+[`@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll`](/components/pragmatic-drag-and-drop/optional-packages/react-beautiful-dnd-autoscroll)
 
 (previously called `@atlaskit/pragmatic-drag-and-drop-autoscroll`)
 
-**New:** [`@atlaskit/pragmatic-drag-and-drop-auto-scroll`](/components/pragmatic-drag-and-drop/optional-packages/auto-scroll)
+**New:**
+[`@atlaskit/pragmatic-drag-and-drop-auto-scroll`](/components/pragmatic-drag-and-drop/optional-packages/auto-scroll)

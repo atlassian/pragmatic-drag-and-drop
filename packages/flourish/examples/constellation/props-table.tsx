@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
 import { N20, N300, N500, N800, R500 } from '@atlaskit/theme/colors';

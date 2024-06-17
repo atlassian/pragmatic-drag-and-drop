@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { forwardRef, type HTMLAttributes, memo, type ReactNode, type Ref } from 'react';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';

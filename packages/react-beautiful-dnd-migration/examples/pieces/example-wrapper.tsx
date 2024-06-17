@@ -9,6 +9,7 @@ import {
 	useState,
 } from 'react';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 import * as rbd from 'react-beautiful-dnd';
 import type { DragDropContextProps, DraggableProps, DroppableProps } from 'react-beautiful-dnd';

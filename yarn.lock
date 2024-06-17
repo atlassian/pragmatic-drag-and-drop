@@ -57,29 +57,29 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^2.1.1"
 
-"@atlaskit/avatar@^21.9.0":
-  version "21.9.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-21.9.0.tgz#3c94b3cc6b44adbb294580ff05c26300e6df6e2c"
-  integrity sha512-qQGFliS8lDeS2UoyW8n+crAfeqDrTr1MdvszKtwtwAalJBIIfDtxa5c7Z/NyqCPRhBmWcoDDupPU5SdsmLFX2Q==
+"@atlaskit/avatar@^21.10.0":
+  version "21.10.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-21.10.0.tgz#c88fc6274e33e16f8612f71b54d17ca13760a011"
+  integrity sha512-cbzxTOUIIDhUA9oqb68CkiHifFDapMORV8xSMSudzZJ7psuwDuYvlxxUNZFw5qIJipMwxa8bJHMn+HSjQIbZ+w==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/icon" "^22.3.0"
     "@atlaskit/platform-feature-flags" "^0.2.0"
-    "@atlaskit/primitives" "^6.1.0"
-    "@atlaskit/theme" "^12.8.0"
-    "@atlaskit/tokens" "^1.49.0"
+    "@atlaskit/primitives" "^7.3.0"
+    "@atlaskit/theme" "^12.9.0"
+    "@atlaskit/tokens" "^1.50.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"
     react-uid "^2.2.0"
 
-"@atlaskit/badge@^16.1.0":
-  version "16.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-16.1.0.tgz#13871fa43a6110a80d9cdc782622040814db20f0"
-  integrity sha512-vQwKcc/gSOTjjIet2iDbBOsnr49iBOQQiOORw1SuWf/PkX9wDryMx2f+e++QB3nlV+IR3r+0aNBN9VWWtU45KQ==
+"@atlaskit/badge@^16.2.0":
+  version "16.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-16.2.0.tgz#8077b3f0da9d47dd587c754d49318013476628f8"
+  integrity sha512-Nl4nPj/fHVvARdK1iEIg063yVcKsFcdtmpPC/IXBG3emhXvOBqnQ5O+4i4VCVRvIFYj2j9oFAmOAVkkW2oUx2Q==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
-    "@atlaskit/primitives" "^5.6.0"
+    "@atlaskit/primitives" "^7.3.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/button@^17.17.0":
@@ -282,24 +282,6 @@
     bind-event-listener "^2.1.1"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^5.6.0":
-  version "5.6.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-5.6.0.tgz#daacc09f35af6ef29112f713e3057df5938af6a7"
-  integrity sha512-jz/htIfw/dHOQ155CzVD42R5ge3KRrKo5X+GTfvCDZLset4TUf3Cffaev4Ry4A8tAzPOUHF87mdb6BHpQBf1dA==
-  dependencies:
-    "@atlaskit/analytics-next" "^9.3.0"
-    "@atlaskit/app-provider" "^1.3.0"
-    "@atlaskit/css" "^0.1.0"
-    "@atlaskit/ds-lib" "^2.3.0"
-    "@atlaskit/interaction-context" "^2.1.0"
-    "@atlaskit/tokens" "^1.43.0"
-    "@atlaskit/visually-hidden" "^1.2.4"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.1.0"
-    bind-event-listener "^2.1.1"
-    tiny-invariant "^1.2.0"
-
 "@atlaskit/primitives@^6.0.0":
   version "6.0.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-6.0.0.tgz#3349103e2f0d3c6dddfdf92eea8143bebada43d5"
@@ -318,7 +300,7 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^6.1.0", "@atlaskit/primitives@^6.3.0":
+"@atlaskit/primitives@^6.3.0":
   version "6.3.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-6.3.0.tgz#609434345d356917d2f0f6f470bb41448dec2d90"
   integrity sha512-5yGBaOD9DJsiGCClR9wYKbj8qOfGTj5ie2hruS6ypT3ZV/LpJyWayVkGoqG+woDgOAJKioD+tC5sl4JjKVy1IA==
@@ -336,10 +318,10 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^7.1.0":
-  version "7.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.1.0.tgz#5efdf6bcafd2a206ea6d83dbef1db8c6b06341cc"
-  integrity sha512-Z1TALt2mOqG03ymXxGYu3gPf+ag2VgGuIhe+5/gfS+wB90w1nFiQSXCbRufTa75dgyeJY9vUiG4NE4powthJuw==
+"@atlaskit/primitives@^7.3.0":
+  version "7.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.3.0.tgz#3b348febfa27c8a85ad7251eb0c833c01ae0f0d1"
+  integrity sha512-7RqFdE0VAzf6kzdcz7r8PT2A84S113ea5hztlim1pHyMOVeCfbnEEPAmlt04gBSu7L8MoeLLJbKns9nzlu1lnA==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/app-provider" "^1.3.0"

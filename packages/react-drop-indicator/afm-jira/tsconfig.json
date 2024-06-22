@@ -1,11 +1,10 @@
 {
-  "extends": "../../../../tsconfig.products.json",
+  "extends": "../../../../tsconfig.entry-points.jira.json",
   "compilerOptions": {
     "target": "es5",
     "outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-react-drop-indicator/app",
     "composite": true,
-    "rootDir": "../",
-    "baseUrl": "../"
+    "rootDir": "../"
   },
   "include": [
     "../src/**/*.ts",

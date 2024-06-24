@@ -26,7 +26,7 @@ function getCardOrder(page: Page, columnId: string): Promise<(string | null)[]> 
 
 test.describe('board', () => {
 	test('should allow sorting columns', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'board');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = getColumnHeader(page, 'trello');
@@ -40,7 +40,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow sorting tasks in a column', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'board');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board');
 		await page.waitForSelector('[draggable="true"]');
 
 		// Both ids correspond to elements in the first column
@@ -59,7 +59,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow moving tasks between columns', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'board');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board');
 		await page.waitForSelector('[draggable="true"]');
 
 		// Corresponds to an element in the first column

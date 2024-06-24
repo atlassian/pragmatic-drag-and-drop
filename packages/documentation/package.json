@@ -7,6 +7,9 @@
   },
   "author": "Atlassian Pty Ltd",
   "license": "Apache-2.0",
+  "scripts": {
+    "codegen": "ts-node -r tsconfig-paths/register ./scripts/codegen.ts"
+  },
   "repository": "https://github.com/atlassian/pragmatic-drag-and-drop",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -22,7 +25,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^21.10.0",
     "@atlaskit/badge": "^16.2.0",
-    "@atlaskit/button": "^17.23.0",
+    "@atlaskit/button": "^18.0.0",
     "@atlaskit/code": "^15.3.0",
     "@atlaskit/focus-ring": "^1.5.0",
     "@atlaskit/grid": "^0.13.0",
@@ -37,10 +40,12 @@
     "@atlaskit/tokens": "^1.52.0",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",
+    "fast-glob": "^3.2.11",
     "memoize-one": "^6.0.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "tiny-invariant": "^1.2.0",
+    "ts-node": "^10.9.1",
     "typescript": "~5.4.2"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"

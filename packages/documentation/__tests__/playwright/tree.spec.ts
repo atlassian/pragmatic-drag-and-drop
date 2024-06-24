@@ -6,7 +6,7 @@ import { indentPerLevel } from '../../examples/pieces/tree/constants';
 
 test.describe('tree', () => {
 	test('should allow a tree item to be reordered above another item', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-1.4');
@@ -27,7 +27,7 @@ test.describe('tree', () => {
 	});
 
 	test('should allow a tree item to be reordered below another item', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-1.3.1');
@@ -51,7 +51,7 @@ test.describe('tree', () => {
 	});
 
 	test('should allow a tree item to become a child of another tree item', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-1.4');
@@ -75,7 +75,7 @@ test.describe('tree', () => {
 	});
 
 	test('should allow a tree item to be reparented from level 2 -> level 1', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-1.3.2');
@@ -99,7 +99,7 @@ test.describe('tree', () => {
 	});
 
 	test('should allow a tree item to be reparented from level 2 -> level 0', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-1.3.2');
@@ -122,7 +122,7 @@ test.describe('tree', () => {
 	test('should not allow a tree item to be made a child when the "make-child" instruction is blocked on the drop target', async ({
 		page,
 	}) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'docs', 'tree');
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('tree-item-2.3.1');

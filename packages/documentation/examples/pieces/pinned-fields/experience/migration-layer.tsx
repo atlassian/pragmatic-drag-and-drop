@@ -14,9 +14,7 @@ export default function PinnedFieldReactBeautifulDnd() {
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration"
 			DragDropContext={DragDropContext}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Draggable={Draggable}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Droppable={Droppable}
 			DroppableAreaOverlay={DroppableAreaOverlay}
 		/>
@@ -28,9 +26,7 @@ export function PinnedFieldReactBeautifulDndNoDraggingOutline() {
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration--borderless"
 			DragDropContext={DragDropContext}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Draggable={Draggable}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Droppable={Droppable}
 			DroppableAreaOverlay={(props) => <DroppableAreaOverlay {...props} appearance="borderless" />}
 		/>
@@ -42,9 +38,7 @@ export function PinnedFieldReactBeautifulDndSubtle() {
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration--subtle"
 			DragDropContext={DragDropContext}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Draggable={Draggable}
-			// @ts-expect-error - rbd12 vs rbd13 API
 			Droppable={Droppable}
 			DroppableAreaOverlay={(props) => <DroppableAreaOverlay {...props} appearance="subtle" />}
 		/>

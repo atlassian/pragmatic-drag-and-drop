@@ -188,6 +188,16 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/icon@^22.5.0":
+  version "22.5.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-22.5.0.tgz#71fc993313dfddfa0389732e315d96978f629233"
+  integrity sha512-CgGQUcO/hXvFwqEws1Ptvhbku/9UgsN25ErkX90XzL7m7vUW3w/hGzTkMCfQoJqCuV67UQ125X5jTQ0WXc7U0w==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^0.2.0"
+    "@atlaskit/tokens" "^1.53.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/interaction-context@^2.1.0":
   version "2.1.4"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/interaction-context/-/interaction-context-2.1.4.tgz#5d9a60bd8d95b9c4be6ad1725e5372d39d8b605e"
@@ -296,10 +306,10 @@
     react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^8.2.0":
-  version "8.2.1"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-8.2.1.tgz#1d459f12df120e2474fbf31964f24a15b8caf3e2"
-  integrity sha512-8FBpfEWi6fXIVcEHdulnoJN0mDM3neyB8lvOEB4SLanyj5KoYGHdMIsQex0pM9p86aLCkSalj9QVHfXmwWHDsw==
+"@atlaskit/primitives@^9.0.0":
+  version "9.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-9.0.0.tgz#6c1141eb8d918c2eae72058aa8a27806fa62d7bb"
+  integrity sha512-uAM8TrffOnn9yNNU+BNh8w3MvM5Z+KR6whBf1BWHNJasb8C/RBFHN9yEC/g6Aq/txgYh3S9ggkcIbZBsRujjnQ==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/app-provider" "^1.3.0"
@@ -4746,7 +4756,7 @@ raf-stub@^2.0.1:
   dependencies:
     performance-now "2.1.0"
 
-react-beautiful-dnd@^12.1.1:
+react-beautiful-dnd@^12.2.0:
   version "12.2.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/react-beautiful-dnd/-/react-beautiful-dnd-12.2.0.tgz#e5f6222f9e7934c6ed4ee09024547f9e353ae423"
   integrity sha512-s5UrOXNDgeEC+sx65IgbeFlqKKgK3c0UfbrJLWufP34WBheyu5kJ741DtJbsSgPKyNLkqfswpMYr0P8lRj42cA==

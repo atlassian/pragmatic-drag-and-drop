@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 1.1.7
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 1.1.6
 
 ### Patch Changes

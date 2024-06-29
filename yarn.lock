@@ -249,6 +249,25 @@
     "@atlaskit/theme" "^12.7.0"
     "@babel/runtime" "^7.0.0"
 
+"@atlaskit/primitives@^10.0.0":
+  version "10.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-10.0.0.tgz#38b5f1bedd39a49ee2d4411bec01940314a040a2"
+  integrity sha512-gvoT7evaytdjF3cV/Lu88lSGvJRSlX3HRsf1qsrWOI6NZzT9ata9ieb2LtRyJvAIj8WE1N33goJXKVcDGBnO5w==
+  dependencies:
+    "@atlaskit/analytics-next" "^9.3.0"
+    "@atlaskit/app-provider" "^1.3.0"
+    "@atlaskit/css" "^0.3.0"
+    "@atlaskit/ds-lib" "^2.3.0"
+    "@atlaskit/interaction-context" "^2.1.0"
+    "@atlaskit/tokens" "^1.53.0"
+    "@atlaskit/visually-hidden" "^1.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    react-uid "^2.2.0"
+    tiny-invariant "^1.2.0"
+
 "@atlaskit/primitives@^7.3.0":
   version "7.3.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.3.0.tgz#3b348febfa27c8a85ad7251eb0c833c01ae0f0d1"
@@ -298,25 +317,6 @@
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/interaction-context" "^2.1.0"
     "@atlaskit/tokens" "^1.51.0"
-    "@atlaskit/visually-hidden" "^1.4.0"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.1.0"
-    bind-event-listener "^3.0.0"
-    react-uid "^2.2.0"
-    tiny-invariant "^1.2.0"
-
-"@atlaskit/primitives@^9.0.0":
-  version "9.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-9.0.0.tgz#6c1141eb8d918c2eae72058aa8a27806fa62d7bb"
-  integrity sha512-uAM8TrffOnn9yNNU+BNh8w3MvM5Z+KR6whBf1BWHNJasb8C/RBFHN9yEC/g6Aq/txgYh3S9ggkcIbZBsRujjnQ==
-  dependencies:
-    "@atlaskit/analytics-next" "^9.3.0"
-    "@atlaskit/app-provider" "^1.3.0"
-    "@atlaskit/css" "^0.3.0"
-    "@atlaskit/ds-lib" "^2.3.0"
-    "@atlaskit/interaction-context" "^2.1.0"
-    "@atlaskit/tokens" "^1.53.0"
     "@atlaskit/visually-hidden" "^1.4.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"

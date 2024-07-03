@@ -10,19 +10,14 @@ test.describe('stickiness', () => {
 		const dragHandle = page.getByTestId('list-item-2');
 		const dropTarget = page.getByTestId('list-item-5');
 
-		/**
-		 * We can't use `dragTo()` as it will release the mouse button (fire `page.mouse.up()`)
-		 * This would mean the drag will be stopped, which would prevent us from testing the stickiness
-		 * Reference: https://playwright.dev/docs/input#drag-and-drop
-		 */
-		await dragHandle.hover();
+		// start the drag
+		await dragHandle.hover({ position: { x: 1, y: 1 } });
 		await page.mouse.down();
 
-		/**
-		 * Two hovers / mouse moves are required to ensure dragover event is dispatched, according to Playwright docs
-		 * https://playwright.dev/docs/input#dragging-manually
-		 */
-		await dropTarget.hover();
+		// Explicitly starting the drag like this is needed for firefox
+		await dragHandle.hover({ position: { x: 10, y: 0 } });
+
+		// move over drop target
 		await dropTarget.hover();
 
 		// Expect both list item and list container are marked as being dragged over

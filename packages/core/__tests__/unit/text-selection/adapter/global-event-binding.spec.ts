@@ -3,40 +3,40 @@
 // This file uses vanilla event firing so that we are in total control
 
 import { combine } from '../../../../src/entry-point/combine';
-import { appendToBody, getElements, nativeDrag, reset } from '../../_util';
+import { appendToBody, firePointer, getElements, nativeDrag, reset } from '../../_util';
 
-let addEventListener = jest.spyOn(window, 'addEventListener');
-let removeEventListener = jest.spyOn(window, 'removeEventListener');
+let windowAddEventListener = jest.spyOn(window, 'addEventListener');
+let removeWindowEventListener = jest.spyOn(window, 'removeEventListener');
 
 jest.resetModules();
 
 afterEach(() => {
-	addEventListener.mockClear();
-	removeEventListener.mockClear();
+	windowAddEventListener.mockClear();
+	removeWindowEventListener.mockClear();
 	jest.resetModules();
 });
 
 afterEach(reset);
 
-const amountOfAdapterEventListeners = 1;
+const mountWindowEventListenerCount = 2;
 
 it('should add event listeners when the module is imported', () => {
-	expect(addEventListener).not.toHaveBeenCalled();
+	expect(windowAddEventListener).not.toHaveBeenCalled();
 
 	require('../../../../src/entry-point/text-selection/adapter');
 
 	// initial listener
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 });
 
 it('should not add more event listeners when drop targets and monitors are added', () => {
-	expect(addEventListener).not.toHaveBeenCalled();
+	expect(windowAddEventListener).not.toHaveBeenCalled();
 	const {
 		dropTargetForTextSelection,
 		monitorForTextSelection,
 	} = require('../../../../src/entry-point/text-selection/adapter');
 
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 
 	const [paragraph] = getElements('p');
 	paragraph.textContent = 'Hello world';
@@ -48,7 +48,7 @@ it('should not add more event listeners when drop targets and monitors are added
 		monitorForTextSelection({}),
 	);
 
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 	unbind();
 });
 
@@ -58,9 +58,9 @@ it('should not remove initiating event listener when an only drop target is remo
 	} = require('../../../../src/entry-point/text-selection/adapter');
 
 	// initial event listener added
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 	// nothing removed
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	const [paragraph] = getElements('p');
 	paragraph.textContent = 'Hello world';
@@ -71,14 +71,14 @@ it('should not remove initiating event listener when an only drop target is remo
 		}),
 	);
 
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 	// nothing removed yet
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	unbindA();
 
 	// still nothing removed
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 });
 
 it('should bind event listeners needed for the drag only while dragging', () => {
@@ -89,9 +89,9 @@ it('should bind event listeners needed for the drag only while dragging', () => 
 	const ordered: string[] = [];
 
 	// no event listeners added or removed yet
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
 
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	const [paragraph] = getElements('p');
 	paragraph.textContent = 'Hello world';
@@ -118,20 +118,31 @@ it('should bind event listeners needed for the drag only while dragging', () => 
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
 	const postLiftAddEventListenerCount =
-		addEventListener.mock.calls.length - amountOfAdapterEventListeners;
+		windowAddEventListener.mock.calls.length - mountWindowEventListenerCount;
 	expect(postLiftAddEventListenerCount).toBeGreaterThan(0);
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	// finish the drag
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
 
 	expect(ordered).toEqual(['drop']);
 
-	// all new event listeners have been removed
-	expect(removeEventListener).toHaveBeenCalledTimes(postLiftAddEventListenerCount);
-	// no more event listeners added
-	expect(addEventListener).toHaveBeenCalledTimes(
-		postLiftAddEventListenerCount + amountOfAdapterEventListeners,
+	// all drag event listeners removed
+	expect(removeWindowEventListener).toHaveBeenCalledTimes(postLiftAddEventListenerCount);
+
+	// post drop event listeners added for the honey pot
+	const postDropAddEventListenerCount =
+		windowAddEventListener.mock.calls.length -
+		postLiftAddEventListenerCount -
+		mountWindowEventListenerCount;
+
+	expect(postDropAddEventListenerCount).toBeGreaterThan(0);
+
+	// release honey pot fix
+	firePointer.move(document.body);
+
+	expect(removeWindowEventListener).toHaveBeenCalledTimes(
+		postLiftAddEventListenerCount + postDropAddEventListenerCount,
 	);
 
 	unbindA();
@@ -145,8 +156,8 @@ it('should keep dragging event listeners bound even if only drop target is remov
 	const ordered: string[] = [];
 
 	// no event listeners added or removed yet
-	expect(addEventListener).toHaveBeenCalledTimes(amountOfAdapterEventListeners);
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowEventListenerCount);
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	const [paragraph] = getElements('p');
 	paragraph.textContent = 'Hello world';
@@ -174,14 +185,14 @@ it('should keep dragging event listeners bound even if only drop target is remov
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
 	const postLiftAddEventListenerCount =
-		addEventListener.mock.calls.length - amountOfAdapterEventListeners;
+		windowAddEventListener.mock.calls.length - mountWindowEventListenerCount;
 	expect(postLiftAddEventListenerCount).toBeGreaterThan(0);
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 
 	// unbinding the only drop target during the drag
 	unbindA();
 	// our drag initiation drag listener is still active (we no longer tie it to drop targets)
-	expect(removeEventListener).not.toHaveBeenCalled();
+	expect(removeWindowEventListener).not.toHaveBeenCalled();
 	// finish the drag
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
 
@@ -189,7 +200,7 @@ it('should keep dragging event listeners bound even if only drop target is remov
 	expect(ordered).toEqual(['monitor:drop']);
 
 	// all drag event listeners removed
-	expect(removeEventListener).toHaveBeenCalledTimes(postLiftAddEventListenerCount);
+	expect(removeWindowEventListener).toHaveBeenCalledTimes(postLiftAddEventListenerCount);
 
 	unbindMonitor();
 });

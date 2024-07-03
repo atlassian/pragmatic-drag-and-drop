@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 
 import { setup } from '../../../../../_utils/setup';
 import App from '../../_utils/app';
@@ -32,6 +32,7 @@ forEachSensor((control: Control) => {
 		expect(getCallCount(addEventListener)).toEqual(getCallCount(removeEventListener));
 	});
 
+	// temporarily disabled to fix master
 	it('should remove all window listeners when unmounting mid drag', () => {
 		const { unmount, getByText } = render(<App />);
 		const handle: HTMLElement = getByText('item: 0');
@@ -42,6 +43,13 @@ forEachSensor((control: Control) => {
 
 		unmount();
 
-		expect(getCallCount(addEventListener)).toEqual(getCallCount(removeEventListener));
+		// unmounting will cause the drag to be cancelled
+		// and the event listeners to clean up the honey pot
+		// fix will be added.
+		// Dispatching an event to remove the honey pot fix.
+
+		fireEvent.pointerDown(window);
+
+		expect(getCallCount(addEventListener)).toBe(getCallCount(removeEventListener));
 	});
 });

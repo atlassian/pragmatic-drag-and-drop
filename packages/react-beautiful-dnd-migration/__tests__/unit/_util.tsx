@@ -6,12 +6,15 @@ import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { attributes, customAttributes } from '../../src/utils/attributes';
 
 export function setElementFromPoint(el: Element | null): CleanupFn {
-	const original = document.elementFromPoint;
+	const originalElementFromPoint = document.elementFromPoint;
+	const originalElementsFromPoint = document.elementsFromPoint;
 
 	document.elementFromPoint = () => el;
+	document.elementsFromPoint = () => (el ? [el] : []);
 
 	return () => {
-		document.elementFromPoint = original;
+		document.elementFromPoint = originalElementFromPoint;
+		document.elementsFromPoint = originalElementsFromPoint;
 	};
 }
 

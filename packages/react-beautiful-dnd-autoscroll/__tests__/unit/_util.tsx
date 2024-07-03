@@ -1,4 +1,4 @@
-import type { CleanupFn, Input } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 export function getDefaultInput(overrides: Partial<Input> = {}): Input {
 	const defaults: Input = {
@@ -59,20 +59,4 @@ export function getElements(tagName: keyof HTMLElementTagNameMap = 'div'): Itera
 		},
 	};
 	return iterator;
-}
-
-export function setElementFromPoint(result: Element | null): CleanupFn {
-	const original = document.elementFromPoint;
-
-	document.elementFromPoint = () => result;
-
-	return () => {
-		document.elementFromPoint = original;
-	};
-}
-
-export function combine(...fns: CleanupFn[]): CleanupFn {
-	return function cleanup() {
-		fns.forEach((fn) => fn());
-	};
 }

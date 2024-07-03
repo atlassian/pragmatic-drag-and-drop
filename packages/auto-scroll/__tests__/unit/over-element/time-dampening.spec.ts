@@ -17,7 +17,7 @@ import {
 	appendToBody,
 	getBubbleOrderedTree,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -61,7 +61,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -206,7 +206,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - right', () => 
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -349,7 +349,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - down', () => {
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -492,7 +492,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - left', () => {
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -626,7 +626,7 @@ it('should dampen the acceleration of auto scrolling [entering into a new drop t
 
 	const ordered: string[] = [];
 
-	let unsetElementFromPoint = setElementFromPointToBe(original);
+	let unsetElementFromPoint = setElementFromPoint(original);
 
 	const cleanup = combine(
 		appendToBody(original),
@@ -686,7 +686,7 @@ it('should dampen the acceleration of auto scrolling [entering into a new drop t
 	// dragging over the top center of our scroll container
 	// while over the 'inner' element
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(child);
+	unsetElementFromPoint = setElementFromPoint(child);
 
 	fireEvent.dragEnter(child, {
 		clientX:
@@ -778,7 +778,7 @@ it('should start time dampening from when the element is dragged over, even if a
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -864,7 +864,7 @@ it('should reset time dampening when re-entering a scrollable element', () => {
 	const { parentScrollContainer, child } = setupBasicScrollContainer();
 	const ordered: string[] = [];
 
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
@@ -988,7 +988,7 @@ it('should reset time dampening when re-entering a scrollable element', () => {
 
 	// leaving the drop target
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(document.body);
+	unsetElementFromPoint = setElementFromPoint(document.body);
 	fireEvent.dragEnter(document.body);
 
 	expect(ordered).toEqual(['dropTarget:leave']);
@@ -1002,7 +1002,7 @@ it('should reset time dampening when re-entering a scrollable element', () => {
 
 	// let's drag back over the drop target
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(child);
+	unsetElementFromPoint = setElementFromPoint(child);
 	fireEvent.dragEnter(child, {
 		clientX:
 			parentScrollContainer.getBoundingClientRect().left +
@@ -1029,7 +1029,7 @@ it('should not reset time dampening if an element is re-registered (in the same 
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1127,7 +1127,7 @@ it('should not reset time dampening if window scrolling is re-registered (in the
 
 	const cleanup = combine(
 		appendToBody(element),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		draggable({
 			element: element,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1220,7 +1220,7 @@ it('should reset time dampening if a element is re-registered in a future frame'
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1332,7 +1332,7 @@ it('should reset time dampening if a element scroll is disabled and re-enabled i
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1438,7 +1438,7 @@ it('should reset time dampening if a window scrolling is re-registered in a futu
 
 	const cleanup = combine(
 		appendToBody(element),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		draggable({
 			element: element,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1550,7 +1550,7 @@ it('should reset time dampening if a window scrolling is re-enabled in a future 
 
 	const cleanup = combine(
 		appendToBody(element),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		draggable({
 			element: element,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1669,7 +1669,7 @@ it('should not dampen time after the time dampening period has finished [on orig
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -1757,7 +1757,7 @@ it('should not dampen time after the time dampening period has finished [on diff
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -1846,7 +1846,7 @@ it('should reset time dampening when doing repeated drag operations', () => {
 
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -1946,7 +1946,7 @@ it('should apply time dampening for window scrolling', () => {
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
 		autoScrollWindowForElements(),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener(event) {

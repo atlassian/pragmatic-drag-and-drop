@@ -9,7 +9,7 @@ import {
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import { getInternalConfig } from '../../../src/shared/configuration';
-import { appendToBody, reset, setElementFromPointToBe, setupBasicScrollContainer } from '../_util';
+import { appendToBody, reset, setElementFromPoint, setupBasicScrollContainer } from '../_util';
 
 // need to use "legacy" timers so we can control
 // the exact amount of time that passes for a frame.
@@ -63,7 +63,7 @@ it('should not scroll faster than the target 60fps scroll change on higher frame
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -156,7 +156,7 @@ it('should not make a scroll change bigger than the target 60fps scroll change w
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -254,7 +254,7 @@ it('should allow the max speed to be configured', () => {
 				maxScrollSpeed,
 			}),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {

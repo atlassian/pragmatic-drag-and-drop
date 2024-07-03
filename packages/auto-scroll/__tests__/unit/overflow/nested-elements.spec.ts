@@ -14,7 +14,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupNestedScrollContainers,
 	stepScrollBy,
@@ -89,7 +89,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 				},
 			}),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -108,7 +108,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 			options: { capture: true },
 		}),
 	);
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	// Set some initial scroll on the scroll containers
 	// These are in the range where auto scrolling will occur on both
@@ -167,7 +167,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		clientY: aboveParent.y,
 	});
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(grandParent);
+	unsetElementFromPoint = setElementFromPoint(grandParent);
 
 	// now expecting just the parent to scroll
 	advanceTimersToNextFrame();
@@ -240,7 +240,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 				},
 			}),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -259,7 +259,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 			options: { capture: true },
 		}),
 	);
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	// Set some initial scroll on the scroll containers
 	// These are in the range where auto scrolling will occur on both
@@ -318,7 +318,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		clientY: aboveParent.y,
 	});
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(grandParent);
+	unsetElementFromPoint = setElementFromPoint(grandParent);
 
 	// now expecting just the parent to scroll
 	advanceTimersToNextFrame();

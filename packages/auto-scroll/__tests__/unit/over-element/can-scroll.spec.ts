@@ -11,7 +11,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -44,7 +44,7 @@ it('should not scroll scroll containers that have canScroll: () => false', () =>
 			element: parentScrollContainer,
 			canScroll: () => isAutoScrollingAllowed,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener: () => ordered.push('scroll event'),

@@ -1,3 +1,4 @@
+import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/private/get-element-from-point-without-honey-pot';
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { getClosestScrollableElement } from './get-closest-scrollable-element';
@@ -45,7 +46,7 @@ export const scroll = ({
 	};
 
 	const tryScrollContainer = () => {
-		const over = document.elementFromPoint(input.clientX, input.clientY);
+		const over = getElementFromPointWithoutHoneypot({ x: input.clientX, y: input.clientY });
 		const closestScrollable: Element | null = getClosestScrollableElement(over);
 
 		if (!closestScrollable) {

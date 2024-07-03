@@ -104,7 +104,7 @@ export function getScrollBy<DragType extends AllDragTypes>({
 			 *
 			 *
 			 * 3. 🐞 Chrome bug
-			 * `document.getElementFromPoint(x, y)` can return an element that does not contain `{x,y}`,
+			 * `document.elementFromPoint(x, y)` can return an element that does not contain `{x,y}`,
 			 * In these cases, `isWithin({client, clientRect: overElementHitbox})` can return `false`.
 			 * https://bugs.chromium.org/p/chromium/issues/detail?id=1500073
 			 */

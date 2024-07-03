@@ -1,5 +1,7 @@
 import { bindAll } from 'bind-event-listener';
 
+import { getElementFromPointWithoutHoneypot } from '../honey-pot-fix/get-element-from-point-without-honey-pot';
+import { isHoneyPotElement } from '../honey-pot-fix/is-honey-pot-element';
 import {
 	type AllDragTypes,
 	type DragLocation,
@@ -10,7 +12,6 @@ import {
 } from '../internal-types';
 import { isLeavingWindow } from '../util/changing-window/is-leaving-window';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';
-import { fixPostDragPointerBug } from '../util/fix-post-drag-pointer-bug';
 import { getInput } from '../util/get-input';
 
 import { makeDispatch } from './dispatch-consumer-event';
@@ -94,7 +95,7 @@ function start<DragType extends AllDragTypes>({
 		initial,
 	});
 
-	function updateDropTargets(next: DragLocation) {
+	function updateState(next: DragLocation) {
 		// only looking at whether hierarchy has changed to determine whether something as 'changed'
 		const hasChanged = hasHierarchyChanged({
 			current: state.current.dropTargets,
@@ -116,8 +117,14 @@ function start<DragType extends AllDragTypes>({
 	function onUpdateEvent(event: DragEvent) {
 		const input: Input = getInput(event);
 
+		// If we are over the honey pot, we need to get the element
+		// that the user would have been over if not for the honey pot
+		const target = isHoneyPotElement(event.target)
+			? getElementFromPointWithoutHoneypot({ x: input.clientX, y: input.clientY })
+			: event.target;
+
 		const nextDropTargets = getDropTargetsOver({
-			target: event.target,
+			target,
 			input,
 			source: dragType.payload,
 			current: state.current.dropTargets,
@@ -126,11 +133,10 @@ function start<DragType extends AllDragTypes>({
 		if (nextDropTargets.length) {
 			// 🩸 must call `event.preventDefault()` to allow a browser drop to occur
 			event.preventDefault();
-
 			setDropEffectOnEvent({ event, current: nextDropTargets });
 		}
 
-		updateDropTargets({ dropTargets: nextDropTargets, input });
+		updateState({ dropTargets: nextDropTargets, input });
 	}
 
 	function cancel() {
@@ -143,7 +149,7 @@ function start<DragType extends AllDragTypes>({
 		// will have already cleared the dropTargets to `[]` (as that particular "dragleave" has a `relatedTarget` of `null`)
 
 		if (state.current.dropTargets.length) {
-			updateDropTargets({ dropTargets: [], input: state.current.input });
+			updateState({ dropTargets: [], input: state.current.input });
 		}
 
 		dispatch.drop({
@@ -241,7 +247,7 @@ function start<DragType extends AllDragTypes>({
 					 * - [Bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1429937)
 					 **/
 
-					updateDropTargets({ input: state.current.input, dropTargets: [] });
+					updateState({ input: state.current.input, dropTargets: [] });
 
 					if (dragType.startedFrom === 'external') {
 						cancel();
@@ -252,6 +258,14 @@ function start<DragType extends AllDragTypes>({
 				// A "drop" can only happen if the browser allowed the drop
 				type: 'drop',
 				listener(event: DragEvent) {
+					// Capture the final input.
+					// We are capturing the final `input` for the
+					// most accurate honey pot experience
+					state.current = {
+						dropTargets: state.current.dropTargets,
+						input: getInput(event),
+					};
+
 					/** If there are no drop targets, then we will get
 					 * a "drop" event if:
 					 * - `preventUnhandled()` is being used
@@ -264,7 +278,6 @@ function start<DragType extends AllDragTypes>({
 
 					if (!state.current.dropTargets.length) {
 						cancel();
-						// not applying our post drop fix as we are not managing the drop
 						return;
 					}
 
@@ -282,12 +295,6 @@ function start<DragType extends AllDragTypes>({
 					});
 
 					finish();
-
-					// Applying this fix after `dispatch.drop` so that frameworks have the opportunity
-					// to update UI in response to a "onDrop".
-					if (dragType.startedFrom === 'internal') {
-						fixPostDragPointerBug({ current: state.current });
-					}
 				},
 			},
 			{
@@ -299,15 +306,18 @@ function start<DragType extends AllDragTypes>({
 
 				// This "dragend" listener will not fire if there was a successful drop
 				// as we will have already removed the event listener
-				type: 'dragend',
-				listener(event: DragEvent) {
-					cancel();
 
-					// Applying this fix after `dispatch.drop` so that frameworks have the opportunity
-					// to update UI in response to a "onDrop".
-					if (dragType.startedFrom === 'internal') {
-						fixPostDragPointerBug({ current: state.current });
-					}
+				type: 'dragend',
+				listener(event) {
+					// In firefox, the position of the "dragend" event can
+					// be a bit different to the last "dragover" event.
+					// Updating the input so we can get the best possible
+					// information for the honey pot.
+					state.current = {
+						dropTargets: state.current.dropTargets,
+						input: getInput(event),
+					};
+					cancel();
 				},
 			},
 			...getBindingsForBrokenDrags({

@@ -1,5 +1,7 @@
 import { bind } from 'bind-event-listener';
 
+import { getElementFromPointWithoutHoneypot } from '../honey-pot-fix/get-element-from-point-without-honey-pot';
+import { makeHoneyPotFix } from '../honey-pot-fix/make-honey-pot-fix';
 import {
 	type AdapterAPI,
 	type AllEvents,
@@ -76,6 +78,8 @@ function addToRegistry(args: DraggableArgs): CleanupFn {
 	};
 }
 
+const honeyPotFix = makeHoneyPotFix();
+
 const adapter = makeAdapter<ElementDragType>({
 	typeKey: 'element',
 	defaultDropEffect: 'move',
@@ -85,31 +89,33 @@ const adapter = makeAdapter<ElementDragType>({
 		 * `document` is the first `EventTarget` under `window`
 		 * https://twitter.com/alexandereardon/status/1604658588311465985
 		 */
-		return bind(document, {
-			type: 'dragstart',
-			listener(event: DragEvent) {
-				if (!api.canStart(event)) {
-					return;
-				}
+		return combine(
+			honeyPotFix.bindEvents(),
+			bind(document, {
+				type: 'dragstart',
+				listener(event: DragEvent) {
+					if (!api.canStart(event)) {
+						return;
+					}
 
-				// If the "dragstart" event is cancelled, then a drag won't start
-				// There will be no further drag operation events (eg no "dragend" event)
-				if (event.defaultPrevented) {
-					return;
-				}
+					// If the "dragstart" event is cancelled, then a drag won't start
+					// There will be no further drag operation events (eg no "dragend" event)
+					if (event.defaultPrevented) {
+						return;
+					}
 
-				// Technically `dataTransfer` can be `null` according to the types
-				// But that behaviour does not seem to appear in the spec.
-				// If there is not `dataTransfer`, we can assume something is wrong and not
-				// start a drag
-				if (!event.dataTransfer) {
-					// Including this code on "test" and "development" environments:
-					// - Browser tests commonly run against "development" builds
-					// - Unit tests commonly run in "test"
-					if (process.env.NODE_ENV !== 'production') {
-						// eslint-disable-next-line no-console
-						console.warn(
-							`
+					// Technically `dataTransfer` can be `null` according to the types
+					// But that behaviour does not seem to appear in the spec.
+					// If there is not `dataTransfer`, we can assume something is wrong and not
+					// start a drag
+					if (!event.dataTransfer) {
+						// Including this code on "test" and "development" environments:
+						// - Browser tests commonly run against "development" builds
+						// - Unit tests commonly run in "test"
+						if (process.env.NODE_ENV !== 'production') {
+							// eslint-disable-next-line no-console
+							console.warn(
+								`
               It appears as though you have are not testing DragEvents correctly.
 
               - If you are unit testing, ensure you have polyfilled DragEvent.
@@ -118,135 +124,146 @@ const adapter = makeAdapter<ElementDragType>({
               Please see our testing guides for more information:
               https://atlassian.design/components/pragmatic-drag-and-drop/core-package/testing
             `.replace(/ {2}/g, ''),
-						);
+							);
+						}
+						return;
 					}
-					return;
-				}
 
-				// the closest parent that is a draggable element will be marked as
-				// the `event.target` for the event
-				const target: EventTarget | null = event.target;
+					// the closest parent that is a draggable element will be marked as
+					// the `event.target` for the event
+					const target: EventTarget | null = event.target;
 
-				// this source is only for elements
-				// Note: only HTMLElements can have the "draggable" attribute
-				if (!(target instanceof HTMLElement)) {
-					return null;
-				}
+					// this source is only for elements
+					// Note: only HTMLElements can have the "draggable" attribute
+					if (!(target instanceof HTMLElement)) {
+						return null;
+					}
 
-				// see if the thing being dragged is owned by us
-				const entry: DraggableArgs | undefined = draggableRegistry.get(target);
+					// see if the thing being dragged is owned by us
+					const entry: DraggableArgs | undefined = draggableRegistry.get(target);
 
-				// no matching element found
-				// → dragging an element with `draggable="true"` that is not controlled by us
-				if (!entry) {
-					return null;
-				}
+					// no matching element found
+					// → dragging an element with `draggable="true"` that is not controlled by us
+					if (!entry) {
+						return null;
+					}
 
-				const input: Input = getInput(event);
+					const input: Input = getInput(event);
 
-				const feedback: DraggableGetFeedbackArgs = {
-					element: entry.element,
-					dragHandle: entry.dragHandle ?? null,
-					input,
-				};
+					const feedback: DraggableGetFeedbackArgs = {
+						element: entry.element,
+						dragHandle: entry.dragHandle ?? null,
+						input,
+					};
 
-				// Check: does the draggable want to allow dragging?
-				if (entry.canDrag && !entry.canDrag(feedback)) {
-					// cancel drag operation if we cannot drag
-					event.preventDefault();
-					return null;
-				}
-
-				// Check: is there a drag handle and is the user using it?
-				if (entry.dragHandle) {
-					const over = document.elementFromPoint(input.clientX, input.clientY);
-
-					// if we are not dragging from the drag handle (or something inside the drag handle)
-					// then we will cancel the active drag
-					if (!entry.dragHandle.contains(over)) {
+					// Check: does the draggable want to allow dragging?
+					if (entry.canDrag && !entry.canDrag(feedback)) {
+						// cancel drag operation if we cannot drag
 						event.preventDefault();
 						return null;
 					}
-				}
 
-				/**
-				 *  **Goal**
-				 *  Pass information to other applications
-				 *
-				 * **Approach**
-				 *  Put data into the native data store
-				 *
-				 *  **What about the native adapter?**
-				 *  When the element adapter puts native data into the native data store
-				 *  the native adapter is not triggered in the current window,
-				 *  but a native adapter in an external window _can_ be triggered
-				 *
-				 *  **Why bake this into core?**
-				 *  This functionality could be pulled out and exposed inside of
-				 *  `onGenerateDragPreview`. But decided to make it a part of the
-				 *  base API as it felt like a common enough use case and ended
-				 *  up being a similar amount of code to include this function as
-				 *  it was to expose the hook for it
-				 */
-				const nativeData = entry.getInitialDataForExternal?.(feedback) ?? null;
+					// Check: is there a drag handle and is the user using it?
+					if (entry.dragHandle) {
+						// technically don't need this util, but just being
+						// consistent with how we look up what is under the users
+						// cursor.
+						const over = getElementFromPointWithoutHoneypot({
+							x: input.clientX,
+							y: input.clientY,
+						});
 
-				if (nativeData) {
-					for (const [key, data] of Object.entries(nativeData)) {
-						event.dataTransfer.setData(key, data ?? '');
+						// if we are not dragging from the drag handle (or something inside the drag handle)
+						// then we will cancel the active drag
+						if (!entry.dragHandle.contains(over)) {
+							event.preventDefault();
+							return null;
+						}
 					}
-				}
 
-				/**
-				 *  📱 For Android devices, a drag operation will not start unless
-				 * "text/plain" or "text/uri-list" data exists in the native data store
-				 * https://twitter.com/alexandereardon/status/1732189803754713424
-				 *
-				 * Tested on:
-				 * Device: Google Pixel 5
-				 * Android version: 14 (November 5, 2023)
-				 * Chrome version: 120.0
-				 */
-				const { types } = event.dataTransfer;
-				if (isAndroid() && !types.includes(textMediaType) && !types.includes(urlMediaType)) {
-					event.dataTransfer.setData(textMediaType, androidFallbackText);
-				}
+					/**
+					 *  **Goal**
+					 *  Pass information to other applications
+					 *
+					 * **Approach**
+					 *  Put data into the native data store
+					 *
+					 *  **What about the native adapter?**
+					 *  When the element adapter puts native data into the native data store
+					 *  the native adapter is not triggered in the current window,
+					 *  but a native adapter in an external window _can_ be triggered
+					 *
+					 *  **Why bake this into core?**
+					 *  This functionality could be pulled out and exposed inside of
+					 *  `onGenerateDragPreview`. But decided to make it a part of the
+					 *  base API as it felt like a common enough use case and ended
+					 *  up being a similar amount of code to include this function as
+					 *  it was to expose the hook for it
+					 */
+					const nativeData = entry.getInitialDataForExternal?.(feedback) ?? null;
 
-				/**
-				 * 1. Must set any media type for `iOS15` to work
-				 * 2. We are also doing adding data so that the native adapter
-				 * can know that the element adapter has handled this drag
-				 *
-				 * We used to wrap this `setData()` in a `try/catch` for Firefox,
-				 * but it looks like that was not needed.
-				 *
-				 * Tested using: https://codesandbox.io/s/checking-firefox-throw-behaviour-on-dragstart-qt8h4f
-				 *
-				 * - ✅ Firefox@70.0 (Oct 2019) on macOS Sonoma
-				 * - ✅ Firefox@70.0 (Oct 2019) on macOS Big Sur
-				 * - ✅ Firefox@70.0 (Oct 2019) on Windows 10
-				 *
-				 * // just checking a few more combinations to be super safe
-				 *
-				 * - ✅ Chrome@78 (Oct 2019) on macOS Big Sur
-				 * - ✅ Chrome@78 (Oct 2019) on Windows 10
-				 * - ✅ Safari@14.1 on macOS Big Sur
-				 */
-				event.dataTransfer.setData(elementAdapterNativeDataKey, '');
+					if (nativeData) {
+						for (const [key, data] of Object.entries(nativeData)) {
+							event.dataTransfer.setData(key, data ?? '');
+						}
+					}
 
-				const payload: ElementDragType['payload'] = {
-					element: entry.element,
-					dragHandle: entry.dragHandle ?? null,
-					data: entry.getInitialData?.(feedback) ?? {},
-				};
+					/**
+					 *  📱 For Android devices, a drag operation will not start unless
+					 * "text/plain" or "text/uri-list" data exists in the native data store
+					 * https://twitter.com/alexandereardon/status/1732189803754713424
+					 *
+					 * Tested on:
+					 * Device: Google Pixel 5
+					 * Android version: 14 (November 5, 2023)
+					 * Chrome version: 120.0
+					 */
+					const { types } = event.dataTransfer;
+					if (isAndroid() && !types.includes(textMediaType) && !types.includes(urlMediaType)) {
+						event.dataTransfer.setData(textMediaType, androidFallbackText);
+					}
 
-				const dragType: ElementDragType = {
-					type: 'element',
-					payload,
-					startedFrom: 'internal',
-				};
-				api.start({ event, dragType });
-			},
-		});
+					/**
+					 * 1. Must set any media type for `iOS15` to work
+					 * 2. We are also doing adding data so that the native adapter
+					 * can know that the element adapter has handled this drag
+					 *
+					 * We used to wrap this `setData()` in a `try/catch` for Firefox,
+					 * but it looks like that was not needed.
+					 *
+					 * Tested using: https://codesandbox.io/s/checking-firefox-throw-behaviour-on-dragstart-qt8h4f
+					 *
+					 * - ✅ Firefox@70.0 (Oct 2019) on macOS Sonoma
+					 * - ✅ Firefox@70.0 (Oct 2019) on macOS Big Sur
+					 * - ✅ Firefox@70.0 (Oct 2019) on Windows 10
+					 *
+					 * // just checking a few more combinations to be super safe
+					 *
+					 * - ✅ Chrome@78 (Oct 2019) on macOS Big Sur
+					 * - ✅ Chrome@78 (Oct 2019) on Windows 10
+					 * - ✅ Safari@14.1 on macOS Big Sur
+					 */
+					event.dataTransfer.setData(elementAdapterNativeDataKey, '');
+
+					const payload: ElementDragType['payload'] = {
+						element: entry.element,
+						dragHandle: entry.dragHandle ?? null,
+						data: entry.getInitialData?.(feedback) ?? {},
+					};
+
+					const dragType: ElementDragType = {
+						type: 'element',
+						payload,
+						startedFrom: 'internal',
+					};
+
+					api.start({
+						event,
+						dragType,
+					});
+				},
+			}),
+		);
 	},
 	dispatchEventToSource: <EventName extends keyof EventPayloadMap<ElementDragType>>({
 		eventName,
@@ -268,6 +285,7 @@ const adapter = makeAdapter<ElementDragType>({
 			payload,
 		);
 	},
+	onPostDispatch: honeyPotFix.getOnPostDispatch(),
 });
 
 export const dropTargetForElements = adapter.dropTarget;

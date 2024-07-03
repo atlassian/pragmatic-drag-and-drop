@@ -15,12 +15,17 @@ export function makeAdapter<DragType extends AllDragTypes>({
 	typeKey,
 	mount,
 	dispatchEventToSource,
+	onPostDispatch,
 	defaultDropEffect,
 }: {
 	typeKey: DragType['type'];
 	mount: (api: AdapterAPI<DragType>) => CleanupFn;
 	defaultDropEffect: DropTargetAllowedDropEffect;
 	dispatchEventToSource?: <EventName extends keyof EventPayloadMap<DragType>>(args: {
+		eventName: EventName;
+		payload: EventPayloadMap<DragType>[EventName];
+	}) => void;
+	onPostDispatch?: <EventName extends keyof EventPayloadMap<DragType>>(args: {
 		eventName: EventName;
 		payload: EventPayloadMap<DragType>[EventName];
 	}) => void;
@@ -43,6 +48,9 @@ export function makeAdapter<DragType extends AllDragTypes>({
 
 		// 3. forward event to monitors
 		monitorAPI.dispatchEvent(args);
+
+		// 4. post consumer dispatch (used for honey pot fix)
+		onPostDispatch?.(args);
 	}
 
 	function start({ event, dragType }: { event: DragEvent; dragType: DragType }) {

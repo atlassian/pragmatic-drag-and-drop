@@ -14,7 +14,7 @@
   "types": "dist/types/index.d.ts",
   "sideEffects": false,
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.1.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.2.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.0.0",
     "@atlaskit/tokens": "^1.53.0",
     "@babel/runtime": "^7.0.0",

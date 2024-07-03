@@ -11,7 +11,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -42,7 +42,7 @@ it('should stop scrolling when a drag ends', () => {
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -119,7 +119,7 @@ it('should not start scrolling if the drag is cancelled in the first frame', () 
 		autoScrollForElements({
 			element: parentScrollContainer,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {

@@ -15,7 +15,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -74,7 +74,7 @@ scenarios.forEach(({ axis, side }) => {
 
 		const cleanup = combine(
 			appendToBody(parentScrollContainer),
-			setElementFromPointToBe(child),
+			setElementFromPoint(child),
 			draggable({
 				element: child,
 				onDragStart: () => ordered.push('draggable:start'),

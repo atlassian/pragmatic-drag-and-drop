@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop",
-  "version": "1.1.12",
+  "version": "1.2.0",
   "description": "The core package for Pragmatic drag and drop - enabling fast drag and drop for any experience on any tech stack",
   "repository": "https://github.com/atlassian/pragmatic-drag-and-drop",
   "author": "Atlassian Pty Ltd",
@@ -29,6 +29,7 @@
     "./external/text": "./src/entry-point/external/text.ts",
     "./external/url": "./src/entry-point/external/url.ts",
     "./external/some": "./src/entry-point/external/some.ts",
+    "./private/get-element-from-point-without-honey-pot": "./src/entry-point/private/get-element-from-point-without-honey-pot.ts",
     "./text-selection/adapter": "./src/entry-point/text-selection/adapter.ts",
     "./combine": "./src/entry-point/combine.ts",
     "./once": "./src/entry-point/once.ts",

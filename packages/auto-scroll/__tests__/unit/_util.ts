@@ -169,8 +169,13 @@ export function getBubbleOrderedTree(
 export const userEvent = {
 	lift(target: HTMLElement, input?: Partial<Input>) {
 		const final: Input = { ...getDefaultInput(), ...input };
+		// accurate representation of events:
+		firePointer.down(target, final);
+		firePointer.move(target, { ...final, clientX: final.clientX + 10 });
+
 		// will fire `onGenerateDragPreview`
 		fireEvent.dragStart(target, final);
+		firePointer.cancel(target, final);
 
 		// after an animation frame we fire `onDragStart`
 		advanceTimersToNextFrame();
@@ -213,21 +218,40 @@ export async function reset(): Promise<void> {
 	// cleanup any pending drags
 	fireEvent.dragEnd(window);
 
-	// Cleaning up post-drop fix
-	// Waiting for a microtask just incase the microtask queue has not been flushed by jest
-	// [Discussion](https://twitter.com/alexandereardon/status/1635059194226446342)
-	await 'microtask';
+	// cleanup honey pot fix
 	fireEvent.pointerMove(window);
 }
 
-export function setElementFromPointToBe(element: Element): CleanupFn {
-	const original = document.elementFromPoint;
+export function getBubbleOrderedPath(path: Element[]): Element[] {
+	const last = path[path.length - 1];
+	// will happen if you pass in an empty array
+	if (!last) {
+		return path;
+	}
+	// exit condition: no more parents
+	if (!last.parentElement) {
+		return path;
+	}
+	// bubble ordered
+	return getBubbleOrderedPath([...path, last.parentElement]);
+}
 
-	document.elementFromPoint = () => element;
+export function setElementFromPointWithPath(path: Element[]): CleanupFn {
+	const originalElementFromPoint = document.elementFromPoint;
+	const originalElementsFromPoint = document.elementsFromPoint;
 
-	return function cleanup() {
-		document.elementFromPoint = original;
+	document.elementsFromPoint = () => path;
+	document.elementFromPoint = () => path[0] ?? null;
+
+	return () => {
+		document.elementFromPoint = originalElementFromPoint;
+		document.elementsFromPoint = originalElementsFromPoint;
 	};
+}
+
+export function setElementFromPoint(element: Element | null): CleanupFn {
+	const path = element ? getBubbleOrderedPath([element]) : [];
+	return setElementFromPointWithPath(path);
 }
 
 /** Release a pending scrollBy (they are scheduled for the next task) */
@@ -271,7 +295,7 @@ type BasicElementArgs = {
 	y?: number;
 	id?: string;
 };
-export function setupNestedScrollContainers(bubbleOrdered: BasicElementArgs[]) {
+export function setupNestedScrollContainers(bubbleOrdered: BasicElementArgs[]): HTMLElement[] {
 	// argument validation
 	for (let i = 0; i < bubbleOrdered.length - 1; i++) {
 		const current = bubbleOrdered[i];
@@ -580,3 +604,29 @@ export function getExpectedEvents(movement: AxisMovement): Event[] {
 			]
 		: [];
 }
+
+export const firePointer = (() => {
+	type TTarget = Element | Window | Document;
+	function makeDispatch(eventName: string) {
+		return function dispatch(target: TTarget, input: Partial<Input> = {}) {
+			const inputWithDefaults = {
+				...getDefaultInput(),
+				...input,
+			};
+			target.dispatchEvent(
+				new MouseEvent(eventName, {
+					bubbles: true,
+					cancelable: true,
+					...inputWithDefaults,
+				}),
+			);
+		};
+	}
+
+	return {
+		down: makeDispatch('pointerdown'),
+		up: makeDispatch('pointerup'),
+		move: makeDispatch('pointermove'),
+		cancel: makeDispatch('pointercancel'),
+	};
+})();

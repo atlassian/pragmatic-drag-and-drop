@@ -133,12 +133,12 @@ it('should not update input published to users based on the "dragleave" event', 
 	ordered.length = 0;
 
 	// [A] -> cancel. Part 2: dragend
-	fireEvent.dragEnd(A);
+	fireEvent.dragEnd(A, { clientX: 6, clientY: 7 });
 
-	// using input from last `dragOver`
+	// using input from "dragend"
 	expect(ordered).toEqual([
-		getEntry('draggable:drop', { clientX: 7, clientY: 8 }),
-		getEntry('monitor:drop', { clientX: 7, clientY: 8 }),
+		getEntry('draggable:drop', { clientX: 6, clientY: 7 }),
+		getEntry('monitor:drop', { clientX: 6, clientY: 7 }),
 	]);
 
 	cleanup();

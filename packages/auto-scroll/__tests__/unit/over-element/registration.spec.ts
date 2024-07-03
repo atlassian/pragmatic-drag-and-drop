@@ -11,7 +11,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -32,7 +32,7 @@ it('should not scroll scrollable elements that are not registered', () => {
 	// not marking outerScrollContainer as a scroll container
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		draggable({
 			element: child,
 			onDragStart: () => ordered.push('draggable:start'),
@@ -100,7 +100,7 @@ it('should not scroll scrollable elements that are no longer registered', () => 
 			onDragLeave: () => ordered.push('dropTarget:leave'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {
@@ -169,7 +169,7 @@ it('should scroll scrollable elements are registered mid drag', () => {
 			onDragLeave: () => ordered.push('dropTarget:leave'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener() {

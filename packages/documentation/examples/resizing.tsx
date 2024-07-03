@@ -5,7 +5,6 @@ import { type CSSProperties, Fragment, memo, useEffect, useRef, useState } from 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { CodeBlock } from '@atlaskit/code';
 import { ButtonItem, MenuGroup, Section } from '@atlaskit/menu';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
@@ -113,9 +112,7 @@ const sidebarDividerStyles = css({
 	flexShrink: '0',
 	position: 'relative',
 	background: 'transparent',
-
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
-	'::before': {
+	'&::before': {
 		background: token('color.border.brand', '#0C66E4'),
 		content: '""',
 		position: 'absolute',
@@ -223,6 +220,29 @@ function Sidebar() {
 	);
 }
 
+const itemStyles = css({
+	width: '40px',
+	height: '40px',
+	border: `1px solid ${token('color.border')}`,
+	borderRadius: 'var(--border-radius)',
+	'&:hover': {
+		background: token('color.background.accent.green.subtle'),
+	},
+	'&:active': {
+		background: token('color.background.accent.blue.subtle'),
+	},
+});
+
+function Item({ itemId }: { itemId: string }) {
+	return <div css={itemStyles} />;
+}
+
+const gridStyles = css({
+	display: 'flex',
+	flexWrap: 'wrap',
+	gap: 'var(--grid)',
+});
+
 const stackStyles = css({
 	display: 'flex',
 	flexDirection: 'column',
@@ -231,11 +251,15 @@ const stackStyles = css({
 });
 
 function Content() {
+	const [itemIds] = useState(() => Array.from({ length: 40 }, (_, index) => `item: ${index}`));
+
 	return (
 		<div css={stackStyles}>
-			<h2>Code review</h2>
-			<div>
-				<CodeBlock language="tsx" text="console.log('hello world');" />
+			{/* <h2>Code review</h2> */}
+			<div css={gridStyles}>
+				{itemIds.map((itemId) => (
+					<Item itemId={itemId} key={itemId} />
+				))}
 			</div>
 		</div>
 	);

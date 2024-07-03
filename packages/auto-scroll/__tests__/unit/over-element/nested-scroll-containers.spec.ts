@@ -13,7 +13,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupNestedScrollContainers,
 	stepScrollBy,
@@ -67,7 +67,7 @@ it('should scroll inner elements before outer elements [single axis]', () => {
 		autoScrollForElements({
 			element: grandParent,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -178,7 +178,7 @@ it('should scroll inner elements before outer elements [both axis at a time]', (
 		autoScrollForElements({
 			element: grandParent,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -317,7 +317,7 @@ it('should only scroll one scroll container per axis [case: inner is scrolling o
 		autoScrollForElements({
 			element: grandParent,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -483,7 +483,7 @@ it('should only scroll one scroll container per axis [case: inner is scrolling o
 		autoScrollForElements({
 			element: grandParent,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -659,7 +659,7 @@ it('should ignore scroll containers that have `canScroll: () => false` [case: in
 		autoScrollForElements({
 			element: greatGrandParent,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {

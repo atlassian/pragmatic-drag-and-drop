@@ -15,6 +15,9 @@ const windowRemoveEventListener = jest.spyOn(window, 'removeEventListener');
 
 jest.resetModules();
 
+const mountWindowListenerCount = 1;
+const mountDocumentListenerCount = 1;
+
 afterEach(() => {
 	windowAddEventListener.mockClear();
 	windowRemoveEventListener.mockClear();
@@ -28,7 +31,6 @@ afterEach(async () => {
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
 
 	// Flushing postDropBugFix
-	await 'microtask';
 	window.dispatchEvent(new Event('pointerdown'));
 });
 
@@ -52,9 +54,10 @@ it('should add event listeners when the first draggable is mounted', () => {
 		}),
 	);
 
-	// initial listener added after registration
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).not.toHaveBeenCalled();
+	// initial listeners added after registration
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
+
 	unbind();
 });
 
@@ -73,8 +76,9 @@ it('should not add event listeners when multiple draggables are mounted', () => 
 		}),
 	);
 
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).not.toHaveBeenCalled();
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
+
 	unbind();
 });
 
@@ -111,16 +115,16 @@ it('should remove initiating event listener when an only draggable is removed', 
 		}),
 	);
 
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).toHaveBeenCalledTimes(0);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 	// nothing removed yet
 	expect(documentRemoveEventListener).not.toHaveBeenCalled();
 	expect(windowRemoveEventListener).not.toHaveBeenCalled();
 
 	unbindA();
 
-	expect(documentRemoveEventListener).toHaveBeenCalledTimes(1);
-	expect(windowRemoveEventListener).not.toHaveBeenCalled();
+	expect(documentRemoveEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 });
 
 it('should remove initiating event listener when the last draggable is removed', () => {
@@ -146,8 +150,8 @@ it('should remove initiating event listener when the last draggable is removed',
 		}),
 	);
 
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).toHaveBeenCalledTimes(0);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 	// nothing removed yet
 	expect(documentRemoveEventListener).not.toHaveBeenCalled();
 	expect(windowRemoveEventListener).not.toHaveBeenCalled();
@@ -160,8 +164,8 @@ it('should remove initiating event listener when the last draggable is removed',
 
 	unbindB();
 
-	expect(documentRemoveEventListener).toHaveBeenCalledTimes(1);
-	expect(windowRemoveEventListener).not.toHaveBeenCalled();
+	expect(documentRemoveEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 });
 
 it('should bind event listeners needed for the drag only while dragging (drag cancelled)', async () => {
@@ -185,8 +189,8 @@ it('should bind event listeners needed for the drag only while dragging (drag ca
 		}),
 	);
 
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).not.toHaveBeenCalled();
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 
 	// let's start a drag
 	A.dispatchEvent(new DragEvent('dragstart', { cancelable: true, bubbles: true }));
@@ -196,10 +200,11 @@ it('should bind event listeners needed for the drag only while dragging (drag ca
 	ordered.length = 0;
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
-	const postLiftWindowAddEventListenerCount = windowAddEventListener.mock.calls.length;
-	expect(postLiftWindowAddEventListenerCount).toBeGreaterThan(1);
+	const postLiftWindowAddEventListenerCount =
+		windowAddEventListener.mock.calls.length - mountWindowListenerCount;
+	expect(postLiftWindowAddEventListenerCount).toBeGreaterThan(0);
 	// unchanged
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
 
 	// cancel the current drag
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
@@ -210,7 +215,7 @@ it('should bind event listeners needed for the drag only while dragging (drag ca
 	expect(windowRemoveEventListener).toHaveBeenCalledTimes(postLiftWindowAddEventListenerCount);
 
 	// unchanged
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
 	expect(documentRemoveEventListener).not.toHaveBeenCalled();
 
 	unbindA();
@@ -243,8 +248,8 @@ it('should bind event listeners needed for the drag only while dragging (success
 		}),
 	);
 
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
-	expect(windowAddEventListener).not.toHaveBeenCalled();
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 
 	// let's start a drag
 	A.dispatchEvent(new DragEvent('dragstart', { cancelable: true, bubbles: true }));
@@ -259,10 +264,11 @@ it('should bind event listeners needed for the drag only while dragging (success
 	ordered.length = 0;
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
-	const postLiftWindowAddEventListenerCount = windowAddEventListener.mock.calls.length;
-	expect(postLiftWindowAddEventListenerCount).toBeGreaterThan(1);
+	const postLiftWindowAddEventListenerCount =
+		windowAddEventListener.mock.calls.length - mountWindowListenerCount;
+	expect(postLiftWindowAddEventListenerCount).toBeGreaterThan(0);
 	// unchanged
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
 
 	// drop on A
 	A.dispatchEvent(new DragEvent('drop', { cancelable: true, bubbles: true }));
@@ -273,7 +279,7 @@ it('should bind event listeners needed for the drag only while dragging (success
 	expect(windowRemoveEventListener).toHaveBeenCalledTimes(postLiftWindowAddEventListenerCount);
 
 	// unchanged
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
 	expect(documentRemoveEventListener).not.toHaveBeenCalled();
 
 	unbindA();
@@ -306,11 +312,11 @@ it('should keep dragging event listeners bound even if only draggable is removed
 	});
 
 	// initiating event listener added
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 	// Note: Cannot reset the mock. It causes internal reference mismatches
 	// documentAddEventListener.mockReset();
 	// no dragging event listeners added
-	expect(windowAddEventListener).not.toHaveBeenCalled();
 
 	// let's start a drag
 	A.dispatchEvent(new DragEvent('dragstart', { cancelable: true, bubbles: true }));
@@ -325,16 +331,17 @@ it('should keep dragging event listeners bound even if only draggable is removed
 	ordered.length = 0;
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
-	const postLiftAddEventListenerCount = windowAddEventListener.mock.calls.length;
-	expect(postLiftAddEventListenerCount).toBeGreaterThan(0);
+	const postWindowLiftAddEventListenerCount =
+		windowAddEventListener.mock.calls.length - mountWindowListenerCount;
+	expect(postWindowLiftAddEventListenerCount).toBeGreaterThan(0);
 	expect(windowRemoveEventListener).not.toHaveBeenCalled();
 
 	// unbinding the only draggable mid drag
 	unbindA();
-	// "dragstart" event listener removed on the `document`,
+	// "dragstart" and "pointermove" event listener removed on the `document`,
 	// but other event listeners for the drag are still active
-	expect(documentRemoveEventListener).toHaveBeenCalledTimes(1);
-	expect(windowRemoveEventListener).toHaveBeenCalledTimes(0);
+	expect(documentRemoveEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
 
 	// finish the drag
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
@@ -343,7 +350,9 @@ it('should keep dragging event listeners bound even if only draggable is removed
 	expect(ordered).toEqual(['monitor:drop']);
 
 	// all dragging event listeners removed
-	expect(windowRemoveEventListener).toHaveBeenCalledTimes(postLiftAddEventListenerCount);
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(
+		mountDocumentListenerCount + postWindowLiftAddEventListenerCount,
+	);
 
 	unbindMonitor();
 });
@@ -375,11 +384,11 @@ it('should keep dragging event listeners bound if only draggable is remounted mi
 	});
 
 	// initiating event listener added
-	expect(documentAddEventListener).toHaveBeenCalledTimes(1);
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 	// Note: Cannot reset the mock. It causes internal reference mismatches
 	// documentAddEventListener.mockReset();
 	// no dragging event listeners added
-	expect(windowAddEventListener).not.toHaveBeenCalled();
 
 	// let's start a drag
 	A.dispatchEvent(new DragEvent('dragstart', { cancelable: true, bubbles: true }));
@@ -394,14 +403,17 @@ it('should keep dragging event listeners bound if only draggable is remounted mi
 	ordered.length = 0;
 
 	// we expect that *new* event listeners have been added for the duration of a the drag
-	const postListWindowAddEventListenerCount = windowAddEventListener.mock.calls.length;
-	expect(postListWindowAddEventListenerCount).toBeGreaterThan(0);
+	const postLiftWindowAddEventListenerCount =
+		windowAddEventListener.mock.calls.length - mountWindowListenerCount;
+	expect(postLiftWindowAddEventListenerCount).toBeGreaterThan(0);
 	expect(windowRemoveEventListener).not.toHaveBeenCalled();
 
 	// unbinding the only draggable mid drag
 	unbindA1();
-	// "dragstart" event listener removed, but other event listeners for the drag are still active
-	expect(documentRemoveEventListener).toHaveBeenCalledTimes(1);
+
+	// "dragstart" and "pointermove" event listener removed, but other event listeners for the drag are still active
+	expect(documentRemoveEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount);
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(mountWindowListenerCount);
 
 	const unbindA2 = combine(
 		appendToBody(A),
@@ -413,8 +425,12 @@ it('should keep dragging event listeners bound if only draggable is remounted mi
 		}),
 	);
 
-	// Due to new registration, a new "dragstart" event listener is added to the document
-	expect(documentAddEventListener).toHaveBeenCalledTimes(2);
+	// Due to new registration, a new "dragstart" and "pointermove"
+	// event listeners are added to the document
+	expect(documentAddEventListener).toHaveBeenCalledTimes(mountDocumentListenerCount * 2);
+	expect(windowAddEventListener).toHaveBeenCalledTimes(
+		mountWindowListenerCount * 2 + postLiftWindowAddEventListenerCount,
+	);
 
 	// finish the drag
 	window.dispatchEvent(new DragEvent('dragend', { cancelable: true, bubbles: true }));
@@ -422,8 +438,10 @@ it('should keep dragging event listeners bound if only draggable is remounted mi
 	// because 'A' is the key, A2 is treated as the original draggable
 	expect(ordered).toEqual(['draggable(2):drop', 'monitor:drop']);
 
-	// all event listeners removed (including initiating event listener)
-	expect(windowRemoveEventListener).toHaveBeenCalledTimes(postListWindowAddEventListenerCount);
+	// all event listeners removed (including the first initiating event listener)
+	expect(windowRemoveEventListener).toHaveBeenCalledTimes(
+		mountWindowListenerCount + postLiftWindowAddEventListenerCount,
+	);
 
 	unbindMonitor();
 	unbindA2();

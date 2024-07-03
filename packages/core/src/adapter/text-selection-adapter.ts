@@ -1,5 +1,6 @@
-import { bindAll } from 'bind-event-listener';
+import { bind } from 'bind-event-listener';
 
+import { makeHoneyPotFix } from '../honey-pot-fix/make-honey-pot-fix';
 import {
 	type AdapterAPI,
 	type BaseEventPayload,
@@ -13,6 +14,7 @@ import {
 	type TextSelectionDragType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
+import { combine } from '../public-utils/combine';
 import { isSafari } from '../util/is-safari';
 import { HTMLMediaType } from '../util/media-types/html-media-type';
 import { textMediaType } from '../util/media-types/text-media-type';
@@ -65,6 +67,8 @@ function findTextNode(event: DragEvent): Text | null {
 	return text ?? null;
 }
 
+const honeyPotFix = makeHoneyPotFix();
+
 const adapter = makeAdapter<TextSelectionDragType>({
 	typeKey: 'text-selection',
 	// for text selection, we will usually be making a copy of the text
@@ -73,8 +77,9 @@ const adapter = makeAdapter<TextSelectionDragType>({
 		// Binding to the `window` so that the element adapter has a
 		// chance to get in first on the `document`.
 		// We are giving preference to the element adapter.
-		return bindAll(window, [
-			{
+		return combine(
+			honeyPotFix.bindEvents(),
+			bind(window, {
 				type: 'dragstart',
 				listener(event: DragEvent) {
 					// If the "dragstart" event is cancelled, then a drag won't start
@@ -140,9 +145,10 @@ const adapter = makeAdapter<TextSelectionDragType>({
 						},
 					});
 				},
-			},
-		]);
+			}),
+		);
 	},
+	onPostDispatch: honeyPotFix.getOnPostDispatch(),
 });
 
 // The `onGenerateDragPreview` does not make sense to publish for text selection

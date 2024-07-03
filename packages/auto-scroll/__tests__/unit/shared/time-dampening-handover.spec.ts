@@ -15,7 +15,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -37,7 +37,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 	const ordered: string[] = [];
 	const scrollHistory: number[] = [parentScrollContainer.scrollTop];
 
-	let unsetElementAtPoint = setElementFromPointToBe(child);
+	let unsetElementAtPoint = setElementFromPoint(child);
 	const cleanup = combine(
 		appendToBody(parentScrollContainer),
 		draggable({
@@ -112,7 +112,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 
 	function dragBelowParent() {
 		unsetElementAtPoint();
-		unsetElementAtPoint = setElementFromPointToBe(document.body);
+		unsetElementAtPoint = setElementFromPoint(document.body);
 		fireEvent.dragEnter(document.body, {
 			clientX: belowBottomEdge.x,
 			clientY: belowBottomEdge.y,
@@ -122,7 +122,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 	}
 	function dragOntoParentBottomEdge() {
 		unsetElementAtPoint();
-		unsetElementAtPoint = setElementFromPointToBe(child);
+		unsetElementAtPoint = setElementFromPoint(child);
 		fireEvent.dragEnter(child, {
 			clientX: onBottomEdge.x,
 			clientY: onBottomEdge.y,

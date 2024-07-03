@@ -1,10 +1,12 @@
 import { replaceRaf, type Stub } from 'raf-stub';
 
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+
 import { autoScroller } from '../../src';
 import config from '../../src/internal/config';
 import { minScroll } from '../../src/internal/constants';
 
-import { combine, getDefaultInput, getRect } from './_util';
+import { getDefaultInput, getRect } from './_util';
 
 describe('autoScroller', () => {
 	replaceRaf();
@@ -60,10 +62,13 @@ describe('autoScroller', () => {
 			.mockImplementation(() => clientHeight);
 
 		const originalElementFromPoint = document.elementFromPoint;
+		const originalElementsFromPoint = document.elementsFromPoint;
 		document.elementFromPoint = () => scrollableMock;
+		document.elementsFromPoint = () => [scrollableMock];
 
 		return () => {
 			document.elementFromPoint = originalElementFromPoint;
+			document.elementsFromPoint = originalElementsFromPoint;
 
 			scrollWidthSpy.mockReset();
 			scrollHeightSpy.mockReset();

@@ -1,5 +1,30 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.1.0
+
+### Minor Changes
+
+- [#116572](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/116572)
+  [`98c65e7ff719c`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/98c65e7ff719c) -
+  🍯 Introducing "the honey pot fix" which is an improved workaround for a
+  [painful browser bug](https://issues.chromium.org/issues/41129937).
+
+  **Background**
+
+  The browser bug causes the browser to think the users pointer is continually depressed at the
+  point that the user started a drag. This could lead to incorrect events being triggered, and
+  incorrect styles being applied to elements that the user is not currently over during a drag.
+
+  **Outcomes**
+
+  - Elements will no longer receive `MouseEvent`s (eg `"mouseenter"` and `"mouseleave"`) during a
+    drag (which is a violation of the
+    [drag and drop specification](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model))
+  - Elements will no longer apply `:hover` or `:active` styles during a drag. Previously consumers
+    would need to disable these style rules during a drag to prevent these styles being applied.
+  - Dramatically improved post drop performance. Our prior solution could require a noticeable delay
+    due to a large style recalculation after a drop.
+
 ## 1.0.12
 
 ### Patch Changes

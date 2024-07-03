@@ -15,7 +15,7 @@ import {
 	appendToBody,
 	getBubbleOrderedTree,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -71,7 +71,7 @@ it('should scroll the window if it is scrollable', () => {
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
 		autoScrollWindowForElements(),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -155,7 +155,7 @@ it('should only scroll the window once, even if there are other registrations', 
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -264,7 +264,7 @@ it('should only scroll the window if there are any registrations that have canSc
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -339,7 +339,7 @@ it('should not scroll the window if there are no active registrations', () => {
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -433,7 +433,7 @@ it('should not scroll the window if no registrations are allowing scrolling', ()
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -522,7 +522,7 @@ it('should scroll the window once, even if there are multiple registrations', ()
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(element),
+		setElementFromPoint(element),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -601,7 +601,7 @@ it('should scroll a scroll container before the window', () => {
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -714,7 +714,7 @@ it('should not scroll the window if a scroll container absorbed all the scroll a
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {

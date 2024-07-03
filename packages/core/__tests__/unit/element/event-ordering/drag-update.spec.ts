@@ -265,9 +265,9 @@ triggers.forEach((trigger) => {
 
 		test('scenario: [C, B] -> [C, B, A] (reparenting)', () => {
 			// A won't be a added to DOM until later
-			const [draggableEl, C, B, A] = getElements('div');
-			B.appendChild(C);
-			C.appendChild(draggableEl);
+			// const [draggableEl, C, B, A] = getElements('div');
+			const [draggableEl, C, B] = getBubbleOrderedTree();
+			const [A] = getElements('div');
 			A.id = 'A';
 			B.id = 'B';
 			C.id = 'C';
@@ -308,6 +308,7 @@ triggers.forEach((trigger) => {
 			expect(ordered).toEqual(['draggable:start', 'c:start', 'b:start', 'monitor:start']);
 			ordered.length = 0;
 
+			// Adding A to body and A as new parent of B
 			const cleanup2 = combine(
 				appendToBody(A),
 				dropTargetForElements({
@@ -318,13 +319,13 @@ triggers.forEach((trigger) => {
 					onDragLeave: () => ordered.push('a:leave'),
 				}),
 			);
-			// Setting A as new parent of B
 			A.appendChild(B);
 
-			// asserting we go the hierarchy right
-			expect(document.body.innerHTML).toEqual(
-				`<div id="A" data-drop-target-for-element="true"><div id="B" data-drop-target-for-element="true"><div id="C" data-drop-target-for-element="true"><div draggable="true"></div></div></div></div>`,
-			);
+			// asserting we go the hierarchy right [C, B, A]
+			expect(A.contains(B)).toBe(true);
+			expect(A.children[0]).toBe(B);
+			expect(B.parentElement).toBe(A);
+			expect(C.parentElement).toBe(B);
 
 			// [C, B] -> [C, B, A] (reparenting)
 			trigger.fireOver(C);

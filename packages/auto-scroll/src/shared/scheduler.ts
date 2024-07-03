@@ -1,3 +1,4 @@
+import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/private/get-element-from-point-without-honey-pot';
 import {
 	type AllDragTypes,
 	type BaseEventPayload,
@@ -79,10 +80,10 @@ function makeScheduler<DragType extends AllDragTypes>(
 
 		// A common starting lookup point for determining
 		// which auto scroller should be used, and what should be scrolled.
-		const underUsersPointer = document.elementFromPoint(
-			latestArgs.location.current.input.clientX,
-			latestArgs.location.current.input.clientY,
-		);
+		const underUsersPointer = getElementFromPointWithoutHoneypot({
+			x: latestArgs.location.current.input.clientX,
+			y: latestArgs.location.current.input.clientY,
+		});
 
 		clearUnusedEngagements(() => {
 			callbacks.forEach((onFrame) =>

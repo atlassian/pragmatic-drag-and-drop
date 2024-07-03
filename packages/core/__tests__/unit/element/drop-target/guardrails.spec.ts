@@ -4,9 +4,9 @@ import { getElements, reset } from '../../_util';
 
 const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-beforeEach(async () => {
+beforeEach(() => {
 	warn.mockClear();
-	await reset();
+	reset();
 });
 
 it('should warn if registering two drop targets of the same type on an element', () => {

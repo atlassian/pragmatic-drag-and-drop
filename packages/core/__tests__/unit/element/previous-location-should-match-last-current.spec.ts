@@ -150,8 +150,8 @@ test('Scenario: ([B,A] -> cancel)', () => {
 			dropTargets: [],
 		},
 		current: {
-			// new input won't be taken
-			input: liftInput,
+			// using input from dragEnd
+			input: dragEndInput,
 			// over nothing now
 			dropTargets: [],
 		},
@@ -314,8 +314,7 @@ test('Scenario: ([B,A] -> [B,A] -> [A] -> drop)', () => {
 			dropTargets: lookup.get('onDropTargetChange').current.dropTargets,
 		},
 		current: {
-			// new input won't be taken
-			input: enterAInput,
+			input: dropInput,
 			// only over [A] now
 			dropTargets: [liftExpected.initial.dropTargets[1]],
 		},
@@ -422,8 +421,7 @@ test('Scenario: ([B, A] -> drop (lift flush)', () => {
 			dropTargets: lookup.get('onDragStart').current.dropTargets,
 		},
 		current: {
-			// new input for drop won't be taken
-			input: liftInput,
+			input: dropInput,
 			dropTargets: lookup.get('onDragStart').current.dropTargets,
 		},
 	};

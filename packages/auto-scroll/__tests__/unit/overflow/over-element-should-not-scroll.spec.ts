@@ -14,7 +14,7 @@ import {
 	appendToBody,
 	getInsidePoints,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -43,7 +43,7 @@ getInsidePoints(parentScrollContainer.getBoundingClientRect()).forEach((point) =
 
 		const cleanup = combine(
 			appendToBody(parentScrollContainer),
-			setElementFromPointToBe(child),
+			setElementFromPoint(child),
 			draggable({
 				element: child,
 				onDragStart: () => ordered.push('draggable:start'),

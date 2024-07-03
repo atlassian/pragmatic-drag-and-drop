@@ -18,7 +18,7 @@ import {
 	getScenarios,
 	hasAxisScrolled,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	setupNestedScrollContainers,
@@ -64,7 +64,7 @@ describe('allowed axis', () => {
 						element: parent,
 						getAllowedAxis: () => allowedAxis,
 					}),
-					setElementFromPointToBe(child),
+					setElementFromPoint(child),
 					bind(parent, {
 						type: 'scroll',
 						listener: (event) => {
@@ -188,7 +188,7 @@ it('should scroll on available parent axis if child axis are not allowed', () =>
 			element: grandParent,
 			getAllowedAxis: () => grandParentAllowedAxis,
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parent, {
 			type: 'scroll',
 			listener: (event) => {

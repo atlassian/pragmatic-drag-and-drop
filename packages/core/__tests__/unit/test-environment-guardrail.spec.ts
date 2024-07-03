@@ -7,9 +7,9 @@ import { appendToBody, getElements, nativeDrag, reset, userEvent } from './_util
 
 const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-beforeEach(async () => {
+beforeEach(() => {
 	warn.mockClear();
-	await reset();
+	reset();
 });
 
 it('should warn if a drag event is not setup correctly [element adapter]', () => {

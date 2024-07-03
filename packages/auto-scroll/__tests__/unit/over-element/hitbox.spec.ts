@@ -18,7 +18,7 @@ import {
 	getOutsidePoints,
 	getRect,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -218,7 +218,7 @@ beforeEach(reset);
 
 						const cleanup = combine(
 							appendToBody(parentScrollContainer),
-							setElementFromPointToBe(child),
+							setElementFromPoint(child),
 							draggable({
 								element: child,
 								onDragStart: () => ordered.push('draggable:start'),
@@ -294,7 +294,7 @@ beforeEach(reset);
 
 						const cleanup = combine(
 							appendToBody(parentScrollContainer),
-							setElementFromPointToBe(child),
+							setElementFromPoint(child),
 							draggable({
 								element: child,
 								onDragStart: () => ordered.push('draggable:start'),

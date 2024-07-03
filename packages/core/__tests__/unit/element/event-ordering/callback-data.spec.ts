@@ -216,8 +216,12 @@ test('scenario: [A] -> [A] -> [] -> cancel', () => {
 	expect(monitorOnDropTargetChange).toHaveBeenCalledTimes(1);
 
 	// Okay, now we cancel the drag
-	fireEvent.dragLeave(document.body);
-	fireEvent.dragEnd(document.body);
+	const fourthInput = {
+		...thirdInput,
+		pageX: thirdInput.pageX + 1,
+	};
+	fireEvent.dragLeave(document.body, fourthInput);
+	fireEvent.dragEnd(document.body, fourthInput);
 
 	{
 		const expected: ElementEventPayloadMap['onDrop'] = {
@@ -228,7 +232,7 @@ test('scenario: [A] -> [A] -> [] -> cancel', () => {
 				},
 				current: {
 					dropTargets: [],
-					input: thirdInput,
+					input: fourthInput,
 				},
 			},
 			source: {
@@ -425,7 +429,11 @@ test('scenario: [A] -> [A] -> cancel', () => {
 	}
 
 	// Now cancelling the drag. Will cause a "dragleave" and and a "drop"
-	userEvent.cancel();
+	const thirdInput: Input = {
+		...secondInput,
+		pageX: secondInput.pageX + 1,
+	};
+	userEvent.cancel(document.body, thirdInput);
 
 	// 1. the current drop target [A] will be left
 	// [A] -> []
@@ -439,6 +447,7 @@ test('scenario: [A] -> [A] -> cancel', () => {
 				},
 				current: {
 					dropTargets: [],
+					// input not updated by the "leave" event
 					input: secondInput,
 				},
 			},
@@ -468,9 +477,8 @@ test('scenario: [A] -> [A] -> cancel', () => {
 				},
 				current: {
 					dropTargets: [],
-					// the "dragleave" does not update the input
-					// also, the "drop" does not update the input
-					input: secondInput,
+					// the "drop" updates the input
+					input: thirdInput,
 				},
 			},
 			source: {
@@ -714,8 +722,8 @@ test('scenario: [B, A] -> [A] -> drop', () => {
 				current: {
 					// [A]
 					dropTargets: [initial.dropTargets[1]],
-					// not recapturing the in "drop", using the previous input
-					input: secondInput,
+					// input recaptured in "drop"
+					input: thirdInput,
 				},
 			},
 			source: {
@@ -921,8 +929,13 @@ test('scenario: [A] -> [A] -> drop', () => {
 		expect(monitorOnDrag).toHaveBeenCalledWith(expected);
 	}
 
+	const thirdInput: Input = {
+		...secondInput,
+		pageX: secondInput.pageX + 1,
+	};
+
 	// [A] -> drop
-	userEvent.drop(A);
+	userEvent.drop(A, thirdInput);
 
 	{
 		const expected: ElementEventPayloadMap['onDrop'] = {
@@ -933,7 +946,7 @@ test('scenario: [A] -> [A] -> drop', () => {
 				},
 				current: {
 					dropTargets: initial.dropTargets,
-					input: secondInput,
+					input: thirdInput,
 				},
 			},
 			source: {

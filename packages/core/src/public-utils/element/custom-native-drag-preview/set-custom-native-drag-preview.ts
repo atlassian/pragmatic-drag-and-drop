@@ -1,6 +1,7 @@
 import { type ElementEventPayloadMap, monitorForElements } from '../../../adapter/element-adapter';
 import type { Position } from '../../../internal-types';
 import { isSafari } from '../../../util/is-safari';
+import { maxZIndex } from '../../../util/max-z-index';
 
 import type { GetOffsetFn } from './types';
 
@@ -75,7 +76,7 @@ export function setCustomNativeDragPreview({
 		//    and then it is destroyed
 		// 2. Did not want to add a dependency onto `@atlaskit/theme`
 		// 3. Want to always be on top of product UI which might have higher z-index's
-		zIndex: 2147483647,
+		zIndex: maxZIndex,
 		// Avoiding any additional events caused by the new element (being super safe)
 		pointerEvents: 'none',
 	});

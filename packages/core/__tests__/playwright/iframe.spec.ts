@@ -1,4 +1,51 @@
-import { BROWSERS, expect, fixTest, type Page, test } from '@af/integration-testing';
+import invariant from 'tiny-invariant';
+
+import { BROWSERS, expect, fixTest, type Locator, type Page, test } from '@af/integration-testing';
+
+function center(box: { x: number; y: number; height: number; width: number }): {
+	x: number;
+	y: number;
+} {
+	return {
+		x: box.x + box.width / 2,
+		y: box.y + box.height / 2,
+	};
+}
+
+/**
+ * When dragging into and out of iframes, it is important for the sequencing of events
+ * the the drag operation be closer to what a user would do.
+ *
+ * If we don't do this approach, then the drag won't exit the current document as the user
+ * will always be over the honey pot element (in the current document)
+ *
+ * Locator.dragTo does this roughly:
+ * - mouse.down
+ * - mouse.move(destination)
+ * - mouse.up
+ *
+ * The huge second mouse.move is problematic as it means that the honey pot will be created exactly
+ * where the user will drop, and preventing the drag from leaving the current document
+ */
+async function realisticDragTo({ page, start, end }: { page: Page; start: Locator; end: Locator }) {
+	// step 1: move mouse into the right spot
+	const startBox = await start.boundingBox();
+	invariant(startBox);
+	const centerOfStart = center(startBox);
+	await page.mouse.move(centerOfStart.x, centerOfStart.y);
+
+	// step 2: start a drag
+	await page.mouse.down();
+	await page.mouse.move(centerOfStart.x + 20, centerOfStart.y);
+
+	// step 3: move to the right spot
+	const endBox = await end.boundingBox();
+	invariant(endBox);
+	const centerOfEnd = center(endBox);
+	await page.mouse.move(centerOfEnd.x, centerOfEnd.y, { steps: 10 });
+
+	await page.mouse.up();
+}
 
 async function setup({ page }: { page: Page }) {
 	await page.visitExample('pragmatic-drag-and-drop', 'core', 'iframe');
@@ -51,7 +98,7 @@ test.describe('iframes', () => {
 
 		const { dropTargetInParent, dropTargetInIframe, draggableInParent } = await setup({ page });
 
-		await draggableInParent.dragTo(dropTargetInIframe);
+		await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
 
 		await expect(dropTargetInParent).toContainText(
 			'Latest drop data: none',
@@ -68,7 +115,7 @@ test.describe('iframes', () => {
 	test('iframe → parent', async ({ page }) => {
 		const { dropTargetInParent, dropTargetInIframe, draggableInIframe } = await setup({ page });
 
-		await draggableInIframe.dragTo(dropTargetInParent);
+		await realisticDragTo({ page, start: draggableInIframe, end: dropTargetInParent });
 
 		await expect(dropTargetInIframe).toContainText(
 			'Latest drop data: none',
@@ -97,7 +144,7 @@ test.describe('iframes', () => {
 
 		// doing a few operations
 		for (let i = 0; i < 5; i++) {
-			await draggableInParent.dragTo(dropTargetInIframe);
+			await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
 
 			await expect(dropTargetInIframe).toContainText(
 				`Latest drop data: Drag from parent: ${i}`,
@@ -117,7 +164,7 @@ test.describe('iframes', () => {
 
 		// doing a few operations
 		for (let i = 0; i < 5; i++) {
-			await draggableInIframe.dragTo(dropTargetInParent);
+			await realisticDragTo({ page, start: draggableInIframe, end: dropTargetInParent });
 
 			await expect(dropTargetInParent).toContainText(
 				`Latest drop data: Drag from iframe: ${i}`,
@@ -148,7 +195,7 @@ test.describe('iframes', () => {
 			await setup({ page });
 
 		// iframe → parent
-		await draggableInIframe.dragTo(dropTargetInParent);
+		await realisticDragTo({ page, start: draggableInIframe, end: dropTargetInParent });
 
 		await expect(dropTargetInParent).toContainText(
 			'Latest drop data: Drag from iframe: 0',
@@ -162,15 +209,7 @@ test.describe('iframes', () => {
 		);
 
 		// parent → iframe
-		await draggableInParent.dragTo(
-			dropTargetInIframe,
-			// We need to bypass the actionability check
-			// as the `dropTargetInIframe` will still have the
-			// post drag fix applied from the last drag operation
-			// from the iframe
-			// eslint-disable-next-line playwright/no-force-option
-			{ force: true },
-		);
+		await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
 
 		await expect(dropTargetInParent).toContainText(
 			'Latest drop data: Drag from iframe: 0',
@@ -199,7 +238,7 @@ test.describe('iframes', () => {
 			await setup({ page });
 
 		// parent → iframe
-		await draggableInParent.dragTo(dropTargetInIframe);
+		await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
 
 		await expect(dropTargetInIframe).toContainText(
 			'Latest drop data: Drag from parent: 0',
@@ -213,15 +252,7 @@ test.describe('iframes', () => {
 		);
 
 		// iframe → parent
-		await draggableInIframe.dragTo(
-			dropTargetInParent,
-			// We need to bypass the actionability check
-			// as the `dropTargetInParent` will still have the
-			// post drag fix applied from the last drag operation
-			// from the parent
-			// eslint-disable-next-line playwright/no-force-option
-			{ force: true },
-		);
+		await realisticDragTo({ page, start: draggableInIframe, end: dropTargetInParent });
 
 		await expect(dropTargetInIframe).toContainText(
 			'Latest drop data: Drag from parent: 0',

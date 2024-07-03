@@ -20,7 +20,7 @@ import {
 	getRect,
 	mainAxisForSide,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -157,7 +157,7 @@ scenarios.forEach((scenario) => {
 						listener: () => ordered.push(`scroll event`),
 					}),
 				);
-				let unsetElementFromPoint = setElementFromPointToBe(child);
+				let unsetElementFromPoint = setElementFromPoint(child);
 
 				// lifting in middle of element, should not trigger auto scrolling
 				userEvent.lift(child, {
@@ -185,7 +185,7 @@ scenarios.forEach((scenario) => {
 				// updating where we are to trigger auto scrolling
 				// we will now be outside the drop target
 				unsetElementFromPoint();
-				unsetElementFromPoint = setElementFromPointToBe(document.body);
+				unsetElementFromPoint = setElementFromPoint(document.body);
 				fireEvent.dragEnter(document.body, {
 					clientX: point.x,
 					clientY: point.y,
@@ -260,7 +260,7 @@ scenarios.forEach((scenario) => {
 						listener: () => ordered.push(`scroll event`),
 					}),
 				);
-				let unsetElementFromPoint = setElementFromPointToBe(child);
+				let unsetElementFromPoint = setElementFromPoint(child);
 
 				// lifting in middle of element, should not trigger auto scrolling
 				userEvent.lift(child, {
@@ -288,7 +288,7 @@ scenarios.forEach((scenario) => {
 				// updating where we are to trigger auto scrolling
 				// we will now be outside the drop target
 				unsetElementFromPoint();
-				unsetElementFromPoint = setElementFromPointToBe(document.body);
+				unsetElementFromPoint = setElementFromPoint(document.body);
 				fireEvent.dragEnter(document.body, {
 					clientX: point.x,
 					clientY: point.y,

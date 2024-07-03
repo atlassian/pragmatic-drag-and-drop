@@ -11,7 +11,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -41,7 +41,7 @@ it('should start auto scrolling if imported after a drag has started', async () 
 			onDragStart: () => ordered.push('dropTarget:start'),
 			onDrop: () => ordered.push('dropTarget:drop'),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(parentScrollContainer, {
 			type: 'scroll',
 			listener: () => ordered.push('scroll event'),

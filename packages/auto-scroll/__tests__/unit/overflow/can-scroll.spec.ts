@@ -12,7 +12,7 @@ import {
 	advanceTimersToNextFrame,
 	appendToBody,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	setupNestedScrollContainers,
@@ -58,7 +58,7 @@ it('should not scroll scroll containers that have canScroll: () => false', () =>
 			listener: () => ordered.push('scroll event'),
 		}),
 	);
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	// Scroll container is now looking over the center of the element
 	parentScrollContainer.scrollTop = 500;
@@ -100,7 +100,7 @@ it('should not scroll scroll containers that have canScroll: () => false', () =>
 		clientY: parentScrollContainer.getBoundingClientRect().bottom + 1,
 	});
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(document.body);
+	unsetElementFromPoint = setElementFromPoint(document.body);
 
 	// expecting overflow auto scroll in next frame
 	advanceTimersToNextFrame();
@@ -186,7 +186,7 @@ it('should allow earlier registrations to scroll when a later registration has c
 				},
 			}),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -205,7 +205,7 @@ it('should allow earlier registrations to scroll when a later registration has c
 			options: { capture: true },
 		}),
 	);
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	// Set some initial scroll on the scroll containers
 	// These are in the range where auto scrolling will occur on both
@@ -243,7 +243,7 @@ it('should allow earlier registrations to scroll when a later registration has c
 		clientY: grandParent.getBoundingClientRect().top - 1,
 	});
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(document.body);
+	unsetElementFromPoint = setElementFromPoint(document.body);
 
 	// expecting to now scroll both
 	advanceTimersToNextFrame();
@@ -322,7 +322,7 @@ it('should allow later registrations to scroll when an earlier registration has 
 				},
 			}),
 		}),
-		setElementFromPointToBe(child),
+		setElementFromPoint(child),
 		bind(window, {
 			type: 'scroll',
 			listener: (event) => {
@@ -341,7 +341,7 @@ it('should allow later registrations to scroll when an earlier registration has 
 			options: { capture: true },
 		}),
 	);
-	let unsetElementFromPoint = setElementFromPointToBe(child);
+	let unsetElementFromPoint = setElementFromPoint(child);
 
 	// Set some initial scroll on the scroll containers
 	// These are in the range where auto scrolling will occur on both
@@ -379,7 +379,7 @@ it('should allow later registrations to scroll when an earlier registration has 
 		clientY: grandParent.getBoundingClientRect().top - 1,
 	});
 	unsetElementFromPoint();
-	unsetElementFromPoint = setElementFromPointToBe(document.body);
+	unsetElementFromPoint = setElementFromPoint(document.body);
 
 	// expecting to now scroll both
 	advanceTimersToNextFrame();

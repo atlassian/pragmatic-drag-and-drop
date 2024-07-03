@@ -1,12 +1,11 @@
-/* eslint-disable @atlaskit/design-system/no-nested-styles */
 /** @jsx jsx */
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
-import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
+import { Stack } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 import {
@@ -15,6 +14,7 @@ import {
 	monitorForElements,
 } from '../src/entry-point/element/adapter';
 import { dropTargetForExternal } from '../src/entry-point/external/adapter';
+import { dropTargetForTextSelection } from '../src/entry-point/text-selection/adapter';
 import { combine } from '../src/public-utils/combine';
 import { reorder } from '../src/public-utils/reorder';
 
@@ -26,27 +26,22 @@ import { GlobalStyles } from './_util/global-styles';
 // I think it best to keep this example around as it makes it
 // easy to debug the browser bug and the fix
 
-const isDraggingClass = 'is-dragging';
-
 const interactiveStyles = css({
 	position: 'relative',
-
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-	[`body:not(.${isDraggingClass}) &::before`]: {
+	'&::before': {
 		content: '""',
 		position: 'absolute',
+		pointerEvents: 'none',
 		// zIndex: ,
 		top: 0,
 		left: 0,
 		padding: 'var(--grid)',
 	},
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-	[`body:not(.${isDraggingClass}) &:hover::before`]: {
+	'&:hover::before': {
 		content: '":hover"',
 		background: token('color.background.accent.green.subtler', 'transparent'),
 	},
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-	[`body:not(.${isDraggingClass}) &:active::before`]: {
+	'&:active::before': {
 		content: '":active"',
 		background: token('color.background.accent.blue.subtler', 'transparent'),
 	},
@@ -63,32 +58,36 @@ const cardStyles = css({
 	textAlign: 'center',
 
 	position: 'relative',
-	userSelect: 'none',
+	// userSelect: 'none',
+	flexShrink: 0,
 });
 
 const listStyles = css({
 	display: 'flex',
 	alignItems: 'stretch',
 	flexDirection: 'column',
-	gap: 'calc(var(--grid)* 2)',
+	// gap: 'calc(var(--grid)* 2)',
 	width: 240,
 	margin: '0 auto',
 	padding: 'calc(var(--grid) * 6)',
 	background: token('elevation.surface.sunken', '#F7F8F9'),
 
+	height: '500px',
+	overflow: 'scroll',
+
 	position: 'relative',
 });
 
-const stackStyles = css({
-	display: 'flex',
-	flexDirection: 'column',
-	gap: 'var(--grid)',
+// const stackStyles = css({
+// 	display: 'flex',
+// 	flexDirection: 'column',
+// 	gap: 'var(--grid)',
 
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
-	'> *': {
-		margin: 0,
-	},
-});
+// 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-nested-selectors -- Ignored via go/DSP-18766
+// 	'> *': {
+// 		margin: 0,
+// 	},
+// });
 
 const TypeContext = createContext<string>('unknown');
 
@@ -96,7 +95,15 @@ const isOverCardStyles = css({
 	background: token('color.interaction.hovered', 'transparent'),
 });
 
-function Card({ cardId, isSticky }: { cardId: string; isSticky: boolean }) {
+function Card({
+	cardId,
+	isSticky,
+	isDraggable,
+}: {
+	cardId: string;
+	isSticky: boolean;
+	isDraggable: boolean;
+}) {
 	const [counts, setCounts] = useState<{
 		click: number;
 		enter: number;
@@ -119,19 +126,31 @@ function Card({ cardId, isSticky }: { cardId: string; isSticky: boolean }) {
 				element,
 				getInitialData: () => ({ cardId, typeContext }),
 				onGenerateDragPreview(args) {
-					console.warn('onGenerateDragPreview');
+					// console.warn('onGenerateDragPreview');
 				},
 				onDragStart(args) {
-					console.warn('onDragStart');
+					// console.warn('onDragStart');
 				},
 				onDrop(args) {
-					console.warn('onDrop');
+					// console.warn('onDrop');
+				},
+				onDropTargetChange({ location }) {
+					// console.warn('onDropTargetChange', location);
 				},
 			}),
 			dropTargetForElements({
 				element,
 				getData: () => ({ cardId }),
 				canDrop: (args) => args.source.data.typeContext === typeContext,
+				getIsSticky: () => isSticky,
+				onDragStart: () => setState('is-over'),
+				onDragEnter: () => setState('is-over'),
+				onDragLeave: () => setState('idle'),
+				onDrop: () => setState('idle'),
+			}),
+			dropTargetForTextSelection({
+				element,
+				getData: () => ({ cardId }),
 				getIsSticky: () => isSticky,
 				onDragStart: () => setState('is-over'),
 				onDragEnter: () => setState('is-over'),
@@ -147,16 +166,15 @@ function Card({ cardId, isSticky }: { cardId: string; isSticky: boolean }) {
 				onDrop: () => setState('idle'),
 			}),
 		);
-	}, [cardId, typeContext, isSticky]);
+	}, [cardId, typeContext, isSticky, isDraggable]);
 
 	return (
 		<div
 			ref={ref}
 			css={[cardStyles, interactiveStyles, state === 'is-over' ? isOverCardStyles : undefined]}
 			data-testid={`${typeContext}-${cardId}`}
-			onMouseEnter={() => {
-				// if (!document.body.classList.contains(isDraggingClass)) {
-				console.log('dragging: enter into', cardId);
+			onMouseEnter={(event) => {
+				console.log('onMouseEnter', cardId, { clientX: event.clientX, clientY: event.clientY });
 				setCounts((current) => ({ ...current, enter: current.enter + 1 }));
 				// }
 			}}
@@ -182,14 +200,19 @@ function getCards() {
 	}));
 }
 
-function DropTest() {
+const rowStyles = css({
+	flexDirection: 'row',
+	height: 'auto',
+	width: '70vw',
+});
+
+function DropTest({ layout }: { layout: 'vertical' | 'horizontal' }) {
 	const [cards, setCards] = useState<Card[]>(() => getCards());
 	const [typeContext] = useState<string>('drop');
 	useEffect(() => {
 		return monitorForElements({
 			canMonitor: ({ source }) => source.data.typeContext === typeContext,
 			onDrop(args) {
-				console.warn('told that the drag is over');
 				const destination = args.location.current.dropTargets[0];
 				if (!destination) {
 					return;
@@ -197,22 +220,29 @@ function DropTest() {
 				const startIndex = cards.findIndex((card) => card.id === args.source.data.cardId);
 				const finishIndex = cards.findIndex((card) => card.id === destination.data.cardId);
 
-				setCards(reorder({ list: cards, startIndex, finishIndex }));
+				// swapping
+				const newList = [...cards];
+				newList[startIndex] = cards[finishIndex];
+				newList[finishIndex] = cards[startIndex];
+
+				setCards(newList);
 			},
 		});
 	}, [typeContext, cards]);
 
 	return (
 		<TypeContext.Provider value={typeContext}>
-			<div css={stackStyles}>
+			<Stack space="space.100">
 				<h3>Drop test</h3>
 				<strong>Swap items on drop</strong>
-				<div css={[listStyles, interactiveStyles]}>
-					{cards.map((card) => {
-						return <Card key={card.id} cardId={card.id} isSticky />;
+				<div css={[listStyles, interactiveStyles, layout === 'horizontal' ? rowStyles : undefined]}>
+					{cards.map((card, index) => {
+						return (
+							<Card key={card.id} cardId={card.id} isSticky={false} isDraggable={index % 2 === 0} />
+						);
 					})}
 				</div>
-			</div>
+			</Stack>
 		</TypeContext.Provider>
 	);
 }
@@ -234,21 +264,27 @@ function DragEndTest() {
 
 	return (
 		<TypeContext.Provider value={typeContext}>
-			<div css={stackStyles}>
+			<Stack space="space.100">
 				<h3>Dragend test</h3>
 				<strong>Swap first two cards on unsuccessful drag</strong>
-				<div css={[listStyles, interactiveStyles]}>
+				<div
+					css={[listStyles, interactiveStyles]}
+					onMouseOver={(event) => console.error(event.type, event.target)}
+					onMouseEnter={(event) => console.error(event.type, event.target)}
+					onMouseLeave={(event) => console.error(event.type, event.target)}
+				>
 					{cards.map((card) => {
-						return <Card key={card.id} cardId={card.id} isSticky={false} />;
+						return <Card key={card.id} cardId={card.id} isSticky={false} isDraggable={true} />;
 					})}
 				</div>
-			</div>
+			</Stack>
 		</TypeContext.Provider>
 	);
 }
 
 const exampleStyles = css({
 	display: 'flex',
+	flexWrap: 'wrap',
 	flexDirection: 'row',
 	textAlign: 'center',
 	justifyContent: 'center',
@@ -256,58 +292,231 @@ const exampleStyles = css({
 });
 
 export default function Example() {
-	useEffect(() => {
-		return monitorForElements({
-			onGenerateDragPreview: () => document.body.classList.add(isDraggingClass),
-			onDrop: () => {
-				document.body.classList.remove(isDraggingClass);
-			},
-		});
-	}, []);
-
-	useDebug();
+	// useTest();
+	// useKillCPU();
+	// useDebug();
+	// usePrintAllEvents();
+	// usePrintSomeEvents();
 
 	return (
-		<div css={[exampleStyles, interactiveStyles]}>
+		<Fragment>
 			<GlobalStyles />
-			<DropTest />
-			<DragEndTest />
-		</div>
+			<div css={[exampleStyles, interactiveStyles]}>
+				<DropTest layout="vertical" />
+			</div>
+			<div css={[exampleStyles, interactiveStyles]}>
+				<DropTest layout="horizontal" />
+			</div>
+			<div css={[exampleStyles, interactiveStyles]}>
+				<DragEndTest />
+			</div>
+		</Fragment>
 	);
 }
 
-function useDebug() {
-	useEffect(() => {
-		const events = [
-			// 'mousemove',
-			'mouseup',
-			'mousedown',
-			'mouseover',
-			'mouseout',
-			'mouseleave',
-			'mouseenter',
-			'click',
-			'focusin',
-			'focusout',
-			'drop',
-			'dragend',
-			'drag',
-			'dragleave',
-		] as const;
+// function usePrintSomeEvents() {
+// 	useEffect(() => {
+// 		let pointerDown: { x: number; y: number } | null = null;
+// 		return bindAll(window, [
+// 			{
+// 				type: 'pointerdown',
+// 				listener(event) {
+// 					pointerDown = { x: event.clientX, y: event.clientY };
+// 					console.warn(event.type, pointerDown);
 
-		return bindAll(
-			window,
-			events.map((v) => ({
-				type: v,
-				listener: (event: Event) => {
-					console.log('event:', event.type, {
-						target: event.target,
-						relatedTarget: (event as MouseEvent).relatedTarget,
-						clientX: (event as MouseEvent).clientX,
-					});
-				},
-				options: { capture: true },
-			})),
-		);
-	}, []);
-}
+// 					function cleanup() {
+// 						unbindPointerMove();
+// 					}
+
+// 					const unbindPointerMove = bindAll(window, [
+// 						{
+// 							type: 'pointermove',
+// 							listener(event) {
+// 								console.log('useDebug()', event.type, { x: event.clientX, y: event.clientY });
+// 							},
+// 						},
+// 						{
+// 							type: 'pointerup',
+// 							listener: cleanup,
+// 						},
+// 						// {
+// 						// 	type: 'dragstart',
+// 						// 	listener: cleanup,
+// 						// },
+// 					]);
+// 				},
+// 			},
+
+// 			{
+// 				type: 'dragstart',
+// 				listener(event) {
+// 					const dragStart = { x: event.clientX, y: event.clientY };
+// 					const isEqual = Boolean(
+// 						pointerDown &&
+// 							Math.floor(pointerDown.x) === dragStart.x &&
+// 							Math.floor(pointerDown.y) === dragStart.y,
+// 					);
+// 					console.group('DRAGSTART');
+// 					console.log(event.type, dragStart, 'is equal to pointer down?', isEqual);
+
+// 					bindAll(window, [
+// 						{
+// 							type: 'drag',
+// 							listener(event) {
+// 								console.log('first', event.type, { x: event.clientX, y: event.clientY });
+// 							},
+// 							options: { once: true },
+// 						},
+// 						{
+// 							type: 'dragover',
+// 							listener(event) {
+// 								console.log('first', event.type, { x: event.clientX, y: event.clientY });
+// 							},
+// 							options: { once: true },
+// 						},
+// 					]);
+// 				},
+// 			},
+
+// 			{
+// 				type: 'dragend',
+// 				listener() {
+// 					console.groupEnd();
+// 				},
+// 			},
+// 		]);
+// 	}, []);
+// }
+
+// function usePrintAllEvents() {
+// 	useEffect(() => {
+// 		const keys = Object.keys(window)
+// 			.filter((key) => key.startsWith('on'))
+// 			.map((key) => key.split('on')[1]);
+
+// 		console.log('keys', keys);
+
+// 		return bindAll(
+// 			window,
+// 			keys.map((key): Binding<Window, any> => {
+// 				return {
+// 					type: key as any,
+// 					listener(event) {
+// 						console.log(event.type, event.target, {
+// 							clientX: event.clientX ?? 0,
+// 							clientY: event.clientY ?? 0,
+// 						});
+// 					},
+// 					options: { capture: true },
+// 				};
+// 			}),
+// 		);
+// 	}, []);
+// }
+
+// function useDebug() {
+// 	useEffect(() => {
+// 		const events = [
+// 			// 'mousemove',
+// 			// 'mouseup',
+// 			// 'mousedown',
+// 			// 'mouseover',
+// 			// 'mouseout',
+// 			// 'mouseleave',
+// 			// 'mouseenter',
+// 			// 'click',
+// 			// 'focusin',
+// 			// 'focusout',
+// 			'pointermove',
+// 			'pointercancel',
+// 			'drop',
+// 			'dragend',
+// 			// 'drag',
+// 			'dragstart',
+// 			'dragleave',
+// 		] as const;
+
+// 		return bindAll(
+// 			window,
+// 			events.map((v) => ({
+// 				type: v,
+// 				listener: (event: Event) => {
+// 					console.log('event:', event.type, {
+// 						target: event.target,
+// 						relatedTarget: (event as MouseEvent).relatedTarget,
+// 						clientX: (event as MouseEvent).clientX,
+// 						clientY: (event as MouseEvent).clientY,
+// 					});
+// 				},
+// 				options: { capture: true },
+// 			})),
+// 		);
+// 	}, []);
+// }
+
+// function useTest() {
+// 	useEffect(() => {
+// 		let lastDragOver: Position = { x: 0, y: 0 };
+
+// 		function isEqual(a: Position, b: Position): boolean {
+// 			return a.x === b.x && a.y === b.y;
+// 		}
+
+// 		function check(event: DragEvent) {
+// 			const current = {
+// 				x: event.clientX,
+// 				y: event.clientY,
+// 			};
+// 			console.log(event.type, current, {
+// 				current: document.elementFromPoint(current.x, current.y),
+// 				lastDragOver: document.elementFromPoint(lastDragOver.x, lastDragOver.y),
+// 			});
+// 			if (!isEqual(lastDragOver, current)) {
+// 				const message = `"${event.type}" does not match`;
+// 				console.error(message, { lastDragOver, current });
+// 				alert(message);
+// 			}
+// 		}
+
+// 		return bindAll(window, [
+// 			{
+// 				type: 'dragover',
+// 				listener(event) {
+// 					const current = {
+// 						x: event.clientX,
+// 						y: event.clientY,
+// 					};
+// 					lastDragOver = current;
+// 				},
+// 			},
+// 			{
+// 				type: 'drop',
+// 				listener: check,
+// 			},
+// 			{
+// 				type: 'dragend',
+// 				listener: check,
+// 			},
+// 		]);
+// 	}, []);
+// }
+
+// function useKillCPU() {
+// 	useEffect(() => {
+// 		// let timeSinceLastFrame = performance.now();
+// 		let frameId = requestAnimationFrame(loop);
+// 		function loop() {
+// 			// timeSinceLastFrame = performance.now() - timeSinceLastFrame;
+// 			// console.log({ framesPerSecond = timeSinceLastFrame / 60 });
+
+// 			const start = Date.now();
+// 			while (Date.now() - start < 100) {
+// 				// burn
+// 			}
+// 			// console.log('done');
+// 			frameId = requestAnimationFrame(loop);
+// 		}
+
+// 		return () => cancelAnimationFrame(frameId);
+// 	}, []);
+// }

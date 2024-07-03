@@ -109,15 +109,38 @@ export function getRect(box: {
 	};
 }
 
-export function setElementFromPoint(el: Element | null): CleanupFn {
-	const original = document.elementFromPoint;
+export function getBubbleOrderedPath(path: Element[]): Element[] {
+	const last = path[path.length - 1];
+	// will happen if you pass in an empty array
+	if (!last) {
+		return path;
+	}
+	// exit condition: no more parents
+	if (!last.parentElement) {
+		return path;
+	}
+	// bubble ordered
+	return getBubbleOrderedPath([...path, last.parentElement]);
+}
 
-	document.elementFromPoint = () => el;
+export function setElementFromPointWithPath(path: Element[]): CleanupFn {
+	const originalElementFromPoint = document.elementFromPoint;
+	const originalElementsFromPoint = document.elementsFromPoint;
+
+	document.elementsFromPoint = () => path;
+	document.elementFromPoint = () => path[0] ?? null;
 
 	return () => {
-		document.elementFromPoint = original;
+		document.elementFromPoint = originalElementFromPoint;
+		document.elementsFromPoint = originalElementsFromPoint;
 	};
 }
+
+export function setElementFromPoint(element: Element | null): CleanupFn {
+	const path = element ? getBubbleOrderedPath([element]) : [];
+	return setElementFromPointWithPath(path);
+}
+
 /**
  *
  * @example const [A, B, C, D, E] = getElements('div');
@@ -142,7 +165,7 @@ export function getElements<TagName extends keyof HTMLElementTagNameMap>(
 /**
  * Returns a connected tree of elements
  *
- * @example const [grandChild, parent, grandParent] = getBubbleOrderedTree();
+ * @example const [child, parent, grandParent] = getBubbleOrderedTree();
  */
 export function getBubbleOrderedTree(
 	tagName: keyof HTMLElementTagNameMap = 'div',
@@ -260,23 +283,30 @@ export const assortedNativeMediaTypes: NativeMediaType[] = [
 	'text/csv',
 ];
 
+function withDefaults(input?: Partial<Input>): Input {
+	return {
+		...getDefaultInput(),
+		...input,
+	};
+}
+
 export const userEvent = {
-	lift(target: HTMLElement, input?: Input) {
-		// will fire `onGenerateDragPreview`
-		fireEvent.dragStart(target, input);
+	lift(target: HTMLElement, input?: Partial<Input>) {
+		fireEvent.dragStart(target, withDefaults(input));
 
 		// after an animation frame we fire `onDragStart`
 		// @ts-ignore
 		requestAnimationFrame.step();
 	},
-	drop(target: Element) {
-		fireEvent.drop(target);
+	drop(target: Element, input?: Partial<Input>) {
+		fireEvent.drop(target, withDefaults(input));
 	},
-	cancel(target: Element = document.body) {
+	cancel(target: Element = document.body, input?: Partial<Input>) {
+		const value = withDefaults(input);
 		// A "cancel" (drop on nothing, or pressing "Escape") will
 		// cause a "dragleave" and then a "dragend"
-		fireEvent.dragLeave(target);
-		fireEvent.dragEnd(target);
+		fireEvent.dragLeave(target, value);
+		fireEvent.dragEnd(target, value);
 	},
 	leaveWindow() {
 		fireEvent.dragLeave(document.documentElement, { relatedTarget: null });
@@ -291,13 +321,36 @@ export const userEvent = {
 };
 
 /** Cleanup function to unbind all event listeners */
-export async function reset(): Promise<void> {
+export function reset() {
 	// cleanup any pending drags
 	fireEvent.dragEnd(window);
 
 	// Cleaning up post-drop fix
-	// Waiting for a microtask just incase the microtask queue has not been flushed by jest
-	// [Discussion](https://twitter.com/alexandereardon/status/1635059194226446342)
-	await 'microtask';
 	fireEvent.pointerMove(window);
 }
+
+export const firePointer = (() => {
+	type TTarget = Element | Window | Document;
+	function makeDispatch(eventName: string) {
+		return function dispatch(target: TTarget, input: Partial<Input> = {}) {
+			const inputWithDefaults = {
+				...getDefaultInput(),
+				...input,
+			};
+			target.dispatchEvent(
+				new MouseEvent(eventName, {
+					bubbles: true,
+					cancelable: true,
+					...inputWithDefaults,
+				}),
+			);
+		};
+	}
+
+	return {
+		down: makeDispatch('pointerdown'),
+		up: makeDispatch('pointerup'),
+		move: makeDispatch('pointermove'),
+		cancel: makeDispatch('pointercancel'),
+	};
+})();

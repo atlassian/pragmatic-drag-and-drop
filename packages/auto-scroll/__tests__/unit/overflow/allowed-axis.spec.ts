@@ -19,7 +19,7 @@ import {
 	getScenarios,
 	hasAxisScrolled,
 	reset,
-	setElementFromPointToBe,
+	setElementFromPoint,
 	setStartSystemTime,
 	setupBasicScrollContainer,
 	stepScrollBy,
@@ -99,7 +99,7 @@ describe('allowed axis', () => {
 						},
 					}),
 				);
-				let unsetElementFromPoint = setElementFromPointToBe(child);
+				let unsetElementFromPoint = setElementFromPoint(child);
 
 				// Scroll container is now looking over the center of the element
 				parentScrollContainer.scrollTop = 500;
@@ -127,7 +127,7 @@ describe('allowed axis', () => {
 					clientY: endPosition.y,
 				});
 				unsetElementFromPoint();
-				unsetElementFromPoint = setElementFromPointToBe(document.body);
+				unsetElementFromPoint = setElementFromPoint(document.body);
 
 				// Second frame: allowedAxis is all.
 				// Expecting a scroll to occur on expected axis.

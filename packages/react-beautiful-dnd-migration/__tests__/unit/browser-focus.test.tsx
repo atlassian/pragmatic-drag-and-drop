@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 
 import BoardExample from '../../examples/01-board';
 import ReactWindowBoardExample from '../../examples/02-react-window';
@@ -51,6 +52,8 @@ controls.forEach(({ controlId, control }) => {
 				});
 
 				it('should focus the drag handle with matching id after the drag ends', async () => {
+					replaceRaf();
+
 					const { getByTestId, unmount } = render(<BoardExample />);
 
 					const cardA0 = getByTestId('item-A0');

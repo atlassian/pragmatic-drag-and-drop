@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.2.1
+
+### Patch Changes
+
+- [#117296](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/117296)
+  [`ef11f570968a2`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/ef11f570968a2) -
+  Adding some browser tests for the honey pot fix
+
 ## 1.2.0
 
 ### Minor Changes

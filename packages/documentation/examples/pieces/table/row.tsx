@@ -31,10 +31,7 @@ import type { Item } from './types';
 const rowStyles = css({
 	// Needed for our drop indicator
 	position: 'relative',
-	// Disabling hover styles while dragging
-	// Hover styles can be triggered while dragging due to auto scrolling
-	// eslint-disable-next-line @atlaskit/design-system/no-nested-styles, @atlaskit/ui-styling-standard/no-nested-selectors, @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
-	'body:not(.is-dragging) &:hover': {
+	'&:hover': {
 		background: token('color.background.input.hovered', 'red'),
 	},
 });

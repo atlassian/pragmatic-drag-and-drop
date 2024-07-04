@@ -7,10 +7,6 @@
 // Need to do an `import` or an `export` for this file to be treated as a module
 export {};
 
-// 1. Close down any existing jsdom windows
-// https://github.com/jsdom/jsdom#closing-down-a-jsdom
-window.close();
-
 // 2. Removing globals
 // @ts-ignore
 delete global.document;

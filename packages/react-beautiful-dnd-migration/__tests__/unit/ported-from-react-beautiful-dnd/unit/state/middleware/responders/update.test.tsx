@@ -58,7 +58,7 @@ describe('onDragUpdate()', () => {
 	});
 
 	it('should be called if the position has changed on move', () => {
-		jest.useFakeTimers();
+		jest.useFakeTimers({ legacyFakeTimers: true });
 
 		const { getByText } = render(<App />);
 

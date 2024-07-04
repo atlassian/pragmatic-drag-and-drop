@@ -1,6 +1,7 @@
 import React, { type ReactNode, useState } from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 import type {
 	DraggableProvided,
 	DragStart,
@@ -85,7 +86,9 @@ function App({ onDragStart, onDragUpdate, onDragEnd }: AppProps) {
 	);
 }
 
-jest.useFakeTimers();
+jest.useFakeTimers({ legacyFakeTimers: true });
+
+replaceRaf();
 
 it('should allow the disabling of a droppable in onDragStart', () => {
 	const responders = {

@@ -4,6 +4,7 @@
 import React from 'react';
 
 import { fireEvent, render, type RenderResult } from '@testing-library/react';
+import replaceRaf from 'raf-stub';
 import type {
 	BeforeCapture,
 	DraggableId,
@@ -102,7 +103,8 @@ describe('responders integration', () => {
 			simpleLift(mouse, getHandle());
 
 			// movements are scheduled in an animation frame
-			// @ts-expect-error - .step() not in types
+			replaceRaf();
+			const requestAnimationFrame = window.requestAnimationFrame as any;
 			requestAnimationFrame.step();
 
 			// drag start responder is scheduled with setTimeout
@@ -116,7 +118,8 @@ describe('responders integration', () => {
 			});
 
 			// movements are scheduled in an animation frame
-			// @ts-expect-error - .step() not in types
+			replaceRaf();
+			const requestAnimationFrame = window.requestAnimationFrame as any;
 			requestAnimationFrame.step();
 			// responder updates are scheduled with setTimeout
 			jest.runOnlyPendingTimers();
@@ -127,7 +130,8 @@ describe('responders integration', () => {
 			setElementFromPoint(document.body);
 
 			// movements are scheduled in an animation frame
-			// @ts-expect-error - .step() not in types
+			replaceRaf();
+			const requestAnimationFrame = window.requestAnimationFrame as any;
 			requestAnimationFrame.step();
 		};
 

@@ -19,6 +19,7 @@ const addEventListener = jest.spyOn(window, 'addEventListener');
 const removeEventListener = jest.spyOn(window, 'removeEventListener');
 
 beforeEach(() => {
+	jest.useFakeTimers();
 	addEventListener.mockClear();
 	removeEventListener.mockClear();
 });

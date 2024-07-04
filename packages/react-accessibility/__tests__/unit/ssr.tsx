@@ -1,3 +1,5 @@
+import { screen } from '@testing-library/react';
+
 import { cleanup, hydrate, ssr } from '@atlaskit/ssr/emotion';
 
 function noop() {}
@@ -19,6 +21,9 @@ test('should ssr then hydrate correctly', async () => {
 
 	elem.innerHTML = html;
 	hydrate(examplePath, elem, styles);
+
+	// Jest 29 - Added assertion to fix: Jest worker encountered 4 child process exceptions, exceeding retry limit
+	await screen.findAllByRole('button');
 
 	// No other errors from e.g. hydrate
 	// eslint-disable-next-line no-console

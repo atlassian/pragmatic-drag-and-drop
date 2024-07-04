@@ -192,7 +192,7 @@ const largeGroup: Group = (() => {
 
 // Using modern timers as it is important that the system clock moves in sync with the frames.
 // We need this as we are keeping track of when a drop target is entered into.
-jest.useFakeTimers('modern');
+jest.useFakeTimers();
 setStartSystemTime();
 
 beforeEach(reset);

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 import invariant from 'tiny-invariant';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
@@ -34,6 +35,8 @@ function dragAndDrop({
 	handle: HTMLElement;
 	target: { getElement: () => HTMLElement; edge: Edge };
 }) {
+	replaceRaf();
+
 	const cleanup = setElementFromPoint(handle);
 	fireEvent.dragStart(handle);
 	act(() => {

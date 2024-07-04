@@ -22,7 +22,7 @@ import {
 
 import { getHoneyPot } from './_util';
 
-jest.useFakeTimers('modern');
+jest.useFakeTimers();
 setStartSystemTime();
 
 afterEach(reset);

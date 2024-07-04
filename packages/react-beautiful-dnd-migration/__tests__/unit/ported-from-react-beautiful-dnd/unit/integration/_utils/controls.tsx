@@ -2,8 +2,12 @@
 // <https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.1/test/unit/integration/util/controls.js>
 
 import { act, fireEvent } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 
 import { setElementFromPoint } from '../../../../_util';
+
+// replaceRaf();
+// const requestAnimationFrame = window.requestAnimationFrame as any;
 
 const sloppyClickThreshold = 5;
 
@@ -36,6 +40,9 @@ export function mouseLiftExtended(
 	handle: HTMLElement,
 	{ elementUnderPointer }: { elementUnderPointer: HTMLElement },
 ) {
+	replaceRaf();
+	const requestAnimationFrame = window.requestAnimationFrame as any;
+
 	/**
 	 * Added for compatibility with how pdnd checks drag handles.
 	 */
@@ -49,7 +56,6 @@ export function mouseLiftExtended(
 
 	act(() => {
 		// after an animation frame we fire `onDragStart`
-		// @ts-expect-error
 		requestAnimationFrame.step();
 	});
 
@@ -65,6 +71,8 @@ export const mouse: Control = {
 		mouseLiftExtended(handle, { elementUnderPointer: handle });
 	},
 	move: (handle: HTMLElement) => {
+		replaceRaf();
+
 		fireEvent.pointerMove(handle, {
 			clientX: 0,
 			clientY: sloppyClickThreshold + 1,
@@ -88,6 +96,8 @@ export const keyboard: Control = {
 	name: 'keyboard',
 	preLift: () => {},
 	lift: (handle: HTMLElement) => {
+		replaceRaf();
+
 		handle.focus();
 
 		fireEvent.keyDown(handle, { key: ' ' });
@@ -114,7 +124,7 @@ export const forEachSensor = (tests: (control: Control) => void) => {
 	controls.forEach((control: Control) => {
 		describe(`with: ${control.name}`, () => {
 			beforeEach(() => {
-				jest.useFakeTimers();
+				jest.useFakeTimers({ legacyFakeTimers: true });
 			});
 			afterEach(() => {
 				jest.clearAllTimers();

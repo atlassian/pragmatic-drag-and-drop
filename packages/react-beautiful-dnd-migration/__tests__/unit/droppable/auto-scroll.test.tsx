@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 
 import { autoScroller } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll';
 
@@ -39,6 +40,8 @@ function List() {
 const autoScrollerStart = jest.spyOn(autoScroller, 'start');
 const autoScrollerUpdateInput = jest.spyOn(autoScroller, 'updateInput');
 const autoScrollerStop = jest.spyOn(autoScroller, 'stop');
+
+replaceRaf();
 
 describe('integration with @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll', () => {
 	it('should call autoScroller.start() on dragstart', () => {

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",
-    "@testing-library/dom": "^8.17.1",
+    "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^12.1.5",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",

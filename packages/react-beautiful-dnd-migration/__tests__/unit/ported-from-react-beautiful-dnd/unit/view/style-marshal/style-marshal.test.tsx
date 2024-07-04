@@ -93,7 +93,7 @@ it('should have the expected styles', () => {
 
 	const styleTag = getStyleTag(contextId);
 	expect(styleTag.innerHTML).toMatchInlineSnapshot(
-		`"[data-rbd-drag-handle-context-id=\\"2\\"] { cursor: grab; -webkit-touch-callout: none; }"`,
+		`"[data-rbd-drag-handle-context-id="2"] { cursor: grab; -webkit-touch-callout: none; }"`,
 	);
 
 	unmount();

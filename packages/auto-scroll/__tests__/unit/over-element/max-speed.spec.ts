@@ -1,5 +1,6 @@
 import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
+import { replaceRaf } from 'raf-stub';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
@@ -14,7 +15,8 @@ import { appendToBody, reset, setElementFromPoint, setupBasicScrollContainer } f
 // need to use "legacy" timers so we can control
 // the exact amount of time that passes for a frame.
 // For "modern" jest timers, the frame rate is locked at 60fps
-jest.useFakeTimers('legacy');
+jest.useFakeTimers({ legacyFakeTimers: true });
+replaceRaf();
 
 const startTime = 0;
 let currentTime: number = startTime;

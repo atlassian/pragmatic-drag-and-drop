@@ -86,6 +86,7 @@ describe('calculateGap()', () => {
 
 		const firstElement = getByTestId('0');
 
+		// @ts-ignore UTEST-1630
 		getComputedStyle.mockImplementation(function (el) {
 			const style = new CSSStyleDeclaration();
 			if (el === firstElement) {
@@ -110,6 +111,7 @@ describe('calculateGap()', () => {
 
 		const lastElement = getByTestId('1');
 
+		// @ts-ignore UTEST-1630
 		getComputedStyle.mockImplementation((el) => {
 			const style = new CSSStyleDeclaration();
 			if (el === lastElement) {

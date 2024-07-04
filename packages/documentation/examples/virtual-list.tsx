@@ -574,37 +574,10 @@ export default function ListExample() {
 			return isItemData(source.data) && source.data.instanceId === instanceId;
 		}
 
-		// While scrolling, the browser can incorrectly think the cursor is
-		// over the drag handle button. This is a little workaround to
-		// disable pointer events on the buttons while dragging.
-		//
-		// TODO: can we fix this in pdnd, or in our drag handle button?
-		// https://product-fabric.atlassian.net/browse/DSP-17753
-		function fixCursorOnButtons() {
-			invariant(scrollContainer);
-			scrollContainer.setAttribute('data-is-dragging', 'true');
-			const element = document.createElement('style');
-			document.head.appendChild(element);
-			element.sheet?.insertRule('[data-is-dragging] button { pointer-events: none; }');
-
-			return function cleanup() {
-				document.head.removeChild(element);
-				scrollContainer.removeAttribute('data-is-dragging');
-			};
-		}
-
-		let cleanupStyles: CleanupFn | null = null;
-
 		return combine(
 			monitorForElements({
 				canMonitor: canRespond,
-				onDragStart() {
-					cleanupStyles = fixCursorOnButtons();
-				},
 				onDrop({ location, source }) {
-					cleanupStyles?.();
-					cleanupStyles = null;
-
 					const target = location.current.dropTargets[0];
 					if (!target) {
 						return;

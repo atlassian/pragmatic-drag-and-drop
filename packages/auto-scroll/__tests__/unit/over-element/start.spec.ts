@@ -18,7 +18,7 @@ import {
 	userEvent,
 } from '../_util';
 
-jest.useFakeTimers('modern');
+jest.useFakeTimers();
 setStartSystemTime();
 
 beforeEach(reset);

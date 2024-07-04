@@ -4,6 +4,7 @@
 import React from 'react';
 
 import { act, fireEvent, render } from '@testing-library/react';
+import replaceRaf from 'raf-stub';
 import type { DraggableStateSnapshot } from 'react-beautiful-dnd';
 
 import { zIndex } from '../../../../../../src/draggable/constants';
@@ -19,7 +20,8 @@ it('should move to a provided offset', () => {
 	setElementFromPoint(handle);
 	fireEvent.dragStart(handle, { clientX: 0, clientY: 5 });
 	act(() => {
-		// @ts-expect-error
+		replaceRaf();
+		const requestAnimationFrame = window.requestAnimationFrame as any;
 		requestAnimationFrame.step();
 	});
 	expect(isDragging(handle)).toBe(true);
@@ -30,7 +32,8 @@ it('should move to a provided offset', () => {
 
 	fireEvent.dragOver(handle, { clientX: 0, clientY: 6 });
 	act(() => {
-		// @ts-expect-error
+		replaceRaf();
+		const requestAnimationFrame = window.requestAnimationFrame as any;
 		requestAnimationFrame.step();
 	});
 

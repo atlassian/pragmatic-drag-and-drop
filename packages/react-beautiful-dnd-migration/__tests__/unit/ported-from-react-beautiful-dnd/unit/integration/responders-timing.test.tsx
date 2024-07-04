@@ -38,7 +38,7 @@ const Item = ({ onRender, provided }: ItemProps) => {
 };
 
 beforeEach(() => {
-	jest.useFakeTimers();
+	jest.useFakeTimers({ legacyFakeTimers: true });
 });
 
 afterEach(() => {

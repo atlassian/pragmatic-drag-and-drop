@@ -169,17 +169,11 @@ export default function Table() {
 				canMonitor({ source }) {
 					return source.data.instanceId === instanceId;
 				},
-				onDragStart() {
-					// using this class to disable hover styles while dragging
-					document.body.classList.add('is-dragging');
-				},
 				onDrop({ location, source }) {
-					document.body.classList.remove('is-dragging');
-
 					/**
 					 * Only checking the inner-most drop target.
 					 */
-					const destination = location.current.dropTargets.at(0);
+					const destination = location.current.dropTargets[0];
 					if (!destination) {
 						return;
 					}

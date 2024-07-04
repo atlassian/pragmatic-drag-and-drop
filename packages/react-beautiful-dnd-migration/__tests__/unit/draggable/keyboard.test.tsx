@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { act, createEvent, fireEvent, render } from '@testing-library/react';
+import { replaceRaf } from 'raf-stub';
 
 import VirtualBoardExample from '../../../examples/02-react-window';
 import { DragDropContext, Draggable, Droppable } from '../../../src';
@@ -351,6 +352,8 @@ describe('keyboard dragging', () => {
 		});
 
 		it('should rebind the listener after a cancelled drop', () => {
+			replaceRaf();
+
 			const { getByTestId } = render(<VirtualBoardExample />);
 
 			/**

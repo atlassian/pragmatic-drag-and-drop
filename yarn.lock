@@ -65,10 +65,10 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^18.1.0":
-  version "18.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-18.1.0.tgz#ba266281278eba195b47bf97be2b347f880f89bb"
-  integrity sha512-KmjRGLHWfGzgPvVU/bN4fAzDl2Shlw1Nh0BPzDzQeU1Xlx1+KsFFz0pqylsOOVjkUS1zvvqhKLACt1nlu1Hqag==
+"@atlaskit/button@^18.2.0":
+  version "18.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-18.2.0.tgz#ddc254cb8a5308b3718d34d7e0c9e816711c8897"
+  integrity sha512-RJ/hNXL1HcWz1iKxMHtcxSKKstKWJ9TAaXDkhFhwjma4x82HQFcl5BmMCAm7I+J+x4IViG5PfHPwwELWQWpZdA==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"

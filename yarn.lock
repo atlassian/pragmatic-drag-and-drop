@@ -65,10 +65,10 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^18.3.0":
-  version "18.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-18.3.0.tgz#4e366e39498a3e2f58c63b4be0c2cac88d97737e"
-  integrity sha512-okVwV6B5NQp5oNIbQ1UNUbbemohzPNq4wRXiZT/VMOMnt79kq7B6NQkC8otZgiIRwkZ3tYAI8h7+9fURSqHrhw==
+"@atlaskit/button@^18.4.0":
+  version "18.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-18.4.0.tgz#fd1cf14ee00a3eca6441afa493160b4dadfb0ddc"
+  integrity sha512-lNmR6D0USvGY+jKi+wExjZhVnscoDFAB8Umhqhhdgt8pbNu/AT4JHEJgw09lz3N0bFHRQZak3efZgCb2Q6fepQ==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"
@@ -76,10 +76,10 @@
     "@atlaskit/icon" "^22.6.0"
     "@atlaskit/interaction-context" "^2.1.0"
     "@atlaskit/platform-feature-flags" "^0.3.0"
-    "@atlaskit/primitives" "^10.1.0"
+    "@atlaskit/primitives" "^11.0.0"
     "@atlaskit/spinner" "^16.2.0"
     "@atlaskit/theme" "^12.11.0"
-    "@atlaskit/tokens" "^1.53.0"
+    "@atlaskit/tokens" "^1.54.0"
     "@atlaskit/tooltip" "^18.5.0"
     "@atlaskit/visually-hidden" "^1.4.0"
     "@babel/runtime" "^7.0.0"
@@ -268,25 +268,6 @@
     react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^10.1.0":
-  version "10.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-10.1.0.tgz#310d3a78a6ea20ce157a8c6dfcf440f021b133f1"
-  integrity sha512-4WGDZsDAtFUslB26QIRUhoseMSBPg6KbmeXgcrqom+8rKJC+VstDyPspbMx5qx9B+EImNqvuyphmpuTJEqBwdA==
-  dependencies:
-    "@atlaskit/analytics-next" "^9.3.0"
-    "@atlaskit/app-provider" "^1.3.0"
-    "@atlaskit/css" "^0.3.0"
-    "@atlaskit/ds-lib" "^2.3.0"
-    "@atlaskit/interaction-context" "^2.1.0"
-    "@atlaskit/tokens" "^1.53.0"
-    "@atlaskit/visually-hidden" "^1.4.0"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.1.0"
-    bind-event-listener "^3.0.0"
-    react-uid "^2.2.0"
-    tiny-invariant "^1.2.0"
-
 "@atlaskit/primitives@^11.0.0":
   version "11.0.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-11.0.0.tgz#3c351dbe594d119d2590cd0d286a255cf5f35192"
@@ -421,6 +402,18 @@
   dependencies:
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/platform-feature-flags" "^0.2.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tokens@^1.54.0":
+  version "1.54.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-1.54.0.tgz#41217f81ccb2f8fedab5003aa2fad742669fd0db"
+  integrity sha512-ppISd3u0LGFL8IH0TQIcsrY9asKEh2qv5+GaeKmIHeFBqSFilbm+e2qf5iV40Idp7755hmFAbo/RGKRBImt8/Q==
+  dependencies:
+    "@atlaskit/ds-lib" "^2.3.0"
+    "@atlaskit/platform-feature-flags" "^0.3.0"
     "@babel/runtime" "^7.0.0"
     "@babel/traverse" "^7.23.2"
     "@babel/types" "^7.20.0"

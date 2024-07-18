@@ -25,7 +25,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^21.11.0",
     "@atlaskit/badge": "^16.3.0",
-    "@atlaskit/button": "^18.4.0",
+    "@atlaskit/button": "^19.0.0",
     "@atlaskit/code": "^15.4.0",
     "@atlaskit/focus-ring": "^1.5.0",
     "@atlaskit/grid": "^0.13.0",
@@ -37,7 +37,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^1.1.0",
     "@atlaskit/primitives": "^11.0.0",
     "@atlaskit/theme": "^12.11.0",
-    "@atlaskit/tokens": "^1.55.0",
+    "@atlaskit/tokens": "^1.56.0",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",
     "fast-glob": "^3.2.11",

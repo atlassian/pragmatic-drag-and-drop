@@ -65,10 +65,10 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^18.4.0":
-  version "18.4.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-18.4.0.tgz#fd1cf14ee00a3eca6441afa493160b4dadfb0ddc"
-  integrity sha512-lNmR6D0USvGY+jKi+wExjZhVnscoDFAB8Umhqhhdgt8pbNu/AT4JHEJgw09lz3N0bFHRQZak3efZgCb2Q6fepQ==
+"@atlaskit/button@^19.0.0":
+  version "19.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-19.0.0.tgz#27006ec8bb089170e69ccd3a7a14cb5d36c6d4fc"
+  integrity sha512-jNH97egPTyLrwSFkz8JxQVrQa2KzhhCAy/Ud+qDL9Mn/tFvB8qqweYeCcZ0s2a82fMUMP73BnfRl1es0YgJacw==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"
@@ -79,7 +79,7 @@
     "@atlaskit/primitives" "^11.0.0"
     "@atlaskit/spinner" "^16.2.0"
     "@atlaskit/theme" "^12.11.0"
-    "@atlaskit/tokens" "^1.54.0"
+    "@atlaskit/tokens" "^1.56.0"
     "@atlaskit/tooltip" "^18.5.0"
     "@atlaskit/visually-hidden" "^1.4.0"
     "@babel/runtime" "^7.0.0"
@@ -407,22 +407,10 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/tokens@^1.54.0":
-  version "1.54.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-1.54.0.tgz#41217f81ccb2f8fedab5003aa2fad742669fd0db"
-  integrity sha512-ppISd3u0LGFL8IH0TQIcsrY9asKEh2qv5+GaeKmIHeFBqSFilbm+e2qf5iV40Idp7755hmFAbo/RGKRBImt8/Q==
-  dependencies:
-    "@atlaskit/ds-lib" "^2.3.0"
-    "@atlaskit/platform-feature-flags" "^0.3.0"
-    "@babel/runtime" "^7.0.0"
-    "@babel/traverse" "^7.23.2"
-    "@babel/types" "^7.20.0"
-    bind-event-listener "^3.0.0"
-
-"@atlaskit/tokens@^1.55.0":
-  version "1.55.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-1.55.0.tgz#3df0fb38324c522f6298178d3b7dd20e489f9d83"
-  integrity sha512-h9pOIZezo1cP6doW1wtpo/NkUoEznUIHufOBvhLRdmwfGe/w9qlGeewvdF3o6Se4gsPO/Yn7WHy6Bhom+LdKgg==
+"@atlaskit/tokens@^1.56.0":
+  version "1.56.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-1.56.0.tgz#0f9a113c4f48c7df0ec1f61e657dab363950f363"
+  integrity sha512-tb3xvt7Z1XmJfBokAZinpqkSY8wNutMDBSFkyg6Whkcf4p6f505JPQDvaZGNqtT8VFbj6cTJnjtP8UtbCDK+mw==
   dependencies:
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/platform-feature-flags" "^0.3.0"

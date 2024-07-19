@@ -14,10 +14,10 @@ import SectionMessage from '@atlaskit/section-message';
 The goal of this guidance is to provide every person with a way to delightfully achieve the same
 outcomes in Atlassian interfaces, regardless of the technologies being used.
 
-The [core package](./core-package) does not enable accessible controls automatically, as there is no
-one pattern that works well for all situations. Instead, use these guidelines and our
-[optional packages](./optional-packages) and [Design System components](/components) to create
-accessible experiences.
+The [core package](/components/pragmatic-drag-and-drop/core-package) does not enable accessible
+controls automatically, as there is no one pattern that works well for all situations. Instead, use
+these guidelines and our [optional packages](/components/pragmatic-drag-and-drop/optional-packages)
+and [Design System components](/components) to create accessible experiences.
 
 Non Atlassian consumers are encouraged to follow this guideline and substitute our Design System
 components (eg `@atlaskit/inline-menu`) with their own components. Non Atlassian consumers are also
@@ -47,19 +47,21 @@ outcomes.
 
 <SectionMessage>
 
-Please refer to our [design guidelines](./design-guidelines) for guidance about drag handle icons.
+Please refer to our [design guidelines](/components/pragmatic-drag-and-drop/design-guidelines) for
+guidance about drag handle icons.
 
 </SectionMessage>
 
 - Movement outcomes can be added to a draggable entity by using a **More button (...)**
 - Having a **More button (...)** does not remove the need for a drag handle icon. See
-  [design guidelines](./design-guidelines).
+  [design guidelines](/components/pragmatic-drag-and-drop/design-guidelines).
 - If no **More button (...)** exists on a draggable entity, and movement outcomes are the only
   possible actions for the entity, then you can convert the drag handle icon into a
-  [drag handle menu button](./optional-packages/react-accessibility) that triggers an inline menu
-  with movement outcomes.
+  [drag handle menu button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
+  that triggers an inline menu with movement outcomes.
 - A draggable entity should only have one button for triggering actions. An entity should _not_ have
-  a **More button (...)** and a [drag handle menu button](./optional-packages/react-accessibility)
+  a **More button (...)** and a
+  [drag handle menu button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
   (an entity should only)
 - A draggable that does not have a drag handle icon because it is "implied" to be draggable (eg a
   card) should still have a **More button (...)**.
@@ -91,7 +93,7 @@ containing a form to gather that additional input from the user.
 
 Packages to help you:
 
-- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
+- [Drag handle menu component](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility/drag-handle-button/examples)
 - [inline-menu](/components/inline-menu)
 - [modal](/components/modal)
 - [select](/components/select)
@@ -175,7 +177,7 @@ can't be preserved automatically.
 
 ## Related
 
-- [Atlassian drag and drop design guidelines](./design-guidelines)
+- [Atlassian drag and drop design guidelines](/components/pragmatic-drag-and-drop/design-guidelines)
 - [Accessibility foundation general guidance](/foundations/accessibility/#meaningful-text)
-- [Drag handle menu component](./optional-packages/react-accessibility/drag-handle-button/examples)
-- [Live region package](./optional-packages/live-region)
+- [Drag handle menu component](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility/drag-handle-button/examples)
+- [Live region package](/components/pragmatic-drag-and-drop/optional-packages/live-region)

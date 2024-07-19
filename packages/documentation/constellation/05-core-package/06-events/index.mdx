@@ -7,7 +7,7 @@ Events fire based on specific user actions and the part of Pragmatic drag and dr
 interaction (such as a `draggable` and drop target).
 
 To listen for all events for a specific type of draggable item (element or file), you can use a
-[monitor](./monitor).
+[monitor](/components/pragmatic-drag-and-drop/monitor).
 
 ## Available events
 
@@ -320,11 +320,13 @@ Flow
   `location.current.dropTargets`) in bubble event ordering (inner most `dropTarget` upwards)
 - `onDrop` fires on _monitors_
 
-For drags that start within the current `window` ([element adapter](./adapters/element),
-[text selection adapter](./adapters/text-selection)), the drag finishes when the drag operation
-finish, which might be while the user is outside of the current `window`. For drags that start
-outside of the current `windows` ([external adapter](./adapters/external)), a drag finishes when the
-user leaves the `window`.
+For drags that start within the current `window`
+([element adapter](/components/pragmatic-drag-and-drop/adapters/element),
+[text selection adapter](/components/pragmatic-drag-and-drop/adapters/text-selection)), the drag
+finishes when the drag operation finish, which might be while the user is outside of the current
+`window`. For drags that start outside of the current `windows`
+([external adapter](/components/pragmatic-drag-and-drop/adapters/external)), a drag finishes when
+the user leaves the `window`.
 
 ## Cancelling
 

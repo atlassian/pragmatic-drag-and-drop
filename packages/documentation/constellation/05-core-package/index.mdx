@@ -19,24 +19,24 @@ there are many optional pieces, which are separated into their own entry points
 
 For example:
 
-- [The element adapter](./adapters/element): `/element/adapter`
+- [The element adapter](/components/pragmatic-drag-and-drop/adapters/element): `/element/adapter`
   (`@atlaskit/pragmatic-drag-and-drop/element/adapter`)
-- [An array reordering utility](./utilities): `/reorder`
+- [An array reordering utility](/components/pragmatic-drag-and-drop/utilities): `/reorder`
   (`atlaskit/pragmatic-drag-and-drop/reorder`)
 
 And many more!
 
-You can also use our [optional packages](./optional-packages) to streamline the building of your
-experiences if you want to. Some of these optional packages are tied to specific view technologies
-(eg `@atlaskit/pragmatic-drag-and-drop-react-drop-indicator` uses `react` for rendering and
-`emotion` for styling), and those dependencies are made clear in the packages documentation. Where
-possible, packages don't have any dependency on a view technology (eg
+You can also use our [optional packages](/components/pragmatic-drag-and-drop/optional-packages) to
+streamline the building of your experiences if you want to. Some of these optional packages are tied
+to specific view technologies (eg `@atlaskit/pragmatic-drag-and-drop-react-drop-indicator` uses
+`react` for rendering and `emotion` for styling), and those dependencies are made clear in the
+packages documentation. Where possible, packages don't have any dependency on a view technology (eg
 `@atlaskit/pragmatic-drag-and-drop-hitbox` for hitbox information).
 
 <SectionMessage appearance="success">
 
-Be sure to check out our [tutorial](./tutorial) to see how to quickly wire up an experience with
-Pragmatic drag and drop.
+Be sure to check out our [tutorial](/components/pragmatic-drag-and-drop/tutorial) to see how to
+quickly wire up an experience with Pragmatic drag and drop.
 
 </SectionMessage>
 
@@ -44,15 +44,20 @@ Pragmatic drag and drop.
 
 An _adapter_ teaches Pragmatic drag and drop how to handle dragging a particular entity:
 
-- [element adapter](./adapters/element) → handling the dragging of draggable elements
-- [text selection adapter](./adapters/text-selection) → handling the dragging of text selections
-- [external adapter](./adapters/external) → handling drag operations that started outside of the
-  current `window` (eg files and text from other `window`s or applications)
+- [element adapter](/components/pragmatic-drag-and-drop/adapters/element) → handling the dragging of
+  draggable elements
+- [text selection adapter](/components/pragmatic-drag-and-drop/adapters/text-selection) → handling
+  the dragging of text selections
+- [external adapter](/components/pragmatic-drag-and-drop/adapters/external) → handling drag
+  operations that started outside of the current `window` (eg files and text from other `window`s or
+  applications)
 
 A drag adapter always provides at least two pieces:
 
-1. A way of registering [drop target](./drop-targets) (eg `dropTargetForElements`).
-2. A way to create a [monitor](./monitor) (eg `monitorForExternal`).
+1. A way of registering [drop target](/components/pragmatic-drag-and-drop/drop-targets) (eg
+   `dropTargetForElements`).
+2. A way to create a [monitor](/components/pragmatic-drag-and-drop/monitor) (eg
+   `monitorForExternal`).
 
 ```ts
 import {
@@ -72,8 +77,8 @@ import {
 ```
 
 An adapter can also provide additional pieces. For example, the
-[element adapter](./adapters/element) provides a `draggable()` function which is a way of
-registering a `HTMLElement` as being draggable.
+[element adapter](/components/pragmatic-drag-and-drop/adapters/element) provides a `draggable()`
+function which is a way of registering a `HTMLElement` as being draggable.
 
 ```ts
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -95,7 +100,7 @@ const cleanup = dropTargetForExternal({
 });
 ```
 
-Learn more about [drop targets](./drop-targets).
+Learn more about [drop targets](/components/pragmatic-drag-and-drop/drop-targets).
 
 ### Monitors
 
@@ -110,7 +115,7 @@ const cleanup = monitorForElements({
 });
 ```
 
-Learn more about [monitors](./monitors).
+Learn more about [monitors](/components/pragmatic-drag-and-drop/monitors).
 
 ### Utilities
 
@@ -132,6 +137,7 @@ const cleanup = combine(
 
 ## What's next
 
-- Head to our [adapter documentation](./adapters) to start installing the pieces you need
-- Learn more about our [design](./design-guidelines) and [accessibility](./accessibility-guidelines)
-  guidelines.
+- Head to our [adapter documentation](/components/pragmatic-drag-and-drop/adapters) to start
+  installing the pieces you need
+- Learn more about our [design](/components/pragmatic-drag-and-drop/design-guidelines) and
+  [accessibility](./accessibility-guidelines) guidelines.

@@ -19,11 +19,12 @@ import { EntireEntityIsDraggableWithDragHandleButton } from '../../examples/guid
 
 These guidelines provide an opinionated way to implement drag and drop experiences with Pragmatic
 drag and drop for Atlassian interfaces. These guidelines work within
-[web platform design constraints](./web-platform-design-constraints) for drag and drop, and aim to
-optimise clarity and performance. Non-Atlassian consumers are welcome to use these guidelines, or
-create their own visual language for drag and drop. The [core package](./core-package) does not have
-any baked in design opinions, but some of the [optional packages](./optional-packages) embody these
-design choices.
+[web platform design constraints](/components/pragmatic-drag-and-drop/web-platform-design-constraints)
+for drag and drop, and aim to optimise clarity and performance. Non-Atlassian consumers are welcome
+to use these guidelines, or create their own visual language for drag and drop. The
+[core package](/components/pragmatic-drag-and-drop/core-package) does not have any baked in design
+opinions, but some of the [optional packages](/components/pragmatic-drag-and-drop/optional-packages)
+embody these design choices.
 
 <SectionMessage appearance="discovery">
 
@@ -57,8 +58,8 @@ It should be clear to a user that an entity is draggable by using the following:
 
 <SectionMessage>
 
-Please also see our [accessibility guide](./accessibility-guide) which talks about our guidance for
-placing an action menu trigger on draggable entities.
+Please also see our [accessibility guide](/components/pragmatic-drag-and-drop/accessibility-guide)
+which talks about our guidance for placing an action menu trigger on draggable entities.
 
 </SectionMessage>
 
@@ -79,10 +80,11 @@ function App() {
 
 <SectionMessage>
 
-Our [drag handle icon button](./optional-packages/react-accessibility) uses `"color.text"` as the
-icon color (rather than `"color.icon"`) to align with other icon buttons in our system, and for
-correct colors for different states. We expect this minor mismatch will be corrected during our
-upcoming icon work.
+Our
+[drag handle icon button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
+uses `"color.text"` as the icon color (rather than `"color.icon"`) to align with other icon buttons
+in our system, and for correct colors for different states. We expect this minor mismatch will be
+corrected during our upcoming icon work.
 
 </SectionMessage>
 
@@ -120,8 +122,9 @@ as possible.
 <Example Component={StandaloneCard} appearance="showcase-only" />
 
 Sometimes, your drag handle icon should be a button for triggering actions too (see our
-[accessibility guide](./accessibility-guide)). In those cases, please use our
-[drag handle icon button](./optional-packages/react-accessibility).
+[accessibility guide](/components/pragmatic-drag-and-drop/accessibility-guide)). In those cases,
+please use our
+[drag handle icon button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility).
 
 <Example Component={EntireEntityIsDraggableWithDragHandleButton} appearance="showcase-only" />
 
@@ -191,7 +194,7 @@ Simplification suggestions:
 
 - Use a maximum of three pieces of information in a preview
 - Use a maximum preview size of `280px x 280px` to prevent
-  [super low drag preview opacity on Windows](./web-platform-design-constraints)
+  [super low drag preview opacity on Windows](/components/pragmatic-drag-and-drop/web-platform-design-constraints)
 
 #### Standard
 
@@ -223,11 +226,12 @@ Cards are to be dragged from the point they're grabbed from (no offset).
 
 ### Cursor
 
-Due to [web platform constraints](./web-platform-design-constraints), we have limited control of the
-cursor during a drag operation. The cursor will generally be `cursor:default` during a drag
-operation.
+Due to
+[web platform constraints](/components/pragmatic-drag-and-drop/web-platform-design-constraints), we
+have limited control of the cursor during a drag operation. The cursor will generally be
+`cursor:default` during a drag operation.
 
-[More information about cursors](./web-platform-design-constraints#cursors).
+[More information about cursors](/components/pragmatic-drag-and-drop/web-platform-design-constraints#cursors).
 
 ### The draggable item
 
@@ -249,7 +253,9 @@ being dragged.
 
 ![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](/images/design-multi-card-drag.png)
 
-Implement with [native drag previews](./adapters/element/drag-previews), or use the
+Implement with
+[native drag previews](/components/pragmatic-drag-and-drop/adapters/element/drag-previews), or use
+the
 [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-5065&mode=design>)
 in designs.
 
@@ -284,9 +290,10 @@ terminal can sit against the left edge of the entity
 
 For stacked items, the line should appear in the middle of the gap between the items.
 
-- [Edge detection package](./optional-packages/hitbox): determines when and where the drop indicator
-  shows based on the location of the dragged item.
-- [React drop indicator package](./optional-packages/react-drop-indicator): draw drop indicators
+- [Edge detection package](/components/pragmatic-drag-and-drop/optional-packages/hitbox): determines
+  when and where the drop indicator shows based on the location of the dragged item.
+- [React drop indicator package](/components/pragmatic-drag-and-drop/optional-packages/react-drop-indicator):
+  draw drop indicators
 
 <Example Component={ListExample} appearance="showcase-only" />
 
@@ -333,8 +340,9 @@ once it has been moved.
 
 ![A series of actions shown in four slides. Hover state is grey, the drag indicator appears once drag begins, upon drop the color of the item flashes blue, then returns to its normal color.](/images/design-drop-flash.png).
 
-We have implemented this flash in our [flourish package](./optional-packages/flourish) for you to
-use with any framework.
+We have implemented this flash in our
+[flourish package](/components/pragmatic-drag-and-drop/optional-packages/flourish) for you to use
+with any framework.
 
 Background color flash details:
 
@@ -348,7 +356,8 @@ Background color flash details:
 
 <SectionMessage>
 
-Be sure to see our [accessibility guidelines](./accessibility-guidelines)
+Be sure to see our
+[accessibility guidelines](/components/pragmatic-drag-and-drop/accessibility-guidelines)
 
 </SectionMessage>
 
@@ -374,7 +383,9 @@ triggered, the drag handle button opens a menu that allows the users to move the
 
 ![An issue details view in Jira. A drag handle icon appears at the left of the assignee field. It is focussable, and opens a menu with options to move the field up or down in the view.](/images/design-drag-handle-menu.png)
 
-Use the [drag handle menu component](./optional-packages/react-accessibility) in code or the
+Use the
+[drag handle menu component](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
+in code or the
 [Figma kit drag handle menu (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38-2098&mode=design>)
 in designs.
 
@@ -428,5 +439,5 @@ the top item.
 ## Related
 
 - [Figma kit (Atlassian only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=0%3A1&mode=design&t=4UwHqNt2ffApWviO-1>)
-- [Accessibility guide](./accessibility-guidelines)
+- [Accessibility guide](/components/pragmatic-drag-and-drop/accessibility-guidelines)
 - [More examples](/components/pragmatic-drag-and-drop/examples)

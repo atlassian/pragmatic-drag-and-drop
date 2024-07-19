@@ -21,18 +21,19 @@ The element adapter contains the essential pieces for element operations:
 
 There are also a number of **optional** element utilities:
 
-- [setCustomNativeDragPreview](./drag-previews): use a new element as the native drag preview
-- [pointerOutsideOfPreview](./drag-previews): native drag preview function to place the users
-  pointer outside of the drag preview
-- [centerUnderPointer](./drag-previews): native drag preview function to place the center of the
-  ntaive drag preview under the users pointer
-- [preserveOffsetOnSource](./drag-previews): native drag preview function to match the pointer
-  position on a native drag preview as close as possible to the pointer position on the draggable
-  element
-- [disableNativeDragPreview](./drag-previews): disable the native drag preview (helpful if you want
-  to use your own custom drag preview or have no drag preview)
-- [scrollJustEnoughIntoView](./drag-previews): scroll an element just enough into view so it is
-  visible (helpful when working with default native drag previews)
+- [setCustomNativeDragPreview](/components/pragmatic-drag-and-drop/drag-previews): use a new element
+  as the native drag preview
+- [pointerOutsideOfPreview](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
+  function to place the users pointer outside of the drag preview
+- [centerUnderPointer](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
+  function to place the center of the ntaive drag preview under the users pointer
+- [preserveOffsetOnSource](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
+  function to match the pointer position on a native drag preview as close as possible to the
+  pointer position on the draggable element
+- [disableNativeDragPreview](/components/pragmatic-drag-and-drop/drag-previews): disable the native
+  drag preview (helpful if you want to use your own custom drag preview or have no drag preview)
+- [scrollJustEnoughIntoView](/components/pragmatic-drag-and-drop/drag-previews): scroll an element
+  just enough into view so it is visible (helpful when working with default native drag previews)
 
 <SectionMessage>
 
@@ -113,8 +114,8 @@ draggable({
 ```
 
 You can also implement a _drag handle_ by making a small part of an element the `draggable`, and
-then using [`setCustomNativeDragPreview`](./drag-previews) to generate a preview for the entire
-entity.
+then using [`setCustomNativeDragPreview`](/components/pragmatic-drag-and-drop/drag-previews) to
+generate a preview for the entire entity.
 
 ### Conditional dragging (`canDrag()`)
 
@@ -366,7 +367,7 @@ found on our [top level utilities page](../../utilities)
 
 ## Further reading
 
-- [Drag preview documentation](./drag-previews) → how to control what the user drags around during a
-  drag
+- [Drag preview documentation](/components/pragmatic-drag-and-drop/drag-previews) → how to control
+  what the user drags around during a drag
 - [Typing data](../../recipes/typing-data) → how to improve the types for `"data"`
-- [Unregistered elements](./unregistered-elements)
+- [Unregistered elements](/components/pragmatic-drag-and-drop/unregistered-elements)

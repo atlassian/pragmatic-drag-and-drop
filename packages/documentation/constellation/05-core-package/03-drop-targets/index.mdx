@@ -94,7 +94,8 @@ dropTargetForElements({
 - During a drag operation:
   - You can add new _drop targets_
   - You can remove _drop targets_
-  - You can _remount_ a _drop targets_ (see [reconciliation](./reconciliation))
+  - You can _remount_ a _drop targets_ (see
+    [reconciliation](/components/pragmatic-drag-and-drop/reconciliation))
   - You can change the dimensions of any _drop target_
 
 ## Drop target arguments
@@ -142,10 +143,10 @@ const cleanup = dropTargetForExternal({
 
 `getData()` is called _repeatedly_ while the user is dragging over the drop target in order to power
 addons. If your `getData()` function is expensive, consider using the
-[`once` utility function](./utilities).
+[`once` utility function](/components/pragmatic-drag-and-drop/utilities).
 
 If you want to understand the _type_ of data attached to a drop target elsewhere in your
-application, see our [typing data guide](./recipes/typing-data).
+application, see our [typing data guide](/components/pragmatic-drag-and-drop/recipes/typing-data).
 
 ### `canDrop`
 
@@ -216,7 +217,7 @@ will be applied; even if inner most drop target is using the default value (`"mo
 <SectionMessage>
 
 For more information about controlling the users cursor while dragging, see
-[our cursor guide](./cursors)
+[our cursor guide](/components/pragmatic-drag-and-drop/cursors)
 
 </SectionMessage>
 

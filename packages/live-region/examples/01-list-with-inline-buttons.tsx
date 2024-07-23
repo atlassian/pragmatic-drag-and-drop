@@ -1,5 +1,8 @@
 /* eslint-disable @atlassian/tangerine/import/no-relative-package-imports */
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import { useCallback, useReducer } from 'react';
 

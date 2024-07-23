@@ -3,7 +3,10 @@
  * so disabling the linting rule.
  */
 /* eslint-disable @atlaskit/design-system/ensure-design-token-usage/preview */
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import type { CSSProperties } from 'react';
 

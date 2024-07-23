@@ -1,4 +1,7 @@
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import { forwardRef, memo, type ReactNode } from 'react';
 

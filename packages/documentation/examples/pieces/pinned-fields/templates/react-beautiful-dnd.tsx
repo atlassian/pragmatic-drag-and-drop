@@ -1,5 +1,8 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import { type ReactElement, useCallback, useState } from 'react';
 

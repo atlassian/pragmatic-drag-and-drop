@@ -1,4 +1,7 @@
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import { type DragEventHandler, Fragment, useCallback, useState } from 'react';
 

@@ -1,4 +1,7 @@
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 
 import { Fragment, memo, type ReactNode, useEffect, useRef } from 'react';
 

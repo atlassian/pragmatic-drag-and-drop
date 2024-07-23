@@ -1,5 +1,8 @@
 /* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
-/** @jsx jsx */
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
 import { Fragment, type ReactNode, useCallback, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766

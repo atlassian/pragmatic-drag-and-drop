@@ -65,15 +65,15 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^19.0.0":
-  version "19.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-19.0.0.tgz#27006ec8bb089170e69ccd3a7a14cb5d36c6d4fc"
-  integrity sha512-jNH97egPTyLrwSFkz8JxQVrQa2KzhhCAy/Ud+qDL9Mn/tFvB8qqweYeCcZ0s2a82fMUMP73BnfRl1es0YgJacw==
+"@atlaskit/button@^19.1.0":
+  version "19.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-19.1.0.tgz#f3f8cb87e3cfa68789f469112c662f23995e84fc"
+  integrity sha512-WESdU23/JIBu8wt+tohW2C9p1c9GrwbemMejil9Kuw0fQWBRm6Pg6A8+Q9htZbqHVJHQ9pr3t1+6ke9C0eInOw==
   dependencies:
     "@atlaskit/analytics-next" "^9.3.0"
     "@atlaskit/ds-lib" "^2.3.0"
     "@atlaskit/focus-ring" "^1.5.0"
-    "@atlaskit/icon" "^22.6.0"
+    "@atlaskit/icon" "^22.7.0"
     "@atlaskit/interaction-context" "^2.1.0"
     "@atlaskit/platform-feature-flags" "^0.3.0"
     "@atlaskit/primitives" "^11.0.0"
@@ -177,16 +177,6 @@
   integrity sha512-CgGQUcO/hXvFwqEws1Ptvhbku/9UgsN25ErkX90XzL7m7vUW3w/hGzTkMCfQoJqCuV67UQ125X5jTQ0WXc7U0w==
   dependencies:
     "@atlaskit/platform-feature-flags" "^0.2.0"
-    "@atlaskit/tokens" "^1.53.0"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-
-"@atlaskit/icon@^22.6.0":
-  version "22.6.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-22.6.0.tgz#c0deec78e9407aab7944d19ab5a23eed35fbb289"
-  integrity sha512-P5To8hAA6mHrxGxa5cRqmgQ/EsFfuK7jssKiNwoi9au8TZ5wGSscPJlmhpDO/Q3r42GE4q+5Qk+imw9ynAk4Uw==
-  dependencies:
-    "@atlaskit/platform-feature-flags" "^0.3.0"
     "@atlaskit/tokens" "^1.53.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"

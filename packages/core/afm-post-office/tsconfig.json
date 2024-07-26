@@ -1,0 +1,20 @@
+{
+  "extends": "../../../../tsconfig.entry-points.post-office.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop/app",
+    "composite": true,
+    "rootDir": "../"
+  },
+  "include": [
+    "../src/**/*.ts",
+    "../src/**/*.tsx"
+  ],
+  "exclude": [
+    "../src/**/__tests__/*",
+    "../src/**/*.test.*",
+    "../src/**/test.*",
+    "../src/**/examples.*"
+  ],
+  "references": []
+}

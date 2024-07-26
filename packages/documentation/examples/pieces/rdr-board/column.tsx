@@ -228,7 +228,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 				ref={columnRef}
 			>
 				<div css={columnHeaderStyles} ref={headerRef} data-testid={`column-${columnId}--header`}>
-					<Heading level="h300" as="span">
+					<Heading size="xxsmall" as="span">
 						{column.title}
 					</Heading>
 					<ActionMenu />
@@ -261,7 +261,7 @@ const previewStyles = css({
 function ColumnPreview({ column }: { column: ColumnType }) {
 	return (
 		<div css={[columnHeaderStyles, previewStyles]}>
-			<Heading level="h300" as="span">
+			<Heading size="xxsmall" as="span">
 				{column.title}
 			</Heading>
 		</div>

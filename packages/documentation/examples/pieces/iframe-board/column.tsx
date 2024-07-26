@@ -341,7 +341,7 @@ export function Column({ columnId }: { columnId: string }) {
 	return (
 		<Stack ref={columnRef} xcss={[columnStyles, stateStyles[state.type]]}>
 			<Inline xcss={columnHeaderStyles} ref={headerRef} spread="space-between" alignBlock="center">
-				<Heading level="h300" as="span">
+				<Heading size="xxsmall" as="span">
 					{columnId}
 				</Heading>
 			</Inline>

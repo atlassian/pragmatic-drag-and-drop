@@ -109,7 +109,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				)}
 			</Avatar>
 			<Stack space="space.050" grow="fill">
-				<Heading level="h400" as="span">
+				<Heading size="xsmall" as="span">
 					{name}
 				</Heading>
 				<Box as="small" xcss={noMarginStyles}>

@@ -292,7 +292,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 							spread="space-between"
 							alignBlock="center"
 						>
-							<Heading level="h300" as="span" testId={`column-header-title-${columnId}`}>
+							<Heading size="xxsmall" as="span" testId={`column-header-title-${columnId}`}>
 								{column.title}
 							</Heading>
 							<ActionMenu />
@@ -327,7 +327,7 @@ const safariPreviewStyles = xcss({
 function SafariColumnPreview({ column }: { column: ColumnType }) {
 	return (
 		<Box xcss={[columnHeaderStyles, safariPreviewStyles]}>
-			<Heading level="h300" as="span">
+			<Heading size="xxsmall" as="span">
 				{column.title}
 			</Heading>
 		</Box>

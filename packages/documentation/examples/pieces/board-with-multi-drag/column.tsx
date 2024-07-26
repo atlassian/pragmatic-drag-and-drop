@@ -214,7 +214,7 @@ export const Column = memo(function Column({
 		<>
 			<Stack xcss={[columnStyles, stateStyles[state.type]]} ref={columnRef}>
 				<Inline xcss={columnHeaderStyles} ref={headerRef} testId={`column-${columnId}--header`}>
-					<Heading level="h300" as="span">
+					<Heading size="xxsmall" as="span">
 						{column.title}
 					</Heading>
 				</Inline>
@@ -255,7 +255,7 @@ const previewStyles = xcss({
 function SafariColumnPreview({ column }: { column: ColumnType }) {
 	return (
 		<Box xcss={[columnHeaderStyles, previewStyles]}>
-			<Heading level="h300" as="span">
+			<Heading size="xxsmall" as="span">
 				{column.title}
 			</Heading>
 		</Box>

@@ -20,7 +20,7 @@ import { appendToBody, getElements, getRect, reset, setBoundingClientRect } from
 
 afterEach(reset);
 
-it('should position the center of the drag preview user the users pointer', () => {
+it('should position the center of the drag preview user the users pointer', async () => {
 	const [A] = getElements('div');
 	const ordered: string[] = [];
 	let pointerToContainer: HTMLElement | null = null;
@@ -60,6 +60,8 @@ it('should position the center of the drag preview user the users pointer', () =
 
 	expect(ordered).toEqual(['preview']);
 	ordered.length = 0;
+	// setDragImage not called until the next microtask for framework compatibility
+	await 'microtask';
 	expect(setImageMock).nthCalledWith(1, pointerToContainer, rect.width / 2, rect.height / 2);
 
 	// @ts-expect-error

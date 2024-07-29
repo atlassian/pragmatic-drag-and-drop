@@ -188,6 +188,12 @@ Notes:
   away from the users pointer, use `offsetFromPointer` (see below)
 - The max offset value for an axis is the `border-box`. Values greater than the `border-box` get
   trimmed to be the `border-box` value
+- `getOffset` is called in the next
+  [`microtask`](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) after
+  `setCustomNativeDragPreview:render`. This helps ensure that the drag preview element has finished
+  rendering into the `container` before `getOffset` is called. Some frameworks like `react@18` won't
+  render the element to be used for the drag preview into the `container` until the next
+  `microtask`.
 
 `{x: rect.width + 1, y: rect.height + 1}` effectively becomes `{x: rect.width, y: rect.height}`.
 

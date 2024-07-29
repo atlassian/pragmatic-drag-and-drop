@@ -48,3 +48,25 @@ event.dataTransfer?.items.add('hello world', 'text/plain');
 
 target.dispatchEvent(event);
 ```
+
+## `DOMRect` polyfill
+
+Pragmatic drag and drop leverages `DOMRect`. Some unit testing environments (eg
+[jsdom](https://github.com/jsdom/jsdom)) don't polyfill `DOMRect`. We have created a `DOMRect`
+polyfill will allow you to start leveraging `DOMRect` in unit testing environments.
+
+```ts
+import '@atlaskit/pragmatic-drag-and-drop/unit-testing/dom-rect-polyfill';
+```
+
+Setup using [`jest`](https://jestjs.io/):
+
+```ts
+// jest.config.js
+module.exports = {
+	setupFiles: ['./test/setup-dom-rect.js'],
+};
+
+// ./test/setup-dom-rect.js
+import '@atlaskit/pragmatic-drag-and-drop/unit-testing/dom-rect-polyfill';
+```

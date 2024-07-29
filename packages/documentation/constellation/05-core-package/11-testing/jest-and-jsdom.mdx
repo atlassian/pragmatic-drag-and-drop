@@ -6,9 +6,10 @@ description: Guidance on how to test your drag and drop experiences
 
 import SectionMessage from '@atlaskit/section-message';
 
-[`jsdom` does not implement `DragEvent`](https://github.com/jsdom/jsdom/issues/2913). We have
-created a [`DragEvent` polyfill](/packages/pragmatic-drag-and-drop/optional-packages/unit-testing)
-which implements `DragEvent` for `jsdom`.
+`jsdom` does not implement [`DragEvent`](https://github.com/jsdom/jsdom/issues/2913) or `DOMRect`.
+We have created a
+[`DragEvent` and `DOMRect` polyfills](/components/pragmatic-drag-and-drop/optional-packages/unit-testing)
+which implement `DragEvent` and `DOMRect` for jsdom.
 
 You can force `@atlaskit/pragmatic-drag-and-drop` to dispatch events by firing native drag events
 
@@ -36,12 +37,14 @@ A few things to keep in mind:
 - We mostly ignore `"dragleave"` and `"drag"` events
 
 <SectionMessage appearance="information">
-	jsdom [does not support](https://github.com/jsdom/jsdom/issues/2913) the `DragEvent` interface. As
-	a consequence, [event
-	properties](https://testing-library.com/docs/dom-testing-library/api-events/#fireeventeventname)
-	passed as a second parameter of the `fireEvent` drag methods (e.g. `dragStart`, `dragOver`...)
-	might be ignored during the test execution. We offer a partial polyfill that you can extend based
-	on your needs further below.
+
+`jsdom` [does not support](https://github.com/jsdom/jsdom/issues/2913) the `DragEvent` interface. As
+a consequence,
+[event properties](https://testing-library.com/docs/dom-testing-library/api-events/#fireeventeventname)
+passed as a second parameter of the `@testing-library/dom` `fireEvent` drag methods (e.g.
+`dragStart`, `dragOver`...) might be ignored during the test execution. Please use our `DragEvent`
+polyfill to avoid this issue.
+
 </SectionMessage>
 
 ```ts
@@ -59,10 +62,8 @@ afterEach(async () => {
 	// cleanup any pending drags
 	fireEvent.dragEnd(window);
 
-	// Optional: unwind a post-drop browser bug fix
-	// tick forward a micro task to flush a post-drag bug fix
-	await 1;
-	// this will trigger the fix to be released
+	// Optional: unwind the "honey pot fix"
+	// More details: https://www.youtube.com/watch?v=udE9qbFTeQg
 	fireEvent.pointerMove(window);
 });
 

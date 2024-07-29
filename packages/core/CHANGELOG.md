@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.2.2
+
+### Patch Changes
+
+- [#124164](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/124164)
+  [`58941fa1d332a`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/58941fa1d332a) -
+  All `react` unit tests will now run against `react@16` and `react@18` on CI.
+
 ## 1.2.1
 
 ### Patch Changes

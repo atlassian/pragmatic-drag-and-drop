@@ -83,40 +83,38 @@ export function setCustomNativeDragPreview({
 	document.body.append(container);
 	const unmount = render({ container });
 
-	const previewOffset: Position = getOffset({ container });
-
 	/**
-	 * **Problem**
-	 * On `Safari@17.1` if a drag preview element has some opacity,
-	 * Safari will include elements behind the drag preview element
-	 * in the drag preview.
-	 * Bug: https://bugs.webkit.org/show_bug.cgi?id=266025
-	 *
-	 * **Fix**
-	 * We push the drag preview so it is _almost_ completely offscreen so that
-	 * there won't be any elements behind the drag preview element.
-	 * If the element is _completely_ offscreen, then the drag is cancelled by Safari.
-	 *
-	 * Using `-0.0001` so that any potential "see through" on the drag preview element
-	 * is effectively invisible 👻
-	 *
-	 * **Unsuccessful alternatives**
-	 * Setting a background color (eg "white") on the `container`
-	 * → Wrecks the opacity of the drag preview element
-	 *
-	 * Adding a parent element of the `container` with a background color (eg "white")
-	 * → Wrecks the opacity of the drag preview element
-	 */
-	if (isSafari()) {
+	 * Some frameworks (eg `react`) don't render into the container until the next microtask.
+	 * - This will run before the browser takes it's picture of the element
+	 * - This will run before the animation frame that removes `container`.
+	 * */
+
+	queueMicrotask(() => {
+		const previewOffset: Position = getOffset({ container });
+
 		/**
-		 *  For some frameworks (eg `react@18+` with `ReactDOM.createRoot().render()`) the rendering
-		 *  inside the `container` does not occur until after a microtask.
+		 * **Problem**
+		 * On `Safari@17.1` if a drag preview element has some opacity,
+		 * Safari will include elements behind the drag preview element
+		 * in the drag preview.
+		 * Bug: https://bugs.webkit.org/show_bug.cgi?id=266025
 		 *
-		 *  Notes:
-		 *    - This will run before the browser takes it's picture of the element
-		 *    - This will run before the animation frame that removes `container`.
-		 **/
-		queueMicrotask(() => {
+		 * **Fix**
+		 * We push the drag preview so it is _almost_ completely offscreen so that
+		 * there won't be any elements behind the drag preview element.
+		 * If the element is _completely_ offscreen, then the drag is cancelled by Safari.
+		 *
+		 * Using `-0.0001` so that any potential "see through" on the drag preview element
+		 * is effectively invisible 👻
+		 *
+		 * **Unsuccessful alternatives**
+		 * Setting a background color (eg "white") on the `container`
+		 * → Wrecks the opacity of the drag preview element
+		 *
+		 * Adding a parent element of the `container` with a background color (eg "white")
+		 * → Wrecks the opacity of the drag preview element
+		 */
+		if (isSafari()) {
 			const rect = container.getBoundingClientRect();
 
 			// We cannot apply this fix if nothing has been rendered into the `container`
@@ -125,10 +123,10 @@ export function setCustomNativeDragPreview({
 			}
 
 			container.style.left = `-${rect.width - 0.0001}px`;
-		});
-	}
+		}
 
-	nativeSetDragImage?.(container, previewOffset.x, previewOffset.y);
+		nativeSetDragImage?.(container, previewOffset.x, previewOffset.y);
+	});
 
 	function cleanup() {
 		unbindMonitor();

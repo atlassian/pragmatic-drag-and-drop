@@ -12,7 +12,7 @@ import { appendToBody, getElements, getRect, reset, setBoundingClientRect } from
 
 afterEach(reset);
 
-it('should position shift the drag preview off the users pointer', () => {
+it('should position shift the drag preview off the users pointer', async () => {
 	const [A] = getElements('div');
 	const ordered: string[] = [];
 	let pointerToContainer: HTMLElement | null = null;
@@ -57,6 +57,8 @@ it('should position shift the drag preview off the users pointer', () => {
 	ordered.length = 0;
 	// position drag preview at default of top / left at 0 on the users pointer
 	invariant(pointerToContainer);
+	// setDragImage not called until the next microtask for framework compatibility
+	await 'microtask';
 	// preview offset on `{x: 0, y: 0}`
 	expect(setImageMock).nthCalledWith(1, pointerToContainer, 0, 0);
 	// use a transparent border to shift the drag preview

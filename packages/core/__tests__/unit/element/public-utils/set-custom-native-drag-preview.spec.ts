@@ -117,7 +117,7 @@ describe('cleanup in `onDragStart`', () => {
 	});
 });
 
-it('should allow custom placement of the drag preview', () => {
+it('should allow custom placement of the drag preview', async () => {
 	const [A] = getElements('div');
 	const ordered: string[] = [];
 	let pointerToContainer: HTMLElement | null = null;
@@ -158,6 +158,10 @@ it('should allow custom placement of the drag preview', () => {
 
 	expect(ordered).toEqual(['preview']);
 	ordered.length = 0;
+
+	// setDragImage not called until the next microtask for framework compatibility
+	await 'microtask';
+
 	expect(setImageMock).nthCalledWith(1, pointerToContainer, previewOffset.x, previewOffset.y);
 
 	// @ts-expect-error
@@ -167,7 +171,7 @@ it('should allow custom placement of the drag preview', () => {
 	cleanup();
 });
 
-it('should use the default placement function when none is provided', () => {
+it('should use the default placement function when none is provided', async () => {
 	const [A] = getElements('div');
 	const ordered: string[] = [];
 	let pointerToContainer: HTMLElement | null = null;
@@ -206,8 +210,78 @@ it('should use the default placement function when none is provided', () => {
 
 	expect(ordered).toEqual(['preview']);
 	ordered.length = 0;
+
+	// setDragImage not called until the next microtask for framework compatibility
+	await 'microtask';
 	// default: positioned on `{x: 0, y: 0}`
 	expect(setImageMock).nthCalledWith(1, pointerToContainer, 0, 0);
+
+	// @ts-expect-error
+	requestAnimationFrame.step();
+	expect(ordered).toEqual(['start']);
+
+	cleanup();
+});
+
+it('should call getOffset after a microtask (some frameworks render after a microtask)', async () => {
+	const [A] = getElements('div');
+	const ordered: string[] = [];
+	let pointerToContainer: HTMLElement | null = null;
+	const rect: DOMRect = getRect({ top: 0, bottom: 100, left: 0, right: 20 });
+	const previewOffset = { x: 1000, y: 2000 };
+	const setImageMock = jest.fn();
+	const getOffset = () => {
+		ordered.push('getOffset');
+		return previewOffset;
+	};
+	function makeMock(
+		nativeSetDragImage: ElementEventPayloadMap['onGenerateDragPreview']['nativeSetDragImage'],
+	) {
+		invariant(nativeSetDragImage);
+		return (...args: Parameters<typeof nativeSetDragImage>) => {
+			setImageMock(...args);
+			nativeSetDragImage(...args);
+		};
+	}
+	const cleanup = combine(
+		appendToBody(A),
+		draggable({
+			element: A,
+			onGenerateDragPreview({ nativeSetDragImage }) {
+				ordered.push('preview');
+				setCustomNativeDragPreview({
+					getOffset: getOffset,
+					render({ container }) {
+						pointerToContainer = container;
+						ordered.push('render');
+
+						// faking react@18 behaviour
+						queueMicrotask(() => {
+							ordered.push('render:next-microtask');
+							setBoundingClientRect(container, rect);
+							const preview = document.createElement('div');
+							container.appendChild(preview);
+						});
+					},
+					nativeSetDragImage: makeMock(nativeSetDragImage),
+				});
+			},
+			onDragStart: () => ordered.push('start'),
+		}),
+	);
+
+	fireEvent.dragStart(A);
+
+	expect(ordered).toEqual(['preview', 'render']);
+	ordered.length = 0;
+
+	// setDragImage not called until the next microtask for framework compatibility
+	await 'microtask';
+
+	expect(ordered).toEqual(['render:next-microtask', 'getOffset']);
+	ordered.length = 0;
+
+	expect(setImageMock).nthCalledWith(1, pointerToContainer, previewOffset.x, previewOffset.y);
 
 	// @ts-expect-error
 	requestAnimationFrame.step();

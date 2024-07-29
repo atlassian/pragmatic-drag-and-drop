@@ -1,5 +1,21 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.2.3
+
+### Patch Changes
+
+- [#123738](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/123738)
+  [`abd0776a2a2d5`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/abd0776a2a2d5) -
+  Improving `react@18` support for `setCustomNativeDragPreview`. Fixes a bug where
+  `preserveOffsetOnSource` would always position the top left drag preview under the user's pointer.
+
+  `getOffset` is now called in the next
+  [`microtask`](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) after
+  `setCustomNativeDragPreview:render`. This helps ensure that the drag preview element has finished
+  rendering into the `container` before `getOffset` is called. Some frameworks like `react@18` won't
+  render the element to be used for the drag preview into the `container` until the next
+  `microtask`.
+
 ## 1.2.2
 
 ### Patch Changes

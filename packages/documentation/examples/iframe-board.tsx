@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 
 import { easeInOut } from '@atlaskit/motion/curves';
 import { mediumDurationMs } from '@atlaskit/motion/durations';
-import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
+import { Anchor, Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { useThemeObserver } from '@atlaskit/tokens';
 
 import { Column } from './pieces/iframe-board/column';
@@ -16,6 +16,8 @@ const logoStyles = xcss({
 	display: 'inline-block',
 	filter: 'grayscale(1)',
 	padding: 'space.100', // making the hitbox for the link nice and generous
+	textDecoration: 'none',
+
 	':hover': {
 		transform: 'scale(1.3)',
 		filter: 'grayscale(0)',
@@ -26,8 +28,7 @@ const logoStyles = xcss({
 // to this example directly can easily find their way to the project
 function LinkToProject() {
 	return (
-		<Box
-			as="a"
+		<Anchor
 			href="https://github.com/atlassian/pragmatic-drag-and-drop"
 			aria-label="Pragmatic drag and drop Github project"
 			xcss={logoStyles}
@@ -35,7 +36,7 @@ function LinkToProject() {
 			target="_blank"
 		>
 			<img src={pdndLogoSrc} width="50px" alt="" draggable="false" />
-		</Box>
+		</Anchor>
 	);
 }
 

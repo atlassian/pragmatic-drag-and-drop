@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.1.3
+
+### Patch Changes
+
+- [#126649](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/126649)
+  [`24092d9f293a1`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/24092d9f293a1) -
+  Migrated usages of the Box primitive being cast as `<a>` tags to the new Anchor primitive. No
+  changes are expected.
+
 ## 1.1.2
 
 ### Patch Changes

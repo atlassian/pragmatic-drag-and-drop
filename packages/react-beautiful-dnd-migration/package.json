@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@atlaskit/codemod-utils": "^4.2.0",
-    "@atlaskit/motion": "^1.7.0",
+    "@atlaskit/motion": "^1.8.0",
     "@atlaskit/radio": "^6.4.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^12.1.5",

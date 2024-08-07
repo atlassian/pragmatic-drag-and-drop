@@ -218,10 +218,10 @@
     "@emotion/react" "^11.7.1"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^1.7.0":
-  version "1.7.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-1.7.0.tgz#fd13ed424a3d63bd9ffb0a04119f6d8858931409"
-  integrity sha512-v9DviLzxA4lSdloeZrlhAANzLuUgCbBmVAl61HVU9bctb8hXvfTar21IY2zba1iKX4/ywy9+/bj9ALpLBUb+nQ==
+"@atlaskit/motion@^1.8.0":
+  version "1.8.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-1.8.0.tgz#40f2127bae05d3312a73916f6dc63c6606f3245e"
+  integrity sha512-LHZHaVshdsuDZUpfz8nKc+4DE3gZwZt4QXFYSNU5MD1XNCdXbmSDFMlbK31fv75RqEPf5y1/1n4yOxxQ3McmjA==
   dependencies:
     "@atlaskit/ds-lib" "^2.3.0"
     "@babel/runtime" "^7.0.0"

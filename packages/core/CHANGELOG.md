@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.3.0
+
+### Minor Changes
+
+- [#128458](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/128458)
+  [`71c5224450c8a`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/71c5224450c8a) -
+  Adding workaround for a [bug in Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1912164).
+  The external adpater optional URL utilities `containsURLs` and `getURLs` will now correctly
+  recognize URLs dragged from the Firefox address bar or bookmarks in to a Firefox `window`.
+
 ## 1.2.3
 
 ### Patch Changes

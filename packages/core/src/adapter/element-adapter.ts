@@ -22,7 +22,7 @@ import { addAttribute } from '../util/add-attribute';
 import { androidFallbackText, isAndroid } from '../util/android';
 import { getInput } from '../util/get-input';
 import { textMediaType } from '../util/media-types/text-media-type';
-import { urlMediaType } from '../util/media-types/url-media-type';
+import { URLMediaType } from '../util/media-types/url-media-type';
 
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
 
@@ -219,7 +219,7 @@ const adapter = makeAdapter<ElementDragType>({
 					 * Chrome version: 120.0
 					 */
 					const { types } = event.dataTransfer;
-					if (isAndroid() && !types.includes(textMediaType) && !types.includes(urlMediaType)) {
+					if (isAndroid() && !types.includes(textMediaType) && !types.includes(URLMediaType)) {
 						event.dataTransfer.setData(textMediaType, androidFallbackText);
 					}
 

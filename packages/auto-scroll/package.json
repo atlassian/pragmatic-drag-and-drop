@@ -23,7 +23,7 @@
     "./unsafe-overflow/text-selection": "./src/entry-point/unsafe-overflow/text-selection.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.2.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.3.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {

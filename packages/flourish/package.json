@@ -18,8 +18,8 @@
     "./trigger-post-move-flash": "./src/trigger-post-move-flash.tsx"
   },
   "dependencies": {
-    "@atlaskit/motion": "^1.8.0",
-    "@atlaskit/tokens": "^1.57.0",
+    "@atlaskit/motion": "^1.9.0",
+    "@atlaskit/tokens": "^1.58.0",
     "@babel/runtime": "^7.0.0"
   },
   "peerDependencies": {

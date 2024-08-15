@@ -45,7 +45,7 @@ export default function IFrameBoard() {
 	const iframeSrc = useMemo(() => {
 		const url = new URL('/examples.html', window.location.origin);
 		url.searchParams.set('groupId', 'pragmatic-drag-and-drop');
-		url.searchParams.set('packageId', 'docs');
+		url.searchParams.set('packageId', 'documentation');
 		url.searchParams.set('exampleId', 'iframe-column');
 		if (theme.colorMode) {
 			url.searchParams.set('mode', theme.colorMode);

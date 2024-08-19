@@ -88,13 +88,13 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^20.0.0":
-  version "20.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-20.0.0.tgz#b99afd587bdc14c65dc624d68560c9c9edc239d5"
-  integrity sha512-hRwLNJ6/hCeiCopwQh+JI1+dwXFaLY969IGG+UPXdVMAjdbqqwoM78cjTjVsTlXpKI55Ip+cL6pVl8dGHJnCBA==
+"@atlaskit/button@^20.1.0":
+  version "20.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-20.1.0.tgz#5a8cff13168de21a01f3ae70dcbd95b2aeabe52d"
+  integrity sha512-KQogF0yvMvFTTNTmzCyMwVA60PCmKxloeI6wTNG/3LsbAaubUHTaWyAQwdD/3bq9wufR8YDgpEHMkdfpPbinNA==
   dependencies:
     "@atlaskit/analytics-next" "^10.1.0"
-    "@atlaskit/ds-lib" "^2.4.0"
+    "@atlaskit/ds-lib" "^2.5.0"
     "@atlaskit/focus-ring" "^1.6.0"
     "@atlaskit/icon" "^22.13.0"
     "@atlaskit/interaction-context" "^2.1.0"
@@ -172,6 +172,16 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
+
+"@atlaskit/ds-lib@^2.5.0":
+  version "2.5.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-2.5.0.tgz#c90404053e1f671231ede830fa203a70a414e1f7"
+  integrity sha512-HtTyNW2oNcOBhi92Y+QQ4pL7pCU6mTuKVbIUk7cwbxSVUL3XnaUT2hzODhHdDuzumw+DYo0B9z0IB4tZuAc6Iw==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^0.3.0"
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^3.0.0"
+    react-uid "^2.2.0"
 
 "@atlaskit/focus-ring@^1.6.0":
   version "1.6.0"

@@ -22,7 +22,7 @@
     "@atlaskit/focus-ring": "^1.6.0",
     "@atlaskit/icon": "^22.13.0",
     "@atlaskit/primitives": "^12.0.0",
-    "@atlaskit/tokens": "^1.58.0",
+    "@atlaskit/tokens": "^1.59.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

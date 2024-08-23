@@ -5,6 +5,7 @@ order: 0
 
 import { Stack } from '@atlaskit/primitives';
 import SectionMessage from '@atlaskit/section-message';
+import { LinkButton } from '@atlaskit/button/new';
 
 import ListExample from '../../examples/list';
 import BoardExample from '../../examples/board';
@@ -33,7 +34,8 @@ not leverage any other Atlassian Design System outputs.
 	href="https://stackblitz.com/github/alexreardon/pdnd-react-tailwind?startScript=dev"
 	target="_blank"
 >
-	{/* using inline styles as Gatsby does not like passing source onto another component */}
+	{/* Using inline styles rather than pulling into a seperate component and using emotion
+		as Gatsby can only load images in `mdx` when they are in the `mdx` document root.*/}
 	<img
 		src="/images/pdnd-standalone-simple-example.png"
 		alt="Simple list example"
@@ -171,3 +173,39 @@ accessibility reasons.
 </SectionMessage>
 
 <Example Component={VirtualListExample} appearance="showcase-only" />
+
+## Iframes and external applications
+
+Pragmatic drag and drop
+[enables you to attach data for external systems](/components/pragmatic-drag-and-drop/core-package/adapters/element/about#data-for-external-consumers-getinitialdataforexternal)
+(other brower tabs, iframes or even native applications), as well as
+[respond to and recieve data being dragged from external systems](/components/pragmatic-drag-and-drop/core-package/adapters/external/about).
+
+<SectionMessage title="External example">
+
+`atlassian.design` currently does not support displaying an example without the page layout, so our
+iframe example is hosted on another site.
+
+</SectionMessage>
+<a
+	href="https://atlaskit.atlassian.com/examples.html?groupId=pragmatic-drag-and-drop&packageId=documentation&exampleId=iframe-board&mode=dark"
+	target="_blank"
+>
+	{/* Using inline styles rather than pulling into a seperate component and using emotion
+		as Gatsby can only load images in `mdx` when they are in the `mdx` document root.*/}
+	<img
+		src="/images/pdnd-iframe-example.png"
+		alt="Drag and drop into and out of iframes"
+		style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+	/>
+</a>
+
+<a
+	href="https://github.com/atlassian/pragmatic-drag-and-drop/blob/main/packages/documentation/examples/iframe-board.tsx"
+	target="_blank"
+>
+	View source
+</a>
+<a href="https://www.youtube.com/watch?v=E4l4MBO-Bwg" target="_blank">
+	Presentation
+</a>

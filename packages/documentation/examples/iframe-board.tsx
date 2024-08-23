@@ -58,7 +58,7 @@ export default function IFrameBoard() {
 		<Stack alignInline="center" spread="space-between" xcss={containerStyles}>
 			<Box padding="space.500">
 				<Inline space="space.200" alignInline="center" shouldWrap>
-					<Column columnId={'first'} />
+					<Column columnId={'In parent window'} />
 					<Box as="iframe" src={iframeSrc} xcss={iframeStyles} />
 				</Inline>
 			</Box>

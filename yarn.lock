@@ -109,14 +109,15 @@
     "@emotion/react" "^11.7.1"
     react-uid "^2.2.0"
 
-"@atlaskit/code@^15.5.0":
-  version "15.5.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-15.5.0.tgz#00b004df9afee0de2a569443b02f7f7b932328e8"
-  integrity sha512-KhmLJyTsXNgXTSmLECcz850lZM0jWFSKLlzLuGFlne1aGMulK3GbXPyW5rMCbZP3kR3wd5a8eKL1YPsnpqD8mg==
+"@atlaskit/code@^15.6.0":
+  version "15.6.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-15.6.0.tgz#f59f63240c30732a4ab4b1024d5b30272c52408b"
+  integrity sha512-ePbJbnGKQVbP243kRwvHAhRQdMO2bidZPQhhAreBqK9PVO0bioGaVA3b+x4umzsQ6wJtndHasD3Dw/IeGFoJ3g==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
-    "@atlaskit/theme" "^12.12.0"
-    "@atlaskit/tokens" "^1.58.0"
+    "@atlaskit/platform-feature-flags" "^0.3.0"
+    "@atlaskit/theme" "^13.0.0"
+    "@atlaskit/tokens" "^1.59.0"
     "@atlaskit/tooltip" "^18.7.0"
     "@atlaskit/visually-hidden" "^1.5.0"
     "@babel/runtime" "^7.0.0"

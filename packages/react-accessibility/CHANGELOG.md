@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 1.1.12
+
+### Patch Changes
+
+- [#134886](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/134886)
+  [`d477c8582713a`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/d477c8582713a) -
+  We are updating drag icon as part of visual refresh behind a feature gate.
+
 ## 1.1.11
 
 ### Patch Changes

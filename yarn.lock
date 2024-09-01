@@ -59,6 +59,15 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^2.1.1"
 
+"@atlaskit/app-provider@^1.4.0":
+  version "1.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/app-provider/-/app-provider-1.4.0.tgz#ee890a3e62209045c7ebc1e5864daa801e7ce4e1"
+  integrity sha512-OheQY4ObKhawVhp2r/tTTL/a1eOa9QTkywaN2YMPEk+HiO3TinSxr3zu162nDlokdPvxo81AyzpAYtWYHBhz0Q==
+  dependencies:
+    "@atlaskit/tokens" "^1.58.0"
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^3.0.0"
+
 "@atlaskit/avatar@^21.15.0":
   version "21.15.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-21.15.0.tgz#bbd4834d1ea1645cbcc8d57314bdbb95daac5b22"
@@ -147,6 +156,15 @@
   integrity sha512-vzkguj9fKF9HkyO8wmfCUL8ZgOs6rTqvZHC0bQtjAVRHWicScnZY3Rj0IyUTo/qlsVI5aFHcByloM/izjUYnmA==
   dependencies:
     "@atlaskit/tokens" "^1.51.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.17.2"
+
+"@atlaskit/css@^0.4.0":
+  version "0.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/css/-/css-0.4.0.tgz#a07246537be98ebd3ae862e6dc9788b9e9ab1263"
+  integrity sha512-bg5RaGieN3yRwFHRkk56bZ6/I0dpXNyISRz9rDfbp+yGso8lpIhubmLx4OXfbUUkUEE+9tMWZuEHJXPuCN4jdw==
+  dependencies:
+    "@atlaskit/tokens" "^1.58.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.17.2"
 
@@ -303,6 +321,25 @@
     "@atlaskit/interaction-context" "^2.1.0"
     "@atlaskit/tokens" "^1.57.0"
     "@atlaskit/visually-hidden" "^1.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    react-uid "^2.2.0"
+    tiny-invariant "^1.2.0"
+
+"@atlaskit/primitives@^12.1.0":
+  version "12.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-12.1.0.tgz#c328847f9c48fce7c1c1cb28764713a2fde6617c"
+  integrity sha512-+zZRWFxY9KIeobXu/6ckMVFM+nqnWnkvvc3PQ34B4x3H7U+ezIolpi+ZAFxQp30Y1P1q6K6SI4o6Te0PAzLyew==
+  dependencies:
+    "@atlaskit/analytics-next" "^10.1.0"
+    "@atlaskit/app-provider" "^1.4.0"
+    "@atlaskit/css" "^0.4.0"
+    "@atlaskit/ds-lib" "^2.5.0"
+    "@atlaskit/interaction-context" "^2.1.0"
+    "@atlaskit/tokens" "^1.59.0"
+    "@atlaskit/visually-hidden" "^1.5.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"

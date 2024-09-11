@@ -17,6 +17,7 @@ const expect = baseExpect.extend({
 		let matcherResult: any;
 		try {
 			for (let [key, value] of Object.entries(expected)) {
+				// eslint-disable-next-line playwright/no-standalone-expect
 				await expect(locator).toContainText(`${key}:${value}`);
 			}
 			pass = true;

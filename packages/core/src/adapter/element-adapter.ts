@@ -148,6 +148,39 @@ const adapter = makeAdapter<ElementDragType>({
 						return null;
 					}
 
+					/**
+					 * A text selection drag _can_ have the `draggable` element be
+					 * the `event.target` if the user is dragging the text selection
+					 * from the `draggable`.
+					 *
+					 * To know if the `draggable` is being dragged, we look at whether any
+					 * `"text/plain"` data is being dragged. If it is, then a text selection
+					 * drag is occurring.
+					 *
+					 * This behaviour has been validated on:
+					 *
+					 * - Chrome@128 on Android@14
+					 * - Chrome@128 on iOS@17.6.1
+					 * - Chrome@128 on Windows@11
+					 * - Chrome@128 on MacOS@14.6.1
+					 * - Firefox@129 on Windows@11 (not possible for user to select text in a draggable)
+					 * - Firefox@129 on MacOS@14.6.1 (not possible for user to select text in a draggable)
+					 *
+					 * Note: Could usually just use: `event.dataTransfer.types.includes(textMediaType)`
+					 * but unfortunately ProseMirror is always setting `""` as the dragged text
+					 *
+					 * Note: Unfortunately editor is (heavily) leaning on the current functionality today
+					 * and unwinding it will be a decent amount of effort. So for now, a text selection
+					 * where the `event.target` is a `draggable` element will still trigger the
+					 * element adapter.
+					 *
+					 * // Future state:
+					 * if(event.dataTransfer.getData(textMediaType)) {
+					 * 	return;
+					 * }
+					 *
+					 */
+
 					const input: Input = getInput(event);
 
 					const feedback: DraggableGetFeedbackArgs = {
@@ -218,8 +251,11 @@ const adapter = makeAdapter<ElementDragType>({
 					 * Android version: 14 (November 5, 2023)
 					 * Chrome version: 120.0
 					 */
-					const { types } = event.dataTransfer;
-					if (isAndroid() && !types.includes(textMediaType) && !types.includes(URLMediaType)) {
+					if (
+						isAndroid() &&
+						!event.dataTransfer.types.includes(textMediaType) &&
+						!event.dataTransfer.types.includes(URLMediaType)
+					) {
 						event.dataTransfer.setData(textMediaType, androidFallbackText);
 					}
 

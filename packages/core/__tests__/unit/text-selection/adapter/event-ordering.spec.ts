@@ -7,7 +7,13 @@ import {
 	type TextSelectionDragPayload,
 	type TextSelectionEventBasePayload,
 } from '../../../../src/entry-point/text-selection/adapter';
-import { appendToBody, getBubbleOrderedTree, getTextNode, nativeDrag, reset } from '../../_util';
+import {
+	appendToBody,
+	getBubbleOrderedTree,
+	getFirstTextNode,
+	nativeDrag,
+	reset,
+} from '../../_util';
 
 afterEach(reset);
 
@@ -109,9 +115,9 @@ test('scenario: text in drop target', () => {
 	nativeDrag.startTextSelectionDrag({ element: A });
 
 	const expectedData: TextSelectionDragPayload = {
-		target: getTextNode(A),
-		plain: 'Hello world',
-		HTML: 'Hello world',
+		target: getFirstTextNode(A),
+		plain: A.textContent,
+		HTML: A.outerHTML,
 	};
 	{
 		const expected: Entry[] = [
@@ -310,9 +316,9 @@ test('scenario: child of drop target', () => {
 	nativeDrag.startTextSelectionDrag({ element: B });
 
 	const expectedData: TextSelectionDragPayload = {
-		target: getTextNode(B),
-		plain: 'Hello world',
-		HTML: 'Hello world',
+		target: getFirstTextNode(B),
+		plain: B.textContent,
+		HTML: B.outerHTML,
 	};
 	{
 		const expected: Entry[] = [

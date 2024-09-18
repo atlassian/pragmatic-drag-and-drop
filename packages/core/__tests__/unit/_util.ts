@@ -226,7 +226,7 @@ export const nativeDrag = {
 		requestAnimationFrame.step();
 	},
 	startTextSelectionDrag({ element = document.body }: { element: Element }) {
-		const text = getTextNode(element);
+		const text = getFirstTextNode(element);
 
 		const event = new DragEvent('dragstart', {
 			cancelable: true,
@@ -237,8 +237,9 @@ export const nativeDrag = {
 			event,
 			items: [
 				{ type: 'text/plain', data: element.textContent ?? '' },
-				// TODO: should this be inner our outer HTML?
-				{ type: 'text/html', data: element.innerHTML ?? '' },
+				// Note: the outer HTML of the whole selection is dragged.
+				// `element.outerHTML` is a reasonable approximation for testing
+				{ type: 'text/html', data: element.outerHTML ?? '' },
 			],
 		});
 
@@ -260,12 +261,16 @@ export const nativeDrag = {
 	},
 };
 
-export function getTextNode(element: Element): Text {
-	const text: Text | undefined = Array.from(element.childNodes).find(
-		(node: Node): node is Text => node.nodeType === Node.TEXT_NODE,
-	);
-	invariant(text, `Could not find text element`);
-	return text;
+function isTextNode(node: Node): node is Text {
+	return node.nodeType === Node.TEXT_NODE;
+}
+
+export function getFirstTextNode(element: Element): Text {
+	const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+	const first = walker.firstChild();
+	invariant(first, 'element contained no text nodes');
+	invariant(isTextNode(first), 'invalid text node found');
+	return first;
 }
 
 export const assortedNativeMediaTypes: NativeMediaType[] = [
@@ -354,3 +359,15 @@ export const firePointer = (() => {
 		cancel: makeDispatch('pointercancel'),
 	};
 })();
+
+export function clearSelection() {
+	document.getSelection()?.empty();
+}
+
+export function select(element: HTMLElement): CleanupFn {
+	const selection = document.getSelection();
+	const range = new Range();
+	range.selectNode(element);
+	selection?.addRange(range);
+	return clearSelection;
+}

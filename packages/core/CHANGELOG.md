@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.3.1
+
+### Patch Changes
+
+- [#141279](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/141279)
+  [`a38f3af4bfc79`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/a38f3af4bfc79) -
+  Minor refactor of internal helper.
+
 ## 1.3.0
 
 ### Minor Changes

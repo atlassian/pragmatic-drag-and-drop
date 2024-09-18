@@ -4,11 +4,13 @@ import { bind, bindAll } from 'bind-event-listener';
 import { combine } from '../../../src/entry-point/combine';
 import { draggable, monitorForElements } from '../../../src/entry-point/element/adapter';
 import {
+	addItemsToEvent,
 	appendToBody,
 	getBubbleOrderedTree,
 	getElements,
 	nativeDrag,
 	reset,
+	select,
 	userEvent,
 } from '../_util';
 
@@ -151,6 +153,53 @@ test('do not start if a text selection is being dragged', () => {
 	);
 
 	nativeDrag.startTextSelectionDrag({ element: paragraph });
+
+	expect(ordered).toEqual([]);
+
+	cleanup();
+});
+
+// Currently editor is leaning on the behaviour where a text selection drag where the event.target is
+// a draggable element will trigger the element adapter.
+// Ideally we unwind this in the future.
+test.skip('do not start if a text selection is being dragged [when the event.target is a draggable element]', () => {
+	const [child, parent] = getBubbleOrderedTree('div');
+	child.prepend(document.createTextNode('child'));
+	parent.prepend(document.createTextNode('parent'));
+
+	// validating setup
+	expect(parent.outerHTML).toBe('<div>parent<div>child</div></div>');
+	expect(parent.textContent).toBe('parentchild');
+
+	const ordered: string[] = [];
+	const cleanup = combine(
+		appendToBody(parent),
+		draggable({
+			element: child,
+			onGenerateDragPreview: () => ordered.push('draggable:preview'),
+		}),
+		monitorForElements({
+			onGenerateDragPreview: () => ordered.push('monitor:preview'),
+		}),
+		select(child),
+	);
+
+	const event = new DragEvent('dragstart', {
+		cancelable: true,
+		bubbles: true,
+	});
+
+	addItemsToEvent({
+		event,
+		items: [
+			{ type: 'text/plain', data: parent.textContent ?? '' },
+			{ type: 'text/html', data: parent.outerHTML },
+		],
+	});
+
+	child.dispatchEvent(event);
+	// @ts-expect-error
+	requestAnimationFrame.step();
 
 	expect(ordered).toEqual([]);
 

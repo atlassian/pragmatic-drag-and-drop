@@ -48,7 +48,7 @@ function findTextNode(event: DragEvent): Text | null {
 		return null;
 	}
 
-	// unlikely that this particular drag is a text selection drag
+	// Unlikely that this particular drag is a text selection drag
 	if (event.target.draggable) {
 		return null;
 	}
@@ -59,7 +59,10 @@ function findTextNode(event: DragEvent): Text | null {
 		return null;
 	}
 
-	// Grab the first Text node and use that
+	/**
+	 * Grab the first Text node and use that.
+	 * Only doing a single level search as that is all we need for this bug.
+	 */
 	const text: Text | undefined = Array.from(event.target.childNodes).find(
 		(node): node is Text => node.nodeType === Node.TEXT_NODE,
 	);
@@ -120,8 +123,14 @@ const adapter = makeAdapter<TextSelectionDragType>({
 						return;
 					}
 
+					// no text being dragged
+					if (!event.dataTransfer.types.includes(textMediaType)) {
+						return;
+					}
+
 					const target: Text | null = findTextNode(event);
 
+					// could not find `Text` node that is being dragged from
 					if (!target) {
 						return;
 					}
@@ -131,7 +140,6 @@ const adapter = makeAdapter<TextSelectionDragType>({
 						// that the user started the drag from.
 						// The full text being dragged can be looked up from the `dataTransfer`.
 						target,
-						// This is safe to do in "dragstart" as the `dataTransfer` is in read/write mode.
 						plain: event.dataTransfer.getData(textMediaType),
 						HTML: event.dataTransfer.getData(HTMLMediaType),
 					};

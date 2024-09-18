@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { fireEvent } from '@testing-library/dom';
+// Using '@testing-library/react' rather than '@testing-library/dom'
+// so that events are correctly wrapped in `act()`
+import { fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
 
 import { combine } from '../../../src/entry-point/combine';

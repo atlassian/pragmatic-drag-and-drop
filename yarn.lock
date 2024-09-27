@@ -491,6 +491,18 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^3.0.0"
 
+"@atlaskit/tokens@^2.0.0":
+  version "2.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-2.0.0.tgz#d1209005cc3e0e4d09346fbe9ec76b421ce5f61b"
+  integrity sha512-Dx+accT28QyXXhG/TKpO5g5MLm4y7ZU9JY7AIqeNs5aM3CnRhkToMPk61WD6lWPkKyWskLqMHXUn88M7S4DwKg==
+  dependencies:
+    "@atlaskit/ds-lib" "^2.6.0"
+    "@atlaskit/platform-feature-flags" "^0.3.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
 "@atlaskit/tooltip@^18.7.0":
   version "18.7.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tooltip/-/tooltip-18.7.0.tgz#2a103f945e5e863f85a0f477e090b416620edfae"

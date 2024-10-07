@@ -31,7 +31,7 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@atlaskit/ds-lib": "^2.7.0",
+    "@atlaskit/ds-lib": "^3.0.0",
     "@testing-library/react": "^12.1.5",
     "react-dom": "^16.8.0",
     "typescript": "~5.4.2",

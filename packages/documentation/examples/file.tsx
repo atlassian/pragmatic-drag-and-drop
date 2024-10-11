@@ -10,7 +10,7 @@ import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
 import Button from '@atlaskit/button/new';
-import ImageIcon from '@atlaskit/icon/glyph/image';
+import ImageIcon from '@atlaskit/icon/core/migration/image';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { largeDurationMs, mediumDurationMs } from '@atlaskit/motion/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
@@ -151,6 +151,9 @@ const fileStyles = css({
 const textStyles = css({
 	color: token('color.text.disabled', '#091E424F'),
 	fontSize: '1.4rem',
+	display: 'flex',
+	alignItems: 'center',
+	gap: token('space.075'),
 });
 
 const overStyles = css({
@@ -310,7 +313,7 @@ function Uploader() {
 				]}
 			>
 				<strong css={textStyles}>
-					Drop some images on me! <ImageIcon label="" />
+					Drop some images on me! <ImageIcon color="currentColor" spacing="spacious" label="" />
 				</strong>
 
 				<Button onClick={onInputTriggerClick}>Select images</Button>

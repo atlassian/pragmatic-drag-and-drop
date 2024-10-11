@@ -9,7 +9,7 @@ import { css, jsx, keyframes } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -92,7 +92,11 @@ export function DelayedCursorChange() {
 					xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 				>
 					<Stack>
-						<DragHandlerIcon label="Drag list item" primaryColor={token('color.icon')} />
+						<DragHandlerIcon
+							spacing="spacious"
+							label="Drag list item"
+							color={token('color.icon')}
+						/>
 					</Stack>
 					<Box>
 						<code>cursor:drag</code> delayed by <code>800ms</code>

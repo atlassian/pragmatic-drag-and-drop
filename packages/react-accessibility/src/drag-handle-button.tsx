@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 
 import { DragHandleButtonBase } from './drag-handle-button-base';
 import type { DragHandleButtonProps } from './types';
@@ -16,7 +16,7 @@ export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonPr
 		return (
 			<DragHandleButtonBase ref={ref} {...buttonProps}>
 				{/* Relying on currentColor for color */}
-				<DragHandlerIcon label={label} />
+				<DragHandlerIcon color="currentColor" spacing="spacious" label={label} />
 			</DragHandleButtonBase>
 		);
 	},

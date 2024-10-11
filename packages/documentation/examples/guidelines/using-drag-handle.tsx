@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -74,7 +74,7 @@ export function UsingDragHandle() {
 				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
 				<Stack xcss={[draggableStyles, roundedIconStyles]} ref={draggableRef}>
-					<DragHandlerIcon label="Drag list item" primaryColor={token('color.icon')} />
+					<DragHandlerIcon spacing="spacious" label="Drag list item" color={token('color.icon')} />
 				</Stack>
 				<Box>Only draggable from drag handle</Box>
 				<ActionMenu />

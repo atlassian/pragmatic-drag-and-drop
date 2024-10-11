@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.2.0
+
+### Minor Changes
+
+- [#150481](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/150481)
+  [`e750fb3633f6e`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/e750fb3633f6e) -
+  [ux] Enable new icons behind a feature flag.
+
 ## 1.1.3
 
 ### Patch Changes

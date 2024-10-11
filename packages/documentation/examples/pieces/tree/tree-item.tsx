@@ -15,9 +15,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import FocusRing from '@atlaskit/focus-ring';
-import ChevronDownIcon from '@atlaskit/icon/glyph/chevron-down';
-import ChevronRightIcon from '@atlaskit/icon/glyph/chevron-right';
-import MoreIcon from '@atlaskit/icon/glyph/more';
+import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
+import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
+import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--more';
 import { ModalTransition } from '@atlaskit/modal-dialog';
 import {
 	type Instruction,
@@ -52,7 +52,7 @@ function ChildIcon() {
 
 function GroupIcon({ isOpen }: { isOpen: boolean }) {
 	const Icon = isOpen ? ChevronDownIcon : ChevronRightIcon;
-	return <Icon label="" primaryColor={iconColor} />;
+	return <Icon spacing="spacious" label="" color={iconColor} />;
 }
 
 function Icon({ item }: { item: TreeItemType }) {
@@ -430,8 +430,8 @@ const TreeItem = memo(function TreeItem({
 							iconBefore={
 								<MoreIcon
 									label="Actions"
-									size="small"
-									primaryColor={token('color.icon.subtle', '#626F86')}
+									LEGACY_size="small"
+									color={token('color.icon.subtle', '#626F86')}
 								/>
 							}
 							{...triggerProps}

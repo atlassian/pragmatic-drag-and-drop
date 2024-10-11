@@ -12,7 +12,7 @@ import invariant from 'tiny-invariant';
 import Avatar from '@atlaskit/avatar';
 import { IconButton } from '@atlaskit/button/new';
 import Heading from '@atlaskit/heading';
-import MoreIcon from '@atlaskit/icon/glyph/more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import {
 	attachClosestEdge,
 	type Edge,

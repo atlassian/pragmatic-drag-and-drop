@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 
 import { useSortableField } from '../../hooks/use-sortable-field';
@@ -35,7 +35,16 @@ function DraggableField({ index, item }: DraggableFieldProps) {
 	});
 
 	return (
-		<Field ref={ref} icon={isHovering ? <DragHandlerIcon label="" /> : item.icon}>
+		<Field
+			ref={ref}
+			icon={
+				isHovering ? (
+					<DragHandlerIcon color="currentColor" spacing="spacious" label="" />
+				) : (
+					item.icon
+				)
+			}
+		>
 			{item.label}
 			{closestEdge && <DropIndicator edge={closestEdge} />}
 		</Field>

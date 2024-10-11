@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
 import DragHandlerIconNew from '@atlaskit/icon/utility/drag-handle';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 import { fg } from '@atlaskit/platform-feature-flags';
 import { Box, xcss } from '@atlaskit/primitives';
 
@@ -27,12 +27,18 @@ export const DragHandleButtonSmall = forwardRef<HTMLButtonElement, DragHandleBut
 	function DragHandleButton({ label, ...buttonProps }, ref) {
 		return (
 			<DragHandleButtonBase ref={ref} {...buttonProps}>
-				<Box xcss={fg('platform-component-visual-refresh') ? iconSmallStylesNew : iconSmallStyles}>
+				<Box
+					xcss={
+						fg('platform-component-visual-refresh') || fg('platform-visual-refresh-icons')
+							? iconSmallStylesNew
+							: iconSmallStyles
+					}
+				>
 					{/* Relying on currentColor for color */}
 					{fg('platform-component-visual-refresh') ? (
 						<DragHandlerIconNew color="currentColor" label={label} />
 					) : (
-						<DragHandlerIcon label={label} size="small" />
+						<DragHandlerIcon color="currentColor" label={label} LEGACY_size="small" />
 					)}
 				</Box>
 			</DragHandleButtonBase>

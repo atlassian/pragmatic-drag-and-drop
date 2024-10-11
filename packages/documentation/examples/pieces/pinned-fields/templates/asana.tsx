@@ -1,12 +1,12 @@
 import React, { type ReactElement } from 'react';
 
-import CalendarIcon from '@atlaskit/icon/glyph/calendar';
-import CheckCircleOutlineIcon from '@atlaskit/icon/glyph/check-circle-outline';
-import EditIcon from '@atlaskit/icon/glyph/edit';
-import IssuesIcon from '@atlaskit/icon/glyph/issues';
-import LabelIcon from '@atlaskit/icon/glyph/label';
-import PersonIcon from '@atlaskit/icon/glyph/person';
-import RecentIcon from '@atlaskit/icon/glyph/recent';
+import CalendarIcon from '@atlaskit/icon/core/migration/calendar';
+import CheckCircleOutlineIcon from '@atlaskit/icon/core/migration/check-circle--check-circle-outline';
+import RecentIcon from '@atlaskit/icon/core/migration/clock--recent';
+import EditIcon from '@atlaskit/icon/core/migration/edit';
+import IssuesIcon from '@atlaskit/icon/core/migration/issues';
+import PersonIcon from '@atlaskit/icon/core/migration/person';
+import LabelIcon from '@atlaskit/icon/core/migration/tag--label';
 
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 
@@ -17,21 +17,41 @@ export type DataItem = {
 };
 
 const initialData: DataItem[] = [
-	{ icon: <PersonIcon label="" />, label: 'Created by', id: 'created-by' },
-	{ icon: <CalendarIcon label="" />, label: 'Due date', id: 'due' },
-	{ icon: <RecentIcon label="" />, label: 'Created on', id: 'created-on' },
 	{
-		icon: <EditIcon label="" />,
+		icon: <PersonIcon color="currentColor" spacing="spacious" label="" />,
+		label: 'Created by',
+		id: 'created-by',
+	},
+	{
+		icon: <CalendarIcon color="currentColor" spacing="spacious" label="" />,
+		label: 'Due date',
+		id: 'due',
+	},
+	{
+		icon: <RecentIcon color="currentColor" spacing="spacious" label="" />,
+		label: 'Created on',
+		id: 'created-on',
+	},
+	{
+		icon: <EditIcon color="currentColor" spacing="spacious" label="" />,
 		label: 'Last modified on',
 		id: 'last-modified-on',
 	},
 	{
-		icon: <CheckCircleOutlineIcon label="" />,
+		icon: <CheckCircleOutlineIcon color="currentColor" spacing="spacious" label="" />,
 		label: 'Completed on',
 		id: 'completed-on',
 	},
-	{ icon: <IssuesIcon label="" />, label: 'Projects', id: 'projects' },
-	{ icon: <LabelIcon label="" />, label: 'Tags', id: 'tags' },
+	{
+		icon: <IssuesIcon color="currentColor" spacing="spacious" label="" />,
+		label: 'Projects',
+		id: 'projects',
+	},
+	{
+		icon: <LabelIcon color="currentColor" spacing="spacious" label="" />,
+		label: 'Tags',
+		id: 'tags',
+	},
 ];
 
 export type DraggableFieldProps = { index: number; item: DataItem };

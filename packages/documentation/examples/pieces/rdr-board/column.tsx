@@ -16,7 +16,7 @@ import DropdownMenu, {
 	DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';
 import Heading from '@atlaskit/heading';
-import MoreIcon from '@atlaskit/icon/glyph/more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { mediumDurationMs } from '@atlaskit/motion/durations';
 import {

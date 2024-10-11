@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import { LinkButton } from '@atlaskit/button/new';
-import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
+import ShortcutIcon from '@atlaskit/icon/core/migration/link-external--shortcut';
 import { easeInOut, mediumDurationMs } from '@atlaskit/motion';
 import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';

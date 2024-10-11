@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "description": "The core package for Pragmatic drag and drop - enabling fast drag and drop for any experience on any tech stack",
   "repository": "https://github.com/atlassian/pragmatic-drag-and-drop",
   "author": "Atlassian Pty Ltd",
@@ -23,6 +23,7 @@
     "./element/disable-native-drag-preview": "./src/entry-point/element/disable-native-drag-preview.ts",
     "./element/scroll-just-enough-into-view": "./src/entry-point/element/scroll-just-enough-into-view.ts",
     "./element/format-urls-for-external": "./src/entry-point/element/format-urls-for-external.ts",
+    "./element/block-dragging-to-iframes": "./src/entry-point/element/block-dragging-to-iframes.ts",
     "./external/adapter": "./src/entry-point/external/adapter.ts",
     "./external/file": "./src/entry-point/external/file.ts",
     "./external/html": "./src/entry-point/external/html.ts",

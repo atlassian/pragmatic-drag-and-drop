@@ -1,5 +1,34 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.4.0
+
+### Minor Changes
+
+- [#145232](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/145232)
+  [`04641b5e6ed55`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/04641b5e6ed55) -
+  Adding new optional utility for element dragging: `blockDraggingToIFrames` which disables the
+  ability for a user to drag into an `<iframe>` element.
+
+  Scenarios where this can be helpful:
+
+  - When you are shifting the interface around in reponse to a drag operation and you don't want the
+    drag to enter into an `<iframe>` (for example - when resizing)
+  - When you don't want the user to be able to drag into a `<iframe>` on the page (there could be
+    lots of reasons why!)
+
+  ```ts
+  import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+  import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+  import { blockDraggingToIFrames } from '@atlaskit/pragmatic-drag-and-drop/element/block-dragging-to-iframes';
+
+  const cleanup = combine(
+  	blockDraggingToIFrames({ element }),
+  	draggable({
+  		element,
+  	}),
+  );
+  ```
+
 ## 1.3.1
 
 ### Patch Changes

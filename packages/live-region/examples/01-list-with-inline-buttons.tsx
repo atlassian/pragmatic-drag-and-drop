@@ -11,8 +11,8 @@ import { css, jsx } from '@emotion/react';
 
 import ButtonGroup from '@atlaskit/button/button-group';
 import { IconButton } from '@atlaskit/button/new';
-import ArrowDownIcon from '@atlaskit/icon/glyph/arrow-down';
-import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
+import ArrowDownIcon from '@atlaskit/icon/core/migration/arrow-down';
+import ArrowUpIcon from '@atlaskit/icon/core/migration/arrow-up';
 import { token } from '@atlaskit/tokens';
 import Tooltip from '@atlaskit/tooltip';
 

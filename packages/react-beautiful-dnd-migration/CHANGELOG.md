@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.2.3
+
+### Patch Changes
+
+- [#150464](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/150464)
+  [`b813bd74ede6d`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/b813bd74ede6d) -
+  Updates internal configuration files
+- Updated dependencies
+
 ## 1.2.2
 
 ### Patch Changes

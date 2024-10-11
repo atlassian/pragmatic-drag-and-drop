@@ -1,0 +1,36 @@
+---
+order: 3
+title: Other utilities
+description: Opitional utility functions for the element adapter
+---
+
+## `blockDraggingToIFrames`
+
+This optional utility disables the ability for a user to drag into an `<iframe>` element.
+
+Scenarios where this can be helpful:
+
+- When you are shifting the interface around in reponse to a drag operation and you don't want the
+  drag to enter into an `<iframe>` (for example - when resizing)
+- When you don't want the user to be able to drag into a `<iframe>` on the page (there could be lots
+  of reasons why!)
+
+```ts
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { blockDraggingToIFrames } from '@atlaskit/pragmatic-drag-and-drop/element/block-dragging-to-iframes';
+
+const cleanup = combine(
+	blockDraggingToIFrames({ element }),
+	draggable({
+		element,
+	}),
+);
+```
+
+- This function sets `pointer-events:none !important` to all `<iframe>` elements for the duration of
+  the drag.
+- Once an `<iframe>` is disabled, it will only be re-enabled once the current drag interaction is
+  completed (and not when the `CleanupFn` is called)
+- This function currently does not watch for new `<iframe>` elements being adding during a drag
+  operation.

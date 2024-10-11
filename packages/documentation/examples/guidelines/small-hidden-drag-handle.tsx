@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandlerIcon from '@atlaskit/icon/glyph/drag-handler';
+import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -38,6 +38,7 @@ const draggingStyles = xcss({
 const hiddenDragHandleStyles = xcss({
 	display: 'flex',
 	opacity: 'var(--show-drag-handle, 0)',
+	paddingInline: 'space.025',
 });
 
 const noPaddingInlineStartStyles = xcss({
@@ -102,7 +103,12 @@ export function SmallHiddenDragHandle() {
 				]}
 			>
 				<Box xcss={[hiddenDragHandleStyles]}>
-					<DragHandlerIcon label="Drag list item" size="small" primaryColor={token('color.icon')} />
+					<DragHandlerIcon
+						label="Drag list item"
+						LEGACY_size="small"
+						LEGACY_margin={`0 ${token('space.negative.025')}`}
+						color={token('color.icon')}
+					/>
 				</Box>
 				<Box>
 					Drag handle (<code>16px</code>) visible on <code>:hover</code> and{' '}

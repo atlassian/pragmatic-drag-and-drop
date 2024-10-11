@@ -8,8 +8,10 @@ import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
 import { IconButton } from '@atlaskit/button/new';
 import { Checkbox } from '@atlaskit/checkbox';
+import { IconTile } from '@atlaskit/icon';
 import Story16Icon from '@atlaskit/icon-object/glyph/story/16';
-import MoreIcon from '@atlaskit/icon/glyph/more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
+import StoryIcon from '@atlaskit/icon/core/story';
 import Lozenge from '@atlaskit/lozenge';
 import {
 	attachClosestEdge,
@@ -251,7 +253,14 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
 							<Checkbox isChecked={isChecked} onChange={onCheckboxChange} />
 						</Inline>
 						<Inline space="space.050" alignBlock="center">
-							<Story16Icon label="" />
+							<IconTile
+								appearance="greenBold"
+								size="16"
+								label=""
+								icon={StoryIcon}
+								// eslint-disable-next-line @atlaskit/design-system/no-legacy-icons
+								LEGACY_fallbackComponent={<Story16Icon label="" />}
+							/>
 							<Box xcss={subtlestTextStyles}>{itemData.id}</Box>
 							<Box xcss={itemLabelStyles}>{itemData.label}</Box>
 						</Inline>

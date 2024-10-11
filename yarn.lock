@@ -211,10 +211,10 @@
     bind-event-listener "^3.0.0"
     react-uid "^2.2.0"
 
-"@atlaskit/ds-lib@^3.0.0":
-  version "3.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-3.0.0.tgz#ad1df8b86baecf0f6bcd381c6e01051044676dc9"
-  integrity sha512-5p9VoC0pafkSOQTBzdd7c+kJrE2EFTkDhskdGoSrZzC4/Eq1LJFBfRepWbanRUtKeYoKG/S7vqD/lbWKxq8RVA==
+"@atlaskit/ds-lib@^3.1.0":
+  version "3.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-3.1.0.tgz#43955d06dee9c7ae8fcf1f5ff6695b9010751892"
+  integrity sha512-1os/bwBxDkR1bqrnuW2fZR1uAm/tncI8W55fR31GKfpzI/WgmWABzzY9MdWim2kXjR4rsE0GvfjoNMJhJvfUVQ==
   dependencies:
     "@atlaskit/platform-feature-flags" "^0.3.0"
     "@babel/runtime" "^7.0.0"

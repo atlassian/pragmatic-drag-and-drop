@@ -1,5 +1,19 @@
 # @atlaskit/pragmatic-drag-and-drop-live-region
 
+## 1.1.0
+
+### Minor Changes
+
+- [#150481](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/150481)
+  [`e750fb3633f6e`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/e750fb3633f6e) -
+  [ux] Enable new icons behind a feature flag.
+
+### Patch Changes
+
+- [#150464](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/150464)
+  [`b813bd74ede6d`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/b813bd74ede6d) -
+  Updates internal configuration files
+
 ## 1.0.7
 
 ### Patch Changes

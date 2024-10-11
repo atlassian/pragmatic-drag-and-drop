@@ -24,9 +24,11 @@ import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
+import { IconTile } from '@atlaskit/icon';
 import StoryIcon16 from '@atlaskit/icon-object/glyph/story/16';
-import PullRequestIcon from '@atlaskit/icon/glyph/bitbucket/pullrequests';
-import MoreIcon from '@atlaskit/icon/glyph/more';
+import PullRequestIcon from '@atlaskit/icon/core/migration/pull-request--bitbucket-pullrequests';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
+import StoryIcon from '@atlaskit/icon/core/story';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -210,7 +212,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 											? mergeRefs([triggerRef, actionMenuTriggerRef])
 											: triggerRef
 									}
-									iconBefore={<MoreIcon label={`Move ${name}`} />}
+									iconBefore={
+										<MoreIcon spacing="spacious" color="currentColor" label={`Move ${name}`} />
+									}
 									appearance="subtle"
 									{...triggerProps}
 								/>
@@ -222,12 +226,19 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				</Inline>
 				<Inline spread="space-between" alignBlock="center">
 					<Inline space="space.050" alignBlock="center">
-						<StoryIcon16 label="story" />
+						<IconTile
+							appearance="greenBold"
+							size="16"
+							label=""
+							icon={StoryIcon}
+							// eslint-disable-next-line @atlaskit/design-system/no-legacy-icons
+							LEGACY_fallbackComponent={<StoryIcon16 label="story" />}
+						/>
 						<Box>{key}</Box>
 					</Inline>
 					<Inline space="space.050" alignBlock="center">
 						<Badge>{1}</Badge>
-						<PullRequestIcon label="" size="small" />
+						<PullRequestIcon color="currentColor" label="" LEGACY_size="small" />
 						<svg
 							width="24"
 							height="24"

@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@atlaskit/focus-ring": "^1.6.0",
-    "@atlaskit/icon": "^22.22.0",
+    "@atlaskit/icon": "^22.23.0",
     "@atlaskit/platform-feature-flags": "^0.3.0",
     "@atlaskit/primitives": "^12.2.0",
     "@atlaskit/tokens": "^2.0.0",

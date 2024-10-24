@@ -28,9 +28,9 @@ There are a few techniques you can use to control what a native drag preview wil
 ### Approach 1: Use a custom native drag preview
 
 You can ask the browser to take a photo of another visible element on the page and use that as the
-drag preview.
+drag preview. There are some [design constraints when leveraging native drag previews](/components/pragmatic-drag-and-drop/web-platform-design-constraints).
 
-<SectionMessage appearance="success">
+<SectionMessage appearance="discovery">
 
 There are lots of platform gotchas when working with custom native drag previews. We recommend using
 our `setCustomNativeDragPreview()` as it makes it safe and easy to work with custom native drag
@@ -38,7 +38,7 @@ previews.
 
 </SectionMessage>
 
-More information about [drag preview design constraints](../../web-platform-design-constraints/)
+
 
 #### Mounting a new element with `setCustomNativeDragPreview`
 

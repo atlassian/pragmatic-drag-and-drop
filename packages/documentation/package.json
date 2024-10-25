@@ -23,14 +23,14 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^21.15.0",
+    "@atlaskit/avatar": "^21.16.0",
     "@atlaskit/badge": "^16.4.0",
     "@atlaskit/button": "^20.3.0",
     "@atlaskit/code": "^15.6.0",
     "@atlaskit/focus-ring": "^1.6.0",
     "@atlaskit/grid": "^0.14.0",
     "@atlaskit/heading": "^2.4.0",
-    "@atlaskit/icon": "^22.23.0",
+    "@atlaskit/icon": "^22.24.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.4.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^1.2.0",

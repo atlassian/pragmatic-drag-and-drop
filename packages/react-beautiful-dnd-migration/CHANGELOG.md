@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.2.4
+
+### Patch Changes
+
+- [#153912](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/153912)
+  [`fb6d3603aa8df`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/fb6d3603aa8df) -
+  Internal fix to batched updates check that determines if React 16 is being used. Previously it
+  assumed the `version` export from `react-dom` was always defined, but it was only introduced in
+  `react-dom@16.13.0`
+
 ## 1.2.3
 
 ### Patch Changes

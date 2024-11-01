@@ -239,6 +239,16 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/focus-ring@^1.7.0":
+  version "1.7.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/focus-ring/-/focus-ring-1.7.0.tgz#ca9a8d3927863b15fb5bdefc650f4f09a14f92ac"
+  integrity sha512-k+Ix8mat1MiB3Pn35NcNQetQSPG4oxAW/TZlJ1yaawRqvS14ymfWRP+5Rh+A3vSYHAoWBamytbd+jd4A5j33yA==
+  dependencies:
+    "@atlaskit/tokens" "^2.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.1"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/grid@^0.14.0":
   version "0.14.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.14.0.tgz#2d73baad4da8a99da1f2679d83bf9bb5afc6a90b"

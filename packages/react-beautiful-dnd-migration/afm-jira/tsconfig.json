@@ -1,36 +1,36 @@
 {
-  "extends": "../../../../tsconfig.entry-points.jira.json",
-  "compilerOptions": {
-    "target": "es5",
-    "outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-migration/app",
-    "composite": true,
-    "rootDir": "../"
-  },
-  "include": [
-    "../src/**/*.ts",
-    "../src/**/*.tsx"
-  ],
-  "exclude": [
-    "../src/**/__tests__/*",
-    "../src/**/*.test.*",
-    "../src/**/test.*",
-    "../src/**/examples.*"
-  ],
-  "references": [
-    {
-      "path": "../../core/afm-jira/tsconfig.json"
-    },
-    {
-      "path": "../../hitbox/afm-jira/tsconfig.json"
-    },
-    {
-      "path": "../../live-region/afm-jira/tsconfig.json"
-    },
-    {
-      "path": "../../react-beautiful-dnd-autoscroll/afm-jira/tsconfig.json"
-    },
-    {
-      "path": "../../../design-system/tokens/afm-jira/tsconfig.json"
-    }
-  ]
+	"extends": "../../../../tsconfig.entry-points.jira.json",
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-migration/app",
+		"rootDir": "../",
+		"composite": true
+	},
+	"include": [
+		"../src/**/*.ts",
+		"../src/**/*.tsx"
+	],
+	"exclude": [
+		"../src/**/__tests__/*",
+		"../src/**/*.test.*",
+		"../src/**/test.*",
+		"../src/**/examples.*"
+	],
+	"references": [
+		{
+			"path": "../../core/afm-jira/tsconfig.json"
+		},
+		{
+			"path": "../../hitbox/afm-jira/tsconfig.json"
+		},
+		{
+			"path": "../../live-region/afm-jira/tsconfig.json"
+		},
+		{
+			"path": "../../react-beautiful-dnd-autoscroll/afm-jira/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/tokens/afm-jira/tsconfig.json"
+		}
+	]
 }

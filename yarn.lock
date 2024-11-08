@@ -422,6 +422,25 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
+"@atlaskit/primitives@^13.1.0":
+  version "13.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-13.1.0.tgz#e6bb150eab1d821ce2c630b6a13815c7803ff02e"
+  integrity sha512-wG/ttctRvAIvUoEfIzQHiwfpVspKqmTivcdyy4MT9fG0B0BQjWx8G8BGKz97OqlLSvziug1G745G5Gtogs66rw==
+  dependencies:
+    "@atlaskit/analytics-next" "^10.1.0"
+    "@atlaskit/app-provider" "^1.4.0"
+    "@atlaskit/css" "^0.6.0"
+    "@atlaskit/ds-lib" "^3.1.0"
+    "@atlaskit/interaction-context" "^2.1.0"
+    "@atlaskit/tokens" "^2.2.0"
+    "@atlaskit/visually-hidden" "^1.5.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.1"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    tiny-invariant "^1.2.0"
+
 "@atlaskit/primitives@^7.4.0":
   version "7.4.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-7.4.0.tgz#0164d58d8a17b09e14fd58a4924f43522799dac5"

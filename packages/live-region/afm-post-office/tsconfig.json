@@ -2,7 +2,7 @@
 	"extends": "../../../../tsconfig.entry-points.post-office.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-live-region/app",
+		"outDir": "../../../../../post-office/tsDist/@atlaskit__pragmatic-drag-and-drop-live-region/app",
 		"rootDir": "../",
 		"composite": true
 	},

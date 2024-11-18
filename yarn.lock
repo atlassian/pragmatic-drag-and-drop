@@ -432,16 +432,17 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^13.1.0":
-  version "13.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-13.1.0.tgz#e6bb150eab1d821ce2c630b6a13815c7803ff02e"
-  integrity sha512-wG/ttctRvAIvUoEfIzQHiwfpVspKqmTivcdyy4MT9fG0B0BQjWx8G8BGKz97OqlLSvziug1G745G5Gtogs66rw==
+"@atlaskit/primitives@^13.2.0":
+  version "13.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-13.2.0.tgz#78fc902f7b525c6c98cc2a8bc9b4d3f66f889e9c"
+  integrity sha512-BkWXoQuWTGPPCnChgOJa85gMtN6PKURAKq4Lqz/X9QTGXfx3VLLoxeonddb7DtF6p7lML6YjvN5jP5hFApqqBw==
   dependencies:
     "@atlaskit/analytics-next" "^10.1.0"
     "@atlaskit/app-provider" "^1.4.0"
     "@atlaskit/css" "^0.6.0"
-    "@atlaskit/ds-lib" "^3.1.0"
+    "@atlaskit/ds-lib" "^3.2.0"
     "@atlaskit/interaction-context" "^2.1.0"
+    "@atlaskit/platform-feature-flags" "^0.3.0"
     "@atlaskit/tokens" "^2.2.0"
     "@atlaskit/visually-hidden" "^1.5.0"
     "@babel/runtime" "^7.0.0"

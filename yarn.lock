@@ -239,20 +239,22 @@
     "@compiled/react" "^0.18.1"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/grid@^0.14.0":
-  version "0.14.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.14.0.tgz#2d73baad4da8a99da1f2679d83bf9bb5afc6a90b"
-  integrity sha512-iDq4hvV0jvvvyRwmAG3mUtbe7ZOtaWhzD44Su5DWWrP5lZLi8s6R/0Vnc3gjHqU0hulZoHEGEOhKfePtQlhVVA==
+"@atlaskit/grid@^0.15.0":
+  version "0.15.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.15.0.tgz#e60e17815e2f491a061224f2ba089d279a5ac7be"
+  integrity sha512-HQXDfoWS/vzfTUZwD6wD4ookaZUYVFYvxo94MZp+NB06Z5B4sfC3trgybvDQaWq2deS/AXrZ1ffRN/hPPu30qA==
   dependencies:
-    "@atlaskit/primitives" "^12.0.0"
+    "@atlaskit/css" "^0.6.0"
+    "@atlaskit/primitives" "^13.2.0"
+    "@atlaskit/tokens" "^2.3.0"
     "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
+    "@compiled/react" "^0.18.1"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/heading@^3.0.0":
-  version "3.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-3.0.0.tgz#365c0068d32a7c837aafc3f4f19ebd0a70c3397f"
-  integrity sha512-P9MSP//hN5wIVNJj970vCEH5bmSx18OT0abKn6067GWLNDpdK/lJ+T8adhXhq3dsMWhYyFRunSVZFxAnlaPl2A==
+"@atlaskit/heading@^3.1.0":
+  version "3.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-3.1.0.tgz#f701bf9d51e7b3dd7f92423f1e9793d44416620f"
+  integrity sha512-mr9ZCfZQPnv4OJQfYW0yipfuh24YswIl72IlIxHtpajjrAqwkmDoc3i3S4o+37S8RygbFUFf8Fp/4aPq4QZZbQ==
   dependencies:
     "@atlaskit/primitives" "^13.2.0"
     "@atlaskit/tokens" "^2.2.0"
@@ -575,6 +577,18 @@
   integrity sha512-MaK+MRzLbh9YjGAjzzYifYIjjqd3ZloW2+p9eBskQGkGWleRJXbj+7mcwEbD9v8OLWYzLgKpfINi/1BHylEv3g==
   dependencies:
     "@atlaskit/ds-lib" "^3.1.0"
+    "@atlaskit/platform-feature-flags" "^0.3.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tokens@^2.3.0":
+  version "2.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-2.3.0.tgz#f3da0428a0be4dcf2f7110b637177d9a4218289a"
+  integrity sha512-trtYLU1TQ2HPK0Ej3pJ8vLPz+madd55cRbxqm9tE9TjtHtsA2aiLN79Ab1fXnQ+zFX2FGIDcJf81iz9/OexuZQ==
+  dependencies:
+    "@atlaskit/ds-lib" "^3.2.0"
     "@atlaskit/platform-feature-flags" "^0.3.0"
     "@babel/runtime" "^7.0.0"
     "@babel/traverse" "^7.23.2"

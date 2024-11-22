@@ -207,11 +207,11 @@ unsafeOverflowAutoScrollForElements({
   the max scroll speed is applied.
 - Time dampening timer is shared with 'over element' auto scrolling. This means that time dampening
   will carry over correctly when moving between 'over element' and 'overflow scrolling'.
-- Distance dampening is applied when in the "cross axis" component of an edges hitbox. This is so
-  that the scroll speed matches on the cross axis plane when moving in and out of an element. This
-  sounds confusing, but it feels great!
+- Distance dampening is applied when in the "cross axis" component of an edges hitbox (see the
+  checkered area of the diagram below). This is so that the scroll speed inside an edge is the same
+  when inside the element, or when outside the element.
 
-![Cross axis hitbox](images/from-top-edge-example.jpg)
+![Diagram of overflow scrolling logic](images/overflow-scrolling-example.jpg)
 
 ## Window scrolling
 

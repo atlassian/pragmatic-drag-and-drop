@@ -104,6 +104,7 @@ export default function IframeOuter() {
 				<Box>Latest drop data: {latestDropData}</Box>
 			</Stack>
 			{!isInIframe ? (
+				// eslint-disable-next-line jsx-a11y/iframe-has-title
 				<Box as="iframe" xcss={iframeStyles} src={window.location.href} testId={'child-iframe'} />
 			) : null}
 		</Stack>

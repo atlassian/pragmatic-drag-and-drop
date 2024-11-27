@@ -99,6 +99,7 @@ function CardWithExternal() {
 				{cardText[state]}
 			</h5>
 			<small>This card also attaches a url that can be dragged into external windows</small>
+			{/* eslint-disable-next-line jsx-a11y/alt-text */}
 			<img src={avatarUrl} width="40" height="40" />
 		</div>
 	);
@@ -183,6 +184,7 @@ function DraggableImage() {
 			element,
 		});
 	}, []);
+	// eslint-disable-next-line jsx-a11y/alt-text
 	return <img src={avatarUrl} ref={ref} width="40" height="40" />;
 }
 
@@ -210,6 +212,7 @@ function DraggableImageWithCustomPreview() {
 			},
 		});
 	}, []);
+	// eslint-disable-next-line jsx-a11y/alt-text
 	return <img src={avatarUrl} ref={ref} width="40" height="40" />;
 }
 
@@ -249,6 +252,7 @@ export function Content() {
 			</p>
 			<h4>Images</h4>
 			<li>
+				{/* eslint-disable-next-line jsx-a11y/alt-text */}
 				Uncontrolled <img src={avatarUrl} width="40" height="40" />
 			</li>
 			<li>

@@ -59,6 +59,7 @@ export default function IFrameBoard() {
 			<Box padding="space.500">
 				<Inline space="space.200" alignInline="center" shouldWrap>
 					<Column columnId={'In parent window'} />
+					{/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
 					<Box as="iframe" src={iframeSrc} xcss={iframeStyles} />
 				</Inline>
 			</Box>

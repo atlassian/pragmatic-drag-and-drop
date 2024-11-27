@@ -96,6 +96,7 @@ const Upload = memo(function Upload({ upload }: { upload: UserUpload }) {
 
 	return (
 		<div css={[uploadStyles, state === 'loading' ? loadingStyles : readyStyles]}>
+			{/* eslint-disable-next-line jsx-a11y/alt-text */}
 			<img
 				src={upload.dataUrl}
 				css={imageStyles}

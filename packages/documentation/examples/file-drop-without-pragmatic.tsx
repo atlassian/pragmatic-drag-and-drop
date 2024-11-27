@@ -59,6 +59,7 @@ const FileDropZone = () => {
 	}, []);
 
 	return (
+		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 		<div onDragOver={onDragOver} onDrop={onDrop} data-testid="drop-zone" css={fileDropZoneStyles}>
 			<p>
 				<Badge appearance="primary">{items.length}</Badge> items dropped.

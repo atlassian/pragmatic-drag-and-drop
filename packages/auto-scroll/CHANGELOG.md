@@ -1,5 +1,122 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 2.0.0
+
+### Major Changes
+
+- [#170839](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/170839)
+  [`1534389dcb75b`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/1534389dcb75b) -
+  In order to improve clarity, we have renamed the `from*Edge` (eg `fromTopEdge`) argument
+  properties to `for*Edge` (eg `forTopEdge`) for the overflow scroller. If you are not using
+  overflow scrolling, there is nothing you need to do.
+
+  ```diff
+  - fromTopEdge
+  + forTopEdge
+  - fromRightEdge
+  + forRightEdge
+  - fromBottomEdge
+  + forBottomEdge
+  - fromLeftEdge
+  + forLeftEdge
+  ```
+
+  ```diff
+  const unbind = unsafeOverflowAutoScrollForElements({
+  		element,
+  		getOverflow: () => ({
+  -			fromTopEdge: {
+  +			forTopEdge: {
+  				top: 6000,
+  				right: 6000,
+  				left: 6000,
+  			},
+  -			fromRightEdge: {
+  +			forRightEdge: {
+  				top: 6000,
+  				right: 6000,
+  				bottom: 6000,
+  			},
+  -			fromBottomEdge: {
+  +			forBottomEdge: {
+  				right: 6000,
+  				bottom: 6000,
+  				left: 6000,
+  			},
+  -			fromLeftEdge: {
+  +			forLeftEdge: {
+  				top: 6000,
+  				left: 6000,
+  				bottom: 6000,
+  			},
+  		}),
+  });
+  ```
+
+  We thought that `for*` more accurately represented what was being provided, as these are the
+  overflow definitions _for_ a defined edge.
+
+  We have also improved the types for `for*Edge` so that you do not need to provide redundant cross
+  axis information if you only want to overflow scroll on the main axis.
+
+  ```diff
+  const unbind = unsafeOverflowAutoScrollForElements({
+  		element,
+  		getOverflow: () => ({
+  			forTopEdge: {
+  				top: 100,
+  +       // no longer need to pass `0` for the cross axis if you don't need it
+  -				right: 0,
+  -				left: 0,
+  			},
+  			forRightEdge: {
+  				right: 100,
+  -				top: 0,
+  -				bottom: 0,
+  			},
+  			forBottomEdge: {
+  				bottom: 100,
+  -				right: 0,
+  -				left: 0,
+  			},
+  			forLeftEdge: {
+  				left: 100,
+  -				top: 0,
+  -				bottom: 0,
+  			},
+  		}),
+  });
+  ```
+
+  When declaring overflow scrolling for an edge, you cannot provide how deep the scrolling should
+  occur into the element (that is defined by the "over element" overflow scroller). Providing
+  redundant information for an edge will now also give a type error rather than providing no
+  feedback.
+
+  ```ts
+  const unbind = unsafeOverflowAutoScrollForElements({
+  	element,
+  	getOverflow: () => ({
+  		forTopEdge: {
+  			top: 100,
+  			bottom: 30, // ❌ now a type error
+  		},
+  		forRightEdge: {
+  			right: 100,
+  			left: 10, // ❌ now a type error
+  		},
+  		forBottomEdge: {
+  			bottom: 100,
+  			top: 200, // ❌ now a type error
+  		},
+  		forLeftEdge: {
+  			left: 100,
+  			right: 20, // ❌ now a type error
+  		},
+  	}),
+  });
+  ```
+
 ## 1.4.0
 
 ### Minor Changes

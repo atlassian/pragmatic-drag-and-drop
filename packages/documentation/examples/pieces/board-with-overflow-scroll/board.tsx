@@ -54,22 +54,22 @@ function Board({ children }: { children: ReactNode }) {
 			unsafeOverflowAutoScrollForElements({
 				element: ref.current,
 				getOverflow: () => ({
-					fromTopEdge: {
+					forTopEdge: {
 						top: 6000,
 						right: 6000,
 						left: 6000,
 					},
-					fromRightEdge: {
+					forRightEdge: {
 						top: 6000,
 						right: 6000,
 						bottom: 6000,
 					},
-					fromBottomEdge: {
+					forBottomEdge: {
 						right: 6000,
 						bottom: 6000,
 						left: 6000,
 					},
-					fromLeftEdge: {
+					forLeftEdge: {
 						top: 6000,
 						left: 6000,
 						bottom: 6000,

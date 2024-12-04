@@ -18,22 +18,22 @@ const context: TBoardContext = {
 				...args,
 				// allow auto scrolling all around the board
 				getOverflow: () => ({
-					fromTopEdge: {
+					forTopEdge: {
 						top: 6000,
 						right: 6000,
 						left: 6000,
 					},
-					fromRightEdge: {
+					forRightEdge: {
 						top: 6000,
 						right: 6000,
 						bottom: 6000,
 					},
-					fromBottomEdge: {
+					forBottomEdge: {
 						right: 6000,
 						bottom: 6000,
 						left: 6000,
 					},
-					fromLeftEdge: {
+					forLeftEdge: {
 						top: 6000,
 						left: 6000,
 						bottom: 6000,
@@ -51,12 +51,12 @@ const context: TBoardContext = {
 				...args,
 				// allow auto scrolling above and below the column
 				getOverflow: () => ({
-					fromTopEdge: {
+					forTopEdge: {
 						top: 6000,
 						right: 0,
 						left: 0,
 					},
-					fromBottomEdge: {
+					forBottomEdge: {
 						right: 0,
 						bottom: 6000,
 						left: 0,

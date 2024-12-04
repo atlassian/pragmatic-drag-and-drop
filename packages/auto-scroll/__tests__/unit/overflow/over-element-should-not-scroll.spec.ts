@@ -59,22 +59,22 @@ getInsidePoints(parentScrollContainer.getBoundingClientRect()).forEach((point) =
 			unsafeOverflowAutoScrollForElements({
 				element: parentScrollContainer,
 				getOverflow: () => ({
-					fromTopEdge: {
+					forTopEdge: {
 						top: 10000,
 						left: 10000,
 						right: 1000,
 					},
-					fromRightEdge: {
+					forRightEdge: {
 						top: 10000,
 						bottom: 10000,
 						right: 10000,
 					},
-					fromBottomEdge: {
+					forBottomEdge: {
 						right: 10000,
 						bottom: 10000,
 						left: 10000,
 					},
-					fromLeftEdge: {
+					forLeftEdge: {
 						top: 10000,
 						bottom: 10000,
 						left: 10000,

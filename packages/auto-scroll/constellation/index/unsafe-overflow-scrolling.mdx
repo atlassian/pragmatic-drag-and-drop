@@ -129,65 +129,39 @@ setup you want, and change anything you want during a drag.
 `getOverflow()` allows you to specify how overflow scrolling should work for each edge of an
 element.
 
-```ts
-unsafeOverflowAutoScrollForElements({
-	getOverflow: () => ({
-		// When will scroll on the top edge occur?
-		fromTopEdge: {
-			top: 400, // for 400px above the top edge
-			right: 100, // up to 100px on the right hand side of the top edge
-			left: 100, // up to 100px on the left hand side of the top edge
-			// bottom: not allowed → the hitbox will stretch down into the element
-			// on the left and right and sides of the top edge by the same size as the
-			// 'over element' scrolling hitbox
-		},
-	}),
-});
-```
-
-![API visual explaination](images/from-top-edge-example.jpg)
+![API visual explanation](images/from-top-edge-example.jpg)
 
 ```ts
+// Only allow overflow scrolling above and below an element by 400px
 unsafeOverflowAutoScrollForElements({
 	element,
-	// Allow overflow scrolling in every direction around an element
 	getOverflow: () => ({
-		fromTopEdge: {
+		forTopEdge: {
 			top: 400,
-			right: 400,
-			left: 400,
 		},
-		fromRightEdge: {
-			top: 400,
-			right: 400,
-			bottom: 400,
-		},
-		fromBottomEdge: {
-			right: 400,
-			bottom: 400,
-			left: 400,
-		},
-		fromLeftEdge: {
-			top: 400,
-			left: 400,
+		forBottomEdge: {
 			bottom: 400,
 		},
 	}),
 });
 
-// Only allow overflow scrolling above and below an element
 unsafeOverflowAutoScrollForElements({
 	element,
 	getOverflow: () => ({
-		fromTopEdge: {
-			top: 400,
-			right: 0,
-			left: 0,
-		},
-		fromBottomEdge: {
-			right: 0,
-			bottom: 400,
-			left: 0,
+		forTopEdge: {
+			// Allow the top element to be overflow scrolled up to
+			// 2000px away from the element
+			top: 2000,
+			// Allow the top element to be overflow scrolled when
+			// up to 200px on the left or right of the top edge.
+			// The hitbox for scrolling will extend down below the top edge
+			// to match the "over element" hitbox for the top edge.
+			// See the diagram for more details.
+			left: 200,
+			right: 200,
+
+			// The "bottom" edge definition for the "top" edge is
+			// handled by the "over element" auto scroller.
 		},
 	}),
 });

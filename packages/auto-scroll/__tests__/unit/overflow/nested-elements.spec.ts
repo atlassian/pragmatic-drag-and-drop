@@ -72,7 +72,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		unsafeOverflowAutoScrollForElements({
 			element: grandParent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -82,7 +82,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		unsafeOverflowAutoScrollForElements({
 			element: parent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -223,7 +223,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		unsafeOverflowAutoScrollForElements({
 			element: parent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -233,7 +233,7 @@ test('a parent should allow a child to be overflow scrolled (when the parent is 
 		unsafeOverflowAutoScrollForElements({
 			element: grandParent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,

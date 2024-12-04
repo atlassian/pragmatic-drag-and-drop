@@ -56,22 +56,22 @@ const overflowSizeOnEachSideOfCrossAxis: number = 200;
 const overflow: Required<
 	ReturnType<Parameters<typeof unsafeOverflowAutoScrollForElements>[0]['getOverflow']>
 > = {
-	fromBottomEdge: {
+	forBottomEdge: {
 		right: overflowSizeOnEachSideOfCrossAxis,
 		left: overflowSizeOnEachSideOfCrossAxis,
 		bottom: overflowSizeOnMainAxis,
 	},
-	fromTopEdge: {
+	forTopEdge: {
 		right: overflowSizeOnEachSideOfCrossAxis,
 		left: overflowSizeOnEachSideOfCrossAxis,
 		top: overflowSizeOnMainAxis,
 	},
-	fromRightEdge: {
+	forRightEdge: {
 		right: overflowSizeOnMainAxis,
 		top: overflowSizeOnEachSideOfCrossAxis,
 		bottom: overflowSizeOnEachSideOfCrossAxis,
 	},
-	fromLeftEdge: {
+	forLeftEdge: {
 		left: overflowSizeOnMainAxis,
 		top: overflowSizeOnEachSideOfCrossAxis,
 		bottom: overflowSizeOnEachSideOfCrossAxis,
@@ -256,16 +256,16 @@ scenarios.forEach((scenario) => {
 					Parameters<typeof unsafeOverflowAutoScrollForElements>[0]['getOverflow']
 				> = (() => {
 					if (scenario.edge === 'top') {
-						return { fromTopEdge: overflow.fromTopEdge };
+						return { forTopEdge: overflow.forTopEdge };
 					}
 					if (scenario.edge === 'bottom') {
-						return { fromBottomEdge: overflow.fromBottomEdge };
+						return { forBottomEdge: overflow.forBottomEdge };
 					}
 					if (scenario.edge === 'left') {
-						return { fromLeftEdge: overflow.fromLeftEdge };
+						return { forLeftEdge: overflow.forLeftEdge };
 					}
 					if (scenario.edge === 'right') {
-						return { fromRightEdge: overflow.fromRightEdge };
+						return { forRightEdge: overflow.forRightEdge };
 					}
 					throw Error('unhandled');
 				})();

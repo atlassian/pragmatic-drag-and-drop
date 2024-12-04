@@ -90,7 +90,7 @@ const columnContainerStyles = xcss({
 
 export function Board() {
 	const ref = useRef<HTMLDivElement | null>(null);
-	const [columns] = useState<TColumn[]>(() => getColumns({ count: 8 }));
+	const [columns] = useState<TColumn[]>(() => getColumns({ count: 30 }));
 
 	const { autoScrollBoard } = useRequiredContext(BoardContext);
 

@@ -53,22 +53,22 @@ const overflowSizeOnMainAxis: number = 100;
 const overflow: Required<
 	ReturnType<Parameters<typeof unsafeOverflowAutoScrollForElements>[0]['getOverflow']>
 > = {
-	fromBottomEdge: {
+	forBottomEdge: {
 		right: 0,
 		left: 0,
 		bottom: overflowSizeOnMainAxis,
 	},
-	fromTopEdge: {
+	forTopEdge: {
 		right: 0,
 		left: 0,
 		top: overflowSizeOnMainAxis,
 	},
-	fromRightEdge: {
+	forRightEdge: {
 		right: overflowSizeOnMainAxis,
 		top: 0,
 		bottom: 0,
 	},
-	fromLeftEdge: {
+	forLeftEdge: {
 		left: overflowSizeOnMainAxis,
 		top: 0,
 		bottom: 0,

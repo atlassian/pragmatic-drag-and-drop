@@ -212,22 +212,22 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 				element: scrollContainerRef.current,
 				canScroll: ({ source }) => source.data.type === 'card',
 				getOverflow: () => ({
-					fromTopEdge: {
+					forTopEdge: {
 						top: 6000,
 						right: 0,
 						left: 0,
 					},
-					fromRightEdge: {
+					forRightEdge: {
 						top: 0,
 						right: 0,
 						bottom: 0,
 					},
-					fromBottomEdge: {
+					forBottomEdge: {
 						right: 0,
 						bottom: 6000,
 						left: 0,
 					},
-					fromLeftEdge: {
+					forLeftEdge: {
 						top: 0,
 						bottom: 0,
 						left: 0,

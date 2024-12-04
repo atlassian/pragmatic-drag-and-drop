@@ -46,7 +46,7 @@ it('should not scroll scroll containers that have canScroll: () => false', () =>
 			element: parentScrollContainer,
 			canScroll: () => isAutoScrollingAllowed,
 			getOverflow: () => ({
-				fromBottomEdge: {
+				forBottomEdge: {
 					left: 0,
 					right: 0,
 					bottom: 100,
@@ -168,7 +168,7 @@ it('should allow earlier registrations to scroll when a later registration has c
 		unsafeOverflowAutoScrollForElements({
 			element: grandParent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -179,7 +179,7 @@ it('should allow earlier registrations to scroll when a later registration has c
 			element: parent,
 			canScroll: () => isParentScrollingAllowed,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -305,7 +305,7 @@ it('should allow later registrations to scroll when an earlier registration has 
 			element: parent,
 			canScroll: () => isParentScrollingAllowed,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,
@@ -315,7 +315,7 @@ it('should allow later registrations to scroll when an earlier registration has 
 		unsafeOverflowAutoScrollForElements({
 			element: grandParent,
 			getOverflow: () => ({
-				fromTopEdge: {
+				forTopEdge: {
 					left: 0,
 					right: 0,
 					top: 100,

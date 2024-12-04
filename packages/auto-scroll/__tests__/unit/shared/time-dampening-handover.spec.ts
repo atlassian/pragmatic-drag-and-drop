@@ -58,7 +58,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 		unsafeOverflowAutoScrollForElements({
 			element: parentScrollContainer,
 			getOverflow: () => ({
-				fromBottomEdge: {
+				forBottomEdge: {
 					bottom: 1000,
 					left: 0,
 					right: 0,

@@ -38,10 +38,10 @@ function getSpacingFromProvided(value: Partial<Spacing> | undefined): Spacing {
 
 function getHitboxSpacing(provided: ProvidedHitboxSpacing): HitboxSpacing {
 	return {
-		top: getSpacingFromProvided(provided.fromTopEdge),
-		right: getSpacingFromProvided(provided.fromRightEdge),
-		bottom: getSpacingFromProvided(provided.fromBottomEdge),
-		left: getSpacingFromProvided(provided.fromLeftEdge),
+		top: getSpacingFromProvided(provided.forTopEdge),
+		right: getSpacingFromProvided(provided.forRightEdge),
+		bottom: getSpacingFromProvided(provided.forBottomEdge),
+		left: getSpacingFromProvided(provided.forLeftEdge),
 	};
 }
 

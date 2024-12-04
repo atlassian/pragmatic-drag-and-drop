@@ -65,22 +65,22 @@ describe('allowed axis', () => {
 					unsafeOverflowAutoScrollForElements({
 						element: parentScrollContainer,
 						getOverflow: () => ({
-							fromTopEdge: {
+							forTopEdge: {
 								top: 100,
 								right: 100,
 								left: 100,
 							},
-							fromRightEdge: {
+							forRightEdge: {
 								top: 100,
 								right: 100,
 								bottom: 100,
 							},
-							fromBottomEdge: {
+							forBottomEdge: {
 								right: 100,
 								bottom: 100,
 								left: 100,
 							},
-							fromLeftEdge: {
+							forLeftEdge: {
 								top: 100,
 								left: 100,
 								bottom: 100,

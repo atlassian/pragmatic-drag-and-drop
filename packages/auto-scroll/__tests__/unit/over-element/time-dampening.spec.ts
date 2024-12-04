@@ -127,6 +127,12 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 		}
 
 		const currentScrollTop = parentScrollContainer.scrollTop;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`,
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 **/
 		const scrollChange = currentScrollTop - lastScrollTop;
 
 		// we are scrolling backwards so our change will be negative
@@ -159,7 +165,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - up', () => {
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (parentScrollContainer.scrollTop !== 0) {
-			expect(scrollChangeSize).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChangeSize).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}
@@ -272,6 +278,12 @@ it('should dampen the acceleration of auto scrolling [new drag] - right', () => 
 		}
 
 		const currentScrollLeft = parentScrollContainer.scrollLeft;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 **/
 		const scrollChange = currentScrollLeft - lastScrollLeft;
 
 		// we are scrolling forward so our change will be positive
@@ -302,7 +314,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - right', () => 
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (parentScrollContainer.scrollLeft < maxScrollLeft) {
-			expect(scrollChange).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChange).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}
@@ -415,6 +427,12 @@ it('should dampen the acceleration of auto scrolling [new drag] - down', () => {
 		}
 
 		const currentScrollTop = parentScrollContainer.scrollTop;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 **/
 		const scrollChange = currentScrollTop - lastScrollTop;
 
 		// we are scrolling forward so our change will be positive
@@ -445,7 +463,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - down', () => {
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (parentScrollContainer.scrollTop < maxScrollTop) {
-			expect(scrollChange).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChange).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}
@@ -556,6 +574,12 @@ it('should dampen the acceleration of auto scrolling [new drag] - left', () => {
 		}
 
 		const currentScrollLeft = parentScrollContainer.scrollLeft;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 **/
 		const scrollChange = currentScrollLeft - lastScrollLeft;
 
 		// we are scrolling backwards so our change will be negative
@@ -585,7 +609,7 @@ it('should dampen the acceleration of auto scrolling [new drag] - left', () => {
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (parentScrollContainer.scrollLeft !== 0) {
-			expect(scrollChangeSize).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChangeSize).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}
@@ -723,6 +747,12 @@ it('should dampen the acceleration of auto scrolling [entering into a new drop t
 		}
 
 		const currentScrollTop = parentScrollContainer.scrollTop;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 **/
 		const scrollChange = Math.abs(currentScrollTop - lastScrollTop);
 		lastScrollTop = currentScrollTop;
 
@@ -742,7 +772,7 @@ it('should dampen the acceleration of auto scrolling [entering into a new drop t
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (parentScrollContainer.scrollTop !== 0) {
-			expect(scrollChange).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChange).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}
@@ -942,6 +972,12 @@ it('should reset time dampening when re-entering a scrollable element', () => {
 			}
 
 			const currentScrollTop = parentScrollContainer.scrollTop;
+			/**
+			 * Sometimes minus can run into IEEE 754 floating point math issues.
+			 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+			 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+			 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+			 **/
 			const scrollChange = Math.abs(currentScrollTop - lastScrollTop);
 			lastScrollTop = currentScrollTop;
 
@@ -961,7 +997,7 @@ it('should reset time dampening when re-entering a scrollable element', () => {
 			// Case 2: scrolling at max speed, but not finished scrolling
 			// Expecting max scroll speed
 			if (parentScrollContainer.scrollTop !== 0) {
-				expect(scrollChange).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+				expect(scrollChange).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 				casesHit['time-dampening-finished'] = true;
 				continue;
 			}
@@ -2025,6 +2061,13 @@ it('should apply time dampening for window scrolling', () => {
 		}
 
 		const currentScrollTop = document.documentElement.scrollTop;
+		/**
+		 * Sometimes minus can run into IEEE 754 floating point math issues.
+		 * Example: `256.4 - 241.4` is `14.99999999999972` and not `15` 😮‍💨
+		 * Never use `.toBe()` with `scrollChange`, only `.toBeCloseTo()`
+		 * or other _not strictly equal_ assertions (eg `toBeGreaterThan()`)
+		 * (which takes into account floating point issues).
+		 **/
 		const scrollChange = currentScrollTop - lastScrollTop;
 
 		// we are scrolling forward so our change will be positive
@@ -2044,10 +2087,11 @@ it('should apply time dampening for window scrolling', () => {
 			casesHit.acceleration = true;
 			continue;
 		}
+
 		// Case 2: scrolling at max speed, but not finished scrolling
 		// Expecting max scroll speed
 		if (document.documentElement.scrollTop < maxScrollTop) {
-			expect(scrollChange).toBe(defaultConfig.maxPixelScrollPerSecond / 60);
+			expect(scrollChange).toBeCloseTo(defaultConfig.maxPixelScrollPerSecond / 60);
 			casesHit['time-dampening-finished'] = true;
 			continue;
 		}

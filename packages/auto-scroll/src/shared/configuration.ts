@@ -13,7 +13,7 @@ const baseConfig = {
 		bottom: 0.5,
 		left: 0.5,
 	},
-	timeDampeningDurationMs: 300,
+	timeDampeningDurationMs: 400,
 	// Too big and it's too easy to trigger auto scrolling
 	// Too small and it's too hard 😅
 	maxMainAxisHitboxSize: 180,

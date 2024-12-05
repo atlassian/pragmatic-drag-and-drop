@@ -82,7 +82,7 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 `@atlaskit` is the `npm` namespace that we publish all of our public packages on from inside our internal monorepo. We _could_ look at creating a separate namespace in the future just for Pragmatic drag and drop. If we do that, we'll release some tooling to help folks automatically switch over.
 
-## `npm`
+## `npm` release and repo sync timing
 
 This mirror repository is currently being synced with our internal repository once a day. We publish packages to `npm` immediately as we merge new versions into the internal repository. This means that code can be released onto `npm` up to 24 hours _before_ it is available in this mirror repository.
 

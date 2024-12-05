@@ -19,10 +19,10 @@ there are many optional pieces, which are separated into their own entry points
 
 For example:
 
-- [The element adapter](/components/pragmatic-drag-and-drop/adapters/element): `/element/adapter`
-  (`@atlaskit/pragmatic-drag-and-drop/element/adapter`)
-- [An array reordering utility](/components/pragmatic-drag-and-drop/utilities): `/reorder`
-  (`atlaskit/pragmatic-drag-and-drop/reorder`)
+- [The element adapter](/components/pragmatic-drag-and-drop/core-package/adapters/element):
+  `/element/adapter` (`@atlaskit/pragmatic-drag-and-drop/element/adapter`)
+- [An array reordering utility](/components/pragmatic-drag-and-drop/core-package/utilities):
+  `/reorder` (`atlaskit/pragmatic-drag-and-drop/reorder`)
 
 And many more!
 
@@ -44,19 +44,19 @@ quickly wire up an experience with Pragmatic drag and drop.
 
 An _adapter_ teaches Pragmatic drag and drop how to handle dragging a particular entity:
 
-- [element adapter](/components/pragmatic-drag-and-drop/adapters/element) → handling the dragging of
-  draggable elements
-- [text selection adapter](/components/pragmatic-drag-and-drop/adapters/text-selection) → handling
-  the dragging of text selections
-- [external adapter](/components/pragmatic-drag-and-drop/adapters/external) → handling drag
-  operations that started outside of the current `window` (eg files and text from other `window`s or
-  applications)
+- [element adapter](/components/pragmatic-drag-and-drop/core-package/adapters/element) → handling
+  the dragging of draggable elements
+- [text selection adapter](/components/pragmatic-drag-and-drop/core-package/adapters/text-selection)
+  → handling the dragging of text selections
+- [external adapter](/components/pragmatic-drag-and-drop/core-package/adapters/external) → handling
+  drag operations that started outside of the current `window` (eg files and text from other
+  `window`s or applications)
 
 A drag adapter always provides at least two pieces:
 
-1. A way of registering [drop target](/components/pragmatic-drag-and-drop/drop-targets) (eg
-   `dropTargetForElements`).
-2. A way to create a [monitor](/components/pragmatic-drag-and-drop/monitor) (eg
+1. A way of registering [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets)
+   (eg `dropTargetForElements`).
+2. A way to create a [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) (eg
    `monitorForExternal`).
 
 ```ts
@@ -115,7 +115,7 @@ const cleanup = monitorForElements({
 });
 ```
 
-Learn more about [monitors](/components/pragmatic-drag-and-drop/monitors).
+Learn more about [monitors](/components/pragmatic-drag-and-drop/core-package/monitors).
 
 ### Utilities
 
@@ -137,7 +137,7 @@ const cleanup = combine(
 
 ## What's next
 
-- Head to our [adapter documentation](/components/pragmatic-drag-and-drop/adapters) to start
-  installing the pieces you need
+- Head to our [adapter documentation](/components/pragmatic-drag-and-drop/core-package/adapters) to
+  start installing the pieces you need
 - Learn more about our [design](/components/pragmatic-drag-and-drop/design-guidelines) and
   [accessibility](/components/pragmatic-drag-and-drop/accessibility-guidelines) guidelines.

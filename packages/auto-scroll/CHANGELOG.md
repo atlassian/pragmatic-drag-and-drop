@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 2.1.0
+
+### Minor Changes
+
+- [#172374](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/172374)
+  [`4ca6346256c8a`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4ca6346256c8a) -
+  Minor increase of time dampening duration. After lots of explorations, we have increased the value
+  to make it easier for people to avoid the impacts of rapid scroll speed spikes when lifting or
+  entering into a high scroll speed area.
+
 ## 2.0.0
 
 ### Major Changes

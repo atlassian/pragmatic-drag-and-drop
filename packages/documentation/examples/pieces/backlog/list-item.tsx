@@ -11,6 +11,7 @@ import { Checkbox } from '@atlaskit/checkbox';
 import { IconTile } from '@atlaskit/icon';
 import Story16Icon from '@atlaskit/icon-object/glyph/story/16';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
+import PriorityMinorIcon from '@atlaskit/icon/core/priority-minor';
 import StoryIcon from '@atlaskit/icon/core/story';
 import Lozenge from '@atlaskit/lozenge';
 import {
@@ -31,7 +32,6 @@ import { token } from '@atlaskit/tokens';
 
 import { useListContext } from './context';
 import { type ItemData } from './data';
-import { MinorPriorityIcon } from './minor-priority-icon';
 
 const listItemContainerStyles = xcss({
 	position: 'relative',
@@ -268,7 +268,7 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
 					<Inline alignBlock="center" space="space.100">
 						<Lozenge>Todo</Lozenge>
 						<Badge>0d</Badge>
-						<MinorPriorityIcon />
+						<PriorityMinorIcon label={''} color={token('color.icon.accent.blue')} />
 						<Avatar size="small" />
 						<Box xcss={actionStyles}>
 							<IconButton icon={MoreIcon} label="more actions" />

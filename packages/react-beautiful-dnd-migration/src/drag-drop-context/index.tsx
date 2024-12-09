@@ -21,8 +21,6 @@ import type {
 	MovementMode,
 } from 'react-beautiful-dnd';
 
-import { announce } from '@atlaskit/pragmatic-drag-and-drop-live-region';
-
 import { getDraggableDimensions } from '../hooks/use-captured-dimensions';
 import { useCleanupFn } from '../hooks/use-cleanup-fn';
 import { attributes, getAttribute } from '../utils/attributes';
@@ -40,6 +38,7 @@ import { usePointerControls } from './hooks/use-pointer-controls';
 import useStyleMarshal from './hooks/use-style-marshal';
 import { DragDropContextProvider } from './internal-context';
 import { LifecycleContextProvider, useLifecycle } from './lifecycle-context';
+import { announce } from './live-region';
 import { rbdInvariant } from './rbd-invariant';
 import { defaultDragHandleUsageInstructions, getProvided } from './screen-reader';
 import type { DragController, DragState } from './types';

@@ -4,8 +4,7 @@ import { fireEvent, render, type RenderResult } from '@testing-library/react';
 import type { DragStart, DragUpdate, ResponderProvided } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
-
+import * as liveRegion from '../../../../../../../src/drag-drop-context/live-region';
 import * as screenReader from '../../../../../../../src/drag-drop-context/screen-reader';
 import { Board } from '../../../../../_utils/board';
 import { keyboard } from '../../../integration/_utils/controls';

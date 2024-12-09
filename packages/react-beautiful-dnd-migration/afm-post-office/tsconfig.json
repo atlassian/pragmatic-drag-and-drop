@@ -24,9 +24,6 @@
 			"path": "../../hitbox/afm-post-office/tsconfig.json"
 		},
 		{
-			"path": "../../live-region/afm-post-office/tsconfig.json"
-		},
-		{
 			"path": "../../react-beautiful-dnd-autoscroll/afm-post-office/tsconfig.json"
 		},
 		{

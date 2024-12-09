@@ -1,4 +1,14 @@
-import { announceDelay } from './constants';
+/**
+ * This is defined in the migration package instead of using `@atlaskit/pragmatic-drag-and-drop-live-region`
+ * because RBD-style dragging has different needs to the alternative flows of PDND.
+ *
+ * RBD can make a lot of announcements in a short period, so delaying messages is not feasible.
+ * RBD also maintains focus while dragging, so messages being skipped is less of a concern.
+ *
+ * `@atlaskit/pragmatic-drag-and-drop-live-region` has been tailored for PDND-specific alternative flows,
+ * where focus usually changes around the time `announce()` is called. So in `@atlaskit/pragmatic-drag-and-drop-live-region`
+ * messages have delays to avoid them being skipped.
+ */
 
 let node: HTMLElement | null = null;
 
@@ -28,14 +38,7 @@ const visuallyHiddenStyles = {
  */
 function createNode(): HTMLElement {
 	const node = document.createElement('div');
-	/**
-	 * Using `role="status"` instead of `role="alert"` so that the message
-	 * can be queued and read when able.
-	 *
-	 * We found with `role="alert"` the message was not reliably read when
-	 * focus changed.
-	 */
-	node.setAttribute('role', 'status');
+	node.setAttribute('role', 'alert');
 	Object.assign(node.style, visuallyHiddenStyles);
 	document.body.append(node);
 	return node;
@@ -51,47 +54,18 @@ function getNode(): HTMLElement {
 	return node;
 }
 
-let timerId: ReturnType<typeof setTimeout> | null = null;
-
-function tryClearTimer() {
-	if (timerId !== null) {
-		clearTimeout(timerId);
-	}
-	timerId = null;
-}
-
 /**
  * Announces the provided message to assistive technology.
  */
 export function announce(message: string) {
-	/**
-	 * Calling this immediately to ensure a node exists and has time to be parsed
-	 * and exposed in the accessibility tree.
-	 */
-	getNode();
-
-	/**
-	 * Updating the message in a timeout so that it's less likely to be interrupted.
-	 *
-	 * This function is often called right before focus changes,
-	 * because the user has just taken an action.
-	 * This focus change would often cause the message to be skipped / interrupted.
-	 */
-	tryClearTimer();
-	timerId = setTimeout(() => {
-		timerId = null;
-		const node = getNode();
-		node.textContent = message;
-	}, announceDelay);
-
-	return;
+	const node = getNode();
+	node.textContent = message;
 }
 
 /**
  * Removes the created live region. If there is no live region this is a no-op.
  */
 export function cleanup() {
-	tryClearTimer();
 	node?.remove();
 	node = null;
 }

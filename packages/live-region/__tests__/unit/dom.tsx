@@ -1,10 +1,14 @@
+import { screen } from '@testing-library/dom';
+
 import * as liveRegion from '../../src';
 
-import { getLiveRegion } from './_utils';
-
 describe('DOM node', () => {
-	it('should have role="alert"', () => {
+	beforeEach(() => {
+		liveRegion.cleanup();
+	});
+
+	it('should have role="status"', () => {
 		liveRegion.announce('a message');
-		expect(getLiveRegion()).toHaveAttribute('role', 'alert');
+		expect(screen.getByRole('status')).toBeInTheDocument();
 	});
 });

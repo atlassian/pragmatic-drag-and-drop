@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-live-region
 
+## 1.2.0
+
+### Minor Changes
+
+- [#168054](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/168054)
+  [`f9b89a52cbad6`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/f9b89a52cbad6) -
+  Changes announcement behavior to be delayed and polite instead of immediate and assertive. This
+  helps issues with announcements sometimes being skipped or interrupted.
+
 ## 1.1.0
 
 ### Minor Changes

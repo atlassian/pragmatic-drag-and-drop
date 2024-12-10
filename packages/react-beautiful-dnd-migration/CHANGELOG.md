@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.3.0
+
+### Minor Changes
+
+- [#168054](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/168054)
+  [`6e5ded7326f80`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/6e5ded7326f80) -
+  Removes dependency on @atlaskit/pragmatic-drag-and-drop-live-region and now maintains live region
+  code internally.
+
 ## 1.2.4
 
 ### Patch Changes

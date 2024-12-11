@@ -14,31 +14,36 @@ The element adapter contains the essential pieces for element operations:
 
 - [draggable](#draggable): enable dragging of an element.
 - [dropTargetForElements](#drop-target-for-elements): marking an element as a valid
-  [drop target](../../drop-targets)
-- [monitorForElements](#monitor-for-elements): create a [monitor](../../monitors) to listen for
-  element drag operation events anywhere.
+  [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets)
+- [monitorForElements](#monitor-for-elements): create a
+  [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) to listen for element drag
+  operation events anywhere.
 - [types](#types): all types for this adapter.
 
 There are also a number of **optional** element utilities:
 
-- [setCustomNativeDragPreview](/components/pragmatic-drag-and-drop/drag-previews): use a new element
-  as the native drag preview
-- [pointerOutsideOfPreview](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
-  function to place the users pointer outside of the drag preview
-- [centerUnderPointer](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
-  function to place the center of the ntaive drag preview under the users pointer
-- [preserveOffsetOnSource](/components/pragmatic-drag-and-drop/drag-previews): native drag preview
-  function to match the pointer position on a native drag preview as close as possible to the
-  pointer position on the draggable element
-- [disableNativeDragPreview](/components/pragmatic-drag-and-drop/drag-previews): disable the native
-  drag preview (helpful if you want to use your own custom drag preview or have no drag preview)
-- [scrollJustEnoughIntoView](/components/pragmatic-drag-and-drop/drag-previews): scroll an element
-  just enough into view so it is visible (helpful when working with default native drag previews)
+- [setCustomNativeDragPreview](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  use a new element as the native drag preview
+- [pointerOutsideOfPreview](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  native drag preview function to place the users pointer outside of the drag preview
+- [centerUnderPointer](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  native drag preview function to place the center of the ntaive drag preview under the users
+  pointer
+- [preserveOffsetOnSource](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  native drag preview function to match the pointer position on a native drag preview as close as
+  possible to the pointer position on the draggable element
+- [disableNativeDragPreview](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  disable the native drag preview (helpful if you want to use your own custom drag preview or have
+  no drag preview)
+- [scrollJustEnoughIntoView](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews):
+  scroll an element just enough into view so it is visible (helpful when working with default native
+  drag previews)
 
 <SectionMessage>
 
-It is likely that some [top level utilities](../utilities/) will be helpful for your experience as
-well
+It is likely that some
+[top level utilities](/components/pragmatic-drag-and-drop/core-package/utilities) will be helpful
+for your experience as well
 
 </SectionMessage>
 
@@ -55,7 +60,8 @@ A `draggable` can be located:
 While a drag operation is occurring:
 
 - You can add new `draggable`s
-- You can remount a `draggable`. See [Reconciliation](../../reconciliation)
+- You can remount a `draggable`. See
+  [Reconciliation](/components/pragmatic-drag-and-drop/core-package/reconciliation)
 - You can change the dimensions of the dragging `draggable` during a drag. But keep in mind that
   won't change the drag preview image, as that is collected only at the start of the drag (in
   `onGenerateDragPreview()`)
@@ -73,7 +79,7 @@ While a drag operation is occurring:
 - `getInitialData?: (args: GetFeedbackArgs) => Record<string, unknown>`: a one time attaching of
   data to a draggable as a drag is starting. If you want to understand the _type_ of data attached
   to a drop target elsewhere in your application, see our
-  [typing data guide](../../recipes/typing-data).
+  [typing data guide](/components/pragmatic-drag-and-drop/core-package/recipes/typing-data).
 - `getInitialDataForExternal?: (args: GetFeedbackArgs) => {[Key in NativeMediaType]?: string;}`:
   used to attach native data (eg `"text/plain"`) to other `window`s or applications.
 
@@ -94,11 +100,11 @@ type GetFeedbackArgs = {
 };
 ```
 
-- [`onGenerateDragPreview`](../events)
-- [`onDragStart`](../events)
-- [`onDrag`](../events)
-- [`onDropTargetChange`](../events)
-- [`onDrop`](../events)
+- [`onGenerateDragPreview`](/components/pragmatic-drag-and-drop/core-package/events#event-ongeneratedragpreview)
+- [`onDragStart`](/components/pragmatic-drag-and-drop/core-package/events#event-ondragstart)
+- [`onDrag`](/components/pragmatic-drag-and-drop/core-package/events#event-ondrag)
+- [`onDropTargetChange`](/components/pragmatic-drag-and-drop/core-package/events#event-ondroptargetchange)
+- [`onDrop`](/components/pragmatic-drag-and-drop/core-package/events#event-ondrop)
 
 ### Drag handles
 
@@ -114,8 +120,9 @@ draggable({
 ```
 
 You can also implement a _drag handle_ by making a small part of an element the `draggable`, and
-then using [`setCustomNativeDragPreview`](/components/pragmatic-drag-and-drop/drag-previews) to
-generate a preview for the entire entity.
+then using
+[`setCustomNativeDragPreview`](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews)
+to generate a preview for the entire entity.
 
 ### Conditional dragging (`canDrag()`)
 
@@ -206,16 +213,18 @@ on. It is important that you don't expose private data.
 
 </SectionMessage>
 
-Attaching external data from a `draggable` will not trigger the [external adapter](../external) in
-the `window` that the `draggable` started in, but it will trigger the external adapter in other
+Attaching external data from a `draggable` will not trigger the
+[external adapter](/components/pragmatic-drag-and-drop/core-package/adapters/external) in the
+`window` that the `draggable` started in, but it will trigger the external adapter in other
 `window`s (eg in `<iframe>`s).
 
 ## Drop target for elements
 
-A [drop target](../../drop-targets) for elements.
+A [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) for elements.
 
 The default `dropEffect` for this type of drop target is `"move"`. This lines up with our
-[design guides](../../design-guidelines). You can override this default with `getDropEffect()`.
+[design guides](/components/pragmatic-drag-and-drop/design-guidelines). You can override this
+default with `getDropEffect()`.
 
 ```ts
 import {dropTargetForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -228,7 +237,7 @@ const cleanup = dropTargetForElements({
 
 ## Monitor for elements
 
-A [monitor](../../monitors) for elements.
+A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for elements.
 
 ```ts
 import {monitorForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -243,8 +252,8 @@ const cleanup = monitorForElements({
 Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript
 types if you would like to use them.
 
-All [events](../../events) on draggables, drop targets and monitors, are given the following base
-payload:
+All [events](/components/pragmatic-drag-and-drop/core-package/events) on draggables, drop targets
+and monitors, are given the following base payload:
 
 ```ts
 type ElementEventBasePayload = {
@@ -367,7 +376,8 @@ found on our [top level utilities page](../../utilities)
 
 ## Further reading
 
-- [Drag preview documentation](/components/pragmatic-drag-and-drop/drag-previews) → how to control
-  what the user drags around during a drag
-- [Typing data](../../recipes/typing-data) → how to improve the types for `"data"`
-- [Unregistered elements](/components/pragmatic-drag-and-drop/unregistered-elements)
+- [Drag preview documentation](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews)
+  → how to control what the user drags around during a drag
+- [Typing data](/components/pragmatic-drag-and-drop/core-package/recipes/typing-data) → how to
+  improve the types for `"data"`
+- [Unregistered elements](/components/pragmatic-drag-and-drop/core-package/adapters/element/unregistered-elements)

@@ -410,12 +410,14 @@ draggable({
 4. remove the new element in `onDrop`
 
 If you are doing this technique, you will likely want to use the
-[`preventUnhandled` utility](../../utilities). Using that addon will prevent the strange situation
-where when the user does not drop on a drop target there is a fairly large pause before the drop
-event. This is because the browser does a drop animation when the user does not drop on a drop
-target; a "return home" animation. Because you have hidden the native drag preview, the user won't
-see this return home drop animation, but will experience a delay. Using the
-[`preventUnhandled` utility](../../utilities) ensures that the return home drop animation won't run
+[`preventUnhandled` utility](/components/pragmatic-drag-and-drop/core-package/utilities). Using that
+addon will prevent the strange situation where when the user does not drop on a drop target there is
+a fairly large pause before the drop event. This is because the browser does a drop animation when
+the user does not drop on a drop target; a "return home" animation. Because you have hidden the
+native drag preview, the user won't see this return home drop animation, but will experience a
+delay. Using the
+[`preventUnhandled` utility](/components/pragmatic-drag-and-drop/core-package/utilities) ensures
+that the return home drop animation won't run
 
 ## No drag preview
 

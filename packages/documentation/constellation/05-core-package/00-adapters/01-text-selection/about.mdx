@@ -7,27 +7,32 @@ description: Listen and respond to the dragging of text selections in a document
 import SectionMessage from '@atlaskit/section-message';
 
 The text selection adapter allows you to listen and respond to text selections being dragged around
-in a `window`. Text selection is seperate from the [element adapter](../element) as text selections
-are not based on elements, but rather, whatever text the user has wanted to select.
+in a `window`. Text selection is seperate from the
+[element adapter](/components/pragmatic-drag-and-drop/core-package/adapters/element) as text
+selections are not based on elements, but rather, whatever text the user has wanted to select.
 
 The text selection adapter consists of the following pieces:
 
-- `dropTargetForTextSelection`: marking an element as a valid [drop target](../../drop-targets) for
-  text selection drag operations
-- `monitorForTextSelection`: create a [monitor](../../monitors) to listen to text selection drag
-  operations anywhere
+- `dropTargetForTextSelection`: marking an element as a valid
+  [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) for text selection
+  drag operations
+- `monitorForTextSelection`: create a
+  [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) to listen to text selection
+  drag operations anywhere
 - `type`s: all types for this adapter
 
 <SectionMessage>
 
-It is likely that some [top level utilities](../utilities/) will be helpful for your experience as
-well
+It is likely that some
+[top level utilities](/components/pragmatic-drag-and-drop/core-package/utilities) will be helpful
+for your experience as well
 
 </SectionMessage>
 
 ## Drop targets for text selection
 
-A [drop target](../drop-targets) for text selection drag operations.
+A [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) for text selection
+drag operations.
 
 The default `dropEffect` for this type of drop target is `"copy"` as generally you will be copying
 dragged text. However, if that is not the case for your drop target, then please update it's drop
@@ -44,7 +49,8 @@ const cleanup = dropTargetForTextSelection({
 
 ## Monitors for text selection
 
-A [monitor](../monitors) for text selection drag operations.
+A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for text selection drag
+operations.
 
 ```ts
 import {monitorForTextSelection} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -59,7 +65,8 @@ const cleanup = monitorForTextSelection({
 Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript
 types if you would like to use them.
 
-All [events](../../events) on drop targets and monitors are given the following base payload:
+All [events](/components/pragmatic-drag-and-drop/core-package/events) on drop targets and monitors
+are given the following base payload:
 
 ```ts
 type TextSelectionEventBasePayload = {
@@ -164,4 +171,4 @@ import type {
 ```
 
 There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be
-found on our [top level utilities page](../../utilities)
+found on our [top level utilities page](/components/pragmatic-drag-and-drop/core-package/utilities)

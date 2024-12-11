@@ -13,19 +13,20 @@ The external adapter is used to listen and respond to:
 
 The external adapter consists of the following pieces:
 
-- `dropTargetForExternal`: marking an element as a valid [drop target](../../drop-targets) for
-  external entities
-- `monitorForExternal`: create a [monitor](../../monitors) to listen for an external drag operation
-  events anywhere
+- `dropTargetForExternal`: marking an element as a valid
+  [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) for external entities
+- `monitorForExternal`: create a
+  [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) to listen for an external
+  drag operation events anywhere
 - `type`s: all types for this adapter
 
 There are utilities for making working with particular external data types easier:
 
-- [Files](/components/pragmatic-drag-and-drop/files)
-- [URLs](/components/pragmatic-drag-and-drop/URLs)
-- [Text](/components/pragmatic-drag-and-drop/text)
-- [HTML](/components/pragmatic-drag-and-drop/HTML)
-- [Custom media](/components/pragmatic-drag-and-drop/custom-media)
+- [Files](/components/pragmatic-drag-and-drop/core-package/adapters/external/files)
+- [URLs](/components/pragmatic-drag-and-drop/core-package/adapters/external/URLs)
+- [Text](/components/pragmatic-drag-and-drop/core-package/adapters/external/text)
+- [HTML](/components/pragmatic-drag-and-drop/core-package/adapters/external/HTML)
+- [Custom media](/components/pragmatic-drag-and-drop/core-package/adapters/external/custom-media-types)
 
 There are also some utilities for usage with any external data type:
 
@@ -34,14 +35,15 @@ There are also some utilities for usage with any external data type:
 
 <SectionMessage>
 
-It is likely that some [top level utilities](../utilities/) will be helpful for your experience as
-well
+It is likely that some
+[top level utilities](/components/pragmatic-drag-and-drop/core-package/utilities) will be helpful
+for your experience as well
 
 </SectionMessage>
 
 ## Drop target for external
 
-A [drop target](../../drop-targets) for external data.
+A [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) for external data.
 
 The default `dropEffect` for external drop targets is `"copy"`. This is because when you move data
 from outside of a `window` into the `window`, you are _generally_ making a _copy_ of the data. You
@@ -58,7 +60,7 @@ const cleanup = dropTargetForExternal({
 
 ## Monitor for external
 
-A [monitor](../../monitors) for native drags.
+A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for native drags.
 
 ```ts
 import {monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
@@ -113,7 +115,8 @@ You can also create your own predicate functions to facilitate your own bespoke 
 
 ## Events
 
-The external adapter removes some events from the [standard event flow](../events).
+The external adapter removes some events from the
+[standard event flow](/components/pragmatic-drag-and-drop/core-package/events).
 
 - `onGenerateDragPreview` is removed from external _drop targets_ and _monitors_. For external
   operations the drag preview has already been generated externally.
@@ -200,8 +203,9 @@ Generally, you will only want to interact with `source` using one of our helpers
 `source.items` (`DataTransferItem[]`) will only be populated with data:
 
 1. in the `onDrop()` event, and
-2. when the user is dropping on a [drop target](../../drop-targets) (including when over a drop
-   target due to stickiness)
+2. when the user is dropping on a
+   [drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets) (including when over
+   a drop target due to stickiness)
 
 Otherwise, `source.items` will be unpopulated (`[]`).
 
@@ -210,7 +214,8 @@ Otherwise, `source.items` will be unpopulated (`[]`).
 Generally you won't need to explicitly use our provided types, but we expose a number of TypeScript
 types if you would like to use them.
 
-All [events](../../events) on drop targets and monitors are given the following base payload:
+All [events](/components/pragmatic-drag-and-drop/core-package/events) on drop targets and monitors
+are given the following base payload:
 
 ````ts
 type ExternalEventBasePayload = {
@@ -346,11 +351,13 @@ import type {
 ```
 
 There are also some types (eg `DropTargetLocation`) that can be used for all adapters which can be
-found on our [top level utilities page](../../utilities)
+found on our [top level utilities page](/components/pragmatic-drag-and-drop/core-package/utilities)
 
 ## Blocking unhandled external drags (`preventUnhandled`)
 
 The default behaviour when dropping some external entities into a `window` (eg files) is for that
 entity to be opened in a new tab. Often, if you have drop targets for external entities on your
 page, you want drops outside of those drop targets to be ignored, and not to open a new tab. You an
-use the optional [`preventUnhandled` utility](../utilities) to help with that.
+use the optional
+[`preventUnhandled` utility](/components/pragmatic-drag-and-drop/core-package/utilities) to help
+with that.

@@ -13,7 +13,7 @@ const containerStyles = xcss({
 
 const headerStyles = xcss({
 	backgroundColor: 'elevation.surface.overlay',
-	fontWeight: 700,
+	fontWeight: 'font.weight.bold',
 	borderWidth: 'border.width.0',
 	borderBottomWidth: '1px',
 	borderStyle: 'solid',

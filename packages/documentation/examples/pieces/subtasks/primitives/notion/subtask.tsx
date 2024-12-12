@@ -117,7 +117,7 @@ export const Subtask = forwardRef<HTMLDivElement, SubtaskProps>(function Subtask
 			<div css={[subtaskInnerStyles, subtaskAppearanceStyles[appearance]]}>
 				<Cell>
 					{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
-					<span style={{ fontWeight: 500 }}>{title}</span>
+					<span style={{ fontWeight: token('font.weight.medium') }}>{title}</span>
 				</Cell>
 				<Cell>June 14, 2023 3:48 PM</Cell>
 				<Cell>

@@ -26,9 +26,8 @@ const containerStyles = css({
 
 const headerStyles = css({
 	background: token('elevation.surface.overlay'),
-	fontWeight: 700,
-	fontSize: 14,
-	lineHeight: '20px',
+	font: token('font.body'),
+	fontWeight: token('font.weight.bold'),
 	padding: 12,
 	borderBottom: `1px solid ${token('color.border')}`,
 	borderRadius: '4px 4px 0px 0px',
@@ -62,9 +61,8 @@ const fieldStyles = css({
 });
 
 const fieldLabelStyles = css({
-	fontWeight: 600,
-	fontSize: 12,
-	lineHeight: '16px',
+	font: 'font.body.small',
+	fontWeight: 'font.weight.semibold',
 	color: token('color.text.subtle'),
 	// padding: '4px 0px',
 	minHeight: 24,

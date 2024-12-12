@@ -10,7 +10,7 @@ import { token } from '@atlaskit/tokens';
 
 const stylesStyles = css({
 	color: token('color.text.success', 'green'),
-	fontWeight: 'bold',
+	fontWeight: token('font.weight.bold'),
 });
 
 export default function ResultText({ children }: { children: string }) {

@@ -62,7 +62,7 @@ const selectionCountStyles = xcss({
 	lineHeight: '1.5rem',
 	position: 'absolute',
 	textAlign: 'center',
-	fontWeight: '600',
+	fontWeight: 'font.weight.semibold',
 });
 
 const stateStyles: {

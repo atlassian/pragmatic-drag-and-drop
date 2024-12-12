@@ -37,9 +37,8 @@ const subtaskNotLastItemStyles = css({
 });
 
 const subtaskIdStyles = css({
-	fontSize: 12,
-	fontWeight: 500,
-	lineHeight: '16px',
+	font: token('font.body.small'),
+	fontWeight: token('font.weight.medium'),
 });
 
 const subtaskGroupStyles = css({

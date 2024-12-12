@@ -47,7 +47,7 @@ const headerStyles = css({
 	paddingBottom: token('space.100', '8px'),
 	borderBottom: `1px solid ${token('color.border', '#EBECF0')}`,
 	fontSize: '1em',
-	fontWeight: 'normal',
+	fontWeight: token('font.weight.regular'),
 	lineHeight: '1.4',
 });
 

@@ -39,7 +39,7 @@ const teamAreaBorderColorStyles: Record<TeamId, ReturnType<typeof xcss>> = {
 
 const teamAreaLabelStyles = xcss({
 	fontSize: '20px',
-	fontWeight: 500,
+	fontWeight: 'font.weight.medium',
 });
 
 const fullHeightStyles = xcss({ height: '100%' });

@@ -92,7 +92,7 @@ const solutionLabels: { [Key in Solution]: string } = {
 
 const solutionLabelStyles = css({
 	border: '2px solid transparent',
-	fontWeight: 500,
+	fontWeight: token('font.weight.medium'),
 	padding: '4px 8px',
 	borderRadius: 999,
 });

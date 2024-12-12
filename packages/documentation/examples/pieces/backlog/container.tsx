@@ -32,7 +32,7 @@ const headerAvatarGroupInsetStyles = xcss({
 });
 
 const sprintTitleStyles = xcss({
-	fontWeight: 600,
+	fontWeight: 'font.weight.semibold',
 });
 
 const subtlestTextStyles = xcss({

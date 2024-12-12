@@ -310,20 +310,35 @@
 	};
 
 	window.DragEvent = class DragEvent extends MouseEvent {
-		pageX: number;
-		pageY: number;
+		private _pageX: number;
+		private _pageY: number;
 		dataTransfer: DataTransfer;
 		constructor(
 			type: string,
 			eventInitDict: DragEventInit & { pageX?: number; pageY?: number } = {},
 		) {
 			super(type, eventInitDict);
-
-			// MouseEvent in jsdom doesn't implement the standard pageX and pageY properties
-			this.pageX = eventInitDict.pageX ?? 0;
-			this.pageY = eventInitDict.pageY ?? 0;
-
+			// Use private fields to store the values
+			this._pageX = eventInitDict.pageX ?? 0;
+			this._pageY = eventInitDict.pageY ?? 0;
 			this.dataTransfer = new DataTransfer();
+			// Define getters and setters for pageX and pageY
+			Object.defineProperty(this, 'pageX', {
+				get: () => this._pageX,
+				set: (value: number) => {
+					this._pageX = value;
+				},
+				configurable: true,
+				enumerable: true,
+			});
+			Object.defineProperty(this, 'pageY', {
+				get: () => this._pageY,
+				set: (value: number) => {
+					this._pageY = value;
+				},
+				configurable: true,
+				enumerable: true,
+			});
 		}
 	};
 })();

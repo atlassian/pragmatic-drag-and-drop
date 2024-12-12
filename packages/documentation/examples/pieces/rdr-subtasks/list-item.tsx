@@ -97,7 +97,7 @@ const iconStackStyles = xcss({
 const linkStyles = xcss({
 	color: 'color.link',
 	fontSize: '12px',
-	fontWeight: 500,
+	fontWeight: 'font.weight.medium',
 	cursor: 'pointer',
 	':hover': {
 		textDecoration: 'underline',

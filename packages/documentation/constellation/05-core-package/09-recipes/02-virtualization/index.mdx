@@ -13,11 +13,12 @@ underlying web platform to be successful with virtualization.
 If you are using a `draggable` (from `@atlaskit/pragmatic-drag-and-drop/element/adapter`), it is
 completely okay for your original `draggable` element to be removed during a drag. This can happen
 if your `draggable` element scrolls out of view during a drag operation. Keep in mind that if your
-`draggable` is removed, it will stop getting [events](/components/pragmatic-drag-and-drop/events).
-So if you want to listen to events on a `draggable` in a virtualized view, you will want to listen
-for events on entities that are not being removed during a drag (eg a seperate
-[monitor](/components/pragmatic-drag-and-drop/monitors) or a
-[drop target](/components/pragmatic-drag-and-drop/drop-targets)).
+`draggable` is removed, it will stop getting
+[events](/components/pragmatic-drag-and-drop/core-package/events). So if you want to listen to
+events on a `draggable` in a virtualized view, you will want to listen for events on entities that
+are not being removed during a drag (eg a seperate
+[monitor](/components/pragmatic-drag-and-drop/core-package/monitors) or a
+[drop target](/components/pragmatic-drag-and-drop/core-package/drop-targets)).
 
 ## onDrop events
 

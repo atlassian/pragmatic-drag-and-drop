@@ -6,9 +6,10 @@ order: 2
 
 import SectionMessage from '@atlaskit/section-message';
 
-By default, [drop targets](/components/pragmatic-drag-and-drop/drop-targets) will allow any
-`draggable` to be dropped on it, and [monitors](/components/pragmatic-drag-and-drop/monitors) will
-listen to _all_ drag operations.
+By default, [drop targets](/components/pragmatic-drag-and-drop/core-package/drop-targets) will allow
+any `draggable` to be dropped on it, and
+[monitors](/components/pragmatic-drag-and-drop/core-package/monitors) will listen to _all_ drag
+operations.
 
 You can limit what _types_ of `draggables` can be dropped on a drop target by using `canDrop()`, and
 what drag operations a monitor will listen to using `canMonitor()`.
@@ -21,10 +22,10 @@ drag operations a monitor will listen to.
 <SectionMessage>
 
 Something to keep in mind is that the drop target
-[`canDrop()`](/components/pragmatic-drag-and-drop/drop-targets) function is called repeatedly
-throughout a drag operation, whereas the monitor
-[`canMonitor()`](/components/pragmatic-drag-and-drop/monitors) function is only called once at the
-start of a drag (or when a monitor is mounted, if it is mounted during a drag).
+[`canDrop()`](/components/pragmatic-drag-and-drop/core-package/drop-targets) function is called
+repeatedly throughout a drag operation, whereas the monitor
+[`canMonitor()`](/components/pragmatic-drag-and-drop/core-package/monitors) function is only called
+once at the start of a drag (or when a monitor is mounted, if it is mounted during a drag).
 
 </SectionMessage>
 

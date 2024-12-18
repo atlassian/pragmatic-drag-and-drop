@@ -60,9 +60,9 @@ guidance about drag handle icons.
   [drag handle menu button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
   that triggers an inline menu with movement outcomes.
 - A draggable entity should only have one button for triggering actions. An entity should _not_ have
-  a **More button (...)** and a
+  both a **More button (...)** and a
   [drag handle menu button](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
-  (an entity should only)
+  (an entity should only have one of these).
 - A draggable that does not have a drag handle icon because it is "implied" to be draggable (eg a
   card) should still have a **More button (...)**.
 
@@ -94,8 +94,8 @@ containing a form to gather that additional input from the user.
 Packages to help you:
 
 - [Drag handle menu component](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility/drag-handle-button/examples)
-- [inline-menu](/components/inline-menu)
-- [modal](/components/modal)
+- [popup](/components/popup)
+- [modal-dialog](/components/modal-dialog)
 - [select](/components/select)
 
 [Figma (Atlassians only)](<https://www.figma.com/file/3E3rGPX4YHlVUP3cNyRykB/Pragmatic-Drag-%26-Drop-UI-Kit-(PDND)?type=design&node-id=38%3A5623&mode=design&t=LsTwhMGxMe6t08K3-1>)
@@ -135,7 +135,7 @@ Live regions should provide real-time feedback both during and after an interact
 contain the name of the item being moved, as well as its old and new position.
 
 To create live region feedback for interactions, use the
-[live region package](/components/pragmatic-drag-and-drop/packages/live-region).
+[live region package](/components/pragmatic-drag-and-drop/optional-packages/live-region).
 
 ```ts
 import { announce } from '@atlaskit/live-region';

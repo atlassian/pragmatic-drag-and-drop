@@ -10,7 +10,5 @@
     "src/**/*.ts",
     "src/**/*.tsx"
   ],
-  "compilerOptions": {
-    "baseUrl": ""
-  }
+  "compilerOptions": {}
 }

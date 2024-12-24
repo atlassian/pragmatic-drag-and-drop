@@ -9,7 +9,5 @@
     "src/**/*.tsx",
     "src/drag-event-polyfill.ts"
   ],
-  "compilerOptions": {
-    "baseUrl": ""
-  }
+  "compilerOptions": {}
 }

@@ -10,7 +10,6 @@
       "src/**/*.tsx",
     ],
     "compilerOptions": {
-        "baseUrl": ".",
         "allowJs": false,
         "strict": true,
         "allowSyntheticDefaultImports": true,

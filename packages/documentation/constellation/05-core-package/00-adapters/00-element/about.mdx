@@ -151,8 +151,8 @@ be dragged, then rather than using `canDrag()` you can conditionally apply `drag
 Here is example of what that could look like using `react`:
 
 ```ts
-import {useEffect} from 'react';
-import {draggable} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { useEffect } from 'react';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 function noop(){};
 
@@ -227,7 +227,7 @@ The default `dropEffect` for this type of drop target is `"move"`. This lines up
 default with `getDropEffect()`.
 
 ```ts
-import {dropTargetForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 const cleanup = dropTargetForElements({
   element: myElement,
@@ -240,7 +240,7 @@ const cleanup = dropTargetForElements({
 A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for elements.
 
 ```ts
-import {monitorForElements} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 const cleanup = monitorForElements({
   onDragStart: () => console.log('Dragging an element');

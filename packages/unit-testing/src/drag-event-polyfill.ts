@@ -340,5 +340,12 @@
 				enumerable: true,
 			});
 		}
+
+		get pageX() {
+			return this._pageX;
+		}
+		get pageY() {
+			return this._pageY;
+		}
 	};
 })();

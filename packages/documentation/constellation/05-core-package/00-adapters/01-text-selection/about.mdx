@@ -39,7 +39,7 @@ dragged text. However, if that is not the case for your drop target, then please
 effect through `getDropEffect()`.
 
 ```ts
-import {dropTargetForTextSelection} from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
+import { dropTargetForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
 
 const cleanup = dropTargetForTextSelection({
   element: myElement,
@@ -53,7 +53,7 @@ A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for text 
 operations.
 
 ```ts
-import {monitorForTextSelection} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 const cleanup = monitorForTextSelection({
   onDragStart: () => console.log('Dragging an element');

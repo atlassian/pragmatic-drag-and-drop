@@ -63,7 +63,7 @@ const cleanup = dropTargetForExternal({
 A [monitor](/components/pragmatic-drag-and-drop/core-package/monitors) for native drags.
 
 ```ts
-import {monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 
 const cleanup = monitorForExternal({
   onDragStart: () => console.log('An external drag has entered the window');
@@ -76,8 +76,8 @@ If you only want your drop target or monitor to be active when particular types 
 dragged (eg files), then you can provide a predicate function to `canDrop` and `canMonitor`
 
 ```ts
-import {dropTargetForExternal, monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
-import {containsFiles} from '@atlaskit/pragmatic-drag-and-drop/external/file';
+import { dropTargetForExternal, monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
 
 dropTargetForExternal({
   element: myElement,
@@ -96,9 +96,9 @@ If you want a drop target or monitor to listen for multiple types of native drag
 `Array.prototype.some`).
 
 ```ts
-import {dropTargetForExternal, monitorForExternal} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
-import {containsFiles} from '@atlaskit/pragmatic-drag-and-drop/external/file';
-import {containsText} from '@atlaskit/pragmatic-drag-and-drop/external/text';
+import { dropTargetForExternal, monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
+import { containsText } from '@atlaskit/pragmatic-drag-and-drop/external/text';
 
 dropTargetForExternal({
   canMonitor: some(containsFiles, containsText),

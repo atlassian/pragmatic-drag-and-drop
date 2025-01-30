@@ -247,7 +247,7 @@ draggable({
 
 ```ts
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
-import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/offset-from-pointer';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 
 draggable({
 	element: myElement,
@@ -442,7 +442,7 @@ helpful if you are leveraging default drag previews (ie not using `setCustomNati
 the `draggable` element is not completely in view, then the drag preview can be cut off.
 
 ```ts
-import { scrollJustEnoughIntoView } from '@atlaskit/pragmatic-drag-and-drop/scroll-just-enough-into-view';
+import { scrollJustEnoughIntoView } from '@atlaskit/pragmatic-drag-and-drop/element/scroll-just-enough-into-view';
 
 draggable({
 	element: myElement,

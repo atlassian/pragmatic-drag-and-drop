@@ -42,8 +42,8 @@
     "bind-event-listener": "^3.0.0",
     "fast-glob": "^3.2.11",
     "memoize-one": "^6.0.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tiny-invariant": "^1.2.0",
     "ts-node": "^10.9.1",
     "typescript": "~5.4.2"

@@ -38,6 +38,13 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
 
+"@atlaskit/atlassian-context@^0.1.0":
+  version "0.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/atlassian-context/-/atlassian-context-0.1.0.tgz#8f036175a022aef04d3b67bf2562e1e60b4f25f9"
+  integrity sha512-zOr9jvTanWCgdebRSwsqnh823fL7M1TFQHMh2G9ECLMk97Ju1J6MPquoE1A/8PsTvT0cujgy29puP/EBv5Fb9g==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 "@atlaskit/avatar@^21.18.0":
   version "21.18.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-21.18.0.tgz#f649afd77afcafa875b8503d592a87019dbaa298"
@@ -67,17 +74,17 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.1"
 
-"@atlaskit/button@^20.4.0":
-  version "20.4.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-20.4.0.tgz#5f577cdacccdb987814d69fe7bf167c2dcfb31e3"
-  integrity sha512-0e4fCFEI9/P2FZDDu1t+cXl/hlsCHYTV8GYS4FgXqx8BhUgtZkGxmMefEOBHpBNDPkaGCt7lEpBWM1pX0j6pow==
+"@atlaskit/button@^20.5.0":
+  version "20.5.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-20.5.0.tgz#09eea2ed80e072ac04f4cec33d5d490ea3bb97e1"
+  integrity sha512-Mn/2ayjlLnwFtC0ZheSp3mkhKX2asUk1LGtHPgICQ8cOlSjyQezPHs4Vht/p5UXFtkgmz01ex/CboTcd0gSKcw==
   dependencies:
     "@atlaskit/analytics-next" "^10.3.0"
     "@atlaskit/ds-lib" "^3.5.0"
     "@atlaskit/focus-ring" "^2.1.0"
-    "@atlaskit/icon" "^23.5.0"
+    "@atlaskit/icon" "^23.6.0"
     "@atlaskit/interaction-context" "^2.6.0"
-    "@atlaskit/platform-feature-flags" "^0.3.0"
+    "@atlaskit/platform-feature-flags" "^1.0.0"
     "@atlaskit/primitives" "^13.4.0"
     "@atlaskit/spinner" "^17.1.0"
     "@atlaskit/theme" "^14.1.0"
@@ -127,6 +134,16 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
     react-uid "^2.2.0"
+
+"@atlaskit/feature-gate-js-client@^4.23.0":
+  version "4.23.4"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/feature-gate-js-client/-/feature-gate-js-client-4.23.4.tgz#8c1bdcd90cecfeff03fc8f2810209ecad3a75f5d"
+  integrity sha512-gmbRHlzzVGkvR2iJ1TwUtK/fn+tcY2hVnYPHFanyRJaFUbtJYxMaEHISMVf5ogS6O5M1ic1YCB8o/y4Rzo7zDw==
+  dependencies:
+    "@atlaskit/atlassian-context" "^0.1.0"
+    "@babel/runtime" "^7.0.0"
+    eventemitter2 "^4.1.0"
+    statsig-js-lite "^1.6.0"
 
 "@atlaskit/focus-ring@^2.1.0":
   version "2.1.0"
@@ -214,6 +231,14 @@
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/platform-feature-flags/-/platform-feature-flags-0.3.0.tgz#94dfa0a4ef0a140f6ab0a6de006464de925ecea7"
   integrity sha512-/0u5fFJ0Rw2j4M5wzsXgaHO6Ey12oekPCDTRvmmAIp4GO9T2Swbl80bavLAPSOmSHMhHTSuvRxiJveZXfQ21IQ==
   dependencies:
+    "@babel/runtime" "^7.0.0"
+
+"@atlaskit/platform-feature-flags@^1.0.0":
+  version "1.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/platform-feature-flags/-/platform-feature-flags-1.0.0.tgz#fc67cbfacd05c7fb9fba78e903f9438718e50d54"
+  integrity sha512-J6ggqjqSOyikLIrn3BkGU3NPpB9m8wwTyl2MpymD7JIrEjuRKznVDAp/F0xMKdn56vUXgZPxB7JNurdEOGYDXg==
+  dependencies:
+    "@atlaskit/feature-gate-js-client" "^4.23.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/popper@^6.4.0":
@@ -2380,6 +2405,11 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+
+eventemitter2@^4.1.0:
+  version "4.1.2"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/eventemitter2/-/eventemitter2-4.1.2.tgz#0e1a8477af821a6ef3995b311bf74c23a5247f15"
+  integrity sha512-erx0niBaTi8B7ywjGAcg8ilGNRl/xs/o4MO2ZMpRlpZ62mYzjGTBlOpxxRIrPQqBs9mbXkEux6aR+Sc5vQ/wUw==
 
 execa@^5.0.0:
   version "5.1.1"
@@ -5118,6 +5148,11 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
+
+statsig-js-lite@^1.6.0:
+  version "1.6.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/statsig-js-lite/-/statsig-js-lite-1.6.0.tgz#2297c129496d0e2f965191a958318673d7a8b816"
+  integrity sha512-P9jw0YnpqZwfVs5wwdfKpN6PND2bO+Hur7/ImJOqZne74ZebLXxyoyybz/5xj010kjtYDuzufyMmhUCAxa+oqg==
 
 stop-iteration-iterator@^1.0.0:
   version "1.0.0"

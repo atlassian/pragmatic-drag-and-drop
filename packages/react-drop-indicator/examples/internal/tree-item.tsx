@@ -30,7 +30,7 @@ function getLabel(instruction: Instruction): string {
 		return `[Blocked] ${getLabel(instruction.desired)}`;
 	}
 	if (instruction.type === 'reparent') {
-		return `reparent (lvl${instruction.currentLevel} → lvl${instruction.desiredLevel})`;
+		return `reparent (lvl${instruction.currentLevel} -> lvl${instruction.desiredLevel})`;
 	}
 	return instruction.type;
 }

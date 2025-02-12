@@ -11,7 +11,7 @@ import invariant from 'tiny-invariant';
 
 import Heading from '@atlaskit/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { autoScrollForExternal } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/external';
 import { unsafeOverflowAutoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
@@ -42,7 +42,8 @@ const columnStyles = css({
 	flexDirection: 'column',
 	background: token('elevation.surface.sunken', '#F7F8F9'),
 	borderRadius: 'calc(var(--grid) * 2)',
-	transition: `background ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
 	paddingBottom: token('space.600', '0'), // a fake footer for now
 });

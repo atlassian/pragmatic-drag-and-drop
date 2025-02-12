@@ -4,14 +4,7 @@ import invariant from 'tiny-invariant';
 
 import { Code } from '@atlaskit/code';
 import Lozenge from '@atlaskit/lozenge';
-import {
-	easeIn,
-	easeInOut,
-	easeOut,
-	largeDurationMs,
-	mediumDurationMs,
-	smallDurationMs,
-} from '@atlaskit/motion';
+import { Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
 import { Inline, Stack, xcss } from '@atlaskit/primitives';
 import { RadioGroup } from '@atlaskit/radio';
 import { type OptionsPropType } from '@atlaskit/radio/types';
@@ -19,14 +12,8 @@ import { token } from '@atlaskit/tokens';
 
 import List from './pieces/post-drop-flash/list';
 
-const durationMap = {
-	largeDurationMs,
-	mediumDurationMs,
-	smallDurationMs,
-};
-
-function isDurationKey(value: unknown): value is keyof typeof durationMap {
-	return typeof value === 'string' && durationMap.hasOwnProperty(value);
+function isDurationKey(value: unknown): value is Durations {
+	return typeof value === 'string' && durations.hasOwnProperty(value);
 }
 
 const easingMap = {
@@ -49,10 +36,10 @@ const layoutStyles = xcss({
 
 export default function PostDropFlashPrototype() {
 	const [params, setParams] = useState<{
-		duration: keyof typeof durationMap;
+		duration: Durations;
 		easing: keyof typeof easingMap;
 	}>({
-		duration: 'smallDurationMs',
+		duration: 'small',
 		easing: 'easeInOut',
 	});
 
@@ -66,7 +53,7 @@ export default function PostDropFlashPrototype() {
 					{},
 				],
 				{
-					duration: durationMap[params.duration],
+					duration: durations[params.duration],
 					easing: easingMap[params.easing],
 					iterations: 1,
 				},
@@ -110,17 +97,17 @@ function OptionLabel({ children, description }: { children: ReactNode; descripti
 const durationOptions: OptionsPropType = [
 	{
 		name: 'duration',
-		value: 'smallDurationMs',
+		value: 'small',
 		label: <OptionLabel description={<>Equal to 100ms</>}>Small</OptionLabel>,
 	},
 	{
 		name: 'duration',
-		value: 'mediumDurationMs',
+		value: 'medium',
 		label: <OptionLabel description={<>Equal to 350ms</>}>Medium</OptionLabel>,
 	},
 	{
 		name: 'duration',
-		value: 'largeDurationMs',
+		value: 'large',
 		label: (
 			<OptionLabel description={<>Equal to 700ms</>}>
 				<span>Large</span>

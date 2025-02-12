@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant';
 
 import { LinkButton } from '@atlaskit/button/new';
 import ShortcutIcon from '@atlaskit/icon/core/migration/link-external--shortcut';
-import { easeInOut, mediumDurationMs } from '@atlaskit/motion';
+import { durations, easeInOut } from '@atlaskit/motion';
 import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
@@ -18,7 +18,8 @@ import Logo from './logo';
 type State = { type: 'idle' } | { type: 'preview'; container: HTMLElement } | { type: 'dragging' };
 
 const baseStyles = xcss({
-	transition: `opacity ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `opacity ${durations.medium}ms ${easeInOut}`,
 });
 
 const stateStyles: {

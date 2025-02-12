@@ -5,7 +5,7 @@ import invariant from 'tiny-invariant';
 
 import Heading from '@atlaskit/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
 	attachClosestEdge,
@@ -31,7 +31,8 @@ const columnStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
 	borderRadius: 'border.radius.400',
-	transition: `background ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
 	paddingBottom: 'space.600', // a fake footer for now
 });

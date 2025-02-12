@@ -11,7 +11,7 @@ import { List, type ListRowProps } from 'react-virtualized';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { token } from '@atlaskit/tokens';
 
 import type { ColumnType } from '../../data/tasks';
@@ -85,7 +85,7 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
 								const itemCount = column.items.length;
 
 								const style: React.CSSProperties = {
-									transition: `background ${mediumDurationMs}ms ${easeInOut}`,
+									transition: `background ${durations.medium}ms ${easeInOut}`,
 								};
 
 								if (snapshot.isDraggingOver) {

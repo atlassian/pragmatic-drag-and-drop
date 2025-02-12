@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import { easeInOut, mediumDurationMs } from '@atlaskit/motion';
+import { durations, easeInOut } from '@atlaskit/motion';
 import {
 	draggable,
 	dropTargetForElements,
@@ -106,7 +106,8 @@ const dropTargetStyles = xcss({
 	borderStyle: 'solid',
 	backgroundColor: 'color.background.discovery',
 	transitionProperty: 'background-color, border-color',
-	transitionDuration: `${mediumDurationMs}ms`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transitionDuration: `${durations.medium}ms`,
 	transitionTimingFunction: easeInOut,
 });
 

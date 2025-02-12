@@ -12,7 +12,7 @@ import invariant from 'tiny-invariant';
 import Button from '@atlaskit/button/new';
 import ImageIcon from '@atlaskit/icon/core/migration/image';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { largeDurationMs, mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	dropTargetForExternal,
@@ -46,7 +46,8 @@ const uploadStyles = css({
 	// using these to hide the details
 	borderRadius: 'calc(var(--grid) * 2)',
 	overflow: 'hidden',
-	transition: `opacity ${largeDurationMs}ms ${easeInOut}, filter ${largeDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `opacity ${durations.large}ms ${easeInOut}, filter ${durations.large}ms ${easeInOut}`,
 });
 const loadingStyles = css({
 	opacity: '0',
@@ -143,7 +144,8 @@ const fileStyles = css({
 	justifyContent: 'center',
 	background: token('elevation.surface.sunken', '#091E4208'),
 	borderRadius: 'var(--border-radius)',
-	transition: `all ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `all ${durations.medium}ms ${easeInOut}`,
 	border: '2px dashed transparent',
 	width: '100%',
 	gap: token('space.300', '24px'),

@@ -9,7 +9,7 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { smallDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
@@ -40,7 +40,8 @@ const itemStyles = css({
 	padding: token('space.050', '4px'),
 	borderRadius: token('border.radius.100', '4px'),
 	boxShadow: token('elevation.shadow.raised', 'none'),
-	transition: `all ${smallDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `all ${durations.small}ms ${easeInOut}`,
 	'-webkit-touch-callout': 'none', // needed to avoid a "save image" popup on iOS
 });
 

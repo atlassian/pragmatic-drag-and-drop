@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { Anchor, Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { useThemeObserver } from '@atlaskit/tokens';
 
@@ -12,7 +12,8 @@ const containerStyles = xcss({ height: '100%', paddingBottom: 'space.200' });
 const iframeStyles = xcss({ border: 'none', width: '250px' });
 
 const logoStyles = xcss({
-	transition: `all ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `all ${durations.medium}ms ${easeInOut}`,
 	display: 'inline-block',
 	filter: 'grayscale(1)',
 	padding: 'space.100', // making the hitbox for the link nice and generous

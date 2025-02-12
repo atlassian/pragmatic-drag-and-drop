@@ -8,7 +8,7 @@ import { memo } from 'react';
 import { css, jsx } from '@emotion/react';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { token } from '@atlaskit/tokens';
 
 import type { ColumnType } from '../data/tasks';
@@ -45,7 +45,8 @@ const cardListStyles = css({
 	minHeight: '100%',
 	padding: 'var(--grid)',
 	flexDirection: 'column',
-	transition: `background ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `background ${durations.medium}ms ${easeInOut}`,
 });
 
 const columnHeaderStyles = css({

@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import { easeInOut, mediumDurationMs } from '@atlaskit/motion';
+import { durations, easeInOut } from '@atlaskit/motion';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
@@ -21,7 +21,8 @@ const cardStyles = xcss({
 	backgroundColor: 'color.background.accent.purple.subtler',
 	borderRadius: 'border.radius',
 	transitionProperty: 'background-color, opacity',
-	transitionDuration: `${mediumDurationMs}ms`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transitionDuration: `${durations.medium}ms`,
 	transitionTimingFunction: easeInOut,
 
 	display: 'flex',

@@ -1,4 +1,4 @@
-import { largeDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { token } from '@atlaskit/tokens';
 
 /**
@@ -9,7 +9,7 @@ import { token } from '@atlaskit/tokens';
  */
 export function triggerPostMoveFlash(element: HTMLElement) {
 	element.animate([{ backgroundColor: token('color.background.selected') }, {}], {
-		duration: largeDurationMs,
+		duration: durations.large,
 		/**
 		 * This is equivalent to the browser default, but we are making it
 		 * explicit to avoid relying on implicit behavior.

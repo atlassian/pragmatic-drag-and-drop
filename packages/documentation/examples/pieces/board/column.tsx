@@ -16,7 +16,7 @@ import Heading from '@atlaskit/heading';
 // ongoing icon project
 import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--editor-more';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { mediumDurationMs } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
 	attachClosestEdge,
@@ -44,7 +44,8 @@ const columnStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
 	borderRadius: 'border.radius.300',
-	transition: `background ${mediumDurationMs}ms ${easeInOut}`,
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
 	/**
 	 * TODO: figure out hover color.

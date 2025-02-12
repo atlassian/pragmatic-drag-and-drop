@@ -3,7 +3,7 @@ import { type RefObject, useCallback, useEffect } from 'react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { mediumDurationMs } from '@atlaskit/motion';
+import { durations } from '@atlaskit/motion';
 import { token } from '@atlaskit/tokens';
 
 export function useFlashOnDrop({
@@ -25,7 +25,7 @@ export function useFlashOnDrop({
 		}
 
 		element.animate([{ background: token('color.background.selected', 'transparent') }, {}], {
-			duration: mediumDurationMs,
+			duration: durations.medium,
 			iterations: 1,
 		});
 	}, [ref]);

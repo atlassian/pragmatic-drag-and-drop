@@ -248,6 +248,14 @@ export function Draggable({
 
 	const isMountedRef = useRef(true);
 	useEffect(() => {
+		/**
+		 * React 18 strict mode will re-run effects in development mode.
+		 * https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development
+		 *
+		 * Setting the ref value to `true` again in the effect to avoid the value staying `false` incorrectly after
+		 * the first cleanup.
+		 */
+		isMountedRef.current = true;
 		return () => {
 			isMountedRef.current = false;
 		};

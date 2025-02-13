@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 1.4.1
+
+### Patch Changes
+
+- [#113483](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/pull-requests/113483)
+  [`e9c1247224a94`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/e9c1247224a94) -
+  Internal refactor to Draggable to resolve issue with React 18 strict mode re-running effects in
+  development mode.
+
 ## 1.4.0
 
 ### Minor Changes

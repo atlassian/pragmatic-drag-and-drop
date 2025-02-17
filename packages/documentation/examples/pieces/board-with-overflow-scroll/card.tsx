@@ -84,15 +84,10 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 			padding="space.100"
 			xcss={[containerStyles, stateStyles[state.type]]}
 		>
-			<Avatar size="large" src={avatarUrl}>
-				{(props) => (
-					<div
-						{...props}
-						ref={props.ref as React.Ref<HTMLDivElement>}
-						css={noPointerEventsStyles}
-					/>
-				)}
-			</Avatar>
+			<span css={noPointerEventsStyles}>
+				<Avatar size="large" src={avatarUrl} />
+			</span>
+
 			<Stack space="space.050" grow="fill">
 				<Heading size="xsmall" as="span">
 					{name}

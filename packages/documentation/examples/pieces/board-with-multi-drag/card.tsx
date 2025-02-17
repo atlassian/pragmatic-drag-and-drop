@@ -41,6 +41,7 @@ const idleState: DraggableState = { type: 'idle' };
 const draggingState: DraggableState = { type: 'dragging' };
 
 const noMarginStyles = xcss({ margin: 'space.0' });
+const noPointerEventsStyles = xcss({ pointerEvents: 'none' });
 const containerStyles = xcss({
 	width: '100%',
 	borderRadius: 'border.radius.200',
@@ -114,16 +115,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				isSelected && isDragging && draggingStyles,
 			]}
 		>
-			<Avatar size="large" src={avatarUrl}>
-				{(props) => (
-					<div
-						{...props}
-						ref={props.ref as React.Ref<HTMLDivElement>}
-						// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-						style={{ pointerEvents: 'none' }}
-					/>
-				)}
-			</Avatar>
+			<Box as="span" xcss={noPointerEventsStyles}>
+				<Avatar size="large" src={avatarUrl} />
+			</Box>
 			<Stack space="space.050" grow="fill">
 				<Heading size="xsmall" as="span">
 					{name}

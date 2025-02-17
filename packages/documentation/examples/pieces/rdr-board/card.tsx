@@ -266,15 +266,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 							<rect x="18.5" y="9.5" width="5" height="5" rx="2.5" fill="#DCDFE4" />
 						</svg>
 
-						<Avatar size="small">
-							{(props) => (
-								<div
-									{...props}
-									ref={props.ref as React.Ref<HTMLDivElement>}
-									css={noPointerEventsStyles}
-								/>
-							)}
-						</Avatar>
+						<span css={noPointerEventsStyles}>
+							<Avatar size="small" />
+						</span>
 					</Inline>
 				</Inline>
 

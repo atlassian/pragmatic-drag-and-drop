@@ -86,7 +86,7 @@ function App({ onDragStart, onDragUpdate, onDragEnd }: AppProps) {
 	);
 }
 
-jest.useFakeTimers({ legacyFakeTimers: true });
+jest.useFakeTimers();
 
 replaceRaf();
 
@@ -493,16 +493,16 @@ cases.forEach(({ id, control, mode }) => {
 			// onDragUpdate will occur after setTimeout
 			expect(onDragUpdate).not.toHaveBeenCalled();
 
-			// If it was disabled asynchronously
-			// then it won't update before it happens (obviously)
+			// `setIsDropDisabled(true)` will be called after the `setTimeoutDelay`
 			act(() => {
-				jest.advanceTimersByTime(setTimeoutDelay - 1);
+				jest.advanceTimersByTime(setTimeoutDelay);
 			});
+			// The update has been scheduled but not actually happened yet
 			expect(onDragUpdate).not.toHaveBeenCalled();
 
-			// But once it triggers it should update
+			// Trigger the scheduled update, which is a `setTimeout(fn, 0)`
 			act(() => {
-				jest.advanceTimersByTime(1);
+				jest.advanceTimersByTime(0);
 			});
 
 			// an update should be fired as the home location has changed
@@ -570,16 +570,16 @@ cases.forEach(({ id, control, mode }) => {
 			// onDragUpdate will occur after setTimeout
 			expect(onDragUpdate).not.toHaveBeenCalled();
 
-			// If it was disabled asynchronously
-			// then it won't update before it happens (obviously)
+			// `setIsDropDisabled(true)` will be called after the `setTimeoutDelay`
 			act(() => {
-				jest.advanceTimersByTime(setTimeoutDelay - 1);
+				jest.advanceTimersByTime(setTimeoutDelay);
 			});
+			// The update has been scheduled but not actually happened yet
 			expect(onDragUpdate).not.toHaveBeenCalled();
 
-			// But once it triggers it should update
+			// Trigger the scheduled update, which is a `setTimeout(fn, 0)`
 			act(() => {
-				jest.advanceTimersByTime(1);
+				jest.advanceTimersByTime(0);
 			});
 
 			// an update should be fired as the home location has changed

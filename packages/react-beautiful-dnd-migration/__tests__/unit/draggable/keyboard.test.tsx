@@ -28,8 +28,8 @@ beforeAll(() => {
 
 describe('keyboard dragging', () => {
 	test('that keydown handlers are unbound on unmount', () => {
-		const addEventListener = jest.spyOn(HTMLElement.prototype, 'addEventListener');
-		const removeEventListener = jest.spyOn(HTMLElement.prototype, 'removeEventListener');
+		const addEventListener = jest.spyOn(window, 'addEventListener');
+		const removeEventListener = jest.spyOn(window, 'removeEventListener');
 
 		const { getByTestId, unmount } = render(<App />);
 

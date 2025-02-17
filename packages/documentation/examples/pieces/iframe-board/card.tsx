@@ -45,6 +45,7 @@ const idleState: State = { type: 'idle' };
 const draggingState: State = { type: 'dragging' };
 
 const noMarginStyles = xcss({ margin: 'space.0' });
+const noPointerEventsStyles = xcss({ pointerEvents: 'none' });
 const baseStyles = xcss({
 	width: '100%',
 	padding: 'space.100',
@@ -93,21 +94,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 			alignItems="center"
 			xcss={[baseStyles, stateStyles[state.type]]}
 		>
-			<Avatar size="large" src={avatarUrl}>
-				{(props) => (
-					// Note: using `div` rather than `Box`.
-					// `CustomAvatarProps` passes through a `className`
-					// but `Box` does not accept `className` as a prop.
-					<div
-						{...props}
-						// Workaround to make `Avatar` not draggable.
-						// Ideally `Avatar` would have a `draggable` prop.
-						// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-						style={{ pointerEvents: 'none' }}
-						ref={props.ref as Ref<HTMLDivElement>}
-					/>
-				)}
-			</Avatar>
+			<Box as="span" xcss={noPointerEventsStyles}>
+				<Avatar size="large" src={avatarUrl} />
+			</Box>
 			<Stack space="space.050" grow="fill">
 				<Heading size="xsmall" as="span">
 					{name}

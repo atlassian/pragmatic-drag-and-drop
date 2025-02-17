@@ -13,12 +13,7 @@ import { Inline } from '@atlaskit/primitives';
 
 import type { Item, Status } from './types';
 
-const customAvatarStyles = css({
-	/**
-	 * The purpose of this is to prevent dragging the image
-	 */
-	pointerEvents: 'none',
-});
+const noPointerEventsStyles = css({ pointerEvents: 'none' });
 
 export function getField({ item, property }: { item: Item; property: keyof Item }): ReactElement {
 	if (property === 'status') {
@@ -28,9 +23,9 @@ export function getField({ item, property }: { item: Item; property: keyof Item 
 		const person = item[property];
 		return (
 			<Inline space="space.100" alignBlock="center" grow="fill">
-				<Avatar src={person.avatarUrl} size="small">
-					{(props) => <span {...props} css={customAvatarStyles} />}
-				</Avatar>
+				<span css={noPointerEventsStyles}>
+					<Avatar src={person.avatarUrl} size="small" />
+				</span>
 				<span>{person.name}</span>
 			</Inline>
 		);

@@ -145,6 +145,17 @@
     eventemitter2 "^4.1.0"
     statsig-js-lite "^1.6.0"
 
+"@atlaskit/feature-gate-js-client@^4.25.0":
+  version "4.25.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/feature-gate-js-client/-/feature-gate-js-client-4.25.0.tgz#b32a178e1ae6061522997439dd5b7c33bd913ecc"
+  integrity sha512-byPTckSA7ifQ1EWbj7mmFGHvjfNOPTkRau2FLr+tGPUtjO4Mih1MzBH5aIXr8J4b1dDBWlYW/c9UbIDVGUpjNQ==
+  dependencies:
+    "@atlaskit/atlassian-context" "^0.1.0"
+    "@babel/runtime" "^7.0.0"
+    "@statsig/client-core" "^3.10.0"
+    "@statsig/js-client" "^3.10.0"
+    eventemitter2 "^4.1.0"
+
 "@atlaskit/focus-ring@^2.1.0":
   version "2.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/focus-ring/-/focus-ring-2.1.0.tgz#7c86040c11ccec175ce506c691d329f16265ed16"
@@ -166,13 +177,13 @@
     "@compiled/react" "^0.18.1"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/heading@^4.1.0":
-  version "4.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-4.1.0.tgz#9204b597f6a43ced16b2824183c1813119408d88"
-  integrity sha512-mLU6/Fbwg45f0KXp+7tp8FnHt1vMO3fY0L8Mf3Kab3c3umL5Qr6zWOEvb5idFDDl0fGWk8+EgHUjH1ANsZZM0g==
+"@atlaskit/heading@^4.2.0":
+  version "4.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-4.2.0.tgz#dba108afdd3867a8e96ae9165f4dccabf369284f"
+  integrity sha512-TOyWNBpMPnM9S4dyVi0bnkncXIvh21cDOL2D9atQWpWRD56zdi/mwbYjWpXCR0bJ4sWaiYUn8mzVrqyrPXA3VA==
   dependencies:
     "@atlaskit/css" "^0.8.0"
-    "@atlaskit/primitives" "^13.4.0"
+    "@atlaskit/primitives" "^13.5.0"
     "@atlaskit/tokens" "^3.3.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.1"
@@ -260,6 +271,14 @@
   integrity sha512-J6ggqjqSOyikLIrn3BkGU3NPpB9m8wwTyl2MpymD7JIrEjuRKznVDAp/F0xMKdn56vUXgZPxB7JNurdEOGYDXg==
   dependencies:
     "@atlaskit/feature-gate-js-client" "^4.23.0"
+    "@babel/runtime" "^7.0.0"
+
+"@atlaskit/platform-feature-flags@^1.1.0":
+  version "1.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/platform-feature-flags/-/platform-feature-flags-1.1.0.tgz#af2f1a03b29147a490361e2c716c5c9750314a27"
+  integrity sha512-6g8uflI4gG3EClkxxGDmxQLnfgtW9lv9Aa1ocRWh95ui5t7rE4oCMRQvk15RwzBnlu6xPf4k8GV6PuKKPYc0iA==
+  dependencies:
+    "@atlaskit/feature-gate-js-client" "^4.25.0"
     "@babel/runtime" "^7.0.0"
 
 "@atlaskit/popper@^6.4.0":
@@ -354,10 +373,10 @@
     "@atlaskit/tokens" "^3.3.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/theme@^15.0.0":
-  version "15.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-15.0.0.tgz#196534c581418e77eeff02856ed412c01252b3e1"
-  integrity sha512-VpN/5QF2hsuYqYyUCllcAE/mD6Qcaae3oekzqsfLRkr01lVK42b8jLXwgchUiLxmuT2lclFdBLfcX5gesQjbiw==
+"@atlaskit/theme@^16.0.0":
+  version "16.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-16.0.0.tgz#0466ef0a4d12913d61457ff9257f2f81bbcc1ec4"
+  integrity sha512-GIxzHsdGQWlfv1XfhqpdPe911rq5IZ7a/RJDjHcdRSzm40N+0gYOk1Mg3F/QFVeK6ZeQOutrNJ/sD8CerHn3SA==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
     "@atlaskit/ds-lib" "^3.5.0"
@@ -1257,6 +1276,18 @@
   integrity sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==
   dependencies:
     "@sinonjs/commons" "^3.0.0"
+
+"@statsig/client-core@3.12.1", "@statsig/client-core@^3.10.0":
+  version "3.12.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@statsig/client-core/-/client-core-3.12.1.tgz#c51e408eb1f616b38bd6aed2fede4c6bb71c243c"
+  integrity sha512-99FOEBq7M3Jnkvk0DWRAklvCE1J26HLmYsFGJAo+LQ7382DYBY3X6fvdZeaNGa5KDSIdyZEpeLQxkHw2PpVpGw==
+
+"@statsig/js-client@^3.10.0":
+  version "3.12.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@statsig/js-client/-/js-client-3.12.1.tgz#81c492b2ef8428e4228e60bd1b08f334b942a4bd"
+  integrity sha512-CCGJqFnKYhOEWZsZgXcMuKQLd/4TEB8PgObDXiyoKw1dszl8de4+hCsg/qa64Y4dy0e91cMS9oTfZZD3TJKkNA==
+  dependencies:
+    "@statsig/client-core" "3.12.1"
 
 "@testing-library/dom@^10.1.0":
   version "10.3.0"

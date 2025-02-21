@@ -8,7 +8,7 @@ import { forwardRef, type HTMLAttributes, memo, type ReactNode, type Ref } from 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
-import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
 import Lozenge from '@atlaskit/lozenge';
 import { token } from '@atlaskit/tokens';
 
@@ -92,7 +92,7 @@ const DragHandle = memo(
 		return (
 			<span ref={ref} css={dragHandleStyles}>
 				<button css={dragHandleButtonStyles}>
-					<DragHandlerIcon color="currentColor" spacing="spacious" label="drag handle" />
+					<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="drag handle" />
 				</button>
 			</span>
 		);

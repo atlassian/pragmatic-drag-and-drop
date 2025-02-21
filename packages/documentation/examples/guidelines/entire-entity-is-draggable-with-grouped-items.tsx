@@ -7,7 +7,7 @@ import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 import EditorMoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
 import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
-import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -134,7 +134,11 @@ export function EntireEntityIsDraggableWithGroupedItems() {
 				]}
 			>
 				<Stack>
-					<DragHandlerIcon spacing="spacious" label="Drag list item" color={token('color.icon')} />
+					<DragHandleVerticalIcon
+						spacing="spacious"
+						label="Drag list item"
+						color={token('color.icon')}
+					/>
 				</Stack>
 				<Box>Entire entity is draggable (with grouped actions)</Box>
 				<GroupedActionMenu />

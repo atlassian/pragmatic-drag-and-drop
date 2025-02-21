@@ -10,7 +10,7 @@ import { css, jsx } from '@emotion/react';
 
 import type { CustomTriggerProps } from '@atlaskit/dropdown-menu';
 import FocusRing from '@atlaskit/focus-ring';
-import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
 import { token } from '@atlaskit/tokens';
 
 const dragHandleButtonStyles = css({
@@ -58,7 +58,7 @@ export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonPr
 					css={[dragHandleButtonStyles, subtaskSpecificHandleStyles, isSelected && selectedStyles]}
 					{...props}
 				>
-					<DragHandlerIcon color="currentColor" spacing="spacious" label="" />
+					<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="" />
 				</button>
 			</FocusRing>
 		);

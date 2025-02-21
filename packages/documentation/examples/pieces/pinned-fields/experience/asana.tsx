@@ -2,7 +2,7 @@ import React, { type ReactNode, type RefObject, useEffect, useRef } from 'react'
 
 import invariant from 'tiny-invariant';
 
-import DragHandlerIcon from '@atlaskit/icon/utility/migration/drag-handle--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 import { useSortableField } from '../../hooks/use-sortable-field';
@@ -91,7 +91,7 @@ function DraggableField({ index, item }: DraggableFieldProps) {
 			ref={ref}
 			icon={
 				isHovering ? (
-					<DragHandlerIcon color="currentColor" spacing="spacious" label="" />
+					<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="" />
 				) : (
 					item.icon
 				)

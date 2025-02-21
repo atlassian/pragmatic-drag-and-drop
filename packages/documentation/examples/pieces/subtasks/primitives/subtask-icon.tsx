@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DragHandleIcon from '@atlaskit/icon/core/drag-handle';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 
 export function SubtaskObjectIcon() {
 	return (
@@ -58,7 +58,7 @@ export default function SubtaskIcon({ isIconHidden = false }) {
 		>
 			{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
 			<div style={{ display: 'var(--subtask-drag-handle-icon-display, none)' }}>
-				<DragHandleIcon label="" />
+				<DragHandleVerticalIcon label="" />
 			</div>
 			<SubtaskObjectIcon />
 		</div>

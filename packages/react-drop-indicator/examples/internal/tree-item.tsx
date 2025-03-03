@@ -21,7 +21,7 @@ const itemStyles = css({
 	gap: 4,
 	borderRadius: 3,
 	position: 'relative',
-	paddingLeft: 'calc(var(--horizontal-indent) + 1ch)',
+	paddingInlineStart: 'calc(var(--horizontal-indent) + 1ch)',
 	background: token('elevation.surface.sunken', '#F7F8F9'),
 });
 

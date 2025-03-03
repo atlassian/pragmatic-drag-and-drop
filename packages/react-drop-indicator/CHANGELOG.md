@@ -1,5 +1,35 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 2.1.0
+
+### Minor Changes
+
+- [#119914](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/119914)
+  [`e77649a3345a0`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/e77649a3345a0) -
+  **New: Right to left (rtl) support**
+
+  All drop indicators now correctly support
+  ["right to left" (`rtl`) rendering](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir).
+
+  - `box` and `tree-item`: terminals (circles) on lines are now rendered on right hand side of the
+    line for `rtl` rendering
+  - `tree-item`: `indent` will now correctly respect `rtl` rendering.
+
+  **Other**
+
+  - All drop indicators that rendered lines now leverage the same underlying base component to help
+    reduce bundle size for consumers leveraging multiple types of drop indicators.
+
+### Patch Changes
+
+- [#120533](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/120533)
+  [`f1bec731e278f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f1bec731e278f) -
+  Adds a `sideEffects` field to ensure this package does not have Compiled styles tree-shaken in the
+  future to avoid an accidental regression.
+
+  This is related to
+  https://community.developer.atlassian.com/t/rfc-73-migrating-our-components-to-compiled-css-in-js/85953
+
 ## 2.0.0
 
 ### Major Changes

@@ -60,14 +60,21 @@ const blocked = instructions.map((instruction) => {
 
 const all: Instruction[] = [...instructions, ...blocked];
 
-export default function Example() {
+export default function Example({ direction = 'ltr' }: { direction: 'ltr' | 'rtl' }) {
 	return (
-		<Layout testId="layout--appearance">
-			<div css={containerStyles}>
-				{all.map((instruction, index) => (
-					<TreeItem instruction={instruction} key={index} {...data} />
-				))}
-			</div>
-		</Layout>
+		<div dir={direction}>
+			<Layout testId="layout--appearance">
+				<div css={containerStyles}>
+					{all.map((instruction, index) => (
+						<TreeItem instruction={instruction} key={index} {...data} />
+					))}
+				</div>
+			</Layout>
+		</div>
 	);
+}
+
+// For VR testing
+export function RTLTree() {
+	return <Example direction="rtl" />;
 }

@@ -1,16 +1,9 @@
-/**
- * @jsxRuntime classic
- * @jsx jsx
- */
-
-import type { CSSProperties } from 'react';
-
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx, type SerializedStyles } from '@emotion/react';
+import React from 'react';
 
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 
-import { line } from './constants';
+import type { CSSSize } from './internal-types';
+import { Line } from './internal/line';
 
 export type DropIndicatorProps = {
 	/**
@@ -32,48 +25,7 @@ export type DropIndicatorProps = {
 	 * @example "8px"
 	 * @example "var(--gap)"
 	 */
-	gap?: string;
-};
-
-const lineStyles = css({
-	display: 'block',
-	position: 'absolute',
-	zIndex: 1,
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-	background: line.backgroundColor,
-	content: '""',
-	pointerEvents: 'none',
-});
-
-const edgeStyles: Record<Edge, SerializedStyles> = {
-	top: css({
-		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-		height: line.thickness,
-		top: 'var(--local-line-offset)',
-		right: 0,
-		left: 0,
-	}),
-	right: css({
-		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-		width: line.thickness,
-		top: 0,
-		right: 'var(--local-line-offset)',
-		bottom: 0,
-	}),
-	bottom: css({
-		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-		height: line.thickness,
-		right: 0,
-		bottom: 'var(--local-line-offset)',
-		left: 0,
-	}),
-	left: css({
-		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-		width: line.thickness,
-		top: 0,
-		bottom: 0,
-		left: 'var(--local-line-offset)',
-	}),
+	gap?: CSSSize;
 };
 
 /**
@@ -82,19 +34,7 @@ const edgeStyles: Record<Edge, SerializedStyles> = {
  * A drop indicator is used to communicate the intended resting place of the draggable item. The orientation of the drop indicator should always match the direction of the content flow.
  */
 export function DropIndicator({ edge, gap = '0px' }: DropIndicatorProps) {
-	/**
-	 * To clearly communicate the resting place of a draggable item during a drag operation,
-	 * the drop indicator should be positioned half way between draggable items.
-	 */
-	const lineOffset = `calc(-0.5 * (${gap} + ${line.thickness}px))`;
-
-	return (
-		<div
-			css={[lineStyles, edge && edgeStyles[edge]]}
-			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-			style={{ '--local-line-offset': lineOffset } as CSSProperties}
-		/>
-	);
+	return <Line edge={edge} gap={gap} appearance="no-terminal" />;
 }
 
 // This default export is intended for usage with React.lazy

@@ -45,19 +45,19 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^23.0.0":
-  version "23.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-23.0.0.tgz#db2b4f802005c3a7537a2fdf7d87063bcc52d2ea"
-  integrity sha512-jBtcEwV2Y/w1qfPonaI/Xa4uyF55y3aAZ1Xu3tN/FLWpIFuAbedBne/wF2KQaucY1lZk0c5qq2b69DoZ5IANPg==
+"@atlaskit/avatar@^24.0.0":
+  version "24.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-24.0.0.tgz#ae6c12a9db44f0702b5f7fe4ecb13569f4046cd8"
+  integrity sha512-r1GO+bdZMfQq2+e3c833VyzZkWNeejairz2Frszdpj7emzeW0AxXmRhkVDprFNRk0mYfbERoliRVqdQbgEZlgg==
   dependencies:
     "@atlaskit/analytics-next" "^11.0.0"
     "@atlaskit/ds-lib" "^4.0.0"
     "@atlaskit/focus-ring" "^3.0.0"
-    "@atlaskit/icon" "^24.0.0"
+    "@atlaskit/icon" "^24.1.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/primitives" "^14.0.0"
+    "@atlaskit/primitives" "^14.1.0"
     "@atlaskit/theme" "^17.0.0"
-    "@atlaskit/tokens" "^4.1.0"
+    "@atlaskit/tokens" "^4.2.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"

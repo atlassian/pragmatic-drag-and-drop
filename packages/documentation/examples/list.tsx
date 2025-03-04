@@ -32,6 +32,7 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
 	dropTargetForElements,
+	type ElementDropTargetEventBasePayload,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
@@ -229,11 +230,10 @@ function ListItem({
 	const { registerItem, instanceId } = useListContext();
 
 	const ref = useRef<HTMLDivElement>(null);
-	const [closestEdge, setClosestEdge] = useState<Edge | null>(null);
-
 	const dragHandleRef = useRef<HTMLButtonElement>(null);
 
 	const [draggableState, setDraggableState] = useState<DraggableState>(idleState);
+	const [closestEdge, setClosestEdge] = useState<Edge | null>(null);
 
 	useEffect(() => {
 		const element = ref.current;
@@ -242,6 +242,33 @@ function ListItem({
 		invariant(dragHandle);
 
 		const data = getItemData({ item, index, instanceId });
+
+		function onChange({ source, self }: ElementDropTargetEventBasePayload) {
+			const isSource = source.element === dragHandle;
+			if (isSource) {
+				setClosestEdge(null);
+				return;
+			}
+
+			const closestEdge = extractClosestEdge(self.data);
+
+			const sourceIndex = source.data.index;
+			invariant(typeof sourceIndex === 'number');
+
+			const isItemBeforeSource = index === sourceIndex - 1;
+			const isItemAfterSource = index === sourceIndex + 1;
+
+			const isDropIndicatorHidden =
+				(isItemBeforeSource && closestEdge === 'bottom') ||
+				(isItemAfterSource && closestEdge === 'top');
+
+			if (isDropIndicatorHidden) {
+				setClosestEdge(null);
+				return;
+			}
+
+			setClosestEdge(closestEdge);
+		}
 
 		return combine(
 			registerItem({ itemId: item.id, element }),
@@ -281,32 +308,8 @@ function ListItem({
 						allowedEdges: ['top', 'bottom'],
 					});
 				},
-				onDrag({ self, source }) {
-					const isSource = source.element === element;
-					if (isSource) {
-						setClosestEdge(null);
-						return;
-					}
-
-					const closestEdge = extractClosestEdge(self.data);
-
-					const sourceIndex = source.data.index;
-					invariant(typeof sourceIndex === 'number');
-
-					const isItemBeforeSource = index === sourceIndex - 1;
-					const isItemAfterSource = index === sourceIndex + 1;
-
-					const isDropIndicatorHidden =
-						(isItemBeforeSource && closestEdge === 'bottom') ||
-						(isItemAfterSource && closestEdge === 'top');
-
-					if (isDropIndicatorHidden) {
-						setClosestEdge(null);
-						return;
-					}
-
-					setClosestEdge(closestEdge);
-				},
+				onDragEnter: onChange,
+				onDrag: onChange,
 				onDragLeave() {
 					setClosestEdge(null);
 				},

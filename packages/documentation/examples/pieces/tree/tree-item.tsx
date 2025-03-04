@@ -27,6 +27,7 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
 	dropTargetForElements,
+	type ElementDropTargetEventBasePayload,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
@@ -244,6 +245,36 @@ const TreeItem = memo(function TreeItem({
 			clearParentOfInstructionState();
 		}
 
+		function onChange({ self, source }: ElementDropTargetEventBasePayload) {
+			const instruction = extractInstruction(self.data);
+
+			if (source.data.id !== item.id) {
+				// expand after 500ms if still merging
+				if (
+					instruction?.type === 'make-child' &&
+					item.children.length &&
+					!item.isOpen &&
+					!cancelExpandRef.current
+				) {
+					cancelExpandRef.current = delay({
+						waitMs: 500,
+						fn: () => dispatch({ type: 'expand', itemId: item.id }),
+					});
+				}
+				if (instruction?.type !== 'make-child' && cancelExpandRef.current) {
+					cancelExpand();
+				}
+
+				setInstruction(instruction);
+				return;
+			}
+			if (instruction?.type === 'reparent') {
+				setInstruction(instruction);
+				return;
+			}
+			setInstruction(null);
+		}
+
 		return combine(
 			draggable({
 				element: buttonRef.current,
@@ -294,35 +325,8 @@ const TreeItem = memo(function TreeItem({
 				canDrop: ({ source }) =>
 					source.data.type === 'tree-item' && source.data.uniqueContextId === uniqueContextId,
 				getIsSticky: () => true,
-				onDrag: ({ self, source }) => {
-					const instruction = extractInstruction(self.data);
-
-					if (source.data.id !== item.id) {
-						// expand after 500ms if still merging
-						if (
-							instruction?.type === 'make-child' &&
-							item.children.length &&
-							!item.isOpen &&
-							!cancelExpandRef.current
-						) {
-							cancelExpandRef.current = delay({
-								waitMs: 500,
-								fn: () => dispatch({ type: 'expand', itemId: item.id }),
-							});
-						}
-						if (instruction?.type !== 'make-child' && cancelExpandRef.current) {
-							cancelExpand();
-						}
-
-						setInstruction(instruction);
-						return;
-					}
-					if (instruction?.type === 'reparent') {
-						setInstruction(instruction);
-						return;
-					}
-					setInstruction(null);
-				},
+				onDragEnter: onChange,
+				onDrag: onChange,
 				onDragLeave: () => {
 					cancelExpand();
 					setInstruction(null);

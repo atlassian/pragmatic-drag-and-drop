@@ -62,15 +62,15 @@
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"
 
-"@atlaskit/badge@^18.0.0":
-  version "18.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-18.0.0.tgz#0fa3ed38753872f871ee365803002688dc0930b0"
-  integrity sha512-IOfoZ1NzVGUR9wtwKZMHg+3NYnaw/2L/X3oEpKv+zdT9vpFX6rFmG9MgEJnqxXqCTGLfTBb5NBef0wJnqOt0Gw==
+"@atlaskit/badge@^18.1.0":
+  version "18.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/badge/-/badge-18.1.0.tgz#863b444f4fe6e22308d6860f14ada4aec3e2f6da"
+  integrity sha512-JOraDfdZtYYTso0blhgM94UQD2MhV3E8+LRhWYNklCTTyi43VjKHY8W4e7hm2Ne1T2p4p2RjPPHtSrQrjNFmbg==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/primitives" "^14.0.0"
-    "@atlaskit/tokens" "^4.0.0"
+    "@atlaskit/primitives" "^14.1.0"
+    "@atlaskit/tokens" "^4.3.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.2"
 

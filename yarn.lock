@@ -229,18 +229,19 @@
     "@emotion/react" "^11.7.1"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^5.0.0":
-  version "5.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.0.0.tgz#5651de7a70e6afec38d06130bad89b6264f6ca77"
-  integrity sha512-NekC4HuV1bbl3NbRBuruZuwtQLVg9ICQ+izH6Xny9eCPUS//H+Fwt5n4f0yyhLn+30SXWFhuYfzOdSd7MoM+PQ==
+"@atlaskit/motion@^5.1.0":
+  version "5.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.1.0.tgz#abe85d05b80c87e3b30b99bf665117341622fc34"
+  integrity sha512-ZbjuAdHq8aftkYqQ22xdQ2+JmSgoxA2CkLTDKE2yGXvHVYrndIjKGYyqXHxgI7jSz5InABQlZszdYSXrJoKyig==
   dependencies:
     "@atlaskit/css" "^0.10.0"
     "@atlaskit/ds-lib" "^4.0.0"
+    "@atlaskit/platform-feature-flags" "*"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.2"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/platform-feature-flags@^1.1.0":
+"@atlaskit/platform-feature-flags@*", "@atlaskit/platform-feature-flags@^1.1.0":
   version "1.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/platform-feature-flags/-/platform-feature-flags-1.1.0.tgz#af2f1a03b29147a490361e2c716c5c9750314a27"
   integrity sha512-6g8uflI4gG3EClkxxGDmxQLnfgtW9lv9Aa1ocRWh95ui5t7rE4oCMRQvk15RwzBnlu6xPf4k8GV6PuKKPYc0iA==

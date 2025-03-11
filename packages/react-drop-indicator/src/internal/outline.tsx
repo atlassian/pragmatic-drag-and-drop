@@ -9,8 +9,8 @@ import type { CSSProperties } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
-import type { CSSSize, StrokeColor, StrokeWidth } from '../internal-types';
-import { presetStrokeColors, presetStrokeSizes } from '../presets';
+import type { CSSColor, CSSSize } from '../internal-types';
+import { presetStrokeColors, presetStrokeWidth } from '../presets';
 
 const styles = css({
 	// To make things a bit clearer we are making the box that the indicator in as
@@ -31,14 +31,14 @@ const styles = css({
 
 // TODO: use `outline` or `border`?
 export function Outline({
-	strokeColor = 'standard',
-	strokeWidth = 'standard',
+	strokeColor = presetStrokeColors.default,
+	strokeWidth = presetStrokeWidth,
 	borderRadius = '3px', // TODO: update to border.radius (4px) token
 	indent = '0px',
 }: {
-	strokeColor?: StrokeColor;
+	strokeColor?: CSSColor;
 	borderRadius?: CSSSize;
-	strokeWidth?: StrokeWidth;
+	strokeWidth?: CSSSize;
 	indent?: string;
 }) {
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop
@@ -46,8 +46,8 @@ export function Outline({
 		<div
 			style={
 				{
-					'--stroke-color': presetStrokeColors[strokeColor] ?? strokeColor,
-					'--stroke-width': presetStrokeSizes[strokeWidth] ?? strokeWidth,
+					'--stroke-color': strokeColor,
+					'--stroke-width': strokeWidth,
 					'--border-radius': borderRadius,
 					'--indent': indent,
 				} as CSSProperties

@@ -4,6 +4,7 @@ import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-
 
 import { Line } from './internal/line';
 import { Outline } from './internal/outline';
+import { presetStrokeColors } from './presets';
 
 export type DropIndicatorProps = {
 	instruction: Instruction;
@@ -17,7 +18,7 @@ function getElement({
 	isBlocked: boolean;
 }): ReactElement | null {
 	const indent = `${instruction.currentLevel * instruction.indentPerLevel}px`;
-	const strokeColor = !isBlocked ? 'standard' : 'warning';
+	const strokeColor = presetStrokeColors[!isBlocked ? 'default' : 'warning'];
 
 	if (instruction.type === 'reorder-above') {
 		return <Line edge="top" strokeColor={strokeColor} indent={indent} />;

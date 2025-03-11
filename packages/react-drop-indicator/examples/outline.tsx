@@ -14,6 +14,7 @@ import { Box, Inline, Stack } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 import Outline from '../src/internal/outline';
+import { presetStrokeColors } from '../src/presets';
 
 const targetStyles = css({
 	borderWidth: token('border.width'),
@@ -26,19 +27,20 @@ const targetStyles = css({
 });
 
 type Options = {
-	strokeColor: Parameters<typeof Outline>[0]['strokeColor'];
+	appearance: 'default' | 'warning';
 	indent: string;
 	borderRadius: string;
 };
 
 const defaults: Options = {
-	strokeColor: 'standard',
+	appearance: 'default',
 	borderRadius: token('border.radius'),
 	indent: '0px',
 };
 
 function Target(options: Partial<Options>) {
-	const { borderRadius, strokeColor, indent } = { ...defaults, ...options };
+	const { borderRadius, appearance, indent } = { ...defaults, ...options };
+	const strokeColor = presetStrokeColors[appearance];
 	return (
 		// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop
 		<div css={targetStyles} style={{ '--border-radius': borderRadius } as CSSProperties}>
@@ -49,40 +51,40 @@ function Target(options: Partial<Options>) {
 }
 
 function Example(options: Partial<Options>) {
-	const { borderRadius, strokeColor, indent } = { ...defaults, ...options };
+	const { borderRadius, appearance, indent } = { ...defaults, ...options };
 	return (
 		<Box padding="space.200">
 			<Stack space="space.100">
 				<Heading size="small">
 					<Inline space="space.100">
 						<span>
-							Color: <Code>{strokeColor}</Code>
+							Color: <Code>{appearance}</Code>
 						</span>
 						<span>
 							Border radius: <Code>{borderRadius}</Code>
 						</span>
 					</Inline>
 				</Heading>
-				<Target strokeColor={strokeColor} borderRadius={borderRadius} indent={indent} />
+				<Target appearance={appearance} borderRadius={borderRadius} indent={indent} />
 			</Stack>
 		</Box>
 	);
 }
 
 export default function DefaultExample() {
-	return <StrokeColorStandard />;
+	return <StrokeColorDefault />;
 }
 
-export function StrokeColorStandard() {
-	return <Example strokeColor="standard" />;
+export function StrokeColorDefault() {
+	return <Example appearance="default" />;
 }
 
 export function StrokeColorWarning() {
-	return <Example strokeColor="warning" />;
+	return <Example appearance="warning" />;
 }
 
 export function CustomBorderRadius() {
-	return <Example strokeColor="standard" borderRadius={token('border.radius.300')} />;
+	return <Example appearance="default" borderRadius={token('border.radius.300')} />;
 }
 
 export function Inset() {

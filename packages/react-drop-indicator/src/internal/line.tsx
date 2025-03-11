@@ -11,8 +11,8 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 
-import type { CSSSize, StrokeColor, StrokeWidth } from '../internal-types';
-import { presetStrokeColors, presetStrokeSizes } from '../presets';
+import type { CSSColor, CSSSize } from '../internal-types';
+import { presetStrokeColors, presetStrokeWidth } from '../presets';
 
 type Orientation = 'horizontal' | 'vertical';
 
@@ -95,9 +95,9 @@ const edgeStyles: Record<Edge, SerializedStyles> = {
 	}),
 };
 
-type Appearance = 'terminal' | 'no-terminal' | 'terminal-no-bleed';
+type LineType = 'terminal' | 'no-terminal' | 'terminal-no-bleed';
 
-const lineStartFrom: { [TKey in Appearance]: ({ indent }: { indent: string }) => string } = {
+const lineStartFrom: { [TKey in LineType]: ({ indent }: { indent: string }) => string } = {
 	// - half the terminal bleeding out the containing element
 	// - half the terminal inside the containing element (we need to position the line next to this)
 	terminal: ({ indent }) => `calc(var(--terminal-radius) + ${indent})`,
@@ -113,16 +113,16 @@ export function Line({
 	edge,
 	gap = '0px',
 	indent = '0px',
-	strokeColor = 'standard',
-	strokeWidth = 'standard',
-	appearance = 'terminal',
+	strokeColor = presetStrokeColors.default,
+	strokeWidth = presetStrokeWidth,
+	type = 'terminal',
 }: {
 	edge: Edge;
 	indent?: CSSSize;
 	gap?: CSSSize;
-	strokeColor?: StrokeColor;
-	strokeWidth?: StrokeWidth;
-	appearance?: 'terminal' | 'no-terminal' | 'terminal-no-bleed';
+	strokeColor?: CSSColor;
+	strokeWidth?: CSSSize;
+	type?: LineType;
 }) {
 	const orientation = edgeToOrientationMap[edge];
 
@@ -132,8 +132,8 @@ export function Line({
 				{
 					// ## All
 
-					'--stroke-color': presetStrokeColors[strokeColor] ?? strokeColor,
-					'--stroke-width': presetStrokeSizes[strokeWidth] ?? strokeWidth,
+					'--stroke-color': strokeColor,
+					'--stroke-width': strokeWidth,
 
 					// Shift line and terminal on the main access to account for gaps between items
 					'--main-axis-offset': `calc(-0.5 * (${gap} + var(--stroke-width)))`,
@@ -141,11 +141,11 @@ export function Line({
 					// ## Line
 
 					// If there is a terminal, we want the line to start from next to it
-					'--line-main-axis-start': lineStartFrom[appearance]({ indent }),
+					'--line-main-axis-start': lineStartFrom[type]({ indent }),
 
 					// ## Terminal
 
-					'--terminal-display': appearance === 'no-terminal' ? 'none' : 'block',
+					'--terminal-display': type === 'no-terminal' ? 'none' : 'block',
 					'--terminal-diameter': 'calc(var(--stroke-width) * 4)',
 					'--terminal-radius': 'calc(var(--terminal-diameter) / 2)',
 

@@ -28,13 +28,18 @@ export type DropIndicatorProps = {
 	gap?: CSSSize;
 };
 
+// Not adding a ENG-HEALTH ticket, as we will do the migration
+// eslint-disable-next-line @repo/internal/deprecations/deprecation-ticket-required
 /**
+ * @deprecated Please now use our `@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box` drop indicator with the `type="no-terminal"` prop.
+ *
  * __Drop indicator__
  *
  * A drop indicator is used to communicate the intended resting place of the draggable item. The orientation of the drop indicator should always match the direction of the content flow.
+ *
  */
-export function DropIndicator({ edge, gap = '0px' }: DropIndicatorProps) {
-	return <Line edge={edge} gap={gap} appearance="no-terminal" />;
+export function DropIndicator({ edge, gap }: DropIndicatorProps) {
+	return <Line edge={edge} gap={gap} type="no-terminal" />;
 }
 
 // This default export is intended for usage with React.lazy

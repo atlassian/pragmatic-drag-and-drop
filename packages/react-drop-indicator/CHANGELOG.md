@@ -1,5 +1,34 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 2.2.0
+
+### Minor Changes
+
+- [#124834](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/124834)
+  [`c6ef61f6b00d1`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/c6ef61f6b00d1) -
+  **More out of the `box`**
+
+  The API of our `box` drop indicator has been expanded to include `type` (more control over the
+  terminal), `appearance` (color control) and `indent` (line shifting). See documentation for full
+  usage explanation and examples.
+
+  **`box-without-terminal` is deprecated**
+
+  `box-without-terminal` has been deprecated as it is now redundant. `box-without-terminal` can now
+  be achieved with `box` by leveraging `type="no-terminal"`.
+
+  ```diff
+  - import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box-without-terminal';
+  + import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
+
+  function Item() {
+  -  return <DropIndicator edge="bottom" />
+  +  return <DropIndicator edge="bottom" type="no-terminal" />
+  }
+  ```
+
+  We will remove `box-without-terminal` in the next `major` release.
+
 ## 2.1.0
 
 ### Minor Changes

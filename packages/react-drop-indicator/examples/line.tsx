@@ -3,8 +3,7 @@
  * @jsx jsx
  */
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled
-import { jsx } from '@emotion/react';
+import { jsx } from '@compiled/react';
 
 import { Code } from '@atlaskit/code';
 import Heading from '@atlaskit/heading';
@@ -12,11 +11,11 @@ import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { Box, Inline, Stack, Text } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
+import { Appearance } from '../src/internal-types';
 import Line from '../src/internal/line';
+import { presetStrokeColors } from '../src/presets';
 
 import { List, Orientation } from './internal/list';
-
-type Appearance = Exclude<Parameters<typeof Line>[0]['appearance'], undefined>;
 
 const orientationFromEdge: { [TKey in Edge]: Orientation } = {
 	top: 'vertical',
@@ -26,16 +25,17 @@ const orientationFromEdge: { [TKey in Edge]: Orientation } = {
 };
 
 function Example({
-	appearance,
+	type,
 	gap,
 	edge,
-	strokeColor,
+	appearance,
 	indent,
 }: {
-	appearance: Appearance;
+	type: Exclude<Parameters<typeof Line>[0]['type'], undefined>;
 	edge: Edge;
 	gap: string;
-	strokeColor?: Parameters<typeof Line>[0]['strokeColor'];
+	// Adding "custom" to poke at the increased color range of Outline (which it has for now)
+	appearance?: Appearance | { custom: string };
 	indent?: string;
 }) {
 	return (
@@ -47,14 +47,19 @@ function Example({
 							Edge: <Code>{edge}</Code>
 						</span>
 						<span>
-							Appearance: <Code>{appearance}</Code>
+							Type: <Code>{type}</Code>
 						</span>
 						<span>
 							Gap: <Code>{gap}</Code>
 						</span>
-						{strokeColor ? (
+						{typeof appearance === 'string' ? (
 							<span>
-								Color: <Code>{strokeColor}</Code>
+								Appearance: <Code>{appearance}</Code>
+							</span>
+						) : null}
+						{typeof appearance === 'object' && appearance.custom ? (
+							<span>
+								Custom color: <Code>{appearance.custom}</Code>
 							</span>
 						) : null}
 						{indent ? (
@@ -77,9 +82,13 @@ function Example({
 									indicator={
 										<Line
 											edge={edge}
-											appearance={appearance}
+											type={type}
 											gap={gap}
-											strokeColor={strokeColor}
+											strokeColor={
+												typeof appearance === 'string'
+													? presetStrokeColors[appearance]
+													: appearance?.custom
+											}
 											indent={indent}
 										/>
 									}
@@ -94,7 +103,7 @@ function Example({
 }
 
 export default function DefaultExample() {
-	return <Example edge="bottom" gap="0px" appearance="terminal" />;
+	return <Example edge="bottom" gap="0px" type="terminal" />;
 }
 
 /**
@@ -103,103 +112,103 @@ export default function DefaultExample() {
  * Manually exporting each combination as our VR tester does not
  * work well when passing dynamic arguments.
  *
- * Naming convention: `Edge${edge}Appearance${appearance}Gap${gap}`
+ * Naming convention: `Edge${edge}Type${type}Gap${gap}`
  */
 
-export function EdgeTopAppearanceTerminalGap0px() {
-	return <Example edge="top" appearance="terminal" gap="0px" />;
+export function EdgeTopTypeTerminalGap0px() {
+	return <Example edge="top" type="terminal" gap="0px" />;
 }
 
-export function EdgeRightAppearanceTerminalGap0px() {
-	return <Example edge="right" appearance="terminal" gap="0px" />;
+export function EdgeRightTypeTerminalGap0px() {
+	return <Example edge="right" type="terminal" gap="0px" />;
 }
 
-export function EdgeBottomAppearanceTerminalGap0px() {
-	return <Example edge="bottom" appearance="terminal" gap="0px" />;
+export function EdgeBottomTypeTerminalGap0px() {
+	return <Example edge="bottom" type="terminal" gap="0px" />;
 }
 
-export function EdgeLeftAppearanceTerminalGap0px() {
-	return <Example edge="left" appearance="terminal" gap="0px" />;
+export function EdgeLeftTypeTerminalGap0px() {
+	return <Example edge="left" type="terminal" gap="0px" />;
 }
 
-export function EdgeTopAppearanceTerminalGapTokenSpace100() {
-	return <Example edge="top" appearance="terminal" gap={token('space.100')} />;
+export function EdgeTopTypeTerminalGapTokenSpace100() {
+	return <Example edge="top" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeRightAppearanceTerminalGapTokenSpace100() {
-	return <Example edge="right" appearance="terminal" gap={token('space.100')} />;
+export function EdgeRightTypeTerminalGapTokenSpace100() {
+	return <Example edge="right" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeBottomAppearanceTerminalGapTokenSpace100() {
-	return <Example edge="bottom" appearance="terminal" gap={token('space.100')} />;
+export function EdgeBottomTypeTerminalGapTokenSpace100() {
+	return <Example edge="bottom" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeLeftAppearanceTerminalGapTokenSpace100() {
-	return <Example edge="left" appearance="terminal" gap={token('space.100')} />;
+export function EdgeLeftTypeTerminalGapTokenSpace100() {
+	return <Example edge="left" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeTopAppearanceNoTerminalGap0px() {
-	return <Example edge="top" appearance="no-terminal" gap="0px" />;
+export function EdgeTopTypeNoTerminalGap0px() {
+	return <Example edge="top" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeRightAppearanceNoTerminalGap0px() {
-	return <Example edge="right" appearance="no-terminal" gap="0px" />;
+export function EdgeRightTypeNoTerminalGap0px() {
+	return <Example edge="right" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeBottomAppearanceNoTerminalGap0px() {
-	return <Example edge="bottom" appearance="no-terminal" gap="0px" />;
+export function EdgeBottomTypeNoTerminalGap0px() {
+	return <Example edge="bottom" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeLeftAppearanceNoTerminalGap0px() {
-	return <Example edge="left" appearance="no-terminal" gap="0px" />;
+export function EdgeLeftTypeNoTerminalGap0px() {
+	return <Example edge="left" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeTopAppearanceNoTerminalGapTokenSpace100() {
-	return <Example edge="top" appearance="no-terminal" gap={token('space.100')} />;
+export function EdgeTopTypeNoTerminalGapTokenSpace100() {
+	return <Example edge="top" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeRightAppearanceNoTerminalGapTokenSpace100() {
-	return <Example edge="right" appearance="no-terminal" gap={token('space.100')} />;
+export function EdgeRightTypeNoTerminalGapTokenSpace100() {
+	return <Example edge="right" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeBottomAppearanceNoTerminalGapTokenSpace100() {
-	return <Example edge="bottom" appearance="no-terminal" gap={token('space.100')} />;
+export function EdgeBottomTypeNoTerminalGapTokenSpace100() {
+	return <Example edge="bottom" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeLeftAppearanceNoTerminalGapTokenSpace100() {
-	return <Example edge="left" appearance="no-terminal" gap={token('space.100')} />;
+export function EdgeLeftTypeNoTerminalGapTokenSpace100() {
+	return <Example edge="left" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeTopAppearanceTerminalNoBleedGap0px() {
-	return <Example edge="top" appearance="terminal-no-bleed" gap="0px" />;
+export function EdgeTopTypeTerminalNoBleedGap0px() {
+	return <Example edge="top" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeRightAppearanceTerminalNoBleedGap0px() {
-	return <Example edge="right" appearance="terminal-no-bleed" gap="0px" />;
+export function EdgeRightTypeTerminalNoBleedGap0px() {
+	return <Example edge="right" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeBottomAppearanceTerminalNoBleedGap0px() {
-	return <Example edge="bottom" appearance="terminal-no-bleed" gap="0px" />;
+export function EdgeBottomTypeTerminalNoBleedGap0px() {
+	return <Example edge="bottom" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeLeftAppearanceTerminalNoBleedGap0px() {
-	return <Example edge="left" appearance="terminal-no-bleed" gap="0px" />;
+export function EdgeLeftTypeTerminalNoBleedGap0px() {
+	return <Example edge="left" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeTopAppearanceTerminalNoBleedGapTokenSpace100() {
-	return <Example edge="top" appearance="terminal-no-bleed" gap={token('space.100')} />;
+export function EdgeTopTypeTerminalNoBleedGapTokenSpace100() {
+	return <Example edge="top" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeRightAppearanceTerminalNoBleedGapTokenSpace100() {
-	return <Example edge="right" appearance="terminal-no-bleed" gap={token('space.100')} />;
+export function EdgeRightTypeTerminalNoBleedGapTokenSpace100() {
+	return <Example edge="right" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeBottomAppearanceTerminalNoBleedGapTokenSpace100() {
-	return <Example edge="bottom" appearance="terminal-no-bleed" gap={token('space.100')} />;
+export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100() {
+	return <Example edge="bottom" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeLeftAppearanceTerminalNoBleedGapTokenSpace100() {
-	return <Example edge="left" appearance="terminal-no-bleed" gap={token('space.100')} />;
+export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100() {
+	return <Example edge="left" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
 /**
@@ -209,44 +218,24 @@ export function EdgeLeftAppearanceTerminalNoBleedGapTokenSpace100() {
  * be able to shift the line horizontally (eg in trees).
  *
  */
-export function EdgeTopAppearanceTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeTopTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
 	return (
-		<Example
-			edge="top"
-			appearance="terminal"
-			gap={token('space.100')}
-			indent={token('space.200')}
-		/>
+		<Example edge="top" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeRightAppearanceTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeRightTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
 	return (
-		<Example
-			edge="right"
-			appearance="terminal"
-			gap={token('space.100')}
-			indent={token('space.200')}
-		/>
+		<Example edge="right" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeBottomAppearanceTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
 	return (
-		<Example
-			edge="bottom"
-			appearance="terminal"
-			gap={token('space.100')}
-			indent={token('space.200')}
-		/>
+		<Example edge="bottom" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeLeftAppearanceTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
 	return (
-		<Example
-			edge="left"
-			appearance="terminal"
-			gap={token('space.100')}
-			indent={token('space.200')}
-		/>
+		<Example edge="left" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
 
@@ -257,18 +246,16 @@ export function EdgeLeftAppearanceTerminalNoBleedGapTokenSpace100IndentTokenSpac
  */
 
 export function ColorWarning() {
-	return (
-		<Example edge="bottom" appearance="terminal" gap={token('space.100')} strokeColor="warning" />
-	);
+	return <Example edge="bottom" type="terminal" gap={token('space.100')} appearance="warning" />;
 }
 
 export function ColorDiscovery() {
 	return (
 		<Example
 			edge="bottom"
-			appearance="terminal"
+			type="terminal"
 			gap={token('space.100')}
-			strokeColor={token('color.border.discovery')}
+			appearance={{ custom: token('color.border.discovery') }}
 		/>
 	);
 }

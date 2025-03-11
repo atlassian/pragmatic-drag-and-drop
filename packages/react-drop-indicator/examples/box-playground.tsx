@@ -1,0 +1,40 @@
+/**
+ * @jsxRuntime classic
+ * @jsx jsx
+ */
+
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
+import { css, jsx } from '@emotion/react';
+
+import { Stack } from '@atlaskit/primitives';
+import { token } from '@atlaskit/tokens';
+
+import { AppearanceExample } from './constellation/box/box-appearance';
+import { EdgeExample } from './constellation/box/box-edge';
+import { GapExample } from './constellation/box/box-gap';
+import { IndentExample } from './constellation/box/box-indent';
+import { OverlapExample } from './constellation/box/box-overlap';
+import { TypeExample } from './constellation/box/box-type';
+
+const containerStyles = css({
+	maxWidth: '710px',
+	borderWidth: token('border.width'),
+	borderStyle: 'solid',
+	borderColor: token('color.border'),
+	padding: token('space.200'),
+});
+
+export default function AllExamples() {
+	return (
+		<div css={containerStyles}>
+			<Stack space="space.400">
+				<EdgeExample />
+				<TypeExample />
+				<AppearanceExample />
+				<GapExample />
+				<OverlapExample />
+				<IndentExample />
+			</Stack>
+		</div>
+	);
+}

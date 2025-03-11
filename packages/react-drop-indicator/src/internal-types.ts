@@ -1,5 +1,7 @@
 /**
- * Any valid CSS size value
+ * Any valid CSS size value.
+ *
+ * _An alias to `string` to improve readability_
  *
  * @example
  *
@@ -13,6 +15,8 @@ export type CSSSize = string;
 /**
  * Any valid CSS color value
  *
+ * * _An alias to `string` to improve readability_
+ *
  * @example
  *
  * - "#663399"
@@ -24,5 +28,4 @@ export type CSSSize = string;
  */
 export type CSSColor = string;
 
-export type StrokeWidth = 'standard' | (CSSSize & {});
-export type StrokeColor = 'standard' | 'warning' | (CSSColor & {});
+export type Appearance = 'default' | 'warning';

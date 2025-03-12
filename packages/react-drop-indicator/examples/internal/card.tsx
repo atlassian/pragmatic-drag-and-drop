@@ -5,8 +5,7 @@
 
 import type { ReactElement, ReactNode } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import { token } from '@atlaskit/tokens';
 
@@ -21,7 +20,7 @@ const cardStyles = css({
 	display: 'grid',
 	minWidth: 120,
 	padding: '16px 20px',
-	background: token('elevation.surface.raised', '#FFF'),
+	backgroundColor: token('elevation.surface.raised'),
 	borderRadius: 3,
 	boxShadow: token(
 		'elevation.shadow.raised',

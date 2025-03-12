@@ -14,7 +14,7 @@ import {
 	type Edge,
 	extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
-import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box-without-terminal';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
@@ -198,7 +198,7 @@ export const Row = memo(function Row({
 
 						{getField({ item, property })}
 						{state.type === 'is-over' && state.closestEdge ? (
-							<DropIndicator edge={state.closestEdge} />
+							<DropIndicator edge={state.closestEdge} type="no-terminal" />
 						) : null}
 					</td>
 				))}

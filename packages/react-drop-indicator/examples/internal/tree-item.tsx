@@ -5,8 +5,7 @@
 
 import type { CSSProperties } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
 import { token } from '@atlaskit/tokens';
@@ -22,7 +21,7 @@ const itemStyles = css({
 	borderRadius: 3,
 	position: 'relative',
 	paddingInlineStart: 'calc(var(--horizontal-indent) + 1ch)',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	backgroundColor: token('elevation.surface.sunken'),
 });
 
 function getLabel(instruction: Instruction): string {

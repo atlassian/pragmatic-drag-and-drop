@@ -8,7 +8,7 @@ export type {
 	ExternalEventBasePayload,
 	ExternalEventPayloadMap,
 	// Drop target events
-	ElementDropTargetEventBasePayload,
+	ExternalDropTargetEventBasePayload,
 	ExternalDropTargetEventPayloadMap,
 	// Feedback types
 	ExternalMonitorGetFeedbackArgs,

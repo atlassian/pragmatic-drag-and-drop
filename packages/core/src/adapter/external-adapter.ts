@@ -280,7 +280,7 @@ export type ExternalEventBasePayload = BaseEventPayload<ExternalDragType>;
 export type ExternalEventPayloadMap = StripEventsForMonitors<EventPayloadMap<ExternalDragType>>;
 
 /** Common event payload for all drop target events */
-export type ElementDropTargetEventBasePayload = DropTargetEventBasePayload<ExternalDragType>;
+export type ExternalDropTargetEventBasePayload = DropTargetEventBasePayload<ExternalDragType>;
 
 /** A map containing payloads for all events on drop targets */
 export type ExternalDropTargetEventPayloadMap = StripEventsForDropTargets<

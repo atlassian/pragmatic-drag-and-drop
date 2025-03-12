@@ -24,17 +24,20 @@ These packages embody our
 
 <SectionMessage>
 
+You are welcome to reimplement this small optional package using your own tech stack.
+
 This package depends on:
 
 - [the core package](/components/pragmatic-drag-and-drop/core-package)
 - [the hitbox package](/components/pragmatic-drag-and-drop/optional-packages/hitbox)
 - [`react`](https://react.dev/)
-- [`@emotion/react`](https://emotion.sh/docs/introduction) for styling
 - [`@atlaskit/tokens`](/components/tokens) for colors
+- [`compiled`](https://compiledcssinjs.com/) for styling
 
-<br />
-
-You are welcome to reimplement this (small) package using your own tech stack.
+[Compiled](https://compiledcssinjs.com/) is a styling solution with a tiny runtime (`~260B`) that
+you can use along side your existing styling solution(s). As long as your bundler supports CSS
+imports (eg `import './styles.css'`) then you shouldn't need to do anything!
+[More information for if you run into any difficulties](https://community.developer.atlassian.com/t/rfc-73-migrating-our-components-to-compiled-css-in-js/85953).
 
 </SectionMessage>
 

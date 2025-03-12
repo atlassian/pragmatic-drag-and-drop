@@ -5,8 +5,7 @@
 
 import { CSSProperties } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import { Code } from '@atlaskit/code';
 import Heading from '@atlaskit/heading';
@@ -22,7 +21,10 @@ const targetStyles = css({
 	borderColor: token('color.border'),
 	position: 'relative',
 	width: '300px',
-	padding: token('space.200'),
+	paddingTop: token('space.200'),
+	paddingRight: token('space.200'),
+	paddingBottom: token('space.200'),
+	paddingLeft: token('space.200'),
 	borderRadius: 'var(--border-radius)',
 });
 

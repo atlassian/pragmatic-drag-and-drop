@@ -14,7 +14,7 @@ import {
 	type Edge,
 	extractClosestEdge,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
-import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box-without-terminal';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 import {
 	draggable,
 	dropTargetForElements,
@@ -455,7 +455,7 @@ export function TableHeader({
 				{/* DropTarget */}
 				{state.type === 'drop-target' && columnType !== 'only-column' ? (
 					<div ref={dropTargetRef} css={dropTargetStyles[columnType]}>
-						{state.closestEdge && <DropIndicator edge={state.closestEdge} />}
+						{state.closestEdge && <DropIndicator edge={state.closestEdge} type="no-terminal" />}
 					</div>
 				) : null}
 			</th>

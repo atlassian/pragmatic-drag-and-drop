@@ -5,8 +5,7 @@
 
 import type { ReactNode } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import { token } from '@atlaskit/tokens';
 
@@ -15,7 +14,10 @@ const relativeStyles = css({
 });
 
 const itemStyles = css({
-	padding: token('space.100'),
+	paddingTop: token('space.100'),
+	paddingRight: token('space.100'),
+	paddingBottom: token('space.100'),
+	paddingLeft: token('space.100'),
 	backgroundColor: token('elevation.surface'),
 	borderWidth: token('border.width'),
 	borderStyle: 'solid',

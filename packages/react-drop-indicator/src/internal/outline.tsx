@@ -1,4 +1,3 @@
-/* eslint-disable @atlaskit/design-system/ensure-design-token-usage/preview */
 /**
  * @jsxRuntime classic
  * @jsx jsx
@@ -6,8 +5,7 @@
 
 import type { CSSProperties } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import type { CSSColor, CSSSize } from '../internal-types';
 import { presetStrokeColors, presetStrokeWidth } from '../presets';
@@ -24,7 +22,6 @@ const styles = css({
 	// We don't want to cause any additional 'dragenter' events
 	pointerEvents: 'none',
 
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	border: 'var(--stroke-width) solid var(--stroke-color)',
 	borderRadius: 'var(--border-radius)',
 });

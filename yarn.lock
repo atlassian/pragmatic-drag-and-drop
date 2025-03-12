@@ -45,22 +45,22 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^24.0.0":
-  version "24.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-24.0.0.tgz#ae6c12a9db44f0702b5f7fe4ecb13569f4046cd8"
-  integrity sha512-r1GO+bdZMfQq2+e3c833VyzZkWNeejairz2Frszdpj7emzeW0AxXmRhkVDprFNRk0mYfbERoliRVqdQbgEZlgg==
+"@atlaskit/avatar@^25.0.0":
+  version "25.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-25.0.0.tgz#e3e2b84319c36a80a411241cb1d1d2f02e4bd1e6"
+  integrity sha512-THcFzM/17ho7FDkaYMxKLXBY1eSRbwVkyMpk2WUYgery/2sonHQZbi6az/1YkdvFds2twNGtkw2aGlO7weEhyw==
   dependencies:
     "@atlaskit/analytics-next" "^11.0.0"
+    "@atlaskit/css" "^0.10.0"
     "@atlaskit/ds-lib" "^4.0.0"
     "@atlaskit/focus-ring" "^3.0.0"
     "@atlaskit/icon" "^24.1.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/primitives" "^14.1.0"
-    "@atlaskit/theme" "^17.0.0"
-    "@atlaskit/tokens" "^4.2.0"
+    "@atlaskit/theme" "^18.0.0"
+    "@atlaskit/tokens" "^4.4.0"
     "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
-    "@emotion/serialize" "^1.1.0"
+    "@compiled/react" "^0.18.2"
 
 "@atlaskit/badge@^18.1.0":
   version "18.1.0"
@@ -379,6 +379,18 @@
   version "4.3.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-4.3.0.tgz#c5952d70c4b5982c0369fa7bb6cce24250beb081"
   integrity sha512-3xcv/oZ7hs7ExlxxwI32RTnEdPSqCRS6E3Gg+dlhvfoWPTHGRF/oVb6kO5kNt2/dobg+Brjtlw0pggzBsoEjDw==
+  dependencies:
+    "@atlaskit/ds-lib" "^4.0.0"
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tokens@^4.4.0":
+  version "4.4.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-4.4.1.tgz#6bad5a3adac3d74d05d92e534e849ddb5a229b77"
+  integrity sha512-Ntju7ss6KLzMqKMBerfZ5m3hO1fIoC3rcZJhwn8PrWuietFExwbEcTeBTtUagNVnLcyTgQrgU0m0UOehNXVjtw==
   dependencies:
     "@atlaskit/ds-lib" "^4.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"

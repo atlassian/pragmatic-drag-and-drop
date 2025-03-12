@@ -1,5 +1,18 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.5.1
+
+### Patch Changes
+
+- [#125185](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125185)
+  [`423e7b65d4846`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/423e7b65d4846) -
+  Fixing an incorrectly exported `type` name from our external adapter.
+
+  ```diff
+  - import type { ElementDropTargetEventBasePayload } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+  + import type { ExternalDropTargetEventBasePayload } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+  ```
+
 ## 1.5.0
 
 ### Minor Changes

@@ -5,13 +5,15 @@
 
 import { CSSProperties, ReactNode, useState } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled
-import { css, jsx, SerializedStyles } from '@emotion/react';
+import { css, cssMap, jsx } from '@compiled/react';
 
 import { token } from '@atlaskit/tokens';
 
 const innerStyles = css({
-	padding: token('space.100'),
+	paddingTop: token('space.100'),
+	paddingRight: token('space.100'),
+	paddingBottom: token('space.100'),
+	paddingLeft: token('space.100'),
 	borderWidth: token('border.width'),
 	borderStyle: 'solid',
 	borderColor: token('color.border'),
@@ -46,14 +48,17 @@ const listStyles = css({
 	borderWidth: token('border.width'),
 	borderStyle: 'solid',
 	borderColor: token('color.border'),
-	padding: token('space.100'),
+	paddingTop: token('space.100'),
+	paddingRight: token('space.100'),
+	paddingBottom: token('space.100'),
+	paddingLeft: token('space.100'),
 	boxSizing: 'border-box',
 });
 
-const orientationStyles: { [TKey in Orientation]: SerializedStyles } = {
-	horizontal: css({ flexDirection: 'row' }),
-	vertical: css({ flexDirection: 'column' }),
-};
+const orientationStyles = cssMap({
+	horizontal: { flexDirection: 'row' },
+	vertical: { flexDirection: 'column' },
+});
 
 export type Orientation = 'vertical' | 'horizontal';
 

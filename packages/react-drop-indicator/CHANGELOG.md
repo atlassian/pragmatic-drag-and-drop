@@ -1,5 +1,41 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.0.0
+
+### Major Changes
+
+- [#125185](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125185)
+  [`62f176ec5174c`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/62f176ec5174c) -
+  `box-without-terminal` has been removed as it is now redundant. `box-without-terminal` can now be
+  achieved with `box` by leveraging `type="no-terminal"`.
+
+  ```diff
+  - import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box-without-terminal';
+  + import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
+
+  function Item() {
+  -  return <DropIndicator edge="bottom" />
+  +  return <DropIndicator edge="bottom" type="no-terminal" />
+  }
+  ```
+
+- [#125185](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125185)
+  [`d2d78bed3e76f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/d2d78bed3e76f) -
+  This package is moving from `@emotion/react` to [Compiled](https://compiledcssinjs.com/) for
+  styling.
+
+  [Compiled](https://compiledcssinjs.com/) is a styling solution with a tiny runtime (`~260B`) that
+  you can use along side your existing styling solution(s). As long as your bundler supports CSS
+  imports (eg `import './styles.css'`) then you shouldn't need to do anything!
+  [More information for if you run into any difficulties](https://community.developer.atlassian.com/t/rfc-73-migrating-our-components-to-compiled-css-in-js/85953).
+
+  This change has been released as a `major`, as it would require changes for consumers who do not
+  have a bundler with CSS imports enabled.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.2.0
 
 ### Minor Changes

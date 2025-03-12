@@ -6,8 +6,7 @@
 
 import type { CSSProperties } from 'react';
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled
-import { css, jsx, type SerializedStyles } from '@emotion/react';
+import { cssMap, jsx } from '@compiled/react';
 
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 
@@ -23,77 +22,79 @@ const edgeToOrientationMap: Record<Edge, Orientation> = {
 	right: 'vertical',
 };
 
-const baseStyles = css({
-	display: 'block',
-	position: 'absolute',
-	zIndex: 1,
-	// Blocking pointer events to prevent the line from triggering drag events
-	pointerEvents: 'none',
-	backgroundColor: 'var(--stroke-color)',
-
-	// &::before is for the terminal
-	'&::before': {
-		display: 'var(--terminal-display)',
-		content: '""',
+const baseStyles = cssMap({
+	root: {
+		display: 'block',
 		position: 'absolute',
-		boxSizing: 'border-box',
-		width: 'var(--terminal-diameter)',
-		height: 'var(--terminal-diameter)',
-		borderWidth: 'var(--stroke-width)',
-		borderStyle: 'solid',
-		borderColor: 'var(--stroke-color)',
-		borderRadius: '50%',
+		zIndex: 1,
+		// Blocking pointer events to prevent the line from triggering drag events
+		pointerEvents: 'none',
+		backgroundColor: 'var(--stroke-color)',
+
+		// &::before is for the terminal
+		'&::before': {
+			display: 'var(--terminal-display)',
+			content: '""',
+			position: 'absolute',
+			boxSizing: 'border-box',
+			width: 'var(--terminal-diameter)',
+			height: 'var(--terminal-diameter)',
+			borderWidth: 'var(--stroke-width)',
+			borderStyle: 'solid',
+			borderColor: 'var(--stroke-color)',
+			borderRadius: '50%',
+		},
 	},
 });
 
-const orientationStyles: Record<Orientation, SerializedStyles> = {
-	horizontal: css({
+const orientationStyles = cssMap({
+	horizontal: {
 		height: 'var(--stroke-width)',
 		insetInlineStart: 'var(--line-main-axis-start)',
 		insetInlineEnd: 0,
 		'&::before': {
 			insetInlineStart: 'var(--terminal-main-axis-start)',
 		},
-	}),
+	},
 	// For now, vertical lines will always have the terminal on the top.
 	// Need to investigate whether we want the terminal on the bottom
 	// for bottom to top languages.
-	vertical: css({
+	vertical: {
 		width: 'var(--stroke-width)',
 		top: 'var(--line-main-axis-start)',
 		bottom: 0,
 		'&::before': {
 			top: 'var(--terminal-main-axis-start)',
 		},
-	}),
-};
+	},
+});
 
-const edgeStyles: Record<Edge, SerializedStyles> = {
-	top: css({
+const edgeStyles = cssMap({
+	top: {
 		top: 'var(--main-axis-offset)',
 		'&::before': {
 			top: 'var(--terminal-cross-axis-offset)',
 		},
-	}),
-	right: css({
+	},
+	right: {
 		right: 'var(--main-axis-offset)',
 		'&::before': {
 			right: 'var(--terminal-cross-axis-offset)',
 		},
-	}),
-	bottom: css({
+	},
+	bottom: {
 		bottom: 'var(--main-axis-offset)',
 		'&::before': {
 			bottom: 'var(--terminal-cross-axis-offset)',
 		},
-	}),
-	left: css({
+	},
+	left: {
 		left: 'var(--main-axis-offset)',
 		'&::before': {
 			left: 'var(--terminal-cross-axis-offset)',
 		},
-	}),
-};
+	},
+});
 
 type LineType = 'terminal' | 'no-terminal' | 'terminal-no-bleed';
 
@@ -160,7 +161,7 @@ export function Line({
 						'calc(calc(var(--stroke-width) - var(--terminal-diameter)) / 2)',
 				} as CSSProperties
 			}
-			css={[baseStyles, orientationStyles[orientation], edgeStyles[edge]]}
+			css={[baseStyles.root, orientationStyles[orientation], edgeStyles[edge]]}
 		/>
 	);
 }

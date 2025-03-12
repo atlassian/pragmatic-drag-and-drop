@@ -3,8 +3,7 @@
  * @jsx jsx
  */
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
-import { css, jsx } from '@emotion/react';
+import { css, jsx } from '@compiled/react';
 
 import { Stack } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
@@ -21,7 +20,10 @@ const containerStyles = css({
 	borderWidth: token('border.width'),
 	borderStyle: 'solid',
 	borderColor: token('color.border'),
-	padding: token('space.200'),
+	paddingTop: token('space.200'),
+	paddingRight: token('space.200'),
+	paddingBottom: token('space.200'),
+	paddingLeft: token('space.200'),
 });
 
 export default function AllExamples() {

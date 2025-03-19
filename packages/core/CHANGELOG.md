@@ -1,5 +1,79 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.5.2
+
+### Patch Changes
+
+- [#128775](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/128775)
+  [`7a47573fb87cd`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/7a47573fb87cd) -
+  The optional `reorder` utility is helpful for returning a new reordered array, without modifying
+  the original array. Previously the _original_ array was returned unmodified if an invalid
+  `startIndex` or `finishIndex` was provided. `reorder` now always returns a new array, even when an
+  invalid `startIndex` or `finishIndex` is provided for consistency.
+
+  We consider this a bug fix as the `reorder` function claimed that it returned a new array. Now it
+  always does that.
+
+  Here is how things continue to work for `reorder` with valid arguments:
+
+  ```ts
+  import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+
+  const original = ['A', 'B'];
+
+  const result = reorder({
+  	list: original,
+  	// Grab A
+  	startIndex: 0,
+  	// Move it to where B is
+  	finishIndex: 1,
+  });
+
+  console.log(result); // ['B', 'A']
+  console.log(result === original); // false - we got a new array back
+  ```
+
+  Things were a little different when an invalid `startIndex` or `finishIndex` was provided:
+
+  ```ts
+  import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+
+  const original = ['A', 'B'];
+
+  const result = reorder({
+  	list: original,
+  	startIndex: -1, // invalid start index
+  	finishIndex: 1,
+  });
+
+  console.log(result); // ['A', 'B'] (array not reordered)
+
+  // Original array was returned for this error case
+  console.log(result === original); // true
+  ```
+
+  When an invalid `startIndex` or `finishIndex` is provided, `reorder` will now return a new array
+
+  ```ts
+  import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+
+  const original = ['A', 'B'];
+
+  const result = reorder({
+  	list: original,
+  	startIndex: -1, // invalid start index
+  	finishIndex: 1,
+  });
+
+  console.log(result); // ['A', 'B'] (array not reordered - unchanged)
+
+  // We now return a new array in this case
+  console.log(result === original); // false
+  ```
+
+  In addition to this improvement, we have also improved the clarity of documentation and jsdoc for
+  `reorder`
+
 ## 1.5.1
 
 ### Patch Changes

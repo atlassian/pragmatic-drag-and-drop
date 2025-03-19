@@ -7,7 +7,7 @@ import { css, jsx } from '@compiled/react';
 
 import { Code } from '@atlaskit/code';
 import Heading from '@atlaskit/heading';
-import { Stack, Text } from '@atlaskit/primitives';
+import { Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { DropIndicator } from '../../../src/box';

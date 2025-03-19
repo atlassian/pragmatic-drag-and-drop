@@ -50,3 +50,56 @@ it('should reorder a list', () => {
 		}),
 	).toEqual(['B', 'C', 'A', 'D']);
 });
+
+it('should return a new array reference (populated array)', () => {
+	const original: string[] = ['A', 'B'];
+
+	const result = reorder({
+		list: original,
+		// Grab A
+		startIndex: 0,
+		// Move it to where B is
+		finishIndex: 1,
+	});
+
+	// contents of original unchanged
+	expect(original).toEqual(['A', 'B']);
+	// new array was returned
+	expect(original).not.toBe(result);
+	// validating we got the result we expected
+	expect(result).toEqual(['B', 'A']);
+});
+
+it('should return a new array reference (unpopulated array)', () => {
+	const original: string[] = [];
+
+	const result = reorder({
+		list: original,
+		startIndex: 0,
+		finishIndex: 0,
+	});
+
+	// contents of original unchanged
+	expect(original).toEqual([]);
+	// new array was returned
+	expect(original).not.toBe(result);
+	// validating we got the result we expected
+	expect(result).toEqual([]);
+});
+
+it('should return a new array reference (invalid index)', () => {
+	const original: string[] = ['A', 'B'];
+
+	const result = reorder({
+		list: original,
+		startIndex: -1,
+		finishIndex: 1,
+	});
+
+	// contents of original unchanged
+	expect(original).toEqual(['A', 'B']);
+	// new array was returned
+	expect(original).not.toBe(result);
+	// validating we got the result we expected
+	expect(result).toEqual(['A', 'B']);
+});

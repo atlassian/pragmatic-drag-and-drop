@@ -8,7 +8,7 @@ import { jsx } from '@compiled/react';
 import { Code } from '@atlaskit/code';
 import Heading from '@atlaskit/heading';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
-import { Box, Inline, Stack, Text } from '@atlaskit/primitives';
+import { Box, Inline, Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { Appearance } from '../src/internal-types';

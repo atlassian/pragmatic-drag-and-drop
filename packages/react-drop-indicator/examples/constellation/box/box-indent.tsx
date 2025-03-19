@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 import { css, jsx } from '@compiled/react';
 
-import { Stack, Text } from '@atlaskit/primitives';
+import { Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { DropIndicator } from '../../../src/box';

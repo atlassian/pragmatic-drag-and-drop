@@ -14,7 +14,7 @@
   "types": "dist/types/index.d.ts",
   "sideEffects": true,
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
     "tiny-invariant": "^1.2.0",

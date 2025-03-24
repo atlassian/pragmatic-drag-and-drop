@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 2.0.3
+
+### Patch Changes
+
+- [#125534](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125534)
+  [`f135a8d1066c9`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f135a8d1066c9) -
+  Updates the `react` peer dependency range to include React 19. While we expect these packages to
+  work with React 19, we do not test against and there is a small risk of issues. If you have any
+  problems, please raise an issue on [Github](https://github.com/atlassian/pragmatic-drag-and-drop).
+
 ## 2.0.2
 
 ### Patch Changes

@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 import { css, jsx } from '@compiled/react';
 
 import { Stack } from '@atlaskit/primitives/compiled';
@@ -28,15 +30,17 @@ const containerStyles = css({
 
 export default function AllExamples() {
 	return (
-		<div css={containerStyles}>
-			<Stack space="space.400">
-				<EdgeExample />
-				<TypeExample />
-				<AppearanceExample />
-				<GapExample />
-				<OverlapExample />
-				<IndentExample />
-			</Stack>
-		</div>
+		<React.StrictMode>
+			<div css={containerStyles}>
+				<Stack space="space.400">
+					<EdgeExample />
+					<TypeExample />
+					<AppearanceExample />
+					<GapExample />
+					<OverlapExample />
+					<IndentExample />
+				</Stack>
+			</div>
+		</React.StrictMode>
 	);
 }

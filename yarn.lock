@@ -94,16 +94,17 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/code@^16.0.0":
-  version "16.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-16.0.0.tgz#2ecf1f620924e59eb3f7fa2b165491818a419a0a"
-  integrity sha512-QQCqcmVdGQxz4AttfNQePqPzYDXRosRROX5QcxPSXs/5Gv375GtJuM7F9f1CerttwS2wehUF3NHDeHX8ZY5l4w==
+"@atlaskit/code@^16.1.0":
+  version "16.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-16.1.0.tgz#1b95761a3116a059f04a65802a718bf109a7c518"
+  integrity sha512-IysVWEWWw64ahaP3S4tL+3Cox34cYDAg59tDx8+4LvXUM3wjbWCOzG5MYujIV/cTMe08vwFi61IKZwPYfo9YLg==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
-    "@atlaskit/theme" "^17.0.0"
-    "@atlaskit/tokens" "^4.0.0"
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@atlaskit/theme" "^18.0.0"
+    "@atlaskit/tokens" "^4.5.0"
     "@atlaskit/tooltip" "^20.0.0"
-    "@atlaskit/visually-hidden" "^2.0.0"
+    "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     memoize-one "^6.0.0"
@@ -936,6 +937,13 @@
   version "0.18.2"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@compiled/react/-/react-0.18.2.tgz#658edef6781d1e1e8c49fac21afece10d326ced4"
   integrity sha512-q+OWkf/PJSaHKOPKYJg9Fa8f1ItlenOgRfxAnF072M8FZGAFkN0snPVezdgYgwhcH0EbU5TFRn9zXAAMqICjFQ==
+  dependencies:
+    csstype "^3.1.3"
+
+"@compiled/react@^0.18.3":
+  version "0.18.3"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@compiled/react/-/react-0.18.3.tgz#41c63c9ad4e9dec8567879fdad356d13d9fe07d5"
+  integrity sha512-dejX23L8JwqbgOzpGWfmk8dB3ygozY1vBJCsDsdyMkeD8cSPD4e1CQZNcz67X0dVdj/rkgJGM5cLKlumP9W/Hg==
   dependencies:
     csstype "^3.1.3"
 

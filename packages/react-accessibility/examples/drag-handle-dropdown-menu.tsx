@@ -11,15 +11,21 @@ export default function DragHandleDropdownMenuExample() {
 	const myRef = useRef<HTMLButtonElement>(null);
 
 	return (
-		<DropdownMenu
-			trigger={({ triggerRef, ...triggerProps }) => (
-				<DragHandleButton ref={mergeRefs([myRef, triggerRef])} {...triggerProps} label="Reorder" />
-			)}
-		>
-			<DropdownItemGroup>
-				<DropdownItem>Move up</DropdownItem>
-				<DropdownItem>Move down</DropdownItem>
-			</DropdownItemGroup>
-		</DropdownMenu>
+		<React.StrictMode>
+			<DropdownMenu
+				trigger={({ triggerRef, ...triggerProps }) => (
+					<DragHandleButton
+						ref={mergeRefs([myRef, triggerRef])}
+						{...triggerProps}
+						label="Reorder"
+					/>
+				)}
+			>
+				<DropdownItemGroup>
+					<DropdownItem>Move up</DropdownItem>
+					<DropdownItem>Move down</DropdownItem>
+				</DropdownItemGroup>
+			</DropdownMenu>
+		</React.StrictMode>
 	);
 }

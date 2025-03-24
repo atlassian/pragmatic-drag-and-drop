@@ -7,12 +7,14 @@ const gaps = ['32px', '16px', '8px', '4px', '0px'];
 
 export default function ClosestEdgeExample() {
 	return (
-		<Layout testId="layout">
-			{gaps.map((gap) => (
-				<Card key={gap} edge="right" gap={gap}>
-					{gap}
-				</Card>
-			))}
-		</Layout>
+		<React.StrictMode>
+			<Layout testId="layout">
+				{gaps.map((gap) => (
+					<Card key={gap} edge="right" gap={gap}>
+						{gap}
+					</Card>
+				))}
+			</Layout>
+		</React.StrictMode>
 	);
 }

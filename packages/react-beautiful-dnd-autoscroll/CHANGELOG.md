@@ -1,5 +1,16 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll
 
+## 2.0.1
+
+### Patch Changes
+
+- [#125534](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125534)
+  [`56084060884c6`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/56084060884c6) -
+  Removes React from the declared dependencies as they do not actually use it.
+- [#125534](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/125534)
+  [`ae44d864ac2ba`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/ae44d864ac2ba) -
+  Removes `react` as a peer dependency as it is not actually used.
+
 ## 2.0.0
 
 ### Major Changes

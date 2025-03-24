@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
 import { css, jsx } from '@compiled/react';
 
@@ -55,21 +55,23 @@ function Target(options: Partial<Options>) {
 function Example(options: Partial<Options>) {
 	const { borderRadius, appearance, indent } = { ...defaults, ...options };
 	return (
-		<Box padding="space.200">
-			<Stack space="space.100">
-				<Heading size="small">
-					<Inline space="space.100">
-						<span>
-							Color: <Code>{appearance}</Code>
-						</span>
-						<span>
-							Border radius: <Code>{borderRadius}</Code>
-						</span>
-					</Inline>
-				</Heading>
-				<Target appearance={appearance} borderRadius={borderRadius} indent={indent} />
-			</Stack>
-		</Box>
+		<React.StrictMode>
+			<Box padding="space.200">
+				<Stack space="space.100">
+					<Heading size="small">
+						<Inline space="space.100">
+							<span>
+								Color: <Code>{appearance}</Code>
+							</span>
+							<span>
+								Border radius: <Code>{borderRadius}</Code>
+							</span>
+						</Inline>
+					</Heading>
+					<Target appearance={appearance} borderRadius={borderRadius} indent={indent} />
+				</Stack>
+			</Box>
+		</React.StrictMode>
 	);
 }
 

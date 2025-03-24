@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 import { jsx } from '@compiled/react';
 
 import { Code } from '@atlaskit/code';
@@ -39,66 +41,68 @@ function Example({
 	indent?: string;
 }) {
 	return (
-		<Box padding="space.100">
-			<Stack space="space.100">
-				<Heading size="small">
+		<React.StrictMode>
+			<Box padding="space.100">
+				<Stack space="space.100">
+					<Heading size="small">
+						<Inline space="space.100">
+							<span>
+								Edge: <Code>{edge}</Code>
+							</span>
+							<span>
+								Type: <Code>{type}</Code>
+							</span>
+							<span>
+								Gap: <Code>{gap}</Code>
+							</span>
+							{typeof appearance === 'string' ? (
+								<span>
+									Appearance: <Code>{appearance}</Code>
+								</span>
+							) : null}
+							{typeof appearance === 'object' && appearance.custom ? (
+								<span>
+									Custom color: <Code>{appearance.custom}</Code>
+								</span>
+							) : null}
+							{indent ? (
+								<span>
+									Indent: <Code>{indent}</Code>
+								</span>
+							) : null}
+						</Inline>
+					</Heading>
 					<Inline space="space.100">
-						<span>
-							Edge: <Code>{edge}</Code>
-						</span>
-						<span>
-							Type: <Code>{type}</Code>
-						</span>
-						<span>
-							Gap: <Code>{gap}</Code>
-						</span>
-						{typeof appearance === 'string' ? (
-							<span>
-								Appearance: <Code>{appearance}</Code>
-							</span>
-						) : null}
-						{typeof appearance === 'object' && appearance.custom ? (
-							<span>
-								Custom color: <Code>{appearance.custom}</Code>
-							</span>
-						) : null}
-						{indent ? (
-							<span>
-								Indent: <Code>{indent}</Code>
-							</span>
-						) : null}
+						{(['ltr', 'rtl'] as const).map((direction) => (
+							<Stack space="space.100" key={direction}>
+								<Text>
+									Direction: <Code>{direction}</Code>
+								</Text>
+								<div dir={direction}>
+									<List
+										orientation={orientationFromEdge[edge]}
+										gap={gap}
+										indicator={
+											<Line
+												edge={edge}
+												type={type}
+												gap={gap}
+												strokeColor={
+													typeof appearance === 'string'
+														? presetStrokeColors[appearance]
+														: appearance?.custom
+												}
+												indent={indent}
+											/>
+										}
+									/>
+								</div>
+							</Stack>
+						))}
 					</Inline>
-				</Heading>
-				<Inline space="space.100">
-					{(['ltr', 'rtl'] as const).map((direction) => (
-						<Stack space="space.100" key={direction}>
-							<Text>
-								Direction: <Code>{direction}</Code>
-							</Text>
-							<div dir={direction}>
-								<List
-									orientation={orientationFromEdge[edge]}
-									gap={gap}
-									indicator={
-										<Line
-											edge={edge}
-											type={type}
-											gap={gap}
-											strokeColor={
-												typeof appearance === 'string'
-													? presetStrokeColors[appearance]
-													: appearance?.custom
-											}
-											indent={indent}
-										/>
-									}
-								/>
-							</div>
-						</Stack>
-					))}
-				</Inline>
-			</Stack>
-		</Box>
+				</Stack>
+			</Box>
+		</React.StrictMode>
 	);
 }
 

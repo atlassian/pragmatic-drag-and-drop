@@ -9,21 +9,23 @@ const edges: Edge[] = ['bottom', 'left', 'right', 'top'];
 
 export default function ClosestEdgeExample() {
 	return (
-		<div>
-			<Layout testId="layout--without-gap">
-				{edges.map((edge) => (
-					<Card key={edge} edge={edge}>
-						{edge}
-					</Card>
-				))}
-			</Layout>
-			<Layout testId="layout--with-gap">
-				{edges.map((edge) => (
-					<Card key={edge} edge={edge} gap="32px">
-						{edge}
-					</Card>
-				))}
-			</Layout>
-		</div>
+		<React.StrictMode>
+			<div>
+				<Layout testId="layout--without-gap">
+					{edges.map((edge) => (
+						<Card key={edge} edge={edge}>
+							{edge}
+						</Card>
+					))}
+				</Layout>
+				<Layout testId="layout--with-gap">
+					{edges.map((edge) => (
+						<Card key={edge} edge={edge} gap="32px">
+							{edge}
+						</Card>
+					))}
+				</Layout>
+			</div>
+		</React.StrictMode>
 	);
 }

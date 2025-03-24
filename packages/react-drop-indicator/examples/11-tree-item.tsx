@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 import { css, jsx } from '@compiled/react';
 
 import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
@@ -61,15 +63,17 @@ const all: Instruction[] = [...instructions, ...blocked];
 
 export default function Example({ direction = 'ltr' }: { direction: 'ltr' | 'rtl' }) {
 	return (
-		<div dir={direction}>
-			<Layout testId="layout--appearance">
-				<div css={containerStyles}>
-					{all.map((instruction, index) => (
-						<TreeItem instruction={instruction} key={index} {...data} />
-					))}
-				</div>
-			</Layout>
-		</div>
+		<React.StrictMode>
+			<div dir={direction}>
+				<Layout testId="layout--appearance">
+					<div css={containerStyles}>
+						{all.map((instruction, index) => (
+							<TreeItem instruction={instruction} key={index} {...data} />
+						))}
+					</div>
+				</Layout>
+			</div>
+		</React.StrictMode>
 	);
 }
 

@@ -96,14 +96,14 @@ describe('adoption transformer', () => {
       return (
         <DragDropContext
           onDragEnd={() => {}}
-          /* TODO: (from codemod) 
+          /* TODO: (from codemod)\u0020
 
           This prop is not supported by the migration layer. It will not have any effect.
 
           Reason:
           ${unsupportedPropMessages.DragDropContext.enableDefaultSensors} */
           enableDefaultSensors={false}
-          /* TODO: (from codemod) 
+          /* TODO: (from codemod)\u0020
 
           This prop is not supported by the migration layer. It will not have any effect.
 
@@ -114,7 +114,7 @@ describe('adoption transformer', () => {
         >
           <Droppable
             droppableId="droppableId"
-            /* TODO: (from codemod) 
+            /* TODO: (from codemod)\u0020
 
             This prop is not supported by the migration layer. It will not have any effect.
 
@@ -130,7 +130,7 @@ describe('adoption transformer', () => {
                 <Draggable
                   draggableId="draggableId"
                   index={0}
-                  /* TODO: (from codemod) 
+                  /* TODO: (from codemod)\u0020
 
                   This prop is not supported by the migration layer. It will not have any effect.
 

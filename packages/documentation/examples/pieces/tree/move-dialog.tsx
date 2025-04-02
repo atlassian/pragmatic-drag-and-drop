@@ -76,7 +76,7 @@ export function MoveDialog({ onClose, itemId }: { onClose: () => void; itemId: s
 			<Form<FormData> onSubmit={onSubmit}>
 				{({ formProps, setFieldValue }) => (
 					<form {...formProps}>
-						<ModalHeader>
+						<ModalHeader hasCloseButton>
 							<ModalTitle>Move</ModalTitle>
 						</ModalHeader>
 						<ModalBody>
@@ -107,7 +107,7 @@ export function MoveDialog({ onClose, itemId }: { onClose: () => void; itemId: s
 							<Button appearance="subtle" onClick={onClose}>
 								Cancel
 							</Button>
-							<Button appearance="primary" onClick={onClose} autoFocus type="submit">
+							<Button appearance="primary" onClick={onClose} type="submit">
 								Move
 							</Button>
 						</ModalFooter>

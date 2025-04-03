@@ -113,14 +113,14 @@
     "@compiled/react" "^0.18.3"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/code@^16.2.0":
-  version "16.2.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-16.2.0.tgz#8dee24a453d534ecd8f64b7a0fa8a6ff58e505ab"
-  integrity sha512-YOm/Es6G9d13f6kpYRcxJu4WddLNlDNi3laavu4H+XU6jEW9nr0CbGKcwaHsRn1eiMhoQ1p31aPt0F8DRoj9Ig==
+"@atlaskit/code@^16.3.0":
+  version "16.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-16.3.0.tgz#fc94e03c8e07717b44c68733d7217d431e4d424b"
+  integrity sha512-gS0ZXnrPZ11q6gcXnweMjsAh5jw/9HYO8MduAB93CynL7H5bpziJadqskJ3m07ooxyVRcLbvL4vcm/qSCY7kfw==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
     "@atlaskit/theme" "^18.0.0"
-    "@atlaskit/tokens" "^4.5.0"
+    "@atlaskit/tokens" "^4.6.0"
     "@atlaskit/tooltip" "^20.0.0"
     "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
@@ -219,7 +219,7 @@
     "@compiled/react" "^0.18.2"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/icon@25.4.0", "@atlaskit/icon@^25.4.0":
+"@atlaskit/icon@25.4.0":
   version "25.4.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-25.4.0.tgz#1d3b1463995cb4bbb30b751a9dae00df4a286699"
   integrity sha512-9DyoRKg44sJ/M2hfB9HB7YDzHMRTRZQaskUpSct2JAuNgRIUX2pd9lw3o71qmpleRbCDPYZVJdtoEjVZxNgu2g==
@@ -237,6 +237,17 @@
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^4.1.0"
+    "@babel/register" "^7.25.9"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+
+"@atlaskit/icon@^25.5.0":
+  version "25.5.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-25.5.0.tgz#3bf6e7feeb34f4ad8ad121cead247032b59441ce"
+  integrity sha512-F5+uEFTIpVZvj++iQK9J9IZAljq0dyc4X4jPDsLTAYbH534y/zaX8HiG7yqpC/jYmjIRVCXjgTgxC2Gqq9abXA==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@atlaskit/tokens" "^4.6.0"
     "@babel/register" "^7.25.9"
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"

@@ -39,7 +39,7 @@
     "./types": "./src/entry-point/types.ts"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.26.10",
     "bind-event-listener": "^3.0.0",
     "raf-schd": "^4.0.3"
   },

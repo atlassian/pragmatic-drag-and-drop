@@ -63,8 +63,13 @@ function Icon({ item }: { item: TreeItemType }) {
 	return <GroupIcon isOpen={item.isOpen ?? false} />;
 }
 
-const outerButtonStyles = css({
+const outerStyles = css({
+	// needed for our action button that uses position:absolute
+	position: 'relative',
 	'--grid': '8px',
+});
+
+const outerButtonStyles = css({
 	/**
 	 * Without this Safari renders white text on drag.
 	 */
@@ -388,7 +393,7 @@ const TreeItem = memo(function TreeItem({
 
 	return (
 		<Fragment>
-			<div css={[state === 'idle' ? outerHoverStyles : undefined]}>
+			<div css={[outerStyles, state === 'idle' ? outerHoverStyles : undefined]}>
 				<FocusRing isInset>
 					<button
 						{...aria}

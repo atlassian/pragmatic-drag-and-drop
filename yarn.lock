@@ -113,18 +113,18 @@
     "@compiled/react" "^0.18.3"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/code@^16.3.0":
-  version "16.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-16.3.0.tgz#fc94e03c8e07717b44c68733d7217d431e4d424b"
-  integrity sha512-gS0ZXnrPZ11q6gcXnweMjsAh5jw/9HYO8MduAB93CynL7H5bpziJadqskJ3m07ooxyVRcLbvL4vcm/qSCY7kfw==
+"@atlaskit/code@^17.0.0":
+  version "17.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-17.0.0.tgz#a82725d597e5d6837051c740df149e2a964d704a"
+  integrity sha512-Xs1OdktMsys0d98V8l0Clo6diUJEVl5KxTLHzWgfo7Pi8laSeOZTFSupj9eXLi0hTuWwYBng3oYBzhljzLdN2Q==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
-    "@atlaskit/theme" "^18.0.0"
+    "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^4.6.0"
     "@atlaskit/tooltip" "^20.0.0"
     "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
+    "@compiled/react" "^0.18.3"
     memoize-one "^6.0.0"
     refractor "^3.6.0"
 

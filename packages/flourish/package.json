@@ -20,7 +20,7 @@
   "dependencies": {
     "@atlaskit/motion": "^5.1.0",
     "@atlaskit/tokens": "^4.7.0",
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
     "@testing-library/react": "^13.4.0",

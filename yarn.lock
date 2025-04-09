@@ -206,18 +206,16 @@
     "@compiled/react" "^0.18.2"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/heading@^5.1.0":
-  version "5.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-5.1.0.tgz#f85bd23b1f63d1b3c154bd05e66f251d11c4d282"
-  integrity sha512-YnOs1xEtJRy3dfvU1ocCGv+JOzRemhEkzTuuYaznAd/fjRJoGHo/qn2E02yt9zhUaQVGfX2B5es1cu0JtNKK8Q==
+"@atlaskit/heading@^5.2.0":
+  version "5.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-5.2.0.tgz#8a9baa5eb74112e76bf16f1ad6c6a5cffda28be8"
+  integrity sha512-Gui3JYeoXHMXCCCcazUzDM8VJhAqwTCaUb7x1NxleT5AG4ooMCbLEnhaeEc8s08wqPi1f6kdKl5XR+O7CHhItQ==
   dependencies:
     "@atlaskit/css" "^0.10.0"
-    "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/primitives" "^14.1.0"
-    "@atlaskit/tokens" "^4.2.0"
+    "@atlaskit/primitives" "^14.4.0"
+    "@atlaskit/tokens" "^4.7.0"
     "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.18.2"
-    "@emotion/react" "^11.7.1"
+    "@compiled/react" "^0.18.3"
 
 "@atlaskit/icon@25.4.0":
   version "25.4.0"
@@ -404,18 +402,17 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^14.3.0":
-  version "14.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-14.3.0.tgz#e36529cf62c6c2222a51be83c77603826f39bde8"
-  integrity sha512-EjxQiTF1/tQpfN1WBG2pVR/obDLYSCEA7RGeXrNINI4LwdPBM/FgLHMvgFC7cWceitXM8ON+9AcKrN+jBoKIpA==
+"@atlaskit/primitives@^14.4.0":
+  version "14.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-14.4.0.tgz#514b01a49a5482277853fc14466dd22ad66a5925"
+  integrity sha512-9p9ymUBFWnlTIlQ3oVRfwcrE+9UeE1fu2A8FRG42su+Zmuj10vmMKkgY41uESnZi8s9LVXU2aJC1k1s2x5LE2g==
   dependencies:
     "@atlaskit/analytics-next" "^11.0.0"
     "@atlaskit/app-provider" "^2.1.0"
     "@atlaskit/css" "^0.10.0"
     "@atlaskit/ds-lib" "^4.0.0"
     "@atlaskit/interaction-context" "^3.0.0"
-    "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/tokens" "^4.6.0"
+    "@atlaskit/tokens" "^4.7.0"
     "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"

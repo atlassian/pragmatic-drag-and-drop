@@ -24,7 +24,7 @@
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^2.0.0",
     "@atlaskit/tokens": "^4.7.0",
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.26.10",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",
     "tiny-invariant": "^1.2.0"

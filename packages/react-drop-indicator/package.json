@@ -19,7 +19,7 @@
     "@atlaskit/pragmatic-drag-and-drop": "^1.5.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.0.0",
     "@atlaskit/tokens": "^4.7.0",
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.26.10",
     "@compiled/react": "^0.18.3"
   },
   "peerDependencies": {

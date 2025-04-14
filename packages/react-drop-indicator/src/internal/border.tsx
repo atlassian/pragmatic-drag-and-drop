@@ -26,8 +26,7 @@ const styles = css({
 	borderRadius: 'var(--border-radius)',
 });
 
-// TODO: use `outline` or `border`?
-export function Outline({
+export function Border({
 	strokeColor = presetStrokeColors.default,
 	strokeWidth = presetStrokeWidth,
 	borderRadius = '3px', // TODO: update to border.radius (4px) token
@@ -55,4 +54,4 @@ export function Outline({
 }
 
 // For React.lazy
-export default Outline;
+export default Border;

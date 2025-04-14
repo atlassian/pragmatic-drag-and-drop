@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "An optional Pragmatic drag and drop package containing react components that provide a visual indication about what the user will achieve when the drop (eg lines)",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -34,6 +34,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
+    "./border": "./src/border.tsx",
     "./box": "./src/box.tsx",
     "./types": "./src/types.ts",
     "./tree-item": "./src/tree-item.tsx"

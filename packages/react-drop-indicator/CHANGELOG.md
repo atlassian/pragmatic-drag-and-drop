@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.1.0
+
+### Minor Changes
+
+- [#140214](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/140214)
+  [`6903fb239a6ac`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/6903fb239a6ac) -
+  Exposing a `<Border>` drop indicator component. Currently `Border` is not documented while we
+  validate with internal usage.
+
 ## 3.0.2
 
 ### Patch Changes

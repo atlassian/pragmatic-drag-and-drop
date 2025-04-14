@@ -12,7 +12,7 @@ import Heading from '@atlaskit/heading';
 import { Box, Inline, Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
-import Outline from '../src/internal/outline';
+import Border from '../src/internal/border';
 import { presetStrokeColors } from '../src/presets';
 
 const targetStyles = css({
@@ -47,7 +47,7 @@ function Target(options: Partial<Options>) {
 		// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop
 		<div css={targetStyles} style={{ '--border-radius': borderRadius } as CSSProperties}>
 			Target
-			<Outline strokeColor={strokeColor} borderRadius={borderRadius} indent={indent} />
+			<Border strokeColor={strokeColor} borderRadius={borderRadius} indent={indent} />
 		</div>
 	);
 }

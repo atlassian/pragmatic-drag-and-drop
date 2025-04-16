@@ -14,7 +14,7 @@
   "types": "dist/types/index.d.ts",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",

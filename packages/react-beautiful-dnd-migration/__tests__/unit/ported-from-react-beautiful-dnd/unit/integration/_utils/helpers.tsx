@@ -1,7 +1,6 @@
 // This file was copied from `react-beautiful-dnd` with some adjustments.
 // <https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.1/test/unit/integration/util/helpers.js>
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Position } from 'css-box-model';
 import type {
 	DraggableId,

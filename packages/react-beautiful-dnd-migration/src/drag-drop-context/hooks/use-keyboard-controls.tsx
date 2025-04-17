@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 
 import { bindAll, type Binding } from 'bind-event-listener';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction } from 'react-beautiful-dnd';
 
 import type { CleanupFn } from '../../internal-types';

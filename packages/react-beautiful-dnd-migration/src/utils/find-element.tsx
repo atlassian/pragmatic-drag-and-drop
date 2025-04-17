@@ -22,7 +22,6 @@ function getSelector(...fragments: SelectorFragment[]): string {
 			// `CSS.escape` is widely supported, the lint rule is wrong.
 			// It avoids problems caused by some values which are not valid in
 			// selectors.
-			// eslint-disable-next-line compat/compat
 			return `[${attribute}="${CSS.escape(value)}"]`;
 		}
 		return `[${attribute}]`;

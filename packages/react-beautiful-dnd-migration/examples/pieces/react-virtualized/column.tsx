@@ -111,7 +111,6 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
 												}
 											}
 										}}
-										// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
 										style={style}
 										rowRenderer={({ index, style }: ListRowProps) => {
 											const item = column.items[index];

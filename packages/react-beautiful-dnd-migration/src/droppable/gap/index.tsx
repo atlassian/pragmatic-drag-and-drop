@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction } from 'react-beautiful-dnd';
 
 import { rbdInvariant } from '../../drag-drop-context/rbd-invariant';

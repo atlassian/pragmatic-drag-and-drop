@@ -1,4 +1,3 @@
-/* eslint-disable @atlaskit/design-system/no-unsafe-design-token-usage */
 /**
  * @jsxRuntime classic
  * @jsx jsx
@@ -34,7 +33,6 @@ const dropIndicatorEdgeStyles = {
 export function DropIndicator({ edge, gap }: { edge: Edge; gap: string }) {
 	return (
 		<div
-			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
 			style={{ '--gap': gap } as React.CSSProperties}
 			css={[dropIndicatorStyles, dropIndicatorEdgeStyles[edge]]}
 		/>

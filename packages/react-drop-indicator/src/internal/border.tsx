@@ -37,7 +37,6 @@ export function Border({
 	strokeWidth?: CSSSize;
 	indent?: string;
 }) {
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop
 	return (
 		<div
 			style={

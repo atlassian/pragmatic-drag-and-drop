@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
 import { bindAll } from 'bind-event-listener';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type {
 	DraggableProps,
 	DraggableProvided,

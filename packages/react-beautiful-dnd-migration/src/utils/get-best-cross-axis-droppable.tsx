@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { DroppableId } from 'react-beautiful-dnd';
 
 import type { DroppableRegistry } from '../drag-drop-context/droppable-registry';

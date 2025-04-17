@@ -160,7 +160,6 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
 										innerElementType={innerElementType}
 										itemData={column.items}
 										outerRef={provided.innerRef}
-										// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
 										style={style}
 									>
 										{CardRenderer}

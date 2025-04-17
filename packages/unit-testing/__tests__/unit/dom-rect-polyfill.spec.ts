@@ -3,7 +3,6 @@ test('new DOMRect(x, y, width, height)', () => {
 	const y = 20;
 	const width = 30;
 	const height = 40;
-	// eslint-disable-next-line compat/compat
 	const rect = new DOMRect(x, y, width, height);
 
 	expect(rect.x).toBe(x);
@@ -17,7 +16,6 @@ test('new DOMRect(x, y, width, height)', () => {
 });
 
 test('new DOMRect()', () => {
-	// eslint-disable-next-line compat/compat
 	const rect = new DOMRect();
 
 	expect(rect.x).toBe(0);
@@ -53,10 +51,7 @@ test('DOMRect.fromRect({x, y, width, height}) same as new Rect(x, y, width, heig
 	const width = 30;
 	const height = 40;
 
-	expect(DOMRect.fromRect({ x, y, width, height })).toEqual(
-		// eslint-disable-next-line compat/compat
-		new DOMRect(x, y, width, height),
-	);
+	expect(DOMRect.fromRect({ x, y, width, height })).toEqual(new DOMRect(x, y, width, height));
 });
 
 test('DOMRect.fromRect()', () => {

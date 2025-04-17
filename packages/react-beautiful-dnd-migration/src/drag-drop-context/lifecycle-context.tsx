@@ -9,7 +9,6 @@
 
 import React, { createContext, type ReactNode, useCallback, useContext, useState } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { DraggableId, DraggableLocation, DragStart, DragUpdate } from 'react-beautiful-dnd';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';

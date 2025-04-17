@@ -24,7 +24,6 @@ const listItemStyles = xcss({
 });
 
 const draggableStyles = xcss({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors
 	':hover': {
 		cursor: 'grab',
 		backgroundColor: 'elevation.surface.hovered',

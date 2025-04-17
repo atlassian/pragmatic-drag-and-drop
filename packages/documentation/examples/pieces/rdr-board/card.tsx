@@ -232,7 +232,6 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 							size="16"
 							label=""
 							icon={StoryIcon}
-							// eslint-disable-next-line @atlaskit/design-system/no-legacy-icons
 							LEGACY_fallbackComponent={<StoryIcon16 label="story" />}
 						/>
 						<Box>{key}</Box>

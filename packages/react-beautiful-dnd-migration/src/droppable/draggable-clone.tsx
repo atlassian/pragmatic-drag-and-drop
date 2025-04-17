@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useReducer } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type {
 	DraggableChildrenFn,
 	DraggableProvided,

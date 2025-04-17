@@ -1,4 +1,3 @@
-/* eslint-disable @atlassian/tangerine/import/no-relative-package-imports */
 /**
  * @jsxRuntime classic
  * @jsx jsx

@@ -205,7 +205,6 @@ function Sidebar() {
 			<div
 				ref={contentRef}
 				css={[sidebarContentStyles, state.type === 'dragging' ? noPointerEventsStyles : undefined]}
-				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop, @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 				style={{ '--local-initial-width': `${initialWidth}px` } as CSSProperties}
 			>
 				<Menu />

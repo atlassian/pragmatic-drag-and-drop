@@ -28,7 +28,6 @@ const listItemStyles = xcss({
 	paddingInlineStart: 'space.0',
 	borderRadius: 'border.radius',
 	backgroundColor: 'elevation.surface',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors
 	':hover': {
 		backgroundColor: 'elevation.surface.hovered',
 	},

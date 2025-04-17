@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type {
 	DroppableId,
 	DroppableProps,

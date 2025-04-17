@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction, DroppableId, DroppableMode } from 'react-beautiful-dnd';
 
 import type { CleanupFn } from '../internal-types';

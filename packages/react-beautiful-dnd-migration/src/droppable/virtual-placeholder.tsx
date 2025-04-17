@@ -1,6 +1,5 @@
 import React, { type CSSProperties, useCallback, useMemo, useRef } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction, DraggableId, DroppableId } from 'react-beautiful-dnd';
 
 import { useDragDropContext } from '../drag-drop-context/internal-context';

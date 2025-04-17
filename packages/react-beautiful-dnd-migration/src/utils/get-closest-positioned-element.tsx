@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { DroppableMode } from 'react-beautiful-dnd';
 
 /**

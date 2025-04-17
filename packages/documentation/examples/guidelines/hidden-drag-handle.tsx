@@ -24,7 +24,6 @@ const listItemStyles = xcss({
 });
 
 const draggableStyles = xcss({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors
 	':hover': {
 		cursor: 'grab',
 		backgroundColor: 'elevation.surface.hovered',
@@ -46,12 +45,10 @@ const noPaddingInlineStartStyles = xcss({
 
 const entityWithHiddenDragHandleStyles = xcss({
 	'--show-drag-handle': 0,
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors
 	':hover': {
 		// @ts-expect-error
 		'--show-drag-handle': 1,
 	},
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors
 	':focus-within': {
 		// @ts-expect-error
 		'--show-drag-handle': 1,

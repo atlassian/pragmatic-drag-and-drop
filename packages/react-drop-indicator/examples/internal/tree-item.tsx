@@ -46,11 +46,9 @@ export default function TreeItem({
 	return (
 		<div
 			css={itemStyles}
-			// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
 			style={
 				{
 					'--horizontal-indent': `${indentPerLevel * currentLevel}px`,
-					// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 				} as CSSProperties
 			}
 		>

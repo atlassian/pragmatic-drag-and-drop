@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-// eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import Heading from '@atlaskit/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';

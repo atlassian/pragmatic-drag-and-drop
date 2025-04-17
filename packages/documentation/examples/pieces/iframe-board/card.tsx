@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import Avatar from '@atlaskit/avatar';
-// eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project

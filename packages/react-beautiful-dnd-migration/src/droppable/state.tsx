@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { DragStart, DragUpdate, DroppableId } from 'react-beautiful-dnd';
 
 import type { Action } from '../internal-types';

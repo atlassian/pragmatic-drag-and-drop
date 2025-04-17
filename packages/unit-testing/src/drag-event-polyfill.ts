@@ -303,7 +303,6 @@
 			this.items.add(data, actualFormat);
 		}
 
-		// eslint-disable-next-line class-methods-use-this
 		setDragImage() {
 			// doesn't do anything for our polyfill
 		}

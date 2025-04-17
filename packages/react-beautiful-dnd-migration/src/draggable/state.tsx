@@ -5,7 +5,6 @@
  * but also keeps state logic together.
  */
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type {
 	Direction,
 	DraggableLocation,

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import type { Direction, DraggableLocation, DroppableId, DroppableMode } from 'react-beautiful-dnd';
 
 import { attributes } from '../../utils/attributes';

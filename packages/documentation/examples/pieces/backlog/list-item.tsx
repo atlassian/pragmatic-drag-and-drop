@@ -258,7 +258,6 @@ export function ListItem({ itemData }: { itemData: ItemData }) {
 								size="16"
 								label=""
 								icon={StoryIcon}
-								// eslint-disable-next-line @atlaskit/design-system/no-legacy-icons
 								LEGACY_fallbackComponent={<Story16Icon label="" />}
 							/>
 							<Box xcss={subtlestTextStyles}>{itemData.id}</Box>

@@ -19,7 +19,6 @@ it('should generate valid styles', () => {
 		.then((result) => {
 			expect(result.errored).toBe(false);
 			// asserting that some CSS was actually generated!
-			// eslint-disable-next-line no-underscore-dangle
 			// @ts-expect-error
 			expect(result.results[0]._postcssResult.css.length).toBeGreaterThan(1);
 		});

@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^1.5.0",
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.1.0",

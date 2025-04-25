@@ -20,7 +20,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
     "@atlaskit/avatar": "^25.0.0",

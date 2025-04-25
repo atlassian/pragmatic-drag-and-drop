@@ -8,7 +8,7 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { Box, Stack } from '@atlaskit/primitives';
+import { Box, Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { combine } from '../src/entry-point/combine';

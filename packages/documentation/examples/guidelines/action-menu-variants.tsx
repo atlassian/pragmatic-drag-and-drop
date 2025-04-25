@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Stack } from '@atlaskit/primitives';
+import { Stack } from '@atlaskit/primitives/compiled';
 
 import { EntireEntityIsDraggable } from './entire-entity-is-draggable';
 import { EntireEntityIsDraggableWithDragHandleButton } from './entire-entity-is-draggable-with-drag-handle-button';

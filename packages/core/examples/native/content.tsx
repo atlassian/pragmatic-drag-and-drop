@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { Stack } from '@atlaskit/primitives';
+import { Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { draggable } from '../../src/entry-point/element/adapter';

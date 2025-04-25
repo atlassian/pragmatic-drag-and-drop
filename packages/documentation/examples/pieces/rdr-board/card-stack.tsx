@@ -57,15 +57,12 @@ export function CardStack({ children, numCards }: { children: ReactNode; numCard
 	return (
 		<div css={containerStyles}>
 			{numCards >= 3 && <div css={[sharedCardStyles, bottomCardStyles]} />}
-
 			{numCards >= 2 && (
 				<div css={[sharedCardStyles, secondCardStyles]}>
 					<div css={secondCardInnerStyles} />
 				</div>
 			)}
-
 			{children}
-
 			{numCards >= 2 && (
 				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
 				<div style={{ position: 'absolute', top: -8, right: -8 }}>

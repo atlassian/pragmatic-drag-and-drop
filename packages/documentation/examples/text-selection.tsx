@@ -9,7 +9,7 @@ import { jsx } from '@emotion/react';
 import { bindAll } from 'bind-event-listener';
 
 import Button from '@atlaskit/button/new';
-import { Stack } from '@atlaskit/primitives';
+import { Stack } from '@atlaskit/primitives/compiled';
 
 export default function TextSelection() {
 	useEffect(() => {

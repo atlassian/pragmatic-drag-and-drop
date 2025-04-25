@@ -421,19 +421,19 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/radio@^8.0.0":
-  version "8.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/radio/-/radio-8.0.0.tgz#d64b075aeca3f6ae29950523e3f378062e72226f"
-  integrity sha512-xyofqZVbmdFZIz8iS0YC2bmxKOv8QNw9hU5emov7n5eID97z/HE+LR0GeY5OceZ3i+iySvcalhicXqt8OOjiSQ==
+"@atlaskit/radio@^8.1.0":
+  version "8.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/radio/-/radio-8.1.0.tgz#6d82ab1dddc881864198dd929594577eaffd46ba"
+  integrity sha512-hz8G0HFHYIDhy4ru0jPJx0MveHNc93eqEj4QH++v+901qHdQ2KR0j8JYNvM7vptcMCtHrkmoNQx20P0YsaFJmw==
   dependencies:
     "@atlaskit/analytics-next" "^11.0.0"
     "@atlaskit/css" "^0.10.0"
     "@atlaskit/ds-lib" "^4.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/theme" "^17.0.0"
-    "@atlaskit/tokens" "^4.0.0"
+    "@atlaskit/theme" "^18.0.0"
+    "@atlaskit/tokens" "^4.8.0"
     "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.18.2"
+    "@compiled/react" "^0.18.3"
 
 "@atlaskit/spinner@18.0.3":
   version "18.0.3"

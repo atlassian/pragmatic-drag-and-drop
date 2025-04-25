@@ -8,7 +8,7 @@ import { createContext, Fragment, useContext, useEffect, useRef, useState } from
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { Stack } from '@atlaskit/primitives';
+import { Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import {

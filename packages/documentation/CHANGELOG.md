@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.3.1
+
+### Patch Changes
+
+- [#145191](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/145191)
+  [`cd21ebedb9a08`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/cd21ebedb9a08) -
+  Internal change to move towards Compiled CSS-in-JS styling.
+
 ## 1.3.0
 
 ### Minor Changes

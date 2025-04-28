@@ -99,6 +99,7 @@ function Card({ cardId }: { cardId: string }) {
 	}, [cardId]);
 
 	return (
+		// eslint-disable-next-line @atlassian/a11y/interactive-element-not-keyboard-focusable
 		<Box
 			ref={ref}
 			xcss={[cardStyles, interactiveStyles, state === 'is-over' ? isOverCardStyles : undefined]}

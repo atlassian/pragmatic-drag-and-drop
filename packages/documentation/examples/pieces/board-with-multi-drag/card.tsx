@@ -100,6 +100,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 	const { avatarUrl, name, role, userId } = item;
 
 	return (
+		// eslint-disable-next-line @atlassian/a11y/interactive-element-not-keyboard-focusable
 		<Box
 			ref={ref}
 			testId={`item-${userId}`}

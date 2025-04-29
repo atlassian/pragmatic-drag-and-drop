@@ -1,5 +1,17 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.6.0
+
+### Minor Changes
+
+- [#146341](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/146341)
+  [`ef9d1cdc6ea92`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/ef9d1cdc6ea92) -
+  The `pointerOutsideOfPreview()` utility will now correctly push the preview forward in right to
+  left layouts.
+
+  - Left to right (ltr): preview on right hand side of pointer
+  - Right to left (rtl): preview on left hand side of pointer (**new improvement**)
+
 ## 1.5.3
 
 ### Patch Changes

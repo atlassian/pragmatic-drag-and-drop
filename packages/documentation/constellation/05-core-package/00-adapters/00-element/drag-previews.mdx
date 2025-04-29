@@ -242,8 +242,8 @@ draggable({
 });
 ```
 
-2. `pointerOutsideOfPreview`: a cross browser mechanism to place the pointer outside of the drag
-   preview
+2. `pointerOutsideOfPreview`: a cross browser mechanism to push the drag preview in front of the
+   users pointer.
 
 ```ts
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -267,9 +267,33 @@ draggable({
 });
 ```
 
-Note: if you are using css variables inside of your `getOffset()` you need to be sure your css
-variables are available at the `<body>` element, as the `container` is temporarily mounted as a
-child of `<body>`
+When in left to right (`ltr`) languages, the drag preview is pushed forward, to the right of the
+users pointer. For right to left (`rtl`) languages, the drag preview is also pushed forward, and the
+preview will be on the _left_ hand side of the users pointer. The direction (based on the `dir`
+attribute) will be looked up on the `container` element; so you can control the `dir` by setting it
+on the `body`; or on the `container` element itself.
+
+```ts
+onGenerateDragPreview({ nativeSetDragImage, source, location }) {
+	setCustomNativeDragPreview({
+		nativeSetDragImage,
+		getOffset: pointerOutsideOfPreview({
+			x: token('space.200'),
+			y: token('space.100'),
+		}),
+		render({ container }) {
+			// Forcing the direction for the container.
+			container.dir = 'ltr';
+
+			// By default, the `dir` inherited on `container` (which is a child of `body`) will be used.
+		},
+	});
+},
+```
+
+If you are using css variables inside of your `getOffset()` you need to be sure your css variables
+are available at the `<body>` element, as the `container` is temporarily mounted as a child of
+`<body>`
 
 3. `preserveOffsetOnSource`: applies the initial cursor offset to the custom native drag preview for
    a seamless experience

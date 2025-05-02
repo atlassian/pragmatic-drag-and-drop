@@ -1,5 +1,15 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.3.2
+
+### Patch Changes
+
+- [#148201](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/148201)
+  [`8e811f1840de7`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/8e811f1840de7) -
+  Either actively or pre-emptively fixes a bug with keyframe animations in CJS and ESM distribution
+  targets for packages using Compiled CSS-in-JS. This may not affect this package, but the change
+  was made so a future migration does not accidentally break it.
+
 ## 1.3.1
 
 ### Patch Changes

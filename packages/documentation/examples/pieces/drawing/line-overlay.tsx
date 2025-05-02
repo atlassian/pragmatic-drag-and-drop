@@ -36,7 +36,10 @@ const activeLineAnimation = keyframes({
 });
 
 const activeLineStyles = css({
-	animation: `${activeLineAnimation} 250ms linear infinite`,
+	animationName: activeLineAnimation,
+	animationDuration: '250ms',
+	animationTimingFunction: 'linear',
+	animationIterationCount: 'infinite',
 	stroke: token('color.border.selected', '#579DFF'),
 	strokeDasharray: '16px 8px',
 });

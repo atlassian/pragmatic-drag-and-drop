@@ -24,7 +24,7 @@
     "@atlaskit/focus-ring": "^3.0.0",
     "@atlaskit/icon": "^25.6.0",
     "@atlaskit/platform-feature-flags": "^1.1.0",
-    "@atlaskit/primitives": "^14.5.0",
+    "@atlaskit/primitives": "^14.6.0",
     "@atlaskit/tokens": "^4.8.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"

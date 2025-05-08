@@ -130,10 +130,11 @@ const adapter = makeAdapter<ElementDragType>({
 
 					// the closest parent that is a draggable element will be marked as
 					// the `event.target` for the event
-					const targets = event.composedPath();
-					const target = targets.find(
-            (t) => t instanceof HTMLElement && draggableRegistry.has(t)
-          ) as HTMLElement;
+					const target = event
+            .composedPath()
+            .find(
+              (t): t is HTMLElement => t instanceof HTMLElement && draggableRegistry.has(t)
+            );
 
 					// this source is only for elements
 					// Note: only HTMLElements can have the "draggable" attribute

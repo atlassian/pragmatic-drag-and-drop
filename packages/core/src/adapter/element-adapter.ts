@@ -1,6 +1,5 @@
 import { bind } from 'bind-event-listener';
 
-import { getElementFromPointWithoutHoneypot } from '../honey-pot-fix/get-element-from-point-without-honey-pot';
 import { makeHoneyPotFix } from '../honey-pot-fix/make-honey-pot-fix';
 import {
 	type AdapterAPI,
@@ -131,13 +130,16 @@ const adapter = makeAdapter<ElementDragType>({
 
 					// the closest parent that is a draggable element will be marked as
 					// the `event.target` for the event
-					const target: EventTarget | null = event.target;
+					const targets = event.composedPath();
+					const target = targets.find(
+            (t) => t instanceof HTMLElement && draggableRegistry.has(t)
+          ) as HTMLElement;
 
 					// this source is only for elements
 					// Note: only HTMLElements can have the "draggable" attribute
-					if (!(target instanceof HTMLElement)) {
-						return null;
-					}
+					if (!target) {
+            return null;
+          }
 
 					// see if the thing being dragged is owned by us
 					const entry: DraggableArgs | undefined = draggableRegistry.get(target);
@@ -201,10 +203,11 @@ const adapter = makeAdapter<ElementDragType>({
 						// technically don't need this util, but just being
 						// consistent with how we look up what is under the users
 						// cursor.
-						const over = getElementFromPointWithoutHoneypot({
-							x: input.clientX,
-							y: input.clientY,
-						});
+						const dragHandleSource = target.getRootNode() as Document | ShadowRoot;
+						const over = dragHandleSource.elementFromPoint(
+              input.clientX,
+              input.clientY
+            );
 
 						// if we are not dragging from the drag handle (or something inside the drag handle)
 						// then we will cancel the active drag

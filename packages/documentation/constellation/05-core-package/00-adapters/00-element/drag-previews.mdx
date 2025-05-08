@@ -293,7 +293,12 @@ onGenerateDragPreview({ nativeSetDragImage, source, location }) {
 
 If you are using css variables inside of your `getOffset()` you need to be sure your css variables
 are available at the `<body>` element, as the `container` is temporarily mounted as a child of
-`<body>`
+`<body>`.
+
+`pointerOutsideOfPreview` will _not_ push the preview away from the users pointer on iOS due to
+platform limitations. On iOS the preview will start the drag on the top left corner (or top right
+corner for right to left interfaces). While dragging, iOS will shift the drag preview under the
+center of the users pointer, so the "pushing away" is short lived on iOS.
 
 3. `preserveOffsetOnSource`: applies the initial cursor offset to the custom native drag preview for
    a seamless experience

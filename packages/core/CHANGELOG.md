@@ -1,5 +1,16 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.6.1
+
+### Patch Changes
+
+- [#150602](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/150602)
+  [`f83b03a3b239e`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f83b03a3b239e) -
+  `pointerOutsideOfPreview` will no longer push the preview away from the users pointer on iOS due
+  to platform limitations. On iOS the preview will start the drag on the top left corner (or top
+  right corner for right to left interfaces). While dragging, iOS will shift the drag preview under
+  the center of the users pointer, so the "pushing away" is short lived on iOS.
+
 ## 1.6.0
 
 ### Minor Changes

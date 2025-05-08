@@ -5,6 +5,8 @@ import { once } from '../public-utils/once';
 /**
  * Returns `true` if a `Safari` browser.
  * Returns `true` if the browser is running on iOS (they are all Safari).
+ *
+ * Use `isSafariOnIOS` if you want to check if something is Safari + iOS
  * */
 export const isSafari = once(function isSafari(): boolean {
 	if (process.env.NODE_ENV === 'test') {

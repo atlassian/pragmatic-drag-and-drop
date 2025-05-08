@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "An optional Pragmatic drag and drop package that enables rapid migration from react-beautiful-dnd to Pragmatic drag and drop",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -47,7 +47,7 @@
     "react-beautiful-dnd": "^12.2.0",
     "react-virtualized": "^9.8.0",
     "react-window": "^1.8.8",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.0.0",
     "typescript": "~5.4.2",
     "wait-for-expect": "^1.2.0"
   }

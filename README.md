@@ -66,7 +66,7 @@ All documentation and `npm` packages are public and available for use by everyon
 
 ## Can I use this with my own Design System?
 
-Yep! Pragmatic drag and drop as a [small core package](https://atlassian.design/components/pragmatic-drag-and-drop/core-package), and then a range of [optional packages](https://atlassian.design/components/pragmatic-drag-and-drop/optional-package). Some of the optional packages have dependencies on styling solutions (eg `emotion`), view libraries (eg `react`) or on some additional Atlassian outputs (eg `@atlaskit/tokens`). We have separated out optional packages that have other dependencies so they can be easily swapped with your own pieces that use your own tech stack and visual outputs.
+Yep! Pragmatic drag and drop as a [small core package](https://atlassian.design/components/pragmatic-drag-and-drop/core-package), and then a range of [optional packages](https://atlassian.design/components/pragmatic-drag-and-drop/optional-packages). Some of the optional packages have dependencies on styling solutions (eg `emotion`), view libraries (eg `react`) or on some additional Atlassian outputs (eg `@atlaskit/tokens`). We have separated out optional packages that have other dependencies so they can be easily swapped with your own pieces that use your own tech stack and visual outputs.
 
 ## Can I use my own design language?
 

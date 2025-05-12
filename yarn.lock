@@ -239,16 +239,16 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/icon@^25.8.0":
-  version "25.8.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-25.8.0.tgz#3703bd968284338ff7e9439c4d555aeb866cb514"
-  integrity sha512-f/lXX0vMX/sNXPDDjcFa0meJr5+Y3dNnvalf5Z/DAoMQC1zLpKr/jzb6OdV/4R7psK2itIVwLPV5aSxn9I9U2A==
+"@atlaskit/icon@^26.0.0":
+  version "26.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-26.0.0.tgz#0b7f23a9dafa2ebce3db13d6b34ce36d0c916666"
+  integrity sha512-2iw+3BRvyrVXxLT1LqDvm6SnHJDOD8Z86o11rlFXsNAvI6/WOhIIepam/GRsjY6LbB9CUyvLBn3pXebZcsFqhg==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^4.8.0"
     "@babel/register" "^7.25.9"
     "@babel/runtime" "^7.0.0"
-    "@emotion/react" "^11.7.1"
+    "@compiled/react" "^0.18.3"
 
 "@atlaskit/interaction-context@3.0.0", "@atlaskit/interaction-context@^3.0.0":
   version "3.0.0"

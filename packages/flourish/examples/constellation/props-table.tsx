@@ -6,13 +6,12 @@
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
-import { N20, N300, N500, N800, R500 } from '@atlaskit/theme/colors';
 import { token } from '@atlaskit/tokens';
 
 const containerStyles = css({
-	margin: `${token('space.400', '24px')}px -${token('space.200', '16px')}px 0`,
-	padding: `${token('space.100', '8px')} ${token('space.200', '16px')}px`,
-	borderRadius: token('space.100', '8px'),
+	margin: `${token('space.400')}px -${token('space.200')}px 0`,
+	padding: `${token('space.100')} ${token('space.200')}px`,
+	borderRadius: token('space.100'),
 });
 
 const tableStyles = css({
@@ -25,10 +24,7 @@ const tbodyStyles = css({
 });
 
 const tableHeaderStyles = css({
-	padding: `${token('space.050', '4px')} ${token('space.200', '16px')} ${token(
-		'space.050',
-		'4px',
-	)} ${token('space.100', '8px')}`,
+	padding: `${token('space.050')} ${token('space.200')} ${token('space.050')} ${token('space.100')}`,
 	textAlign: 'left',
 	verticalAlign: 'top',
 	whiteSpace: 'nowrap',
@@ -36,16 +32,13 @@ const tableHeaderStyles = css({
 
 const tableCellStyles = css({
 	width: '100%',
-	padding: `${token('space.050', '4px')} 0 ${token('space.050', '4px')} ${token(
-		'space.100',
-		'8px',
-	)}`,
+	padding: `${token('space.050')} 0 ${token('space.050')} ${token('space.100')}`,
 });
 
 const headerStyles = css({
-	margin: `0 0 ${token('space.050', '4px')} 0`,
-	paddingBottom: token('space.100', '8px'),
-	borderBottom: `1px solid ${token('color.border', '#EBECF0')}`,
+	margin: `0 0 ${token('space.050')} 0`,
+	paddingBottom: token('space.100'),
+	borderBottom: `1px solid ${token('color.border')}`,
 	fontSize: '1em',
 	fontWeight: token('font.weight.regular'),
 	lineHeight: '1.4',
@@ -53,19 +46,19 @@ const headerStyles = css({
 
 const codeStyles = css({
 	display: 'inline-block',
-	backgroundColor: token('color.background.neutral', N20),
-	borderRadius: token('border.radius.100', '3px'),
-	color: `${token('color.text', N800)}`,
+	backgroundColor: token('color.background.neutral'),
+	borderRadius: token('border.radius.100'),
+	color: `${token('color.text')}`,
 	fontSize: '1em',
 	lineHeight: '20px',
-	paddingBlock: token('space.050', '4px'),
-	paddingInline: token('space.100', '8px'),
+	paddingBlock: token('space.050'),
+	paddingInline: token('space.100'),
 });
 
 const typeStyles = css({
-	background: token('color.background.neutral', N20),
-	color: token('color.text.subtle', N300),
-	borderRadius: token('border.radius.100', '3px'),
+	background: token('color.background.neutral'),
+	color: token('color.text.subtle'),
+	borderRadius: token('border.radius.100'),
 	display: 'inline-block',
 	padding: '0 0.2em',
 	whiteSpace: 'pre-wrap',
@@ -79,16 +72,16 @@ const captionStyles = css({
 
 const requiredLabelStyles = css({
 	marginLeft: '1em',
-	color: `${token('color.text.danger', R500)}`,
+	color: `${token('color.text.danger')}`,
 });
 
 const deprecatedLabelStyles = css({
 	marginLeft: '1em',
-	color: `${token('color.text.disabled', N500)}`,
+	color: `${token('color.text.disabled')}`,
 });
 
 const defaultValueStyles = css({
-	color: `${token('color.text.subtle', N300)}`,
+	color: `${token('color.text.subtle')}`,
 });
 
 const FunctionPropsTable = ({

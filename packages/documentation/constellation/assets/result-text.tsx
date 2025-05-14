@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 import { token } from '@atlaskit/tokens';
 
 const stylesStyles = css({
-	color: token('color.text.success', 'green'),
+	color: token('color.text.success'),
 	fontWeight: token('font.weight.bold'),
 });
 

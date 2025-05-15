@@ -38,17 +38,14 @@ export function getRect(box: {
 }
 
 // usage: const [A, B, C, D, F] = getElements();
-export function getElements(tagName: keyof HTMLElementTagNameMap = 'div'): Iterable<Element> {
-	const iterator = {
-		next() {
-			return {
-				done: false,
-				value: document.createElement(tagName),
-			};
-		},
-		[Symbol.iterator]() {
-			return iterator;
-		},
-	};
-	return iterator;
+export function* getElements(tagName: keyof HTMLElementTagNameMap = 'div'): Generator<Element> {
+	while (true) {
+		yield document.createElement(tagName);
+	}
+}
+
+export function between(inner: number, outer: number): number {
+	const diff = outer - inner;
+	const halfway = inner + diff / 2;
+	return halfway;
 }

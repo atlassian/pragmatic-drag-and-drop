@@ -1,4 +1,3 @@
-/* eslint-disable @atlaskit/design-system/no-html-button */
 /**
  * @jsxRuntime classic
  * @jsx jsx
@@ -20,20 +19,25 @@ import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
 import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
 import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--more';
 import { ModalTransition } from '@atlaskit/modal-dialog';
-import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
-import { GroupDropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/group';
+import {
+	type Instruction,
+	type ItemMode,
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementDropTargetEventBasePayload,
+	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { token } from '@atlaskit/tokens';
 
 import { type TreeItem as TreeItemType } from '../../data/tree-legacy';
 
+import { indentPerLevel } from './constants';
 import { MoveDialog } from './move-dialog';
 import { DependencyContext, TreeContext } from './tree-context';
 
@@ -62,6 +66,7 @@ function Icon({ item }: { item: TreeItemType }) {
 const outerStyles = css({
 	// needed for our action button that uses position:absolute
 	position: 'relative',
+	'--grid': '8px',
 });
 
 const outerButtonStyles = css({
@@ -94,7 +99,7 @@ const innerDraggingStyles = css({
 });
 
 const innerButtonStyles = css({
-	padding: token('space.100'),
+	padding: 'var(--grid)',
 	paddingRight: 40,
 	alignItems: 'center',
 	display: 'flex',
@@ -117,25 +122,36 @@ const labelStyles = css({
 	whiteSpace: 'nowrap',
 });
 
-const indentPerLevel = token('space.250');
-
-const indentStyles = css({
-	paddingLeft: indentPerLevel,
-});
-
-const fullWidthStyle = css({
+const debugStyles = css({
 	position: 'absolute',
-	inset: 0,
+	right: 'var(--grid)',
+	bottom: 0,
+	fontSize: '6px',
 });
 
 const previewStyles = css({
+	'--grid': '8px',
 	background: token('elevation.surface.raised', 'red'),
-	padding: token('space.100'),
+	padding: 'var(--grid)',
 	borderRadius: 3,
 });
 
 function Preview({ item }: { item: TreeItemType }) {
 	return <div css={previewStyles}>Item {item.id}</div>;
+}
+
+const parentOfInstructionStyles = css({
+	background: token('color.background.selected.hovered', 'transparent'),
+});
+
+function getParentLevelOfInstruction(instruction: Instruction): number {
+	if (instruction.type === 'instruction-blocked') {
+		return getParentLevelOfInstruction(instruction.desired);
+	}
+	if (instruction.type === 'reparent') {
+		return instruction.desiredLevel - 1;
+	}
+	return instruction.currentLevel - 1;
 }
 
 function delay({ waitMs: timeMs, fn }: { waitMs: number; fn: () => void }): () => void {
@@ -153,18 +169,20 @@ function delay({ waitMs: timeMs, fn }: { waitMs: number; fn: () => void }): () =
 
 const TreeItem = memo(function TreeItem({
 	item,
+	mode,
 	level,
 	index,
 }: {
 	item: TreeItemType;
+	mode: ItemMode;
 	level: number;
 	index: number;
 }) {
-	const buttonRef = useRef<HTMLButtonElement | null>(null);
-	const groupRef = useRef<HTMLDivElement | null>(null);
+	const buttonRef = useRef<HTMLButtonElement>(null);
 
-	const [state, setState] = useState<'idle' | 'dragging' | 'preview'>('idle');
-	const [groupState, setGroupState] = useState<'is-innermost-over' | 'idle'>('idle');
+	const [state, setState] = useState<'idle' | 'dragging' | 'preview' | 'parent-of-instruction'>(
+		'idle',
+	);
 	const [instruction, setInstruction] = useState<Instruction | null>(null);
 	const cancelExpandRef = useRef<(() => void) | null>(null);
 
@@ -190,30 +208,76 @@ const TreeItem = memo(function TreeItem({
 		cancelExpandRef.current = null;
 	}, []);
 
+	const clearParentOfInstructionState = useCallback(() => {
+		setState((current) => (current === 'parent-of-instruction' ? 'idle' : current));
+	}, []);
+
+	// When an item has an instruction applied
+	// we are highlighting it's parent item for improved clarity
+	const shouldHighlightParent = useCallback(
+		(location: DragLocationHistory): boolean => {
+			const target = location.current.dropTargets[0];
+
+			if (!target) {
+				return false;
+			}
+
+			const instruction = extractInstruction(target.data);
+
+			if (!instruction) {
+				return false;
+			}
+
+			const targetId = target.data.id;
+			invariant(typeof targetId === 'string');
+
+			const path = getPathToItem(targetId);
+			const parentLevel: number = getParentLevelOfInstruction(instruction);
+			const parentId = path[parentLevel];
+			return parentId === item.id;
+		},
+		[getPathToItem, extractInstruction, item],
+	);
+
 	useEffect(() => {
 		invariant(buttonRef.current);
 
-		function onChange({ self }: ElementDropTargetEventBasePayload) {
+		function updateIsParentOfInstruction({ location }: { location: DragLocationHistory }) {
+			if (shouldHighlightParent(location)) {
+				setState('parent-of-instruction');
+				return;
+			}
+			clearParentOfInstructionState();
+		}
+
+		function onChange({ self, source }: ElementDropTargetEventBasePayload) {
 			const instruction = extractInstruction(self.data);
 
-			// expand after 500ms if still merging
-			if (
-				instruction?.operation === 'combine' &&
-				item.children.length &&
-				!item.isOpen &&
-				!cancelExpandRef.current
-			) {
-				cancelExpandRef.current = delay({
-					waitMs: 500,
-					fn: () => dispatch({ type: 'expand', itemId: item.id }),
-				});
-			}
-			if (instruction?.operation !== 'combine' && cancelExpandRef.current) {
-				cancelExpand();
-			}
+			if (source.data.id !== item.id) {
+				// expand after 500ms if still merging
+				if (
+					instruction?.type === 'make-child' &&
+					item.children.length &&
+					!item.isOpen &&
+					!cancelExpandRef.current
+				) {
+					cancelExpandRef.current = delay({
+						waitMs: 500,
+						fn: () => dispatch({ type: 'expand', itemId: item.id }),
+					});
+				}
+				if (instruction?.type !== 'make-child' && cancelExpandRef.current) {
+					cancelExpand();
+				}
 
-			setInstruction(instruction);
-			return;
+				setInstruction(instruction);
+				return;
+			}
+			if (instruction?.type === 'reparent') {
+				setInstruction(instruction);
+				return;
+			}
+			setInstruction(null);
 		}
 
 		return combine(
@@ -229,9 +293,7 @@ const TreeItem = memo(function TreeItem({
 					setCustomNativeDragPreview({
 						getOffset: pointerOutsideOfPreview({ x: '16px', y: '8px' }),
 						render: ({ container }) => {
-							// eslint-disable-next-line react/no-deprecated
 							ReactDOM.render(<Preview item={item} />, container);
-							// eslint-disable-next-line react/no-deprecated
 							return () => ReactDOM.unmountComponentAtNode(container);
 						},
 						nativeSetDragImage,
@@ -259,21 +321,14 @@ const TreeItem = memo(function TreeItem({
 					return attachInstruction(data, {
 						input,
 						element,
-						operations: item.isDraft
-							? { combine: 'blocked' }
-							: {
-									combine: 'available',
-									'reorder-before': 'available',
-									// Don't allow 'reorder-after' on expanded items
-									'reorder-after':
-										item.isOpen && item.children.length ? 'not-available' : 'available',
-								},
+						indentPerLevel,
+						currentLevel: level,
+						mode,
+						block: item.isDraft ? ['make-child'] : [],
 					});
 				},
 				canDrop: ({ source }) =>
-					source.data.type === 'tree-item' &&
-					source.data.id !== item.id &&
-					source.data.uniqueContextId === uniqueContextId,
+					source.data.type === 'tree-item' && source.data.uniqueContextId === uniqueContextId,
 				getIsSticky: () => true,
 				onDragEnter: onChange,
 				onDrag: onChange,
@@ -286,46 +341,28 @@ const TreeItem = memo(function TreeItem({
 					setInstruction(null);
 				},
 			}),
+			monitorForElements({
+				canMonitor: ({ source }) => source.data.uniqueContextId === uniqueContextId,
+				onDragStart: updateIsParentOfInstruction,
+				onDrag: updateIsParentOfInstruction,
+				onDrop() {
+					clearParentOfInstructionState();
+				},
+			}),
 		);
 	}, [
 		dispatch,
 		item,
+		mode,
+		level,
 		cancelExpand,
 		uniqueContextId,
 		extractInstruction,
 		attachInstruction,
 		getPathToItem,
+		clearParentOfInstructionState,
+		shouldHighlightParent,
 	]);
-
-	useEffect(() => {
-		const group = groupRef.current;
-		// item has no children or is not open
-		if (!group) {
-			return;
-		}
-
-		function onChange({ location, self }: ElementDropTargetEventBasePayload) {
-			const [innerMost] = location.current.dropTargets.filter(
-				(dropTarget) => dropTarget.data.type === 'group',
-			);
-
-			setGroupState(innerMost?.element === self.element ? 'is-innermost-over' : 'idle');
-		}
-
-		return dropTargetForElements({
-			element: group,
-			canDrop: ({ source }) =>
-				source.data.type === 'tree-item' &&
-				source.data.id !== item.id &&
-				source.data.uniqueContextId === uniqueContextId,
-			getData: () => ({ type: 'group' }),
-			getIsSticky: () => false,
-			onDragStart: onChange,
-			onDropTargetChange: onChange,
-			onDragLeave: () => setGroupState('idle'),
-			onDrop: () => setGroupState('idle'),
-		});
-	}, [item.id, uniqueContextId]);
 
 	useEffect(
 		function mount() {
@@ -365,22 +402,30 @@ const TreeItem = memo(function TreeItem({
 						onClick={toggleOpen}
 						ref={buttonRef}
 						type="button"
+						// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
+						style={{ paddingLeft: level * indentPerLevel }}
 						data-index={index}
 						data-level={level}
 						data-testid={`tree-item-${item.id}`}
 					>
-						<span css={[innerButtonStyles, state === 'dragging' ? innerDraggingStyles : undefined]}>
+						<span
+							css={[
+								innerButtonStyles,
+								state === 'dragging'
+									? innerDraggingStyles
+									: state === 'parent-of-instruction'
+										? parentOfInstructionStyles
+										: undefined,
+							]}
+						>
 							<Icon item={item} />
 							<span css={labelStyles}>Item {item.id}</span>
-							<small css={idStyles}>{item.isDraft ? <code>Draft</code> : null}</small>
+							<small css={idStyles}>
+								{item.isDraft ? <code>Draft</code> : null}
+								<code css={debugStyles}>({mode})</code>
+							</small>
 						</span>
 						{instruction ? <DropIndicator instruction={instruction} /> : null}
-						<span
-							css={fullWidthStyle}
-							style={{
-								left: `calc(-1 * ${level} * ${indentPerLevel}`,
-							}}
-						/>
 					</button>
 				</FocusRing>
 				<DropdownMenu
@@ -408,12 +453,29 @@ const TreeItem = memo(function TreeItem({
 				</DropdownMenu>
 			</div>
 			{item.children.length && item.isOpen ? (
-				<div id={aria?.['aria-controls']} css={indentStyles}>
-					<GroupDropIndicator isActive={groupState === 'is-innermost-over'} ref={groupRef}>
-						{item.children.map((child, index) => {
-							return <TreeItem item={child} key={child.id} level={level + 1} index={index} />;
-						})}
-					</GroupDropIndicator>
+				<div id={aria?.['aria-controls']}>
+					{item.children.map((child, index, array) => {
+						const childType: ItemMode = (() => {
+							if (child.children.length && child.isOpen) {
+								return 'expanded';
+							}
+
+							if (index === array.length - 1) {
+								return 'last-in-group';
+							}
+
+							return 'standard';
+						})();
+						return (
+							<TreeItem
+								item={child}
+								key={child.id}
+								level={level + 1}
+								mode={childType}
+								index={index}
+							/>
+						);
+					})}
 				</div>
 			) : null}
 			<ModalTransition>

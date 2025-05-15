@@ -3,10 +3,10 @@ import { createContext } from 'react';
 import {
 	attachInstruction,
 	extractInstruction,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
-import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/list-item';
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/tree-item';
 
-import type { TreeAction, TreeItem } from '../../data/tree';
+import type { TreeAction, TreeItem } from '../../data/tree-legacy';
 
 export type TreeContextValue = {
 	dispatch: (action: TreeAction) => void;

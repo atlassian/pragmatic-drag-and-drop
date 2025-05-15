@@ -113,10 +113,10 @@
     "@compiled/react" "^0.18.3"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/code@^17.1.0":
-  version "17.1.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-17.1.0.tgz#b37aa703daf8911cb8e4217d16aebcc5cb46ac9b"
-  integrity sha512-PdP9z12jlA+6YkCH51h6nDPdvWPw6PoVr7prkoc2INbZ/kV1C28AUhBmIXADb1icnKGsf/reAPVs09KXg0A6ZA==
+"@atlaskit/code@^17.2.0":
+  version "17.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/code/-/code-17.2.0.tgz#d3bc713d8219ae9cc39b8180000f6631a6029f81"
+  integrity sha512-97Np0NSvanSNlLbuwVRPLIpUj+nvfYBjs5ccp7iThkwiF7CzABu7vrvr/4LeV9LMJWgw+6nwCLt0fMgiHL1OjQ==
   dependencies:
     "@atlaskit/codemod-utils" "^4.2.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
@@ -125,7 +125,9 @@
     "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
+    bind-event-listener "^3.0.0"
     memoize-one "^6.0.0"
+    raf-schd "^4.0.3"
     refractor "^3.6.0"
 
 "@atlaskit/codemod-utils@^4.2.0":

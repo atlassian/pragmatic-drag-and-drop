@@ -10,15 +10,13 @@ import memoizeOne from 'memoize-one';
 import invariant from 'tiny-invariant';
 
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
-import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
-import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
-import { GroupDropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/group';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import {
-	dropTargetForElements,
-	type ElementDropTargetEventBasePayload,
-	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+	type Instruction,
+	type ItemMode,
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { token } from '@atlaskit/tokens';
 
 import {
@@ -26,9 +24,13 @@ import {
 	tree,
 	type TreeItem as TreeItemType,
 	treeStateReducer,
-} from './data/tree';
-import { DependencyContext, TreeContext, type TreeContextValue } from './pieces/tree/tree-context';
-import TreeItem from './pieces/tree/tree-item';
+} from './data/tree-legacy';
+import {
+	DependencyContext,
+	TreeContext,
+	type TreeContextValue,
+} from './pieces/tree-legacy/tree-context';
+import TreeItem from './pieces/tree-legacy/tree-item';
 
 const treeStyles = css({
 	display: 'flex',
@@ -62,11 +64,10 @@ function createTreeItemRegistry() {
 	return { registry, registerTreeItem };
 }
 
-export default function TreeLegacy() {
+export default function Tree() {
 	const [state, updateState] = useReducer(treeStateReducer, null, getInitialTreeState);
 	const ref = useRef<HTMLDivElement>(null);
 	const { extractInstruction } = useContext(DependencyContext);
-	const [dropTargetState, setDropTargetState] = useState<'is-innermost-over' | 'idle'>('idle');
 
 	const [{ registry, registerTreeItem }] = useState(createTreeItemRegistry);
 
@@ -81,7 +82,7 @@ export default function TreeLegacy() {
 			return;
 		}
 
-		// focus seems to be more reliable after a timeout.
+		// focus is more reliable after a timeout
 		setTimeout(() => {
 			if (lastAction.type === 'modal-move') {
 				const parentName = lastAction.targetId === '' ? 'the root' : `Item ${lastAction.targetId}`;
@@ -196,25 +197,11 @@ export default function TreeLegacy() {
 		[getChildrenOfItem, getMoveTargets, registerTreeItem],
 	);
 
-	const groupRef = useRef<HTMLDivElement | null>(null);
-
 	useEffect(() => {
 		invariant(ref.current);
-		invariant(groupRef.current);
-
-		function onDropTargetChange({ location, self }: ElementDropTargetEventBasePayload) {
-			const [innerMost] = location.current.dropTargets.filter(
-				(dropTarget) => dropTarget.data.type === 'group',
-			);
-
-			setDropTargetState(innerMost?.element === self.element ? 'is-innermost-over' : 'idle');
-		}
-
 		return combine(
 			monitorForElements({
-				canMonitor: ({ source }) =>
-					source.data.uniqueContextId === context.uniqueContextId &&
-					source.data.type === 'tree-item',
+				canMonitor: ({ source }) => source.data.uniqueContextId === context.uniqueContextId,
 				onDrop(args) {
 					const { location, source } = args;
 					// didn't drop on anything
@@ -222,33 +209,24 @@ export default function TreeLegacy() {
 						return;
 					}
 
-					const itemId = source.data.id as string;
+					if (source.data.type === 'tree-item') {
+						const itemId = source.data.id as string;
 
-					const target = location.current.dropTargets[0];
-					const targetId = target.data.id as string;
+						const target = location.current.dropTargets[0];
+						const targetId = target.data.id as string;
 
-					const instruction: Instruction | null = extractInstruction(target.data);
+						const instruction: Instruction | null = extractInstruction(target.data);
 
-					if (instruction !== null) {
-						updateState({
-							type: 'instruction',
-							instruction,
-							itemId,
-							targetId,
-						});
+						if (instruction !== null) {
+							updateState({
+								type: 'instruction',
+								instruction,
+								itemId,
+								targetId,
+							});
+						}
 					}
 				},
-			}),
-			dropTargetForElements({
-				element: groupRef.current,
-				canDrop: ({ source }) =>
-					source.data.uniqueContextId === context.uniqueContextId &&
-					source.data.type === 'tree-item',
-				getData: () => ({ type: 'group' }),
-				onDragStart: onDropTargetChange,
-				onDropTargetChange: onDropTargetChange,
-				onDragLeave: () => setDropTargetState('idle'),
-				onDrop: () => setDropTargetState('idle'),
 			}),
 		);
 	}, [context, extractInstruction]);
@@ -258,11 +236,21 @@ export default function TreeLegacy() {
 			{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
 			<div style={{ display: 'flex', justifyContent: 'center', padding: 24 }}>
 				<div css={treeStyles} id="tree" ref={ref}>
-					<GroupDropIndicator isActive={dropTargetState === 'is-innermost-over'} ref={groupRef}>
-						{data.map((item, index) => {
-							return <TreeItem item={item} key={item.id} level={0} index={index} />;
-						})}
-					</GroupDropIndicator>
+					{data.map((item, index, array) => {
+						const type: ItemMode = (() => {
+							if (item.children.length && item.isOpen) {
+								return 'expanded';
+							}
+
+							if (index === array.length - 1) {
+								return 'last-in-group';
+							}
+
+							return 'standard';
+						})();
+
+						return <TreeItem item={item} level={0} key={item.id} mode={type} index={index} />;
+					})}
 				</div>
 			</div>
 		</TreeContext.Provider>

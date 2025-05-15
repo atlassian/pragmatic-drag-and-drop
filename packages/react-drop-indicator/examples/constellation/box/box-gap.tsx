@@ -11,8 +11,7 @@ import { Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { DropIndicator } from '../../../src/box';
-
-import { Item } from './box-simple-item';
+import { Item } from '../simple-item';
 
 const verticalStyles = css({
 	display: 'flex',

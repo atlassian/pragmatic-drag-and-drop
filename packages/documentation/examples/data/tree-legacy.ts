@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant';
 
-import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
+import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
 
 export type TreeItem = {
 	id: string;
@@ -215,24 +215,36 @@ const dataReducer = (data: TreeItem[], action: TreeAction) => {
 	if (action.type === 'instruction') {
 		const instruction = action.instruction;
 
+		if (instruction.type === 'reparent') {
+			const path = tree.getPathToItem({
+				current: data,
+				targetId: action.targetId,
+			});
+			invariant(path);
+			const desiredId = path[instruction.desiredLevel];
+			let result = tree.remove(data, action.itemId);
+			result = tree.insertAfter(result, desiredId, item);
+			return result;
+		}
+
 		// the rest of the actions require you to drop on something else
 		if (action.itemId === action.targetId) {
 			return data;
 		}
 
-		if (instruction.operation === 'reorder-before') {
+		if (instruction.type === 'reorder-above') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertBefore(result, action.targetId, item);
 			return result;
 		}
 
-		if (instruction.operation === 'reorder-after') {
+		if (instruction.type === 'reorder-below') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertAfter(result, action.targetId, item);
 			return result;
 		}
 
-		if (instruction.operation === 'combine') {
+		if (instruction.type === 'make-child') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertChild(result, action.targetId, item);
 			return result;

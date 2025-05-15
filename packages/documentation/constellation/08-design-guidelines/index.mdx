@@ -335,6 +335,27 @@ color change should be used when the user is dragging something within the exper
 
 ![A list being reordered, where only a drop indication line is being shown and there is no background changes](/images/design-list-drop-indicator.png)
 
+#### Nested structures
+
+When there are multiple horizontal levels available as drop targets (for example, trees), then we
+encourage the use of extra visual affordances to make the levelling clearer:
+
+1. Change the background color to `'color.background.information'` for all items on the level
+2. Add an outline to the level with the following properties:
+
+```tsx
+const styles = css({
+	backgroundColor: token('color.background.information'),
+	borderRadius: token('border.radius.050'),
+	outlineOffset: token('space.075'),
+	outlineWidth: token('border.width.outline'),
+	outlineStyle: 'solid',
+	outlineColor: token('color.border.selected'),
+});
+```
+
+<Example Component={TreeExample} appearance="showcase-only" />
+
 ## After a drop, show the item in its new position
 
 After a drop, the drag preview disappears and the original item should to it's new location. To
@@ -395,8 +416,13 @@ in designs.
 ## Trees
 
 <SectionMessage appearance="information">
-	This design pattern has not yet been converted into a spec. Please refer to the following tree
-	example as our current design guidance.
+
+We have no standalone tree spec at this stage, So please refer to:
+
+1. Our tree example below
+2. Our [navigation drag and drop spec](/components/navigation-system/side-navigation/drag-and-drop)
+   spec
+
 </SectionMessage>
 
 <Example Component={TreeExample} appearance="showcase-only" />

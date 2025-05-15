@@ -17,6 +17,7 @@
     ".": "./src/index.ts",
     "./types": "./src/types.ts",
     "./closest-edge": "./src/closest-edge.ts",
+    "./list-item": "./src/list-item.ts",
     "./tree-item": "./src/tree-item.ts",
     "./util/reorder-with-edge": "./src/reorder-with-edge.ts",
     "./util/get-reorder-destination-index": "./src/get-reorder-destination-index.ts"

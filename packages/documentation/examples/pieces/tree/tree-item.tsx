@@ -274,7 +274,6 @@ const TreeItem = memo(function TreeItem({
 					source.data.type === 'tree-item' &&
 					source.data.id !== item.id &&
 					source.data.uniqueContextId === uniqueContextId,
-				getIsSticky: () => true,
 				onDragEnter: onChange,
 				onDrag: onChange,
 				onDragLeave: () => {

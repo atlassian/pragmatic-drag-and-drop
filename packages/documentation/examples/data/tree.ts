@@ -220,6 +220,11 @@ const dataReducer = (data: TreeItem[], action: TreeAction) => {
 			return data;
 		}
 
+		// instruction was blocked and should not do anything
+		if (action.instruction.blocked) {
+			return data;
+		}
+
 		if (instruction.operation === 'reorder-before') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertBefore(result, action.targetId, item);

@@ -28,7 +28,7 @@ is created with `role="alert"`, equivalent to setting:
 - `aria-atomic="true"`, meaning that messages will always be read in full.
 
 ```ts
-import { announce } from '@atlaskit/live-region';
+import { announce } from '@atlaskit/pragmatic-drag-and-drop-live-region';
 
 announce('Task "Clean dishes" moved to list "Doing" from "Todo".');
 ```
@@ -41,7 +41,7 @@ If a live region does not exist, no error will be thrown and nothing will happen
 the function is safe to call optimistically.
 
 ```ts
-import { cleanup } from '@atlaskit/live-region';
+import { cleanup } from '@atlaskit/pragmatic-drag-and-drop-live-region';
 
 cleanup();
 ```

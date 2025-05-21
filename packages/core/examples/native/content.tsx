@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
+import Link from '@atlaskit/link';
+import { fg } from '@atlaskit/platform-feature-flags';
 import { Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
@@ -115,7 +117,12 @@ function DraggableAnchor() {
 			element,
 		});
 	}, []);
-	return (
+	return fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+		<Link href="#controlled" ref={ref}>
+			Anchor that is also a draggable()
+		</Link>
+	) : (
+		// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
 		<a href="#controlled" ref={ref}>
 			Anchor that is also a draggable()
 		</a>
@@ -136,7 +143,12 @@ function DraggableAnchorWithNewUrl() {
 			}),
 		});
 	}, []);
-	return (
+	return fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+		<Link href="#controlled" ref={ref}>
+			Link that is also a draggable() - with a new url
+		</Link>
+	) : (
+		// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
 		<a href="#controlled" ref={ref}>
 			Link that is also a draggable() - with a new url
 		</a>
@@ -167,7 +179,12 @@ function DraggableAnchorWithCustomPreview() {
 			},
 		});
 	}, []);
-	return (
+	return fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+		<Link href="#controlled" ref={ref}>
+			Link that is also a draggable() (custom preview)
+		</Link>
+	) : (
+		// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
 		<a href="#controlled" ref={ref}>
 			Link that is also a draggable() (custom preview)
 		</a>
@@ -223,11 +240,26 @@ export function Content() {
 			<div>
 				<ul>
 					<li>
-						<a href="#standalone">Standalone link</a>
+						{fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+							<Link href="#standalone">Standalone link</Link>
+						) : (
+							// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
+							<a href="#standalone">Standalone link</a>
+						)}
 					</li>
 					<li>
-						<a href="#side-by">Side by</a>
-						<a href="#side-links">side links</a>
+						{fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+							<Link href="#side-by">Side by</Link>
+						) : (
+							// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
+							<a href="#side-by">Side by</a>
+						)}
+						{fg('dst-a11y__replace-anchor-with-link__design-system-') ? (
+							<Link href="#side-links">side links</Link>
+						) : (
+							// eslint-disable-next-line @atlaskit/design-system/no-html-anchor
+							<a href="#side-links">side links</a>
+						)}
 					</li>
 					<li>
 						<DraggableAnchor />
@@ -261,7 +293,6 @@ export function Content() {
 			<li>
 				Controlled with custom preview <DraggableImageWithCustomPreview />
 			</li>
-
 			<h4>Controlled draggables</h4>
 			<Stack>
 				<Card />

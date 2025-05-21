@@ -1,5 +1,18 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.0
+
+### Minor Changes
+
+- [#157071](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/157071)
+  [`a149a0b1559ec`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/a149a0b1559ec) -
+  We are testing the migration to the ADS Link component behind a feature flag. If this fix is
+  successful it will be available in a later release.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 1.6.1
 
 ### Patch Changes

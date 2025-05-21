@@ -23,7 +23,7 @@
     "./util/get-reorder-destination-index": "./src/get-reorder-destination-index.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.6.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {

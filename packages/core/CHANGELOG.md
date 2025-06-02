@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.1
+
+### Patch Changes
+
+- [#162456](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/162456)
+  [`f916af5aab898`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f916af5aab898) -
+  Removes `@atlaskit/platform-feature-flags` as a dependency. Removes `@atlaskit/link` as a runtime
+  dependency, although it is still used in examples.
+
 ## 1.7.0
 
 ### Minor Changes

@@ -16,12 +16,5 @@
 		"../src/**/test.*",
 		"../src/**/examples.*"
 	],
-	"references": [
-		{
-			"path": "../../../design-system/link/afm-jira/tsconfig.json"
-		},
-		{
-			"path": "../../../platform/feature-flags/afm-jira/tsconfig.json"
-		}
-	]
+	"references": []
 }

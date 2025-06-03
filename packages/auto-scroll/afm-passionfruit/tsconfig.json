@@ -2,7 +2,7 @@
 	"extends": "../../../../tsconfig.entry-points.passionfruit.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../passionfruit/tsDist/@atlaskit__pragmatic-drag-and-drop/app",
+		"outDir": "../../../../../passionfruit/tsDist/@atlaskit__pragmatic-drag-and-drop-auto-scroll/app",
 		"rootDir": "../",
 		"composite": true
 	},
@@ -16,5 +16,9 @@
 		"../src/**/test.*",
 		"../src/**/examples.*"
 	],
-	"references": []
+	"references": [
+		{
+			"path": "../../core/afm-passionfruit/tsconfig.json"
+		}
+	]
 }

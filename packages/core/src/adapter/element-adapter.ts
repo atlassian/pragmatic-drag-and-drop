@@ -18,6 +18,7 @@ import {
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { combine } from '../public-utils/combine';
+import { once } from '../public-utils/once';
 import { addAttribute } from '../util/add-attribute';
 import { androidFallbackText, isAndroid } from '../util/android';
 import { getInput } from '../util/get-input';
@@ -350,7 +351,7 @@ export function draggable(args: DraggableArgs): CleanupFn {
 		}
 	}
 
-	return combine(
+	const cleanup = combine(
 		// making the draggable register the adapter rather than drop targets
 		// this is because you *must* have a draggable element to start a drag
 		// but you _might_ not have any drop targets immediately
@@ -359,6 +360,10 @@ export function draggable(args: DraggableArgs): CleanupFn {
 		addToRegistry(args),
 		addAttribute(args.element, { attribute: 'draggable', value: 'true' }),
 	);
+
+	// Wrapping in `once` to prevent unexpected side effects if consumers call
+	// the clean up function multiple times.
+	return once(cleanup);
 }
 
 /** Common event payload for all events */

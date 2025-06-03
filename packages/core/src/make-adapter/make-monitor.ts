@@ -5,6 +5,7 @@ import {
 	type MonitorArgs,
 	type MonitorGetFeedbackArgs,
 } from '../internal-types';
+import { once } from '../public-utils/once';
 
 type DraggingState<DragType extends AllDragTypes> = {
 	canMonitorArgs: MonitorGetFeedbackArgs<DragType>;
@@ -38,14 +39,18 @@ export function makeMonitor<DragType extends AllDragTypes>() {
 		// if there is an active drag we need to see if this new monitor is relevant
 		tryAddToActive(entry);
 
-		return function cleanup() {
+		function cleanup() {
 			registry.delete(entry);
 
 			// We need to stop publishing events during a drag to this monitor!
 			if (dragging) {
 				dragging.active.delete(entry);
 			}
-		};
+		}
+
+		// Wrapping in `once` to prevent unexpected side effects if consumers call
+		// the clean up function multiple times.
+		return once(cleanup);
 	}
 
 	function dispatchEvent<EventName extends keyof EventPayloadMap<DragType>>({

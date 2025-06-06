@@ -38,7 +38,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^3.2.0",
     "@atlaskit/primitives": "^14.8.0",
     "@atlaskit/theme": "^18.0.0",
-    "@atlaskit/tokens": "^5.0.0",
+    "@atlaskit/tokens": "^5.1.0",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",
     "fast-glob": "^3.2.11",

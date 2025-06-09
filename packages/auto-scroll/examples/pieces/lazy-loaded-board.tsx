@@ -187,6 +187,7 @@ export function Board() {
 			<Inline space="space.050">
 				<Box>Auto scrolling:</Box>
 				<Box xcss={loadingStyles[state]}>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					<code>{state}</code>
 				</Box>
 			</Inline>

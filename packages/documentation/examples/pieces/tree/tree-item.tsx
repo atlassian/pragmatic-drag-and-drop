@@ -371,6 +371,7 @@ const TreeItem = memo(function TreeItem({
 						<span css={[innerButtonStyles, state === 'dragging' ? innerDraggingStyles : undefined]}>
 							<Icon item={item} />
 							<span css={labelStyles}>Item {item.id}</span>
+							{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 							<small css={idStyles}>{item.isDraft ? <code>Draft</code> : null}</small>
 						</span>
 						{instruction ? <DropIndicator instruction={instruction} /> : null}

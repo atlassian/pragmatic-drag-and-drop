@@ -115,6 +115,7 @@ const Upload = memo(function Upload({ upload }: { upload: UserUpload }) {
 			/>
 			<div css={uploadDetailStyles}>
 				<em css={uploadFilenameStyles}>{upload.name}</em>
+				{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 				<code>{Math.round(upload.size / 1000)}kB</code>
 			</div>
 		</div>

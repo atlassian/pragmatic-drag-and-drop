@@ -104,10 +104,13 @@ const FunctionPropsTable = ({
 			<table css={tableStyles}>
 				<caption css={captionStyles}>
 					<h3 css={headerStyles}>
+						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						<code css={codeStyles}>{propName}</code>
 						{required && defaultValue === undefined && (
+							// eslint-disable-next-line @atlaskit/design-system/no-html-code
 							<code css={requiredLabelStyles}>required</code>
 						)}
+						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						{deprecated && <code css={deprecatedLabelStyles}>deprecated</code>}
 					</h3>
 				</caption>
@@ -124,6 +127,7 @@ const FunctionPropsTable = ({
 								Default
 							</th>
 							<td css={tableCellStyles}>
+								{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 								<code css={defaultValueStyles}>{defaultValue}</code>
 							</td>
 						</tr>
@@ -132,6 +136,7 @@ const FunctionPropsTable = ({
 						<th css={tableHeaderStyles}>Type</th>
 						<td css={[tableCellStyles]}>
 							<span>
+								{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 								<code css={typeStyles}>{typing}</code>
 							</span>
 						</td>

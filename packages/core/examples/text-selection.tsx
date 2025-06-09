@@ -80,6 +80,7 @@ function DropTarget() {
 			<Stack space="space.100">
 				<strong>Drop select text on me</strong>
 				<Box>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					Latest dropped text: <code>"{latestText}"</code>
 				</Box>
 			</Stack>

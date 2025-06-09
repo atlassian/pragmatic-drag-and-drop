@@ -147,6 +147,7 @@ function DropTarget() {
 			<Stack alignInline="center">
 				<strong>Drop on me!</strong>
 				<em>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					Last dropped: <code>{lastDropped ?? 'none'}</code>
 				</em>
 			</Stack>

@@ -106,6 +106,7 @@ export function HiddenDragHandle() {
 					/>
 				</Box>
 				<Box>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					Drag handle visible on <code>:hover</code> and <code>:focus-within</code>
 				</Box>
 				<ActionMenu />

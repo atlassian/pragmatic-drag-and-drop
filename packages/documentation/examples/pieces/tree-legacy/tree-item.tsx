@@ -421,7 +421,9 @@ const TreeItem = memo(function TreeItem({
 							<Icon item={item} />
 							<span css={labelStyles}>Item {item.id}</span>
 							<small css={idStyles}>
+								{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 								{item.isDraft ? <code>Draft</code> : null}
+								{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 								<code css={debugStyles}>({mode})</code>
 							</small>
 						</span>

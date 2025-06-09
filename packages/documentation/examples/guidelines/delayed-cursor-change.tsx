@@ -98,6 +98,7 @@ export function DelayedCursorChange() {
 						/>
 					</Stack>
 					<Box>
+						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						<code>cursor:drag</code> delayed by <code>800ms</code>
 					</Box>
 					<ActionMenu />

@@ -14,7 +14,7 @@ import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--editor-more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
@@ -386,7 +386,7 @@ function DropdownMenuTrigger({ triggerRef, ...triggerProps }: CustomTriggerProps
 			appearance="subtle"
 			label="Actions"
 			spacing="compact"
-			icon={MoreIcon}
+			icon={(iconProps) => <MoreIcon {...iconProps} size="small" />}
 			{...triggerProps}
 		/>
 	);

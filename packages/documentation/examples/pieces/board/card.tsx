@@ -20,7 +20,7 @@ import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--editor-more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -207,7 +207,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 									: // Workaround for IconButton typing issue
 										mergeRefs([triggerRef])
 							}
-							icon={MoreIcon}
+							icon={(iconProps) => <MoreIcon {...iconProps} size="small" />}
 							label={`Move ${name}`}
 							appearance="default"
 							spacing="compact"

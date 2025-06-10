@@ -13,7 +13,7 @@ import DropdownMenu, {
 	DropdownItem,
 	DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 
 import { usePreventScrollingFromArrowKeys } from '../hooks/use-prevent-scrolling-from-arrow-keys';
 import type { ReorderItem } from '../subtasks/hooks/use-top-level-wiring';
@@ -111,7 +111,13 @@ function MenuButtonTrigger({
 				ref={triggerRef}
 				{...props}
 				iconBefore={
-					<MoreIcon spacing="compact" color="currentColor" label="actions" LEGACY_size={size} />
+					<MoreIcon
+						spacing="compact"
+						color="currentColor"
+						label="actions"
+						LEGACY_size={size}
+						size="small"
+					/>
 				}
 				spacing={spacing}
 				css={isOnlyVisibleWhenFocused && !props.isSelected && hiddenStyles}

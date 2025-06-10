@@ -3,8 +3,8 @@ import React, { type ReactNode } from 'react';
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
 import Button, { IconButton } from '@atlaskit/button/new';
+import ChevronDownIcon from '@atlaskit/icon/core/migration/chevron-down';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
-import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 const containerStyles = xcss({
@@ -44,7 +44,7 @@ function BacklogHeader() {
 		<Stack space="space.050">
 			<Inline spread="space-between" alignBlock="center" xcss={headerTitleInsetStyles}>
 				<Inline alignBlock="center">
-					<ChevronDownIcon color="currentColor" spacing="spacious" label="" />
+					<ChevronDownIcon color="currentColor" spacing="spacious" label="" size="small" />
 					<Inline space="space.100" alignBlock="center">
 						<Box xcss={sprintTitleStyles}>Sprint Title</Box>
 						<Box xcss={subtlestTextStyles}>29 Aug — 12 Sep</Box>

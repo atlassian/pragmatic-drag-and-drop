@@ -16,9 +16,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import FocusRing from '@atlaskit/focus-ring';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
 import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--more';
 import { ModalTransition } from '@atlaskit/modal-dialog';
 import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
 import { GroupDropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/group';
@@ -392,6 +392,7 @@ const TreeItem = memo(function TreeItem({
 									label="Actions"
 									LEGACY_size="small"
 									color={token('color.icon.subtle', '#626F86')}
+									size="small"
 								/>
 							}
 							{...triggerProps}

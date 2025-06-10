@@ -7,9 +7,9 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
+import ChevronDownCircleIcon from '@atlaskit/icon/core/migration/chevron-down--chevron-down-circle';
 import RecentIcon from '@atlaskit/icon/core/migration/clock--recent';
 import EditorTextStyleIcon from '@atlaskit/icon/core/migration/text-style--editor-text-style';
-import ChevronDownCircleIcon from '@atlaskit/icon/utility/migration/chevron-down--chevron-down-circle';
 import { token } from '@atlaskit/tokens';
 
 const subtaskContainerStyles = css({
@@ -67,6 +67,7 @@ export const SubtaskContainer = forwardRef<HTMLDivElement, SubtaskContainerProps
 								label=""
 								LEGACY_size="small"
 								spacing="compact"
+								size="small"
 							/>
 							Status
 						</Heading>

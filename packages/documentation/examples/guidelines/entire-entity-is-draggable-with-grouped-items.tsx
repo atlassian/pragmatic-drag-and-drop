@@ -5,9 +5,9 @@ import invariant from 'tiny-invariant';
 
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import ChevronRightIcon from '@atlaskit/icon/core/migration/chevron-right';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
 import EditorMoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
-import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -43,6 +43,7 @@ function GroupedActionMenu() {
 									spacing="spacious"
 									color={token('color.icon.subtle', '')}
 									label=""
+									size="small"
 								/>
 							}
 						>
@@ -137,6 +138,7 @@ export function EntireEntityIsDraggableWithGroupedItems() {
 						spacing="spacious"
 						label="Drag list item"
 						color={token('color.icon')}
+						size="small"
 					/>
 				</Stack>
 				<Box>Entire entity is draggable (with grouped actions)</Box>

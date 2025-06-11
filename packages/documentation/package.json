@@ -53,6 +53,9 @@
   "platform-feature-flags": {
     "dst-a11y__replace-anchor-with-link__design-system-": {
       "type": "boolean"
+    },
+    "should-render-to-parent-should-be-true-design-syst": {
+      "type": "boolean"
     }
   }
 }

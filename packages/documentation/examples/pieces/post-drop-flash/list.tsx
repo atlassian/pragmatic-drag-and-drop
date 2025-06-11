@@ -18,6 +18,7 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Lozenge from '@atlaskit/lozenge';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -235,6 +236,7 @@ function ListItem({ itemData }: { itemData: ItemData }) {
 								label={`Reorder ${itemData.label}`}
 							/>
 						)}
+						shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 					>
 						<LazyDropdownContent itemData={itemData} />
 					</DropdownMenu>

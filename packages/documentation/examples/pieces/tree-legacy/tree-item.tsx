@@ -19,6 +19,7 @@ import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
 import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
 import { ModalTransition } from '@atlaskit/modal-dialog';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	type Instruction,
 	type ItemMode,
@@ -449,6 +450,7 @@ const TreeItem = memo(function TreeItem({
 							appearance="subtle"
 						/>
 					)}
+					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 				>
 					<DropdownItemGroup>
 						<DropdownItem onClick={openMoveDialog}>Move</DropdownItem>

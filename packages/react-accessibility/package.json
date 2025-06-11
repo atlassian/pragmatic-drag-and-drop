@@ -45,6 +45,9 @@
     },
     "platform-visual-refresh-icons": {
       "type": "boolean"
+    },
+    "should-render-to-parent-should-be-true-design-syst": {
+      "type": "boolean"
     }
   }
 }

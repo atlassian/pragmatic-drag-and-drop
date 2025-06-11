@@ -21,6 +21,7 @@ import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -214,11 +215,11 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 							{...triggerProps}
 						/>
 					)}
+					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 				>
 					<LazyDropdownItems userId={userId} />
 				</DropdownMenu>
 			</Box>
-
 			{closestEdge && <DropIndicator edge={closestEdge} gap={token('space.100', '0')} />}
 		</Grid>
 	);

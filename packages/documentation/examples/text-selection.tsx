@@ -39,7 +39,7 @@ export default function TextSelection() {
 			<p>
 				Another paragraph{' '}
 				<em>
-					with some{' '}
+					with some {/* eslint-disable-next-line @atlaskit/design-system/no-html-anchor */}
 					<a href="#foo">
 						Link <strong>text</strong>
 					</a>

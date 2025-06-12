@@ -322,6 +322,7 @@ export default function ListComparison() {
 									accessibility={
 										<span>
 											Leverages directional keyboard movements.{' '}
+											{/* eslint-disable-next-line @atlaskit/design-system/no-html-anchor */}
 											<a href="https://youtu.be/5SQkOyzZLHM?t=2223">
 												This approach is a good stepping stone, but not ideal
 											</a>

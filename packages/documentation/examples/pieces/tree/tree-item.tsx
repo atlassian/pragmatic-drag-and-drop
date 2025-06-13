@@ -16,9 +16,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import FocusRing from '@atlaskit/focus-ring';
+import ChevronDownIcon from '@atlaskit/icon/core/migration/chevron-down';
+import ChevronRightIcon from '@atlaskit/icon/core/migration/chevron-right';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
-import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
-import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
 import { ModalTransition } from '@atlaskit/modal-dialog';
 import { fg } from '@atlaskit/platform-feature-flags';
 import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
@@ -50,7 +50,7 @@ function ChildIcon() {
 
 function GroupIcon({ isOpen }: { isOpen: boolean }) {
 	const Icon = isOpen ? ChevronDownIcon : ChevronRightIcon;
-	return <Icon spacing="spacious" label="" color={iconColor} />;
+	return <Icon spacing="spacious" label="" color={iconColor} size="small" />;
 }
 
 function Icon({ item }: { item: TreeItemType }) {

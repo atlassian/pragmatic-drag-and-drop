@@ -13,11 +13,11 @@ import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { Box, Inline, Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
-import { Appearance } from '../src/internal-types';
+import type { Appearance } from '../src/internal-types';
 import Line from '../src/internal/line';
 import { presetStrokeColors } from '../src/presets';
 
-import { List, Orientation } from './internal/list';
+import { List, type Orientation } from './internal/list';
 
 const orientationFromEdge: { [TKey in Edge]: Orientation } = {
 	top: 'vertical',

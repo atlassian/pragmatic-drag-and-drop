@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import React, { CSSProperties } from 'react';
+import React, { type CSSProperties } from 'react';
 
 import { css, jsx } from '@compiled/react';
 

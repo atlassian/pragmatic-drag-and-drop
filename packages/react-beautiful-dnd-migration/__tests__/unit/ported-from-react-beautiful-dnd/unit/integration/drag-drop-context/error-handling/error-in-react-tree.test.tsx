@@ -8,7 +8,7 @@ import { render } from '@testing-library/react';
 import { rbdInvariant } from '../../../../../../../src/drag-drop-context/rbd-invariant';
 import { setElementFromPoint } from '../../../../../_util';
 import { withWarn } from '../../../../_utils/console';
-import App, { defaultItemRender, RenderItem } from '../../_utils/app';
+import App, { defaultItemRender, type RenderItem } from '../../_utils/app';
 import { forEachSensor, mouse, simpleLift } from '../../_utils/controls';
 import { isDragging } from '../../_utils/helpers';
 

@@ -4,7 +4,7 @@ import invariant from 'tiny-invariant';
 
 import { Code } from '@atlaskit/code';
 import Lozenge from '@atlaskit/lozenge';
-import { Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
+import { type Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
 import { Inline, Stack, xcss } from '@atlaskit/primitives';
 import { RadioGroup } from '@atlaskit/radio';
 import { type OptionsPropType } from '@atlaskit/radio/types';

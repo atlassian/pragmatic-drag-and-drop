@@ -6,7 +6,7 @@ import { rbdInvariant } from '../../../../../../../src/drag-drop-context/rbd-inv
 import { setup } from '../../../../../_utils/setup';
 import causeRuntimeError from '../../../../_utils/cause-runtime-error';
 import { withError, withWarn } from '../../../../_utils/console';
-import App, { defaultItemRender, RenderItem } from '../../_utils/app';
+import App, { defaultItemRender, type RenderItem } from '../../_utils/app';
 import { type Control, forEachSensor, simpleLift } from '../../_utils/controls';
 import { isDragging } from '../../_utils/helpers';
 

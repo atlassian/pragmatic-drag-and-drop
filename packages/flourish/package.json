@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@atlaskit/motion": "^5.1.0",
-    "@atlaskit/tokens": "^5.1.0",
+    "@atlaskit/tokens": "^5.2.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {

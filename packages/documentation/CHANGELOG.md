@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.2
+
+### Patch Changes
+
+- [#171534](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/171534)
+  [`72189ecc4d763`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/72189ecc4d763) -
+  Updated icon usage for deprecated icons
+
 ## 1.4.1
 
 ### Patch Changes

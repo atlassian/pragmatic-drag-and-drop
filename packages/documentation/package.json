@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-docs",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "This package holds the documentation for Pragmatic drag and drop in one place. It is not intended to be consumed directly by consumers. The package is used by other tools for sharing examples",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -31,7 +31,7 @@
     "@atlaskit/focus-ring": "^3.0.0",
     "@atlaskit/grid": "^0.18.0",
     "@atlaskit/heading": "^5.2.0",
-    "@atlaskit/icon": "^26.4.0",
+    "@atlaskit/icon": "^27.0.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^2.0.0",

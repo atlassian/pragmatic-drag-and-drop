@@ -4,9 +4,9 @@ import CalendarIcon from '@atlaskit/icon/core/migration/calendar';
 import CheckCircleOutlineIcon from '@atlaskit/icon/core/migration/check-circle--check-circle-outline';
 import RecentIcon from '@atlaskit/icon/core/migration/clock--recent';
 import EditIcon from '@atlaskit/icon/core/migration/edit';
-import IssuesIcon from '@atlaskit/icon/core/migration/issues';
 import PersonIcon from '@atlaskit/icon/core/migration/person';
 import LabelIcon from '@atlaskit/icon/core/migration/tag--label';
+import IssuesIcon from '@atlaskit/icon/core/migration/work-items--issues';
 
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 

@@ -81,6 +81,7 @@ function Item({
 				xcss={[itemContentStyles, isDragging ? itemStateStyles.dragging : undefined]}
 			>
 				<Inline space="space.050">
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-checkbox */}
 					<input
 						onChange={() => setIsDraggingAllowed((value) => !value)}
 						type="checkbox"

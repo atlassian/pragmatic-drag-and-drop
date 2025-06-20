@@ -75,6 +75,7 @@ function DropTarget({ targetId, children }: { targetId: string; children?: React
 				<Inline>
 					<label>
 						<Inline space="space.050">
+							{/* eslint-disable-next-line @atlaskit/design-system/no-html-checkbox */}
 							<input
 								onChange={() => setIsDropAllowed((value) => !value)}
 								type="checkbox"
@@ -85,6 +86,7 @@ function DropTarget({ targetId, children }: { targetId: string; children?: React
 					</label>
 					<label>
 						<Inline space="space.050">
+							{/* eslint-disable-next-line @atlaskit/design-system/no-html-checkbox */}
 							<input
 								onChange={() => setIsSticky((value) => !value)}
 								type="checkbox"

@@ -1,5 +1,32 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.3
+
+### Patch Changes
+
+- [#173859](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/173859)
+  [`d6f17206f8859`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/d6f17206f8859) -
+  In order to provide the best experience for iOS, the optional function `pointerOutsideOfPreview`
+  will now center the drag preview under the users pointer on iOS.
+
+  Some more detail (in case you are interested):
+
+  **Borders**
+
+  _(Existing behaviour)_
+
+  In `pointerOutsideOfPreview` we use transparent borders to push the preview away from the users
+  pointer. On iOS these borders will always be black. So we don't use transparent border on iOS.
+
+  **Placement**
+
+  _(Improvement)_
+
+  During a drag on iOS the drag preview will shift under the center of the users pointer, even if we
+  start the drag with the users pointer on the top left or top right corner of the drag preview. So
+  now `pointerOutsideOfPreview` will always put the preview under the center of the users pointer in
+  order to avoid the drag preview position shifting as the drag is starting.
+
 ## 1.7.2
 
 ### Patch Changes

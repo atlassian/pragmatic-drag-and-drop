@@ -1,5 +1,6 @@
 import { isSafariOnIOS } from '../../../util/is-safari-on-ios';
 
+import { centerUnderPointer } from './center-under-pointer';
 import type { GetOffsetFn } from './types';
 
 /** Any valid CSS string value
@@ -26,10 +27,8 @@ type CSSValue = string;
  *
  * **iOS**
  *
- * This function will not push the preview away from the users pointer on iOS due to platform limitations.
- * On iOS the preview will start the drag on the top left corner (or top right corner for right to left interfaces).
- * While dragging, iOS will shift the drag preview under the center of the users pointer, so the "pushing away"
- * is short lived on iOS.
+ * The drag preview will be centered under the users pointer rather than
+ * pushed away on iOS due to platform limitations.
  */
 export function pointerOutsideOfPreview(point: { x: CSSValue; y: CSSValue }): GetOffsetFn {
 	return ({ container }) => {
@@ -41,25 +40,34 @@ export function pointerOutsideOfPreview(point: { x: CSSValue; y: CSSValue }): Ge
 		 *
 		 * **🙅📱 Not pushing the preview away on iOS**
 		 *
-		 * On iOS, the browser will set the transparent border color to be black. We can provide a
-		 * more polished experience not using the transparent border on iOS.
+		 * _On iOS_
 		 *
-		 * While dragging, iOS will shift the drag preview under the center of the users pointer,
-		 * so the "pushing away" of the preview is short lived on iOS anyway.
+		 * - the browser will set the transparent border color to be black
+		 * - While dragging, the drag preview will shift under the center of the users pointer.
+		 *   So if you start at {x: 0, y: 0} (top left), almost immediately the preview will move
+		 *   to be under the middle of the users pointer.
 		 *
-		 * Notes:
+		 * _What we do_
 		 *
-		 * - Tested on `iOS@18.4.1` on May 7th 2025
+		 * - We don't add the transparent border (to avoid the black)
+		 * - We put center the drag preview under the users pointer (to avoid the drag preview
+		 *   quickly moving so it's under the center of the users pointer).
+		 *
+		 * _Testing notes_
+		 *
+		 * `iOS@18.4.1` on May 7th 2025:
 		 * - If you set the background color on the `container` the border color will be that
 		 * - Setting a transparent background color on the `container` still results in a black border
 		 * - The `<body>` text or background color does not change the black border color
 		 */
-		if (!isSafariOnIOS()) {
-			Object.assign(container.style, {
-				borderInlineStart: `${point.x} solid transparent`,
-				borderTop: `${point.y} solid transparent`,
-			});
+		if (isSafariOnIOS()) {
+			return centerUnderPointer({ container });
 		}
+
+		Object.assign(container.style, {
+			borderInlineStart: `${point.x} solid transparent`,
+			borderTop: `${point.y} solid transparent`,
+		});
 
 		// Unfortunate that we need to use `getComputedStyle`,
 		// but it's only a single call when the drag is starting.

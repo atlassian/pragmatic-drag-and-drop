@@ -295,18 +295,9 @@ If you are using css variables inside of your `getOffset()` you need to be sure 
 are available at the `<body>` element, as the `container` is temporarily mounted as a child of
 `<body>`.
 
-On iOS `pointerOutsideOfPreview` will center the drag preview under the users pointer.
-
-_Rationale:_
-
-`pointerOutsideOfPreview` uses transparent borders to push the drag preview away from the users
-pointer. On iOS these transparent borders will always be black, so we don't enable these borders.
-
-iOS will shift a drag preview so that it is under the center of the users pointer after the drag has
-started. So even if we start with the drag with the top left or top right corner of the drag preview
-of the users pointer, the position of the drag preview quickly changes so it is under the center of
-the users pointer. In order to reduce movement of the drag preview, this function puts the center of
-the drag preview under the center
+On iOS, iPad and Android `pointerOutsideOfPreview` will center the drag preview under the users
+pointer. Browsers on iOS, iPadOS and Android put the center of the drag preview under the users
+pointer during the drag, even when we try to "push" the drag preview away from the pointer.
 
 3. `preserveOffsetOnSource`: applies the initial cursor offset to the custom native drag preview for
    a seamless experience
@@ -332,8 +323,14 @@ draggable({
 });
 ```
 
-Note: this helper works best when the rendered preview has the same dimensions as the dragged
-element
+Notes:
+
+- This helper works best when the rendered preview has the same dimensions as the dragged element
+- On Android the center of the drag preview is always under the users pointer (platform limitation)
+- On iOS and iPadOS, the drag preview location will initially match the `source`, but during the
+  drag the native preview will perform an animated slide so that it is centered on the users
+  pointer. The centering of the drag preview during the drag on the users pointer is iOS and iPad
+  platform behaviour.
 
 #### Gotcha: CSS transforms
 

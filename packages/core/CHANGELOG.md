@@ -1,5 +1,16 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.4
+
+### Patch Changes
+
+- [#174472](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/174472)
+  [`fda983a832f81`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/fda983a832f81) -
+  On Android `pointerOutsideOfPreview` will now also center the drag preview under the users
+  pointer. Technically this was already existing observed behaviour as Android always centers the
+  drag preview under the users pointer. We now make this behaviour explicit in the code, and call
+  this out behaviour in jsdoc and documentation.
+
 ## 1.7.3
 
 ### Patch Changes

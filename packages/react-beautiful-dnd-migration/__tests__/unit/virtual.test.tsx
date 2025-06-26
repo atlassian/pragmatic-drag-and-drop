@@ -117,6 +117,13 @@ function getResponders() {
 
 describe('when a <Draggable /> in a virtual list is unmounted on drag', () => {
 	describe('keyboard dragging', () => {
+		it('should capture and report a11y violations', async () => {
+			const responders = getResponders();
+			const { container } = render(<VirtualList responders={responders} itemData={itemData} />);
+
+			await expect(container).toBeAccessible();
+		});
+
 		it('should have a placeholder', () => {
 			const responders = getResponders();
 			const { getByTestId } = render(<VirtualList responders={responders} itemData={itemData} />);

@@ -113,6 +113,15 @@ describe('keyboard dragging', () => {
 			jest.useRealTimers();
 		});
 
+		it('should capture and report a11y violations', async () => {
+			jest.useFakeTimers();
+			const onDragStart = jest.fn();
+			const onDragUpdate = jest.fn();
+			const { container } = render(<Board onDragStart={onDragStart} onDragUpdate={onDragUpdate} />);
+
+			await expect(container).toBeAccessible();
+		});
+
 		it('should move to the next droppable after pressing ArrowRight', () => {
 			jest.useFakeTimers();
 
@@ -336,6 +345,14 @@ describe('keyboard dragging', () => {
 	});
 
 	describe('virtual lists', () => {
+		it('should capture and report a11y violations', async () => {
+			const { container } = render(<VirtualBoardExample />);
+
+			await expect(container).toBeAccessible({
+				violationCount: 1,
+			});
+		});
+
 		it('should allow moving down after lifting', () => {
 			const { container, getByTestId } = render(<VirtualBoardExample />);
 
@@ -460,6 +477,15 @@ describe('keyboard dragging', () => {
 				</DragDropContext>
 			);
 		}
+
+		it('should capture and report a11y violations', async () => {
+			jest.useFakeTimers();
+			const { container } = render(<CrossAxisApp />);
+
+			await expect(container).toBeAccessible({
+				violationCount: 1,
+			});
+		});
 
 		it('should call scrollTo(0, 0) on the scroll container when it is a parent of the droppable', () => {
 			jest.useFakeTimers();

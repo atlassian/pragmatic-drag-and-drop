@@ -593,5 +593,27 @@ cases.forEach(({ id, control, mode }) => {
 
 			control.cancel(handle);
 		});
+		if (id === 'mouse') {
+			it('should capture and report a11y violations', async () => {
+				const onDragStart = jest.fn();
+				const onDragUpdate = jest.fn();
+				const App = () => {
+					return (
+						<DragDropContext
+							onDragStart={onDragStart}
+							onDragUpdate={onDragUpdate}
+							onDragEnd={() => {}}
+						>
+							<Droppable droppableId="droppable" isDropDisabled>
+								{AppInner}
+							</Droppable>
+						</DragDropContext>
+					);
+				};
+				const { container } = render(<App />);
+
+				await expect(container).toBeAccessible();
+			});
+		}
 	});
 });

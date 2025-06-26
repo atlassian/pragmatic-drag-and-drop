@@ -1,0 +1,36 @@
+{
+	"extends": "../../../../tsconfig.entry-points.townsquare.json",
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "../../../../../townsquare/tsDist/@atlaskit__pragmatic-drag-and-drop-react-accessibility/app",
+		"rootDir": "../",
+		"composite": true
+	},
+	"include": [
+		"../src/**/*.ts",
+		"../src/**/*.tsx"
+	],
+	"exclude": [
+		"../src/**/__tests__/*",
+		"../src/**/*.test.*",
+		"../src/**/test.*",
+		"../src/**/examples.*"
+	],
+	"references": [
+		{
+			"path": "../../../design-system/focus-ring/afm-townsquare/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/icon/afm-townsquare/tsconfig.json"
+		},
+		{
+			"path": "../../../platform/feature-flags/afm-townsquare/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/primitives/afm-townsquare/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/tokens/afm-townsquare/tsconfig.json"
+		}
+	]
+}

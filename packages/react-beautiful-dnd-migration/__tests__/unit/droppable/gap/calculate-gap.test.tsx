@@ -128,4 +128,10 @@ describe('calculateGap()', () => {
 		});
 		expect(gapAfterLast).toBe(16);
 	});
+
+	it('should capture and report a11y violations', async () => {
+		const { container } = render(<App />);
+
+		await expect(container).toBeAccessible();
+	});
 });

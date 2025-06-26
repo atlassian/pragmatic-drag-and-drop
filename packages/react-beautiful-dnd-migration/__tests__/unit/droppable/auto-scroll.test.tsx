@@ -44,6 +44,12 @@ const autoScrollerStop = jest.spyOn(autoScroller, 'stop');
 replaceRaf();
 
 describe('integration with @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll', () => {
+	it('should capture and report a11y violations', async () => {
+		const { container } = render(<List />);
+
+		await expect(container).toBeAccessible();
+	});
+
 	it('should call autoScroller.start() on dragstart', () => {
 		const { getByTestId } = render(<List />);
 		const item = getByTestId('item');

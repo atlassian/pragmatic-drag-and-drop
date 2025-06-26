@@ -165,6 +165,12 @@ it('should remove all drop indicators if an error occurs while dragging', () => 
  * dragged __over__.
  */
 describe('home list', () => {
+	it('should capture and report a11y violations', async () => {
+		const { container } = render(<Board />);
+
+		await expect(container).toBeAccessible();
+	});
+
 	it('should not render a drop indicator while dragging over other lists', () => {
 		const { container, getByText } = render(<Board />);
 

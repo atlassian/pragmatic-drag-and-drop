@@ -152,5 +152,9 @@ scenarios.forEach((scenario) => {
 			await expect(dragHandle).toHaveAttribute('data-level', '2');
 			await expect(dragHandle).toHaveAttribute('data-index', '0');
 		});
+
+		test('should capture and report a11y violations', async ({ page }) => {
+			await expect(page).toBeAccessible({ violationCount: 1 });
+		});
 	});
 });

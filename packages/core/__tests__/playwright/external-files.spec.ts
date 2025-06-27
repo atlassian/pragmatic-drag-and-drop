@@ -81,4 +81,15 @@ test.describe('file dropping', () => {
 		expect(text?.includes('package.json')).toBe(true);
 		expect(text?.includes('tsconfig.json')).toBe(true);
 	});
+
+	test('should capture and report a11y violations', async ({ browserName, page }) => {
+		// eslint-disable-next-line playwright/no-conditional-in-test
+		if (browserName === 'webkit') {
+			return;
+		}
+		await page.visitExample('pragmatic-drag-and-drop', 'core', 'file');
+		await page.locator('[data-drop-target-for-external]').waitFor({ state: 'visible' });
+
+		await expect(page).toBeAccessible({ violationCount: 1 });
+	});
 });

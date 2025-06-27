@@ -19,7 +19,7 @@ test.describe('scrollJustEnoughIntoView', () => {
 		const scrollContainer = page.locator(containerSelector);
 		// this card begins partially obscured
 		const secondCard = page.locator(secondCardSelector);
-		await expect(await getScrollTop(scrollContainer)).toBe(0);
+		expect(await getScrollTop(scrollContainer)).toBe(0);
 
 		await await expect(secondCard).toHaveAttribute('data-state', 'idle');
 
@@ -41,7 +41,7 @@ test.describe('scrollJustEnoughIntoView', () => {
 		await await expect(secondCard).toHaveAttribute('data-state', 'idle');
 		// eslint-disable-next-line playwright/no-conditional-in-test
 		if (browserName !== 'firefox') {
-			await expect(await getScrollTop(scrollContainer)).toBe(0);
+			expect(await getScrollTop(scrollContainer)).toBe(0);
 		}
 
 		// move a bit to trigger a drag to start
@@ -55,7 +55,7 @@ test.describe('scrollJustEnoughIntoView', () => {
 		await await expect(secondCard).toHaveAttribute('data-state', 'dragging');
 
 		// After the drag the container should have scrolled.
-		await expect(await getScrollTop(scrollContainer)).toBeGreaterThan(0);
+		expect(await getScrollTop(scrollContainer)).toBeGreaterThan(0);
 
 		// finish the drag
 		await page.mouse.up();
@@ -102,10 +102,15 @@ test.describe('scrollJustEnoughIntoView', () => {
 		await await expect(secondCard).toHaveAttribute('data-state', 'dragging');
 
 		// no scroll change required
-		await expect(await getScrollTop(scrollContainer)).toBe(initialScrollTop);
+		expect(await getScrollTop(scrollContainer)).toBe(initialScrollTop);
 
 		// finish the drag
 		await page.mouse.up();
 		await await expect(secondCard).toHaveAttribute('data-state', 'idle');
+	});
+
+	test('should capture and report a11y violations', async ({ page, browserName }) => {
+		await page.visitExample('pragmatic-drag-and-drop', 'core', 'scroll-just-enough-into-view');
+		await expect(page).toBeAccessible({ violationCount: 1 });
 	});
 });

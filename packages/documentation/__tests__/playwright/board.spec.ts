@@ -85,4 +85,13 @@ test.describe('board', () => {
 		expect(finalCardOrderFirstColumn).not.toContain('item-id:5');
 		expect(finalCardOrderThirdColumn).toContain('item-id:5');
 	});
+
+	test('should capture and report a11y violations', async ({ page }) => {
+		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board', {
+			'react-18-mode': 'legacy',
+		});
+		await page.waitForSelector('[draggable="true"]');
+
+		await expect(page).toBeAccessible();
+	});
 });

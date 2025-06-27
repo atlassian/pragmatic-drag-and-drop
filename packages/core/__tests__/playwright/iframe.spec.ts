@@ -265,4 +265,11 @@ test.describe('iframes', () => {
 			{ timeout: 60 * 1000 },
 		);
 	});
+
+	test('should capture and report a11y violations', async ({ page }) => {
+		const { dropTargetInIframe, draggableInParent } = await setup({ page });
+		await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
+
+		await expect(page).toBeAccessible({ violationCount: 1 });
+	});
 });

@@ -22,4 +22,17 @@ test.describe('text selection', () => {
 
 		await expect(dropTarget).toContainText(data);
 	});
+
+	test('should capture and report a11y violations', async ({ page, browserName }) => {
+		// eslint-disable-next-line playwright/no-conditional-in-test
+		if (browserName !== 'firefox') {
+			return;
+		}
+		await page.visitExample('pragmatic-drag-and-drop', 'core', 'text-selection');
+		const dropTarget = page.locator('[data-testid="drop-target"]');
+		const text = page.locator('[data-testid="text"]');
+		await text.dragTo(dropTarget);
+
+		await expect(page).toBeAccessible();
+	});
 });

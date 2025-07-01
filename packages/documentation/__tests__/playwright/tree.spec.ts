@@ -33,8 +33,8 @@ scenarios.forEach((scenario) => {
 
 	test.describe(`${scenario.name}`, () => {
 		test('should allow a tree item to be reordered above another item', async ({ page }) => {
-			const dragHandle = page.getByTestId('tree-item-1.4');
-			const dropTarget = page.getByTestId('tree-item-1.3');
+			const dragHandle = page.getByTestId('tree-item-1.2');
+			const dropTarget = page.getByTestId('tree-item-1.1');
 			await expect(dragHandle).toHaveAttribute('data-level', '1');
 			await expect(dragHandle).toHaveAttribute('data-index', '1');
 
@@ -51,8 +51,8 @@ scenarios.forEach((scenario) => {
 		});
 
 		test('should allow a tree item to be reordered below another item', async ({ page }) => {
-			const dragHandle = page.getByTestId('tree-item-1.3.1');
-			const dropTarget = page.getByTestId('tree-item-1.3.2');
+			const dragHandle = page.getByTestId('tree-item-1.1.1');
+			const dropTarget = page.getByTestId('tree-item-1.1.2');
 			await expect(dragHandle).toHaveAttribute('data-level', '2');
 			await expect(dragHandle).toHaveAttribute('data-index', '0');
 
@@ -72,8 +72,8 @@ scenarios.forEach((scenario) => {
 		});
 
 		test('should allow a tree item to become a child of another tree item', async ({ page }) => {
-			const dragHandle = page.getByTestId('tree-item-1.4');
-			const dropTarget = page.getByTestId('tree-item-1.3');
+			const dragHandle = page.getByTestId('tree-item-1.2');
+			const dropTarget = page.getByTestId('tree-item-1.1');
 			await expect(dragHandle).toHaveAttribute('data-level', '1');
 			await expect(dragHandle).toHaveAttribute('data-index', '1');
 
@@ -93,7 +93,7 @@ scenarios.forEach((scenario) => {
 		});
 
 		test('should allow a tree item to be reparented from level 2 -> level 1', async ({ page }) => {
-			const dragHandle = page.getByTestId('tree-item-1.3.2');
+			const dragHandle = page.getByTestId('tree-item-1.1.2');
 			await expect(dragHandle).toHaveAttribute('data-level', '2');
 			await expect(dragHandle).toHaveAttribute('data-index', '1');
 
@@ -114,7 +114,7 @@ scenarios.forEach((scenario) => {
 		});
 
 		test('should allow a tree item to be reparented from level 2 -> level 0', async ({ page }) => {
-			const dragHandle = page.getByTestId('tree-item-1.3.2');
+			const dragHandle = page.getByTestId('tree-item-1.1.2');
 			await expect(dragHandle).toHaveAttribute('data-level', '2');
 			await expect(dragHandle).toHaveAttribute('data-index', '1');
 
@@ -134,8 +134,8 @@ scenarios.forEach((scenario) => {
 		test('should not allow a tree item to be made a child when the "make-child" instruction is blocked on the drop target', async ({
 			page,
 		}) => {
-			const dragHandle = page.getByTestId('tree-item-2.3.1');
-			const dropTarget = page.getByTestId('tree-item-1.3.2');
+			const dragHandle = page.getByTestId('tree-item-2.1.1');
+			const dropTarget = page.getByTestId('tree-item-1.1.2');
 			await expect(dragHandle).toHaveAttribute('data-level', '2');
 			await expect(dragHandle).toHaveAttribute('data-index', '0');
 

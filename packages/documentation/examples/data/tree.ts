@@ -26,22 +26,22 @@ export function getInitialData(): TreeItem[] {
 
 			children: [
 				{
-					id: '1.3',
+					id: '1.1',
 					isOpen: true,
 
 					children: [
 						{
-							id: '1.3.1',
+							id: '1.1.1',
 							children: [],
 						},
 						{
-							id: '1.3.2',
+							id: '1.1.2',
 							isDraft: true,
 							children: [],
 						},
 					],
 				},
-				{ id: '1.4', children: [] },
+				{ id: '1.2', children: [] },
 			],
 		},
 		{
@@ -49,16 +49,16 @@ export function getInitialData(): TreeItem[] {
 			isOpen: true,
 			children: [
 				{
-					id: '2.3',
+					id: '2.1',
 					isOpen: true,
 
 					children: [
 						{
-							id: '2.3.1',
+							id: '2.1.1',
 							children: [],
 						},
 						{
-							id: '2.3.2',
+							id: '2.1.2',
 							children: [],
 						},
 					],

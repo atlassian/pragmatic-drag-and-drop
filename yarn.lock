@@ -493,6 +493,16 @@
     "@atlaskit/tokens" "^4.3.0"
     "@babel/runtime" "^7.0.0"
 
+"@atlaskit/theme@^19.0.0":
+  version "19.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-19.0.0.tgz#0668fb7322314179e4b2f6f0c39ff208e7c5aa0a"
+  integrity sha512-VKe+O0UsHvpEDfgdnvqbcXxJlI/PA8UcBbUvUrcbG0Nv+bEEazaQmykHepK3k6ePAYhz7fOdnIwvVnQd//Vtsg==
+  dependencies:
+    "@atlaskit/codemod-utils" "^4.2.0"
+    "@atlaskit/ds-lib" "^4.0.0"
+    "@atlaskit/tokens" "^5.4.0"
+    "@babel/runtime" "^7.0.0"
+
 "@atlaskit/tokens@^4.0.0":
   version "4.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-4.1.0.tgz#3c23fc9fe57bceedd52bc15769f2d83d05b4a545"

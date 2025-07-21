@@ -31,7 +31,7 @@
     "@atlaskit/focus-ring": "^3.0.0",
     "@atlaskit/grid": "^0.18.0",
     "@atlaskit/heading": "^5.2.0",
-    "@atlaskit/icon": "^27.3.0",
+    "@atlaskit/icon": "^27.4.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^2.0.0",

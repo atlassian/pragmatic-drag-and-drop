@@ -9,6 +9,7 @@ import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hi
 import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Stack, xcss } from '@atlaskit/primitives';
 
 import { ListContext } from './context';

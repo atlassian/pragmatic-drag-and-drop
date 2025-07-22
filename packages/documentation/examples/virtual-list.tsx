@@ -42,6 +42,7 @@ import {
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Inline, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 

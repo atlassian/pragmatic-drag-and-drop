@@ -32,6 +32,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/center-under-pointer';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 

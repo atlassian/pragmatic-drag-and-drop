@@ -9,6 +9,7 @@ import { jsx } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { draggable } from '../src/entry-point/element/adapter';

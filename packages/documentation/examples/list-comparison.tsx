@@ -11,6 +11,7 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 import Code from '@atlaskit/code/inline';
 import Grid, { GridItem } from '@atlaskit/grid';
 import Lozenge from '@atlaskit/lozenge';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 import Tabs, { TabPanel as AkTabPanel, Tab, TabList, type TabPanelProps } from '@atlaskit/tabs';
 import { fontFallback } from '@atlaskit/theme/typography';

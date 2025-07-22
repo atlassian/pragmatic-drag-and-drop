@@ -1,6 +1,7 @@
 import React, { forwardRef, memo, type ReactNode, useEffect } from 'react';
 
 import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 
 import { useBoardContext } from './board-context';

@@ -14,6 +14,7 @@ import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 
 import { autoScrollWindowForElements } from '../src/entry-point/element';

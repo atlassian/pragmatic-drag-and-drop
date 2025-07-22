@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 import { combine } from '../src/entry-point/combine';

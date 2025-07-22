@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
 import Button from '@atlaskit/button/new';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { triggerPostMoveFlash } from '../src/trigger-post-move-flash';

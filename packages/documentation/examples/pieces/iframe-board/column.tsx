@@ -15,6 +15,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 import { getPeopleFromPosition, getPersonFromPosition, type Person } from '../../data/people';

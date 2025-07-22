@@ -36,6 +36,7 @@ import {
 import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/element/preserve-offset-on-source';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 

@@ -3,6 +3,7 @@ import React, { memo, type ReactNode, useEffect, useRef } from 'react';
 import invariant from 'tiny-invariant';
 
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, xcss } from '@atlaskit/primitives';
 
 import { GlobalStyles } from '../../util/global-styles';

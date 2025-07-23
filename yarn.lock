@@ -190,6 +190,17 @@
     react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
+"@atlaskit/ds-lib@^4.2.0":
+  version "4.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-4.2.0.tgz#87285103c71313f1a863f096f03f11b3f8c6605c"
+  integrity sha512-+vNqDxmXWNpjrBxqnZHIFjjaZ4bYlbIR1UBJ4JfEoTlwCnJZdFUPhfq/XFOqSI+nIh54Q5hqT/7vreZobnhG5g==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^3.0.0"
+    react-uid "^2.2.0"
+    tiny-invariant "^1.2.0"
+
 "@atlaskit/feature-gate-js-client@^4.25.0":
   version "4.25.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/feature-gate-js-client/-/feature-gate-js-client-4.25.0.tgz#b32a178e1ae6061522997439dd5b7c33bd913ecc"
@@ -255,10 +266,10 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/icon@^27.5.0":
-  version "27.5.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.5.0.tgz#01b6db6e8c0024daa8c31f32ef2932dc94056838"
-  integrity sha512-2D2LAy0KP6gUyGznYojgzWZco1zZ1yo5goUGq4Zxa0bF4K1UjpofGYTuQtCK0/n5izNmK+g5ffzG483A4TFQFg==
+"@atlaskit/icon@^27.6.0":
+  version "27.6.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.6.0.tgz#ae88773b7fc23f0807fa03ed857c9c33e33b86fe"
+  integrity sha512-0lG4JrpRoVRSbXKJtdX/2czXb5h17hZ/D9yQ9S96BxNGVzwVG6eeLU/p5QlTDd31rGZzzXGi5PH6kM/OzZDtNA==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^5.6.0"

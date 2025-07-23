@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AkWarningIcon from '@atlaskit/icon/core/migration/warning';
+import AkWarningIcon from '@atlaskit/icon/core/migration/status-warning--warning';
 import { token } from '@atlaskit/tokens';
 
 export default function CheckIcon() {

@@ -190,10 +190,10 @@
     react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/ds-lib@^4.2.0":
-  version "4.2.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-4.2.0.tgz#87285103c71313f1a863f096f03f11b3f8c6605c"
-  integrity sha512-+vNqDxmXWNpjrBxqnZHIFjjaZ4bYlbIR1UBJ4JfEoTlwCnJZdFUPhfq/XFOqSI+nIh54Q5hqT/7vreZobnhG5g==
+"@atlaskit/ds-lib@^5.0.0":
+  version "5.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-5.0.0.tgz#7ffb671a27ed05f91364588617ad995e20230f2a"
+  integrity sha512-Bd0/D5Q2Sg/Z1kg/Qst+2VfiVoVuGwEvrWKSt63QgDaCizl30j2EtqLLF9U978mzl1JHMmi3KQeYf3ROjhoACA==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@babel/runtime" "^7.0.0"

@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@atlaskit/focus-ring": "^3.0.0",
-    "@atlaskit/icon": "^27.6.0",
+    "@atlaskit/icon": "^27.7.0",
     "@atlaskit/platform-feature-flags": "^1.1.0",
     "@atlaskit/primitives": "^14.10.0",
     "@atlaskit/tokens": "^5.6.0",

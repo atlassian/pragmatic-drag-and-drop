@@ -49,7 +49,7 @@ function BacklogHeader() {
 					<Inline space="space.100" alignBlock="center">
 						<Box xcss={sprintTitleStyles}>Sprint Title</Box>
 						<Box xcss={subtlestTextStyles}>29 Aug — 12 Sep</Box>
-						<Box xcss={subtlestTextStyles}>(23 issues)</Box>
+						<Box xcss={subtlestTextStyles}>(23 work items)</Box>
 					</Inline>
 				</Inline>
 				<Inline space="space.100" alignBlock="center">

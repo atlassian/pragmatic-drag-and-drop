@@ -105,7 +105,13 @@ export default function IframeOuter() {
 				<Box>Latest drop data: {latestDropData}</Box>
 			</Stack>
 			{!isInIframe ? (
-				<Box as="iframe" title={'child iframe'} xcss={iframeStyles} src={window.location.href} testId={'child-iframe'} />
+				<Box
+					as="iframe"
+					title={'child iframe'}
+					xcss={iframeStyles}
+					src={window.location.href}
+					testId={'child-iframe'}
+				/>
 			) : null}
 		</Stack>
 	);

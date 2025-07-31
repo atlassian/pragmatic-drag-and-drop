@@ -7,7 +7,13 @@
     "examples/**/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/drag-event-polyfill.ts"
+    "src/drag-event-polyfill.ts",
+    "**/stories.ts",
+    "**/stories.tsx",
+    "**/stories/*.ts",
+    "**/stories/*.tsx",
+    "**/stories/**/*.ts",
+    "**/stories/**/*.tsx"
   ],
   "compilerOptions": {}
 }

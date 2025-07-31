@@ -614,8 +614,7 @@ export default function ListComparison() {
 															</ul>
 														</td>
 														<td>
-															The exact representation used for the preview would be a product
-															decision
+															The exact representation used for the preview would be an app decision
 														</td>
 													</tr>
 												</tbody>

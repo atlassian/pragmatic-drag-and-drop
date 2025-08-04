@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.0.4
 
 ### Patch Changes

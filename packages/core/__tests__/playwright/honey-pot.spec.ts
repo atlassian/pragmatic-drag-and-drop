@@ -142,6 +142,6 @@ test.describe('honey pot', () => {
 		const card0 = page.locator('[data-testid="card-0"]');
 		await expect(card0).toContainData(notTouched);
 
-		await expect(page).toBeAccessible({ violationCount: 1 });
+		await expect(page).toBeAccessible();
 	});
 });

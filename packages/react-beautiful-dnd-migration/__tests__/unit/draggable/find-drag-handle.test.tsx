@@ -35,15 +35,15 @@ describe('findDragHandle()', () => {
 							{...provided.draggableProps}
 							{...provided.dragHandleProps}
 							data-testid="draggable"
-						/>
+						>
+							Draggable element
+						</div>
 					)}
 				</Draggable>
 			</App>,
 		);
 
-		await expect(container).toBeAccessible({
-			violationCount: 1,
-		});
+		await expect(container).toBeAccessible();
 	});
 
 	it('should return the element if it is also the drag handle', () => {

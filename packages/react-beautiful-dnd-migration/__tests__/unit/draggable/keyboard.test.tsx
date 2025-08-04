@@ -444,7 +444,9 @@ describe('keyboard dragging', () => {
 												{...provided.dragHandleProps}
 												data-testid="A"
 												data-is-dragging={snapshot.isDragging}
-											/>
+											>
+												Draggable A
+											</div>
 										)}
 									</Draggable>
 								</div>
@@ -468,7 +470,9 @@ describe('keyboard dragging', () => {
 											{...provided.dragHandleProps}
 											data-testid="B"
 											data-is-dragging={snapshot.isDragging}
-										/>
+										>
+											Draggable B
+										</div>
 									)}
 								</Draggable>
 							</div>
@@ -482,9 +486,7 @@ describe('keyboard dragging', () => {
 			jest.useFakeTimers();
 			const { container } = render(<CrossAxisApp />);
 
-			await expect(container).toBeAccessible({
-				violationCount: 1,
-			});
+			await expect(container).toBeAccessible();
 		});
 
 		it('should call scrollTo(0, 0) on the scroll container when it is a parent of the droppable', () => {

@@ -48,7 +48,6 @@
     "react-virtualized": "^9.8.0",
     "react-window": "^1.8.8",
     "stylelint": "^15.0.0",
-    "typescript": "~5.4.2",
     "wait-for-expect": "^1.2.0"
   }
 }

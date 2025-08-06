@@ -17,8 +17,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "tiny-invariant": "^1.2.0",
-    "typescript": "~5.4.2"
+    "tiny-invariant": "^1.2.0"
   },
   "exports": {
     ".": "./src/index.ts",

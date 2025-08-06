@@ -26,7 +26,6 @@
     "@testing-library/react": "^13.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "~5.4.2",
     "wait-for-expect": "^1.2.0"
   }
 }

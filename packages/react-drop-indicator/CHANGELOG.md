@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.3
+
+### Patch Changes
+
+- [`2b9d69f7eb7bd`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/2b9d69f7eb7bd) -
+  Adding tests to ensure all outputs work with React suspense, and React strict mode.
+
 ## 3.2.2
 
 ### Patch Changes

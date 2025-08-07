@@ -265,21 +265,21 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/icon@^27.7.0":
-  version "27.7.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.7.0.tgz#b139908577aa80180d598ac322f04afb04413832"
-  integrity sha512-GJ6F3A97Pq9Xtw9+dLi3tB86Hs7O5QWzvP81xJazAnE4cj1NMbb+x64qGKxS1rTxYuSjjWNhSTYvn2VeRHambw==
+"@atlaskit/icon@^27.10.0":
+  version "27.10.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.10.0.tgz#a8e1d97873d8e2a2a83499c772896cdc0add6c76"
+  integrity sha512-jK0MDiKAeExS0EZIyKkh8cbxbvMLJGwnQ0kNjd5tU9loO/RbaiHAcYWtbOgo+k9FMNsolWxyOJcl8U1/VbuwDw==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/tokens" "^5.6.0"
+    "@atlaskit/tokens" "^6.0.0"
     "@babel/register" "^7.25.9"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/icon@^27.9.0":
-  version "27.9.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.9.0.tgz#ffb2f3f263297a3435e3ad21ba7852ff89f57eee"
-  integrity sha512-swmlnpe4/+YUldajz7QzdoOUEkACqr+WlH5t0qW1hMVCW8dAVfKtqQvsm+smcRSl3YXN7mevH6NMk++M7gRINA==
+"@atlaskit/icon@^27.7.0":
+  version "27.7.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.7.0.tgz#b139908577aa80180d598ac322f04afb04413832"
+  integrity sha512-GJ6F3A97Pq9Xtw9+dLi3tB86Hs7O5QWzvP81xJazAnE4cj1NMbb+x64qGKxS1rTxYuSjjWNhSTYvn2VeRHambw==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^5.6.0"
@@ -348,6 +348,18 @@
     "@atlaskit/platform-feature-flags" "*"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.2"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/motion@^5.2.0":
+  version "5.2.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.2.0.tgz#723eb65665954a22c95b8d51d2451377eeae2e56"
+  integrity sha512-WxMuzttQZVM9Tvq7xheGeHcnCesRV9xbLeJwVCSJjhhU7vvuBvCxx7GmGYmeN2QMCO/cbxvTqeojKZgpLNF24A==
+  dependencies:
+    "@atlaskit/css" "^0.12.0"
+    "@atlaskit/ds-lib" "^5.0.0"
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.3"
     bind-event-listener "^3.0.0"
 
 "@atlaskit/platform-feature-flags-react@^0.2.0":

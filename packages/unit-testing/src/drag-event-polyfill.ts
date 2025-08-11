@@ -214,6 +214,7 @@
 				...files,
 				length: files.length,
 				item: (index: number) => list[index] ?? null,
+				// @ts-ignore - TS2418 TypeScript 5.9.2 upgrade
 				[Symbol.iterator]: function* generator() {
 					for (let i = 0; i < list.length; i++) {
 						yield list[i];

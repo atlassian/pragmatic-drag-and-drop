@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { toBeSuspendable, toPassStrictMode } from '@af/react-unit-testing';
 import { doesRenderWithSsr } from '@atlassian/ssr-tests';
 
 import { DropIndicator as Border } from '../../src/border';
@@ -8,11 +7,6 @@ import { DropIndicator as Box } from '../../src/box';
 import { GroupDropIndicator } from '../../src/group';
 import { DropIndicator as ListItem } from '../../src/list-item';
 import { DropIndicator as TreeItem } from '../../src/tree-item';
-
-expect.extend({
-	toBeSuspendable,
-	toPassStrictMode,
-});
 
 describe('box', () => {
 	const value = () => <Box edge="top" />;

@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.4
+
+### Patch Changes
+
+- [`5bed2aeb9093f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5bed2aeb9093f) -
+  Internal refactoring of tests
+
 ## 3.2.3
 
 ### Patch Changes

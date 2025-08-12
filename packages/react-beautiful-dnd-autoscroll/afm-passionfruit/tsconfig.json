@@ -1,8 +1,8 @@
 {
-	"extends": "../../../../tsconfig.entry-points.volt.json",
+	"extends": "../../../../tsconfig.entry-points.passionfruit.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../volt/tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll/app",
+		"outDir": "../../../../../passionfruit/tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll/app",
 		"rootDir": "../",
 		"composite": true
 	},
@@ -23,7 +23,7 @@
 	],
 	"references": [
 		{
-			"path": "../../core/afm-volt/tsconfig.json"
+			"path": "../../core/afm-passionfruit/tsconfig.json"
 		}
 	]
 }

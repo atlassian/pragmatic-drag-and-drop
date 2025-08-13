@@ -265,10 +265,10 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/icon@^27.11.0":
-  version "27.11.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.11.0.tgz#ecaceea12f7a2fe55d171e314ed8c9d070b88b9e"
-  integrity sha512-gNlzFTXF8I5UrxEpG3OjWMke+G208sEf5ln3LlEYruLQIQeo8hdhv0hZSrpxkFfBHMwl2beKIoHiS4RW35mGaA==
+"@atlaskit/icon@^27.12.0":
+  version "27.12.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.12.0.tgz#a5f5353aad3e9508818f08cc913985c05ee540ab"
+  integrity sha512-meWXAGDsZ3aY2dRtFL7p9Tkwpi1mYanFT2I2rSgq7+ey5LcqcLtWFm5NIDGQwgbW8fXidoIvzWI2/UC6iUcXew==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^6.0.0"
@@ -350,10 +350,10 @@
     "@compiled/react" "^0.18.2"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^5.2.0":
-  version "5.2.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.2.0.tgz#723eb65665954a22c95b8d51d2451377eeae2e56"
-  integrity sha512-WxMuzttQZVM9Tvq7xheGeHcnCesRV9xbLeJwVCSJjhhU7vvuBvCxx7GmGYmeN2QMCO/cbxvTqeojKZgpLNF24A==
+"@atlaskit/motion@^5.3.0":
+  version "5.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.3.0.tgz#4d4b69ab4eb25033fcffc0ea38020c50f5202028"
+  integrity sha512-gCRs7DCc2LVFMDVkQfmvBCd7j4EIq2wJV5brGkKyJ2EeOUeB2GKVktBVecsfYh2WPEF5XbFw1Wt+QG27r31fTw==
   dependencies:
     "@atlaskit/css" "^0.12.0"
     "@atlaskit/ds-lib" "^5.0.0"

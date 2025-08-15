@@ -115,23 +115,23 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.2"
 
-"@atlaskit/button@^23.3.0":
-  version "23.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-23.3.0.tgz#44b02e77b8eac758207ca308e8e794599c0ade9f"
-  integrity sha512-OwLgVV3yyl5FLzcdPGzu2Y40RKCgrAQKk9n5QElWj5s2KTANkb3N1uXhlZ6aXROhi+KGIoOdToEr497wV3ycVA==
+"@atlaskit/button@^23.4.0":
+  version "23.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/button/-/button-23.4.0.tgz#1751348c542db6daa6f23054eb7c94da83f1ddd7"
+  integrity sha512-xT+6jD3h+wQbsd5Icr/FwhncEEMfvh1R9k9762HjWeM5THvRKmyuvef/jRdJCd0foq77uv2wXSUt4HEjA93Ptw==
   dependencies:
     "@atlaskit/analytics-next" "^11.1.0"
     "@atlaskit/css" "^0.12.0"
     "@atlaskit/ds-lib" "^5.0.0"
     "@atlaskit/focus-ring" "^3.0.0"
-    "@atlaskit/icon" "^27.7.0"
+    "@atlaskit/icon" "^27.12.0"
     "@atlaskit/interaction-context" "^3.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/primitives" "^14.10.0"
-    "@atlaskit/spinner" "^18.0.0"
+    "@atlaskit/primitives" "^14.11.0"
+    "@atlaskit/spinner" "^19.0.0"
     "@atlaskit/theme" "^19.0.0"
-    "@atlaskit/tokens" "^5.6.0"
-    "@atlaskit/tooltip" "^20.3.0"
+    "@atlaskit/tokens" "^6.0.0"
+    "@atlaskit/tooltip" "^20.4.0"
     "@atlaskit/visually-hidden" "^3.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
@@ -272,17 +272,6 @@
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tokens" "^6.0.0"
-    "@babel/register" "^7.25.9"
-    "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.18.3"
-
-"@atlaskit/icon@^27.7.0":
-  version "27.7.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-27.7.0.tgz#b139908577aa80180d598ac322f04afb04413832"
-  integrity sha512-GJ6F3A97Pq9Xtw9+dLi3tB86Hs7O5QWzvP81xJazAnE4cj1NMbb+x64qGKxS1rTxYuSjjWNhSTYvn2VeRHambw==
-  dependencies:
-    "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/tokens" "^5.6.0"
     "@babel/register" "^7.25.9"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
@@ -569,14 +558,14 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/spinner@^18.0.0":
-  version "18.0.4"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/spinner/-/spinner-18.0.4.tgz#d8cf78db263db602292b5b0dcefab940b3eb1239"
-  integrity sha512-Z595HvUiL8BkKk7YT7hgE0VNA7UAUMUEsuxa/Vfy3z7BGJxkZ1yXpqJoorn73cNGfVIpX6j52du3VJHii/y86A==
+"@atlaskit/spinner@^19.0.0":
+  version "19.0.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/spinner/-/spinner-19.0.1.tgz#6f0ef31c6a219644cb4d229462d3fd3252886aa7"
+  integrity sha512-UgqdA7P0sw3vDOpbOEll/EWQJMPxzq8+iVc7zhKqMD41TQsaUjj9kK+ucR+5HEgkwJPWgAz9ssJSqlvfQO5IOA==
   dependencies:
     "@atlaskit/interaction-context" "^3.0.0"
-    "@atlaskit/theme" "^18.0.0"
-    "@atlaskit/tokens" "^4.8.0"
+    "@atlaskit/theme" "^19.0.0"
+    "@atlaskit/tokens" "^6.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
@@ -748,10 +737,10 @@
     "@emotion/react" "^11.7.1"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/tooltip@^20.3.0":
-  version "20.3.3"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tooltip/-/tooltip-20.3.3.tgz#431f5c3408c13a6315dd8b7896f834b8fbdd8ec5"
-  integrity sha512-83s/LO9F+7V/DDr17DFtSobMbHayHLeRp6RIUPjQlUZLn9sf2O2rZVKFfOWOCJGcOJj2anUje4oqiqjcavhtZg==
+"@atlaskit/tooltip@^20.4.0":
+  version "20.4.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tooltip/-/tooltip-20.4.1.tgz#ee4c43abe9ff4b5c3b33d6a81758c3739a7aa5ae"
+  integrity sha512-eapcdEcMdUN4W58DX6pQGQA9rPiVb6CIKEfp6G7OmCel3xWZMxKEAI4zEgSXl8lK6pu6R1P84xFNY/ubhnpM/Q==
   dependencies:
     "@atlaskit/analytics-next" "^11.1.0"
     "@atlaskit/ds-lib" "^5.0.0"
@@ -761,7 +750,7 @@
     "@atlaskit/popper" "^7.1.0"
     "@atlaskit/portal" "^5.1.0"
     "@atlaskit/theme" "^19.0.0"
-    "@atlaskit/tokens" "^5.6.0"
+    "@atlaskit/tokens" "^6.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
     bind-event-listener "^3.0.0"

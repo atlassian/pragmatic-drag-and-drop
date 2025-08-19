@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.5
+
+### Patch Changes
+
+- [`e8c312827c802`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/e8c312827c802) -
+  Remove unnecessary files from published package
+
 ## 3.2.4
 
 ### Patch Changes

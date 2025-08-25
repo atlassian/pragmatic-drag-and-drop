@@ -94,7 +94,7 @@ export function EntireEntityIsDraggableWithDragHandleButton() {
 						<DropdownItem>Move to bottom</DropdownItem>
 					</DropdownItemGroup>
 				</DropdownMenu>
-				<Box>Using drag handle button</Box>
+				<Box>Drag handle always visible (with drag handle button)</Box>
 			</Grid>
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}
 		</Fragment>

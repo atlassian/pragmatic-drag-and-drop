@@ -1,9 +1,11 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { keyframes } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -15,41 +17,35 @@ import { ActionMenu } from './shared/action-menu';
 import { DragPreview } from './shared/drag-preview';
 import { type DraggableState } from './shared/types';
 
+const dragCursorAnimation = keyframes({
+	to: {
+		cursor: 'grab',
+	},
+});
+
 const listItemStyles = xcss({
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
+	paddingInlineStart: 'space.0',
 	borderRadius: 'border.radius',
 	backgroundColor: 'elevation.surface',
-});
-
-const draggableStyles = xcss({
-	':hover': {
-		cursor: 'grab',
-		backgroundColor: 'elevation.surface.hovered',
-	},
-});
-
-const draggingStyles = xcss({
-	opacity: 0.4,
-});
-
-const hiddenDragHandleStyles = xcss({
-	display: 'flex',
-	opacity: 'var(--show-drag-handle, 0)',
-	paddingInline: 'space.025',
-});
-
-const noPaddingInlineStartStyles = xcss({
-	paddingInlineStart: 'space.0',
-});
-
-const entityWithHiddenDragHandleStyles = xcss({
 	'--show-drag-handle': 0,
 	':hover': {
 		// @ts-expect-error
 		'--show-drag-handle': 1,
+		backgroundColor: 'elevation.surface.hovered',
+		animationName: dragCursorAnimation,
+
+		/* instant animation */
+		animationDuration: '0s',
+
+		/* delay cursor change */
+		animationDelay: '800ms',
+
+		/* keep the end state when the animation ends */
+		animationFillMode: 'forwards',
 	},
 	':focus-within': {
 		// @ts-expect-error
@@ -57,7 +53,16 @@ const entityWithHiddenDragHandleStyles = xcss({
 	},
 });
 
-export function SmallHiddenDragHandle() {
+const draggingStyles = xcss({
+	opacity: 0.4,
+});
+
+const dragHandleStyles = xcss({
+	display: 'flex',
+	opacity: 'var(--show-drag-handle, 0)',
+});
+
+export function HoverDragHandle() {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 
@@ -92,29 +97,17 @@ export function SmallHiddenDragHandle() {
 				columnGap="space.0"
 				templateColumns="auto 1fr auto"
 				ref={draggableRef}
-				xcss={[
-					listItemStyles,
-					noPaddingInlineStartStyles,
-					draggableStyles,
-					entityWithHiddenDragHandleStyles,
-					state.type === 'dragging' ? draggingStyles : undefined,
-				]}
+				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
-				<Box xcss={[hiddenDragHandleStyles]}>
+				<Box xcss={[dragHandleStyles]}>
 					<DragHandleVerticalIcon
+						spacing="compact"
 						label="Drag list item"
-						LEGACY_size="small"
-						LEGACY_margin={`0 ${token('space.negative.025')}`}
 						color={token('color.icon')}
 						size="small"
 					/>
 				</Box>
-				<Box>
-					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
-					Drag handle (<code>16px</code>) visible on <code>:hover</code> and{' '}
-					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
-					<code>:focus-within</code>
-				</Box>
+				<Box>Drag handle visible on hover</Box>
 				<ActionMenu />
 			</Grid>
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}

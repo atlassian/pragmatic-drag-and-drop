@@ -10,7 +10,7 @@ import { css, jsx } from '@emotion/react';
 
 import type { CustomTriggerProps } from '@atlaskit/dropdown-menu';
 import FocusRing from '@atlaskit/focus-ring';
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 
 const dragHandleButtonStyles = css({

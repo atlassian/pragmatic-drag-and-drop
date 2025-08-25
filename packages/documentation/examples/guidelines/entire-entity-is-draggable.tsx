@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -69,7 +69,6 @@ export function EntireEntityIsDraggable() {
 			<Grid
 				ref={draggableRef}
 				alignItems="center"
-				columnGap="space.0"
 				templateColumns="auto 1fr auto"
 				xcss={[
 					listItemStyles,
@@ -78,14 +77,9 @@ export function EntireEntityIsDraggable() {
 				]}
 			>
 				<Stack>
-					<DragHandleVerticalIcon
-						spacing="spacious"
-						label="Drag list item"
-						color={token('color.icon')}
-						size="small"
-					/>
+					<DragHandleVerticalIcon label="Drag list item" size="small" spacing="spacious" />
 				</Stack>
-				<Box>Entire entity is draggable</Box>
+				<Box>Drag handle always visible</Box>
 				<ActionMenu />
 			</Grid>
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}

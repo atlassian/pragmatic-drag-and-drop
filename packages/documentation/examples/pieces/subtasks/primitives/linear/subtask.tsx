@@ -8,7 +8,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar';
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 
 import { subtaskGap, subtaskIdWidth, subtaskInlinePadding } from './constants';

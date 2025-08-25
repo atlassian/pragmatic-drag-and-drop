@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -20,6 +20,7 @@ const listItemStyles = xcss({
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
+	paddingInlineStart: 'space.0',
 	borderRadius: 'border.radius',
 	backgroundColor: 'elevation.surface',
 });
@@ -37,7 +38,7 @@ const draggingStyles = xcss({
 
 const roundedIconStyles = xcss({ borderRadius: 'border.radius' });
 
-export function UsingDragHandle() {
+export function OnlyDraggableFromDragHandle() {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 
@@ -69,7 +70,6 @@ export function UsingDragHandle() {
 		<Fragment>
 			<Grid
 				alignItems="center"
-				columnGap="space.050"
 				templateColumns="auto 1fr auto"
 				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
@@ -81,7 +81,7 @@ export function UsingDragHandle() {
 						size="small"
 					/>
 				</Stack>
-				<Box>Only draggable from drag handle</Box>
+				<Box>Drag handle always visible (only draggable from drag handle)</Box>
 				<ActionMenu />
 			</Grid>
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}

@@ -108,6 +108,7 @@ export function HoverDragHandleOutsideBounds() {
 				columnGap="space.0"
 				templateColumns="1fr auto"
 				ref={draggableRef}
+				testId="hover-drag-handle-outside-bounds"
 				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
 				<Box>Drag handle visible on hover (placed out of bounds)</Box>

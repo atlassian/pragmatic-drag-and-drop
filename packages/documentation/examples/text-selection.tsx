@@ -24,10 +24,6 @@ export default function TextSelection() {
 						selection: window.getSelection(),
 					};
 					console.log(event.type, data);
-
-					setTimeout(() => {
-						console.log('later', data);
-					});
 				},
 			},
 		]);

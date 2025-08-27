@@ -307,7 +307,6 @@ export const Card = memo(function Card({ item }: { item: CardData }) {
 
 	useEffect(() => {
 		invariant(ref.current);
-		console.log('recreating draggable');
 		return combine(
 			draggable({
 				element: ref.current,

@@ -1,5 +1,20 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.6
+
+### Patch Changes
+
+- [`156b50375043d`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/156b50375043d) -
+  Removing some internal `console` logging that is no longer needed.
+
+## 1.4.5
+
+### Patch Changes
+
+- [`66166bf41060b`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/66166bf41060b) -
+  Adding visual regression tests to help ensure our examples don't change without our prior
+  knowledge
+
 ## 1.4.4
 
 ### Patch Changes

@@ -97,6 +97,7 @@ export function HoverDragHandle() {
 				columnGap="space.0"
 				templateColumns="auto 1fr auto"
 				ref={draggableRef}
+				testId="hover-drag-handle"
 				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
 				<Box xcss={[dragHandleStyles]}>

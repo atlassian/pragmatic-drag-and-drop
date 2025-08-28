@@ -31,7 +31,7 @@ import { Card } from './card';
 const columnStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius.400',
+	borderRadius: 'radius.xlarge',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
@@ -250,7 +250,7 @@ export const Column = memo(function Column({
 const previewStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius.400',
+	borderRadius: 'radius.xlarge',
 	padding: 'space.200',
 });
 

@@ -15,12 +15,11 @@ import { unsafeOverflowAutoScrollForElements } from '@atlaskit/pragmatic-drag-an
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { token } from '@atlaskit/tokens';
 
-import { columnGap, gridSize } from '../../util/constants';
+import { columnGap } from '../../util/constants';
 import { GlobalStyles } from '../../util/global-styles';
 
 const boardStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
-	'--grid': `${gridSize}px`,
+	'--grid': token('space.100'),
 	display: 'flex',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values, @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 	gap: columnGap,

@@ -41,7 +41,7 @@ import SubtaskReactBeautifulDnd from './pieces/subtasks/demo/react-beautiful-dnd
 const itemStyles = xcss({
 	border: `2px solid ${token('color.border.accent.purple', 'purple')}`,
 	padding: 'space.200',
-	borderRadius: 'border.radius.300',
+	borderRadius: 'radius.xlarge',
 	height: '100%', // ensure all grid items are the same height regardless of content
 
 	width: '100%',

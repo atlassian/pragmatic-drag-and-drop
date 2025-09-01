@@ -128,3 +128,18 @@ export function moveCard(data: Data, { source, destination, draggableId }: DropR
 
 	return { ...data, columnMap: updatedMap };
 }
+
+/**
+ * Clears the items in a column.
+ */
+export function clearColumn(data: Data, columnId: string): Data {
+	const updatedMap = {
+		...data.columnMap,
+		[columnId]: {
+			...data.columnMap[columnId],
+			items: [],
+		},
+	};
+
+	return { ...data, columnMap: updatedMap };
+}

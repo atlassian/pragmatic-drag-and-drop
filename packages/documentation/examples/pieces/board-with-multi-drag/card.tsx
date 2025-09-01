@@ -45,7 +45,7 @@ const noMarginStyles = xcss({ margin: 'space.0' });
 const noPointerEventsStyles = xcss({ pointerEvents: 'none' });
 const containerStyles = xcss({
 	width: '100%',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	boxShadow: 'elevation.shadow.raised',
 	position: 'relative',
 	display: 'grid',

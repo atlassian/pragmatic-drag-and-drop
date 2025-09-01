@@ -50,7 +50,7 @@ const baseStyles = xcss({
 	width: '100%',
 	padding: 'space.100',
 	backgroundColor: 'elevation.surface',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	position: 'relative',
 	':hover': {
 		backgroundColor: 'elevation.surface.hovered',

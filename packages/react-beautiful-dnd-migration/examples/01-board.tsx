@@ -9,7 +9,9 @@ import { useCallback, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import type { DropResult } from 'react-beautiful-dnd';
 
-import { getInitialData, moveCard, reorderCard, reorderColumn } from './data/tasks';
+import Button from '@atlaskit/button/new';
+
+import { clearColumn, getInitialData, moveCard, reorderCard, reorderColumn } from './data/tasks';
 import { Column } from './pieces/column';
 import { ExampleWrapper, useDependency } from './pieces/example-wrapper';
 
@@ -50,6 +52,10 @@ function BoardExample() {
 		}
 	}, []);
 
+	const handleClearColumnC = useCallback(() => {
+		setData((data) => clearColumn(data, 'C'));
+	}, []);
+
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			<Droppable droppableId="board" type="column" direction="horizontal">
@@ -72,6 +78,7 @@ function BoardExample() {
 								);
 							})}
 							{provided.placeholder}
+							<Button onClick={handleClearColumnC}>Clear column C</Button>
 						</div>
 					);
 				}}

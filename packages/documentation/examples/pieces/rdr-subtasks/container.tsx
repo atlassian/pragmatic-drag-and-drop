@@ -10,7 +10,7 @@ import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 const containerStyles = xcss({
 	padding: 'space.100',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	backgroundColor: 'elevation.surface.sunken',
 	width: '50vw',
 });

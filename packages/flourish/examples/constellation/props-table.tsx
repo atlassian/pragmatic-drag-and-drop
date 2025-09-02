@@ -47,7 +47,7 @@ const headerStyles = css({
 const codeStyles = css({
 	display: 'inline-block',
 	backgroundColor: token('color.background.neutral'),
-	borderRadius: token('border.radius.100'),
+	borderRadius: token('radius.small'),
 	color: `${token('color.text')}`,
 	fontSize: '1em',
 	lineHeight: '20px',
@@ -58,7 +58,7 @@ const codeStyles = css({
 const typeStyles = css({
 	background: token('color.background.neutral'),
 	color: token('color.text.subtle'),
-	borderRadius: token('border.radius.100'),
+	borderRadius: token('radius.small'),
 	display: 'inline-block',
 	padding: '0 0.2em',
 	whiteSpace: 'pre-wrap',

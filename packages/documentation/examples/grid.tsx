@@ -38,7 +38,7 @@ const itemStyles = css({
 	boxSizing: 'border-box',
 	background: token('elevation.surface.raised', '#FFF'),
 	padding: token('space.050', '4px'),
-	borderRadius: token('border.radius.100', '4px'),
+	borderRadius: token('radius.small', '4px'),
 	boxShadow: token('elevation.shadow.raised', 'none'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.small}ms ${easeInOut}`,

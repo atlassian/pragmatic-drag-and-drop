@@ -482,19 +482,83 @@ in designs.
 
 ## Experience specific guidance
 
+These are guidelines that are in addition to our standard guidance for specific experiences
+
 ### Trees
 
-<SectionMessage appearance="information">
+<Example Component={TreeExample} appearance="showcase-only" />
 
-We have no standalone tree spec at this stage, So please refer to:
+<SectionMessage appearance="discovery">
 
-1. Our tree example below
-2. Our [navigation drag and drop spec](/components/navigation-system/side-navigation/drag-and-drop)
-   spec
+For tree items, you should use our
+[list item hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox/about) and our
+[list item react drop indicator](/components/pragmatic-drag-and-drop/optional-packages/react-drop-indicator/)
+(if your experience uses react).
 
 </SectionMessage>
 
-<Example Component={TreeExample} appearance="showcase-only" />
+<SectionMessage appearance="discovery">
+
+If you are wiring up drag and drop for our `navigation-system` side navigation,
+[we have specific guidance for you](/components/navigation-system/side-nav-items/drag-and-drop)
+
+</SectionMessage>
+
+#### Drag starting
+
+- If dragging a tree item that has children in it, you should collapse the tree item when the drag
+  starts. [A video explaining the rationale for this](https://www.youtube.com/watch?v=Dht2dqrSEkE)
+- If your tree uses a pattern where tree items that have icons are replaced by chevrons on hover,
+  when the drag starts change all the tree item icons to be chevrons. This will help make it clearer
+  to users which part of the interface are potentially expandable.
+
+#### While dragging
+
+- Tree items can be drop targets and can support up to three operations: `"reorder-before"`,
+  `"reorder-after"` and `"combine"` (see
+  [list item hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox/about) for more
+  details).
+- The size of the operation hitboxes are controlled by the
+  [list item hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox/about).
+- Use the
+  [list item react drop indicator](/components/pragmatic-drag-and-drop/optional-packages/react-drop-indicator)
+  to visualize the
+  [list item hitbox operation](/components/pragmatic-drag-and-drop/optional-packages/hitbox/about)
+  (eg `"combine"`) that would be achieved if the user dropped the item. This will be a line above
+  the target tree item for `"reorder-above"`, a line below the target tree item for
+  `"reorder-below"` and a border around the target tree item for `"combine"`.
+- If a user drags over a collapsed tree item with the `"combine"` operation for `500ms`, then the
+  collapsed tree item should expand (and should stay expanded even after the drag finishes)
+- Use our
+  [group drop indicator](/components/pragmatic-drag-and-drop/optional-packages/react-drop-indicator)
+  around the innermost group of tree items being dragged over (see tree example for illustration)
+
+#### On drop
+
+- If the tree item being dragged was expanded when the drag started, re-expand the item. If the tree
+  item was collapsed when the drag started, keep it collapsed.
+- The dragged tree item must be visible after the drag has finished. This can involve expanding any
+  parent tree items needed. For example: dragging `item A` onto `item B` with a `"combine"`
+  operation can make `item A` a child of `item B`. If `item B` was not expanded at the end of the
+  drag (ie it was not dragged over for `500ms` with the `"combine"` operation), then `item B` should
+  be expanded so that `item A` is visible at the conclusion of the drag.
+
+#### Accessible actions
+
+- Tree items should have a standard '...' more menu to trigger movement outcomes
+- For list items you generally have predefined movement actions in a dropdown menu (eg
+  `"reorder above"`, `"reorder below"` etc). However, for tree items, you add a `"move"` item to the
+  more menu dropdown, and that `"move"` item should trigger a Modal. The Modal should contain a form
+  which enables all possible movement outcomes for a tree item.
+
+<SectionMessage>
+
+There may be some experiences where exceptions to these recommendations are are warranted, and for
+those you should refer to our
+[accessibility guidelines](/components/pragmatic-drag-and-drop/accessibility-guidelines#complex-cases)
+for general principles and practices.
+
+</SectionMessage>
 
 ### Dragging multiple items
 

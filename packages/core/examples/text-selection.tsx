@@ -21,7 +21,7 @@ type DropTargetState = 'idle' | 'potential' | 'over';
 
 const containerStyles = xcss({
 	borderWidth: 'border.width.outline',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	borderStyle: 'solid',
 	flexGrow: 1,
 	flexShrink: 1,

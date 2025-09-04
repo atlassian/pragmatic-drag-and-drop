@@ -11,7 +11,7 @@ const cardStyles = xcss({
 	height: '100px',
 	backgroundColor: 'elevation.surface.raised',
 	boxShadow: 'elevation.shadow.raised',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 });
 
 export default function BasicExample() {

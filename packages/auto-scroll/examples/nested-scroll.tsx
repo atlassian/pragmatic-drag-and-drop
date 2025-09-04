@@ -39,7 +39,7 @@ const itemStyles = xcss({
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border.brand',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'color.background.accent.lime.subtlest',
 	width: '300px',
 });

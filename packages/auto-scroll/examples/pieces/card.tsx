@@ -20,7 +20,7 @@ const cardStyles = xcss({
 	borderColor: 'color.border.accent.purple',
 	borderStyle: 'solid',
 	backgroundColor: 'color.background.accent.purple.subtler',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	transitionProperty: 'background-color, opacity',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transitionDuration: `${durations.medium}ms`,

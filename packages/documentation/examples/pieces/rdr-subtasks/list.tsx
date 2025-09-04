@@ -20,7 +20,7 @@ const containerStyles = xcss({
 	// borderWidth: 'border.width',
 	// borderStyle: 'solid',
 	// borderColor: 'color.border',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	boxShadow: 'elevation.shadow.raised',
 });
 

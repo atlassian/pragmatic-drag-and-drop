@@ -323,7 +323,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 const safariPreviewStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	padding: 'space.200',
 });
 

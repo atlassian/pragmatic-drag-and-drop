@@ -468,7 +468,7 @@ export function TableHeader({
 }
 
 const previewStyles = xcss({
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	minWidth: '220px',
 });
 

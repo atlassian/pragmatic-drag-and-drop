@@ -129,6 +129,6 @@ const tableStyles = xcss({
 	borderWidth: 'border.width',
 	borderColor: 'color.border',
 	borderStyle: 'solid',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface.sunken',
 });

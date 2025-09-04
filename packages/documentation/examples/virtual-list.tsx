@@ -167,7 +167,7 @@ const draggingState: ItemState = { type: 'dragging' };
 const listItemPreviewStyles = xcss({
 	paddingBlock: 'space.050',
 	paddingInline: 'space.100',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface.overlay',
 	maxWidth: '360px',
 	whiteSpace: 'nowrap',

@@ -22,7 +22,7 @@ const columnStyles = xcss({
 	width: '140px',
 	backgroundColor: 'elevation.surface',
 	borderColor: 'color.border.accent.purple',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	flexShrink: 0,
@@ -84,7 +84,7 @@ const boardStyles = xcss({
 	borderWidth: 'border.width',
 	borderColor: 'color.border.accent.purple',
 	borderStyle: 'solid',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	padding: 'space.200',
 	backgroundColor: 'elevation.surface.sunken',
 });

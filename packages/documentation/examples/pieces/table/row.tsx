@@ -212,7 +212,7 @@ export const Row = memo(function Row({
 });
 
 const previewStyles = xcss({
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 });
 
 const previewItemStyles = css({

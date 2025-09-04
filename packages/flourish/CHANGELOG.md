@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-flourish
 
+## 2.0.6
+
+### Patch Changes
+
+- [`beaa6ee463aa8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/beaa6ee463aa8) -
+  Internal changes to how border radius is applied.
+- Updated dependencies
+
 ## 2.0.5
 
 ### Patch Changes

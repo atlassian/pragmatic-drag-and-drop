@@ -58,7 +58,7 @@ const selectionCountStyles = xcss({
 	top: 'space.negative.100',
 	color: 'color.text.inverse',
 	backgroundColor: 'color.background.accent.gray.subtle',
-	borderRadius: 'border.radius.circle',
+	borderRadius: 'radius.full',
 	height: 'size.200',
 	width: 'size.200',
 	lineHeight: '1.5rem',

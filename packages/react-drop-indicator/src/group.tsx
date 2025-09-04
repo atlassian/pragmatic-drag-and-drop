@@ -10,7 +10,7 @@ import { token } from '@atlaskit/tokens';
 
 const activeStyles = css({
 	backgroundColor: token('color.background.information'),
-	borderRadius: token('border.radius.050'),
+	borderRadius: token('radius.xsmall'),
 	outlineOffset: token('space.075'),
 	outlineWidth: token('border.width.outline'),
 	outlineStyle: 'solid',

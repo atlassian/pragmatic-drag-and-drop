@@ -28,7 +28,7 @@ const listItemStyles = xcss({
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 	position: 'relative',
 	marginInlineStart: 'space.100',

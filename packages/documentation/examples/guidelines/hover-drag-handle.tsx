@@ -29,7 +29,7 @@ const listItemStyles = xcss({
 	borderColor: 'color.border',
 	padding: 'space.100',
 	paddingInlineStart: 'space.0',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 	'--show-drag-handle': 0,
 	':hover': {

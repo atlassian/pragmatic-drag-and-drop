@@ -8,7 +8,7 @@ const previewStyles = xcss({
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 });
 

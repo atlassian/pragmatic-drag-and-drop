@@ -8,7 +8,7 @@ import { css, jsx } from '@emotion/react';
 import { token } from '@atlaskit/tokens';
 
 const styles = css({
-	borderRadius: token('border.radius'),
+	borderRadius: token('radius.small'),
 	border: token('color.border'),
 	borderStyle: 'solid',
 	borderWidth: token('border.width'),

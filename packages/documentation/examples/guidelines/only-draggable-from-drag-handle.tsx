@@ -21,7 +21,7 @@ const listItemStyles = xcss({
 	borderColor: 'color.border',
 	padding: 'space.100',
 	paddingInlineStart: 'space.0',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 });
 
@@ -36,7 +36,7 @@ const draggingStyles = xcss({
 	opacity: 0.4,
 });
 
-const roundedIconStyles = xcss({ borderRadius: 'border.radius' });
+const roundedIconStyles = xcss({ borderRadius: 'radius.small' });
 
 export function OnlyDraggableFromDragHandle() {
 	const draggableRef = useRef<HTMLDivElement | null>(null);

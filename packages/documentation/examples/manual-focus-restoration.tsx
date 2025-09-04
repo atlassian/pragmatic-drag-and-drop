@@ -25,7 +25,7 @@ const teamAreaStyles = xcss({
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border.accent.blue',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	height: '240px',
 	width: '240px',
 	padding: 'space.300',

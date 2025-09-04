@@ -37,7 +37,7 @@ const appTileStyles = css({
 	display: 'flex',
 	justifyContent: 'center',
 	alignItems: 'center',
-	borderRadius: token('border.radius'),
+	borderRadius: token('radius.small'),
 });
 
 export function OverlapExample() {

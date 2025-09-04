@@ -20,8 +20,8 @@ const containerStyles = xcss({
 	// borderWidth: 'border.width',
 	// borderStyle: 'solid',
 	// borderColor: 'color.border',
-	borderBottomLeftRadius: 'border.radius.100',
-	borderBottomRightRadius: 'border.radius.100',
+	borderBottomLeftRadius: 'radius.small',
+	borderBottomRightRadius: 'radius.small',
 });
 
 type ListState = {

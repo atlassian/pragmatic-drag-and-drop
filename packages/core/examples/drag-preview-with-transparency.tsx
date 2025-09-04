@@ -32,7 +32,7 @@ const previewStyles = xcss({
 	backgroundColor: 'color.blanket.selected',
 	borderColor: 'color.border.accent.blue',
 	borderWidth: 'border.width',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 });
 function Preview() {
 	return <Box xcss={previewStyles} />;

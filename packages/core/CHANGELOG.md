@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.6
+
+### Patch Changes
+
+- [`6c430bfbb035d`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/6c430bfbb035d) -
+  Updated code to fix typescript issues during adoption of local consumption for adminhub
+
 ## 1.7.5
 
 ### Patch Changes

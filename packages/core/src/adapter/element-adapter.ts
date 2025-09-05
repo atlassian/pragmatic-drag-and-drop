@@ -137,7 +137,7 @@ const adapter = makeAdapter<ElementDragType>({
 					// this source is only for elements
 					// Note: only HTMLElements can have the "draggable" attribute
 					if (!(target instanceof HTMLElement)) {
-						return null;
+						return;
 					}
 
 					// see if the thing being dragged is owned by us
@@ -146,7 +146,7 @@ const adapter = makeAdapter<ElementDragType>({
 					// no matching element found
 					// → dragging an element with `draggable="true"` that is not controlled by us
 					if (!entry) {
-						return null;
+						return;
 					}
 
 					/**
@@ -194,7 +194,7 @@ const adapter = makeAdapter<ElementDragType>({
 					if (entry.canDrag && !entry.canDrag(feedback)) {
 						// cancel drag operation if we cannot drag
 						event.preventDefault();
-						return null;
+						return;
 					}
 
 					// Check: is there a drag handle and is the user using it?
@@ -211,7 +211,7 @@ const adapter = makeAdapter<ElementDragType>({
 						// then we will cancel the active drag
 						if (!entry.dragHandle.contains(over)) {
 							event.preventDefault();
-							return null;
+							return;
 						}
 					}
 

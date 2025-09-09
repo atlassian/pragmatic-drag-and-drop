@@ -32,7 +32,7 @@ import { SubtaskIcon } from './subtask-icon';
 
 const listItemContainerStyles = xcss({
 	position: 'relative',
-	borderWidth: 'border.width.0',
+	borderWidth: '0',
 	borderBottomWidth: token('border.width', '1px'),
 	borderStyle: 'solid',
 	borderColor: 'color.border',
@@ -46,7 +46,7 @@ const listItemContainerStyles = xcss({
 	},
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
-		borderWidth: 'border.width.0',
+		borderWidth: '0',
 	},
 });
 

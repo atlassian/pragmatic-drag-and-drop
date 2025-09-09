@@ -207,7 +207,7 @@ function FlashParameterForm({ onChange }: { onChange: React.FormEventHandler<HTM
 					<strong id="duration-label">Duration</strong>
 					<RadioGroup
 						options={durationOptions}
-						aria-labelledby="duration-label"
+						labelId="duration-label"
 						defaultValue={durationOptions[0].value}
 					/>
 				</Stack>
@@ -215,7 +215,7 @@ function FlashParameterForm({ onChange }: { onChange: React.FormEventHandler<HTM
 					<strong id="easing-label">Easing</strong>
 					<RadioGroup
 						options={easingOptions}
-						aria-labelledby="easing-label"
+						labelId="easing-label"
 						defaultValue={easingOptions[0].value}
 					/>
 				</Stack>

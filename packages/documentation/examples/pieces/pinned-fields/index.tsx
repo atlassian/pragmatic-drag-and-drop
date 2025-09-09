@@ -29,7 +29,7 @@ const headerStyles = css({
 	fontWeight: token('font.weight.bold'),
 	padding: 12,
 	borderBottom: `1px solid ${token('color.border')}`,
-	borderRadius: '4px 4px 0px 0px',
+	borderRadius: `${token('radius.small')} ${token('radius.small')} 0px 0px`,
 });
 
 const listStyles = css({

@@ -8,7 +8,7 @@
  * - "2px"
  * - "4rem"
  * // ADS tokens (which resolve to CSS size values)
- * - token('border.width.outline')
+ * - token('border.width.selected')
  */
 export type CSSSize = string;
 

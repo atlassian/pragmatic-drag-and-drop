@@ -28,7 +28,7 @@ const dropTargetStyles = xcss({
 const iframeStyles = xcss({
 	width: '600px',
 	height: '600px',
-	borderWidth: 'border.width.outline',
+	borderWidth: 'border.width.selected',
 	borderColor: 'color.border',
 	borderStyle: 'solid',
 });

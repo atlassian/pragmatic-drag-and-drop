@@ -32,7 +32,7 @@ const dropIndicatorStyles = css({
 		left: -terminalRadius * 2,
 		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values -- Ignored via go/DSP-18766
 		top: -terminalRadius + lineThickness / 2,
-		borderRadius: '50%',
+		borderRadius: token('radius.full'),
 	},
 });
 

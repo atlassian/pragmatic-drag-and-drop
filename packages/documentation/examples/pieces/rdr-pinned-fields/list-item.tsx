@@ -37,9 +37,9 @@ const listItemContainerStyles = xcss({
 	},
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
-		borderWidth: 'border.width.0',
-		borderBottomLeftRadius: '4px',
-		borderBottomRightRadius: '4px',
+		borderWidth: '0',
+		borderBottomLeftRadius: 'radius.small',
+		borderBottomRightRadius: 'radius.small',
 	},
 });
 

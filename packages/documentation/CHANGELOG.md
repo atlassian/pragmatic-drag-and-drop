@@ -1,5 +1,19 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.13
+
+### Patch Changes
+
+- [`5d0b8ba5e6f7f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5d0b8ba5e6f7f) -
+  Internal changes to how borders are applied.
+
+## 1.4.12
+
+### Patch Changes
+
+- [`20056074447a2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/20056074447a2) -
+  Switch to more semantically accurate label prop in internal radio and radio group instances.
+
 ## 1.4.11
 
 ### Patch Changes

@@ -12,7 +12,7 @@ const activeStyles = css({
 	backgroundColor: token('color.background.information'),
 	borderRadius: token('radius.xsmall'),
 	outlineOffset: token('space.075'),
-	outlineWidth: token('border.width.outline'),
+	outlineWidth: token('border.width.selected'),
 	outlineStyle: 'solid',
 	outlineColor: token('color.border.selected'),
 });

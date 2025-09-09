@@ -121,13 +121,13 @@ function getItemPosition({ index, items }: { index: number; items: Item[] }): It
 const listItemContainerStyles = xcss({
 	position: 'relative',
 	backgroundColor: 'elevation.surface',
-	borderWidth: 'border.width.0',
+	borderWidth: '0',
 	borderBottomWidth: token('border.width', '1px'),
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
-		borderWidth: 'border.width.0',
+		borderWidth: '0',
 	},
 });
 

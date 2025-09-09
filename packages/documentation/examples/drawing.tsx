@@ -56,7 +56,7 @@ const swatchBaseStyles = css({
 	border: `2px solid ${token('color.border', 'rgba(9, 30, 66, 0.14)')}`,
 	width: 32,
 	height: 32,
-	borderRadius: '50%',
+	borderRadius: token('radius.full'),
 	cursor: 'pointer',
 	color: token('color.text.inverse', '#FFF'),
 	display: 'flex',

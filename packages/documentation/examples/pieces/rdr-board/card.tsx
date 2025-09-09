@@ -45,6 +45,7 @@ import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/el
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
+import { token } from '@atlaskit/tokens';
 
 import { useBoardContext } from './board-context';
 import { CardStack } from './card-stack';
@@ -72,7 +73,7 @@ const containerStyles = xcss({
 	position: 'relative',
 
 	backgroundColor: 'elevation.surface.raised',
-	borderRadius: '4px',
+	borderRadius: token('radius.small'),
 	paddingInline: 'space.200',
 	paddingBlock: 'space.150',
 	cursor: 'grab',

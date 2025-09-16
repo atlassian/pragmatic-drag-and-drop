@@ -42,7 +42,7 @@ const tableStyles = css({
 
 const tableHeaderStyles = css({
 	background: token('elevation.surface', '#FFF'),
-	borderBottom: '2px solid',
+	borderBottom: `${token('border.width.selected')} solid`,
 	position: 'sticky',
 	top: 0,
 	// zIndex: 2 is needed so that the sticky header will sit on top of our

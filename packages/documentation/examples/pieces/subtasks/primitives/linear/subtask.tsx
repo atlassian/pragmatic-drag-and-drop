@@ -23,7 +23,7 @@ const subtaskStyles = css({
 
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:last-child)': {
-		borderBottom: `1px solid ${token('color.border')}`,
+		borderBottom: `${token('border.width')} solid ${token('color.border')}`,
 	},
 });
 

@@ -27,12 +27,12 @@ const fieldStyles = css({
 	boxSizing: 'border-box',
 	width: 304,
 	background: token('elevation.surface'),
-	border: `1px solid ${token('color.border')}`,
-	borderRadius: 8,
+	border: `${token('border.width')} solid ${token('color.border')}`,
+	borderRadius: token('radius.large'),
 	display: 'flex',
 	alignItems: 'center',
-	padding: 8,
-	gap: 8,
+	padding: token('space.100'),
+	gap: token('space.100'),
 
 	lineHeight: '24px',
 

@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.14
+
+### Patch Changes
+
+- [`717cc94987686`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/717cc94987686) -
+  Internal changes to how borders are applied.
+
 ## 1.4.13
 
 ### Patch Changes

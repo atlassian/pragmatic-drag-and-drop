@@ -42,7 +42,7 @@ const fileDropZoneStyles = css({
 	gap: 16,
 	flexDirection: 'column',
 	background: token('elevation.surface', '#FFF'),
-	border: `2px solid ${token('color.border', '#091E4224')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border', '#091E4224')}`,
 	borderRadius: 6,
 });
 

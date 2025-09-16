@@ -39,7 +39,7 @@ import SubtasksNotion from './pieces/subtasks/demo/notion';
 import SubtaskReactBeautifulDnd from './pieces/subtasks/demo/react-beautiful-dnd';
 
 const itemStyles = xcss({
-	border: `2px solid ${token('color.border.accent.purple', 'purple')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border.accent.purple', 'purple')}`,
 	padding: 'space.200',
 	borderRadius: 'radius.xlarge',
 	height: '100%', // ensure all grid items are the same height regardless of content
@@ -92,9 +92,9 @@ const solutionLabels: { [Key in Solution]: string } = {
 };
 
 const solutionLabelStyles = css({
-	border: '2px solid transparent',
+	border: `${token('border.width.selected')} solid transparent`,
 	fontWeight: token('font.weight.medium'),
-	padding: '4px 8px',
+	padding: `${token('space.050')} ${token('space.100')}`,
 	borderRadius: 999,
 });
 

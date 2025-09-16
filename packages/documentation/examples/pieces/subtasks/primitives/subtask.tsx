@@ -25,7 +25,7 @@ const subtaskStyles = css({
 	height: 40,
 	padding: '0px 8px',
 
-	borderBottom: `1px solid transparent`,
+	borderBottom: `${token('border.width')} solid transparent`,
 });
 
 const subtaskNotLastItemStyles = css({

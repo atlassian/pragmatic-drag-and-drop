@@ -147,7 +147,7 @@ const fileStyles = css({
 	borderRadius: 'var(--border-radius)',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.medium}ms ${easeInOut}`,
-	border: '2px dashed transparent',
+	border: `${token('border.width.selected')} dashed transparent`,
 	width: '100%',
 	gap: token('space.300', '24px'),
 });

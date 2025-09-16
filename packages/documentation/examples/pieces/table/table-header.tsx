@@ -175,7 +175,7 @@ const dropTargetStyles: {
 };
 
 const thStyles = css({
-	borderBottom: `2px solid ${token('color.border', 'red')}`,
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
 	// Need position:relative so our drop indicator (which uses position:absolute) can be
 	// correctly positioned inside
 	position: 'relative',
@@ -474,7 +474,7 @@ const previewStyles = xcss({
 
 const previewHeaderStyles = xcss({
 	fontWeight: token('font.weight.bold', 'bold'),
-	borderBottom: `2px solid ${token('color.border', 'red')}`,
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
 	lineHeight: '32px',
 });
 

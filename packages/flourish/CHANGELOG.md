@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-flourish
 
+## 2.0.7
+
+### Patch Changes
+
+- [`717cc94987686`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/717cc94987686) -
+  Internal changes to how borders are applied.
+
 ## 2.0.6
 
 ### Patch Changes

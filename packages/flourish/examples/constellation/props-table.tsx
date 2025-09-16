@@ -38,7 +38,7 @@ const tableCellStyles = css({
 const headerStyles = css({
 	margin: `0 0 ${token('space.050')} 0`,
 	paddingBottom: token('space.100'),
-	borderBottom: `1px solid ${token('color.border')}`,
+	borderBottom: `${token('border.width')} solid ${token('color.border')}`,
 	fontSize: '1em',
 	fontWeight: token('font.weight.regular'),
 	lineHeight: '1.4',

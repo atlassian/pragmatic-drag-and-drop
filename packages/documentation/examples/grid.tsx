@@ -97,7 +97,7 @@ const Item = memo(function Item({ src }: { src: string }) {
 		);
 	}, [instanceId, src]);
 
-	// eslint-disable-next-line jsx-a11y/alt-text
+	// eslint-disable-next-line @atlassian/a11y/alt-text
 	return <img css={[itemStyles, itemStateStyles[state]]} ref={ref} src={src} />;
 });
 

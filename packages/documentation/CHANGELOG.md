@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.15
+
+### Patch Changes
+
+- [`630257c173760`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/630257c173760) -
+  Change "issue" wording to "work-item" in examples.
+
 ## 1.4.14
 
 ### Patch Changes

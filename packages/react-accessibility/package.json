@@ -25,7 +25,7 @@
     "@atlaskit/icon": "^28.3.0",
     "@atlaskit/platform-feature-flags": "^1.1.0",
     "@atlaskit/primitives": "^14.15.0",
-    "@atlaskit/tokens": "^6.3.0",
+    "@atlaskit/tokens": "^6.4.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

@@ -276,6 +276,18 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
+"@atlaskit/icon@^28.4.0":
+  version "28.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-28.4.0.tgz#1cb4f2fe435a5fb567fad175d838fd0a1189870b"
+  integrity sha512-AFpZzHmlpH9fbjzNRfVPJwWPXlE9y9vh2Y6R1k/uLXjotdvLo+Qp1AQzmOR4s+PpRfEZk4tx9JcrTsqZ6bXYdw==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@atlaskit/tile" "^0.1.0"
+    "@atlaskit/tokens" "^6.4.0"
+    "@babel/register" "^7.25.9"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.3"
+
 "@atlaskit/interaction-context@^3.0.0":
   version "3.0.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/interaction-context/-/interaction-context-3.0.0.tgz#50ea208a42ae8cc2db03fa603b0fcfafda531806"

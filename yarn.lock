@@ -276,10 +276,10 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
-"@atlaskit/icon@^28.4.0":
-  version "28.4.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-28.4.0.tgz#1cb4f2fe435a5fb567fad175d838fd0a1189870b"
-  integrity sha512-AFpZzHmlpH9fbjzNRfVPJwWPXlE9y9vh2Y6R1k/uLXjotdvLo+Qp1AQzmOR4s+PpRfEZk4tx9JcrTsqZ6bXYdw==
+"@atlaskit/icon@^28.5.0":
+  version "28.5.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-28.5.0.tgz#31a0ad6aabbd1dff948fed09f43b7f250269783a"
+  integrity sha512-TYaOzVHVIDUwqWsOo45NCTZ1OUTxzj1gFW2MNihUImQZgUt/IOqFM9fgM29GzWKVL3FkG7jQqWHiR7VyhFjfTg==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tile" "^0.1.0"
@@ -4996,10 +4996,10 @@ react-uid@^2.2.0:
   dependencies:
     tslib "^2.0.0"
 
-react-virtualized@^9.8.0:
-  version "9.22.5"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/react-virtualized/-/react-virtualized-9.22.5.tgz#bfb96fed519de378b50d8c0064b92994b3b91620"
-  integrity sha512-YqQMRzlVANBv1L/7r63OHa2b0ZsAaDp1UhVNEdUaXI8A5u6hTpA5NYtUueLH2rFuY/27mTGIBl7ZhqFKzw18YQ==
+react-virtualized@^9.22.6:
+  version "9.22.6"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/react-virtualized/-/react-virtualized-9.22.6.tgz#3ae2aa69eca61cf3af332e2f9d6b4aa5638786d5"
+  integrity sha512-U5j7KuUQt3AaMatlMJ0UJddqSiX+Km0YJxSqbAzIiGw5EmNz0khMyqP2hzgu4+QUtm+QPIrxzUX4raJxmVJnHg==
   dependencies:
     "@babel/runtime" "^7.7.2"
     clsx "^1.0.4"

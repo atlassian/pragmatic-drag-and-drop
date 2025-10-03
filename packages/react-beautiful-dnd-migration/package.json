@@ -45,7 +45,7 @@
     "jscodeshift": "^17.0.0",
     "raf-stub": "^2.0.1",
     "react-beautiful-dnd": "^12.2.0",
-    "react-virtualized": "^9.8.0",
+    "react-virtualized": "^9.22.6",
     "react-window": "^1.8.8",
     "stylelint": "^15.0.0",
     "wait-for-expect": "^1.2.0"

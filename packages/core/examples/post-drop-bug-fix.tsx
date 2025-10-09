@@ -273,10 +273,10 @@ function DragEndTest() {
 			<Stack space="space.100">
 				<h3>Dragend test</h3>
 				<strong>Swap first two cards on unsuccessful drag</strong>
-				{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+				{/* eslint-disable-next-line @atlassian/a11y/no-static-element-interactions*/}
 				<div
 					css={[listStyles, interactiveStyles]}
-					// eslint-disable-next-line jsx-a11y/mouse-events-have-key-events, @atlassian/a11y/mouse-events-have-key-events
+					// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events
 					onMouseOver={(event) => console.error(event.type, event.target)}
 					onMouseEnter={(event) => console.error(event.type, event.target)}
 					// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events

@@ -87,16 +87,16 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^25.3.0":
-  version "25.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-25.3.0.tgz#51a992ea43607e3fe9e2a45e2c369abec4b02cfb"
-  integrity sha512-ks+qZAMFUi39z7yZ1JmGqfCrl645fDOSky6lr0L+gso4kz/0YnAWGdw5xvYvjwWHrooUbQDdEq2MyPJHA1NFwA==
+"@atlaskit/avatar@^25.4.0":
+  version "25.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-25.4.0.tgz#b8fe321ef9c5ea211122262ff439d12827dbad97"
+  integrity sha512-GXSDqfGxHlqE/D05pw7ZDKLoSGvqx68Vm/mJYeKndj6aJrWH+iq0THfe/T9kyeI/MH4eOwnJm5oyNBX+LuFNug==
   dependencies:
     "@atlaskit/analytics-next" "^11.1.0"
     "@atlaskit/css" "^0.14.0"
     "@atlaskit/ds-lib" "^5.1.0"
     "@atlaskit/focus-ring" "^3.0.0"
-    "@atlaskit/icon" "^28.3.0"
+    "@atlaskit/icon" "^28.5.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/primitives" "^14.15.0"
     "@atlaskit/theme" "^21.0.0"

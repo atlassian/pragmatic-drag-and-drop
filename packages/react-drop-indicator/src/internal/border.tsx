@@ -29,7 +29,7 @@ const styles = css({
 export function Border({
 	strokeColor = presetStrokeColors.default,
 	strokeWidth = presetStrokeWidth,
-	borderRadius = '3px', // TODO: update to border.radius (4px) token
+	borderRadius = '3px', // TODO: update to radius.small (4px) token
 	indent = '0px',
 }: {
 	strokeColor?: CSSColor;

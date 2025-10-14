@@ -225,7 +225,7 @@ function Sidebar() {
 const itemStyles = css({
 	width: '40px',
 	height: '40px',
-	border: `1px solid ${token('color.border')}`,
+	border: `${token('border.width')} solid ${token('color.border')}`,
 	borderRadius: 'var(--border-radius)',
 	'&:hover': {
 		background: token('color.background.accent.green.subtle'),

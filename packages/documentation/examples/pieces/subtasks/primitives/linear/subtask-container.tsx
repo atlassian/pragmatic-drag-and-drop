@@ -14,7 +14,7 @@ const subtaskContainerStyles = css({
 	flexGrow: 1,
 	flexBasis: 0,
 	background: token('elevation.surface'),
-	border: `1px solid ${token('color.border')}`,
+	border: `${token('border.width')} solid ${token('color.border')}`,
 	maxWidth: 560,
 });
 

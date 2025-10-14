@@ -146,8 +146,10 @@ function CurrentlyDragging() {
 						<Lozenge appearance="new">Internal (text selection)</Lozenge>
 					</div>
 					<h3>Plain</h3>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					<code>{state.payload.plain}</code>
 					<h3>HTML</h3>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					<code>{state.payload.HTML}</code>
 				</Fragment>
 			) : state.type === 'dragging-controlled' ? (

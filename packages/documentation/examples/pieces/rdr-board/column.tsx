@@ -19,6 +19,7 @@ import Heading from '@atlaskit/heading';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -46,7 +47,7 @@ const columnStyles = css({
 	width: 300,
 	flexDirection: 'column',
 	background: token('elevation.surface.sunken', '#F7F8F9'),
-	borderRadius: '8px',
+	borderRadius: token('radius.large'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
@@ -271,7 +272,10 @@ function ColumnPreview({ column }: { column: ColumnType }) {
 
 function ActionMenu() {
 	return (
-		<DropdownMenu trigger={DropdownMenuTrigger}>
+		<DropdownMenu
+			trigger={DropdownMenuTrigger}
+			shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+		>
 			<ActionMenuItems />
 		</DropdownMenu>
 	);

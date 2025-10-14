@@ -25,7 +25,7 @@ const containerStyles = css({
 		'elevation.shadow.raised',
 		'0px 1px 1px rgba(9, 30, 66, 0.25),0px 0px 1px rgba(9, 30, 66, 0.31)',
 	),
-	borderRadius: token('border.radius.100', '4px'),
+	borderRadius: token('radius.small', '4px'),
 	overflow: 'hidden',
 	display: 'flex',
 	height: 400,
@@ -53,10 +53,10 @@ const sidebarStyles = css({
 
 const swatchBaseStyles = css({
 	boxSizing: 'border-box',
-	border: `2px solid ${token('color.border', 'rgba(9, 30, 66, 0.14)')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border', 'rgba(9, 30, 66, 0.14)')}`,
 	width: 32,
 	height: 32,
-	borderRadius: '50%',
+	borderRadius: token('radius.full'),
 	cursor: 'pointer',
 	color: token('color.text.inverse', '#FFF'),
 	display: 'flex',

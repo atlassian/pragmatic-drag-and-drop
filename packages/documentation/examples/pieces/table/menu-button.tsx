@@ -10,6 +10,7 @@ import { css, jsx } from '@emotion/react';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
+import { fg } from '@atlaskit/platform-feature-flags';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 
 import { TableContext } from './table-context';
@@ -66,6 +67,7 @@ export const RowMenuButton = forwardRef<
 				trigger={({ triggerRef, ...triggerProps }) => (
 					<DragHandleButton ref={mergeRefs([ref, triggerRef])} {...triggerProps} label="Reorder" />
 				)}
+				shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 			>
 				<DropdownItemGroup>
 					<DropdownItem isDisabled={isFirstRow} onClick={moveUp}>
@@ -112,6 +114,7 @@ export const ColumnMenuButton = forwardRef<
 				trigger={({ triggerRef, ...triggerProps }) => (
 					<DragHandleButton ref={mergeRefs([ref, triggerRef])} {...triggerProps} label="Reorder" />
 				)}
+				shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 			>
 				<DropdownItemGroup>
 					<DropdownItem isDisabled={isFirstColumn} onClick={moveLeft}>

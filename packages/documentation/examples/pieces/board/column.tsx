@@ -14,9 +14,10 @@ import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--editor-more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
+import { fg } from '@atlaskit/platform-feature-flags';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
 	attachClosestEdge,
@@ -31,6 +32,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/center-under-pointer';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -43,7 +45,7 @@ import { ColumnContext, type ColumnContextProps, useColumnContext } from './colu
 const columnStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius.300',
+	borderRadius: 'radius.xlarge',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
@@ -321,7 +323,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 const safariPreviewStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	padding: 'space.200',
 });
 
@@ -337,7 +339,10 @@ function SafariColumnPreview({ column }: { column: ColumnType }) {
 
 function ActionMenu() {
 	return (
-		<DropdownMenu trigger={DropdownMenuTrigger}>
+		<DropdownMenu
+			trigger={DropdownMenuTrigger}
+			shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+		>
 			<ActionMenuItems />
 		</DropdownMenu>
 	);
@@ -386,7 +391,7 @@ function DropdownMenuTrigger({ triggerRef, ...triggerProps }: CustomTriggerProps
 			appearance="subtle"
 			label="Actions"
 			spacing="compact"
-			icon={MoreIcon}
+			icon={(iconProps) => <MoreIcon {...iconProps} size="small" />}
 			{...triggerProps}
 		/>
 	);

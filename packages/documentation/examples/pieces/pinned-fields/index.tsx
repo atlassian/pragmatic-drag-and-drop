@@ -19,17 +19,17 @@ const containerStyles = css({
 
 	display: 'flex',
 	flexDirection: 'column',
-	border: `1px solid ${token('color.border')}`,
-	borderRadius: 4,
+	border: `${token('border.width')} solid ${token('color.border')}`,
+	borderRadius: token('radius.small'),
 });
 
 const headerStyles = css({
 	background: token('elevation.surface.overlay'),
 	font: token('font.body'),
 	fontWeight: token('font.weight.bold'),
-	padding: 12,
-	borderBottom: `1px solid ${token('color.border')}`,
-	borderRadius: '4px 4px 0px 0px',
+	padding: token('space.150'),
+	borderBottom: `${token('border.width')} solid ${token('color.border')}`,
+	borderRadius: `${token('radius.small')} ${token('radius.small')} 0px 0px`,
 });
 
 const listStyles = css({
@@ -37,19 +37,19 @@ const listStyles = css({
 	flexDirection: 'column',
 	boxSizing: 'border-box',
 	// border: '1px solid transparent',
-	borderRadius: 4,
+	borderRadius: token('radius.small'),
 	position: 'relative',
 
 	/**
 	 * Adding some small extra padding so that drop indicators
 	 * at the top and bottom aren't against the edge of the container.
 	 */
-	padding: '4px 8px',
+	padding: `${token('space.050')} ${token('space.100')}`,
 });
 
 const fieldStyles = css({
 	display: 'grid',
-	gap: 24,
+	gap: token('space.300'),
 	alignItems: 'start',
 	padding: '8px 4px',
 	margin: '4px 0px',
@@ -67,7 +67,7 @@ const fieldLabelStyles = css({
 	minHeight: 24,
 	display: 'flex',
 	alignItems: 'center',
-	gap: 4,
+	gap: token('space.050'),
 });
 
 export function FieldLabel({ children }: { children: ReactNode }) {

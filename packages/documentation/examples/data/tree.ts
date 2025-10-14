@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant';
 
-import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
 
 export type TreeItem = {
 	id: string;
@@ -26,22 +26,22 @@ export function getInitialData(): TreeItem[] {
 
 			children: [
 				{
-					id: '1.3',
+					id: '1.1',
 					isOpen: true,
 
 					children: [
 						{
-							id: '1.3.1',
+							id: '1.1.1',
 							children: [],
 						},
 						{
-							id: '1.3.2',
+							id: '1.1.2',
 							isDraft: true,
 							children: [],
 						},
 					],
 				},
-				{ id: '1.4', children: [] },
+				{ id: '1.2', children: [] },
 			],
 		},
 		{
@@ -49,16 +49,16 @@ export function getInitialData(): TreeItem[] {
 			isOpen: true,
 			children: [
 				{
-					id: '2.3',
+					id: '2.1',
 					isOpen: true,
 
 					children: [
 						{
-							id: '2.3.1',
+							id: '2.1.1',
 							children: [],
 						},
 						{
-							id: '2.3.2',
+							id: '2.1.2',
 							children: [],
 						},
 					],
@@ -215,36 +215,29 @@ const dataReducer = (data: TreeItem[], action: TreeAction) => {
 	if (action.type === 'instruction') {
 		const instruction = action.instruction;
 
-		if (instruction.type === 'reparent') {
-			const path = tree.getPathToItem({
-				current: data,
-				targetId: action.targetId,
-			});
-			invariant(path);
-			const desiredId = path[instruction.desiredLevel];
-			let result = tree.remove(data, action.itemId);
-			result = tree.insertAfter(result, desiredId, item);
-			return result;
-		}
-
 		// the rest of the actions require you to drop on something else
 		if (action.itemId === action.targetId) {
 			return data;
 		}
 
-		if (instruction.type === 'reorder-above') {
+		// instruction was blocked and should not do anything
+		if (action.instruction.blocked) {
+			return data;
+		}
+
+		if (instruction.operation === 'reorder-before') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertBefore(result, action.targetId, item);
 			return result;
 		}
 
-		if (instruction.type === 'reorder-below') {
+		if (instruction.operation === 'reorder-after') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertAfter(result, action.targetId, item);
 			return result;
 		}
 
-		if (instruction.type === 'make-child') {
+		if (instruction.operation === 'combine') {
 			let result = tree.remove(data, action.itemId);
 			result = tree.insertChild(result, action.targetId, item);
 			return result;

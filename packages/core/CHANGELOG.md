@@ -1,5 +1,115 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.7
+
+### Patch Changes
+
+- [`5d0b8ba5e6f7f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5d0b8ba5e6f7f) -
+  Internal changes to how borders are applied.
+
+## 1.7.6
+
+### Patch Changes
+
+- [`6c430bfbb035d`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/6c430bfbb035d) -
+  Updated code to fix typescript issues during adoption of local consumption for adminhub
+
+## 1.7.5
+
+### Patch Changes
+
+- [`beaa6ee463aa8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/beaa6ee463aa8) -
+  Internal changes to how border radius is applied.
+
+## 1.7.4
+
+### Patch Changes
+
+- [#174472](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/174472)
+  [`fda983a832f81`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/fda983a832f81) -
+  On Android `pointerOutsideOfPreview` will now also center the drag preview under the users
+  pointer. Technically this was already existing observed behaviour as Android always centers the
+  drag preview under the users pointer. We now make this behaviour explicit in the code, and call
+  this out behaviour in jsdoc and documentation.
+
+## 1.7.3
+
+### Patch Changes
+
+- [#173859](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/173859)
+  [`d6f17206f8859`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/d6f17206f8859) -
+  In order to provide the best experience for iOS, the optional function `pointerOutsideOfPreview`
+  will now center the drag preview under the users pointer on iOS.
+
+  Some more detail (in case you are interested):
+
+  **Borders**
+
+  _(Existing behaviour)_
+
+  In `pointerOutsideOfPreview` we use transparent borders to push the preview away from the users
+  pointer. On iOS these borders will always be black. So we don't use transparent border on iOS.
+
+  **Placement**
+
+  _(Improvement)_
+
+  During a drag on iOS the drag preview will shift under the center of the users pointer, even if we
+  start the drag with the users pointer on the top left or top right corner of the drag preview. So
+  now `pointerOutsideOfPreview` will always put the preview under the center of the users pointer in
+  order to avoid the drag preview position shifting as the drag is starting.
+
+## 1.7.2
+
+### Patch Changes
+
+- [#164244](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/164244)
+  [`65021fc0267e2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/65021fc0267e2) -
+  The cleanup functions returned by the following utilities now only work on the first call. This
+  was done to prevent unexpected side effects of calling a cleanup function multiple times.
+
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/element`
+    - `draggable`
+    - `dropTargetForElements`
+    - `monitorForElements`
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/text-selection`
+    - `dropTargetForTextSelection`
+    - `monitorForTextSelection`
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/external`
+    - `dropTargetForExternal`
+    - `monitorForExternal`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/element`
+    - `autoScrollForElements`
+    - `autoScrollWindowForElements`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/external`
+    - `autoScrollForExternal`
+    - `autoScrollWindowForExternal`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/text-selection`
+    - `autoScrollForTextSelection`
+    - `autoScrollWindowForTextSelection`
+
+## 1.7.1
+
+### Patch Changes
+
+- [#162456](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/162456)
+  [`f916af5aab898`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f916af5aab898) -
+  Removes `@atlaskit/platform-feature-flags` as a dependency. Removes `@atlaskit/link` as a runtime
+  dependency, although it is still used in examples.
+
+## 1.7.0
+
+### Minor Changes
+
+- [#157071](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/157071)
+  [`a149a0b1559ec`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/a149a0b1559ec) -
+  We are testing the migration to the ADS Link component behind a feature flag. If this fix is
+  successful it will be available in a later release.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 1.6.1
 
 ### Patch Changes

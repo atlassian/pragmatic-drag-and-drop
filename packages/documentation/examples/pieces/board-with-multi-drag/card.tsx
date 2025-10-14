@@ -26,6 +26,7 @@ import {
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { type Person } from '../../data/people';
@@ -44,7 +45,7 @@ const noMarginStyles = xcss({ margin: 'space.0' });
 const noPointerEventsStyles = xcss({ pointerEvents: 'none' });
 const containerStyles = xcss({
 	width: '100%',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	boxShadow: 'elevation.shadow.raised',
 	position: 'relative',
 	display: 'grid',
@@ -57,7 +58,7 @@ const selectionCountStyles = xcss({
 	top: 'space.negative.100',
 	color: 'color.text.inverse',
 	backgroundColor: 'color.background.accent.gray.subtle',
-	borderRadius: 'border.radius.circle',
+	borderRadius: 'radius.full',
 	height: 'size.200',
 	width: 'size.200',
 	lineHeight: '1.5rem',

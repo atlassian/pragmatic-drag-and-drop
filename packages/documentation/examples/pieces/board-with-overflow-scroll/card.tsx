@@ -26,6 +26,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { type Person } from '../../data/people';
@@ -45,7 +46,7 @@ const noMarginStyles = css({ margin: 0 });
 const noPointerEventsStyles = css({ pointerEvents: 'none' });
 const containerStyles = xcss({
 	width: '100%',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	boxShadow: 'elevation.shadow.raised',
 	position: 'relative',
 	display: 'grid',

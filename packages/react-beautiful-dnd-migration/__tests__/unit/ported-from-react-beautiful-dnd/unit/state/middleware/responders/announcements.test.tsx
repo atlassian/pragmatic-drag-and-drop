@@ -212,5 +212,17 @@ cases.forEach((current: Case) => {
 
 			warn.mockRestore();
 		});
+
+		if (current.responder === 'onDragEnd') {
+			/**
+			 * Running A11Y test only for one case to avoid redundancy and last case only as other tests using
+			 * `runOnlyPendingTimers` would fail with another async test.
+			 */
+			it('should capture and report a11y violations', async () => {
+				const { container } = render(<Board />);
+
+				await expect(container).toBeAccessible();
+			});
+		}
 	});
 });

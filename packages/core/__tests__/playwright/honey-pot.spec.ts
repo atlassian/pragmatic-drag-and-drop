@@ -136,4 +136,12 @@ test.describe('honey pot', () => {
 			await expect(locator).toContainData(notTouched);
 		}
 	});
+
+	test('should capture and report a11y violations', async ({ page }) => {
+		await page.visitExample('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
+		const card0 = page.locator('[data-testid="card-0"]');
+		await expect(card0).toContainData(notTouched);
+
+		await expect(page).toBeAccessible();
+	});
 });

@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
+import Link from '@atlaskit/link';
 import { Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
@@ -99,7 +100,7 @@ function CardWithExternal() {
 				{cardText[state]}
 			</h5>
 			<small>This card also attaches a url that can be dragged into external windows</small>
-			{/* eslint-disable-next-line jsx-a11y/alt-text */}
+			{/* eslint-disable-next-line @atlassian/a11y/alt-text */}
 			<img src={avatarUrl} width="40" height="40" />
 		</div>
 	);
@@ -116,9 +117,9 @@ function DraggableAnchor() {
 		});
 	}, []);
 	return (
-		<a href="#controlled" ref={ref}>
+		<Link href="#controlled" ref={ref}>
 			Anchor that is also a draggable()
-		</a>
+		</Link>
 	);
 }
 
@@ -137,9 +138,9 @@ function DraggableAnchorWithNewUrl() {
 		});
 	}, []);
 	return (
-		<a href="#controlled" ref={ref}>
+		<Link href="#controlled" ref={ref}>
 			Link that is also a draggable() - with a new url
-		</a>
+		</Link>
 	);
 }
 
@@ -168,9 +169,9 @@ function DraggableAnchorWithCustomPreview() {
 		});
 	}, []);
 	return (
-		<a href="#controlled" ref={ref}>
+		<Link href="#controlled" ref={ref}>
 			Link that is also a draggable() (custom preview)
-		</a>
+		</Link>
 	);
 }
 
@@ -184,7 +185,7 @@ function DraggableImage() {
 			element,
 		});
 	}, []);
-	// eslint-disable-next-line jsx-a11y/alt-text
+	// eslint-disable-next-line @atlassian/a11y/alt-text
 	return <img src={avatarUrl} ref={ref} width="40" height="40" />;
 }
 
@@ -212,7 +213,7 @@ function DraggableImageWithCustomPreview() {
 			},
 		});
 	}, []);
-	// eslint-disable-next-line jsx-a11y/alt-text
+	// eslint-disable-next-line @atlassian/a11y/alt-text
 	return <img src={avatarUrl} ref={ref} width="40" height="40" />;
 }
 
@@ -223,11 +224,11 @@ export function Content() {
 			<div>
 				<ul>
 					<li>
-						<a href="#standalone">Standalone link</a>
+						<Link href="#standalone">Standalone link</Link>
 					</li>
 					<li>
-						<a href="#side-by">Side by</a>
-						<a href="#side-links">side links</a>
+						<Link href="#side-by">Side by</Link>
+						<Link href="#side-links">side links</Link>
 					</li>
 					<li>
 						<DraggableAnchor />
@@ -252,7 +253,7 @@ export function Content() {
 			</p>
 			<h4>Images</h4>
 			<li>
-				{/* eslint-disable-next-line jsx-a11y/alt-text */}
+				{/* eslint-disable-next-line @atlassian/a11y/alt-text */}
 				Uncontrolled <img src={avatarUrl} width="40" height="40" />
 			</li>
 			<li>
@@ -261,7 +262,6 @@ export function Content() {
 			<li>
 				Controlled with custom preview <DraggableImageWithCustomPreview />
 			</li>
-
 			<h4>Controlled draggables</h4>
 			<Stack>
 				<Card />

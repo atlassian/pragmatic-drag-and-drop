@@ -7,4 +7,4 @@ export const presetStrokeColors: { [TKey in Appearance]: CSSColor } = {
 	warning: token('color.border.warning'),
 };
 
-export const presetStrokeWidth = token('border.width.outline');
+export const presetStrokeWidth = token('border.width.selected');

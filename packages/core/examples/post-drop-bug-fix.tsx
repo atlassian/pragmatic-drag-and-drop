@@ -172,16 +172,18 @@ function Card({
 	}, [cardId, typeContext, isSticky, isDraggable]);
 
 	return (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, @atlassian/a11y/interactive-element-not-keyboard-focusable
+		// eslint-disable-next-line @atlassian/a11y/click-events-have-key-events, @atlassian/a11y/interactive-element-not-keyboard-focusable, @atlassian/a11y/no-static-element-interactions
 		<div
 			ref={ref}
 			css={[cardStyles, interactiveStyles, state === 'is-over' ? isOverCardStyles : undefined]}
 			data-testid={`${typeContext}-${cardId}`}
+			// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events
 			onMouseEnter={(event) => {
 				console.log('onMouseEnter', cardId, { clientX: event.clientX, clientY: event.clientY });
 				setCounts((current) => ({ ...current, enter: current.enter + 1 }));
 				// }
 			}}
+			// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events
 			onMouseLeave={() => {
 				setCounts((current) => ({ ...current, leave: current.leave + 1 }));
 			}}
@@ -271,12 +273,13 @@ function DragEndTest() {
 			<Stack space="space.100">
 				<h3>Dragend test</h3>
 				<strong>Swap first two cards on unsuccessful drag</strong>
-				{/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+				{/* eslint-disable-next-line @atlassian/a11y/no-static-element-interactions*/}
 				<div
 					css={[listStyles, interactiveStyles]}
-					// eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+					// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events
 					onMouseOver={(event) => console.error(event.type, event.target)}
 					onMouseEnter={(event) => console.error(event.type, event.target)}
+					// eslint-disable-next-line @atlassian/a11y/mouse-events-have-key-events
 					onMouseLeave={(event) => console.error(event.type, event.target)}
 				>
 					{cards.map((card) => {

@@ -42,7 +42,7 @@ const fileDropZoneStyles = css({
 	gap: 16,
 	flexDirection: 'column',
 	background: token('elevation.surface', '#FFF'),
-	border: `2px solid ${token('color.border', '#091E4224')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border', '#091E4224')}`,
 	borderRadius: 6,
 });
 
@@ -59,7 +59,7 @@ const FileDropZone = () => {
 	}, []);
 
 	return (
-		// eslint-disable-next-line jsx-a11y/no-static-element-interactions
+		// eslint-disable-next-line @atlassian/a11y/no-static-element-interactions
 		<div onDragOver={onDragOver} onDrop={onDrop} data-testid="drop-zone" css={fileDropZoneStyles}>
 			<p>
 				<Badge appearance="primary">{items.length}</Badge> items dropped.

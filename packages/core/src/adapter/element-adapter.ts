@@ -17,6 +17,7 @@ import {
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { combine } from '../public-utils/combine';
+import { once } from '../public-utils/once';
 import { addAttribute } from '../util/add-attribute';
 import { androidFallbackText, isAndroid } from '../util/android';
 import { getInput } from '../util/get-input';
@@ -138,9 +139,9 @@ const adapter = makeAdapter<ElementDragType>({
 
 					// this source is only for elements
 					// Note: only HTMLElements can have the "draggable" attribute
-					if (!target) {
-            return null;
-          }
+					if (!(target instanceof HTMLElement)) {
+						return;
+					}
 
 					// see if the thing being dragged is owned by us
 					const entry: DraggableArgs | undefined = draggableRegistry.get(target);
@@ -148,7 +149,7 @@ const adapter = makeAdapter<ElementDragType>({
 					// no matching element found
 					// → dragging an element with `draggable="true"` that is not controlled by us
 					if (!entry) {
-						return null;
+						return;
 					}
 
 					/**
@@ -196,7 +197,7 @@ const adapter = makeAdapter<ElementDragType>({
 					if (entry.canDrag && !entry.canDrag(feedback)) {
 						// cancel drag operation if we cannot drag
 						event.preventDefault();
-						return null;
+						return;
 					}
 
 					// Check: is there a drag handle and is the user using it?
@@ -214,7 +215,7 @@ const adapter = makeAdapter<ElementDragType>({
 						// then we will cancel the active drag
 						if (!entry.dragHandle.contains(over)) {
 							event.preventDefault();
-							return null;
+							return;
 						}
 					}
 
@@ -354,7 +355,7 @@ export function draggable(args: DraggableArgs): CleanupFn {
 		}
 	}
 
-	return combine(
+	const cleanup = combine(
 		// making the draggable register the adapter rather than drop targets
 		// this is because you *must* have a draggable element to start a drag
 		// but you _might_ not have any drop targets immediately
@@ -363,6 +364,10 @@ export function draggable(args: DraggableArgs): CleanupFn {
 		addToRegistry(args),
 		addAttribute(args.element, { attribute: 'draggable', value: 'true' }),
 	);
+
+	// Wrapping in `once` to prevent unexpected side effects if consumers call
+	// the clean up function multiple times.
+	return once(cleanup);
 }
 
 /** Common event payload for all events */

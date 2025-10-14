@@ -14,6 +14,10 @@ import { EdgeExample } from '../../examples/constellation/box/box-edge';
 import { GapExample } from '../../examples/constellation/box/box-gap';
 import { OverlapExample } from '../../examples/constellation/box/box-overlap';
 import { IndentExample } from '../../examples/constellation/box/box-indent';
+import { ListItemVerticalExample } from '../../examples/constellation/list-item/list-item-vertical';
+import { ListItemHorizontalExample } from '../../examples/constellation/list-item/list-item-horizontal';
+import { BorderShowcaseExample } from '../../examples/constellation/border/border-showcase';
+import { GroupExample } from '../../examples/constellation/group/group-list';
 
 This package contains `react` components to display hitbox information, which is usually generated
 by our optional [hitbox package](/components/pragmatic-drag-and-drop/optional-packages/hitbox). You
@@ -59,20 +63,12 @@ any problems, please raise an issue on
 
 </SectionMessage>
 
-## Box
+## `position: relative`
 
-A drop indicator to draw a line on an `Edge` (`top`, `right`, `bottom`, `left`). This output is
-commonly used in to visualize the
-[box hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox) results.
-
-```ts
-import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-```
-
-### `position:relative` needed
-
-The box drop indicator will be drawn relative to the closest parent with `position:relative` (or any
-other [non-static position](https://developer.mozilla.org/en-US/docs/Web/CSS/position))
+Generally speaking, all drop indicators leverage `position:absolute` and will be positioned relative
+to the closest parent with `position:relative` (or any other
+[non-static position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)). The exception to
+this is the [group drop indicator](#group).
 
 ```tsx
 const itemStyles = css({
@@ -81,14 +77,71 @@ const itemStyles = css({
 	backgroundColor: token('elevation.surface'),
 });
 
-export function Item({ content, closestEdge }: { content: ReactNode; closestEdge: Edge | null }) {
+export function Item({
+	content,
+	instruction,
+}: {
+	content: ReactNode;
+	instruction: Instruction | null;
+}) {
 	return (
 		<div css={itemStyles}>
 			<span>{content}</span>
-			{closestEdge && <DropIndicator edge={closestEdge} />}
+			{instruction && <DropIndicator edge={instruction} />}
 		</div>
 	);
 }
+```
+
+## List item
+
+<SectionMessage>
+
+[`position: relative` needed on parent](#position-relative)
+
+</SectionMessage>
+
+A drop indicator to draw a drop indicator for list item operations (`"reorder-before"`, `"combine"`
+and `"reorder-after"`). This output is commonly used in to visualize the
+[list item hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox) results.
+
+```ts
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/list-item';
+```
+
+This drop indicator will internally render either a [box drop indicator](#box) for
+`"reorder-before"` and `"reorder-after"` operations, and a [border drop indicator](#border) for
+`"combine"`.
+
+#### Props
+
+- `instruction`: the `Instruction` to be rendered.
+  [See hitbox for details on instructions](/components/pragmatic-drag-and-drop/optional-packages/hitbox#list-item)
+- `lineGap`: the gap between list items ([see box > gap](#gap))
+- `lineType`: the variant of lines to be used ([see box > type](#type))
+
+#### Vertical list
+
+<Example Component={ListItemVerticalExample} appearance="showcase-only" />
+
+#### Horizontal list
+
+<Example Component={ListItemHorizontalExample} appearance="showcase-only" />
+
+## Box
+
+<SectionMessage>
+
+[`position: relative` needed on parent](#position-relative)
+
+</SectionMessage>
+
+A drop indicator to draw a line on an `Edge` (`top`, `right`, `bottom`, `left`). This output is
+commonly used in to visualize the
+[box hitbox](/components/pragmatic-drag-and-drop/optional-packages/hitbox) results.
+
+```ts
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 ```
 
 If the element you want to position against has a `border`, you will need to wrap the element in
@@ -129,7 +182,7 @@ Drop indicators are rendered on for a provided `Edge` (`top`, `right`, `bottom`,
 <Example Component={EdgeExample} appearance="showcase-only" />
 
 In order to help people be successful with performance, we have made `edge` a _required_ prop. This
-will force you to only render the indicator when it is relevant (minimising `react` and DOM nodes)
+will force you to only render the indicator when it is relevant (minimizing `react` and DOM nodes)
 
 ```tsx
 export function Item() {
@@ -222,7 +275,92 @@ interface where the drop indicator can shift based on which level the item belon
 
 <Example Component={IndentExample} appearance="showcase-only" />
 
+## Border
+
+<SectionMessage>
+
+[`position: relative` needed on parent](#position-relative)
+
+</SectionMessage>
+
+A drop indicator which draws a border around an element. Right now, this component uses
+`position:absolute` rather than being a true border in order to support `tree-item` indenting. So as
+with the other drop indicators, this component will be rendered relative to the closest
+`position:relative` parent.
+
+#### Props
+
+- `appearance`: `'default' | 'warning'`: used to control the color of the border
+- `indent`: can be used to indent the border (needed for `tree-item`s).
+
+<Example Component={BorderShowcaseExample} appearance="showcase-only" />
+
+## Group
+
+Our group drop indicator is helpful to indicate that you are over a group of items. It is currently
+limited in the amount of control it provides.
+
+Unlike all other drop indicators:
+
+- The `GroupDropIndicator` does not need a `position:relative` parent (it wraps DOM elements)
+- It is always rendered, and it's visibility is toggled with the `isActive` prop.
+- We've found it's often helpful to make a `GroupDropIndicator` a drop target
+- `GroupDropIndicator` exposes a `ref` so you can wire it up to be a drop target.
+
+<Example Component={GroupExample} appearance="showcase-only" />
+
+```tsx
+import { GroupDropIndicator } from '@atlassian/pragmatic-drag-and-drop-react-drop-indicator/group';
+
+function isInnerMostGroup({ location, self }: ElementDropTargetEventBasePayload): boolean {
+	const [innerMost] = location.current.dropTargets.filter(
+		(dropTarget) => dropTarget.data.type === 'menu-item-group',
+	);
+	return innerMost?.element === self.element;
+}
+
+export function MyMenuItemGroup() {
+	const [isInnerMostOver, setIsInnerMostOver] = useState<boolean>(false);
+	const ref = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		const element = ref.current;
+		invariant(element);
+		return dropTargetForElements({
+			element,
+			canDrop: ({ source }) => source.data.type === 'menu-item',
+			getData: () => ({ type: 'menu-item-group' }),
+			onDragStart: (args) => setIsInnerMostOver(isInnerMostGroup(args)),
+			onDropTargetChange: (args) => setIsInnerMostOver(isInnerMostGroup(args)),
+			onDrop: () => setIsInnerMostOver(false),
+		});
+	}, []);
+
+	return (
+		<GroupDropIndicator isActive={isInnerMostOver} ref={ref}>
+			<OurLinkMenuItem />
+			<OurButtonItem />
+			<OurFlyoutItem />
+			<OurExpandableItem />
+		</GroupDropIndicator>
+	);
+}
+```
+
 ## Tree item
+
+<SectionMessage appearance="warning">
+
+The usage of tree item is no longer encouraged. Please now use our more flexible
+[list item](#list-item) which can also be used to power trees.
+
+</SectionMessage>
+
+<SectionMessage>
+
+[`position: relative` needed on parent](#position-relative)
+
+</SectionMessage>
 
 A drop indicator used to visualize a
 [tree item hitbox `Instruction`](/components/pragmatic-drag-and-drop/optional-packages/hitbox).
@@ -237,31 +375,3 @@ import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indi
 ```
 
 <Example Component={TreeItemExample} appearance="showcase-only" />
-
-### `position:relative` needed
-
-The tree-item drop indicator will be drawn relative to the closest parent with `position:relative`
-(or any other [non-static position](https://developer.mozilla.org/en-US/docs/Web/CSS/position))
-
-```tsx
-const itemStyles = css({
-	position: 'relative',
-	padding: token('space.100'),
-	backgroundColor: token('elevation.surface'),
-});
-
-export function Item({
-	content,
-	instruction,
-}: {
-	content: ReactNode;
-	instruction: Instruction | null;
-}) {
-	return (
-		<div css={itemStyles}>
-			<span>{content}</span>
-			{closestEdge && <DropIndicator instruction={instruction} />}
-		</div>
-	);
-}
-```

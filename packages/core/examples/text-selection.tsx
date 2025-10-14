@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 import { combine } from '../src/entry-point/combine';
@@ -19,8 +20,8 @@ import {
 type DropTargetState = 'idle' | 'potential' | 'over';
 
 const containerStyles = xcss({
-	borderWidth: 'border.width.outline',
-	borderRadius: 'border.radius',
+	borderWidth: 'border.width.selected',
+	borderRadius: 'radius.small',
 	borderStyle: 'solid',
 	flexGrow: 1,
 	flexShrink: 1,
@@ -80,6 +81,7 @@ function DropTarget() {
 			<Stack space="space.100">
 				<strong>Drop select text on me</strong>
 				<Box>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					Latest dropped text: <code>"{latestText}"</code>
 				</Box>
 			</Stack>

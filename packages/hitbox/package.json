@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-hitbox",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "An optional package for Pragmatic drag and drop that enables the attaching of interaction information to a drop target",
   "author": "Atlassian Pty Ltd",
   "license": "Apache-2.0",
@@ -17,16 +17,16 @@
     ".": "./src/index.ts",
     "./types": "./src/types.ts",
     "./closest-edge": "./src/closest-edge.ts",
+    "./list-item": "./src/list-item.ts",
     "./tree-item": "./src/tree-item.ts",
     "./util/reorder-with-edge": "./src/reorder-with-edge.ts",
     "./util/get-reorder-destination-index": "./src/get-reorder-destination-index.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.6.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "typescript": "~5.4.2",
     "wait-for-expect": "^1.2.0"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"

@@ -18,6 +18,7 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Lozenge from '@atlaskit/lozenge';
+import { fg } from '@atlaskit/platform-feature-flags';
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
 import {
 	attachClosestEdge,
@@ -38,6 +39,7 @@ import {
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -119,13 +121,13 @@ function getItemPosition({ index, items }: { index: number; items: Item[] }): It
 const listItemContainerStyles = xcss({
 	position: 'relative',
 	backgroundColor: 'elevation.surface',
-	borderWidth: 'border.width.0',
+	borderWidth: '0',
 	borderBottomWidth: token('border.width', '1px'),
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
-		borderWidth: 'border.width.0',
+		borderWidth: '0',
 	},
 });
 
@@ -147,7 +149,7 @@ const draggingState: DraggableState = { type: 'dragging' };
 const listItemPreviewStyles = xcss({
 	paddingBlock: 'space.050',
 	paddingInline: 'space.100',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface.overlay',
 	maxWidth: '360px',
 	whiteSpace: 'nowrap',
@@ -344,6 +346,7 @@ function ListItem({
 								label={`Reorder ${item.label}`}
 							/>
 						)}
+						shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 					>
 						<DropdownItemGroup>
 							<DropDownContent position={position} index={index} />

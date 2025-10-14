@@ -27,6 +27,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -35,7 +36,7 @@ import { type ItemData } from './data';
 
 const listItemContainerStyles = xcss({
 	position: 'relative',
-	borderWidth: 'border.width.0',
+	borderWidth: '0',
 	borderBottomWidth: token('border.width', '1px'),
 	borderStyle: 'solid',
 	borderColor: 'color.border',
@@ -49,7 +50,7 @@ const listItemContainerStyles = xcss({
 	},
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
-		borderWidth: 'border.width.0',
+		borderWidth: '0',
 	},
 });
 
@@ -88,7 +89,7 @@ const draggingState: DraggableState = { type: 'dragging' };
 const listItemPreviewStyles = xcss({
 	paddingBlock: 'space.050',
 	paddingInline: 'space.100',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface.overlay',
 	maxWidth: '360px',
 	whiteSpace: 'nowrap',

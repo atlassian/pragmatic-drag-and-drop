@@ -128,6 +128,12 @@ it('should remove all placeholders if an error occurs while dragging', () => {
 });
 
 describe('home list', () => {
+	it('should capture and report a11y violations', async () => {
+		const { container } = render(<Board />);
+
+		await expect(container).toBeAccessible();
+	});
+
 	it('should always render a placeholder while dragging', () => {
 		const droppableIds = getAllColumnDroppableIds();
 		droppableIds.forEach((droppableId) => {

@@ -1,5 +1,128 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.15
+
+### Patch Changes
+
+- [`630257c173760`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/630257c173760) -
+  Change "issue" wording to "work-item" in examples.
+
+## 1.4.14
+
+### Patch Changes
+
+- [`717cc94987686`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/717cc94987686) -
+  Internal changes to how borders are applied.
+
+## 1.4.13
+
+### Patch Changes
+
+- [`5d0b8ba5e6f7f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5d0b8ba5e6f7f) -
+  Internal changes to how borders are applied.
+
+## 1.4.12
+
+### Patch Changes
+
+- [`20056074447a2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/20056074447a2) -
+  Switch to more semantically accurate label prop in internal radio and radio group instances.
+
+## 1.4.11
+
+### Patch Changes
+
+- [`beaa6ee463aa8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/beaa6ee463aa8) -
+  Internal changes to how border radius is applied.
+
+## 1.4.10
+
+### Patch Changes
+
+- [`806cfe1c4e6b7`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/806cfe1c4e6b7) -
+  Internal changes to how border radius is applied.
+
+## 1.4.9
+
+### Patch Changes
+
+- [`d28c4180ae756`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/d28c4180ae756) -
+  Internal changes to how border radius is applied.
+
+## 1.4.8
+
+### Patch Changes
+
+- [`cd70a377d007c`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/cd70a377d007c) -
+  Internal changes to how border radius is applied.
+
+## 1.4.7
+
+### Patch Changes
+
+- [`20a5aa8c4e7a0`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/20a5aa8c4e7a0) -
+  Removed gridSize import. No visual changes.
+
+## 1.4.6
+
+### Patch Changes
+
+- [`156b50375043d`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/156b50375043d) -
+  Removing some internal `console` logging that is no longer needed.
+
+## 1.4.5
+
+### Patch Changes
+
+- [`66166bf41060b`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/66166bf41060b) -
+  Adding visual regression tests to help ensure our examples don't change without our prior
+  knowledge
+
+## 1.4.4
+
+### Patch Changes
+
+- [`098cfbb01dc36`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/098cfbb01dc36) -
+  Add missing npmignore files to remove unnecessary files from published package
+
+## 1.4.3
+
+### Patch Changes
+
+- [#188952](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/188952)
+  [`1a88e6e2601ae`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/1a88e6e2601ae) -
+  Migrated usage of renamed/deprecated icons
+
+## 1.4.2
+
+### Patch Changes
+
+- [#171534](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/171534)
+  [`72189ecc4d763`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/72189ecc4d763) -
+  Updated icon usage for deprecated icons
+
+## 1.4.1
+
+### Patch Changes
+
+- [#162456](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/162456)
+  [`f916af5aab898`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/f916af5aab898) -
+  Removes `@atlaskit/platform-feature-flags` as a dependency. Removes `@atlaskit/link` as a runtime
+  dependency, although it is still used in examples.
+
+## 1.4.0
+
+### Minor Changes
+
+- [#157071](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/157071)
+  [`a149a0b1559ec`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/a149a0b1559ec) -
+  We are testing the migration to the ADS Link component behind a feature flag. If this fix is
+  successful it will be available in a later release.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 1.3.2
 
 ### Patch Changes

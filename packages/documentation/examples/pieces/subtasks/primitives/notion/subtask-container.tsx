@@ -7,9 +7,9 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
+import ChevronDownCircleIcon from '@atlaskit/icon/core/migration/chevron-down--chevron-down-circle';
 import RecentIcon from '@atlaskit/icon/core/migration/clock--recent';
 import EditorTextStyleIcon from '@atlaskit/icon/core/migration/text-style--editor-text-style';
-import ChevronDownCircleIcon from '@atlaskit/icon/utility/migration/chevron-down--chevron-down-circle';
 import { token } from '@atlaskit/tokens';
 
 const subtaskContainerStyles = css({
@@ -27,7 +27,7 @@ type SubtaskContainerProps = HTMLAttributes<HTMLDivElement> & {
 const headingRowStyles = css({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(3, 1fr)',
-	border: `1px solid ${token('color.border')}`,
+	border: `${token('border.width')} solid ${token('color.border')}`,
 	borderInlineWidth: 0,
 });
 
@@ -38,7 +38,7 @@ const headingStyles = css({
 	gap: 4,
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:first-of-type)': {
-		borderLeft: `1px solid ${token('color.border')}`,
+		borderLeft: `${token('border.width')} solid ${token('color.border')}`,
 	},
 });
 
@@ -67,6 +67,7 @@ export const SubtaskContainer = forwardRef<HTMLDivElement, SubtaskContainerProps
 								label=""
 								LEGACY_size="small"
 								spacing="compact"
+								size="small"
 							/>
 							Status
 						</Heading>

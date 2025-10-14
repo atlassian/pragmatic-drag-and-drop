@@ -18,7 +18,6 @@ export default function BoardExample() {
 		columnMap: ColumnMap;
 		orderedColumnIds: string[];
 	}>(() => getData({ columnCount: 7, itemsPerColumn: 100 }));
-	console.log('data', data);
 
 	useEffect(() => {
 		return combine(

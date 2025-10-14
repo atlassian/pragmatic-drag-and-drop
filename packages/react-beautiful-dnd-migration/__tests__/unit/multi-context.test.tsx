@@ -323,4 +323,11 @@ describe('when there are multiple <DragDropContext> instances', () => {
 		expect(spyA).toHaveBeenCalled();
 		expect(spyB).not.toHaveBeenCalled();
 	});
+
+	it('should capture and report a11y violations', async () => {
+		const responders = [getResponders(), getResponders()];
+		const { container } = render(<App responders={responders} />);
+
+		await expect(container).toBeAccessible();
+	});
 });

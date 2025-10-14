@@ -9,8 +9,8 @@ import { css, jsx } from '@emotion/react';
 import { token } from '@atlaskit/tokens';
 
 const droppableAreaOverlayStyles = css({
-	border: '2px dashed transparent',
-	borderRadius: 3,
+	border: `${token('border.width.selected')} dashed transparent`,
+	borderRadius: token('radius.small', '3px'),
 	transition: 'background-color 300ms ease, border 300ms ease',
 	position: 'absolute',
 	top: 0,

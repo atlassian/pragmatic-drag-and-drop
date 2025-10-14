@@ -25,7 +25,7 @@ const subtaskStyles = css({
 	height: 40,
 	padding: '0px 8px',
 
-	borderBottom: `1px solid transparent`,
+	borderBottom: `${token('border.width')} solid transparent`,
 });
 
 const subtaskNotLastItemStyles = css({
@@ -123,12 +123,12 @@ export const Subtask = forwardRef<HTMLDivElement, SubtaskProps>(function Subtask
 			{children}
 			<SubtaskGroup>
 				<SubtaskIcon isIconHidden={isIconHidden} />
-				{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+				{/* eslint-disable-next-line @atlassian/a11y/anchor-is-valid, @atlaskit/design-system/no-html-anchor */}
 				<a css={subtaskIdStyles} href="#" draggable={false}>
 					{id}
 				</a>
 			</SubtaskGroup>
-			{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+			{/* eslint-disable-next-line @atlassian/a11y/anchor-is-valid, @atlaskit/design-system/no-html-anchor */}
 			<a css={subtaskLabelStyles} href="#" draggable={false}>
 				{title}
 			</a>

@@ -1,5 +1,44 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 2.1.2
+
+### Patch Changes
+
+- [`beaa6ee463aa8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/beaa6ee463aa8) -
+  Internal changes to how border radius is applied.
+- Updated dependencies
+
+## 2.1.1
+
+### Patch Changes
+
+- [#164244](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/164244)
+  [`65021fc0267e2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/65021fc0267e2) -
+  The cleanup functions returned by the following utilities now only work on the first call. This
+  was done to prevent unexpected side effects of calling a cleanup function multiple times.
+
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/element`
+    - `draggable`
+    - `dropTargetForElements`
+    - `monitorForElements`
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/text-selection`
+    - `dropTargetForTextSelection`
+    - `monitorForTextSelection`
+  - `@atlaskit/pragmatic-drag-and-drop/adapter/external`
+    - `dropTargetForExternal`
+    - `monitorForExternal`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/element`
+    - `autoScrollForElements`
+    - `autoScrollWindowForElements`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/external`
+    - `autoScrollForExternal`
+    - `autoScrollWindowForExternal`
+  - `@atlaskit/pragmatic-drag-and-drop-auto-scroll/text-selection`
+    - `autoScrollForTextSelection`
+    - `autoScrollWindowForTextSelection`
+
+- Updated dependencies
+
 ## 2.1.0
 
 ### Minor Changes

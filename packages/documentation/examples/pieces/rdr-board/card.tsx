@@ -29,6 +29,7 @@ import StoryIcon16 from '@atlaskit/icon-object/glyph/story/16';
 import PullRequestIcon from '@atlaskit/icon/core/migration/pull-request--bitbucket-pullrequests';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import StoryIcon from '@atlaskit/icon/core/story';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -42,7 +43,9 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
+import { token } from '@atlaskit/tokens';
 
 import { useBoardContext } from './board-context';
 import { CardStack } from './card-stack';
@@ -70,7 +73,7 @@ const containerStyles = xcss({
 	position: 'relative',
 
 	backgroundColor: 'elevation.surface.raised',
-	borderRadius: '4px',
+	borderRadius: token('radius.small'),
 	paddingInline: 'space.200',
 	paddingBlock: 'space.150',
 	cursor: 'grab',
@@ -187,7 +190,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 	const { summary, epic, key } = item;
 
 	return (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, @atlassian/a11y/interactive-element-not-keyboard-focusable
+		// eslint-disable-next-line @atlassian/a11y/click-events-have-key-events, @atlassian/a11y/interactive-element-not-keyboard-focusable, @atlassian/a11y/no-static-element-interactions
 		<div onClick={onClick}>
 			<Stack
 				ref={ref}
@@ -220,6 +223,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 									{...triggerProps}
 								/>
 							)}
+							shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 						>
 							<LazyDropdownItems item={item} />
 						</DropdownMenu>
@@ -304,7 +308,6 @@ export const Card = memo(function Card({ item }: { item: CardData }) {
 
 	useEffect(() => {
 		invariant(ref.current);
-		console.log('recreating draggable');
 		return combine(
 			draggable({
 				element: ref.current,

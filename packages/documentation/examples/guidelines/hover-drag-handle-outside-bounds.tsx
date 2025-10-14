@@ -1,12 +1,15 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
+// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { keyframes } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -14,19 +17,42 @@ import { ActionMenu } from './shared/action-menu';
 import { DragPreview } from './shared/drag-preview';
 import { type DraggableState } from './shared/types';
 
+const dragCursorAnimation = keyframes({
+	to: {
+		cursor: 'grab',
+	},
+});
+
 const listItemStyles = xcss({
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
-});
+	position: 'relative',
+	marginInlineStart: 'space.100',
+	'--show-drag-handle': 0,
 
-const draggableStyles = xcss({
 	':hover': {
-		cursor: 'grab',
+		// @ts-expect-error
+		'--show-drag-handle': 1,
 		backgroundColor: 'elevation.surface.hovered',
+		animationName: dragCursorAnimation,
+
+		/* instant animation */
+		animationDuration: '0s',
+
+		/* delay cursor change */
+		animationDelay: '800ms',
+
+		/* keep the end state when the animation ends */
+		animationFillMode: 'forwards',
+	},
+
+	':focus-within': {
+		// @ts-expect-error
+		'--show-drag-handle': 1,
 	},
 });
 
@@ -34,29 +60,20 @@ const draggingStyles = xcss({
 	opacity: 0.4,
 });
 
-const hiddenDragHandleStyles = xcss({
+const dragHandleStyles = xcss({
+	position: 'absolute',
+	pointerEvents: 'auto',
 	display: 'flex',
+	top: '0',
+	bottom: '0',
+	insetInlineStart: '0',
 	opacity: 'var(--show-drag-handle, 0)',
-	paddingInline: 'space.025',
+	marginInlineStart: 'space.negative.150',
+	flexDirection: 'column',
+	justifyContent: 'center',
 });
 
-const noPaddingInlineStartStyles = xcss({
-	paddingInlineStart: 'space.0',
-});
-
-const entityWithHiddenDragHandleStyles = xcss({
-	'--show-drag-handle': 0,
-	':hover': {
-		// @ts-expect-error
-		'--show-drag-handle': 1,
-	},
-	':focus-within': {
-		// @ts-expect-error
-		'--show-drag-handle': 1,
-	},
-});
-
-export function SmallHiddenDragHandle() {
+export function HoverDragHandleOutsideBounds() {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 
@@ -89,30 +106,18 @@ export function SmallHiddenDragHandle() {
 			<Grid
 				alignItems="center"
 				columnGap="space.0"
-				templateColumns="auto 1fr auto"
+				templateColumns="1fr auto"
 				ref={draggableRef}
-				xcss={[
-					listItemStyles,
-					noPaddingInlineStartStyles,
-					draggableStyles,
-					entityWithHiddenDragHandleStyles,
-					state.type === 'dragging' ? draggingStyles : undefined,
-				]}
+				testId="hover-drag-handle-outside-bounds"
+				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
-				<Box xcss={[hiddenDragHandleStyles]}>
-					<DragHandleVerticalIcon
-						label="Drag list item"
-						LEGACY_size="small"
-						LEGACY_margin={`0 ${token('space.negative.025')}`}
-						color={token('color.icon')}
-					/>
-				</Box>
-				<Box>
-					Drag handle (<code>16px</code>) visible on <code>:hover</code> and{' '}
-					<code>:focus-within</code>
-				</Box>
+				<Box>Drag handle visible on hover (placed out of bounds)</Box>
 				<ActionMenu />
+				<Box xcss={dragHandleStyles}>
+					<DragHandleVerticalIcon label="" size="small" />
+				</Box>
 			</Grid>
+
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}
 		</Fragment>
 	);

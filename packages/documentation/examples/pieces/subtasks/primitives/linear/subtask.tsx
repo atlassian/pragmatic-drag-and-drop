@@ -8,7 +8,7 @@ import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar';
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 
 import { subtaskGap, subtaskIdWidth, subtaskInlinePadding } from './constants';
@@ -23,7 +23,7 @@ const subtaskStyles = css({
 
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:last-child)': {
-		borderBottom: `1px solid ${token('color.border')}`,
+		borderBottom: `${token('border.width')} solid ${token('color.border')}`,
 	},
 });
 
@@ -109,7 +109,12 @@ export const Subtask = forwardRef<HTMLDivElement, SubtaskProps>(function Subtask
 				<SubtaskGroup>
 					{isHovering && (
 						<span css={dragHandlerIconStyles}>
-							<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="" />
+							<DragHandleVerticalIcon
+								color="currentColor"
+								spacing="spacious"
+								label=""
+								size="small"
+							/>
 						</span>
 					)}
 					<LinearPriorityIcon color={token('color.icon')} />

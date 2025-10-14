@@ -11,6 +11,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/element/preserve-offset-on-source';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 
 const cardStyles = xcss({
@@ -19,7 +20,7 @@ const cardStyles = xcss({
 	borderColor: 'color.border.accent.purple',
 	borderStyle: 'solid',
 	backgroundColor: 'color.background.accent.purple.subtler',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	transitionProperty: 'background-color, opacity',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transitionDuration: `${durations.medium}ms`,

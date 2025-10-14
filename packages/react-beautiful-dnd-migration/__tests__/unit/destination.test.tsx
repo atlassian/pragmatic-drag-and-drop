@@ -57,6 +57,14 @@ beforeEach(() => {
 
 describe('drop destination', () => {
 	describe('target: self', () => {
+		it('should capture and report a11y violations', async () => {
+			const { container } = render(<Board />);
+
+			await expect(container).toBeAccessible({
+				violationCount: 1,
+			});
+		});
+
 		it('should not move if dropped on backward edge', () => {
 			const { container } = render(<Board />);
 

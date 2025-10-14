@@ -1,13 +1,15 @@
 /**
  * @jsxRuntime classic
  * @jsx jsx
+ * @jsxFrag
  */
-import { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 import type { DropResult } from 'react-beautiful-dnd';
 
+import Button from '@atlaskit/button/new';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
 import { token } from '@atlaskit/tokens';
 
@@ -46,6 +48,7 @@ function Card({ quote, index }: { quote: ItemData; index: number }) {
 					css={cardStyles}
 					ref={provided.innerRef}
 					data-testid={`card-${index}`}
+					id={`card-${index}`}
 				>
 					{quote.content}
 				</div>
@@ -101,26 +104,36 @@ export function App() {
 		});
 	}, []);
 
+	const handleScrollToBottom = useCallback(() => {
+		const bottomCard = document.getElementById('card-14');
+		if (bottomCard) {
+			bottomCard.scrollIntoView();
+		}
+	}, []);
+
 	return (
-		<div
-			id="scroll-container"
-			style={{
-				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-				height: 400,
-				/**
-				 * Using `hidden` for `overflow-x` to avoid a horizontal scrollbar.
-				 *
-				 * When using `auto` one would appear initially, but would disappear
-				 * after starting a drag. This caused a layout shift, and broke things.
-				 */
-				// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
-				overflow: 'hidden auto',
-			}}
-		>
-			<DragDropContext onDragEnd={onDragEnd}>
-				<List items={items} />
-			</DragDropContext>
-		</div>
+		<>
+			<div
+				id="scroll-container"
+				style={{
+					// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+					height: 400,
+					/**
+					 * Using `hidden` for `overflow-x` to avoid a horizontal scrollbar.
+					 *
+					 * When using `auto` one would appear initially, but would disappear
+					 * after starting a drag. This caused a layout shift, and broke things.
+					 */
+					// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766
+					overflow: 'hidden auto',
+				}}
+			>
+				<DragDropContext onDragEnd={onDragEnd}>
+					<List items={items} />
+				</DragDropContext>
+			</div>
+			<Button onClick={handleScrollToBottom}>Scroll to bottom</Button>
+		</>
 	);
 }
 

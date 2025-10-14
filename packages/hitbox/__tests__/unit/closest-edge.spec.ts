@@ -3,7 +3,7 @@ import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { attachClosestEdge, extractClosestEdge } from '../../src/closest-edge';
 import type { Edge } from '../../src/types';
 
-import { getDefaultInput, getElements, getRect } from './_util';
+import { between, getDefaultInput, getElements, getRect } from './_util';
 
 const rect = getRect({
 	top: 0,
@@ -21,20 +21,6 @@ type Scenario = {
 	expected: Edge | null;
 	only?: boolean;
 };
-
-function between(inner: number, outer: number): number {
-	const diff = outer - inner;
-	const halfway = inner + diff / 2;
-	return halfway;
-}
-
-test('between test helper', () => {
-	expect(between(3, 5)).toBe(4);
-	expect(between(-3, -5)).toBe(-4);
-	expect(between(0, 0)).toBe(0);
-	expect(between(0, 10)).toBe(5);
-	expect(between(-2, 2)).toBe(0);
-});
 
 const scenarios: Scenario[] = [
 	{

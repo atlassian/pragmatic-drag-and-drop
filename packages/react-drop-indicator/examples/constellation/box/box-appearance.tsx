@@ -8,8 +8,7 @@ import { css, jsx } from '@compiled/react';
 import { token } from '@atlaskit/tokens';
 
 import { DropIndicator } from '../../../src/box';
-
-import { Item } from './box-simple-item';
+import { Item } from '../simple-item';
 
 const layoutStyles = css({
 	display: 'flex',

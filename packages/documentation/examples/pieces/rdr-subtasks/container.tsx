@@ -3,13 +3,14 @@ import React, { type ReactNode } from 'react';
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
 import Button, { IconButton } from '@atlaskit/button/new';
+import ChevronDownIcon from '@atlaskit/icon/core/migration/chevron-down';
 import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
-import ChevronDownIcon from '@atlaskit/icon/utility/migration/chevron-down';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 const containerStyles = xcss({
 	padding: 'space.100',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	backgroundColor: 'elevation.surface.sunken',
 	width: '50vw',
 });
@@ -44,11 +45,11 @@ function BacklogHeader() {
 		<Stack space="space.050">
 			<Inline spread="space-between" alignBlock="center" xcss={headerTitleInsetStyles}>
 				<Inline alignBlock="center">
-					<ChevronDownIcon color="currentColor" spacing="spacious" label="" />
+					<ChevronDownIcon color="currentColor" spacing="spacious" label="" size="small" />
 					<Inline space="space.100" alignBlock="center">
 						<Box xcss={sprintTitleStyles}>Sprint Title</Box>
 						<Box xcss={subtlestTextStyles}>29 Aug — 12 Sep</Box>
-						<Box xcss={subtlestTextStyles}>(23 issues)</Box>
+						<Box xcss={subtlestTextStyles}>(23 work items)</Box>
 					</Inline>
 				</Inline>
 				<Inline space="space.100" alignBlock="center">

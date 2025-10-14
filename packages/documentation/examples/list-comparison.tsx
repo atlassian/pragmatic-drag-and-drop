@@ -11,6 +11,7 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 import Code from '@atlaskit/code/inline';
 import Grid, { GridItem } from '@atlaskit/grid';
 import Lozenge from '@atlaskit/lozenge';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 import Tabs, { TabPanel as AkTabPanel, Tab, TabList, type TabPanelProps } from '@atlaskit/tabs';
 import { fontFallback } from '@atlaskit/theme/typography';
@@ -38,9 +39,9 @@ import SubtasksNotion from './pieces/subtasks/demo/notion';
 import SubtaskReactBeautifulDnd from './pieces/subtasks/demo/react-beautiful-dnd';
 
 const itemStyles = xcss({
-	border: `2px solid ${token('color.border.accent.purple', 'purple')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border.accent.purple', 'purple')}`,
 	padding: 'space.200',
-	borderRadius: 'border.radius.300',
+	borderRadius: 'radius.xlarge',
 	height: '100%', // ensure all grid items are the same height regardless of content
 
 	width: '100%',
@@ -91,9 +92,9 @@ const solutionLabels: { [Key in Solution]: string } = {
 };
 
 const solutionLabelStyles = css({
-	border: '2px solid transparent',
+	border: `${token('border.width.selected')} solid transparent`,
 	fontWeight: token('font.weight.medium'),
-	padding: '4px 8px',
+	padding: `${token('space.050')} ${token('space.100')}`,
 	borderRadius: 999,
 });
 
@@ -322,6 +323,7 @@ export default function ListComparison() {
 									accessibility={
 										<span>
 											Leverages directional keyboard movements.{' '}
+											{/* eslint-disable-next-line @atlaskit/design-system/no-html-anchor */}
 											<a href="https://youtu.be/5SQkOyzZLHM?t=2223">
 												This approach is a good stepping stone, but not ideal
 											</a>
@@ -612,8 +614,7 @@ export default function ListComparison() {
 															</ul>
 														</td>
 														<td>
-															The exact representation used for the preview would be a product
-															decision
+															The exact representation used for the preview would be an app decision
 														</td>
 													</tr>
 												</tbody>

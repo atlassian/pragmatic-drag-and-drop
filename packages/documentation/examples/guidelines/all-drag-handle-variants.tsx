@@ -3,17 +3,21 @@ import React from 'react';
 import { Stack } from '@atlaskit/primitives/compiled';
 
 import { EntireEntityIsDraggable } from './entire-entity-is-draggable';
-import { HiddenDragHandle } from './hidden-drag-handle';
-import { SmallHiddenDragHandle } from './small-hidden-drag-handle';
-import { UsingDragHandle } from './using-drag-handle';
+import { EntireEntityIsDraggableWithDragHandleButton } from './entire-entity-is-draggable-with-drag-handle-button';
+import { HoverDragHandle } from './hover-drag-handle';
+import { HoverDragHandleOutsideBounds } from './hover-drag-handle-outside-bounds';
+import { OnlyDraggableFromDragHandle } from './only-draggable-from-drag-handle';
+import { ImpliedDraggable } from './standalone-card';
 
 export function AllDragHandleVariants() {
 	return (
 		<Stack space="space.100">
 			<EntireEntityIsDraggable />
-			<HiddenDragHandle />
-			<SmallHiddenDragHandle />
-			<UsingDragHandle />
+			<OnlyDraggableFromDragHandle />
+			<EntireEntityIsDraggableWithDragHandleButton />
+			<HoverDragHandle />
+			<HoverDragHandleOutsideBounds />
+			<ImpliedDraggable />
 		</Stack>
 	);
 }

@@ -5,7 +5,7 @@ import { Stack } from '@atlaskit/primitives/compiled';
 import { EntireEntityIsDraggable } from './entire-entity-is-draggable';
 import { EntireEntityIsDraggableWithDragHandleButton } from './entire-entity-is-draggable-with-drag-handle-button';
 import { EntireEntityIsDraggableWithGroupedItems } from './entire-entity-is-draggable-with-grouped-items';
-import { StandaloneCard } from './standalone-card';
+import { ImpliedDraggable } from './standalone-card';
 
 export function ActionMenuVariants() {
 	return (
@@ -13,7 +13,7 @@ export function ActionMenuVariants() {
 			<EntireEntityIsDraggable />
 			<EntireEntityIsDraggableWithGroupedItems />
 			<EntireEntityIsDraggableWithDragHandleButton />
-			<StandaloneCard />
+			<ImpliedDraggable />
 		</Stack>
 	);
 }

@@ -97,7 +97,7 @@ const Upload = memo(function Upload({ upload }: { upload: UserUpload }) {
 
 	return (
 		<div css={[uploadStyles, state === 'loading' ? loadingStyles : readyStyles]}>
-			{/* eslint-disable-next-line jsx-a11y/alt-text */}
+			{/* eslint-disable-next-line @atlassian/a11y/alt-text */}
 			<img
 				src={upload.dataUrl}
 				css={imageStyles}
@@ -115,6 +115,7 @@ const Upload = memo(function Upload({ upload }: { upload: UserUpload }) {
 			/>
 			<div css={uploadDetailStyles}>
 				<em css={uploadFilenameStyles}>{upload.name}</em>
+				{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 				<code>{Math.round(upload.size / 1000)}kB</code>
 			</div>
 		</div>
@@ -146,7 +147,7 @@ const fileStyles = css({
 	borderRadius: 'var(--border-radius)',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.medium}ms ${easeInOut}`,
-	border: '2px dashed transparent',
+	border: `${token('border.width.selected')} dashed transparent`,
 	width: '100%',
 	gap: token('space.300', '24px'),
 });

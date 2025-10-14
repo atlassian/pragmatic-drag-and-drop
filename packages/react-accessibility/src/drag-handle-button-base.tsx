@@ -19,7 +19,7 @@ import type { DragHandleButtonProps } from './types';
  */
 const buttonStyles = css({
 	color: token('color.text'),
-	borderRadius: token('border.radius.100'),
+	borderRadius: token('radius.small'),
 	padding: token('space.0'),
 	width: 'max-content',
 	border: 'none',

@@ -20,7 +20,8 @@ import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
-import MoreIcon from '@atlaskit/icon/utility/migration/show-more-horizontal--editor-more';
+import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
+import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -35,6 +36,7 @@ import {
 import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/element/preserve-offset-on-source';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -57,7 +59,7 @@ const baseStyles = xcss({
 	width: '100%',
 	padding: 'space.100',
 	backgroundColor: 'elevation.surface',
-	borderRadius: 'border.radius.200',
+	borderRadius: 'radius.large',
 	position: 'relative',
 	':hover': {
 		backgroundColor: 'elevation.surface.hovered',
@@ -207,18 +209,18 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 									: // Workaround for IconButton typing issue
 										mergeRefs([triggerRef])
 							}
-							icon={MoreIcon}
+							icon={(iconProps) => <MoreIcon {...iconProps} size="small" />}
 							label={`Move ${name}`}
 							appearance="default"
 							spacing="compact"
 							{...triggerProps}
 						/>
 					)}
+					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 				>
 					<LazyDropdownItems userId={userId} />
 				</DropdownMenu>
 			</Box>
-
 			{closestEdge && <DropIndicator edge={closestEdge} gap={token('space.100', '0')} />}
 		</Grid>
 	);

@@ -20,6 +20,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/element/center-under-pointer';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, type XCSS, xcss } from '@atlaskit/primitives';
 
 import { type ColumnType } from '../../data/people';
@@ -30,7 +31,7 @@ import { Card } from './card';
 const columnStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius.400',
+	borderRadius: 'radius.xlarge',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
@@ -249,7 +250,7 @@ export const Column = memo(function Column({
 const previewStyles = xcss({
 	width: '250px',
 	backgroundColor: 'elevation.surface.sunken',
-	borderRadius: 'border.radius.400',
+	borderRadius: 'radius.xlarge',
 	padding: 'space.200',
 });
 

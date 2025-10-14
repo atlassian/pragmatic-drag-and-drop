@@ -67,7 +67,7 @@ export const initialData: DataItem[] = [
 		content: (
 			<TagGroup>
 				<SimpleTag text="jira" />
-				<SimpleTag text="issue-view" />
+				<SimpleTag text="work-item-view" />
 			</TagGroup>
 		),
 	},

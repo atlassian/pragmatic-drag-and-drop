@@ -17,14 +17,13 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.6.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@babel/runtime": "^7.0.0",
     "css-box-model": "^1.2.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",
     "raf-stub": "^2.0.1",
-    "typescript": "~5.4.2",
     "wait-for-expect": "^1.2.0"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"

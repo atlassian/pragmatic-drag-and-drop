@@ -30,6 +30,14 @@ controls.forEach(({ controlId, control }) => {
 	modes.forEach(({ mode, Example }) => {
 		describe(`browser focus (mode: ${mode}) (control: ${controlId})`, () => {
 			describe('when the drag handle is focused at drag start', () => {
+				it('should capture and report a11y violations', async () => {
+					const { container } = render(<Example />);
+
+					await expect(container).toBeAccessible({
+						violationCount: 1,
+					});
+				});
+
 				it('should focus the drag handle with matching id after the drag starts', async () => {
 					const { getByTestId, unmount } = render(<Example />);
 

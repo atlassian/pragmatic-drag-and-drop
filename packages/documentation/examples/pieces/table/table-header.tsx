@@ -24,6 +24,7 @@ import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/elem
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -174,7 +175,7 @@ const dropTargetStyles: {
 };
 
 const thStyles = css({
-	borderBottom: `2px solid ${token('color.border', 'red')}`,
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
 	// Need position:relative so our drop indicator (which uses position:absolute) can be
 	// correctly positioned inside
 	position: 'relative',
@@ -467,13 +468,13 @@ export function TableHeader({
 }
 
 const previewStyles = xcss({
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	minWidth: '220px',
 });
 
 const previewHeaderStyles = xcss({
 	fontWeight: token('font.weight.bold', 'bold'),
-	borderBottom: `2px solid ${token('color.border', 'red')}`,
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
 	lineHeight: '32px',
 });
 

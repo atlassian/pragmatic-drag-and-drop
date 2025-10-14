@@ -42,6 +42,7 @@ const baseStyles = cssMap({
 			borderWidth: 'var(--stroke-width)',
 			borderStyle: 'solid',
 			borderColor: 'var(--stroke-color)',
+			// eslint-disable-next-line @atlaskit/design-system/use-tokens-shape
 			borderRadius: '50%',
 		},
 	},

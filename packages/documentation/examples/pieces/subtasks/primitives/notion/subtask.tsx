@@ -7,7 +7,7 @@ import { forwardRef, type HTMLAttributes, memo, type ReactNode, type Ref } from 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import Lozenge from '@atlaskit/lozenge';
 import { token } from '@atlaskit/tokens';
 
@@ -26,7 +26,7 @@ const subtaskInnerStyles = css({
 	gridTemplateColumns: 'repeat(3, 1fr)',
 	alignItems: 'center',
 	justifyItems: 'start',
-	borderBottom: `1px solid ${token('color.border')}`,
+	borderBottom: `${token('border.width')} solid ${token('color.border')}`,
 	position: 'relative',
 });
 
@@ -78,7 +78,7 @@ const cellStyles = css({
 	boxSizing: 'border-box',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':not(:first-of-type)': {
-		borderLeft: `1px solid ${token('color.border')}`,
+		borderLeft: `${token('border.width')} solid ${token('color.border')}`,
 	},
 });
 
@@ -91,7 +91,12 @@ const DragHandle = memo(
 		return (
 			<span ref={ref} css={dragHandleStyles}>
 				<button css={dragHandleButtonStyles}>
-					<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="drag handle" />
+					<DragHandleVerticalIcon
+						color="currentColor"
+						spacing="spacious"
+						label="drag handle"
+						size="small"
+					/>
 				</button>
 			</span>
 		);

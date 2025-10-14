@@ -184,7 +184,7 @@ Notes:
 
 - `GetOffsetFn` needs to return `x` and `y` as numbers as that is what the platform requires
 - You cannot use negative values (not supported by browsers). If you want to push the drag preview
-  away from the users pointer, use `offsetFromPointer` (see below)
+  away from the users pointer, use `pointerOutsideOfPreview` (see below)
 - The max offset value for an axis is the `border-box`. Values greater than the `border-box` get
   trimmed to be the `border-box` value
 - `getOffset` is called in the next
@@ -295,10 +295,9 @@ If you are using css variables inside of your `getOffset()` you need to be sure 
 are available at the `<body>` element, as the `container` is temporarily mounted as a child of
 `<body>`.
 
-`pointerOutsideOfPreview` will _not_ push the preview away from the users pointer on iOS due to
-platform limitations. On iOS the preview will start the drag on the top left corner (or top right
-corner for right to left interfaces). While dragging, iOS will shift the drag preview under the
-center of the users pointer, so the "pushing away" is short lived on iOS.
+On iOS, iPad and Android `pointerOutsideOfPreview` will center the drag preview under the users
+pointer. Browsers on iOS, iPadOS and Android put the center of the drag preview under the users
+pointer during the drag, even when we try to "push" the drag preview away from the pointer.
 
 3. `preserveOffsetOnSource`: applies the initial cursor offset to the custom native drag preview for
    a seamless experience
@@ -324,8 +323,14 @@ draggable({
 });
 ```
 
-Note: this helper works best when the rendered preview has the same dimensions as the dragged
-element
+Notes:
+
+- This helper works best when the rendered preview has the same dimensions as the dragged element
+- On Android the center of the drag preview is always under the users pointer (platform limitation)
+- On iOS and iPadOS, the drag preview location will initially match the `source`, but during the
+  drag the native preview will perform an animated slide so that it is centered on the users
+  pointer. The centering of the drag preview during the drag on the users pointer is iOS and iPad
+  platform behaviour.
 
 #### Gotcha: CSS transforms
 

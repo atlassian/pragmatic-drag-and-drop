@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { combine } from '../src/entry-point/combine';
@@ -27,7 +28,7 @@ const dropTargetStyles = xcss({
 const iframeStyles = xcss({
 	width: '600px',
 	height: '600px',
-	borderWidth: 'border.width.outline',
+	borderWidth: 'border.width.selected',
 	borderColor: 'color.border',
 	borderStyle: 'solid',
 });
@@ -104,8 +105,13 @@ export default function IframeOuter() {
 				<Box>Latest drop data: {latestDropData}</Box>
 			</Stack>
 			{!isInIframe ? (
-				// eslint-disable-next-line jsx-a11y/iframe-has-title
-				<Box as="iframe" xcss={iframeStyles} src={window.location.href} testId={'child-iframe'} />
+				<Box
+					as="iframe"
+					title={'child iframe'}
+					xcss={iframeStyles}
+					src={window.location.href}
+					testId={'child-iframe'}
+				/>
 			) : null}
 		</Stack>
 	);

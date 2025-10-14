@@ -3,7 +3,7 @@ title: Examples
 order: 0
 ---
 
-import { Stack } from '@atlaskit/primitives';
+import { Stack, Inline } from '@atlaskit/primitives';
 import SectionMessage from '@atlaskit/section-message';
 import { LinkButton } from '@atlaskit/button/new';
 
@@ -15,11 +15,14 @@ import FileExample from '../../examples/file';
 import DrawingExample from '../../examples/drawing';
 import ResizingExample from '../../examples/resizing';
 import TreeExample from '../../examples/tree';
+import TreeLegacyExample from '../../examples/tree-legacy';
 import VirtualListExample from '../../examples/virtual-list';
 import { TrelloLikeBoardIframe } from '../../examples/trello-like-board-iframe';
 
-This page demonstrates some of the experiences that Pragmatic drag and drop enables. These examples
-use a combination of our [core package](/components/pragmatic-drag-and-drop/core-package) and
+The examples on this page demonstrate _some_ of what is possible with Pragmatic drag and drop.
+Pragmatic drag and drop gives you low level building blocks that you can use to make _any_ drag and
+drop experience that the web platform supports. The examples use a combination of our
+[core package](/components/pragmatic-drag-and-drop/core-package) and
 [optional packages](/components/pragmatic-drag-and-drop/optional-packages).
 
 ## List
@@ -133,6 +136,19 @@ updated.
 
 <Example Component={TreeExample} appearance="showcase-only" />
 
+## Tree (legacy)
+
+<SectionMessage>
+
+This tree example (which uses our `tree-item` outputs) is no longer recommended, but you are still
+welcome to use it.
+
+We have moved in a different, and more flexible direction with our new `list-item` outputs.
+
+</SectionMessage>
+
+<Example Component={TreeLegacyExample} appearance="showcase-only" />
+
 ## File
 
 Use the [external adapter](/components/pragmatic-drag-and-drop/core-package/adapters/external) to
@@ -142,6 +158,33 @@ When requesting files, you should also provide an `<input type="file" />` for us
 accessibility reasons.
 
 <Example Component={FileExample} appearance="showcase-only" />
+
+## Side navigation
+
+This example shows off how you can add rich drag and drop interactions to a side navigation
+experience.
+
+<br />
+
+<a href="/components/navigation-system/side-navigation/drag-and-drop" target="_blank">
+	{/**
+	 * Why a link?
+	 *	- atlassian.design does not support full page examples for us to iframe
+	 *	- cannot iframe atlaskit as the example is currently only on staging
+	 *	- cannot use relative imports across package boundaries
+	 *	- exposing the example on an entry point from navigation-system would impact it's source `dependencies`
+	 *
+	 * Using inline styles as Gatsby can only load images in `mdx` when they are in the `mdx` document root
+	 */}
+	<img
+		src="/images/pdnd-standalone-jira-sidebar.png"
+		alt="Drag and drop into and out of iframes"
+		style="max-width:200px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+	/>
+</a>
+
+This example leverages our [navigation system package](/components/navigation-system/), and has it's
+own [specific guidance](/components/navigation-system/side-navigation/drag-and-drop)
 
 ## Drawing
 
@@ -219,25 +262,29 @@ Pragmatic drag and drop
 iframe example is hosted on another site.
 
 </SectionMessage>
-<a
-	href="https://atlaskit.atlassian.com/examples.html?groupId=pragmatic-drag-and-drop&packageId=documentation&exampleId=iframe-board&mode=dark"
-	target="_blank"
->
-	{/* Using inline styles rather than pulling into a seperate component and using emotion
-		as Gatsby can only load images in `mdx` when they are in the `mdx` document root.*/}
-	<img
-		src="/images/pdnd-iframe-example.png"
-		alt="Drag and drop into and out of iframes"
-		style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
-	/>
-</a>
 
-<a
-	href="https://github.com/atlassian/pragmatic-drag-and-drop/blob/main/packages/documentation/examples/iframe-board.tsx"
-	target="_blank"
->
-	View source
-</a>
-<a href="https://www.youtube.com/watch?v=E4l4MBO-Bwg" target="_blank">
-	Presentation
-</a>
+<Stack space="space.100">
+	<a
+		href="https://atlaskit.atlassian.com/examples.html?groupId=pragmatic-drag-and-drop&packageId=documentation&exampleId=iframe-board&mode=dark"
+		target="_blank"
+	>
+		{/* Using inline styles rather than pulling into a seperate component and using emotion
+		as Gatsby can only load images in `mdx` when they are in the `mdx` document root.*/}
+		<img
+			src="/images/pdnd-iframe-example.png"
+			alt="Drag and drop into and out of iframes"
+			style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+		/>
+	</a>
+	<Inline space="space.100">
+		<a
+			href="https://github.com/atlassian/pragmatic-drag-and-drop/blob/main/packages/documentation/examples/iframe-board.tsx"
+			target="_blank"
+		>
+			View source
+		</a>
+		<a href="https://www.youtube.com/watch?v=E4l4MBO-Bwg" target="_blank">
+			Presentation
+		</a>
+	</Inline>
+</Stack>

@@ -103,6 +103,7 @@ function TreeItem({
 			}
 		>
 			<span>Instruction: </span>
+			{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 			<code>
 				<small>{getLabel(instruction)}</small>
 			</code>

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 
 const previewStyles = xcss({
@@ -7,7 +8,7 @@ const previewStyles = xcss({
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 });
 

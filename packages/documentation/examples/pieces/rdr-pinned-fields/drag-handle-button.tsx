@@ -10,14 +10,15 @@ import { css, jsx } from '@emotion/react';
 
 import type { CustomTriggerProps } from '@atlaskit/dropdown-menu';
 import FocusRing from '@atlaskit/focus-ring';
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 
 const dragHandleButtonStyles = css({
 	padding: 0,
 	border: 'none',
 	background: 'transparent',
-	borderRadius: '3px',
+	// eslint-disable-next-line @atlaskit/design-system/no-unsafe-design-token-usage
+	borderRadius: token('radius.small', '3px'),
 	opacity: 'var(--action-opacity)',
 	color: token('color.icon.subtle', '#626F86'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
@@ -55,6 +56,7 @@ export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonPr
 							color="currentColor"
 							label=""
 							LEGACY_size="small"
+							size="small"
 						/>
 					</div>
 				</button>

@@ -57,6 +57,13 @@ describe('onDragUpdate()', () => {
 		onDragUpdate.mockClear();
 	});
 
+	it('should capture and report a11y violations', async () => {
+		jest.useFakeTimers({ legacyFakeTimers: true });
+		const { container } = render(<App />);
+
+		await expect(container).toBeAccessible();
+	});
+
 	it('should be called if the position has changed on move', () => {
 		jest.useFakeTimers({ legacyFakeTimers: true });
 

@@ -5,12 +5,14 @@ import invariant from 'tiny-invariant';
 
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
+import ChevronRightIcon from '@atlaskit/icon/core/migration/chevron-right';
 import EditorMoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
-import ChevronRightIcon from '@atlaskit/icon/utility/migration/chevron-right';
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import { fg } from '@atlaskit/platform-feature-flags';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -29,6 +31,7 @@ function GroupedActionMenu() {
 					{...triggerProps}
 				/>
 			)}
+			shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 		>
 			<DropdownItemGroup>
 				<DropdownMenu
@@ -43,12 +46,14 @@ function GroupedActionMenu() {
 									spacing="spacious"
 									color={token('color.icon.subtle', '')}
 									label=""
+									size="small"
 								/>
 							}
 						>
 							<span>Move</span>
 						</DropdownItem>
 					)}
+					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
 				>
 					<DropdownItemGroup>
 						<DropdownItem>Move to top</DropdownItem>
@@ -76,7 +81,7 @@ const listItemStyles = xcss({
 	borderColor: 'color.border',
 	padding: 'space.100',
 	paddingInlineStart: 'space.0',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 });
 
@@ -137,6 +142,7 @@ export function EntireEntityIsDraggableWithGroupedItems() {
 						spacing="spacious"
 						label="Drag list item"
 						color={token('color.icon')}
+						size="small"
 					/>
 				</Stack>
 				<Box>Entire entity is draggable (with grouped actions)</Box>

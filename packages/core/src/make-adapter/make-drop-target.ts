@@ -10,6 +10,7 @@ import {
 	type Input,
 } from '../internal-types';
 import { combine } from '../public-utils/combine';
+import { once } from '../public-utils/once';
 import { addAttribute } from '../util/add-attribute';
 
 function copyReverse<Value>(array: Value[]): Value[] {
@@ -59,13 +60,17 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 			}
 		}
 
-		return combine(
+		const cleanup = combine(
 			addAttribute(args.element, {
 				attribute: dropTargetDataAtt,
 				value: 'true',
 			}),
 			addToRegistry(args),
 		);
+
+		// Wrapping in `once` to prevent unexpected side effects if consumers call
+		// the clean up function multiple times.
+		return once(cleanup);
 	}
 
 	function getActualDropTargets({

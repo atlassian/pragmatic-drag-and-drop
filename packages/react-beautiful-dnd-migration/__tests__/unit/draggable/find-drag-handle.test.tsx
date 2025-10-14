@@ -24,6 +24,28 @@ describe('findDragHandle()', () => {
 		resetServerContext();
 	});
 
+	it('should capture and report a11y violations', async () => {
+		const draggableId = 'draggable';
+		const { container } = render(
+			<App>
+				<Draggable draggableId={draggableId} index={0}>
+					{(provided) => (
+						<div
+							ref={provided.innerRef}
+							{...provided.draggableProps}
+							{...provided.dragHandleProps}
+							data-testid="draggable"
+						>
+							Draggable element
+						</div>
+					)}
+				</Draggable>
+			</App>,
+		);
+
+		await expect(container).toBeAccessible();
+	});
+
 	it('should return the element if it is also the drag handle', () => {
 		const draggableId = 'draggable';
 

@@ -7,6 +7,7 @@ import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 const itemIdStyles = xcss({
@@ -81,6 +82,7 @@ function Item({
 				xcss={[itemContentStyles, isDragging ? itemStateStyles.dragging : undefined]}
 			>
 				<Inline space="space.050">
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-checkbox */}
 					<input
 						onChange={() => setIsDraggingAllowed((value) => !value)}
 						type="checkbox"
@@ -147,6 +149,7 @@ function DropTarget() {
 			<Stack alignInline="center">
 				<strong>Drop on me!</strong>
 				<em>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					Last dropped: <code>{lastDropped ?? 'none'}</code>
 				</em>
 			</Stack>

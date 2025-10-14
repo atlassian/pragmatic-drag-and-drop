@@ -5,6 +5,7 @@ import invariant from 'tiny-invariant';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 import { Card } from './card';
@@ -21,7 +22,7 @@ const columnStyles = xcss({
 	width: '140px',
 	backgroundColor: 'elevation.surface',
 	borderColor: 'color.border.accent.purple',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	flexShrink: 0,
@@ -83,7 +84,7 @@ const boardStyles = xcss({
 	borderWidth: 'border.width',
 	borderColor: 'color.border.accent.purple',
 	borderStyle: 'solid',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	padding: 'space.200',
 	backgroundColor: 'elevation.surface.sunken',
 });
@@ -187,6 +188,7 @@ export function Board() {
 			<Inline space="space.050">
 				<Box>Auto scrolling:</Box>
 				<Box xcss={loadingStyles[state]}>
+					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 					<code>{state}</code>
 				</Box>
 			</Inline>

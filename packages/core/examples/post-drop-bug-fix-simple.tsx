@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import {
@@ -167,7 +168,13 @@ function DropTest() {
 			<Box as="h5" xcss={titleStyles} testId="drag-count">
 				Drags completed: {dragCount}
 			</Box>
-			<Box xcss={[listStyles, interactiveStyles]} testId="scroll-container">
+			<Box
+				xcss={[listStyles, interactiveStyles]}
+				tabIndex={0}
+				testId="scroll-container"
+				role="region"
+				aria-label="Scrollable content"
+			>
 				{cards.map((card) => {
 					return <Card key={card.id} cardId={card.id} />;
 				})}

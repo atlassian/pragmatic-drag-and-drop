@@ -1,5 +1,7 @@
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
+import { isShallowEqual, stable } from './internal/memoize';
+
 export type ItemMode = 'standard' | 'expanded' | 'last-in-group';
 
 export type Instruction =
@@ -131,15 +133,6 @@ function getInstruction({
 	};
 }
 
-function isShallowEqual(a: Record<string, unknown>, b: Record<string, unknown>): boolean {
-	const aKeys = Object.keys(a).sort();
-	const bKeys = Object.keys(b).sort();
-	if (aKeys.length !== bKeys.length) {
-		return false;
-	}
-	return aKeys.every((key) => a[key] === b[key]);
-}
-
 function areInstructionsEqual(a: Instruction, b: Instruction): boolean {
 	// Shortcut
 	if (a.type !== b.type) {
@@ -153,17 +146,7 @@ function areInstructionsEqual(a: Instruction, b: Instruction): boolean {
 
 // Note: not using `memoize-one` as all we need is a cached value.
 // We do not need to avoid executing an expensive function.
-const memoizeInstruction = (() => {
-	let last: Instruction | null = null;
-
-	return (instruction: Instruction): Instruction => {
-		if (last && areInstructionsEqual(last, instruction)) {
-			return last;
-		}
-		last = instruction;
-		return instruction;
-	};
-})();
+const memoizeInstruction = stable<Instruction>(areInstructionsEqual);
 
 function applyInstructionBlock({
 	desired,

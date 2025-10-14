@@ -24,10 +24,6 @@ export default function TextSelection() {
 						selection: window.getSelection(),
 					};
 					console.log(event.type, data);
-
-					setTimeout(() => {
-						console.log('later', data);
-					});
 				},
 			},
 		]);
@@ -39,7 +35,7 @@ export default function TextSelection() {
 			<p>
 				Another paragraph{' '}
 				<em>
-					with some{' '}
+					with some {/* eslint-disable-next-line @atlaskit/design-system/no-html-anchor */}
 					<a href="#foo">
 						Link <strong>text</strong>
 					</a>

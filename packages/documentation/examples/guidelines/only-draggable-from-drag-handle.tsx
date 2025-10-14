@@ -3,11 +3,12 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
-import { Box, Grid, xcss } from '@atlaskit/primitives';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
 import { ActionMenu } from './shared/action-menu';
@@ -19,7 +20,8 @@ const listItemStyles = xcss({
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.100',
-	borderRadius: 'border.radius',
+	paddingInlineStart: 'space.0',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 });
 
@@ -34,28 +36,9 @@ const draggingStyles = xcss({
 	opacity: 0.4,
 });
 
-const hiddenDragHandleStyles = xcss({
-	display: 'flex',
-	opacity: 'var(--show-drag-handle, 0)',
-});
+const roundedIconStyles = xcss({ borderRadius: 'radius.small' });
 
-const noPaddingInlineStartStyles = xcss({
-	paddingInlineStart: 'space.0',
-});
-
-const entityWithHiddenDragHandleStyles = xcss({
-	'--show-drag-handle': 0,
-	':hover': {
-		// @ts-expect-error
-		'--show-drag-handle': 1,
-	},
-	':focus-within': {
-		// @ts-expect-error
-		'--show-drag-handle': 1,
-	},
-});
-
-export function HiddenDragHandle() {
+export function OnlyDraggableFromDragHandle() {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 
@@ -87,27 +70,18 @@ export function HiddenDragHandle() {
 		<Fragment>
 			<Grid
 				alignItems="center"
-				columnGap="space.0"
 				templateColumns="auto 1fr auto"
-				ref={draggableRef}
-				xcss={[
-					listItemStyles,
-					noPaddingInlineStartStyles,
-					draggableStyles,
-					entityWithHiddenDragHandleStyles,
-					state.type === 'dragging' ? draggingStyles : undefined,
-				]}
+				xcss={[listItemStyles, state.type === 'dragging' ? draggingStyles : undefined]}
 			>
-				<Box xcss={[hiddenDragHandleStyles]}>
+				<Stack xcss={[draggableStyles, roundedIconStyles]} ref={draggableRef}>
 					<DragHandleVerticalIcon
 						spacing="spacious"
 						label="Drag list item"
 						color={token('color.icon')}
+						size="small"
 					/>
-				</Box>
-				<Box>
-					Drag handle visible on <code>:hover</code> and <code>:focus-within</code>
-				</Box>
+				</Stack>
+				<Box>Drag handle always visible (only draggable from drag handle)</Box>
 				<ActionMenu />
 			</Grid>
 			{state.type === 'preview' ? createPortal(<DragPreview />, state.container) : null}

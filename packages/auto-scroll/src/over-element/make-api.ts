@@ -1,4 +1,5 @@
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { once } from '@atlaskit/pragmatic-drag-and-drop/once';
 import type {
 	AllDragTypes,
 	BaseEventPayload,
@@ -58,9 +59,11 @@ export function makeApi<DragType extends AllDragTypes>({
 
 		elementRegistry.set(args.element, args);
 
-		return combine(addScrollableAttribute(args.element), () =>
+		const cleanup = combine(addScrollableAttribute(args.element), () =>
 			elementRegistry.delete(args.element),
 		);
+
+		return once(cleanup);
 	}
 
 	function autoScrollWindow(args: WindowAutoScrollArgs<DragType> = {}): CleanupFn {
@@ -70,7 +73,12 @@ export function makeApi<DragType extends AllDragTypes>({
 		// Just being safe here.
 		const unique = { ...args };
 		windowRegistry.add(unique);
-		return () => windowRegistry.delete(unique);
+
+		function cleanup() {
+			windowRegistry.delete(unique);
+		}
+
+		return once(cleanup);
 	}
 
 	function findEntry(element: Element): ElementAutoScrollArgs<DragType> | null {

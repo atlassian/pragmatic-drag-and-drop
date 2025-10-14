@@ -3,8 +3,8 @@ import { createContext } from 'react';
 import {
 	attachInstruction,
 	extractInstruction,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
-import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/tree-item';
+} from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/list-item';
 
 import type { TreeAction, TreeItem } from '../../data/tree';
 

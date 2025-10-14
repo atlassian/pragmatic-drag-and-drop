@@ -1,5 +1,67 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.7
+
+### Patch Changes
+
+- [`5d0b8ba5e6f7f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5d0b8ba5e6f7f) -
+  Internal changes to how borders are applied.
+- Updated dependencies
+
+## 3.2.6
+
+### Patch Changes
+
+- [`beaa6ee463aa8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/beaa6ee463aa8) -
+  Internal changes to how border radius is applied.
+- Updated dependencies
+
+## 3.2.5
+
+### Patch Changes
+
+- [`e8c312827c802`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/e8c312827c802) -
+  Remove unnecessary files from published package
+
+## 3.2.4
+
+### Patch Changes
+
+- [`5bed2aeb9093f`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/5bed2aeb9093f) -
+  Internal refactoring of tests
+
+## 3.2.3
+
+### Patch Changes
+
+- [`2b9d69f7eb7bd`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/2b9d69f7eb7bd) -
+  Adding tests to ensure all outputs work with React suspense, and React strict mode.
+
+## 3.2.2
+
+### Patch Changes
+
+- Updated dependencies
+
+## 3.2.1
+
+### Patch Changes
+
+- Updated dependencies
+
+## 3.2.0
+
+### Minor Changes
+
+- [#152796](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/pull-requests/152796)
+  [`530aa01e75ebe`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/530aa01e75ebe) -
+  Adding new drop indicators `border`, `group` and `list-item` to assist with more complex
+  experiences. See documentation for API and usage information.
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 3.1.0
 
 ### Minor Changes

@@ -1,0 +1,35 @@
+{
+	"extends": "../../../../tsconfig.entry-points.dev-agents.json",
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "../../../../../dev-agents/tsDist/@atlaskit__pragmatic-drag-and-drop-react-drop-indicator/app",
+		"rootDir": "../",
+		"composite": true
+	},
+	"include": [
+		"../src/**/*.ts",
+		"../src/**/*.tsx"
+	],
+	"exclude": [
+		"../src/**/__tests__/*",
+		"../src/**/*.test.*",
+		"../src/**/test.*",
+		"../src/**/examples.*",
+		"../src/**/examples/*",
+		"../src/**/examples/**/*",
+		"../src/**/*.stories.*",
+		"../src/**/stories/*",
+		"../src/**/stories/**/*"
+	],
+	"references": [
+		{
+			"path": "../../core/afm-dev-agents/tsconfig.json"
+		},
+		{
+			"path": "../../hitbox/afm-dev-agents/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/tokens/afm-dev-agents/tsconfig.json"
+		}
+	]
+}

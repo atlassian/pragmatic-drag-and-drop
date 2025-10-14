@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import invariant from 'tiny-invariant';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, Stack, xcss } from '@atlaskit/primitives';
 
 import { autoScrollWindowForElements } from '../../src/entry-point/element';
@@ -30,7 +31,7 @@ const columnStyles = xcss({
 	width: '140px',
 	backgroundColor: 'elevation.surface',
 	borderColor: 'color.border.accent.purple',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	flexShrink: 0,
@@ -67,7 +68,7 @@ const boardStyles = xcss({
 	borderWidth: 'border.width',
 	borderColor: 'color.border.accent.purple',
 	borderStyle: 'solid',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	padding: 'space.200',
 	backgroundColor: 'elevation.surface.sunken',
 });

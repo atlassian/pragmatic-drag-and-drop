@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import React, { CSSProperties } from 'react';
+import React, { type CSSProperties } from 'react';
 
 import { css, jsx } from '@compiled/react';
 
@@ -36,7 +36,7 @@ type Options = {
 
 const defaults: Options = {
 	appearance: 'default',
-	borderRadius: token('border.radius'),
+	borderRadius: token('radius.small'),
 	indent: '0px',
 };
 
@@ -88,7 +88,7 @@ export function StrokeColorWarning() {
 }
 
 export function CustomBorderRadius() {
-	return <Example appearance="default" borderRadius={token('border.radius.300')} />;
+	return <Example appearance="default" borderRadius={token('radius.xlarge')} />;
 }
 
 export function Inset() {

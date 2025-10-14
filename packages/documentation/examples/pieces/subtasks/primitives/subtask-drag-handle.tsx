@@ -13,7 +13,7 @@ import DropdownMenu, {
 	DropdownItemGroup,
 } from '@atlaskit/dropdown-menu';
 import FocusRing from '@atlaskit/focus-ring';
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/drag-handle-vertical';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 
 import type { DragState } from '../../hooks/use-sortable-field';
@@ -110,7 +110,7 @@ function SubtaskDragHandleTrigger({
 			>
 				<div css={dragHandleEmulatedSubtaskBackgroundStyles}>
 					<div css={[dragHandleInnerStyles, isSelected && dragHandleInnerSelectedStyles]}>
-						<DragHandleVerticalIcon label="" />
+						<DragHandleVerticalIcon label="" size="small" />
 					</div>
 				</div>
 			</button>

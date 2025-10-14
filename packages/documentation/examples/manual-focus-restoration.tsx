@@ -17,6 +17,7 @@ import {
 	dropTargetForElements,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 const teamAreaStyles = xcss({
@@ -24,7 +25,7 @@ const teamAreaStyles = xcss({
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border.accent.blue',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 	height: '240px',
 	width: '240px',
 	padding: 'space.300',

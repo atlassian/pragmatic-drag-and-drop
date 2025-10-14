@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 
 import Button from '@atlaskit/button/new';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
 import { triggerPostMoveFlash } from '../src/trigger-post-move-flash';
@@ -10,7 +11,7 @@ const cardStyles = xcss({
 	height: '100px',
 	backgroundColor: 'elevation.surface.raised',
 	boxShadow: 'elevation.shadow.raised',
-	borderRadius: 'border.radius.100',
+	borderRadius: 'radius.small',
 });
 
 export default function BasicExample() {

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Anchor, Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { useThemeObserver } from '@atlaskit/tokens';
 
@@ -60,7 +61,7 @@ export default function IFrameBoard() {
 			<Box padding="space.500">
 				<Inline space="space.200" alignInline="center" shouldWrap>
 					<Column columnId={'In parent window'} />
-					{/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
+					{/* eslint-disable-next-line @atlassian/a11y/iframe-has-title */}
 					<Box as="iframe" src={iframeSrc} xcss={iframeStyles} />
 				</Inline>
 			</Box>

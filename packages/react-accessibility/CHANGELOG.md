@@ -1,5 +1,70 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.1.1
+
+### Patch Changes
+
+- [`806cfe1c4e6b7`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/806cfe1c4e6b7) -
+  Internal changes to how border radius is applied.
+
+## 2.1.0
+
+### Minor Changes
+
+- [`3136f686a1929`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/3136f686a1929) -
+  Updating `DragHandleButton` to use our new `DragHandleVerticalIcon`.
+
+  Deprecating `DragHandleButtonSmall`.
+
+  Rationale:
+
+  - `DragHandleButtonSmall` uses a tiny icon size that is no longer supported by our icon system
+    (the smallest icon size is now `12px` x `12px`)
+  - Icons smaller than `12px` x `12px` are not good for visibility and accessibility
+  - The small hitbox of `DragHandleButtonSmall` (`8px` x `16px`) is below our `24px` x `24px`
+    minimum hit target size for accessibility.
+    [More details](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.0.8
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.0.7
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.0.5
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.0.3
 
 ### Patch Changes

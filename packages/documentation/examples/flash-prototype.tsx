@@ -4,7 +4,8 @@ import invariant from 'tiny-invariant';
 
 import { Code } from '@atlaskit/code';
 import Lozenge from '@atlaskit/lozenge';
-import { Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
+import { type Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Inline, Stack, xcss } from '@atlaskit/primitives';
 import { RadioGroup } from '@atlaskit/radio';
 import { type OptionsPropType } from '@atlaskit/radio/types';
@@ -206,7 +207,7 @@ function FlashParameterForm({ onChange }: { onChange: React.FormEventHandler<HTM
 					<strong id="duration-label">Duration</strong>
 					<RadioGroup
 						options={durationOptions}
-						aria-labelledby="duration-label"
+						labelId="duration-label"
 						defaultValue={durationOptions[0].value}
 					/>
 				</Stack>
@@ -214,7 +215,7 @@ function FlashParameterForm({ onChange }: { onChange: React.FormEventHandler<HTM
 					<strong id="easing-label">Easing</strong>
 					<RadioGroup
 						options={easingOptions}
-						aria-labelledby="easing-label"
+						labelId="easing-label"
 						defaultValue={easingOptions[0].value}
 					/>
 				</Stack>

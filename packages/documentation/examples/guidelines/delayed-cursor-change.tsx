@@ -9,10 +9,11 @@ import { css, jsx, keyframes } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/utility/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';
 
@@ -26,7 +27,7 @@ const listItemStyles = xcss({
 	borderColor: 'color.border',
 	padding: 'space.100',
 	paddingInlineStart: 'space.0',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface',
 	':hover': {
 		backgroundColor: 'elevation.surface.hovered',
@@ -95,9 +96,11 @@ export function DelayedCursorChange() {
 							spacing="spacious"
 							label="Drag list item"
 							color={token('color.icon')}
+							size="small"
 						/>
 					</Stack>
 					<Box>
+						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						<code>cursor:drag</code> delayed by <code>800ms</code>
 					</Box>
 					<ActionMenu />

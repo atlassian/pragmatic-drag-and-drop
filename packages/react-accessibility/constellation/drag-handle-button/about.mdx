@@ -21,11 +21,24 @@ import DragHandleDropdownMenuExample from '../../examples/drag-handle-dropdown-m
 
 <Example Component={DragHandleButtonExample} />
 
-## Small variant
+## Small variant (deprecated)
+
+<SectionMessage appearance="warning">
+
+The small variant has now been deprecated.
+
+- `DragHandleButtonSmall` uses a tiny icon size that is no longer supported by our icon system (the
+  smallest icon size is now `12px` x `12px`)
+- Icons smaller than `12px` x `12px` are not good for visibility and accessibility
+- The small hitbox of `DragHandleButtonSmall` (`8px` x `16px`) is below our `24px` x `24px` minimum
+  hit target size for accessibility.
+  [More details](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
+
+</SectionMessage>
 
 A small variant is available through the `/drag-handle-button-small` entrypoint.
 
-It is intended for experiences with very limited space to accomodate a drag handle. It is not
+It is intended for experiences with very limited space to accommodate a drag handle. It is not
 recommended for general use due to the small target size.
 
 <Example Component={DragHandleButtonSmallExample} />

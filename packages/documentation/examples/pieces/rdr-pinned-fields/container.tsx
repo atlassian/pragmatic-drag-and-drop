@@ -1,9 +1,11 @@
 import React, { type ReactNode } from 'react';
 
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
+import { token } from '@atlaskit/tokens';
 
 const containerStyles = xcss({
-	borderRadius: '4px',
+	borderRadius: token('radius.small'),
 	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
@@ -14,14 +16,14 @@ const containerStyles = xcss({
 const headerStyles = xcss({
 	backgroundColor: 'elevation.surface.overlay',
 	fontWeight: 'font.weight.bold',
-	borderWidth: 'border.width.0',
-	borderBottomWidth: '1px',
+	borderWidth: '0',
+	borderBottomWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	lineHeight: '20px',
 	padding: 'space.150',
-	borderTopLeftRadius: '4px',
-	borderTopRightRadius: '4px',
+	borderTopLeftRadius: token('radius.small'),
+	borderTopRightRadius: token('radius.small'),
 });
 
 const pinnedFieldsHeaderStyles = xcss({

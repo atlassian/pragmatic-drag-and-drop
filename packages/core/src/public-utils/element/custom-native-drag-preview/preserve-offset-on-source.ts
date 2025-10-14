@@ -9,7 +9,24 @@ export function preserveOffsetOnSource({
 	element: HTMLElement;
 	input: Input;
 }): GetOffsetFn {
-	return ({ container }) => {
+	return function getOffset({ container }) {
+		/**
+		 * **Android**
+		 *
+		 * This function won't do anything 😅.
+		 * The drag preview will _always_ be under the center of the users pointer.
+		 * There is no harm in calling this function though 🧘.
+		 *
+		 * **iOS and iPadOS**
+		 *
+		 * The drag preview is lifted in the expected position and then slides under
+		 * the users pointer.
+		 * This is more pleasing than immediately putting the center of the drag preview
+		 * under the users pointer.
+		 * With this function the drag preview looks like it is popping out
+		 * of the UI and then it shifts under the users pointer as the drag is occurring ✨
+		 */
+
 		const sourceRect = element.getBoundingClientRect();
 		const containerRect = container.getBoundingClientRect();
 

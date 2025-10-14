@@ -14,7 +14,7 @@ function center(box: { x: number; y: number; height: number; width: number }): {
 
 /**
  * When dragging into and out of iframes, it is important for the sequencing of events
- * the the drag operation be closer to what a user would do.
+ * the drag operation be closer to what a user would do.
  *
  * If we don't do this approach, then the drag won't exit the current document as the user
  * will always be over the honey pot element (in the current document)
@@ -264,5 +264,13 @@ test.describe('iframes', () => {
 			// Adding longer timeout for CI
 			{ timeout: 60 * 1000 },
 		);
+	});
+
+	test('should capture and report a11y violations', async ({ page }) => {
+		const { dropTargetInIframe, draggableInParent } = await setup({ page });
+
+		await realisticDragTo({ page, start: draggableInParent, end: dropTargetInIframe });
+
+		await expect(page).toBeAccessible();
 	});
 });

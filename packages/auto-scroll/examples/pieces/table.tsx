@@ -4,6 +4,7 @@ import invariant from 'tiny-invariant';
 
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 
 import { autoScrollForElements, autoScrollWindowForElements } from '../../src/entry-point/element';
@@ -128,6 +129,6 @@ const tableStyles = xcss({
 	borderWidth: 'border.width',
 	borderColor: 'color.border',
 	borderStyle: 'solid',
-	borderRadius: 'border.radius',
+	borderRadius: 'radius.small',
 	backgroundColor: 'elevation.surface.sunken',
 });

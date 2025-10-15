@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.8
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 3.2.7
 
 ### Patch Changes
@@ -164,13 +170,11 @@
 
   All drop indicators now correctly support
   ["right to left" (`rtl`) rendering](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir).
-
   - `box` and `tree-item`: terminals (circles) on lines are now rendered on right hand side of the
     line for `rtl` rendering
   - `tree-item`: `indent` will now correctly respect `rtl` rendering.
 
   **Other**
-
   - All drop indicators that rendered lines now leverage the same underlying base component to help
     reduce bundle size for consumers leveraging multiple types of drop indicators.
 
@@ -284,7 +288,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation
@@ -770,7 +773,6 @@
 - [#24613](https://bitbucket.org/atlassian/atlassian-frontend/pull-requests/24613)
   [`e26c936c610`](https://bitbucket.org/atlassian/atlassian-frontend/commits/e26c936c610) - We have
   improved our naming consistency across our drag and drop packages.
-
   - The exports from `@atlaskit/drag-and-drop-indicator` have now been shifted over to
     `@atlaskit/drag-and-drop-indicator/box`. `@atlaskit/drag-and-drop-indicator` will no longer be
     useable from the root entry point

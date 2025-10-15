@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-flourish
 
+## 2.0.8
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.0.7
 
 ### Patch Changes
@@ -146,7 +152,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation

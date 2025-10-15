@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.1.2
 
 ### Patch Changes
@@ -23,7 +29,6 @@
   Deprecating `DragHandleButtonSmall`.
 
   Rationale:
-
   - `DragHandleButtonSmall` uses a tiny icon size that is no longer supported by our icon system
     (the smallest icon size is now `12px` x `12px`)
   - Icons smaller than `12px` x `12px` are not good for visibility and accessibility
@@ -283,7 +288,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation

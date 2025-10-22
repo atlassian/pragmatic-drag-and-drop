@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 2.0.8
+
+### Patch Changes
+
+- [`4891ea5a24e1b`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/4891ea5a24e1b) -
+  Typescript changes.
+
 ## 2.0.7
 
 ### Patch Changes

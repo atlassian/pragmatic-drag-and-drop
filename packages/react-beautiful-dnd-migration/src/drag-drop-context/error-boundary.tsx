@@ -70,8 +70,7 @@ function ErrorBoundaryInner({ children, dragController }: ErrorBoundaryProps) {
 					isDraggingRef.current = false;
 				},
 			}),
-			// @ts-expect-error - type narrowing isn't working on the error param
-			bind(window, { type: 'error', listener: handleWindowError }),
+			bind(window, { type: 'error', listener: handleWindowError as any }),
 		);
 	}, [handleWindowError]);
 

@@ -28,9 +28,9 @@ export const log: Log =
 				const getDevMessage = (message: string): string =>
 					clean(`
           %creact-beautiful-dnd
-          
+
           %c${clean(message)}
-          
+
           %c👷‍ This is a development only message. It will be removed in production builds.
         `);
 
@@ -46,8 +46,7 @@ export const log: Log =
 
 				return function log(type: 'error' | 'warn', message: string) {
 					// manual opt out of warnings
-					// @ts-expect-error
-					if (typeof window !== 'undefined' && window[isDisabledFlag]) {
+					if (typeof window !== 'undefined' && (window as any)[isDisabledFlag]) {
 						return;
 					}
 

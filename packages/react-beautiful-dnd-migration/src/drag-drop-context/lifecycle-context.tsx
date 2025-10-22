@@ -121,7 +121,7 @@ export function LifecycleContextProvider({
 	 */
 	const monitorForLifecycle: MonitorForLifecycle = useCallback(
 		(responders) => {
-			const cleanupFns = [];
+			const cleanupFns: CleanupFn[] = [];
 
 			for (const entry of Object.entries(responders)) {
 				const [event, responder] = entry as [LifecycleEvent, LifecycleResponders[LifecycleEvent]];

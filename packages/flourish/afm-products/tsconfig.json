@@ -1,8 +1,8 @@
 {
-	"extends": "../../../../tsconfig.entry-points.volt.json",
+	"extends": "../../../../tsconfig.entry-points.products.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../volt/tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-migration/app",
+		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-flourish/app",
 		"rootDir": "../",
 		"composite": true
 	},
@@ -23,16 +23,10 @@
 	],
 	"references": [
 		{
-			"path": "../../core/afm-volt/tsconfig.json"
+			"path": "../../../design-system/motion/afm-products/tsconfig.json"
 		},
 		{
-			"path": "../../hitbox/afm-volt/tsconfig.json"
-		},
-		{
-			"path": "../../react-beautiful-dnd-autoscroll/afm-volt/tsconfig.json"
-		},
-		{
-			"path": "../../../design-system/tokens/afm-volt/tsconfig.json"
+			"path": "../../../design-system/tokens/afm-products/tsconfig.json"
 		}
 	]
 }

@@ -1,8 +1,8 @@
 {
-	"extends": "../../../../tsconfig.entry-points.passionfruit.json",
+	"extends": "../../../../tsconfig.entry-points.products.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../passionfruit/tsDist/@atlaskit__pragmatic-drag-and-drop-react-drop-indicator/app",
+		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-migration/app",
 		"rootDir": "../",
 		"composite": true
 	},
@@ -23,13 +23,16 @@
 	],
 	"references": [
 		{
-			"path": "../../core/afm-passionfruit/tsconfig.json"
+			"path": "../../core/afm-products/tsconfig.json"
 		},
 		{
-			"path": "../../hitbox/afm-passionfruit/tsconfig.json"
+			"path": "../../hitbox/afm-products/tsconfig.json"
 		},
 		{
-			"path": "../../../design-system/tokens/afm-passionfruit/tsconfig.json"
+			"path": "../../react-beautiful-dnd-autoscroll/afm-products/tsconfig.json"
+		},
+		{
+			"path": "../../../design-system/tokens/afm-products/tsconfig.json"
 		}
 	]
 }

@@ -1,8 +1,8 @@
 {
-	"extends": "../../../../tsconfig.entry-points.volt.json",
+	"extends": "../../../../tsconfig.entry-points.products.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../volt/tsDist/@atlaskit__pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll/app",
+		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-live-region/app",
 		"rootDir": "../",
 		"composite": true
 	},
@@ -21,9 +21,5 @@
 		"../src/**/stories/*",
 		"../src/**/stories/**/*"
 	],
-	"references": [
-		{
-			"path": "../../core/afm-volt/tsconfig.json"
-		}
-	]
+	"references": []
 }

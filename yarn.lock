@@ -296,6 +296,18 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
+"@atlaskit/icon@^29.0.0":
+  version "29.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-29.0.0.tgz#8cdea42f6c7a76bedc4e06f4d4477dc8d298822f"
+  integrity sha512-Mi+nxksnoaqPnbbaCSF8P1eXMK9WhCJrzXjwsAORi37knvxg/eN/HqKjHhM2FwT/2NMX5VKMxzQ/5GWaBRVFZA==
+  dependencies:
+    "@atlaskit/platform-feature-flags" "^1.1.0"
+    "@atlaskit/tile" "^1.0.0"
+    "@atlaskit/tokens" "^8.0.0"
+    "@babel/register" "^7.25.9"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.6"
+
 "@atlaskit/interaction-context@^3.0.0":
   version "3.0.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/interaction-context/-/interaction-context-3.0.0.tgz#50ea208a42ae8cc2db03fa603b0fcfafda531806"
@@ -516,6 +528,15 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
 
+"@atlaskit/skeleton@^2.1.0":
+  version "2.1.4"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/skeleton/-/skeleton-2.1.4.tgz#09deb1ad3413b59d423d232aae6fb5c933673f46"
+  integrity sha512-DjfCz9TLGw45fuqkrFRiKKoTwyyx6xI2SIefAr3C5XlVRRdjiL/31pOJ5q8YyFuBmByglFGVjYKCMhiBXpIRog==
+  dependencies:
+    "@atlaskit/tokens" "^8.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.6"
+
 "@atlaskit/spinner@^19.0.0":
   version "19.0.1"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/spinner/-/spinner-19.0.1.tgz#6f0ef31c6a219644cb4d229462d3fd3252886aa7"
@@ -565,6 +586,16 @@
     "@atlaskit/tokens" "^6.3.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.18.3"
+
+"@atlaskit/tile@^1.0.0":
+  version "1.0.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tile/-/tile-1.0.1.tgz#3f51199d47d8178cefb6030118b53524d1c9d9d5"
+  integrity sha512-3DVcGGPBb7LeDClUYeFGwsvLd9ho2eUA5whl3p4cT3kvtDrPb/CHG8rwIels5WOHwG+8IMQr6ziR3xiJ37Y25g==
+  dependencies:
+    "@atlaskit/skeleton" "^2.1.0"
+    "@atlaskit/tokens" "^8.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.18.6"
 
 "@atlaskit/tokens@^4.0.0":
   version "4.1.0"

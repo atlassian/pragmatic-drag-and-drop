@@ -2,7 +2,7 @@
 	"extends": "../../../../tsconfig.entry-points.jira.json",
 	"compilerOptions": {
 		"target": "es5",
-		"outDir": "../../../../../tsDist/@atlaskit__pragmatic-drag-and-drop-flourish/app",
+		"outDir": "../../../../../jira/tsDist/@atlaskit__pragmatic-drag-and-drop-flourish/app",
 		"rootDir": "../",
 		"composite": true
 	},

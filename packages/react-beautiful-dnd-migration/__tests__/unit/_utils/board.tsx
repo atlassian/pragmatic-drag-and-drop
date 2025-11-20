@@ -14,7 +14,7 @@ type BoardProps = Partial<Responders>;
 
 function noop() {}
 
-export function Board({ onDragEnd = noop, ...responders }: BoardProps) {
+export function Board({ onDragEnd = noop, ...responders }: BoardProps): React.JSX.Element {
 	return (
 		<DragDropContext onDragEnd={onDragEnd} {...responders}>
 			<Droppable droppableId="board" type="column">

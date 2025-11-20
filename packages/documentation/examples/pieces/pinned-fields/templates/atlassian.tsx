@@ -19,7 +19,7 @@ type PinnedFieldsAtlassianTemplateProps = {
 export default function PinnedFieldsAtlassianTemplate({
 	instanceId,
 	DraggableField,
-}: PinnedFieldsAtlassianTemplateProps) {
+}: PinnedFieldsAtlassianTemplateProps): React.JSX.Element {
 	const { data, reorderItem } = useTopLevelWiring({
 		initialData,
 		type: instanceId,

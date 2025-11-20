@@ -46,7 +46,7 @@ function Row({ item }: { item: TItem }) {
 	);
 }
 
-export function Table() {
+export function Table(): React.JSX.Element {
 	const ref = useRef<HTMLTableElement | null>(null);
 	const [items] = useState<TItem[]>(() => getItems({ count: 20 }));
 

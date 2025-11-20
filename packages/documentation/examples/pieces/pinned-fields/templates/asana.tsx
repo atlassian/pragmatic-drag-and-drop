@@ -64,7 +64,7 @@ type AsanaFieldsTemplateProps = {
 export default function AsanaFieldsTemplate({
 	DraggableField,
 	instanceId,
-}: AsanaFieldsTemplateProps) {
+}: AsanaFieldsTemplateProps): React.JSX.Element {
 	const { data } = useTopLevelWiring({ initialData, type: instanceId });
 	return (
 		// eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766

@@ -59,7 +59,7 @@ const context: TBoardContext = {
 	},
 };
 
-export default function UnsafeOverflowOnly() {
+export default function UnsafeOverflowOnly(): React.JSX.Element {
 	return (
 		<BoardContext.Provider value={context}>
 			<Board />

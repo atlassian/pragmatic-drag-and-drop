@@ -96,7 +96,13 @@ const dragHandleRegionStyles = xcss({
 	cursor: 'grab !important',
 });
 
-export function ListItem({ itemData, isSortable }: { itemData: ItemData; isSortable: boolean }) {
+export function ListItem({
+	itemData,
+	isSortable,
+}: {
+	itemData: ItemData;
+	isSortable: boolean;
+}): React.JSX.Element {
 	const { getItemIndex, registerItem } = useListContext();
 
 	const ref = useRef<HTMLDivElement>(null);

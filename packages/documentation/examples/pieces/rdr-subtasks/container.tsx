@@ -15,7 +15,7 @@ const containerStyles = xcss({
 	width: '50vw',
 });
 
-export function BacklogContainer({ children }: { children: ReactNode }) {
+export function BacklogContainer({ children }: { children: ReactNode }): React.JSX.Element {
 	return (
 		<Stack space="space.100" xcss={containerStyles}>
 			<BacklogHeader />

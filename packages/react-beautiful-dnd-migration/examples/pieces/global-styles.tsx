@@ -12,6 +12,6 @@ const globalStyles = css({
 	},
 });
 
-export function GlobalStyles() {
+export function GlobalStyles(): React.JSX.Element {
 	return <Global styles={globalStyles} />;
 }

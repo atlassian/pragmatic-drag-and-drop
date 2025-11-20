@@ -35,7 +35,7 @@ const layoutStyles = xcss({
 	padding: 'space.400',
 });
 
-export default function PostDropFlashPrototype() {
+export default function PostDropFlashPrototype(): React.JSX.Element {
 	const [params, setParams] = useState<{
 		duration: Durations;
 		easing: keyof typeof easingMap;

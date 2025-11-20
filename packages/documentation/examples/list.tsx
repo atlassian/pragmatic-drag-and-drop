@@ -440,7 +440,7 @@ type ListState = {
 	} | null;
 };
 
-export default function ListExample() {
+export default function ListExample(): React.JSX.Element {
 	const [{ items, lastCardMoved }, setListState] = useState<ListState>({
 		items: defaultItems,
 		lastCardMoved: null,

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { token } from '@atlaskit/tokens';
 
-export function LinearInProgressIcon() {
+export function LinearInProgressIcon(): React.JSX.Element {
 	return (
 		<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-label="In Progress">
 			<rect

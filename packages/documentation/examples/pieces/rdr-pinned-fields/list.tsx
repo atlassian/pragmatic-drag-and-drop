@@ -40,7 +40,7 @@ export default function ListExample({
 }: {
 	defaultItems: ItemData[];
 	isSortable?: boolean;
-}) {
+}): React.JSX.Element {
 	const [{ items, lastCardMoved }, setListState] = useState<ListState>({
 		items: defaultItems,
 		lastCardMoved: null,

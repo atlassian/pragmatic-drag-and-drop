@@ -7,7 +7,7 @@ import Layout from './internal/layout';
 
 const edges: Edge[] = ['bottom', 'left', 'right', 'top'];
 
-export default function ClosestEdgeExample() {
+export default function ClosestEdgeExample(): React.JSX.Element {
 	return (
 		<React.StrictMode>
 			<div>

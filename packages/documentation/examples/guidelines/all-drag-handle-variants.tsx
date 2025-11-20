@@ -9,7 +9,7 @@ import { HoverDragHandleOutsideBounds } from './hover-drag-handle-outside-bounds
 import { OnlyDraggableFromDragHandle } from './only-draggable-from-drag-handle';
 import { ImpliedDraggable } from './standalone-card';
 
-export function AllDragHandleVariants() {
+export function AllDragHandleVariants(): React.JSX.Element {
 	return (
 		<Stack space="space.100">
 			<EntireEntityIsDraggable />

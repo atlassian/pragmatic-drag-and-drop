@@ -7,7 +7,7 @@ import { fg } from '@atlaskit/platform-feature-flags';
 
 import { DragHandleButton } from '../src/drag-handle-button';
 
-export default function DragHandleDropdownMenuExample() {
+export default function DragHandleDropdownMenuExample(): React.JSX.Element {
 	// This ref can be used to set your `dragHandle` when calling `draggable()`
 	const myRef = useRef<HTMLButtonElement>(null);
 

@@ -62,7 +62,7 @@ const dragHandleStyles = xcss({
 	opacity: 'var(--show-drag-handle, 0)',
 });
 
-export function HoverDragHandle() {
+export function HoverDragHandle(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 

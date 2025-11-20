@@ -1,6 +1,10 @@
 import React from 'react';
 
-export function LinearPriorityIcon({ color = 'currentColor' }: { color?: string }) {
+export function LinearPriorityIcon({
+	color = 'currentColor',
+}: {
+	color?: string;
+}): React.JSX.Element {
 	return (
 		<svg fill={color} width="16" height="16" viewBox="0 0 16 16" aria-label="High Priority">
 			<rect x="1" y="8" width="3" height="6" rx="1"></rect>

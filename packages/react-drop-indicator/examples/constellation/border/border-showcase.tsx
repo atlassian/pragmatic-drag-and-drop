@@ -5,7 +5,7 @@ import { Stack } from '@atlaskit/primitives/compiled';
 import { DropIndicator } from '../../../src/border';
 import { Item } from '../simple-item';
 
-export function BorderShowcaseExample() {
+export function BorderShowcaseExample(): React.JSX.Element {
 	return (
 		<Stack space="space.200">
 			<Item content="default" dropIndicator={<DropIndicator appearance="default" />} />

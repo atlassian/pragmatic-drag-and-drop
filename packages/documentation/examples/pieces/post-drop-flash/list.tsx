@@ -353,7 +353,7 @@ export default function ListExample({
 	triggerPostMoveFlash,
 }: {
 	triggerPostMoveFlash: (element: HTMLElement) => void;
-}) {
+}): React.JSX.Element {
 	const [{ items, lastCardMoved }, setListState] = useState<ListState>({
 		items: defaultItems,
 		lastCardMoved: {

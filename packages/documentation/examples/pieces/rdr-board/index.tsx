@@ -73,7 +73,7 @@ function createRegistry() {
 	return { registry, registerCard };
 }
 
-export function BoardPrototype() {
+export function BoardPrototype(): React.JSX.Element {
 	const [data, setData] = useState<BoardState>(getInitialData);
 
 	const stableData = useRef(data);

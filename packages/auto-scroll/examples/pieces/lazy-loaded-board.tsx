@@ -119,7 +119,7 @@ const columnContainerStyles = xcss({
 	width: 'min-content', // so we can have padding around the board
 });
 
-export function Board() {
+export function Board(): React.JSX.Element {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const [columns] = useState<TColumn[]>(() => getColumns({ count: 8 }));
 	const [state, setState] = useState<LoadingState>('pending');

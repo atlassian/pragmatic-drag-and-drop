@@ -101,7 +101,7 @@ function getPeopleFromSharedPool(): Person[] {
 
 	return getPeopleFromPosition({ amount, startIndex });
 }
-export function Column({ columnId }: { columnId: string }) {
+export function Column({ columnId }: { columnId: string }): React.JSX.Element {
 	const [items, setItems] = useState<Person[]>(() => getPeopleFromSharedPool());
 
 	const columnRef = useRef<HTMLDivElement | null>(null);

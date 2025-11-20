@@ -42,7 +42,7 @@ function LinkToProject() {
 	);
 }
 
-export default function IFrameBoard() {
+export default function IFrameBoard(): React.JSX.Element {
 	const theme = useThemeObserver();
 	const iframeSrc = useMemo(() => {
 		const url = new URL('/examples.html', window.location.origin);

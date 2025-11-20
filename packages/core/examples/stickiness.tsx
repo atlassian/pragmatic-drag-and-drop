@@ -119,7 +119,7 @@ function ListItem({ itemData, index }: { itemData: ItemData; index: number }) {
 	);
 }
 
-export default function StickinessExample() {
+export default function StickinessExample(): React.JSX.Element {
 	const ref = useRef<HTMLDivElement>(null);
 
 	const [isBeingDraggedOver, setIsBeingDraggedOver] = useState(false);

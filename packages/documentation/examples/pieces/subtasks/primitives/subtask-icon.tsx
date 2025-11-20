@@ -2,7 +2,7 @@ import React from 'react';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 
-export function SubtaskObjectIcon() {
+export function SubtaskObjectIcon(): React.JSX.Element {
 	return (
 		<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<g clipPath="url(#clip0_80_3800)">
@@ -37,7 +37,7 @@ export function SubtaskObjectIcon() {
 	);
 }
 
-export default function SubtaskIcon({ isIconHidden = false }) {
+export default function SubtaskIcon({ isIconHidden = false }): React.JSX.Element {
 	return (
 		<div
 			style={{

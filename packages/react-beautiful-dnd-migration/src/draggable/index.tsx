@@ -46,7 +46,7 @@ export function Draggable({
 	index,
 	isDragDisabled = false,
 	disableInteractiveElementBlocking = false,
-}: DraggableProps) {
+}: DraggableProps): React.JSX.Element {
 	const { direction, droppableId, type, mode } = useDroppableContext();
 
 	const { contextId, getDragState } = useDragDropContext();

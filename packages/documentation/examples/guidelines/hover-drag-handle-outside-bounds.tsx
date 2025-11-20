@@ -73,7 +73,7 @@ const dragHandleStyles = xcss({
 	justifyContent: 'center',
 });
 
-export function HoverDragHandleOutsideBounds() {
+export function HoverDragHandleOutsideBounds(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 

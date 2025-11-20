@@ -99,7 +99,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 		// Intentionally blank, because this method needs to be defined
 	}
 
-	render() {
+	render(): React.JSX.Element {
 		return (
 			<ErrorBoundaryInner
 				contextId={this.props.contextId}

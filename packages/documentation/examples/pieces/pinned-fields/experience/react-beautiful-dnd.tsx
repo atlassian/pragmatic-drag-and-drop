@@ -5,7 +5,7 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { DroppableAreaOverlay } from '../primitives/droppable-area-overlay';
 import PinnedFieldsReactBeautifulDndTemplate from '../templates/react-beautiful-dnd';
 
-export default function PinnedFieldReactBeautifulDnd() {
+export default function PinnedFieldReactBeautifulDnd(): React.JSX.Element {
 	return (
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="react-beautiful-dnd"

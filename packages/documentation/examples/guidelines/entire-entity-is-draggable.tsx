@@ -36,7 +36,7 @@ const draggingStyles = xcss({
 	opacity: 0.4,
 });
 
-export function EntireEntityIsDraggable() {
+export function EntireEntityIsDraggable(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 

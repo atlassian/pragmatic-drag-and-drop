@@ -157,7 +157,7 @@ function DropTarget() {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<Grid templateColumns="1fr 1fr" gap="space.100">
 			<Item itemId="1">

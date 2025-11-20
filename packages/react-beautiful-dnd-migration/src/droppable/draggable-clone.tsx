@@ -143,7 +143,7 @@ export function DraggableClone({
 	droppableId: DroppableId;
 	type: string;
 	getContainerForClone?: () => HTMLElement;
-}) {
+}): React.JSX.Element | null {
 	const { contextId, getDragState } = useDragDropContext();
 
 	const draggableDimensions = useDraggableDimensions();

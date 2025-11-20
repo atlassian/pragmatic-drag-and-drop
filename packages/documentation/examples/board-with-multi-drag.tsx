@@ -185,7 +185,7 @@ const multiDragReorder = ({
 	};
 };
 
-export default function BoardExample() {
+export default function BoardExample(): React.JSX.Element {
 	const [data, setData] = useState<{
 		columnMap: ColumnMap;
 		orderedColumnIds: string[];

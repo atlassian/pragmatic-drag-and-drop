@@ -41,7 +41,7 @@ const contentStyles = xcss({
 	width: '1000px',
 });
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	const [content] = useState(() => getHugeContent());
 	const scrollableRef = useRef<HTMLDivElement | null>(null);
 	const draggableRef = useRef<HTMLDivElement | null>(null);

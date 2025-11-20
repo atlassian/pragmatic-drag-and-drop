@@ -37,7 +37,7 @@ function DraggableSubtask({ index, ...subtaskProps }: DraggableSubtaskProps) {
 	);
 }
 
-export default function SubtasksMigrationLayer() {
+export default function SubtasksMigrationLayer(): React.JSX.Element {
 	const [data, setData] = useState(initialData);
 
 	const onDragEnd: OnDragEndResponder = useCallback(({ source, destination }) => {

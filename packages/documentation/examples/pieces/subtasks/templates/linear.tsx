@@ -6,7 +6,10 @@ import { SubtasksBaseTemplate, type SubtasksBaseTemplateProps } from './_base';
 
 type LinearTemplateProps = Omit<SubtasksBaseTemplateProps, 'Wrapper'>;
 
-export function LinearTemplate({ instanceId, DraggableSubtask }: LinearTemplateProps) {
+export function LinearTemplate({
+	instanceId,
+	DraggableSubtask,
+}: LinearTemplateProps): React.JSX.Element {
 	return (
 		<SubtasksBaseTemplate
 			instanceId={instanceId}

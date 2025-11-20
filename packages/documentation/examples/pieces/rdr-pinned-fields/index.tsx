@@ -6,7 +6,7 @@ import { FieldsContainer } from './container';
 import { defaultDetailsItems, defaultItems } from './data';
 import List from './list';
 
-export default function PinnedFieldsPrototype() {
+export default function PinnedFieldsPrototype(): React.JSX.Element {
 	return (
 		<Stack space="space.200">
 			<FieldsContainer title="Your pinned fields" isPinnedFields>

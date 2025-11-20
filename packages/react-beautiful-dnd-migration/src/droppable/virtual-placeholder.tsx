@@ -33,7 +33,7 @@ export function VirtualPlaceholder({
 	type: string;
 	direction: Direction;
 	isDropDisabled: boolean;
-}) {
+}): React.JSX.Element {
 	const ref = useRef<HTMLDivElement>(null);
 
 	const { contextId, getDragState } = useDragDropContext();

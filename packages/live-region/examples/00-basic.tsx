@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { announce, cleanup } from '../src';
 
-export default function BasicExample() {
+export default function BasicExample(): React.JSX.Element {
 	useEffect(() => {
 		announce('Test message');
 		return cleanup;

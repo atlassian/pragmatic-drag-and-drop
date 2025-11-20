@@ -14,7 +14,7 @@ const cardStyles = xcss({
 	borderRadius: 'radius.small',
 });
 
-export default function BasicExample() {
+export default function BasicExample(): React.JSX.Element {
 	const ref = useRef<HTMLElement>(null);
 
 	const runAnimation = useCallback(() => {

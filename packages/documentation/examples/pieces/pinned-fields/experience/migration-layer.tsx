@@ -9,7 +9,7 @@ import {
 import { DroppableAreaOverlay } from '../primitives/droppable-area-overlay';
 import PinnedFieldsReactBeautifulDndTemplate from '../templates/react-beautiful-dnd';
 
-export default function PinnedFieldReactBeautifulDnd() {
+export default function PinnedFieldReactBeautifulDnd(): React.JSX.Element {
 	return (
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration"
@@ -21,7 +21,7 @@ export default function PinnedFieldReactBeautifulDnd() {
 	);
 }
 
-export function PinnedFieldReactBeautifulDndNoDraggingOutline() {
+export function PinnedFieldReactBeautifulDndNoDraggingOutline(): React.JSX.Element {
 	return (
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration--borderless"
@@ -33,7 +33,7 @@ export function PinnedFieldReactBeautifulDndNoDraggingOutline() {
 	);
 }
 
-export function PinnedFieldReactBeautifulDndSubtle() {
+export function PinnedFieldReactBeautifulDndSubtle(): React.JSX.Element {
 	return (
 		<PinnedFieldsReactBeautifulDndTemplate
 			idPrefix="rbd-pdnd-migration--subtle"

@@ -33,7 +33,7 @@ function DraggableSubtask({ index, ...subtaskProps }: DraggableSubtaskProps) {
 	);
 }
 
-export default function SubtaskReactBeautifulDnd() {
+export default function SubtaskReactBeautifulDnd(): React.JSX.Element {
 	const [data, setData] = useState(initialData);
 
 	const onDragEnd: OnDragEndResponder = useCallback(({ source, destination }) => {

@@ -43,7 +43,7 @@ export function DragDropContextProvider({
 	getDragState(): DragState;
 	startKeyboardDrag: StartKeyboardDrag;
 	droppableRegistry: DroppableRegistry;
-}) {
+}): React.JSX.Element {
 	const value: DragDropContextValue = useMemo(() => {
 		return {
 			contextId,

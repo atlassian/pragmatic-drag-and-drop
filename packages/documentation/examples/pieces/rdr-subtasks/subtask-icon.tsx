@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SubtaskIcon() {
+export function SubtaskIcon(): React.JSX.Element {
 	return (
 		<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<g clipPath="url(#clip0_19_19114)">

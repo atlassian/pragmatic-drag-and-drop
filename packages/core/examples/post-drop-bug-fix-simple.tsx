@@ -183,6 +183,6 @@ function DropTest() {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return <DropTest />;
 }

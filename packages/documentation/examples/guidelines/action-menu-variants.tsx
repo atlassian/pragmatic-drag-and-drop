@@ -7,7 +7,7 @@ import { EntireEntityIsDraggableWithDragHandleButton } from './entire-entity-is-
 import { EntireEntityIsDraggableWithGroupedItems } from './entire-entity-is-draggable-with-grouped-items';
 import { ImpliedDraggable } from './standalone-card';
 
-export function ActionMenuVariants() {
+export function ActionMenuVariants(): React.JSX.Element {
 	return (
 		<Stack space="space.100">
 			<EntireEntityIsDraggable />

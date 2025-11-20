@@ -77,7 +77,7 @@ export function DropIndicator({
 	gap,
 	indent,
 	type,
-}: DropIndicatorProps) {
+}: DropIndicatorProps): React.JSX.Element {
 	return (
 		<Line
 			edge={edge}

@@ -12,6 +12,6 @@ const previewStyles = xcss({
 	backgroundColor: 'elevation.surface',
 });
 
-export function DragPreview() {
+export function DragPreview(): React.JSX.Element {
 	return <Box xcss={previewStyles}>Item drag preview</Box>;
 }

@@ -13,7 +13,7 @@ import { type ColumnMap, type ColumnType, getData, type Person } from './data/pe
 import Board from './pieces/board-with-overflow-scroll/board';
 import { Column } from './pieces/board-with-overflow-scroll/column';
 
-export default function BoardExample() {
+export default function BoardExample(): React.JSX.Element {
 	const [data, setData] = useState<{
 		columnMap: ColumnMap;
 		orderedColumnIds: string[];

@@ -10,7 +10,7 @@ const appearanceMap: Record<Epic, LozengeAppearance> = {
 	billing: 'inprogress',
 };
 
-export function EpicLozenge({ epic }: { epic: Epic }) {
+export function EpicLozenge({ epic }: { epic: Epic }): React.JSX.Element {
 	return (
 		<Lozenge appearance={appearanceMap[epic]} isBold>
 			{epic}

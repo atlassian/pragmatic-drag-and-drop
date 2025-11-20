@@ -12,7 +12,7 @@ const containerStyles = xcss({
 	padding: 'space.400',
 });
 
-export default function GuidelinesExample() {
+export default function GuidelinesExample(): React.JSX.Element {
 	return (
 		<Stack space="space.1000" alignInline="center" xcss={containerStyles}>
 			<PinnedFieldsPrototype />

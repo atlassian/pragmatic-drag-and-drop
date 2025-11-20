@@ -15,7 +15,7 @@ export function SubtasksBaseTemplate({
 	instanceId,
 	DraggableSubtask,
 	Wrapper = Fragment,
-}: SubtasksBaseTemplateProps) {
+}: SubtasksBaseTemplateProps): React.JSX.Element {
 	const { data } = useTopLevelWiring({ initialData, type: instanceId });
 
 	return (

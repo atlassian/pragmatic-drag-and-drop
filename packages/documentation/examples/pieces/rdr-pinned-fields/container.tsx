@@ -38,7 +38,7 @@ export function FieldsContainer({
 	children: ReactNode;
 	title: string;
 	isPinnedFields?: boolean;
-}) {
+}): React.JSX.Element {
 	return (
 		<Stack xcss={containerStyles}>
 			<Box xcss={[headerStyles, isPinnedFields && pinnedFieldsHeaderStyles]}>{title}</Box>

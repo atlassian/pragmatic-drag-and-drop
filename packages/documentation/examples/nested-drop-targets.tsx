@@ -129,7 +129,7 @@ function Draggable() {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<Grid templateColumns="200px 1fr" gap="space.100">
 			<Box>

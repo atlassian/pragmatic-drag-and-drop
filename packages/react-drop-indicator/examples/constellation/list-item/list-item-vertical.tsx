@@ -6,7 +6,7 @@ import { Stack } from '@atlaskit/primitives/compiled';
 import { DropIndicator } from '../../../src/list-item';
 import { Item } from '../simple-item';
 
-export function ListItemVerticalExample() {
+export function ListItemVerticalExample(): React.JSX.Element {
 	return (
 		<Stack>
 			{(['reorder-before', 'combine', 'reorder-after'] as const).map((operation) => (

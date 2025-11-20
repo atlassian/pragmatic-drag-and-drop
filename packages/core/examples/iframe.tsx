@@ -37,7 +37,7 @@ const isInIframeStyles = xcss({
 	backgroundColor: 'color.background.accent.blue.subtlest',
 });
 
-export default function IframeOuter() {
+export default function IframeOuter(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const dropTargetRef = useRef<HTMLDivElement | null>(null);
 	const [dragCount, setDragCount] = useState<number>(0);

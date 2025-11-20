@@ -91,7 +91,7 @@ function withDefaultBool(value: boolean | null | undefined, defaultValue: boolea
 	return defaultValue;
 }
 
-export default function App(props: Props) {
+export default function App(props: Props): React.JSX.Element {
 	const [items, setItems] = useState(() => props.items || getItems());
 	const onBeforeCapture = props.onBeforeCapture || noop;
 	const onBeforeDragStart = props.onBeforeDragStart || noop;

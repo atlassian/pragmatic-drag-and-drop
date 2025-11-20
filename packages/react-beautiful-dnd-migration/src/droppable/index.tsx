@@ -40,7 +40,7 @@ export function Droppable({
 	renderClone,
 	getContainerForClone,
 	isDropDisabled = false,
-}: DroppableProps) {
+}: DroppableProps): React.JSX.Element {
 	const getIsDropDisabled = useStable(isDropDisabled);
 
 	const { contextId, droppableRegistry } = useDragDropContext();

@@ -10,7 +10,7 @@ export function DropIndicator({
 }: {
 	appearance?: Appearance;
 	indent?: CSSSize;
-}) {
+}): React.JSX.Element {
 	return <Border strokeColor={presetStrokeColors[appearance]} indent={indent} />;
 }
 

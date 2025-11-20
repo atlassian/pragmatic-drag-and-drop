@@ -112,7 +112,7 @@ export function LifecycleContextProvider({
 }: {
 	children: ReactNode;
 	lifecycle: LifecycleManager;
-}) {
+}): React.JSX.Element {
 	/**
 	 * Allows for `<Draggable>` and `<Droppable>` instances to know about the
 	 * lifecycle timings.

@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { CustomGlyphProps } from '@atlaskit/icon/types';
 
-export default (props: CustomGlyphProps) => (
+export default (props: CustomGlyphProps): React.JSX.Element => (
 	<svg
 		{...props}
 		width="24"

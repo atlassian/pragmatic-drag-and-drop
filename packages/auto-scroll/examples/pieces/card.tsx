@@ -54,7 +54,7 @@ const idle: CardState = { type: 'idle' };
 const isDragging: CardState = { type: 'is-dragging' };
 const isOver: CardState = { type: 'is-over' };
 
-export function Card({ item }: { item: TItem }) {
+export function Card({ item }: { item: TItem }): React.JSX.Element {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<CardState>(idle);
 

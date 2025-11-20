@@ -106,7 +106,7 @@ const linkStyles = xcss({
 	},
 });
 
-export function ListItem({ itemData }: { itemData: ItemData }) {
+export function ListItem({ itemData }: { itemData: ItemData }): React.JSX.Element {
 	const { getItemIndex, registerItem } = useListContext();
 
 	const ref = useRef<HTMLDivElement>(null);

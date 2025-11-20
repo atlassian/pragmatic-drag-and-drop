@@ -5,7 +5,7 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 import EditorMoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
 import { fg } from '@atlaskit/platform-feature-flags';
 
-export function ActionMenu() {
+export function ActionMenu(): React.JSX.Element {
 	return (
 		<DropdownMenu
 			trigger={({ triggerRef, ...triggerProps }) => (

@@ -38,7 +38,7 @@ const draggingStyles = xcss({
 
 const roundedIconStyles = xcss({ borderRadius: 'radius.small' });
 
-export function OnlyDraggableFromDragHandle() {
+export function OnlyDraggableFromDragHandle(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 

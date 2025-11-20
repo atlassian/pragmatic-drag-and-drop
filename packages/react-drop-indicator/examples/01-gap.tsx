@@ -5,7 +5,7 @@ import Layout from './internal/layout';
 
 const gaps = ['32px', '16px', '8px', '4px', '0px'];
 
-export default function ClosestEdgeExample() {
+export default function ClosestEdgeExample(): React.JSX.Element {
 	return (
 		<React.StrictMode>
 			<Layout testId="layout">

@@ -51,6 +51,6 @@ function DraggableField({ index, item }: DraggableFieldProps) {
 	);
 }
 
-export default function AsanaFieldsWithNativePreview() {
+export default function AsanaFieldsWithNativePreview(): React.JSX.Element {
 	return <AsanaFieldsTemplate instanceId={type} DraggableField={DraggableField} />;
 }

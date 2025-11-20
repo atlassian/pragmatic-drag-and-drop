@@ -10,7 +10,7 @@ const context: TBoardContext = {
 	autoScrollBoard: autoScrollForElements,
 };
 
-export default function OverElement() {
+export default function OverElement(): React.JSX.Element {
 	return (
 		<BoardContext.Provider value={context}>
 			<Board />

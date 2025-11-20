@@ -50,7 +50,7 @@ type BoardState = {
 	lastOperation: Operation | null;
 };
 
-export default function BoardExample() {
+export default function BoardExample(): React.JSX.Element {
 	const [data, setData] = useState<BoardState>(() => {
 		const base = getBasicData();
 		return {

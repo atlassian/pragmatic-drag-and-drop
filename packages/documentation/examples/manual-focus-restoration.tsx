@@ -95,7 +95,7 @@ function getInstanceId() {
 
 const InstanceIdContext = createContext<symbol | null>(null);
 
-export default function ManualFocusRestoration() {
+export default function ManualFocusRestoration(): React.JSX.Element {
 	const [state, setState] = useState(initialState);
 	const [instanceId] = useState(getInstanceId);
 

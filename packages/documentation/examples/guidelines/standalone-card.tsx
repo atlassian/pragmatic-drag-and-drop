@@ -15,7 +15,7 @@ const person: Person = {
 	role: 'Implied draggable',
 };
 
-export function ImpliedDraggable() {
+export function ImpliedDraggable(): React.JSX.Element {
 	return (
 		<BoardContext.Provider
 			value={{

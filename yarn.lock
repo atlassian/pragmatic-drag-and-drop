@@ -534,10 +534,10 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^16.3.0":
-  version "16.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-16.3.0.tgz#2c97fb0b0e200f8dc8d018ec02534f037dabcefa"
-  integrity sha512-fI/rtIS37bCectjNbw7WB09VVo7csY71fY5AiquYLwIV5pJInTTCopmNrRjjktHzq86TtLQQRLDt0YSLoRyIFQ==
+"@atlaskit/primitives@^16.4.0":
+  version "16.4.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/primitives/-/primitives-16.4.0.tgz#2ebc20f6302448d9983d319b992c5c6c439081a6"
+  integrity sha512-LDPZjNrJnJGlaJgRkZlVu9+Xk093n0y6b39Rb5Z+K9fDBd1q4/pSRb2phse0SgIwzg6+mISxE5swcPYh6YtNIg==
   dependencies:
     "@atlaskit/analytics-next" "^11.1.0"
     "@atlaskit/app-provider" "^3.2.0"

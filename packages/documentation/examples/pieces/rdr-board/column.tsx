@@ -256,8 +256,8 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 const previewStyles = css({
 	width: 250,
 	background: token('elevation.surface.sunken', '#F7F8F9'),
-	borderRadius: 8,
-	padding: 16,
+	borderRadius: token('radius.large'),
+	padding: token('space.200'),
 });
 
 function ColumnPreview({ column }: { column: ColumnType }) {

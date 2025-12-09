@@ -4,7 +4,8 @@
 		"target": "es5",
 		"outDir": "../../../../../jira/tsDist/@atlaskit__pragmatic-drag-and-drop-live-region/app",
 		"rootDir": "../",
-		"composite": true
+		"composite": true,
+		"noCheck": true
 	},
 	"include": [
 		"../src/**/*.ts",

@@ -37,7 +37,7 @@ import { type ItemData } from './data';
 const listItemContainerStyles = xcss({
 	position: 'relative',
 	borderWidth: '0',
-	borderBottomWidth: token('border.width', '1px'),
+	borderBottomWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	backgroundColor: 'elevation.surface.raised',

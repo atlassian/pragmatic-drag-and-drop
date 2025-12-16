@@ -6,7 +6,6 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
-import { token } from '@atlaskit/tokens';
 
 import { unsafeOverflowAutoScrollForElements } from '../src/entry-point/unsafe-overflow/element';
 
@@ -19,7 +18,7 @@ const scrollContainerStyles = xcss({
 	overflowY: 'scroll',
 	width: '400px',
 	height: '400px',
-	borderWidth: token('border.width'),
+	borderWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	padding: 'space.200',

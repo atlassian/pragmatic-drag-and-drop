@@ -33,7 +33,7 @@ import { SubtaskIcon } from './subtask-icon';
 const listItemContainerStyles = xcss({
 	position: 'relative',
 	borderWidth: '0',
-	borderBottomWidth: token('border.width', '1px'),
+	borderBottomWidth: 'border.width',
 	borderStyle: 'solid',
 	borderColor: 'color.border',
 	cursor: 'grab',

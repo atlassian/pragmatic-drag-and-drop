@@ -10,8 +10,8 @@ import { IconButton } from '@atlaskit/button/new';
 import { Checkbox } from '@atlaskit/checkbox';
 import { IconTile } from '@atlaskit/icon';
 import Story16Icon from '@atlaskit/icon-object/glyph/story/16';
-import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
 import PriorityMinorIcon from '@atlaskit/icon/core/priority-minor';
+import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import StoryIcon from '@atlaskit/icon/core/story';
 import Lozenge from '@atlaskit/lozenge';
 import {

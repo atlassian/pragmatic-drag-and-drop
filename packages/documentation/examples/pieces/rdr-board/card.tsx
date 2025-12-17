@@ -26,8 +26,8 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import { IconTile } from '@atlaskit/icon';
 import StoryIcon16 from '@atlaskit/icon-object/glyph/story/16';
-import PullRequestIcon from '@atlaskit/icon/core/migration/pull-request--bitbucket-pullrequests';
-import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--more';
+import PullRequestIcon from '@atlaskit/icon/core/pull-request';
+import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import StoryIcon from '@atlaskit/icon/core/story';
 import { fg } from '@atlaskit/platform-feature-flags';
 import {

@@ -14,7 +14,7 @@ import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Heading from '@atlaskit/heading';
 // This is the smaller MoreIcon soon to be more easily accessible with the
 // ongoing icon project
-import MoreIcon from '@atlaskit/icon/core/migration/show-more-horizontal--editor-more';
+import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
 import { fg } from '@atlaskit/platform-feature-flags';

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import DragHandleVerticalIcon from '@atlaskit/icon/core/migration/drag-handle-vertical--drag-handler';
+import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
 
 import { useSortableField } from '../../hooks/use-sortable-field';

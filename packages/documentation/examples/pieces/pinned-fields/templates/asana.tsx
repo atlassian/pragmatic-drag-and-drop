@@ -1,12 +1,12 @@
 import React, { type ReactElement } from 'react';
 
+import CheckCircleOutlineIcon from '@atlaskit/icon/core/check-circle';
+import RecentIcon from '@atlaskit/icon/core/clock';
 import CalendarIcon from '@atlaskit/icon/core/migration/calendar';
-import CheckCircleOutlineIcon from '@atlaskit/icon/core/migration/check-circle--check-circle-outline';
-import RecentIcon from '@atlaskit/icon/core/migration/clock--recent';
 import EditIcon from '@atlaskit/icon/core/migration/edit';
 import PersonIcon from '@atlaskit/icon/core/migration/person';
-import LabelIcon from '@atlaskit/icon/core/migration/tag--label';
-import IssuesIcon from '@atlaskit/icon/core/migration/work-items--issues';
+import LabelIcon from '@atlaskit/icon/core/tag';
+import IssuesIcon from '@atlaskit/icon/core/work-items';
 
 import { useTopLevelWiring } from '../../hooks/use-top-level-wiring';
 

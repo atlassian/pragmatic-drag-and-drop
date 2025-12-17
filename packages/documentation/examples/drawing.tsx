@@ -11,8 +11,8 @@ import invariant from 'tiny-invariant';
 
 import Button from '@atlaskit/button/new';
 import FocusRing from '@atlaskit/focus-ring';
-import CheckIcon from '@atlaskit/icon/core/migration/check-mark--check';
-import TrashIcon from '@atlaskit/icon/core/migration/delete--trash';
+import CheckIcon from '@atlaskit/icon/core/check-mark';
+import TrashIcon from '@atlaskit/icon/core/delete';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';

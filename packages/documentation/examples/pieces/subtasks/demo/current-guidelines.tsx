@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -52,7 +52,7 @@ function DraggableSubtask({ index, id, ...subtaskProps }: DraggableSubtaskProps)
 	);
 }
 
-export default function SubtaskCurrentGuidelines() {
+export default function SubtaskCurrentGuidelines(): React.JSX.Element {
 	const { data } = useTopLevelWiring({ initialData, type });
 
 	return (

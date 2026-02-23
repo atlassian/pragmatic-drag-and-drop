@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { type DragEventHandler, Fragment, useCallback, useState } from 'react';
+import React, { type DragEventHandler, Fragment, useCallback, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -76,7 +76,7 @@ const layoutStyles = css({
 	placeItems: 'center',
 });
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<div css={layoutStyles}>
 			<FileDropZone />

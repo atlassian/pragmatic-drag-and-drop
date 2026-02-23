@@ -57,7 +57,7 @@ export const createAutoScroller = () => {
 	}: {
 		input: Input;
 		behavior?: ScrollBehavior;
-	}) => {
+	}): void => {
 		const dragStartTime: number = Date.now();
 
 		dragging = {
@@ -79,14 +79,14 @@ export const createAutoScroller = () => {
 		loop();
 	};
 
-	function updateInput({ input }: { input: Input }) {
+	function updateInput({ input }: { input: Input }): void {
 		if (!dragging) {
 			return;
 		}
 		dragging.latestInput = input;
 	}
 
-	const stop = () => {
+	const stop = (): void => {
 		// can be called defensively
 		if (!dragging) {
 			return;

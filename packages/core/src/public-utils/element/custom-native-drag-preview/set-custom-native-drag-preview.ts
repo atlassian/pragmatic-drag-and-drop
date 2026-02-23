@@ -49,7 +49,7 @@ export function setCustomNativeDragPreview({
 	getOffset?: GetOffsetFn;
 	render: RenderFn;
 	nativeSetDragImage: ElementEventPayloadMap['onGenerateDragPreview']['nativeSetDragImage'];
-}) {
+}): void {
 	const container = document.createElement('div');
 
 	Object.assign(container.style, {

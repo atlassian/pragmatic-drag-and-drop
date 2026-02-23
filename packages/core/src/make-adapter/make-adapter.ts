@@ -3,7 +3,9 @@ import {
 	type AllDragTypes,
 	type CleanupFn,
 	type DropTargetAllowedDropEffect,
+	type DropTargetArgs,
 	type EventPayloadMap,
+	type MonitorArgs,
 } from '../internal-types';
 import { lifecycle } from '../ledger/lifecycle-manager';
 import { register } from '../ledger/usage-ledger';
@@ -29,7 +31,11 @@ export function makeAdapter<DragType extends AllDragTypes>({
 		eventName: EventName;
 		payload: EventPayloadMap<DragType>[EventName];
 	}) => void;
-}) {
+}): {
+	registerUsage: () => CleanupFn;
+	dropTarget: (args: DropTargetArgs<DragType>) => CleanupFn;
+	monitor: (args: MonitorArgs<DragType>) => CleanupFn;
+} {
 	const monitorAPI = makeMonitor<DragType>();
 	const dropTargetAPI = makeDropTarget({
 		typeKey,

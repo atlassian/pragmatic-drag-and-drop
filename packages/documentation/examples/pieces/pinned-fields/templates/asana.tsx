@@ -1,10 +1,10 @@
 import React, { type ReactElement } from 'react';
 
+import CalendarIcon from '@atlaskit/icon/core/calendar';
 import CheckCircleOutlineIcon from '@atlaskit/icon/core/check-circle';
 import RecentIcon from '@atlaskit/icon/core/clock';
-import CalendarIcon from '@atlaskit/icon/core/migration/calendar';
-import EditIcon from '@atlaskit/icon/core/migration/edit';
-import PersonIcon from '@atlaskit/icon/core/migration/person';
+import EditIcon from '@atlaskit/icon/core/edit';
+import PersonIcon from '@atlaskit/icon/core/person';
 import LabelIcon from '@atlaskit/icon/core/tag';
 import IssuesIcon from '@atlaskit/icon/core/work-items';
 

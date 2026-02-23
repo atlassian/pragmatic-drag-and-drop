@@ -45,7 +45,7 @@ function getColor(state: HoveredState, isDark: boolean): string {
 	return isDark ? 'lightgrey' : 'white';
 }
 
-function Square({ pieces, location, children }: SquareProps) {
+function Square({ pieces, location, children }: SquareProps): React.JSX.Element {
 	const ref = useRef(null);
 	const [state, setState] = useState<HoveredState>('idle');
 

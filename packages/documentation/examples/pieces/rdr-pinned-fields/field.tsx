@@ -2,8 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -27,7 +26,13 @@ const fieldContentIconStyles = css({
 /**
  * Used to emulate a select
  */
-export function FieldContentWithIcon({ children, icon }: { children: ReactNode; icon: ReactNode }) {
+export function FieldContentWithIcon({
+	children,
+	icon,
+}: {
+	children: ReactNode;
+	icon: ReactNode;
+}): React.JSX.Element {
 	return (
 		<div css={fieldContentWithIconStyles}>
 			<div css={fieldContentIconStyles}>{icon}</div>

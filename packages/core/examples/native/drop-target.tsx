@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -52,7 +52,7 @@ const text: { [Key in State]: string } = {
 	over: 'You can drop on me',
 };
 
-export function DropTarget() {
+export function DropTarget(): React.JSX.Element {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<State>('idle');
 

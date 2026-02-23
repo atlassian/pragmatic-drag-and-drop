@@ -83,6 +83,6 @@ const fieldPreviewStyles = css({
 	paddingRight: 48,
 });
 
-export function FieldPreview({ children }: { children: ReactNode }) {
+export function FieldPreview({ children }: { children: ReactNode }): React.JSX.Element {
 	return <div css={[fieldStyles, fieldPreviewStyles]}>{children}</div>;
 }

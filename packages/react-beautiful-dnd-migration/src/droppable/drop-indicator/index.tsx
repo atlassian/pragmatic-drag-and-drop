@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -110,7 +110,7 @@ const dropIndicatorData = {
 	[customAttributes.dropIndicator]: '',
 };
 
-export const DropIndicator = ({ direction, mode }: DropIndicatorProps) => {
+export const DropIndicator = ({ direction, mode }: DropIndicatorProps): React.JSX.Element => {
 	const { contextId, getDragState } = useDragDropContext();
 
 	const ref = useRef<HTMLDivElement>(null);

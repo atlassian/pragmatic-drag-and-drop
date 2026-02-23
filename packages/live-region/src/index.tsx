@@ -63,7 +63,7 @@ function tryClearTimer() {
 /**
  * Announces the provided message to assistive technology.
  */
-export function announce(message: string) {
+export function announce(message: string): void {
 	/**
 	 * Calling this immediately to ensure a node exists and has time to be parsed
 	 * and exposed in the accessibility tree.
@@ -90,7 +90,7 @@ export function announce(message: string) {
 /**
  * Removes the created live region. If there is no live region this is a no-op.
  */
-export function cleanup() {
+export function cleanup(): void {
 	tryClearTimer();
 	node?.remove();
 	node = null;

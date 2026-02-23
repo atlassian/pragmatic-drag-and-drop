@@ -84,7 +84,7 @@ const Shape = ({
 	shape: ShapeType;
 	canDrag: boolean;
 	onDrag?: (args: { from: Element; to: { x: number; y: number } }) => void;
-}) => {
+}): React.JSX.Element => {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {

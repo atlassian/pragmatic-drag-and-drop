@@ -25,11 +25,9 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import { IconTile } from '@atlaskit/icon';
-import StoryIcon16 from '@atlaskit/icon-object/glyph/story/16';
 import PullRequestIcon from '@atlaskit/icon/core/pull-request';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import StoryIcon from '@atlaskit/icon/core/story';
-import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -223,7 +221,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 									{...triggerProps}
 								/>
 							)}
-							shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+							shouldRenderToParent
 						>
 							<LazyDropdownItems item={item} />
 						</DropdownMenu>
@@ -231,18 +229,12 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				</Inline>
 				<Inline spread="space-between" alignBlock="center">
 					<Inline space="space.050" alignBlock="center">
-						<IconTile
-							appearance="greenBold"
-							size="16"
-							label=""
-							icon={StoryIcon}
-							LEGACY_fallbackComponent={<StoryIcon16 label="story" />}
-						/>
+						<IconTile appearance="greenBold" size="16" label="" icon={StoryIcon} />
 						<Box>{key}</Box>
 					</Inline>
 					<Inline space="space.050" alignBlock="center">
 						<Badge>{1}</Badge>
-						<PullRequestIcon color="currentColor" label="" LEGACY_size="small" />
+						<PullRequestIcon color="currentColor" label="" />
 						<svg
 							width="24"
 							height="24"

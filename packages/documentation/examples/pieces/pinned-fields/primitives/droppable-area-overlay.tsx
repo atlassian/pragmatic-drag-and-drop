@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
@@ -66,7 +68,7 @@ export function DroppableAreaOverlay({
 	isDraggingFrom,
 	isDraggingOver,
 	appearance = 'default',
-}: DroppableAreaOverlayProps) {
+}: DroppableAreaOverlayProps): React.JSX.Element {
 	return (
 		<div
 			css={[

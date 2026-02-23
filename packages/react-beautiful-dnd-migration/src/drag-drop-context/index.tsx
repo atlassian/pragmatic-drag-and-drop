@@ -50,7 +50,7 @@ import { useScheduler } from './use-scheduler';
  */
 let instanceCount = 0;
 
-export function resetServerContext() {
+export function resetServerContext(): void {
 	instanceCount = 0;
 }
 

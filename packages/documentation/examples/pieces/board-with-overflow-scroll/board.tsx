@@ -42,7 +42,7 @@ const scrollContainerStyles = css({
 	height: 600,
 });
 
-function Board({ children }: { children: ReactNode }) {
+function Board({ children }: { children: ReactNode }): React.JSX.Element {
 	const ref = useRef<HTMLDivElement | null>(null);
 	useEffect(() => {
 		invariant(ref.current);

@@ -3,7 +3,6 @@ import React, { type Ref } from 'react';
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 import EditorMoreIcon from '@atlaskit/icon/core/show-more-horizontal';
-import { fg } from '@atlaskit/platform-feature-flags';
 
 export function ActionMenu(): React.JSX.Element {
 	return (
@@ -17,7 +16,7 @@ export function ActionMenu(): React.JSX.Element {
 					{...triggerProps}
 				/>
 			)}
-			shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+			shouldRenderToParent
 		>
 			<DropdownItemGroup>
 				<DropdownItem>Move to top</DropdownItem>

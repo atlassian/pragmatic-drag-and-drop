@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
@@ -44,7 +46,7 @@ function VerticalList() {
 
 const layoutStyles = css({ display: 'flex', gap: 48 });
 
-export default function MultiContextExample() {
+export default function MultiContextExample(): React.JSX.Element {
 	return (
 		<ExampleWrapper>
 			<div css={layoutStyles}>

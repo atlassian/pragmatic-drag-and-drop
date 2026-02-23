@@ -7,7 +7,7 @@ import { token } from '@atlaskit/tokens';
  * This animation should be used after an element has been reordered,
  * in order to highlight where the element has moved to.
  */
-export function triggerPostMoveFlash(element: HTMLElement) {
+export function triggerPostMoveFlash(element: HTMLElement): void {
 	element.animate([{ backgroundColor: token('color.background.selected') }, {}], {
 		duration: durations.large,
 		/**

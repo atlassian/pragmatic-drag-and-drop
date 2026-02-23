@@ -5,7 +5,7 @@ import { once } from '../public-utils/once';
 /**
  * Returns `true` if a `Firefox` browser
  * */
-export const isFirefox = once(function isFirefox(): boolean {
+export const isFirefox: (this: unknown) => boolean = once(function isFirefox(): boolean {
 	if (process.env.NODE_ENV === 'test') {
 		return false;
 	}

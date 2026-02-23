@@ -81,6 +81,6 @@ function DraggableSubtask({ index, item }: DraggableSubtaskProps) {
 	);
 }
 
-export default function LinearTaskReorderingNativePreview() {
+export default function LinearTaskReorderingNativePreview(): React.JSX.Element {
 	return <LinearTemplate instanceId={type} DraggableSubtask={DraggableSubtask} />;
 }

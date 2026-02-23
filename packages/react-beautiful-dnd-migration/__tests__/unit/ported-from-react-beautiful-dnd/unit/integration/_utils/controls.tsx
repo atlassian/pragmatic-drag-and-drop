@@ -20,7 +20,7 @@ export type Control = {
 	cancel: (handle: HTMLElement) => void;
 };
 
-export function simpleLift(control: Control, handle: HTMLElement) {
+export function simpleLift(control: Control, handle: HTMLElement): void {
 	control.preLift(handle);
 	control.lift(handle);
 }
@@ -39,7 +39,7 @@ export function getTransitionEnd(propertyName: string = 'transform'): Event {
 export function mouseLiftExtended(
 	handle: HTMLElement,
 	{ elementUnderPointer }: { elementUnderPointer: HTMLElement },
-) {
+): void {
 	replaceRaf();
 	const requestAnimationFrame = window.requestAnimationFrame as any;
 
@@ -120,7 +120,7 @@ export const keyboard: Control = {
 
 export const controls: Control[] = [mouse, keyboard];
 
-export const forEachSensor = (tests: (control: Control) => void) => {
+export const forEachSensor = (tests: (control: Control) => void): void => {
 	controls.forEach((control: Control) => {
 		describe(`with: ${control.name}`, () => {
 			beforeEach(() => {

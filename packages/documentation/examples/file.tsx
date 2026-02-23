@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
+import React, { Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -10,7 +10,7 @@ import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
 import Button from '@atlaskit/button/new';
-import ImageIcon from '@atlaskit/icon/core/migration/image';
+import ImageIcon from '@atlaskit/icon/core/image';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
@@ -337,7 +337,7 @@ function Uploader() {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<Fragment>
 			<GlobalStyles />

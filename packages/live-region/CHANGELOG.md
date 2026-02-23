@@ -1,5 +1,19 @@
 # @atlaskit/pragmatic-drag-and-drop-live-region
 
+## 1.3.3
+
+### Patch Changes
+
+- [`aa9ff75020fcb`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/aa9ff75020fcb) -
+  Add @atlassian/a11y-jest-testing to devDependencies.
+
+## 1.3.2
+
+### Patch Changes
+
+- [`70898c8166c77`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/70898c8166c77) -
+  Icon migration entry point update
+
 ## 1.3.1
 
 ### Patch Changes
@@ -96,7 +110,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation

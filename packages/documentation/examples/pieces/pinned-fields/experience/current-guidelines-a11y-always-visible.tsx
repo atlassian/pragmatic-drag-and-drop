@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -80,7 +80,7 @@ function DraggableField({
 	);
 }
 
-export default function PinnedFieldsWithCurrentGuidelinesA11yAlwaysVisible() {
+export default function PinnedFieldsWithCurrentGuidelinesA11yAlwaysVisible(): React.JSX.Element {
 	const { data, reorderItem } = useTopLevelWiring({ initialData, type });
 
 	return (

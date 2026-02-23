@@ -1,5 +1,26 @@
 # @atlaskit/pragmatic-drag-and-drop-auto-scroll
 
+## 2.1.5
+
+### Patch Changes
+
+- [`d3ed1b65a2181`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/d3ed1b65a2181) -
+  Add @atlassian/a11y-jest-testing to devDependencies.
+
+## 2.1.4
+
+### Patch Changes
+
+- [`e4b717d8304e8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/e4b717d8304e8) -
+  Add @atlassian/a11y-jest-testing to devDependencies.
+
+## 2.1.3
+
+### Patch Changes
+
+- [`aa9ff75020fcb`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/aa9ff75020fcb) -
+  Add @atlassian/a11y-jest-testing to devDependencies.
+
 ## 2.1.2
 
 ### Patch Changes
@@ -16,7 +37,6 @@
   [`65021fc0267e2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/65021fc0267e2) -
   The cleanup functions returned by the following utilities now only work on the first call. This
   was done to prevent unexpected side effects of calling a cleanup function multiple times.
-
   - `@atlaskit/pragmatic-drag-and-drop/adapter/element`
     - `draggable`
     - `dropTargetForElements`
@@ -182,7 +202,6 @@
   incorrect styles being applied to elements that the user is not currently over during a drag.
 
   **Outcomes**
-
   - Elements will no longer receive `MouseEvent`s (eg `"mouseenter"` and `"mouseleave"`) during a
     drag (which is a violation of the
     [drag and drop specification](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model))
@@ -281,7 +300,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation
@@ -333,7 +351,6 @@
 
   `getConfiguration()` is a new _optional_ argument be used with all auto scrolling registration
   functions:
-
   - `autoScrollForElements`
   - `autoScrollWindowForElements`
   - `autoScrollForFiles`
@@ -366,7 +383,6 @@
 - [#42668](https://bitbucket.org/atlassian/atlassian-frontend/pull-requests/42668)
   [`0a4e3f44ba3`](https://bitbucket.org/atlassian/atlassian-frontend/commits/0a4e3f44ba3) - We have
   landed a few fixes for "overflow scrolling"
-
   - Fix: Time dampening could be incorrectly reset when transitioning from "over element" auto
     scrolling to "overflow" auto scrolling for certain element configurations.
   - Fix: Parent "overflow scrolling" registrations could prevent overflow scrolling on children

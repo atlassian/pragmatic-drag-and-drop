@@ -9,7 +9,6 @@ import Badge from '@atlaskit/badge';
 import { IconButton } from '@atlaskit/button/new';
 import { Checkbox } from '@atlaskit/checkbox';
 import { IconTile } from '@atlaskit/icon';
-import Story16Icon from '@atlaskit/icon-object/glyph/story/16';
 import PriorityMinorIcon from '@atlaskit/icon/core/priority-minor';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import StoryIcon from '@atlaskit/icon/core/story';
@@ -254,13 +253,7 @@ export function ListItem({ itemData }: { itemData: ItemData }): React.JSX.Elemen
 							<Checkbox isChecked={isChecked} onChange={onCheckboxChange} />
 						</Inline>
 						<Inline space="space.050" alignBlock="center">
-							<IconTile
-								appearance="greenBold"
-								size="16"
-								label=""
-								icon={StoryIcon}
-								LEGACY_fallbackComponent={<Story16Icon label="" />}
-							/>
+							<IconTile appearance="greenBold" size="16" label="" icon={StoryIcon} />
 							<Box xcss={subtlestTextStyles}>{itemData.id}</Box>
 							<Box xcss={itemLabelStyles}>{itemData.label}</Box>
 						</Inline>

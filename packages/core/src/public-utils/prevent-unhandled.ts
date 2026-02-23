@@ -25,7 +25,7 @@ let unbindEvents: CleanupFn | null = null;
 /**
  * Block drag operations outside of `@atlaskit/pragmatic-drag-and-drop`
  */
-function start() {
+function start(): void {
 	cleanup();
 	unbindEvents = bindAll(
 		window,
@@ -78,7 +78,7 @@ function cleanup() {
  * ```
  */
 
-function stop() {
+function stop(): void {
 	/**
 	 * if `stop()` is called in a `"drop"` event, then `event.preventDefault()` won't be called.
 	 * Our `"drop"` listener calls `event.preventDefault()` for handled drop events
@@ -100,7 +100,10 @@ function stop() {
 	cleanup();
 }
 
-export const preventUnhandled = {
+export const preventUnhandled: {
+	start: typeof start;
+	stop: typeof stop;
+} = {
 	start,
 	stop,
 };

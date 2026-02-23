@@ -204,7 +204,13 @@ export function addItemsToEvent({ event, items }: { event: DragEvent; items: Sim
 }
 
 export const nativeDrag = {
-	startExternal({ items, target = document.body }: { items: SimpleItem[]; target?: Element }) {
+	startExternal({
+		items,
+		target = document.body,
+	}: {
+		items: SimpleItem[];
+		target?: Element;
+	}): void {
 		const event = new DragEvent('dragenter', {
 			cancelable: true,
 			bubbles: true,
@@ -215,7 +221,7 @@ export const nativeDrag = {
 		requestAnimationFrame.step();
 	},
 	// making items and target required as they are needed for internal drags
-	startInternal({ items, target }: { items: SimpleItem[]; target: Element }) {
+	startInternal({ items, target }: { items: SimpleItem[]; target: Element }): void {
 		const event = new DragEvent('dragstart', {
 			cancelable: true,
 			bubbles: true,
@@ -225,7 +231,7 @@ export const nativeDrag = {
 		// @ts-expect-error
 		requestAnimationFrame.step();
 	},
-	startTextSelectionDrag({ element = document.body }: { element: Element }) {
+	startTextSelectionDrag({ element = document.body }: { element: Element }): void {
 		const text = getFirstTextNode(element);
 
 		const event = new DragEvent('dragstart', {
@@ -296,27 +302,27 @@ function withDefaults(input?: Partial<Input>): Input {
 }
 
 export const userEvent = {
-	lift(target: HTMLElement, input?: Partial<Input>) {
+	lift(target: HTMLElement, input?: Partial<Input>): void {
 		fireEvent.dragStart(target, withDefaults(input));
 
 		// after an animation frame we fire `onDragStart`
 		// @ts-ignore
 		requestAnimationFrame.step();
 	},
-	drop(target: Element, input?: Partial<Input>) {
+	drop(target: Element, input?: Partial<Input>): void {
 		fireEvent.drop(target, withDefaults(input));
 	},
-	cancel(target: Element = document.body, input?: Partial<Input>) {
+	cancel(target: Element = document.body, input?: Partial<Input>): void {
 		const value = withDefaults(input);
 		// A "cancel" (drop on nothing, or pressing "Escape") will
 		// cause a "dragleave" and then a "dragend"
 		fireEvent.dragLeave(target, value);
 		fireEvent.dragEnd(target, value);
 	},
-	leaveWindow() {
+	leaveWindow(): void {
 		fireEvent.dragLeave(document.documentElement, { relatedTarget: null });
 	},
-	rougePointerMoves() {
+	rougePointerMoves(): void {
 		// first 20 are ignored due to firefox issue
 		// 21st pointermove will cancel a drag
 		for (let i = 0; i < 21; i++) {
@@ -326,7 +332,7 @@ export const userEvent = {
 };
 
 /** Cleanup function to unbind all event listeners */
-export function reset() {
+export function reset(): void {
 	// cleanup any pending drags
 	fireEvent.dragEnd(window);
 
@@ -334,10 +340,17 @@ export function reset() {
 	fireEvent.pointerMove(window);
 }
 
-export const firePointer = (() => {
-	type TTarget = Element | Window | Document;
+export const firePointer: {
+	down: (target: Element | Document | Window, input?: Partial<Input>) => void;
+	up: (target: Element | Document | Window, input?: Partial<Input>) => void;
+	move: (target: Element | Document | Window, input?: Partial<Input>) => void;
+	cancel: (target: Element | Document | Window, input?: Partial<Input>) => void;
+} = (() => {
 	function makeDispatch(eventName: string) {
-		return function dispatch(target: TTarget, input: Partial<Input> = {}) {
+		return function dispatch(
+			target: Element | Document | Window,
+			input: Partial<Input> = {},
+		): void {
 			const inputWithDefaults = {
 				...getDefaultInput(),
 				...input,
@@ -360,7 +373,7 @@ export const firePointer = (() => {
 	};
 })();
 
-export function clearSelection() {
+export function clearSelection(): void {
 	document.getSelection()?.empty();
 }
 

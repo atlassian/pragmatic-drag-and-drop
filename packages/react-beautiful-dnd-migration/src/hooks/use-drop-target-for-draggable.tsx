@@ -22,7 +22,7 @@ export function useDropTargetForDraggable({
 	contextId: string;
 	isDropDisabled: boolean;
 	type: string;
-}) {
+}): void {
 	useEffect(() => {
 		const element = elementRef.current;
 		rbdInvariant(element instanceof HTMLElement);

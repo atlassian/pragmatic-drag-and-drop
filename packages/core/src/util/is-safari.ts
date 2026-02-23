@@ -8,7 +8,7 @@ import { once } from '../public-utils/once';
  *
  * Use `isSafariOnIOS` if you want to check if something is Safari + iOS
  * */
-export const isSafari = once(function isSafari(): boolean {
+export const isSafari: (this: unknown) => boolean = once(function isSafari(): boolean {
 	if (process.env.NODE_ENV === 'test') {
 		return false;
 	}

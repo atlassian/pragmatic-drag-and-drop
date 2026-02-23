@@ -64,6 +64,7 @@ function App({ responders }: Props) {
 	);
 }
 
+// eslint-disable-next-line @atlassian/a11y/require-jest-coverage
 describe('responders integration', () => {
 	let responders: Responders;
 	let wrapper: RenderResult;

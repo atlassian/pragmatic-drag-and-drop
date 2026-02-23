@@ -12,7 +12,16 @@ type DraggingState<DragType extends AllDragTypes> = {
 	active: Set<MonitorArgs<DragType>>;
 };
 
-export function makeMonitor<DragType extends AllDragTypes>() {
+export function makeMonitor<DragType extends AllDragTypes>(): {
+	dispatchEvent: <EventName extends keyof EventPayloadMap<DragType>>({
+		eventName,
+		payload,
+	}: {
+		eventName: EventName;
+		payload: EventPayloadMap<DragType>[EventName];
+	}) => void;
+	monitorForConsumers: (args: MonitorArgs<DragType>) => CleanupFn;
+} {
 	const registry = new Set<MonitorArgs<DragType>>();
 
 	let dragging: DraggingState<DragType> | null = null;
@@ -59,7 +68,7 @@ export function makeMonitor<DragType extends AllDragTypes>() {
 	}: {
 		eventName: EventName;
 		payload: EventPayloadMap<DragType>[EventName];
-	}) {
+	}): void {
 		if (eventName === 'onGenerateDragPreview') {
 			dragging = {
 				canMonitorArgs: {

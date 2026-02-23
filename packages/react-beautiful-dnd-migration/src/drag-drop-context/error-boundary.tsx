@@ -83,7 +83,7 @@ function ErrorBoundaryInner({ children, dragController }: ErrorBoundaryProps) {
 // We have to use a class component to create an error boundary
 // eslint-disable-next-line @repo/internal/react/no-class-components
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
-	componentDidCatch(err: Error) {
+	componentDidCatch(err: Error): void {
 		if (err instanceof RbdInvariant) {
 			if (process.env.NODE_ENV !== 'production') {
 				error(err.message);
@@ -95,7 +95,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
 		throw err;
 	}
 
-	static getDerivedStateFromError() {
+	static getDerivedStateFromError(): void {
 		// Intentionally blank, because this method needs to be defined
 	}
 

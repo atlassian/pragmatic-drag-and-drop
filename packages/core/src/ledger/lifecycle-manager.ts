@@ -382,7 +382,10 @@ function getStartLocation<DragType extends AllDragTypes>({
 	};
 }
 
-export const lifecycle = {
+export const lifecycle: {
+	canStart: typeof canStart;
+	start: typeof start;
+} = {
 	canStart,
 	start,
 };

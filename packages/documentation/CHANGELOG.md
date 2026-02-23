@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.17
+
+### Patch Changes
+
+- [`70898c8166c77`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/70898c8166c77) -
+  Icon migration entry point update
+
 ## 1.4.16
 
 ### Patch Changes

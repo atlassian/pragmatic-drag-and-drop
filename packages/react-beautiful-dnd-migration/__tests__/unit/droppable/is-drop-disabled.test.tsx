@@ -12,12 +12,19 @@ import type {
 	OnDragUpdateResponder,
 } from 'react-beautiful-dnd';
 
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import { setElementFromPoint } from '../_util';
 import {
 	keyboard,
 	mouse,
 } from '../ported-from-react-beautiful-dnd/unit/integration/_utils/controls';
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 HTMLElement.prototype.scrollIntoView = jest.fn();
 

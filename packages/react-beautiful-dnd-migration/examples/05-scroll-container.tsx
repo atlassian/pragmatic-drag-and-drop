@@ -78,7 +78,7 @@ function List({ items }: { items: ItemData[] }) {
 	);
 }
 
-export function App() {
+export function App(): React.JSX.Element {
 	const { DragDropContext } = useDependency();
 
 	const [items, setItems] = useState(initialData);
@@ -137,7 +137,7 @@ export function App() {
 	);
 }
 
-export default function VerticalListExample() {
+export default function VerticalListExample(): React.JSX.Element {
 	return (
 		<ExampleWrapper>
 			<App />

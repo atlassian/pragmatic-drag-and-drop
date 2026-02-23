@@ -192,7 +192,7 @@ function DraggableSubtask({
 	);
 }
 
-export default function SubtaskEnhanced() {
+export default function SubtaskEnhanced(): React.JSX.Element {
 	const { data, reorderItem } = useTopLevelWiring({ initialData, type });
 
 	return (

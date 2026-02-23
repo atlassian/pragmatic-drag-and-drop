@@ -33,7 +33,7 @@ function getColor(isDraggedOver: boolean, isDark: boolean): string {
 	return isDark ? 'lightgrey' : 'white';
 }
 
-function Square({ location, children }: SquareProps) {
+function Square({ location, children }: SquareProps): React.JSX.Element {
 	const ref = useRef(null);
 	const [isDraggedOver, setIsDraggedOver] = useState(false);
 

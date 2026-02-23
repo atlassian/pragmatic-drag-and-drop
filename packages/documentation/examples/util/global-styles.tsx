@@ -2,6 +2,8 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/no-global-styles, @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, Global, jsx } from '@emotion/react';
 
@@ -14,6 +16,6 @@ const globalStyles = css({
 	},
 });
 
-export function GlobalStyles() {
+export function GlobalStyles(): React.JSX.Element {
 	return <Global styles={globalStyles} />;
 }

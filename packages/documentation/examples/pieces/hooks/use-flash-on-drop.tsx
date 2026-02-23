@@ -14,7 +14,7 @@ export function useFlashOnDrop({
 	ref: RefObject<HTMLElement>;
 	draggableId: string;
 	type: string;
-}) {
+}): void {
 	/**
 	 * Flash makes it obvious what/where you dropped. Inspired by Linear.
 	 */

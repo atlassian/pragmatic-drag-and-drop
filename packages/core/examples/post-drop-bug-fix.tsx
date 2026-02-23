@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { createContext, Fragment, useContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, Fragment, useContext, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -299,7 +299,7 @@ const exampleStyles = css({
 	gap: 'calc(var(--grid) * 2)',
 });
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	// useTest();
 	// useKillCPU();
 	// useDebug();

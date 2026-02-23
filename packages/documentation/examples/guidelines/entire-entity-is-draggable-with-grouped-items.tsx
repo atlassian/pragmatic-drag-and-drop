@@ -5,10 +5,9 @@ import invariant from 'tiny-invariant';
 
 import { IconButton } from '@atlaskit/button/new';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import ChevronRightIcon from '@atlaskit/icon/core/chevron-right';
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
-import ChevronRightIcon from '@atlaskit/icon/core/migration/chevron-right';
 import EditorMoreIcon from '@atlaskit/icon/core/show-more-horizontal';
-import { fg } from '@atlaskit/platform-feature-flags';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
@@ -31,7 +30,7 @@ function GroupedActionMenu() {
 					{...triggerProps}
 				/>
 			)}
-			shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+			shouldRenderToParent
 		>
 			<DropdownItemGroup>
 				<DropdownMenu
@@ -53,7 +52,7 @@ function GroupedActionMenu() {
 							<span>Move</span>
 						</DropdownItem>
 					)}
-					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+					shouldRenderToParent
 				>
 					<DropdownItemGroup>
 						<DropdownItem>Move to top</DropdownItem>

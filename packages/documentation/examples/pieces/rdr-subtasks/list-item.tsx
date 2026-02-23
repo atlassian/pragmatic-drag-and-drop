@@ -7,7 +7,6 @@ import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 import Lozenge from '@atlaskit/lozenge';
-import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -243,7 +242,7 @@ export function ListItem({ itemData }: { itemData: ItemData }): React.JSX.Elemen
 									trigger={({ triggerRef, ...triggerProps }) => (
 										<DragHandleButton ref={triggerRef} {...triggerProps} />
 									)}
-									shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+									shouldRenderToParent
 								>
 									<LazyDropdownContent itemData={itemData} />
 								</DropdownMenu>

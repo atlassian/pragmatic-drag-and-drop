@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { memo } from 'react';
+import React, { memo } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -95,7 +95,7 @@ export function CardInner({
 	provided: DraggableProvided;
 	snapshot: DraggableStateSnapshot;
 	item: Item;
-}) {
+}): React.JSX.Element {
 	const state = snapshot.isDragging ? 'dragging' : 'idle';
 
 	return (
@@ -114,7 +114,7 @@ export function CardInner({
 	);
 }
 
-export const Card = memo(({ item, index, draggableId }: CardProps) => {
+export const Card = memo(({ item, index, draggableId }: CardProps): React.JSX.Element => {
 	const { Draggable } = useDependency();
 
 	return (

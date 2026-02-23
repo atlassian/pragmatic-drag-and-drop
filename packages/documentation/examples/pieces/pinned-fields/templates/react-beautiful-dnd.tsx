@@ -63,7 +63,7 @@ export default function PinnedFieldsReactBeautifulDndTemplate({
 	Droppable,
 	DroppableAreaOverlay,
 	idPrefix,
-}: TemplateProps) {
+}: TemplateProps): React.JSX.Element {
 	const [data, setData] = useState(initialData);
 
 	const onDragEnd: OnDragEndResponder = useCallback(({ source, destination }) => {

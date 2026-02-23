@@ -1,16 +1,14 @@
 {
-	"extends": "../../../../tsconfig.entry-points.jira.json",
+	"extends": "../../../../tsconfig.local-consumption.json",
 	"compilerOptions": {
 		"target": "es5",
 		"outDir": "../../../../../jira/tsDist/@atlaskit__pragmatic-drag-and-drop/app",
 		"rootDir": "../",
 		"composite": true,
-		"noCheck": true
+		"noCheck": true,
+		"isolatedDeclarations": true
 	},
-	"include": [
-		"../src/**/*.ts",
-		"../src/**/*.tsx"
-	],
+	"include": ["../src/**/*.ts", "../src/**/*.tsx"],
 	"exclude": [
 		"../src/**/__tests__/*",
 		"../src/**/*.test.*",

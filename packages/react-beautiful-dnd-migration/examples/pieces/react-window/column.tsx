@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -111,7 +111,7 @@ const CardRenderer = ({
 	);
 };
 
-export const Column = memo(({ column, droppableId, index }: ColumnProps) => {
+export const Column = memo(({ column, droppableId, index }: ColumnProps): React.JSX.Element => {
 	const { Draggable, Droppable } = useDependency();
 
 	const columnId = column.columnId;

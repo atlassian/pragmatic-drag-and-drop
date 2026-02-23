@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { jsx } from '@emotion/react';
@@ -11,7 +11,7 @@ import { bindAll } from 'bind-event-listener';
 import Button from '@atlaskit/button/new';
 import { Stack } from '@atlaskit/primitives/compiled';
 
-export default function TextSelection() {
+export default function TextSelection(): React.JSX.Element {
 	useEffect(() => {
 		return bindAll(window, [
 			{

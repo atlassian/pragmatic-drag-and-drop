@@ -5,10 +5,12 @@ import {
 	type AdapterAPI,
 	type BaseEventPayload,
 	type CleanupFn,
+	type DropTargetArgs,
 	type DropTargetEventBasePayload,
 	type DropTargetEventPayloadMap,
 	type DropTargetGetFeedbackArgs,
 	type EventPayloadMap,
+	type MonitorArgs,
 	type MonitorGetFeedbackArgs,
 	type TextSelectionDragPayload,
 	type TextSelectionDragType,
@@ -72,7 +74,11 @@ function findTextNode(event: DragEvent): Text | null {
 
 const honeyPotFix = makeHoneyPotFix();
 
-const adapter = makeAdapter<TextSelectionDragType>({
+const adapter: {
+	registerUsage: () => CleanupFn;
+	dropTarget: (args: DropTargetArgs<TextSelectionDragType>) => CleanupFn;
+	monitor: (args: MonitorArgs<TextSelectionDragType>) => CleanupFn;
+} = makeAdapter<TextSelectionDragType>({
 	typeKey: 'text-selection',
 	// for text selection, we will usually be making a copy of the text
 	defaultDropEffect: 'copy',

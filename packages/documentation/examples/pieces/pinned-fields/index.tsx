@@ -70,7 +70,7 @@ const fieldLabelStyles = css({
 	gap: token('space.050'),
 });
 
-export function FieldLabel({ children }: { children: ReactNode }) {
+export function FieldLabel({ children }: { children: ReactNode }): React.JSX.Element {
 	return <div css={fieldLabelStyles}>{children}</div>;
 }
 
@@ -134,7 +134,7 @@ export const PinnedFieldsList = forwardRef(function DroppableArea(
 	);
 });
 
-export function PinnedFieldsContainer({ children }: { children: ReactNode }) {
+export function PinnedFieldsContainer({ children }: { children: ReactNode }): React.JSX.Element {
 	return (
 		<div css={containerStyles}>
 			<div css={headerStyles}>Pinned fields</div>
@@ -162,7 +162,13 @@ const fieldContentIconStyles = css({
 /**
  * Used to emulate a select
  */
-export function FieldContentWithIcon({ children, icon }: { children: ReactNode; icon: ReactNode }) {
+export function FieldContentWithIcon({
+	children,
+	icon,
+}: {
+	children: ReactNode;
+	icon: ReactNode;
+}): React.JSX.Element {
 	return (
 		<div css={fieldContentWithIconStyles}>
 			<div css={fieldContentIconStyles}>{icon}</div>

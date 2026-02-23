@@ -7,12 +7,14 @@ import {
 	type AllEvents,
 	type BaseEventPayload,
 	type CleanupFn,
+	type DropTargetArgs,
 	type DropTargetEventBasePayload,
 	type DropTargetEventPayloadMap,
 	type DropTargetGetFeedbackArgs,
 	type ElementDragType,
 	type EventPayloadMap,
 	type Input,
+	type MonitorArgs,
 	type MonitorGetFeedbackArgs,
 	type NativeMediaType,
 } from '../internal-types';
@@ -325,8 +327,10 @@ const adapter = makeAdapter<ElementDragType>({
 	onPostDispatch: honeyPotFix.getOnPostDispatch(),
 });
 
-export const dropTargetForElements = adapter.dropTarget;
-export const monitorForElements = adapter.monitor;
+export const dropTargetForElements: (args: DropTargetArgs<ElementDragType>) => CleanupFn =
+	adapter.dropTarget;
+export const monitorForElements: (args: MonitorArgs<ElementDragType>) => CleanupFn =
+	adapter.monitor;
 
 export function draggable(args: DraggableArgs): CleanupFn {
 	// Guardrail: warn if the drag handle is not contained in draggable element

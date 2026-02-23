@@ -10,6 +10,5 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "__perf__"
-  ],
-  "compilerOptions": {}
+  ]
 }

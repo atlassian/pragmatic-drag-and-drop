@@ -5,6 +5,6 @@ export function getRuntimeError(): Event {
 	});
 }
 
-export default function causeRuntimeError() {
+export default function causeRuntimeError(): void {
 	window.dispatchEvent(getRuntimeError());
 }

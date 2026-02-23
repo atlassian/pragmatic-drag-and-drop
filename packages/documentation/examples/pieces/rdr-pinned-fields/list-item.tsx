@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import { fg } from '@atlaskit/platform-feature-flags';
 import {
 	attachClosestEdge,
 	type Edge,
@@ -221,7 +220,7 @@ export function ListItem({
 									trigger={({ triggerRef, ...triggerProps }) => (
 										<DragHandleButton ref={triggerRef} {...triggerProps} />
 									)}
-									shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+									shouldRenderToParent
 								>
 									<LazyDropdownContent itemData={itemData} />
 								</DropdownMenu>

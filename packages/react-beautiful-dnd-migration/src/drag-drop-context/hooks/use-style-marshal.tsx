@@ -32,7 +32,7 @@ function getRuleString({ selector, styles }: { selector: string; styles: CSSProp
 /**
  * Returns the rule string for drag handle styles.
  */
-export function getDragHandleRuleString(contextId: ContextId) {
+export function getDragHandleRuleString(contextId: ContextId): string {
 	const selector = `[${attributes.dragHandle.contextId}="${contextId}"]`;
 	const styles = {
 		/**
@@ -81,7 +81,7 @@ function createStyleManager({ contextId, nonce }: ContextIdAndNonce): CleanupFn 
 	};
 }
 
-export default function useStyleMarshal({ contextId, nonce }: ContextIdAndNonce) {
+export default function useStyleMarshal({ contextId, nonce }: ContextIdAndNonce): void {
 	useLayoutEffect(() => {
 		return createStyleManager({ contextId, nonce });
 	}, [contextId, nonce]);

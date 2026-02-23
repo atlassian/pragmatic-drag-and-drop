@@ -6,6 +6,7 @@ import {
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import { isWithin } from '../../../src/shared/is-within'; // this internal util is helpful for what we are trying to do
@@ -24,6 +25,11 @@ import {
 // We need this as we are keeping track of when a drop target is entered into.
 jest.useFakeTimers();
 setStartSystemTime();
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 beforeEach(reset);
 

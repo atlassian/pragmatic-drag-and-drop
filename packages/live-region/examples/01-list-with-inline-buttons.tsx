@@ -3,15 +3,15 @@
  * @jsx jsx
  */
 
-import { useCallback, useReducer } from 'react';
+import React, { useCallback, useReducer } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
 import ButtonGroup from '@atlaskit/button/button-group';
 import { IconButton } from '@atlaskit/button/new';
-import ArrowDownIcon from '@atlaskit/icon/core/migration/arrow-down';
-import ArrowUpIcon from '@atlaskit/icon/core/migration/arrow-up';
+import ArrowDownIcon from '@atlaskit/icon/core/arrow-down';
+import ArrowUpIcon from '@atlaskit/icon/core/arrow-up';
 import { token } from '@atlaskit/tokens';
 import Tooltip from '@atlaskit/tooltip';
 
@@ -119,7 +119,7 @@ const reducer: React.Reducer<ItemData[], Action> = (state, action) => {
 	}
 };
 
-export default function App() {
+export default function App(): React.JSX.Element {
 	const [items, dispatch] = useReducer(reducer, defaultItems);
 
 	return (

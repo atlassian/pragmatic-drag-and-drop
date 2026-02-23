@@ -22,6 +22,6 @@ const schedule: (callback: () => void) => void = (() => {
 	return (callback) => callback();
 })();
 
-export function batchUpdatesForReact16(callback: () => void) {
+export function batchUpdatesForReact16(callback: () => void): void {
 	schedule(callback);
 }

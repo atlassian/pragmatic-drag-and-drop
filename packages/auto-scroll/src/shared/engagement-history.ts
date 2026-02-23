@@ -17,11 +17,11 @@ export function markAndGetEngagement(element: Element): EngagementHistoryEntry {
 	return fresh;
 }
 
-export function markEngagement(element: Element) {
+export function markEngagement(element: Element): void {
 	requested.add(element);
 }
 
-export function clearUnusedEngagements(fn: () => void) {
+export function clearUnusedEngagements(fn: () => void): void {
 	// make sure previous engagement requests don't linger
 	requested.clear();
 
@@ -39,6 +39,6 @@ export function clearUnusedEngagements(fn: () => void) {
 	requested.clear();
 }
 
-export function clearEngagementHistory() {
+export function clearEngagementHistory(): void {
 	ledger.clear();
 }

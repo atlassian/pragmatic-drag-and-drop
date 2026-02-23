@@ -66,10 +66,10 @@ const Piece = memo(function Piece({
 	);
 });
 
-export const King = ({ location }: { location: [number, number] }) => (
+export const King = ({ location }: { location: [number, number] }): React.JSX.Element => (
 	<Piece location={location} pieceType={'king'} image={king} alt="King" />
 );
 
-export const Pawn = ({ location }: { location: [number, number] }) => (
+export const Pawn = ({ location }: { location: [number, number] }): React.JSX.Element => (
 	<Piece location={location} pieceType={'pawn'} image={pawn} alt="Pawn" />
 );

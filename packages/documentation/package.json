@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-docs",
-  "version": "1.4.16",
+  "version": "1.4.17",
   "description": "This package holds the documentation for Pragmatic drag and drop in one place. It is not intended to be consumed directly by consumers. The package is used by other tools for sharing examples",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -24,21 +24,21 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^25.6.0",
-    "@atlaskit/badge": "^18.3.0",
+    "@atlaskit/avatar": "^25.8.0",
+    "@atlaskit/badge": "^18.4.0",
     "@atlaskit/button": "^23.9.0",
     "@atlaskit/code": "^17.4.0",
     "@atlaskit/focus-ring": "^3.0.0",
     "@atlaskit/grid": "^0.18.0",
-    "@atlaskit/heading": "^5.2.0",
-    "@atlaskit/icon": "^29.3.0",
+    "@atlaskit/heading": "^5.3.0",
+    "@atlaskit/icon": "^31.0.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^2.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^3.2.0",
-    "@atlaskit/primitives": "^17.0.0",
+    "@atlaskit/primitives": "^18.0.0",
     "@atlaskit/theme": "^21.0.0",
-    "@atlaskit/tokens": "^9.0.0",
+    "@atlaskit/tokens": "^11.0.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",
     "bind-event-listener": "^3.0.0",
@@ -52,9 +52,6 @@
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/",
   "platform-feature-flags": {
     "dst-a11y__replace-anchor-with-link__design-system-": {
-      "type": "boolean"
-    },
-    "should-render-to-parent-should-be-true-design-syst": {
       "type": "boolean"
     }
   }

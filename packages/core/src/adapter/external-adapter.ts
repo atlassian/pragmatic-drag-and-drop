@@ -4,12 +4,14 @@ import {
 	type AdapterAPI,
 	type BaseEventPayload,
 	type CleanupFn,
+	type DropTargetArgs,
 	type DropTargetEventBasePayload,
 	type DropTargetEventPayloadMap,
 	type DropTargetGetFeedbackArgs,
 	type EventPayloadMap,
 	type ExternalDragPayload,
 	type ExternalDragType,
+	type MonitorArgs,
 	type MonitorGetFeedbackArgs,
 	type NativeMediaType,
 } from '../internal-types';
@@ -58,7 +60,11 @@ export function getAvailableItems(dataTransfer: DataTransfer): DataTransferItem[
 
 let didDragStartLocally: boolean = false;
 
-const adapter = makeAdapter<ExternalDragType>({
+const adapter: {
+	registerUsage: () => CleanupFn;
+	dropTarget: (args: DropTargetArgs<ExternalDragType>) => CleanupFn;
+	monitor: (args: MonitorArgs<ExternalDragType>) => CleanupFn;
+} = makeAdapter<ExternalDragType>({
 	typeKey: 'external',
 	// for external drags, we are generally making a copy of something that is being dragged
 	defaultDropEffect: 'copy',

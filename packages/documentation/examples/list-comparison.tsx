@@ -293,7 +293,7 @@ function TabPanel({ children, ...props }: TabPanelProps) {
 	);
 }
 
-export default function ListComparison() {
+export default function ListComparison(): React.JSX.Element {
 	// TODO: figure out which breakpoints would be nicest
 	return (
 		<Box xcss={containerStyles}>

@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { createContext, memo, useContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, memo, useContext, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -107,7 +107,7 @@ const gridStyles = css({
 	gap: 'var(--grid)',
 });
 
-export default function Grid() {
+export default function Grid(): React.JSX.Element {
 	const [items, setItems] = useState<string[]>(() => [battery, drill, koala, ui, wallet, yeti]);
 
 	const [instanceId] = useState(getInstanceId);

@@ -105,7 +105,7 @@ function CardList({ cardIds }: { cardIds: string[] }) {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	const cardIds = ['A', 'B', 'C', 'D', 'E'];
 
 	return <CardList cardIds={cardIds} />;

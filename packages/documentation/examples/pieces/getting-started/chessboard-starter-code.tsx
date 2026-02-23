@@ -55,7 +55,7 @@ function renderSquares(pieces: PieceRecord[]) {
 	return squares;
 }
 
-function Chessboard() {
+function Chessboard(): React.JSX.Element {
 	const pieces: PieceRecord[] = [
 		{ type: 'king', location: [3, 2] },
 		{ type: 'pawn', location: [1, 6] },
@@ -68,11 +68,11 @@ function Piece({ image, alt }: PieceProps) {
 	return <img css={imageStyles} src={image} alt={alt} draggable="false" />; // draggable set to false to prevent dragging of the images
 }
 
-export function King() {
+export function King(): React.JSX.Element {
 	return <Piece image={king} alt="King" />;
 }
 
-export function Pawn() {
+export function Pawn(): React.JSX.Element {
 	return <Piece image={pawn} alt="Pawn" />;
 }
 

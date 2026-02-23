@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -112,7 +112,7 @@ function App() {
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<Fragment>
 			<GlobalStyles />

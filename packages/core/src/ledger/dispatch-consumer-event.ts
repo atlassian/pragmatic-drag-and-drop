@@ -44,7 +44,21 @@ export function makeDispatch<DragType extends AllDragTypes>({
 		eventName: EventName;
 		payload: EventPayloadMap<DragType>[EventName];
 	}) => void;
-}) {
+}): {
+	start({ nativeSetDragImage }: { nativeSetDragImage: DataTransfer['setDragImage'] | null }): void;
+	dragUpdate({ current }: { current: DragLocation }): void;
+	drag({ current }: { current: DragLocation }): void;
+	drop({
+		current,
+		updatedSourcePayload,
+	}: {
+		current: DragLocation;
+		/** When dragging from an external source, we need to collect the
+      drag source information again as it is often only available during
+      the "drop" event */
+		updatedSourcePayload: DragType['payload'] | null;
+	}): void;
+} {
 	let previous: DragLocationHistory['previous'] = { dropTargets: [] };
 
 	function safeDispatch(args: Parameters<typeof dispatchEvent>[0]) {

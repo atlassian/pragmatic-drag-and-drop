@@ -3,7 +3,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, useEffect, useRef } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/no-global-styles, @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, Global, jsx } from '@emotion/react';
@@ -76,7 +76,7 @@ const listStyles = xcss({
 	width: '200vw',
 });
 
-export default function WindowScroll() {
+export default function WindowScroll(): React.JSX.Element {
 	useEffect(() => {
 		return autoScrollWindowForElements();
 	});

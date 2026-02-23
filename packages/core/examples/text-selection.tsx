@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { jsx } from '@emotion/react';
@@ -94,7 +94,7 @@ const layoutStyles = xcss({
 	width: '600px',
 });
 
-export default function TextSelectionDragging() {
+export default function TextSelectionDragging(): React.JSX.Element {
 	return (
 		<Inline xcss={layoutStyles} space="space.100" alignBlock="stretch">
 			<Box padding="space.100" xcss={containerStyles}>

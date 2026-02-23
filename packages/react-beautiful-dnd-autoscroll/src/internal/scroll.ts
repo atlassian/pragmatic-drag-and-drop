@@ -24,7 +24,7 @@ export const scroll = ({
 	scrollElement,
 	scrollWindow,
 	behavior,
-}: Args) => {
+}: Args): void => {
 	const tryScrollWindow = () => {
 		const viewport = getViewport();
 		const windowScrollChange: Position | null = getWindowScrollChange({

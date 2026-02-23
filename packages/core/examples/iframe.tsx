@@ -88,6 +88,7 @@ export default function IframeOuter(): React.JSX.Element {
 		<Stack xcss={[appStyles, isInIframe ? isInIframeStyles : undefined]} space="space.100">
 			<h3>{isInIframe ? 'Child iframe' : 'Parent window'}</h3>
 			<Box
+				as="div"
 				ref={draggableRef}
 				xcss={draggableStyles}
 				draggable="true"

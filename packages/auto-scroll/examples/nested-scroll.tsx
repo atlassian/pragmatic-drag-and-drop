@@ -101,7 +101,7 @@ function List({ listId, children }: { listId: string; children?: ReactElement | 
 	);
 }
 
-export default function WindowScroll() {
+export default function WindowScroll(): React.JSX.Element {
 	useEffect(() => {
 		return autoScrollWindowForElements({});
 	});

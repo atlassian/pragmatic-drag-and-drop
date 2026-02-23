@@ -2,7 +2,15 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import React, {
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useReducer,
+	useRef,
+	useState,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -64,7 +72,7 @@ function createTreeItemRegistry() {
 	return { registry, registerTreeItem };
 }
 
-export default function Tree() {
+export default function Tree(): React.JSX.Element {
 	const [state, updateState] = useReducer(treeStateReducer, null, getInitialTreeState);
 	const ref = useRef<HTMLDivElement>(null);
 	const { extractInstruction } = useContext(DependencyContext);

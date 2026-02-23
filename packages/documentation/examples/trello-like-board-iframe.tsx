@@ -2,6 +2,8 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
@@ -14,7 +16,7 @@ const styles = css({
 	borderWidth: token('border.width'),
 });
 
-export function TrelloLikeBoardIframe() {
+export function TrelloLikeBoardIframe(): React.JSX.Element {
 	return (
 		<iframe
 			title="Board with Trello like affordances"

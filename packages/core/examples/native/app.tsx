@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -21,7 +21,7 @@ const appStyles = css({
 	maxWidth: '1000px',
 });
 
-export function App() {
+export function App(): React.JSX.Element {
 	return (
 		<Fragment>
 			<GlobalStyles />

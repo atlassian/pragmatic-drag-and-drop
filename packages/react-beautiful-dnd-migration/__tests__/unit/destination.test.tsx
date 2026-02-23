@@ -6,11 +6,17 @@ import invariant from 'tiny-invariant';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import Board from '../../examples/01-board';
 import { customAttributes } from '../../src/utils/attributes';
 
 import { setElementFromPoint } from './_util';
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 const getDraggable = (container: HTMLElement, draggableId: string) => {
 	const selector = `[data-rbd-draggable-id="${draggableId}"]`;
@@ -61,6 +67,7 @@ describe('drop destination', () => {
 			const { container } = render(<Board />);
 
 			await expect(container).toBeAccessible({
+				// eslint-disable-next-line @atlassian/a11y/no-violation-count
 				violationCount: 1,
 			});
 		});

@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -77,7 +77,7 @@ type Operation =
 			currentIndex: number;
 	  };
 
-export default function Table() {
+export default function Table(): React.JSX.Element {
 	// Data
 	const [items, setItems] = useState(() => getItems({ amount: 20 }));
 	const [columns, setColumns] = useState<(keyof Item)[]>(['status', 'description', 'assignee']);

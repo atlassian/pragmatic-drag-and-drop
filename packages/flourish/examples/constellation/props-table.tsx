@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
@@ -98,7 +100,7 @@ const FunctionPropsTable = ({
 	required?: boolean;
 	defaultValue?: any;
 	deprecated?: boolean;
-}) => {
+}): React.JSX.Element => {
 	return (
 		<div css={containerStyles}>
 			<table css={tableStyles}>

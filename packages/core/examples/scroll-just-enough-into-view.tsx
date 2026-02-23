@@ -95,7 +95,7 @@ function DropTarget({ children, testId }: { children: ReactNode; testId: string 
 	);
 }
 
-export default function Example() {
+export default function Example(): React.JSX.Element {
 	return (
 		<Fragment>
 			<GlobalStyles />

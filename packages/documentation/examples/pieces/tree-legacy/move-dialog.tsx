@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { jsx } from '@emotion/react';
@@ -21,7 +21,13 @@ type FormData = {
 	position: { value: number };
 };
 
-export function MoveDialog({ onClose, itemId }: { onClose: () => void; itemId: string }) {
+export function MoveDialog({
+	onClose,
+	itemId,
+}: {
+	onClose: () => void;
+	itemId: string;
+}): React.JSX.Element {
 	const { dispatch, getChildrenOfItem, getMoveTargets, getPathToItem } = useContext(TreeContext);
 
 	const options = useMemo(() => {

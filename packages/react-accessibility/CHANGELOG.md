@@ -1,5 +1,36 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.2.3
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.2.2
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.2.1
+
+### Patch Changes
+
+- Updated dependencies
+
+## 2.2.0
+
+### Minor Changes
+
+- [`00e69e0b7c839`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/00e69e0b7c839) -
+  Clean up and removal of the `platform-visual-refresh-icons` feature flag.
+
 ## 2.1.8
 
 ### Patch Changes

@@ -3,6 +3,8 @@
  * @jsx jsx
  */
 
+import React from 'react';
+
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
@@ -49,6 +51,6 @@ const dropIndicatorEdgeStyles = {
 	right: {},
 };
 
-export function DropIndicator({ edge }: { edge: Edge }) {
+export function DropIndicator({ edge }: { edge: Edge }): React.JSX.Element {
 	return <div css={[dropIndicatorStyles, dropIndicatorEdgeStyles[edge]]} />;
 }

@@ -20,7 +20,7 @@ export function usePointerControls({
 }: {
 	dragController: DragController;
 	contextId: string;
-}) {
+}): void {
 	const updatePointerDrag = useCallback(
 		(location: DragLocationHistory) => {
 			dragController.updateDrag({

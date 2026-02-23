@@ -13,12 +13,12 @@ function getPosition(location: DraggableLocation) {
 }
 
 export const defaultMessage = {
-	onDragStart({ source }: DragStart) {
+	onDragStart({ source }: DragStart): string {
 		const startPosition = getPosition(source);
 		return `You have lifted an item in position ${startPosition}.`;
 	},
 
-	onDragUpdate({ source, destination }: DragUpdate) {
+	onDragUpdate({ source, destination }: DragUpdate): string {
 		if (!destination) {
 			return 'You are currently not dragging over a droppable area.';
 		}
@@ -34,7 +34,7 @@ export const defaultMessage = {
 		return `You have moved the item from position ${startPosition} in list ${source.droppableId} to list ${destination.droppableId} in position ${endPosition}.`;
 	},
 
-	onDragEnd({ source, destination, reason }: DropResult) {
+	onDragEnd({ source, destination, reason }: DropResult): string {
 		const startPosition = getPosition(source);
 
 		if (reason === 'CANCEL') {

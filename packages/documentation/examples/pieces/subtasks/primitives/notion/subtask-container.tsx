@@ -54,21 +54,15 @@ export const SubtaskContainer = forwardRef<HTMLDivElement, SubtaskContainerProps
 				<div style={{ paddingLeft: 24 }}>
 					<div css={headingRowStyles}>
 						<Heading>
-							<EditorTextStyleIcon color="currentColor" label="" LEGACY_size="small" />
+							<EditorTextStyleIcon color="currentColor" label="" />
 							Name
 						</Heading>
 						<Heading>
-							<RecentIcon color="currentColor" label="" LEGACY_size="small" />
+							<RecentIcon color="currentColor" label="" />
 							Date Created
 						</Heading>
 						<Heading>
-							<ChevronDownCircleIcon
-								color="currentColor"
-								label=""
-								LEGACY_size="small"
-								spacing="compact"
-								size="small"
-							/>
+							<ChevronDownCircleIcon color="currentColor" label="" spacing="compact" size="small" />
 							Status
 						</Heading>
 					</div>

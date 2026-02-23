@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import type { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -53,7 +53,13 @@ const containerStyles = css({
 	position: 'relative',
 });
 
-export function CardStack({ children, numCards }: { children: ReactNode; numCards: number }) {
+export function CardStack({
+	children,
+	numCards,
+}: {
+	children: ReactNode;
+	numCards: number;
+}): React.JSX.Element {
 	return (
 		<div css={containerStyles}>
 			{numCards >= 3 && <div css={[sharedCardStyles, bottomCardStyles]} />}

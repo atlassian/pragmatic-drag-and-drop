@@ -132,6 +132,6 @@ function DraggableField({ index, item, data, reorderItem }: DraggableFieldProps)
 	);
 }
 
-export default function PinnedFieldsPrototype() {
+export default function PinnedFieldsPrototype(): React.JSX.Element {
 	return <PinnedFieldsAtlassianTemplate instanceId={type} DraggableField={DraggableField} />;
 }

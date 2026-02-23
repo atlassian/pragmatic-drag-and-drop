@@ -51,13 +51,7 @@ export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonPr
 				<button ref={ref} css={[dragHandleButtonStyles, isSelected && selectedStyles]} {...props}>
 					{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
 					<div style={{ marginInline: '-2px' }}>
-						<DragHandleVerticalIcon
-							spacing="spacious"
-							color="currentColor"
-							label=""
-							LEGACY_size="small"
-							size="small"
-						/>
+						<DragHandleVerticalIcon spacing="spacious" color="currentColor" label="" size="small" />
 					</div>
 				</button>
 			</FocusRing>

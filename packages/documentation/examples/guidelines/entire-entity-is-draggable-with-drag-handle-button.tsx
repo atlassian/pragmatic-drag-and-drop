@@ -4,7 +4,6 @@ import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
-import { fg } from '@atlaskit/platform-feature-flags';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
@@ -85,7 +84,7 @@ export function EntireEntityIsDraggableWithDragHandleButton(): React.JSX.Element
 							label={`Reorder item`}
 						/>
 					)}
-					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+					shouldRenderToParent
 				>
 					<DropdownItemGroup>
 						<DropdownItem>Move to top</DropdownItem>

@@ -20,7 +20,7 @@ import { isSafari } from './is-safari';
 /**
  * Returns `true` if browser is Safari (WebKit) on iOS.
  */
-export const isSafariOnIOS = once(function isSafariOnIOS(): boolean {
+export const isSafariOnIOS: (this: unknown) => boolean = once(function isSafariOnIOS(): boolean {
 	if (process.env.NODE_ENV === 'test') {
 		return false;
 	}

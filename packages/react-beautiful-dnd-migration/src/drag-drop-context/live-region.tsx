@@ -57,7 +57,7 @@ function getNode(): HTMLElement {
 /**
  * Announces the provided message to assistive technology.
  */
-export function announce(message: string) {
+export function announce(message: string): void {
 	const node = getNode();
 	node.textContent = message;
 }
@@ -65,7 +65,7 @@ export function announce(message: string) {
 /**
  * Removes the created live region. If there is no live region this is a no-op.
  */
-export function cleanup() {
+export function cleanup(): void {
 	node?.remove();
 	node = null;
 }

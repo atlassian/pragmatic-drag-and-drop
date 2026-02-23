@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll
 
+## 2.0.2
+
+### Patch Changes
+
+- [`aa9ff75020fcb`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/aa9ff75020fcb) -
+  Add @atlassian/a11y-jest-testing to devDependencies.
+
 ## 2.0.1
 
 ### Patch Changes
@@ -49,7 +56,6 @@
   incorrect styles being applied to elements that the user is not currently over during a drag.
 
   **Outcomes**
-
   - Elements will no longer receive `MouseEvent`s (eg `"mouseenter"` and `"mouseleave"`) during a
     drag (which is a violation of the
     [drag and drop specification](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model))
@@ -86,7 +92,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation

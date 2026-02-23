@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AkQuestionIcon from '@atlaskit/icon/core/migration/question-circle';
+import AkQuestionIcon from '@atlaskit/icon/core/question-circle';
 import { token } from '@atlaskit/tokens';
 
 export default function CheckIcon() {

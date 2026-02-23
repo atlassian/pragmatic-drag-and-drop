@@ -34,6 +34,7 @@ controls.forEach(({ controlId, control }) => {
 					const { container } = render(<Example />);
 
 					await expect(container).toBeAccessible({
+						// eslint-disable-next-line @atlassian/a11y/no-violation-count
 						violationCount: 1,
 					});
 				});

@@ -6,6 +6,6 @@
  * This means if you drag out of the browser and back in,
  * an external adapter could pick it up as a new drag.
  */
-export function cancelPointerDrag() {
+export function cancelPointerDrag(): void {
 	window.dispatchEvent(new DragEvent('dragend'));
 }

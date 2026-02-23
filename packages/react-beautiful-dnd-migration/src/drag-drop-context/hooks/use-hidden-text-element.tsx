@@ -11,7 +11,7 @@ type UseHiddenTextElementArgs = {
 	text: string;
 };
 
-export default function useHiddenTextElement({ contextId, text }: UseHiddenTextElementArgs) {
+export default function useHiddenTextElement({ contextId, text }: UseHiddenTextElementArgs): void {
 	useEffect(() => {
 		const id = getHiddenTextElementId(contextId);
 

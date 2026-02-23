@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -217,7 +217,7 @@ function DraggableImageWithCustomPreview() {
 	return <img src={avatarUrl} ref={ref} width="40" height="40" />;
 }
 
-export function Content() {
+export function Content(): React.JSX.Element {
 	return (
 		<Stack space="space.025">
 			<h4>Links</h4>

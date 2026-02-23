@@ -213,7 +213,7 @@ export function TableHeader({
 	property: keyof Item;
 	index: number;
 	amountOfHeaders: number;
-}) {
+}): React.JSX.Element {
 	const ref = useRef<HTMLTableCellElement | null>(null);
 	const dragHandleRef = useRef<HTMLButtonElement>(null);
 	const dropTargetRef = useRef<HTMLDivElement | null>(null);

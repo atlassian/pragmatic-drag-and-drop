@@ -37,7 +37,7 @@ type LeafOf<Object extends Record<string, any>, Value = Object[keyof Object]> =
 
 type Attribute = LeafOf<typeof attributes> | LeafOf<typeof customAttributes>;
 
-export function getAttribute(element: HTMLElement, attribute: Attribute) {
+export function getAttribute(element: HTMLElement, attribute: Attribute): string {
 	const value = element.getAttribute(attribute);
 	rbdInvariant(value !== null, `Expected '${attribute}' to be present`);
 	return value;

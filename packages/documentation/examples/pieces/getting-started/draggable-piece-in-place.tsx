@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -35,11 +35,11 @@ function Piece({ image, alt }: PieceProps) {
 	return <img css={imageStyles} src={image} alt={alt} ref={ref} />;
 }
 
-export function King() {
+export function King(): React.JSX.Element {
 	return <Piece image={king} alt="King" />;
 }
 
-export function Pawn() {
+export function Pawn(): React.JSX.Element {
 	return <Piece image={pawn} alt="Pawn" />;
 }
 

@@ -16,11 +16,10 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import FocusRing from '@atlaskit/focus-ring';
-import ChevronDownIcon from '@atlaskit/icon/core/migration/chevron-down';
-import ChevronRightIcon from '@atlaskit/icon/core/migration/chevron-right';
+import ChevronDownIcon from '@atlaskit/icon/core/chevron-down';
+import ChevronRightIcon from '@atlaskit/icon/core/chevron-right';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import { ModalTransition } from '@atlaskit/modal-dialog';
-import { fg } from '@atlaskit/platform-feature-flags';
 import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
 import { GroupDropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/group';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
@@ -391,7 +390,6 @@ const TreeItem = memo(function TreeItem({
 							iconBefore={
 								<MoreIcon
 									label="Actions"
-									LEGACY_size="small"
 									color={token('color.icon.subtle', '#626F86')}
 									size="small"
 								/>
@@ -403,7 +401,7 @@ const TreeItem = memo(function TreeItem({
 							appearance="subtle"
 						/>
 					)}
-					shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+					shouldRenderToParent
 				>
 					<DropdownItemGroup>
 						<DropdownItem onClick={openMoveDialog}>Move</DropdownItem>

@@ -49,7 +49,7 @@ function renderSquares(pieces: PieceRecord[]) {
 	return squares;
 }
 
-function Chessboard() {
+function Chessboard(): React.JSX.Element {
 	const pieces: PieceRecord[] = [
 		{ type: 'king', location: [3, 2] },
 		{ type: 'pawn', location: [1, 6] },

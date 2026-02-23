@@ -130,7 +130,7 @@ export function getDraggableLocation(location: DragLocation): DraggableLocation 
 /**
  * Checks if two `DraggableLocation` values are equivalent.
  */
-export function isSameLocation(a: DraggableLocation | null, b: DraggableLocation | null) {
+export function isSameLocation(a: DraggableLocation | null, b: DraggableLocation | null): boolean {
 	if (a?.droppableId !== b?.droppableId) {
 		return false;
 	}

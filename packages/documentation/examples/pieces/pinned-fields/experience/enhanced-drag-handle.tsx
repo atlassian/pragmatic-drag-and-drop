@@ -132,6 +132,6 @@ function DraggableField({ index, item, data, reorderItem }: DraggableFieldProps)
 	);
 }
 
-export default function PinnedFieldsEnhancedDragHandle() {
+export default function PinnedFieldsEnhancedDragHandle(): React.JSX.Element {
 	return <PinnedFieldsAtlassianTemplate instanceId={type} DraggableField={DraggableField} />;
 }

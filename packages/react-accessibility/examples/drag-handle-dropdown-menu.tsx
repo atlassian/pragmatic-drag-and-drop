@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import { fg } from '@atlaskit/platform-feature-flags';
 
 import { DragHandleButton } from '../src/drag-handle-button';
 
@@ -21,7 +20,7 @@ export default function DragHandleDropdownMenuExample(): React.JSX.Element {
 						label="Reorder"
 					/>
 				)}
-				shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+				shouldRenderToParent
 			>
 				<DropdownItemGroup>
 					<DropdownItem>Move up</DropdownItem>

@@ -42,7 +42,7 @@ const wrapperStyles = css({
 	gap: 'calc(3 * var(--grid))',
 });
 
-export function ExampleWrapper({ children }: SwitcherProps) {
+export function ExampleWrapper({ children }: SwitcherProps): React.JSX.Element {
 	const [library, setLibrary] = useState<Library>('migration');
 
 	const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {

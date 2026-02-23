@@ -167,7 +167,7 @@ export function getBubbleOrderedTree(
 }
 
 export const userEvent = {
-	lift(target: HTMLElement, input?: Partial<Input>) {
+	lift(target: HTMLElement, input?: Partial<Input>): void {
 		const final: Input = { ...getDefaultInput(), ...input };
 		// accurate representation of events:
 		firePointer.down(target, final);
@@ -180,19 +180,25 @@ export const userEvent = {
 		// after an animation frame we fire `onDragStart`
 		advanceTimersToNextFrame();
 	},
-	drop(target: Element) {
+	drop(target: Element): void {
 		fireEvent.drop(target);
 	},
-	cancel(target: Element = document.body) {
+	cancel(target: Element = document.body): void {
 		// A "cancel" (drop on nothing, or pressing "Escape") will
 		// cause a "dragleave" and then a "dragend"
 		fireEvent.dragLeave(target);
 		fireEvent.dragEnd(target);
 	},
-	leaveWindow() {
+	leaveWindow(): void {
 		fireEvent.dragLeave(document.documentElement, { relatedTarget: null });
 	},
-	startExternalDrag({ types, target = document.body }: { types: string[]; target?: Element }) {
+	startExternalDrag({
+		types,
+		target = document.body,
+	}: {
+		types: string[];
+		target?: Element;
+	}): void {
 		const event = new DragEvent('dragenter', {
 			cancelable: true,
 			bubbles: true,
@@ -204,7 +210,7 @@ export const userEvent = {
 		target.dispatchEvent(event);
 		advanceTimersToNextFrame();
 	},
-	rougePointerMoves() {
+	rougePointerMoves(): void {
 		// first 20 are ignored due to firefox issue
 		// 21st pointermove will cancel a drag
 		for (let i = 0; i < 21; i++) {
@@ -255,7 +261,7 @@ export function setElementFromPoint(element: Element | null): CleanupFn {
 }
 
 /** Release a pending scrollBy (they are scheduled for the next task) */
-export function stepScrollBy() {
+export function stepScrollBy(): void {
 	jest.advanceTimersByTime(1);
 }
 
@@ -266,7 +272,7 @@ let startTime: number | null = null;
  * This is no longer needed once `jest.advanceTimersToNextFrame()` is available
  * https://github.com/jestjs/jest/pull/14598
  */
-export function setStartSystemTime() {
+export function setStartSystemTime(): void {
 	startTime = Date.now();
 }
 
@@ -275,7 +281,7 @@ export function setStartSystemTime() {
  * This is no longer needed once `jest.advanceTimersToNextFrame()` is available
  * https://github.com/jestjs/jest/pull/14598
  */
-export function advanceTimersToNextFrame() {
+export function advanceTimersToNextFrame(): void {
 	invariant(
 		startTime != null,
 		'Must call `setStartSystemTime` before using `advanceTimersToNextFrame()`',
@@ -608,7 +614,7 @@ export function getExpectedEvents(movement: AxisMovement): Event[] {
 export const firePointer = (() => {
 	type TTarget = Element | Window | Document;
 	function makeDispatch(eventName: string) {
-		return function dispatch(target: TTarget, input: Partial<Input> = {}) {
+		return function dispatch(target: TTarget, input: Partial<Input> = {}): void {
 			const inputWithDefaults = {
 				...getDefaultInput(),
 				...input,

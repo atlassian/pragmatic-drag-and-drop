@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, keyframes } from '@emotion/react';
@@ -53,7 +53,7 @@ const draggingStyles = xcss({
 	opacity: 0.4,
 });
 
-export function DelayedCursorChange() {
+export function DelayedCursorChange(): React.JSX.Element {
 	const draggableRef = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<DraggableState>({ type: 'idle' });
 

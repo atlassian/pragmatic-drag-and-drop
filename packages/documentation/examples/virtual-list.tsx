@@ -20,7 +20,6 @@ import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdow
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import Lozenge from '@atlaskit/lozenge';
-import { fg } from '@atlaskit/platform-feature-flags';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
 import {
@@ -391,7 +390,7 @@ const ListItem = memo(function ListItem({
 									}}
 								/>
 							)}
-							shouldRenderToParent={fg('should-render-to-parent-should-be-true-design-syst')}
+							shouldRenderToParent
 						>
 							<DropdownItemGroup>
 								<DropDownContent position={position} index={index} />

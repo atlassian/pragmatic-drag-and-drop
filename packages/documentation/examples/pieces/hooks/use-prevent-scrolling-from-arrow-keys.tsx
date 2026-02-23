@@ -12,7 +12,7 @@ export function usePreventScrollingFromArrowKeys({
 	shouldPreventScrolling,
 }: {
 	shouldPreventScrolling: boolean;
-}) {
+}): void {
 	useEffect(() => {
 		if (!shouldPreventScrolling) {
 			return;

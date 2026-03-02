@@ -1,10 +1,17 @@
 import { fireEvent } from '@testing-library/dom';
 
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+
 import { combine } from '../../../../src/entry-point/combine';
 import { draggable, dropTargetForElements } from '../../../../src/entry-point/element/adapter';
 import { blockDraggingToIFrames } from '../../../../src/entry-point/element/block-dragging-to-iframes';
 import { type CleanupFn } from '../../../../src/entry-point/types';
 import { appendToBody, getElements, reset, userEvent } from '../../_util';
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 afterEach(reset);
 

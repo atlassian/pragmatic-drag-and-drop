@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.8
+
+### Patch Changes
+
+- [`6d87d08be8526`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/6d87d08be8526) -
+  Add dependency for a11y testing.
+
 ## 1.7.7
 
 ### Patch Changes
@@ -67,7 +74,6 @@
   [`65021fc0267e2`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/65021fc0267e2) -
   The cleanup functions returned by the following utilities now only work on the first call. This
   was done to prevent unexpected side effects of calling a cleanup function multiple times.
-
   - `@atlaskit/pragmatic-drag-and-drop/adapter/element`
     - `draggable`
     - `dropTargetForElements`
@@ -129,7 +135,6 @@
   [`ef9d1cdc6ea92`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/ef9d1cdc6ea92) -
   The `pointerOutsideOfPreview()` utility will now correctly push the preview forward in right to
   left layouts.
-
   - Left to right (ltr): preview on right hand side of pointer
   - Right to left (rtl): preview on left hand side of pointer (**new improvement**)
 
@@ -246,7 +251,6 @@
   ability for a user to drag into an `<iframe>` element.
 
   Scenarios where this can be helpful:
-
   - When you are shifting the interface around in reponse to a drag operation and you don't want the
     drag to enter into an `<iframe>` (for example - when resizing)
   - When you don't want the user to be able to drag into a `<iframe>` on the page (there could be
@@ -331,7 +335,6 @@
   incorrect styles being applied to elements that the user is not currently over during a drag.
 
   **Outcomes**
-
   - Elements will no longer receive `MouseEvent`s (eg `"mouseenter"` and `"mouseleave"`) during a
     drag (which is a violation of the
     [drag and drop specification](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model))
@@ -366,7 +369,6 @@
   [`2f5d213b2613`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/2f5d213b2613) -
   These fixes only impact situations were you have native drag and drop code in addition to
   Pragmatic drag and drop running on your page.
-
   - Fix: if a `"drop"` is caused by non Pragmatic drag and drop code on the page, then we will no
     longer cancel the `"drop"` event.
   - Fix: No longer exposing external adapter data (`source.items`) in `onDrop` if not dropping on a
@@ -454,7 +456,6 @@
   [`4d9e25ab4eaa`](https://stash.atlassian.com/projects/CONFCLOUD/repos/confluence-frontend/commits/4d9e25ab4eaa) -
   Updating the descriptions of Pragmatic drag and drop packages, so they each provide a consistent
   description to various consumers, and so they are consistently formed amongst each other.
-
   - `package.json` `description`
   - `README.md`
   - Website documentation
@@ -643,7 +644,6 @@
   > Scenario: `[A(sticky)]` → `[]` + `A` is unmounted Result: `[]`
 
   To help facilitate this change:
-
   - `getIsSticky()` is now only called when an _drop target_ is a potential candidate for stickiness
     (previously it was called repeatedly)
   - `getIsSticky()` and `canDrop()` are called on _drop targets_ that are no longer being dragged
@@ -834,7 +834,6 @@
   finishes, an unrelated element can be entered into.
 - [`ba7ea570aee`](https://bitbucket.org/atlassian/atlassian-frontend/commits/ba7ea570aee) - > Both
   of these changes should not impact most consumers as they are targeted at edge cases.
-
   - **Fix**: We no longer extract user input (eg `clientX`) from native `"dragleave"` events due to
     a
     [Bug with Chrome we discovered](https://bugs.chromium.org/p/chromium/issues/detail?id=1429937).
@@ -859,7 +858,6 @@
 - [#30879](https://bitbucket.org/atlassian/atlassian-frontend/pull-requests/30879)
   [`2582df26509`](https://bitbucket.org/atlassian/atlassian-frontend/commits/2582df26509) - Fixing a
   browser bug where after a drag finishes, a unrelated element can be entered into by the browser
-
   - [Visual explanation of bug](https://twitter.com/alexandereardon/status/1633614212873465856)
   - [Chrome bug](https://bugs.chromium.org/p/chromium/issues/detail?id=410328)
 
@@ -1025,7 +1023,6 @@
 - [#24613](https://bitbucket.org/atlassian/atlassian-frontend/pull-requests/24613)
   [`1cf9e484b4b`](https://bitbucket.org/atlassian/atlassian-frontend/commits/1cf9e484b4b) - We have
   improved our naming consistency across our drag and drop packages.
-
   - `@atlaskit/drag-and-drop/util/cancel-unhandled` has been renamed to
     `@atlaskit/drag-and-drop/addon/cancel-unhandled`
 

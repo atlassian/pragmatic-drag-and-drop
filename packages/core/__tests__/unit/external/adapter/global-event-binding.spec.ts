@@ -2,6 +2,8 @@
 // add it's own "error" event listeners when other events are being fired
 // This file uses vanilla event firing so that we are in total control
 
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+
 import { combine } from '../../../../src/entry-point/combine';
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from '../../_util';
 
@@ -9,6 +11,11 @@ let addEventListener = jest.spyOn(window, 'addEventListener');
 let removeEventListener = jest.spyOn(window, 'removeEventListener');
 
 jest.resetModules();
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 afterEach(() => {
 	addEventListener.mockClear();

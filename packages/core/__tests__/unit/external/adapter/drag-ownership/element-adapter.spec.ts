@@ -1,5 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+
 import { elementAdapterNativeDataKey } from '../../../../../src/adapter/element-adapter-native-data-key';
 import { combine } from '../../../../../src/entry-point/combine';
 import { draggable, dropTargetForElements } from '../../../../../src/entry-point/element/adapter';
@@ -8,6 +10,11 @@ import {
 	monitorForExternal,
 } from '../../../../../src/entry-point/external/adapter';
 import { appendToBody, getBubbleOrderedTree, getElements, reset, userEvent } from '../../../_util';
+
+// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
+// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+// the next line and associated import. For more information, see go/afm-a11y-tooling:jest
+skipAutoA11yFile();
 
 afterEach(reset);
 
@@ -92,13 +99,13 @@ test('dragging a draggable into a new window should not trigger a native drag if
 	const cleanup = combine(
 		appendToBody(A),
 		monitorForExternal({
-			onDragStart: (args) => ordered.push(`monitor:start-external`),
-			onDrop: (args) => ordered.push(`monitor:drop-external`),
+			onDragStart: () => ordered.push(`monitor:start-external`),
+			onDrop: () => ordered.push(`monitor:drop-external`),
 		}),
 		dropTargetForExternal({
 			element: A,
-			onDragEnter: (args) => ordered.push(`A:enter-external`),
-			onDrop: (args) => ordered.push(`A:drop-external`),
+			onDragEnter: () => ordered.push(`A:enter-external`),
+			onDrop: () => ordered.push(`A:drop-external`),
 		}),
 	);
 

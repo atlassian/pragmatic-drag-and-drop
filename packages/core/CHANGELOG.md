@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.7.9
+
+### Patch Changes
+
+- [`acb61d1d6efd9`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/acb61d1d6efd9) -
+  Add dependency for a11y testing.
+
 ## 1.7.8
 
 ### Patch Changes

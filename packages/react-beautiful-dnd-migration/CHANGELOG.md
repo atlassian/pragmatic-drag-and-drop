@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 2.0.15
+
+### Patch Changes
+
+- [`acb61d1d6efd9`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/acb61d1d6efd9) -
+  Add dependency for a11y testing.
+- Updated dependencies
+
 ## 2.0.14
 
 ### Patch Changes

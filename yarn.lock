@@ -257,15 +257,13 @@
     react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/ds-lib@^5.4.0":
-  version "5.4.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-5.4.0.tgz#0fbb25bc7a6810340ada7e5ce6f4b1d38a651e31"
-  integrity sha512-5afOBzunBDEaSqSUuxy0AWcozYO5dbRLyx5stPMy/9QOtlw1yIHbT5xtZp5QHnKh4ePrd33F9sp/p/rZa8U/rg==
+"@atlaskit/ds-lib@^6.0.0":
+  version "6.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/ds-lib/-/ds-lib-6.0.0.tgz#37022462d3598e2e9d81e866d9d29818c977d17b"
+  integrity sha512-hLN10kpRSrx27Pzn6+kKaO8R6/8gWvPuHvD0hJEk4Pi/M4Ws0rWdM4Zo3b1HgP2DW9dLWYuEwI6Bi6OPf2J7Dg==
   dependencies:
-    "@atlaskit/platform-feature-flags" "^1.1.0"
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
-    react-uid "^2.2.0"
     tiny-invariant "^1.2.0"
 
 "@atlaskit/feature-gate-js-client@^4.25.0":

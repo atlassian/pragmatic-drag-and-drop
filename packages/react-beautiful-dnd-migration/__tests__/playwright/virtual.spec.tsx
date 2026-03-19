@@ -11,11 +11,7 @@ function getDraggableSelector(draggableId: string) {
 test.describe('virtual lists', () => {
 	test.describe('keyboard drag', () => {
 		test('should not error when the draggable remounts during a drag', async ({ page }) => {
-			await page.visitExample(
-				'pragmatic-drag-and-drop',
-				'react-beautiful-dnd-migration',
-				'react-window',
-			);
+			await page.visitExample<typeof import('../../examples/02-react-window.tsx')>('pragmatic-drag-and-drop', 'react-beautiful-dnd-migration', 'react-window');
 
 			/**
 			 * The card we are moving, and the draggable we are interested in

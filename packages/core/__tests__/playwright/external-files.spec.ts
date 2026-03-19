@@ -28,7 +28,7 @@ test.describe('file dropping', () => {
 			return;
 		}
 
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'file');
+		await page.visitExample<typeof import('../../examples/file.tsx')>('pragmatic-drag-and-drop', 'core', 'file');
 
 		// waiting for the drop target to be visible as a way to ensure the example
 		// is completely loaded (preemptively avoiding flakiness)
@@ -87,7 +87,7 @@ test.describe('file dropping', () => {
 		if (browserName === 'webkit') {
 			return;
 		}
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'file');
+		await page.visitExample<typeof import('../../examples/file.tsx')>('pragmatic-drag-and-drop', 'core', 'file');
 		await page.locator('[data-drop-target-for-external]').waitFor({ state: 'visible' });
 
 		await expect(page).toBeAccessible({ violationCount: 1 });

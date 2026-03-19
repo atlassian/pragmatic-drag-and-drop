@@ -12,7 +12,7 @@ test.describe('text selection', () => {
 			return;
 		}
 
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'text-selection');
+		await page.visitExample<typeof import('../../examples/text-selection.tsx')>('pragmatic-drag-and-drop', 'core', 'text-selection');
 		const dropTarget = page.locator('[data-testid="drop-target"]');
 		const text = page.locator('[data-testid="text"]');
 		const data = await text.innerText();
@@ -28,7 +28,7 @@ test.describe('text selection', () => {
 		if (browserName !== 'firefox') {
 			return;
 		}
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'text-selection');
+		await page.visitExample<typeof import('../../examples/text-selection.tsx')>('pragmatic-drag-and-drop', 'core', 'text-selection');
 		const dropTarget = page.locator('[data-testid="drop-target"]');
 		const text = page.locator('[data-testid="text"]');
 		await text.dragTo(dropTarget);

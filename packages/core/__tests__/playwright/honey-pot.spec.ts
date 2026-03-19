@@ -56,7 +56,7 @@ const notTouched: Data = { mouseenter: 0, mouseleave: 0, dragstart: 0, drop: 0 }
 
 test.describe('honey pot', () => {
 	test('no "mouseenter" on incorrect elements after a drag', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
+		await page.visitExample<typeof import('../../examples/post-drop-bug-fix-simple.tsx')>('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
 		const card0 = page.locator('[data-testid="card-0"]');
 		const card1 = page.locator('[data-testid="card-1"]');
 		const dragCount = page.locator('[data-testid="drag-count"]');
@@ -98,7 +98,7 @@ test.describe('honey pot', () => {
 	});
 
 	test('no "mouseenter" on incorrect elements during a drag', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
+		await page.visitExample<typeof import('../../examples/post-drop-bug-fix-simple.tsx')>('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
 		const card0 = page.locator('[data-testid="card-0"]');
 		const card1 = page.locator('[data-testid="card-1"]');
 		const dragCount = page.locator('[data-testid="drag-count"]');
@@ -138,7 +138,7 @@ test.describe('honey pot', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
+		await page.visitExample<typeof import('../../examples/post-drop-bug-fix-simple.tsx')>('pragmatic-drag-and-drop', 'core', 'post-drop-bug-fix-simple');
 		const card0 = page.locator('[data-testid="card-0"]');
 		await expect(card0).toContainData(notTouched);
 

@@ -4,7 +4,7 @@ import { addCommentBefore, getJSXAttributesByName } from '@atlaskit/codemod-util
 
 import { forEachRbdElementInFile } from '../utils';
 
-export const dragHandlePropMessage = [
+export const dragHandlePropMessage: string = [
 	'The migration layer provides the `react-beautiful-dnd` v13 props for the drag handle.',
 	'Instead of providing `aria-labelledby` it will instead provide `aria-describedby` and a `role` attribute.',
 ].join('\n');
@@ -36,7 +36,7 @@ const componentMigrations = {
 	},
 } as const;
 
-export function migrate12to13(j: JSCodeshift, source: Collection<Node>) {
+export function migrate12to13(j: JSCodeshift, source: Collection<Node>): void {
 	forEachRbdElementInFile(j, source, ({ originalName, path }) => {
 		componentMigrations[originalName](j, path);
 	});

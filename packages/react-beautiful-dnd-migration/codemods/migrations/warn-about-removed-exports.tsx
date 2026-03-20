@@ -6,7 +6,7 @@ import { getImportDeclarationsForRbd } from '../utils';
 
 const removedExports = new Set(['useMouseSensor', 'useTouchSensor', 'useKeyboardSensor']);
 
-export const warningMessageForRemovedExports = [
+export const warningMessageForRemovedExports: string = [
 	'Sensors are not supported in the migration layer.',
 	'The migration layer will handle pointer and keyboard dragging for you.',
 	'If you specifically want to disable one of these types of dragging, please reach out to us and we will see how we can help you.',
@@ -16,7 +16,7 @@ export const warningMessageForRemovedExports = [
  * Removes exports that no longer exists,
  * and renders a comment informing users about the removal.
  */
-export function warnAboutRemovedExports(j: core.JSCodeshift, source: Collection<Node>) {
+export function warnAboutRemovedExports(j: core.JSCodeshift, source: Collection<Node>): void {
 	getImportDeclarationsForRbd(j, source)
 		.find(j.ImportSpecifier)
 		.filter((path) => removedExports.has(path.node.imported.name))

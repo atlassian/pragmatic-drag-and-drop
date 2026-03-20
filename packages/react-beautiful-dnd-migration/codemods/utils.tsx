@@ -15,7 +15,7 @@ export function getImportDeclarationsForRbd(
 	return getImportDeclarationsForPackage(j, source, 'react-beautiful-dnd');
 }
 
-export function shouldRunCodemodOnFile(j: JSCodeshift, source: Collection<Node>) {
+export function shouldRunCodemodOnFile(j: JSCodeshift, source: Collection<Node>): boolean {
 	const hasRbdImport = getImportDeclarationsForRbd(j, source).length > 0;
 	const hasRbdNextImport =
 		getImportDeclarationsForPackage(j, source, 'react-beautiful-dnd-next').length > 0;
@@ -85,7 +85,7 @@ export function forEachRbdElementInFile(
 	j: JSCodeshift,
 	source: Collection<Node>,
 	callback: (args: CallbackArgs) => void,
-) {
+): void {
 	const importedRbdComponentNames = getImportedRbdComponentNames(j, source);
 	getRbdElementsInFile(source, importedRbdComponentNames).forEach((path) => {
 		const nameInFile = getJSXElementName(path.node);

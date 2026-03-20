@@ -34,7 +34,7 @@ function getWarningMessage(reason: string) {
 /**
  * Adds warning comments above prop usages for props that are not supported by the migration layer.
  */
-export function warnAboutUnsupportedProps(j: JSCodeshift, source: Collection<Node>) {
+export function warnAboutUnsupportedProps(j: JSCodeshift, source: Collection<Node>): void {
 	forEachRbdElementInFile(j, source, ({ originalName, path }) => {
 		const messages = unsupportedPropMessages[originalName];
 

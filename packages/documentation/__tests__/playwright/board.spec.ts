@@ -26,7 +26,7 @@ function getCardOrder(page: Page, columnId: string): Promise<(string | null)[]> 
 
 test.describe('board', () => {
 	test('should allow sorting columns', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board', {
+		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
 			'react-18-mode': 'legacy',
 		});
 		await page.waitForSelector('[draggable="true"]');
@@ -42,7 +42,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow sorting tasks in a column', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board', {
+		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
 			'react-18-mode': 'legacy',
 		});
 		await page.waitForSelector('[draggable="true"]');
@@ -63,7 +63,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow moving tasks between columns', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board', {
+		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
 			'react-18-mode': 'legacy',
 		});
 		await page.waitForSelector('[draggable="true"]');
@@ -87,7 +87,7 @@ test.describe('board', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'board', {
+		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
 			'react-18-mode': 'legacy',
 		});
 		await page.waitForSelector('[draggable="true"]');

@@ -13,14 +13,14 @@ const scenarios: TScenario[] = [
 	{
 		name: 'tree',
 		beforeEach: async ({ page }: { page: Page }) => {
-			await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree');
+			await page.visitExample<typeof import('../../examples/tree.tsx')>('pragmatic-drag-and-drop', 'documentation', 'tree');
 			await page.waitForSelector('[draggable="true"]');
 		},
 	},
 	{
 		name: 'tree-legacy',
 		beforeEach: async ({ page }: { page: Page }) => {
-			await page.visitExample('pragmatic-drag-and-drop', 'documentation', 'tree-legacy');
+			await page.visitExample<typeof import('../../examples/tree-legacy.tsx')>('pragmatic-drag-and-drop', 'documentation', 'tree-legacy');
 			await page.waitForSelector('[draggable="true"]');
 		},
 	},

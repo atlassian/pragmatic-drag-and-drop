@@ -4,7 +4,7 @@ import { expect, test } from '@af/integration-testing';
 
 test.describe('over element automatic scrolling', () => {
 	test('should scroll a scrollable element forwards', async ({ page }) => {
-		await page.visitExample('pragmatic-drag-and-drop', 'auto-scroll', 'over-element');
+		await page.visitExample<typeof import('../../examples/over-element.tsx')>('pragmatic-drag-and-drop', 'auto-scroll', 'over-element');
 
 		const columnTestId = 'column-0';
 		const card = page.getByTestId('column-0::item-0');

@@ -1,4 +1,4 @@
-import { createTransformer } from '@atlaskit/codemod-utils';
+import { createTransformer, type API, type FileInfo, type Options } from '@atlaskit/codemod-utils';
 
 import { updateImports } from './migrations/update-imports';
 import { warnAboutReactBeautifulDndNext } from './migrations/warn-about-react-beautiful-dnd-next';
@@ -6,7 +6,7 @@ import { warnAboutRemovedExports } from './migrations/warn-about-removed-exports
 import { warnAboutUnsupportedProps } from './migrations/warn-about-unsupported-props';
 import { shouldRunCodemodOnFile } from './utils';
 
-export const migrations = [
+export const migrations: (typeof warnAboutRemovedExports)[] = [
 	warnAboutRemovedExports,
 	warnAboutUnsupportedProps,
 	warnAboutReactBeautifulDndNext,
@@ -25,6 +25,6 @@ export const migrations = [
  * The `updateImports` transform should occur last,
  * as the previous transforms only operate on imports from `react-beautiful-dnd`.
  */
-const transformer = createTransformer(migrations, shouldRunCodemodOnFile);
+const transformer: (fileInfo: FileInfo, _api: API, options: Options) => string = createTransformer(migrations, shouldRunCodemodOnFile);
 
 export default transformer;

@@ -4,7 +4,11 @@ test.describe('stickiness', () => {
 	test('should hold on to the previous item and list container drop targets when drag moves outside of any drop target', async ({
 		page,
 	}) => {
-		await page.visitExample<typeof import('../../examples/stickiness.tsx')>('pragmatic-drag-and-drop', 'core', 'stickiness');
+		await page.visitExample<typeof import('../../examples/stickiness.tsx')>(
+			'pragmatic-drag-and-drop',
+			'core',
+			'stickiness',
+		);
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = page.getByTestId('list-item-2');

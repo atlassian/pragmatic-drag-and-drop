@@ -26,9 +26,14 @@ function getCardOrder(page: Page, columnId: string): Promise<(string | null)[]> 
 
 test.describe('board', () => {
 	test('should allow sorting columns', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
-			'react-18-mode': 'legacy',
-		});
+		await page.visitExample<typeof import('../../examples/board.tsx')>(
+			'pragmatic-drag-and-drop',
+			'documentation',
+			'board',
+			{
+				'react-18-mode': 'legacy',
+			},
+		);
 		await page.waitForSelector('[draggable="true"]');
 
 		const dragHandle = getColumnHeader(page, 'trello');
@@ -42,9 +47,14 @@ test.describe('board', () => {
 	});
 
 	test('should allow sorting tasks in a column', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
-			'react-18-mode': 'legacy',
-		});
+		await page.visitExample<typeof import('../../examples/board.tsx')>(
+			'pragmatic-drag-and-drop',
+			'documentation',
+			'board',
+			{
+				'react-18-mode': 'legacy',
+			},
+		);
 		await page.waitForSelector('[draggable="true"]');
 
 		// Both ids correspond to elements in the first column
@@ -63,9 +73,14 @@ test.describe('board', () => {
 	});
 
 	test('should allow moving tasks between columns', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
-			'react-18-mode': 'legacy',
-		});
+		await page.visitExample<typeof import('../../examples/board.tsx')>(
+			'pragmatic-drag-and-drop',
+			'documentation',
+			'board',
+			{
+				'react-18-mode': 'legacy',
+			},
+		);
 		await page.waitForSelector('[draggable="true"]');
 
 		// Corresponds to an element in the first column
@@ -87,9 +102,14 @@ test.describe('board', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>('pragmatic-drag-and-drop', 'documentation', 'board', {
-			'react-18-mode': 'legacy',
-		});
+		await page.visitExample<typeof import('../../examples/board.tsx')>(
+			'pragmatic-drag-and-drop',
+			'documentation',
+			'board',
+			{
+				'react-18-mode': 'legacy',
+			},
+		);
 		await page.waitForSelector('[draggable="true"]');
 
 		await expect(page).toBeAccessible();

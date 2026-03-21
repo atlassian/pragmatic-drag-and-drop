@@ -14,7 +14,11 @@ test.describe('scrollJustEnoughIntoView', () => {
 		page,
 		browserName,
 	}) => {
-		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>('pragmatic-drag-and-drop', 'core', 'scroll-just-enough-into-view');
+		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>(
+			'pragmatic-drag-and-drop',
+			'core',
+			'scroll-just-enough-into-view',
+		);
 
 		const scrollContainer = page.locator(containerSelector);
 		// this card begins partially obscured
@@ -63,7 +67,11 @@ test.describe('scrollJustEnoughIntoView', () => {
 	});
 
 	test('should not scroll if the element is already fully visible', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>('pragmatic-drag-and-drop', 'core', 'scroll-just-enough-into-view');
+		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>(
+			'pragmatic-drag-and-drop',
+			'core',
+			'scroll-just-enough-into-view',
+		);
 
 		const scrollContainer = page.locator(containerSelector);
 		const secondCard = page.locator(secondCardSelector);
@@ -110,7 +118,11 @@ test.describe('scrollJustEnoughIntoView', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ page, browserName }) => {
-		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>('pragmatic-drag-and-drop', 'core', 'scroll-just-enough-into-view');
+		await page.visitExample<typeof import('../../examples/scroll-just-enough-into-view.tsx')>(
+			'pragmatic-drag-and-drop',
+			'core',
+			'scroll-just-enough-into-view',
+		);
 		await expect(page).toBeAccessible({ violationCount: 1 });
 	});
 });

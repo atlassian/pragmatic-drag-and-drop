@@ -48,7 +48,11 @@ async function realisticDragTo({ page, start, end }: { page: Page; start: Locato
 }
 
 async function setup({ page }: { page: Page }) {
-	await page.visitExample<typeof import('../../examples/iframe.tsx')>('pragmatic-drag-and-drop', 'core', 'iframe');
+	await page.visitExample<typeof import('../../examples/iframe.tsx')>(
+		'pragmatic-drag-and-drop',
+		'core',
+		'iframe',
+	);
 
 	const dropTargetInParent = page.locator('[data-testid="drop-target-in-parent"]');
 	const draggableInParent = page.locator('[data-testid="draggable-in-parent"]');

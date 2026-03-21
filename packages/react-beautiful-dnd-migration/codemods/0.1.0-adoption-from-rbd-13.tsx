@@ -25,6 +25,9 @@ export const migrations: (typeof warnAboutRemovedExports)[] = [
  * The `updateImports` transform should occur last,
  * as the previous transforms only operate on imports from `react-beautiful-dnd`.
  */
-const transformer: (fileInfo: FileInfo, _api: API, options: Options) => string = createTransformer(migrations, shouldRunCodemodOnFile);
+const transformer: (fileInfo: FileInfo, _api: API, options: Options) => string = createTransformer(
+	migrations,
+	shouldRunCodemodOnFile,
+);
 
 export default transformer;

@@ -4,7 +4,11 @@ import { expect, test } from '@af/integration-testing';
 
 test.describe('over element automatic scrolling', () => {
 	test('should scroll a scrollable element forwards', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/unsafe-overflow-only.tsx')>('pragmatic-drag-and-drop', 'auto-scroll', 'unsafe-overflow-only');
+		await page.visitExample<typeof import('../../examples/unsafe-overflow-only.tsx')>(
+			'pragmatic-drag-and-drop',
+			'auto-scroll',
+			'unsafe-overflow-only',
+		);
 
 		const columnTestId = 'column-0';
 		const card = page.getByTestId('column-0::item-0');

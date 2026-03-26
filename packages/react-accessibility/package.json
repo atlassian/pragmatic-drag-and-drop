@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "@atlaskit/focus-ring": "^3.0.0",
-    "@atlaskit/icon": "^33.0.0",
+    "@atlaskit/icon": "^33.1.0",
     "@atlaskit/platform-feature-flags": "^1.1.0",
-    "@atlaskit/primitives": "^18.0.0",
-    "@atlaskit/tokens": "^11.2.0",
+    "@atlaskit/primitives": "^18.1.0",
+    "@atlaskit/tokens": "^11.3.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

@@ -32,12 +32,9 @@ const listItemStyles = css({
 	maxWidth: 240,
 	padding: 8,
 	alignItems: 'center',
-	background: token('elevation.surface.raised', '#FFF'),
+	background: token('elevation.surface.raised'),
 	borderRadius: 3,
-	boxShadow: token(
-		'elevation.shadow.raised',
-		'rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
-	),
+	boxShadow: token('elevation.shadow.raised'),
 });
 
 const ListItem = ({

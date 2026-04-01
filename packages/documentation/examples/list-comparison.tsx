@@ -14,7 +14,6 @@ import Lozenge from '@atlaskit/lozenge';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 import Tabs, { TabPanel as AkTabPanel, Tab, TabList, type TabPanelProps } from '@atlaskit/tabs';
-import { fontFallback } from '@atlaskit/theme/typography';
 import { token } from '@atlaskit/tokens';
 
 import AsanaFields from './pieces/pinned-fields/experience/asana';
@@ -39,7 +38,7 @@ import SubtasksNotion from './pieces/subtasks/demo/notion';
 import SubtaskReactBeautifulDnd from './pieces/subtasks/demo/react-beautiful-dnd';
 
 const itemStyles = xcss({
-	border: `${token('border.width.selected')} solid ${token('color.border.accent.purple', 'purple')}`,
+	border: `${token('border.width.selected')} solid ${token('color.border.accent.purple')}`,
 	padding: 'space.200',
 	borderRadius: 'radius.xlarge',
 	height: '100%', // ensure all grid items are the same height regardless of content
@@ -100,12 +99,12 @@ const solutionLabelStyles = css({
 
 const solutionLabelColorStyles: Record<Solution, SerializedStyles> = {
 	pdnd: css({
-		color: token('color.text.discovery', 'purple'),
-		borderColor: token('color.border.discovery', 'purple'),
+		color: token('color.text.discovery'),
+		borderColor: token('color.border.discovery'),
 	}),
 	rbd: css({
-		color: token('color.text.accent.magenta', 'magenta'),
-		borderColor: token('color.border.accent.magenta', 'magenta'),
+		color: token('color.text.accent.magenta'),
+		borderColor: token('color.border.accent.magenta'),
 	}),
 };
 
@@ -122,7 +121,7 @@ const tableStyles = css({
 });
 
 const itemCaptionHeadingStyles = css({
-	fontWeight: token('font.weight.bold', 'bold'),
+	fontWeight: token('font.weight.bold'),
 });
 
 const itemCaptionTableRowStyles = css({
@@ -181,9 +180,8 @@ function ItemCaption({
 }
 
 const bigTitleStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	font: token('font.heading.xxlarge', fontFallback.heading.xxlarge),
-	fontWeight: token('font.weight.bold', 'bold'),
+	font: token('font.heading.xxlarge'),
+	fontWeight: token('font.weight.bold'),
 	margin: 0,
 });
 
@@ -208,9 +206,8 @@ const sectionHeaderStyles = xcss({
 });
 
 const sectionHeaderDescriptionStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	font: token('font.heading.medium', fontFallback.heading.medium),
-	color: token('color.text.subtle', 'currentColor'),
+	font: token('font.heading.medium'),
+	color: token('color.text.subtle'),
 });
 
 function SectionHeader({
@@ -243,16 +240,14 @@ const subSectionHeaderStyles = xcss({
 });
 
 const subSectionHeaderTitleStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	font: token('font.heading.large', fontFallback.heading.large),
-	fontWeight: token('font.weight.bold', 'bold'),
+	font: token('font.heading.large'),
+	fontWeight: token('font.weight.bold'),
 });
 
 const subSectionHeaderDescriptionStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	font: token('font.body.large', fontFallback.body.large),
-	fontWeight: token('font.weight.medium', 'medium'),
-	color: token('color.text.subtle', 'currentColor'),
+	font: token('font.body.large'),
+	fontWeight: token('font.weight.medium'),
+	color: token('color.text.subtle'),
 	maxWidth: '70ch',
 	marginInline: 'auto',
 });
@@ -312,7 +307,7 @@ export default function ListComparison(): React.JSX.Element {
 
 					<Grid>
 						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
-							<Item borderColor={token('color.border.accent.magenta', 'magenta')}>
+							<Item borderColor={token('color.border.accent.magenta')}>
 								<ItemPreview>
 									<PinnedFieldReactBeautifulDnd />
 									<SubtaskReactBeautifulDnd />
@@ -512,7 +507,7 @@ export default function ListComparison(): React.JSX.Element {
 					</Grid>
 				</Section>
 
-				<Section backgroundColor={token('color.background.success', '')}>
+				<Section backgroundColor={token('color.background.success')}>
 					<SectionHeader
 						elementBefore={
 							<Lozenge appearance="success" isBold>
@@ -525,7 +520,7 @@ export default function ListComparison(): React.JSX.Element {
 
 					<Grid>
 						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
-							<Item borderColor={token('color.border.success', undefined)}>
+							<Item borderColor={token('color.border.success')}>
 								<ItemPreview>
 									{/* <PinnedFieldsEnhancedDragHandleHidden /> */}
 									{/* <PinnedFieldsPdndEnhanced /> */}
@@ -571,7 +566,7 @@ export default function ListComparison(): React.JSX.Element {
 													// eslint-disable-next-line @atlaskit/design-system/consistent-css-prop-usage
 													css={{
 														'> tr:nth-of-type(2n)': {
-															background: token('color.background.neutral', ''),
+															background: token('color.background.neutral'),
 														},
 													}}
 												>

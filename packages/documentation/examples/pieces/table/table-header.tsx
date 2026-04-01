@@ -86,14 +86,14 @@ function clamp({ value, min, max }: { value: number; min: number; max: number })
 }
 
 const headerDraggingStyles = css({
-	background: token('color.background.disabled', '#091E4224'),
-	color: token('color.text.disabled', '#091E424F'),
+	background: token('color.background.disabled'),
+	color: token('color.text.disabled'),
 });
 
 type ColumnType = 'first-of-many' | 'middle-of-many' | 'last-of-many' | 'only-column';
 
 const resizerStyles = css({
-	'--local-hitbox-width': token('space.300', '24px'),
+	'--local-hitbox-width': token('space.300'),
 	width: 'var(--local-hitbox-width)',
 	cursor: 'col-resize',
 	flexGrow: '0',
@@ -106,10 +106,10 @@ const resizerStyles = css({
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	'::before': {
 		opacity: 0,
-		'--local-line-width': token('border.width', '2px'),
+		'--local-line-width': token('border.width'),
 		content: '""',
 		position: 'absolute',
-		background: token('color.border.brand', '#0052CC'),
+		background: token('color.border.brand'),
 		// Jesse would like us to use 'color.border' for hover, then brand while resizing
 		// However,
 		// - right now that is inconsistent with our sidebar
@@ -175,7 +175,7 @@ const dropTargetStyles: {
 };
 
 const thStyles = css({
-	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border')}`,
 	// Need position:relative so our drop indicator (which uses position:absolute) can be
 	// correctly positioned inside
 	position: 'relative',
@@ -473,8 +473,8 @@ const previewStyles = xcss({
 });
 
 const previewHeaderStyles = xcss({
-	fontWeight: token('font.weight.bold', 'bold'),
-	borderBottom: `${token('border.width.selected')} solid ${token('color.border', 'red')}`,
+	fontWeight: token('font.weight.bold'),
+	borderBottom: `${token('border.width.selected')} solid ${token('color.border')}`,
 	lineHeight: '32px',
 });
 

@@ -281,8 +281,8 @@ const ListItem = memo(function ListItem({
 					setCustomNativeDragPreview({
 						nativeSetDragImage,
 						getOffset: pointerOutsideOfPreview({
-							x: token('space.200', '16px'),
-							y: token('space.100', '8px'),
+							x: token('space.200'),
+							y: token('space.100'),
 						}),
 						render({ container }) {
 							setState({ type: 'preview', container });

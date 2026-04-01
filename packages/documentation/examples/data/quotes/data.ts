@@ -1,7 +1,5 @@
 import { token } from '@atlaskit/tokens';
 
-import { fallbackColor } from '../../util/fallback';
-
 import bmoImg from './images/bmo-min.png';
 import finnImg from './images/finn-min.png';
 import jakeImg from './images/jake-min.png';
@@ -14,7 +12,7 @@ const jake: Author = {
 	url: 'http://adventuretime.wikia.com/wiki/Jake',
 	avatarUrl: jakeImg,
 	colors: {
-		soft: token('color.background.accent.orange.subtler', fallbackColor),
+		soft: token('color.background.accent.orange.subtler'),
 		hard: 'red',
 	},
 };
@@ -25,7 +23,7 @@ const BMO: Author = {
 	url: 'http://adventuretime.wikia.com/wiki/BMO',
 	avatarUrl: bmoImg,
 	colors: {
-		soft: token('color.background.accent.green.subtler', fallbackColor),
+		soft: token('color.background.accent.green.subtler'),
 		hard: 'red',
 	},
 };
@@ -36,7 +34,7 @@ const finn: Author = {
 	url: 'http://adventuretime.wikia.com/wiki/Finn',
 	avatarUrl: finnImg,
 	colors: {
-		soft: token('color.background.accent.blue.subtler', fallbackColor),
+		soft: token('color.background.accent.blue.subtler'),
 		hard: 'red',
 	},
 };
@@ -47,7 +45,7 @@ const princess: Author = {
 	url: 'http://adventuretime.wikia.com/wiki/Princess_Bubblegum',
 	avatarUrl: princessImg,
 	colors: {
-		soft: token('color.background.accent.purple.subtler', fallbackColor),
+		soft: token('color.background.accent.purple.subtler'),
 		hard: 'red',
 	},
 };

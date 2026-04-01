@@ -45,7 +45,7 @@ const columnStyles = css({
 	display: 'flex',
 	width: 300,
 	flexDirection: 'column',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: token('radius.large'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
@@ -73,7 +73,7 @@ const columnHeaderStyles = css({
 	justifyContent: 'space-between',
 	alignItems: 'center',
 	flexDirection: 'row',
-	color: token('color.text.subtlest', '#626F86'),
+	color: token('color.text.subtlest'),
 	userSelect: 'none',
 	cursor: 'grab',
 });
@@ -97,7 +97,7 @@ const isDraggingState: DraggableState = { type: 'is-dragging' };
 
 const stateStyles: Partial<Record<DropTargetState['type'], SerializedStyles>> = {
 	'is-card-over': css({
-		background: token('color.background.selected.hovered', '#CCE0FF'),
+		background: token('color.background.selected.hovered'),
 	}),
 };
 
@@ -254,7 +254,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 
 const previewStyles = css({
 	width: 250,
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: token('radius.large'),
 	padding: token('space.200'),
 });

@@ -20,7 +20,7 @@ const columnStyles = css({
 	display: 'flex',
 	width: 250,
 	flexDirection: 'column',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'calc(var(--grid) * 2)',
 	position: 'relative',
 	overflow: 'hidden',
@@ -28,10 +28,7 @@ const columnStyles = css({
 });
 
 const columnDraggingStyles = css({
-	boxShadow: token(
-		'elevation.shadow.overlay',
-		'0px 8px 12px rgba(9, 30, 66, 0.15),0px 0px 1px rgba(9, 30, 66, 0.31)',
-	),
+	boxShadow: token('elevation.shadow.overlay'),
 });
 
 const scrollContainerStyles = css({
@@ -54,17 +51,17 @@ const columnHeaderStyles = css({
 	padding: 'calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 1)',
 	justifyContent: 'space-between',
 	flexDirection: 'row',
-	color: token('color.text.subtlest', '#626F86'),
+	color: token('color.text.subtlest'),
 	userSelect: 'none',
 });
 
 const columnHeaderIdStyles = css({
-	color: token('color.text.disabled', '#091E424F'),
+	color: token('color.text.disabled'),
 	fontSize: '10px',
 });
 
 const isDraggingOverColumnStyles = css({
-	background: token('color.background.selected.hovered', '#CCE0FF'),
+	background: token('color.background.selected.hovered'),
 });
 
 type ColumnProps = {

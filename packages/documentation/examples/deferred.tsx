@@ -11,7 +11,6 @@ import { css, jsx } from '@emotion/react';
 import { token } from '@atlaskit/tokens';
 import { importForInteraction, waitForAllResources } from '@atlassian/react-async';
 
-import { fallbackColor } from './util/fallback';
 import { GlobalStyles } from './util/global-styles';
 
 const fileStyles = css({
@@ -19,24 +18,19 @@ const fileStyles = css({
 	padding: 'calc(var(--grid) * 6) calc(var(--grid) * 4)',
 	alignItems: 'center',
 	justifyContent: 'center',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('elevation.surface.sunken', fallbackColor),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'var(--border-radius)',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	color: token('color.text.disabled', fallbackColor),
+	color: token('color.text.disabled'),
 	fontSize: '1.4rem',
 });
 
 const overStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('color.background.selected.hovered', fallbackColor),
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	color: token('color.text.selected', fallbackColor),
+	background: token('color.background.selected.hovered'),
+	color: token('color.text.selected'),
 });
 
 const potentialStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('color.background.discovery', fallbackColor),
+	background: token('color.background.discovery'),
 });
 
 const appStyles = css({

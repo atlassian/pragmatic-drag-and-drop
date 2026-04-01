@@ -47,8 +47,8 @@ export function EntireEntityIsDraggableWithDragHandleButton(): React.JSX.Element
 			onGenerateDragPreview({ nativeSetDragImage }) {
 				setCustomNativeDragPreview({
 					getOffset: pointerOutsideOfPreview({
-						x: token('space.200', '16px'),
-						y: token('space.100', '8px'),
+						x: token('space.200'),
+						y: token('space.100'),
 					}),
 					nativeSetDragImage,
 					render({ container }) {

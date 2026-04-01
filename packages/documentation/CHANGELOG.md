@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 1.4.18
+
+### Patch Changes
+
+- [`be5ff878b4b9a`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/be5ff878b4b9a) -
+  Internal changes to remove unnecessary token fallbacks and imports from `@atlaskit/theme`
+
 ## 1.4.17
 
 ### Patch Changes

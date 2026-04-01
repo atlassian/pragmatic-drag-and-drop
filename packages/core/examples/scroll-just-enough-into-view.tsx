@@ -13,7 +13,6 @@ import { token } from '@atlaskit/tokens';
 import { draggable, dropTargetForElements } from '../src/entry-point/element/adapter';
 import { scrollJustEnoughIntoView } from '../src/public-utils/element/scroll-just-enough-into-view';
 
-import { fallbackColor } from './_util/fallback';
 import { GlobalStyles } from './_util/global-styles';
 
 const cardHeight = 48;
@@ -24,10 +23,8 @@ const cardStyles = css({
 	display: 'flex',
 	flexShrink: 0,
 	alignItems: 'center',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	boxShadow: token('elevation.shadow.raised', fallbackColor),
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('elevation.surface.raised', fallbackColor),
+	boxShadow: token('elevation.shadow.raised'),
+	background: token('elevation.surface.raised'),
 	width: '100%',
 	justifyContent: 'center',
 	borderRadius: 'var(--border-radius)',

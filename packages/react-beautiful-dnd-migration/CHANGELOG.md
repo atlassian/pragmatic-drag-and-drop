@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 2.0.16
+
+### Patch Changes
+
+- [`be5ff878b4b9a`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/be5ff878b4b9a) -
+  Internal changes to remove unnecessary token fallbacks and imports from `@atlaskit/theme`
+- Updated dependencies
+
 ## 2.0.15
 
 ### Patch Changes

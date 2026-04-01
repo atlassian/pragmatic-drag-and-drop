@@ -44,7 +44,7 @@ const treeStyles = css({
 	width: 280,
 	padding: 8,
 	flexDirection: 'column',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 });
 
 type CleanupFn = () => void;

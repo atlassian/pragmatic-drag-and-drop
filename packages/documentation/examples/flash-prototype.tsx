@@ -49,7 +49,7 @@ export default function PostDropFlashPrototype(): React.JSX.Element {
 			element.animate(
 				[
 					{
-						backgroundColor: token('color.background.selected', 'transparent'),
+						backgroundColor: token('color.background.selected'),
 					},
 					{},
 				],

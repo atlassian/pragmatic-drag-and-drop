@@ -24,7 +24,7 @@ export function useFlashOnDrop({
 			return;
 		}
 
-		element.animate([{ background: token('color.background.selected', 'transparent') }, {}], {
+		element.animate([{ background: token('color.background.selected') }, {}], {
 			duration: durations.medium,
 			iterations: 1,
 		});

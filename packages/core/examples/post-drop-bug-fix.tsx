@@ -21,7 +21,6 @@ import { dropTargetForTextSelection } from '../src/entry-point/text-selection/ad
 import { combine } from '../src/public-utils/combine';
 import { reorder } from '../src/public-utils/reorder';
 
-import { fallbackColor } from './_util/fallback';
 import { GlobalStyles } from './_util/global-styles';
 
 // I was hoping to use this example for browser testing,
@@ -42,19 +41,17 @@ const interactiveStyles = css({
 	},
 	'&:hover::before': {
 		content: '":hover"',
-		background: token('color.background.accent.green.subtler', 'transparent'),
+		background: token('color.background.accent.green.subtler'),
 	},
 	'&:active::before': {
 		content: '":active"',
-		background: token('color.background.accent.blue.subtler', 'transparent'),
+		background: token('color.background.accent.blue.subtler'),
 	},
 });
 
 const cardStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	boxShadow: token('elevation.shadow.raised', fallbackColor),
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('elevation.surface.raised', fallbackColor),
+	boxShadow: token('elevation.shadow.raised'),
+	background: token('elevation.surface.raised'),
 	justifyContent: 'center',
 	borderRadius: 'var(--border-radius)',
 	padding: 'var(--grid)',
@@ -73,7 +70,7 @@ const listStyles = css({
 	width: 240,
 	margin: '0 auto',
 	padding: 'calc(var(--grid) * 6)',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 
 	height: '500px',
 	overflow: 'scroll',
@@ -95,7 +92,7 @@ const listStyles = css({
 const TypeContext = createContext<string>('unknown');
 
 const isOverCardStyles = css({
-	background: token('color.interaction.hovered', 'transparent'),
+	background: token('color.interaction.hovered'),
 });
 
 function Card({

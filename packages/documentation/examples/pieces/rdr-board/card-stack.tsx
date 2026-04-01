@@ -12,7 +12,7 @@ import Badge from '@atlaskit/badge';
 import { token } from '@atlaskit/tokens';
 
 const sharedCardStyles = css({
-	background: token('elevation.surface.raised', '#FFF'),
+	background: token('elevation.surface.raised'),
 	borderRadius: 3,
 });
 
@@ -28,7 +28,7 @@ const secondCardStyles = css({
 	//   'elevation.shadow.raised',
 	// )}`,
 
-	boxShadow: token('elevation.shadow.raised', '0px 1px 1px #091e423f, 0px 0px 1px #091e4221'),
+	boxShadow: token('elevation.shadow.raised'),
 });
 
 const secondCardInnerStyles = css({

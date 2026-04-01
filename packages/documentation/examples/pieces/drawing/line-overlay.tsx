@@ -26,7 +26,7 @@ const lineOverlayStyles = css({
 	top: 0,
 	left: 0,
 	pointerEvents: 'none',
-	stroke: token('color.border.bold', '#738496'),
+	stroke: token('color.border.bold'),
 	strokeWidth: 4,
 });
 
@@ -40,7 +40,7 @@ const activeLineStyles = css({
 	animationDuration: '250ms',
 	animationTimingFunction: 'linear',
 	animationIterationCount: 'infinite',
-	stroke: token('color.border.selected', '#579DFF'),
+	stroke: token('color.border.selected'),
 	strokeDasharray: '16px 8px',
 });
 

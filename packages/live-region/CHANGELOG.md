@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-live-region
 
+## 1.3.4
+
+### Patch Changes
+
+- [`be5ff878b4b9a`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/be5ff878b4b9a) -
+  Internal changes to remove unnecessary token fallbacks and imports from `@atlaskit/theme`
+
 ## 1.3.3
 
 ### Patch Changes

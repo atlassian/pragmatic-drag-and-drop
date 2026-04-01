@@ -37,7 +37,7 @@ import { type TreeItem as TreeItemType } from '../../data/tree-legacy';
 import { MoveDialog } from './move-dialog';
 import { DependencyContext, TreeContext } from './tree-context';
 
-const iconColor = token('color.icon', '#44546F');
+const iconColor = token('color.icon');
 
 function ChildIcon() {
 	return (
@@ -68,7 +68,7 @@ const outerButtonStyles = css({
 	/**
 	 * Without this Safari renders white text on drag.
 	 */
-	color: token('color.text', 'currentColor'),
+	color: token('color.text'),
 
 	border: 0,
 	width: '100%',
@@ -85,7 +85,7 @@ const outerHoverStyles = css({
 	cursor: 'pointer',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':hover': {
-		background: token('color.background.neutral.subtle.hovered', 'rgba(9, 30, 66, 0.06)'),
+		background: token('color.background.neutral.subtle.hovered'),
 	},
 });
 
@@ -100,13 +100,13 @@ const innerButtonStyles = css({
 	display: 'flex',
 	flexDirection: 'row',
 
-	background: token('color.background.neutral.subtle', 'transparent'),
+	background: token('color.background.neutral.subtle'),
 	borderRadius: 3,
 });
 
 const idStyles = css({
 	margin: 0,
-	color: token('color.text.disabled', '#8993A5'),
+	color: token('color.text.disabled'),
 });
 
 const labelStyles = css({
@@ -129,7 +129,7 @@ const fullWidthStyle = css({
 });
 
 const previewStyles = css({
-	background: token('elevation.surface.raised', 'red'),
+	background: token('elevation.surface.raised'),
 	padding: token('space.100'),
 	borderRadius: 3,
 });
@@ -390,7 +390,7 @@ const TreeItem = memo(function TreeItem({
 							iconBefore={
 								<MoreIcon
 									label="Actions"
-									color={token('color.icon.subtle', '#626F86')}
+									color={token('color.icon.subtle')}
 									size="small"
 								/>
 							}

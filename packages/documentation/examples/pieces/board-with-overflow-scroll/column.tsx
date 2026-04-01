@@ -40,12 +40,12 @@ const columnStyles = css({
 	width: 250,
 	flexShrink: 0, // locking the column widths to force container scrolling
 	flexDirection: 'column',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'calc(var(--grid) * 2)',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `background ${durations.medium}ms ${easeInOut}`,
 	position: 'relative',
-	paddingBottom: token('space.600', '0'), // a fake footer for now
+	paddingBottom: token('space.600'), // a fake footer for now
 });
 
 const scrollContainerStyles = css({
@@ -69,7 +69,7 @@ const columnHeaderStyles = css({
 	padding: 'calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 1)',
 	justifyContent: 'space-between',
 	flexDirection: 'row',
-	color: token('color.text.subtlest', '#626F86'),
+	color: token('color.text.subtlest'),
 	userSelect: 'none',
 });
 
@@ -88,7 +88,7 @@ const stateStyles: { [key in State['type']]: SerializedStyles | undefined } = {
 	idle: undefined,
 	'is-column-over': undefined,
 	'is-card-over': css({
-		background: token('color.background.selected.hovered', '#CCE0FF'),
+		background: token('color.background.selected.hovered'),
 	}),
 	/**
 	 * **Browser bug workaround**
@@ -270,7 +270,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 const previewStyles = css({
 	'--grid': '8px',
 	width: 250,
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'calc(var(--grid) * 2)',
 	padding: 'calc(var(--grid) * 2)',
 });

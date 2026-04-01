@@ -15,7 +15,6 @@ import { dropTargetForExternal, monitorForExternal } from '../src/entry-point/ex
 import { containsFiles, getFiles } from '../src/entry-point/external/file';
 import { preventUnhandled } from '../src/entry-point/prevent-unhandled';
 
-import { fallbackColor } from './_util/fallback';
 import { GlobalStyles } from './_util/global-styles';
 
 const fileStyles = css({
@@ -24,23 +23,23 @@ const fileStyles = css({
 	alignItems: 'center',
 	justifyContent: 'center',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('elevation.surface.sunken', fallbackColor),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'var(--border-radius)',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	color: token('color.text.disabled', fallbackColor),
+	color: token('color.text.disabled'),
 	fontSize: '1.4rem',
 });
 
 const overStyles = css({
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('color.background.selected.hovered', fallbackColor),
+	background: token('color.background.selected.hovered'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	color: token('color.text.selected', fallbackColor),
+	color: token('color.text.selected'),
 });
 
 const potentialStyles = css({
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
-	background: token('color.background.discovery', fallbackColor),
+	background: token('color.background.discovery'),
 });
 
 const appStyles = css({

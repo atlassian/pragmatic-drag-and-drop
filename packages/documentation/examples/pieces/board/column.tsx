@@ -309,7 +309,7 @@ export const Column = memo(function Column({ column }: { column: ColumnType }) {
 					</Stack>
 				</Stack>
 				{state.type === 'is-column-over' && state.closestEdge && (
-					<DropIndicator edge={state.closestEdge} gap={token('space.200', '0')} />
+					<DropIndicator edge={state.closestEdge} gap={token('space.200')} />
 				)}
 			</Flex>
 			{state.type === 'generate-safari-column-preview'

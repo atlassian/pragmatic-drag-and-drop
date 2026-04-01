@@ -143,17 +143,17 @@ const fileStyles = css({
 	boxSizing: 'border-box',
 	alignItems: 'center',
 	justifyContent: 'center',
-	background: token('elevation.surface.sunken', '#091E4208'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'var(--border-radius)',
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.medium}ms ${easeInOut}`,
 	border: `${token('border.width.selected')} dashed transparent`,
 	width: '100%',
-	gap: token('space.300', '24px'),
+	gap: token('space.300'),
 });
 
 const textStyles = css({
-	color: token('color.text.disabled', '#091E424F'),
+	color: token('color.text.disabled'),
 	fontSize: '1.4rem',
 	display: 'flex',
 	alignItems: 'center',
@@ -161,13 +161,13 @@ const textStyles = css({
 });
 
 const overStyles = css({
-	background: token('color.background.selected.hovered', '#CCE0FF'),
-	color: token('color.text.selected', '#0C66E4'),
-	borderColor: token('color.border.brand', '#0C66E4'),
+	background: token('color.background.selected.hovered'),
+	color: token('color.text.selected'),
+	borderColor: token('color.border.brand'),
 });
 
 const potentialStyles = css({
-	borderColor: token('color.border.brand', '#0C66E4'),
+	borderColor: token('color.border.brand'),
 });
 
 const appStyles = css({

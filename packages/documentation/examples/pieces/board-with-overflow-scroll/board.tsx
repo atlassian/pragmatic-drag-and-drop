@@ -32,7 +32,7 @@ const boardStyles = css({
 });
 
 const scrollContainerStyles = css({
-	border: `${token('border.width', '2px')} solid ${token('color.chart.purple.bold', 'purple')}`,
+	border: `${token('border.width')} solid ${token('color.chart.purple.bold')}`,
 	// maxWidth: 600,
 	maxWidth: '80vw',
 	overflowY: 'auto',

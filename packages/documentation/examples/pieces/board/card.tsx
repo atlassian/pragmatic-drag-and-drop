@@ -220,7 +220,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 					<LazyDropdownItems userId={userId} />
 				</DropdownMenu>
 			</Box>
-			{closestEdge && <DropIndicator edge={closestEdge} gap={token('space.100', '0')} />}
+			{closestEdge && <DropIndicator edge={closestEdge} gap={token('space.100')} />}
 		</Grid>
 	);
 });

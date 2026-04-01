@@ -29,8 +29,8 @@ const cardStyles = css({
 	width: 200,
 	marginBottom: 'var(--grid)',
 	padding: 'var(--grid)',
-	backgroundColor: token('elevation.surface.raised', '#FFF'),
-	boxShadow: token('elevation.shadow.raised', '0px 1px 1px #091E4240, 0px 0px 1px #091E424F'),
+	backgroundColor: token('elevation.surface.raised'),
+	boxShadow: token('elevation.shadow.raised'),
 	borderRadius: 3,
 });
 

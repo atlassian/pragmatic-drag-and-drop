@@ -22,10 +22,7 @@ const cardStyles = css({
 	padding: '16px 20px',
 	backgroundColor: token('elevation.surface.raised'),
 	borderRadius: 3,
-	boxShadow: token(
-		'elevation.shadow.raised',
-		'rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.31) 0px 0px 1px',
-	),
+	boxShadow: token('elevation.shadow.raised'),
 	placeItems: 'center',
 	position: 'relative',
 });

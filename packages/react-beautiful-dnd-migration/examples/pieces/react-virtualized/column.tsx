@@ -22,7 +22,7 @@ const columnStyles = css({
 	display: 'flex',
 	width: 250,
 	flexDirection: 'column',
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 'calc(var(--grid) * 2)',
 	position: 'relative',
 	overflow: 'hidden',
@@ -35,12 +35,12 @@ const columnHeaderStyles = css({
 	padding: 'calc(var(--grid) * 2) calc(var(--grid) * 2) calc(var(--grid) * 1)',
 	justifyContent: 'space-between',
 	flexDirection: 'row',
-	color: token('color.text.subtlest', '#626F86'),
+	color: token('color.text.subtlest'),
 	userSelect: 'none',
 });
 
 const columnHeaderIdStyles = css({
-	color: token('color.text.disabled', '#091E424F'),
+	color: token('color.text.disabled'),
 	fontSize: '10px',
 });
 
@@ -89,7 +89,7 @@ export const Column = memo(({ column, droppableId, index }: ColumnProps): React.
 								};
 
 								if (snapshot.isDraggingOver) {
-									style.background = token('color.background.selected.hovered', '#CCE0FF');
+									style.background = token('color.background.selected.hovered');
 								}
 
 								return (

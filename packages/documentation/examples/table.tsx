@@ -41,7 +41,7 @@ const tableStyles = css({
 });
 
 const tableHeaderStyles = css({
-	background: token('elevation.surface', '#FFF'),
+	background: token('elevation.surface'),
 	borderBottom: `${token('border.width.selected')} solid`,
 	position: 'sticky',
 	top: 0,

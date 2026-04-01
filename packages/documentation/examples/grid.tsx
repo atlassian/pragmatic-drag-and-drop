@@ -36,10 +36,10 @@ const itemStyles = css({
 	objectFit: 'cover',
 	width: '100%',
 	boxSizing: 'border-box',
-	background: token('elevation.surface.raised', '#FFF'),
-	padding: token('space.050', '4px'),
+	background: token('elevation.surface.raised'),
+	padding: token('space.050'),
 	borderRadius: token('radius.small', '4px'),
-	boxShadow: token('elevation.shadow.raised', 'none'),
+	boxShadow: token('elevation.shadow.raised'),
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.small}ms ${easeInOut}`,
 	'-webkit-touch-callout': 'none', // needed to avoid a "save image" popup on iOS
@@ -51,8 +51,8 @@ const itemStateStyles: { [Key in State]: undefined | SerializedStyles } = {
 	idle: css({
 		// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 		':hover': {
-			background: token('elevation.surface.overlay', '#FFF'),
-			boxShadow: token('elevation.shadow.overlay', 'none'),
+			background: token('elevation.surface.overlay'),
+			boxShadow: token('elevation.shadow.overlay'),
 		},
 	}),
 	dragging: css({
@@ -61,7 +61,7 @@ const itemStateStyles: { [Key in State]: undefined | SerializedStyles } = {
 	over: css({
 		transform: 'scale(1.1) rotate(8deg)',
 		filter: 'brightness(1.15)',
-		boxShadow: token('elevation.shadow.overlay', 'none'),
+		boxShadow: token('elevation.shadow.overlay'),
 	}),
 };
 

@@ -16,7 +16,7 @@ const itemInfoStyles = css({
 	width: '-webkit-fill-available',
 	padding: 24,
 	gap: 8,
-	background: token('elevation.surface.sunken', '#F7F8F9'),
+	background: token('elevation.surface.sunken'),
 	borderRadius: 4,
 });
 
@@ -41,8 +41,8 @@ const fileDropZoneStyles = css({
 	alignItems: 'flex-start',
 	gap: 16,
 	flexDirection: 'column',
-	background: token('elevation.surface', '#FFF'),
-	border: `${token('border.width.selected')} solid ${token('color.border', '#091E4224')}`,
+	background: token('elevation.surface'),
+	border: `${token('border.width.selected')} solid ${token('color.border')}`,
 	borderRadius: 6,
 });
 

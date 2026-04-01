@@ -36,7 +36,7 @@ const rowStyles = css({
 	// Needed for our drop indicator
 	position: 'relative',
 	'&:hover': {
-		background: token('color.background.input.hovered', 'red'),
+		background: token('color.background.input.hovered'),
 	},
 });
 
@@ -106,8 +106,8 @@ export const Row = memo(function Row({
 					// We need to make sure that the element not obfuscated by the sticky header
 					setCustomNativeDragPreview({
 						getOffset: pointerOutsideOfPreview({
-							x: token('space.250', '0'),
-							y: token('space.250', '0'),
+							x: token('space.250'),
+							y: token('space.250'),
 						}),
 						render({ container }) {
 							setState({ type: 'preview', container });

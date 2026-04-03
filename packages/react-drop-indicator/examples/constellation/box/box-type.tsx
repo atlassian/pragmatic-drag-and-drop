@@ -17,7 +17,7 @@ const layoutStyles = css({
 	maxWidth: '300px',
 });
 
-export function TypeExample() {
+export function TypeExample(): JSX.Element {
 	return (
 		<div css={layoutStyles}>
 			<Item

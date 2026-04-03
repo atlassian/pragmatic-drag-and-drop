@@ -14,7 +14,7 @@ const layoutStyles = css({
 	flexWrap: 'wrap',
 });
 
-const Layout = ({ children, testId }: { children: ReactNode; testId?: string }) => {
+const Layout = ({ children, testId }: { children: ReactNode; testId?: string }): JSX.Element => {
 	return (
 		<div css={layoutStyles} data-testid={testId}>
 			{children}

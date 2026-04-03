@@ -19,7 +19,10 @@ function createCleanupManager() {
 	return { setCleanupFn, runCleanupFn };
 }
 
-export function useCleanupFn() {
+export function useCleanupFn(): {
+    setCleanupFn: (newCleanupFn: CleanupFn) => void;
+    runCleanupFn: () => void;
+} {
 	const [cleanupManager] = useState(createCleanupManager);
 
 	/**

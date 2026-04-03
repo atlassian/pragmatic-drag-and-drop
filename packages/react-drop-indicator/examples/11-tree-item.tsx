@@ -61,7 +61,7 @@ const blocked = instructions.map((instruction) => {
 
 const all: Instruction[] = [...instructions, ...blocked];
 
-export default function Example({ direction = 'ltr' }: { direction: 'ltr' | 'rtl' }) {
+export default function Example({ direction = 'ltr' }: { direction: 'ltr' | 'rtl' }): JSX.Element {
 	return (
 		<React.StrictMode>
 			<div dir={direction}>
@@ -78,6 +78,6 @@ export default function Example({ direction = 'ltr' }: { direction: 'ltr' | 'rtl
 }
 
 // For VR testing
-export function RTLTree() {
+export function RTLTree(): JSX.Element {
 	return <Example direction="rtl" />;
 }

@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, type Provider } from 'react';
 
 import type { Direction, DroppableMode } from 'react-beautiful-dnd';
 
@@ -15,12 +15,12 @@ export type DroppableContextProps = {
 
 const DroppableContext = createContext<DroppableContextProps | null>(null);
 
-export const DroppableContextProvider = DroppableContext.Provider;
+export const DroppableContextProvider: Provider<DroppableContextProps | null> = DroppableContext.Provider;
 
 /**
  * Intended for use by `<Draggable>` instances.
  */
-export function useDroppableContext() {
+export function useDroppableContext(): DroppableContextProps {
 	const value = useContext(DroppableContext);
 	rbdInvariant(value, 'Missing <Droppable /> parent');
 
@@ -32,7 +32,7 @@ export function useDroppableContext() {
  *
  * Intended for use only by `<Droppable>` instances.
  */
-export function useParentDroppableId() {
+export function useParentDroppableId(): string | null {
 	const parentDroppable = useContext(DroppableContext);
 	if (!parentDroppable) {
 		return null;

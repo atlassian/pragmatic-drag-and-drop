@@ -72,7 +72,7 @@ export function List({
 	orientation?: Orientation;
 	gap?: string;
 	indicator?: ReactNode;
-}) {
+}): JSX.Element {
 	const [items] = useState<TItem[]>(() => getItems({ amount }));
 	return (
 		<div

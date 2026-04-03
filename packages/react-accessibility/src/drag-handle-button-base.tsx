@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { forwardRef } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -60,7 +60,7 @@ const buttonAppearanceStyles: Record<DragHandleButtonAppearance, SerializedStyle
  * This component uses a native button because the `@atlaskit/button`
  * cancels `mouseDown` events, which prevents dragging.
  */
-export const DragHandleButtonBase = forwardRef<
+export const DragHandleButtonBase: ForwardRefExoticComponent<Omit<DragHandleButtonProps, "label"> & RefAttributes<HTMLButtonElement>> = forwardRef<
 	HTMLButtonElement,
 	Omit<DragHandleButtonProps, 'label'>
 >(function DragHandleButton(

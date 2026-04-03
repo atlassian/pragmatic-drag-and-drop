@@ -23,7 +23,7 @@ const outerStyles = css({
 const maxLevels = 6;
 const indentPerLevel = token('space.500');
 
-export function IndentExample() {
+export function IndentExample(): JSX.Element {
 	const [level, setLevel] = useState<number>(0);
 
 	// A little animation to show off the line shifting between points

@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, type Context } from 'react';
 
 import { type autoScrollForElements } from '../../src/entry-point/element';
 
@@ -7,4 +7,4 @@ export type TBoardContext = {
 	autoScrollBoard: typeof autoScrollForElements;
 };
 
-export const BoardContext = createContext<TBoardContext | null>(null);
+export const BoardContext: Context<TBoardContext | null> = createContext<TBoardContext | null>(null);

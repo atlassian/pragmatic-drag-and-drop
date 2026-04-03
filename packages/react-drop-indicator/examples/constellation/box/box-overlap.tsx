@@ -40,7 +40,7 @@ const appTileStyles = css({
 	borderRadius: token('radius.small'),
 });
 
-export function OverlapExample() {
+export function OverlapExample(): JSX.Element {
 	return (
 		<div css={containerStyles}>
 			<div css={listStyles}>

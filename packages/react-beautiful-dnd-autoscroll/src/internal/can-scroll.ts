@@ -26,7 +26,7 @@ type GetRemainderArgs = {
 
 // We need to figure out how much of the movement
 // cannot be done with a scroll
-export const getOverlap = (() => {
+export const getOverlap: ({ current, max, change }: GetRemainderArgs) => Position | null = (() => {
 	const getRemainder = (target: number, max: number): number => {
 		if (target < 0) {
 			return target;

@@ -19,7 +19,12 @@ const scrollWindow = (change: Position) => {
 	window.scrollBy(change.x, change.y);
 };
 
-export const createAutoScroller = () => {
+export const createAutoScroller = (): {
+    start: ({ input, behavior, }: {
+        input: Input;
+        behavior?: ScrollBehavior;
+    }) => void; updateInput: ({ input }: { input: Input; }) => void; stop: () => void;
+} => {
 	let dragging: WhileDragging = null;
 
 	function tryScroll(fakeScrollCallback?: () => void) {
@@ -100,4 +105,9 @@ export const createAutoScroller = () => {
 	return { start, updateInput, stop };
 };
 
-export const autoScroller = createAutoScroller();
+export const autoScroller: {
+    start: ({ input, behavior, }: {
+        input: Input;
+        behavior?: ScrollBehavior;
+    }) => void; updateInput: ({ input }: { input: Input; }) => void; stop: () => void;
+} = createAutoScroller();

@@ -28,7 +28,7 @@ const containerStyles = css({
 	paddingLeft: token('space.200'),
 });
 
-export default function AllExamples() {
+export default function AllExamples(): JSX.Element {
 	return (
 		<React.StrictMode>
 			<div css={containerStyles}>

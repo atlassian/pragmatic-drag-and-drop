@@ -42,7 +42,7 @@ export default function TreeItem({
 	instruction: Instruction;
 	indentPerLevel: number;
 	currentLevel: number;
-}) {
+}): JSX.Element {
 	return (
 		<div
 			css={itemStyles}

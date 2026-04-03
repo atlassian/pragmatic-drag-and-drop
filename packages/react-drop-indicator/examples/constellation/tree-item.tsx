@@ -112,7 +112,7 @@ function TreeItem({
 	);
 }
 
-export default function Example() {
+export default function Example(): JSX.Element {
 	return (
 		<Layout testId="layout--appearance">
 			<div css={containerStyles}>

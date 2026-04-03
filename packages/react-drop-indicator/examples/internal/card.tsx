@@ -27,7 +27,7 @@ const cardStyles = css({
 	position: 'relative',
 });
 
-const Card = ({ children, edge, gap, DropIndicator = defaultDropIndicator }: CardProps) => {
+const Card = ({ children, edge, gap, DropIndicator = defaultDropIndicator }: CardProps): JSX.Element => {
 	return (
 		<div css={cardStyles} data-testid="card">
 			<strong>{children}</strong>

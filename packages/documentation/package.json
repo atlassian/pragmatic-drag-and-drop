@@ -50,9 +50,5 @@
     "ts-node": "^10.9.1"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/",
-  "platform-feature-flags": {
-    "dst-a11y__replace-anchor-with-link__design-system-": {
-      "type": "boolean"
-    }
-  }
+  "platform-feature-flags": {}
 }

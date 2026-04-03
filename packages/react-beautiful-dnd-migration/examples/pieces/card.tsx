@@ -111,7 +111,7 @@ export function CardInner({
 	);
 }
 
-export const Card = memo(({ item, index, draggableId }: CardProps): React.JSX.Element => {
+export const Card: React.MemoExoticComponent<({ item, index, draggableId }: CardProps) => React.JSX.Element> = memo(({ item, index, draggableId }: CardProps): React.JSX.Element => {
 	const { Draggable } = useDependency();
 
 	return (

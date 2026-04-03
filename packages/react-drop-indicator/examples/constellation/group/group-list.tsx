@@ -29,7 +29,7 @@ const styles = css({
 	paddingLeft: token('space.100'),
 });
 
-export function GroupExample() {
+export function GroupExample(): JSX.Element {
 	return (
 		<GroupDropIndicator isActive>
 			<div css={styles}>

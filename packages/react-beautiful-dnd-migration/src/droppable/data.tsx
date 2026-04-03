@@ -5,7 +5,7 @@ import type { DroppableId } from 'react-beautiful-dnd';
 /**
  * Private symbol that is intentionally not exported from this file.
  */
-const privateKey = Symbol('DroppableData');
+const privateKey: unique symbol = Symbol('DroppableData');
 
 /**
  * Data that is attached to drags.

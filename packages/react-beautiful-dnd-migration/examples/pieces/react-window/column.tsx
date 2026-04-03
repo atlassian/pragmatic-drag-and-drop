@@ -111,7 +111,7 @@ const CardRenderer = ({
 	);
 };
 
-export const Column = memo(({ column, droppableId, index }: ColumnProps): React.JSX.Element => {
+export const Column: React.MemoExoticComponent<({ column, droppableId, index }: ColumnProps) => React.JSX.Element> = memo(({ column, droppableId, index }: ColumnProps): React.JSX.Element => {
 	const { Draggable, Droppable } = useDependency();
 
 	const columnId = column.columnId;

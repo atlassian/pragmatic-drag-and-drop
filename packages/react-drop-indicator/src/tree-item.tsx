@@ -38,7 +38,7 @@ function getElement({
 	return null;
 }
 
-export function DropIndicator({ instruction }: DropIndicatorProps) {
+export function DropIndicator({ instruction }: DropIndicatorProps): React.ReactElement<any, string | React.JSXElementConstructor<any>> | null {
 	if (instruction.type === 'instruction-blocked') {
 		return getElement({ instruction: instruction.desired, isBlocked: true });
 	}

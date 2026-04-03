@@ -27,7 +27,7 @@ const horizontalStyles = css({
 	alignItems: 'center',
 });
 
-export function GapExample() {
+export function GapExample(): JSX.Element {
 	return (
 		<Stack space="space.400">
 			<Stack space="space.100">

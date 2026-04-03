@@ -75,23 +75,23 @@ function Example(options: Partial<Options>) {
 	);
 }
 
-export default function DefaultExample() {
+export default function DefaultExample(): JSX.Element {
 	return <StrokeColorDefault />;
 }
 
-export function StrokeColorDefault() {
+export function StrokeColorDefault(): JSX.Element {
 	return <Example appearance="default" />;
 }
 
-export function StrokeColorWarning() {
+export function StrokeColorWarning(): JSX.Element {
 	return <Example appearance="warning" />;
 }
 
-export function CustomBorderRadius() {
+export function CustomBorderRadius(): JSX.Element {
 	return <Example appearance="default" borderRadius={token('radius.xlarge')} />;
 }
 
-export function Inset() {
+export function Inset(): JSX.Element {
 	return (
 		<Box padding="space.100">
 			<Inline space="space.200">

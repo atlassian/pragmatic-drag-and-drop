@@ -106,7 +106,7 @@ function Example({
 	);
 }
 
-export default function DefaultExample() {
+export default function DefaultExample(): JSX.Element {
 	return <Example edge="bottom" gap="0px" type="terminal" />;
 }
 
@@ -119,99 +119,99 @@ export default function DefaultExample() {
  * Naming convention: `Edge${edge}Type${type}Gap${gap}`
  */
 
-export function EdgeTopTypeTerminalGap0px() {
+export function EdgeTopTypeTerminalGap0px(): JSX.Element {
 	return <Example edge="top" type="terminal" gap="0px" />;
 }
 
-export function EdgeRightTypeTerminalGap0px() {
+export function EdgeRightTypeTerminalGap0px(): JSX.Element {
 	return <Example edge="right" type="terminal" gap="0px" />;
 }
 
-export function EdgeBottomTypeTerminalGap0px() {
+export function EdgeBottomTypeTerminalGap0px(): JSX.Element {
 	return <Example edge="bottom" type="terminal" gap="0px" />;
 }
 
-export function EdgeLeftTypeTerminalGap0px() {
+export function EdgeLeftTypeTerminalGap0px(): JSX.Element {
 	return <Example edge="left" type="terminal" gap="0px" />;
 }
 
-export function EdgeTopTypeTerminalGapTokenSpace100() {
+export function EdgeTopTypeTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="top" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeRightTypeTerminalGapTokenSpace100() {
+export function EdgeRightTypeTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="right" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeBottomTypeTerminalGapTokenSpace100() {
+export function EdgeBottomTypeTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="bottom" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeLeftTypeTerminalGapTokenSpace100() {
+export function EdgeLeftTypeTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="left" type="terminal" gap={token('space.100')} />;
 }
 
-export function EdgeTopTypeNoTerminalGap0px() {
+export function EdgeTopTypeNoTerminalGap0px(): JSX.Element {
 	return <Example edge="top" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeRightTypeNoTerminalGap0px() {
+export function EdgeRightTypeNoTerminalGap0px(): JSX.Element {
 	return <Example edge="right" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeBottomTypeNoTerminalGap0px() {
+export function EdgeBottomTypeNoTerminalGap0px(): JSX.Element {
 	return <Example edge="bottom" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeLeftTypeNoTerminalGap0px() {
+export function EdgeLeftTypeNoTerminalGap0px(): JSX.Element {
 	return <Example edge="left" type="no-terminal" gap="0px" />;
 }
 
-export function EdgeTopTypeNoTerminalGapTokenSpace100() {
+export function EdgeTopTypeNoTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="top" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeRightTypeNoTerminalGapTokenSpace100() {
+export function EdgeRightTypeNoTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="right" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeBottomTypeNoTerminalGapTokenSpace100() {
+export function EdgeBottomTypeNoTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="bottom" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeLeftTypeNoTerminalGapTokenSpace100() {
+export function EdgeLeftTypeNoTerminalGapTokenSpace100(): JSX.Element {
 	return <Example edge="left" type="no-terminal" gap={token('space.100')} />;
 }
 
-export function EdgeTopTypeTerminalNoBleedGap0px() {
+export function EdgeTopTypeTerminalNoBleedGap0px(): JSX.Element {
 	return <Example edge="top" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeRightTypeTerminalNoBleedGap0px() {
+export function EdgeRightTypeTerminalNoBleedGap0px(): JSX.Element {
 	return <Example edge="right" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeBottomTypeTerminalNoBleedGap0px() {
+export function EdgeBottomTypeTerminalNoBleedGap0px(): JSX.Element {
 	return <Example edge="bottom" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeLeftTypeTerminalNoBleedGap0px() {
+export function EdgeLeftTypeTerminalNoBleedGap0px(): JSX.Element {
 	return <Example edge="left" type="terminal-no-bleed" gap="0px" />;
 }
 
-export function EdgeTopTypeTerminalNoBleedGapTokenSpace100() {
+export function EdgeTopTypeTerminalNoBleedGapTokenSpace100(): JSX.Element {
 	return <Example edge="top" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeRightTypeTerminalNoBleedGapTokenSpace100() {
+export function EdgeRightTypeTerminalNoBleedGapTokenSpace100(): JSX.Element {
 	return <Example edge="right" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100() {
+export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100(): JSX.Element {
 	return <Example edge="bottom" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
-export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100() {
+export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100(): JSX.Element {
 	return <Example edge="left" type="terminal-no-bleed" gap={token('space.100')} />;
 }
 
@@ -222,22 +222,22 @@ export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100() {
  * be able to shift the line horizontally (eg in trees).
  *
  */
-export function EdgeTopTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeTopTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200(): JSX.Element {
 	return (
 		<Example edge="top" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeRightTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeRightTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200(): JSX.Element {
 	return (
 		<Example edge="right" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeBottomTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200(): JSX.Element {
 	return (
 		<Example edge="bottom" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
 }
-export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200() {
+export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200(): JSX.Element {
 	return (
 		<Example edge="left" type="terminal" gap={token('space.100')} indent={token('space.200')} />
 	);
@@ -249,11 +249,11 @@ export function EdgeLeftTypeTerminalNoBleedGapTokenSpace100IndentTokenSpace200()
  * Only running a subset of cases with a separate color to prevent combinatorial explosion
  */
 
-export function ColorWarning() {
+export function ColorWarning(): JSX.Element {
 	return <Example edge="bottom" type="terminal" gap={token('space.100')} appearance="warning" />;
 }
 
-export function ColorDiscovery() {
+export function ColorDiscovery(): JSX.Element {
 	return (
 		<Example
 			edge="bottom"

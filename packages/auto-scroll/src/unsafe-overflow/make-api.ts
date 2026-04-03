@@ -14,7 +14,9 @@ export function makeApi<DragType extends AllDragTypes>({
 	monitor,
 }: {
 	monitor: (args: MonitorArgs<DragType>) => CleanupFn;
-}) {
+}): {
+    unsafeOverflowAutoScroll: (args: UnsafeOverflowAutoScrollArgs<DragType>) => CleanupFn;
+} {
 	const ledger: Map<Element, UnsafeOverflowAutoScrollArgs<DragType>> = new Map();
 
 	function unsafeOverflowAutoScroll(args: UnsafeOverflowAutoScrollArgs<DragType>): CleanupFn {

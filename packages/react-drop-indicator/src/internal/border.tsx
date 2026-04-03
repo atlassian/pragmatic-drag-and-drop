@@ -36,7 +36,7 @@ export function Border({
 	borderRadius?: CSSSize;
 	strokeWidth?: CSSSize;
 	indent?: string;
-}) {
+}): JSX.Element {
 	return (
 		<div
 			style={

@@ -16,7 +16,7 @@ const layoutStyles = css({
 	gap: token('space.200'),
 });
 
-export function EdgeExample() {
+export function EdgeExample(): JSX.Element {
 	return (
 		<div css={layoutStyles}>
 			{(['top', 'right', 'bottom', 'left'] as const).map((edge) => (

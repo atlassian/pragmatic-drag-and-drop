@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 
 import { DragHandleButtonBase } from './drag-handle-button-base';
-import type { DragHandleButtonProps } from './types';
+import type { DragHandleButtonAppearance, DragHandleButtonProps } from './types';
 
 /**
  * A button with pre-configured styling to look like a drag handle.
@@ -11,7 +11,12 @@ import type { DragHandleButtonProps } from './types';
  * This component uses a native button because the `@atlaskit/button`
  * cancels `mouseDown` events, which prevents dragging.
  */
-export const DragHandleButton = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
+export const DragHandleButton: React.ForwardRefExoticComponent<React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    appearance?: DragHandleButtonAppearance;
+    label: string;
+    isSelected?: boolean;
+    testId?: string;
+} & React.RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
 	function DragHandleButton({ label, ...buttonProps }, ref) {
 		return (
 			<DragHandleButtonBase ref={ref} {...buttonProps}>

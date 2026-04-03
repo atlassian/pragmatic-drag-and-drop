@@ -13,14 +13,16 @@ export type Item = {
 	id: string;
 };
 
-export const defaultItems = Array.from(
+export const defaultItems: Item[] = Array.from(
 	{ length: 3 },
 	(_, index): Item => ({
 		id: `${index}`,
 	}),
 );
 
-export function renderApp(items: Item[] = defaultItems) {
+export function renderApp(items: Item[] = defaultItems): {
+    getProvided: (draggableId: string) => DraggableProvided[];
+} {
 	const spy = jest.fn();
 
 	render(

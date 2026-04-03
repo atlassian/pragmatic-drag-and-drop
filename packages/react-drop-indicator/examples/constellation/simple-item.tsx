@@ -30,7 +30,7 @@ export function Item({
 }: {
 	content: ReactNode;
 	dropIndicator?: ReactNode;
-}) {
+}): JSX.Element {
 	return (
 		<div css={relativeStyles}>
 			<div css={itemStyles}>{content}</div>

@@ -125,7 +125,7 @@ export function Line({
 	strokeColor?: CSSColor;
 	strokeWidth?: CSSSize;
 	type?: LineType;
-}) {
+}): JSX.Element {
 	const orientation = edgeToOrientationMap[edge];
 
 	return (

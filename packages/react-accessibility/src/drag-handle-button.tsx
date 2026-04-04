@@ -11,17 +11,20 @@ import type { DragHandleButtonAppearance, DragHandleButtonProps } from './types'
  * This component uses a native button because the `@atlaskit/button`
  * cancels `mouseDown` events, which prevents dragging.
  */
-export const DragHandleButton: React.ForwardRefExoticComponent<React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    appearance?: DragHandleButtonAppearance;
-    label: string;
-    isSelected?: boolean;
-    testId?: string;
-} & React.RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
-	function DragHandleButton({ label, ...buttonProps }, ref) {
-		return (
-			<DragHandleButtonBase ref={ref} {...buttonProps}>
-				<DragHandleVerticalIcon spacing="spacious" label={label} size="small" />
-			</DragHandleButtonBase>
-		);
-	},
-);
+export const DragHandleButton: React.ForwardRefExoticComponent<
+	React.ButtonHTMLAttributes<HTMLButtonElement> & {
+		appearance?: DragHandleButtonAppearance;
+		label: string;
+		isSelected?: boolean;
+		testId?: string;
+	} & React.RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(function DragHandleButton(
+	{ label, ...buttonProps },
+	ref,
+) {
+	return (
+		<DragHandleButtonBase ref={ref} {...buttonProps}>
+			<DragHandleVerticalIcon spacing="spacious" label={label} size="small" />
+		</DragHandleButtonBase>
+	);
+});

@@ -6,4 +6,6 @@ import type { UnsafeOverflowAutoScrollArgs } from '../../unsafe-overflow/types';
 
 const api = makeApi({ monitor: monitorForTextSelection });
 
-export const unsafeOverflowAutoScrollForTextSelection: (args: UnsafeOverflowAutoScrollArgs<TextSelectionDragType>) => CleanupFn = api.unsafeOverflowAutoScroll;
+export const unsafeOverflowAutoScrollForTextSelection: (
+	args: UnsafeOverflowAutoScrollArgs<TextSelectionDragType>,
+) => CleanupFn = api.unsafeOverflowAutoScroll;

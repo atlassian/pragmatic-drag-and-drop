@@ -4,9 +4,13 @@ import { useDragDropContext } from '../drag-drop-context/internal-context';
 import { useDraggableDimensions } from '../hooks/use-captured-dimensions';
 import { attributes } from '../utils/attributes';
 
-export const Placeholder: React.MemoExoticComponent<React.ForwardRefExoticComponent<{
-    style?: React.CSSProperties;
-} & React.RefAttributes<HTMLDivElement>>> = memo(
+export const Placeholder: React.MemoExoticComponent<
+	React.ForwardRefExoticComponent<
+		{
+			style?: React.CSSProperties;
+		} & React.RefAttributes<HTMLDivElement>
+	>
+> = memo(
 	forwardRef(function Placeholder(
 		{ style: styleProp }: { style?: React.CSSProperties },
 		ref: Ref<HTMLDivElement>,

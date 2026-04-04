@@ -6,5 +6,9 @@ import { makeApi } from '../over-element/make-api';
 
 const api = makeApi({ monitor: monitorForTextSelection });
 
-export const autoScrollForTextSelection: (args: ElementAutoScrollArgs<TextSelectionDragType>) => CleanupFn = api.autoScroll;
-export const autoScrollWindowForTextSelection: (args?: WindowAutoScrollArgs<TextSelectionDragType>) => CleanupFn = api.autoScrollWindow;
+export const autoScrollForTextSelection: (
+	args: ElementAutoScrollArgs<TextSelectionDragType>,
+) => CleanupFn = api.autoScroll;
+export const autoScrollWindowForTextSelection: (
+	args?: WindowAutoScrollArgs<TextSelectionDragType>,
+) => CleanupFn = api.autoScrollWindow;

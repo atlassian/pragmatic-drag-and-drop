@@ -18,8 +18,8 @@ export function makeApi<DragType extends AllDragTypes>({
 }: {
 	monitor: (args: MonitorArgs<DragType>) => CleanupFn;
 }): {
-    autoScroll: (args: ElementAutoScrollArgs<DragType>) => CleanupFn;
-    autoScrollWindow: (args?: WindowAutoScrollArgs<DragType>) => CleanupFn;
+	autoScroll: (args: ElementAutoScrollArgs<DragType>) => CleanupFn;
+	autoScrollWindow: (args?: WindowAutoScrollArgs<DragType>) => CleanupFn;
 } {
 	const elementRegistry: Map<Element, ElementAutoScrollArgs<DragType>> = new Map();
 	const windowRegistry: Set<WindowAutoScrollArgs<DragType>> = new Set();

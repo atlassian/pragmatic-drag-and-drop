@@ -35,20 +35,23 @@ const iconSmallStylesNew = xcss({
  * - The small hitbox of `DragHandleButtonSmall` (`8px` x `16px`) is below our `24px` x `24px`
  *   minimum hit target size for accessibility. [More details](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
  */
-export const DragHandleButtonSmall: React.ForwardRefExoticComponent<React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    appearance?: DragHandleButtonAppearance;
-    label: string;
-    isSelected?: boolean;
-    testId?: string;
-} & React.RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
-	function DragHandleButton({ label, ...buttonProps }, ref) {
-		return (
-			<DragHandleButtonBase ref={ref} {...buttonProps}>
-				<Box xcss={fg('platform-component-visual-refresh') ? iconSmallStylesNew : iconSmallStyles}>
-					{/* Relying on currentColor for color */}
-					<DragHandleVerticalIcon color="currentColor" label={label} size="small" />
-				</Box>
-			</DragHandleButtonBase>
-		);
-	},
-);
+export const DragHandleButtonSmall: React.ForwardRefExoticComponent<
+	React.ButtonHTMLAttributes<HTMLButtonElement> & {
+		appearance?: DragHandleButtonAppearance;
+		label: string;
+		isSelected?: boolean;
+		testId?: string;
+	} & React.RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(function DragHandleButton(
+	{ label, ...buttonProps },
+	ref,
+) {
+	return (
+		<DragHandleButtonBase ref={ref} {...buttonProps}>
+			<Box xcss={fg('platform-component-visual-refresh') ? iconSmallStylesNew : iconSmallStyles}>
+				{/* Relying on currentColor for color */}
+				<DragHandleVerticalIcon color="currentColor" label={label} size="small" />
+			</Box>
+		</DragHandleButtonBase>
+	);
+});

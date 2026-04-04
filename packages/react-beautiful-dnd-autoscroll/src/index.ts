@@ -20,10 +20,9 @@ const scrollWindow = (change: Position) => {
 };
 
 export const createAutoScroller = (): {
-    start: ({ input, behavior, }: {
-        input: Input;
-        behavior?: ScrollBehavior;
-    }) => void; updateInput: ({ input }: { input: Input; }) => void; stop: () => void;
+	start: ({ input, behavior }: { input: Input; behavior?: ScrollBehavior }) => void;
+	updateInput: ({ input }: { input: Input }) => void;
+	stop: () => void;
 } => {
 	let dragging: WhileDragging = null;
 
@@ -106,8 +105,7 @@ export const createAutoScroller = (): {
 };
 
 export const autoScroller: {
-    start: ({ input, behavior, }: {
-        input: Input;
-        behavior?: ScrollBehavior;
-    }) => void; updateInput: ({ input }: { input: Input; }) => void; stop: () => void;
+	start: ({ input, behavior }: { input: Input; behavior?: ScrollBehavior }) => void;
+	updateInput: ({ input }: { input: Input }) => void;
+	stop: () => void;
 } = createAutoScroller();

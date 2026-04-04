@@ -6,5 +6,8 @@ import { makeApi } from '../over-element/make-api';
 
 const api = makeApi({ monitor: monitorForElements });
 
-export const autoScrollForElements: (args: ElementAutoScrollArgs<ElementDragType>) => CleanupFn = api.autoScroll;
-export const autoScrollWindowForElements: (args?: WindowAutoScrollArgs<ElementDragType>) => CleanupFn = api.autoScrollWindow;
+export const autoScrollForElements: (args: ElementAutoScrollArgs<ElementDragType>) => CleanupFn =
+	api.autoScroll;
+export const autoScrollWindowForElements: (
+	args?: WindowAutoScrollArgs<ElementDragType>,
+) => CleanupFn = api.autoScrollWindow;

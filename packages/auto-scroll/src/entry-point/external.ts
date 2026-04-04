@@ -6,5 +6,8 @@ import { makeApi } from '../over-element/make-api';
 
 const api = makeApi({ monitor: monitorForExternal });
 
-export const autoScrollForExternal: (args: ElementAutoScrollArgs<ExternalDragType>) => CleanupFn = api.autoScroll;
-export const autoScrollWindowForExternal: (args?: WindowAutoScrollArgs<ExternalDragType>) => CleanupFn = api.autoScrollWindow;
+export const autoScrollForExternal: (args: ElementAutoScrollArgs<ExternalDragType>) => CleanupFn =
+	api.autoScroll;
+export const autoScrollWindowForExternal: (
+	args?: WindowAutoScrollArgs<ExternalDragType>,
+) => CleanupFn = api.autoScrollWindow;

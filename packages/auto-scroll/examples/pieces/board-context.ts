@@ -7,4 +7,6 @@ export type TBoardContext = {
 	autoScrollBoard: typeof autoScrollForElements;
 };
 
-export const BoardContext: Context<TBoardContext | null> = createContext<TBoardContext | null>(null);
+export const BoardContext: Context<TBoardContext | null> = createContext<TBoardContext | null>(
+	null,
+);

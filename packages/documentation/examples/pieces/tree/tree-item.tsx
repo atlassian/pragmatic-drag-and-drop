@@ -388,11 +388,7 @@ const TreeItem = memo(function TreeItem({
 						<Button
 							ref={mergeRefs([triggerRef, actionMenuTriggerRef])}
 							iconBefore={
-								<MoreIcon
-									label="Actions"
-									color={token('color.icon.subtle')}
-									size="small"
-								/>
+								<MoreIcon label="Actions" color={token('color.icon.subtle')} size="small" />
 							}
 							{...triggerProps}
 							spacing="compact"

@@ -2,7 +2,12 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type ReactNode, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type ReactNode,
+	type RefAttributes,
+} from 'react';
 
 import { css, jsx } from '@compiled/react';
 
@@ -19,11 +24,13 @@ const activeStyles = css({
 /**
  * A drop indicator to be used when dragging over a group of items
  */
-export const GroupDropIndicator: ForwardRefExoticComponent<{
-    children: ReactNode;
-    isActive: boolean;
-    testId?: string;
-} & RefAttributes<HTMLDivElement>> = forwardRef<
+export const GroupDropIndicator: ForwardRefExoticComponent<
+	{
+		children: ReactNode;
+		isActive: boolean;
+		testId?: string;
+	} & RefAttributes<HTMLDivElement>
+> = forwardRef<
 	HTMLDivElement,
 	{
 		children: ReactNode;

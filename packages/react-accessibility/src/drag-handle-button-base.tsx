@@ -60,10 +60,9 @@ const buttonAppearanceStyles: Record<DragHandleButtonAppearance, SerializedStyle
  * This component uses a native button because the `@atlaskit/button`
  * cancels `mouseDown` events, which prevents dragging.
  */
-export const DragHandleButtonBase: ForwardRefExoticComponent<Omit<DragHandleButtonProps, "label"> & RefAttributes<HTMLButtonElement>> = forwardRef<
-	HTMLButtonElement,
-	Omit<DragHandleButtonProps, 'label'>
->(function DragHandleButton(
+export const DragHandleButtonBase: ForwardRefExoticComponent<
+	Omit<DragHandleButtonProps, 'label'> & RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, Omit<DragHandleButtonProps, 'label'>>(function DragHandleButton(
 	{
 		children,
 		isSelected = false,

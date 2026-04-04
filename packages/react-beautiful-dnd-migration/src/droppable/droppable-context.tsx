@@ -15,7 +15,8 @@ export type DroppableContextProps = {
 
 const DroppableContext = createContext<DroppableContextProps | null>(null);
 
-export const DroppableContextProvider: Provider<DroppableContextProps | null> = DroppableContext.Provider;
+export const DroppableContextProvider: Provider<DroppableContextProps | null> =
+	DroppableContext.Provider;
 
 /**
  * Intended for use by `<Draggable>` instances.

@@ -16,8 +16,14 @@ function withConsole(type: ConsoleFunction, fn: () => void, message?: string) {
 	mock.mockReset();
 }
 
-export const withError: (fn: () => void, message?: string | undefined) => void = withConsole.bind(null, 'error');
-export const withWarn: (fn: () => void, message?: string | undefined) => void = withConsole.bind(null, 'warn');
+export const withError: (fn: () => void, message?: string | undefined) => void = withConsole.bind(
+	null,
+	'error',
+);
+export const withWarn: (fn: () => void, message?: string | undefined) => void = withConsole.bind(
+	null,
+	'warn',
+);
 
 function withoutConsole(type: ConsoleFunction, fn: () => void) {
 	const mock = jest.spyOn(console, type).mockImplementation(noop);

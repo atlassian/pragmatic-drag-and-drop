@@ -21,7 +21,7 @@ export const defaultItems: Item[] = Array.from(
 );
 
 export function renderApp(items: Item[] = defaultItems): {
-    getProvided: (draggableId: string) => DraggableProvided[];
+	getProvided: (draggableId: string) => DraggableProvided[];
 } {
 	const spy = jest.fn();
 

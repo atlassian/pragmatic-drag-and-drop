@@ -6,4 +6,6 @@ import type { UnsafeOverflowAutoScrollArgs } from '../../unsafe-overflow/types';
 
 const api = makeApi({ monitor: monitorForExternal });
 
-export const unsafeOverflowAutoScrollForExternal: (args: UnsafeOverflowAutoScrollArgs<ExternalDragType>) => CleanupFn = api.unsafeOverflowAutoScroll;
+export const unsafeOverflowAutoScrollForExternal: (
+	args: UnsafeOverflowAutoScrollArgs<ExternalDragType>,
+) => CleanupFn = api.unsafeOverflowAutoScroll;

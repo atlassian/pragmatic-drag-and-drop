@@ -285,7 +285,7 @@ have limited control of the cursor during a drag operation. The cursor will gene
 While an item is being dragged, the original item should stay in place and dim to `40%` opacity
 (`opacity: 0.4`) while the drag preview is being moved around.
 
-![A draggable item left in place during a drag](images/design-dragging-item-in-place.png)
+![A draggable item left in place during a drag](./images/design-dragging-item-in-place.png)
 
 ### Multiple-item drag previews
 
@@ -298,7 +298,7 @@ being dragged.
 - **Any more than one large item** (card) should show as a stack with a badge indicating the number
   underneath.
 
-![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](images/design-multi-card-drag.png)
+![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](./images/design-multi-card-drag.png)
 
 Implement with
 [native drag previews](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews),
@@ -323,7 +323,7 @@ There are two signals you can use to indicate drop placement:
 The drop indicator line is used to communicate relative placement (for example, before or after an
 item in a list)
 
-![A list of items where one is being dragged over a new location. The location where the item would drop if released is marked with a blue line and dot. ](images/design-list-drop-indicator.png)
+![A list of items where one is being dragged over a new location. The location where the item would drop if released is marked with a blue line and dot. ](./images/design-list-drop-indicator.png)
 
 A drop indicator line should have the following properties:
 
@@ -352,7 +352,7 @@ A drop indicator line should _not_ be used when a draggable item is being dragge
 area where there is no relative placement possible (for example, dropping into an empty sibling
 list).
 
-![dragging over an empty column should not print a line](images/design-board-background-only.png)
+![dragging over an empty column should not print a line](./images/design-board-background-only.png)
 
 ### Background color
 
@@ -362,7 +362,7 @@ the page a draggable item can be dropped on. The droppable area that the user is
 should have its background color changed. A background color change should also occur when a
 draggable item starts in a droppable area, when there are multiple possible droppable areas.
 
-![dragging over a populated column, where a line and background color change is being displayed](images/design-board-background-and-line.png)
+![dragging over a populated column, where a line and background color change is being displayed](./images/design-board-background-and-line.png)
 
 A background color change to communicate that dropping is possible should only be applied when a
 user can perform a drop operation. Sometimes an entity (eg a column) only allows dropping on a
@@ -381,7 +381,7 @@ Background color change animation details:
 When draggable items can only be moved relatively within a single container, then no background
 color change should be used when the user is dragging something within the experience.
 
-![A list being reordered, where only a drop indication line is being shown and there is no background changes](images/design-list-drop-indicator.png)
+![A list being reordered, where only a drop indication line is being shown and there is no background changes](./images/design-list-drop-indicator.png)
 
 ### Nested structures
 
@@ -430,7 +430,7 @@ _extremely_ strong preference to provide optimistic updates.
 To improve clarity about what the user achieved, the background color of the moved item should flash
 once it has been moved.
 
-![A series of actions shown in four slides. Hover state is grey, the drag indicator appears once drag begins, upon drop the color of the item flashes blue, then returns to its normal color.](images/design-drop-flash.png).
+![A series of actions shown in four slides. Hover state is grey, the drag indicator appears once drag begins, upon drop the color of the item flashes blue, then returns to its normal color.](./images/design-drop-flash.png).
 
 We have implemented this flash in our
 [flourish package](/components/pragmatic-drag-and-drop/optional-packages/flourish) for you to use
@@ -465,14 +465,14 @@ an item is draggable.
 If the item already has a more actions (…) menu, put the move actions inside of the menu. This
 provides a keyboard accessible way to move items that doesn’t rely on mouse clicking and dragging.
 
-![A Jira work item list view where a more actions button appears on the items. The button has three dots as a label ...](images/design-more-actions-hover.png)
+![A Jira work item list view where a more actions button appears on the items. The button has three dots as a label ...](./images/design-more-actions-hover.png)
 
 ### Drag handle icon menus for move actions
 
 If the entity does not have any more actions (…), make the drag handle icon into a menu button. When
 triggered, the drag handle button opens a menu that allows the users to move the item.
 
-![A work item details view in Jira. A drag handle icon appears at the left of the assignee field. It is focussable, and opens a menu with options to move the field up or down in the view.](images/design-drag-handle-menu.png)
+![A work item details view in Jira. A drag handle icon appears at the left of the assignee field. It is focussable, and opens a menu with options to move the field up or down in the view.](./images/design-drag-handle-menu.png)
 
 Use the
 [drag handle menu component](/components/pragmatic-drag-and-drop/optional-packages/react-accessibility)
@@ -500,7 +500,7 @@ For tree items, you should use our
 <SectionMessage appearance="discovery">
 
 If you are wiring up drag and drop for our `navigation-system` side navigation,
-[we have specific guidance for you](/components/navigation-system/side-nav-items/drag-and-drop)
+[we have specific guidance for you](/components/pragmatic-drag-and-drop/examples)
 
 </SectionMessage>
 
@@ -578,7 +578,7 @@ shows where the objects are currently, and where they'll return if no drag locat
 Because cards are larger, multiple cards should be stacked under the first card in the preview. Use
 a badge to show how many items are being moved.
 
-![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](images/design-multi-card-drag.png)
+![A stack of multiple cards being dragged across a board, with a badge indicating there are two cards being moved.](./images/design-multi-card-drag.png)
 
 Checkboxes are highly recommended to show when one or more items are selected.
 
@@ -593,7 +593,7 @@ Try selecting and dragging multiple cards in the board below for an example. -->
 Use the selected background color token to indicate which items have been selected. Use drag
 previews as usual, with all items being dragged in a column in the order they’d appear when dropped.
 
-![A list of draggable items where some are selected, shown in blue.](images/design-multi-select-list.png)
+![A list of draggable items where some are selected, shown in blue.](./images/design-multi-select-list.png)
 
 For more than three or four items, show a badge indicating the number and an implied stack beneath
 the top item.

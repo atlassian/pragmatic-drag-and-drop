@@ -26,11 +26,11 @@
   "devDependencies": {
     "@atlaskit/avatar": "^25.11.0",
     "@atlaskit/badge": "^18.4.0",
-    "@atlaskit/button": "^23.10.0",
+    "@atlaskit/button": "^23.11.0",
     "@atlaskit/code": "^17.4.0",
     "@atlaskit/focus-ring": "^3.0.0",
     "@atlaskit/grid": "^0.18.0",
-    "@atlaskit/heading": "^5.3.0",
+    "@atlaskit/heading": "^5.4.0",
     "@atlaskit/icon": "^34.0.0",
     "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.1.0",

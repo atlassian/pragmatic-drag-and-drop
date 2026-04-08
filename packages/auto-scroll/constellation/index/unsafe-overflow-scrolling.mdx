@@ -129,8 +129,6 @@ setup you want, and change anything you want during a drag.
 `getOverflow()` allows you to specify how overflow scrolling should work for each edge of an
 element.
 
-![API visual explanation](images/from-top-edge-example.jpg)
-
 ```ts
 // Only allow overflow scrolling above and below an element by 400px
 unsafeOverflowAutoScrollForElements({
@@ -185,10 +183,10 @@ unsafeOverflowAutoScrollForElements({
   checkered area of the diagram below). This is so that the scroll speed inside an edge is the same
   when inside the element, or when outside the element.
 
-![Diagram of overflow scrolling logic](images/overflow-scrolling-example.jpg)
+![Diagram of overflow scrolling logic](./images/overflow-scrolling-example.jpg)
 
 ## Window scrolling
 
 Overflow scrolling is not applicable for window scrolling as the browser stops publishing events to
 the document once the user has left the window. If you want to have window scrolling, then use our
-standard approach for [registering auto scrolling for the window](../about).
+standard approach for [registering auto scrolling for the window](/components/pragmatic-drag-and-drop/optional-packages/auto-scroll/about).

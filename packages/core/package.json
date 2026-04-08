@@ -44,7 +44,7 @@
     "raf-schd": "^4.0.3"
   },
   "devDependencies": {
-    "@atlaskit/link": "^3.3.0",
+    "@atlaskit/link": "^3.4.0",
     "@emotion/react": "^11.7.1",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^16.3.0",

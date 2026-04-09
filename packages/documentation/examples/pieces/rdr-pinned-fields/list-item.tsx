@@ -80,7 +80,7 @@ const listItemPreviewStyles = xcss({
 });
 
 const labelStyles = xcss({
-	font: 'font.body.UNSAFE_small',
+	font: 'font.body.small',
 	fontWeight: 'font.weight.semibold',
 	color: 'color.text.subtle',
 });

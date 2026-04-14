@@ -45,7 +45,7 @@ function LinkToProject() {
 export default function IFrameBoard(): React.JSX.Element {
 	const theme = useThemeObserver();
 	const iframeSrc = useMemo(() => {
-		const url = new URL('/examples.html', window.location.origin);
+		const url = new URL('/example', window.location.origin);
 		url.searchParams.set('groupId', 'pragmatic-drag-and-drop');
 		url.searchParams.set('packageId', 'documentation');
 		url.searchParams.set('exampleId', 'iframe-column');

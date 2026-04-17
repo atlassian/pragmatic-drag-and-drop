@@ -4,10 +4,6 @@
  * They are defined here so the hashing algorithm doesn't need to search test files for example usage each time
  */
 {
-  "testExamples": [],
-  "exampleDependencies": [
-    "@atlaskit/code",
-    "@atlaskit/grid",
-    "memoize-one"
-  ]
+	"testExamples": [],
+	"exampleDependencies": ["@atlaskit/code", "memoize-one"],
 }

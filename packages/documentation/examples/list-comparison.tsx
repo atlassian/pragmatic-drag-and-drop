@@ -9,7 +9,6 @@ import { Fragment, type ReactNode } from 'react';
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Code from '@atlaskit/code/inline';
-import Grid, { GridItem } from '@atlaskit/grid';
 import Lozenge from '@atlaskit/lozenge';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
@@ -261,19 +260,36 @@ function SubSectionHeader({ title, description }: { title: ReactNode; descriptio
 	);
 }
 
-const containerStyles = xcss({
-	// same as grid spacing
-	// padding: 'space.400',
+const containerStyles = css({
+	paddingInline: token('space.400'),
 });
 
-const gridItem = {
-	default: {
-		span: { md: 12, lg: 8 },
-		centerStart: { md: 1, lg: 3 },
-	},
-} as const;
+const singleColumnLayoutStyles = css({
+	width: '100%',
+	maxWidth: '840px',
+	marginInline: 'auto',
+});
 
-const smallGridItemSpan = { sm: 12, md: 6 } as const;
+const twoColumnLayoutStyles = css({
+	display: 'grid',
+	gridTemplateColumns: '1fr',
+	gap: token('space.300'),
+	width: '100%',
+	maxWidth: '1120px',
+	marginInline: 'auto',
+	'@media (min-width: 64rem)': {
+		gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+	},
+});
+
+const centeredTwoColumnItemStyles = css({
+	'@media (min-width: 64rem)': {
+		gridColumn: '1 / -1',
+		maxWidth: '540px',
+		width: '100%',
+		marginInline: 'auto',
+	},
+});
 
 const tabPanelStyles = css({
 	marginTop: 16,
@@ -289,7 +305,6 @@ function TabPanel({ children, ...props }: TabPanelProps) {
 }
 
 export default function ListComparison(): React.JSX.Element {
-	// TODO: figure out which breakpoints would be nicest
 	return (
 		<Box xcss={containerStyles}>
 			<Stack space="space.0">
@@ -305,8 +320,7 @@ export default function ListComparison(): React.JSX.Element {
 						description="The drag and drop library currently being used."
 					/>
 
-					<Grid>
-						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
+						<div css={singleColumnLayoutStyles}>
 							<Item borderColor={token('color.border.accent.magenta')}>
 								<ItemPreview>
 									<PinnedFieldReactBeautifulDnd />
@@ -326,8 +340,7 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
-					</Grid>
+						</div>
 
 					<SubSectionHeader
 						title={
@@ -345,8 +358,7 @@ export default function ListComparison(): React.JSX.Element {
 						}
 					/>
 
-					<Grid>
-						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
+						<div css={singleColumnLayoutStyles}>
 							<Tabs id="default">
 								<TabList>
 									<Tab>Basic</Tab>
@@ -429,16 +441,14 @@ export default function ListComparison(): React.JSX.Element {
 									</Item>
 								</TabPanel>
 							</Tabs>
-						</GridItem>
-					</Grid>
+						</div>
 
 					<SubSectionHeader
 						title="Manual migration"
 						description="These are examples of a manual migration using our current drag and drop visual guidelines"
 					/>
 
-					<Grid>
-						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
+						<div css={singleColumnLayoutStyles}>
 							<Tabs id="manual-migration">
 								<TabList>
 									<Tab>Simplified</Tab>
@@ -503,8 +513,7 @@ export default function ListComparison(): React.JSX.Element {
 									</Item>
 								</TabPanel>
 							</Tabs>
-						</GridItem>
-					</Grid>
+						</div>
 				</Section>
 
 				<Section backgroundColor={token('color.background.success')}>
@@ -518,8 +527,7 @@ export default function ListComparison(): React.JSX.Element {
 						description="Exploring how we can evolve our current outputs and guidelines"
 					/>
 
-					<Grid>
-						<GridItem span={gridItem.default.span} start={gridItem.default.centerStart}>
+						<div css={singleColumnLayoutStyles}>
 							<Item borderColor={token('color.border.success')}>
 								<ItemPreview>
 									{/* <PinnedFieldsEnhancedDragHandleHidden /> */}
@@ -618,8 +626,7 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
-					</Grid>
+						</div>
 				</Section>
 
 				<Section>
@@ -637,8 +644,8 @@ export default function ListComparison(): React.JSX.Element {
 							</Fragment>
 						}
 					/>
-					<Grid>
-						<GridItem span={smallGridItemSpan}>
+						<div css={twoColumnLayoutStyles}>
+						<div>
 							<Item>
 								<ItemPreview>
 									<AsanaFields />
@@ -663,8 +670,8 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
-						<GridItem span={smallGridItemSpan}>
+						</div>
+						<div>
 							<Item>
 								<ItemPreview>
 									<AsanaFieldsWithNativePreview />
@@ -688,8 +695,8 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
-						<GridItem span={smallGridItemSpan}>
+						</div>
+						<div>
 							<Item>
 								<ItemPreview>
 									<LinearTaskReordering />
@@ -724,9 +731,9 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
+						</div>
 
-						<GridItem span={smallGridItemSpan}>
+						<div>
 							<Item>
 								<ItemPreview>
 									<LinearTaskReorderingNativePreview />
@@ -752,9 +759,9 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
+						</div>
 
-						<GridItem span={smallGridItemSpan} start={{ sm: 1, md: 4 }}>
+						<div css={centeredTwoColumnItemStyles}>
 							<Item hasTransparentBackground>
 								<ItemPreview>
 									<SubtasksNotion />
@@ -773,8 +780,8 @@ export default function ListComparison(): React.JSX.Element {
 									}
 								/>
 							</Item>
-						</GridItem>
-					</Grid>
+						</div>
+						</div>
 				</Section>
 			</Stack>
 		</Box>

@@ -16,7 +16,7 @@
     "**/*.compiled.css"
   ],
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.7.0",
+    "@atlaskit/pragmatic-drag-and-drop": "^1.8.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^1.1.0",
     "@atlaskit/tokens": "^13.0.0",
     "@babel/runtime": "^7.0.0",

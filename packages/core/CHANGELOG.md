@@ -1,5 +1,22 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.8.0
+
+### Minor Changes
+
+- [`28c6a19284541`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/28c6a19284541) -
+  Moving to `popover="manual"` for "on top" rendering logic. Elements that need to render above all
+  other content (honey pot fix, custom native drag previews) now use the browser's top layer via the
+  Popover API instead of `z-index: 2147483647`.
+
+  Falls back to the previous `z-index` approach when the Popover API is not available.
+
+  Minimum browser versions with `popover="manual"` support:
+  - Chrome 114+
+  - Edge 114+
+  - Firefox 125+
+  - Safari 17+
+
 ## 1.7.10
 
 ### Patch Changes

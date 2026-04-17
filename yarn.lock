@@ -296,18 +296,6 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/grid@^0.19.0":
-  version "0.19.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/grid/-/grid-0.19.0.tgz#04edab69e6b0a46ed0252f0bdbb9bfcc1079e49c"
-  integrity sha512-OeUyYJDwUnmhfGugYVWfVuzx9BZ1/WU8GlcpQMZuCrG6OLxG3ZYty1NDYb0XRo4GCAwt8kMJGAyl1zXxpvxbNQ==
-  dependencies:
-    "@atlaskit/css" "^0.19.0"
-    "@atlaskit/primitives" "^19.0.0"
-    "@atlaskit/tokens" "^13.0.0"
-    "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.20.0"
-    tiny-invariant "^1.2.0"
-
 "@atlaskit/heading@^5.4.0":
   version "5.4.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/heading/-/heading-5.4.0.tgz#68e043ff7ba59ecfe37339a2a233e18704deb817"

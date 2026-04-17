@@ -8,6 +8,8 @@ import {
 	type Position,
 } from '../internal-types';
 import { maxZIndex } from '../util/max-z-index';
+import { popoverResetUserAgentStyles } from '../util/popover-reset-styles';
+import { supportsPopover } from '../util/supports-popover';
 
 import { honeyPotDataAttribute } from './honey-pot-data-attribute';
 
@@ -142,35 +144,54 @@ function mountHoneyPot({ initial }: { initial: Position }): FinishHoneyPotFn {
 	const element = document.createElement('div');
 	element.setAttribute(honeyPotDataAttribute, 'true');
 
+	// Using popover="manual" to place the element in the browser's top layer.
+	// This ensures the honey pot is visually on top of everything else,
+	// including elements using z-index and other stacking contexts.
+	// "manual" means no light dismiss — we manage the lifecycle ourselves.
+	// Falls back to position:fixed + maxZIndex when the popover API is not available.
+	if (supportsPopover()) {
+		element.setAttribute('popover', 'manual');
+	}
+
 	// can shift during the drag thanks to Firefox
 	let clientRect: DOMRect = getHoneyPotRectFor({ client: initial });
 
 	Object.assign(element.style, {
+		position: 'fixed',
+
+		...(supportsPopover()
+			? // needs to come first as it has 'inset: unset' which
+				// needs to be overridden by our top / left values
+				popoverResetUserAgentStyles
+			: {
+					// Fallback: using maximum possible z-index so that this element
+					// will always be on top of other positioned content.
+					zIndex: maxZIndex,
+				}),
+
 		// Setting a background color explicitly to avoid any inherited styles.
 		// Looks like this could be `opacity: 0`, but worried that _might_
 		// cause the element to be ignored on some platforms.
 		// When debugging, set backgroundColor to something like "red".
 		backgroundColor: 'transparent',
 
-		position: 'fixed',
-
 		// Being explicit to avoid inheriting styles
 		padding: 0,
 		margin: 0,
 		boxSizing: 'border-box',
-		...getRectStyles({ clientRect }),
 
 		// We want this element to absorb pointer events,
 		// it's kind of the whole point 😉
 		pointerEvents: 'auto',
 
-		// Want to make sure the honey pot is top of everything else.
-		// Don't need to worry about native drag previews, as they will
-		// have been rendered (and removed) before the honey pot is rendered
-		zIndex: maxZIndex,
+		...getRectStyles({ clientRect }),
 	});
 
 	document.body.appendChild(element);
+
+	if (supportsPopover()) {
+		element.showPopover();
+	}
 
 	/**
 	 *  🦊 In firefox we can get `"pointermove"` events after the drag

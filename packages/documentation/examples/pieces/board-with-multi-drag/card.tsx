@@ -154,7 +154,7 @@ type CardProps = {
 	toggleSelectionInGroup: (id: string) => void;
 };
 
-export const Card = memo(function Card({
+export const Card: React.NamedExoticComponent<CardProps> = memo(function Card({
 	item,
 	isDragging,
 	isSelected,

@@ -3,8 +3,10 @@
  * @jsx jsx
  */
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
+/* eslint-disable @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766 */
+// oxlint-disable-next-line typescript-eslint/consistent-type-imports
 import { css, jsx } from '@emotion/react';
+/* eslint-enable @atlaskit/ui-styling-standard/use-compiled */
 
 type Mode = 'standard' | 'alternative';
 
@@ -25,7 +27,7 @@ const styles: { [Key in Mode]: ReturnType<typeof css> } = {
 	}),
 };
 
-export default function Logo({ mode }: { mode: Mode }) {
+export default function Logo({ mode }: { mode: Mode }): jsx.JSX.Element {
 	return (
 		<svg
 			width="215"

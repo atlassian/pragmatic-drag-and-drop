@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { memo, type Ref, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { memo, type NamedExoticComponent, type Ref, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -111,7 +111,9 @@ const draggableStateStyles: Partial<Record<DraggableState['type'], SerializedSty
 	}),
 };
 
-export const Column = memo(function Column({ column }: { column: ColumnType }) {
+export const Column: NamedExoticComponent<{
+    column: ColumnType;
+}> = memo(function Column({ column }: { column: ColumnType }) {
 	const columnId = column.columnId;
 	const columnRef = useRef<HTMLDivElement | null>(null);
 	const headerRef = useRef<HTMLDivElement | null>(null);

@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, type Context } from 'react';
 
 import type { Item, ItemRegistration, ReorderFunction } from './types';
 
@@ -14,7 +14,7 @@ export type ItemContextValue = {
 	register: (args: ItemRegistration) => UnregisterFn;
 	instanceId: symbol | null;
 };
-export const TableContext = createContext<ItemContextValue>({
+export const TableContext: Context<ItemContextValue> = createContext<ItemContextValue>({
 	getItemsForColumnPreview: () => ({ items: [], isMoreItems: false }),
 	reorderColumn: () => {},
 	reorderItem: () => {},

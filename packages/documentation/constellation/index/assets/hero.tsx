@@ -37,7 +37,7 @@ const stateStyles: {
 
 const idle: State = { type: 'idle' };
 
-export default function Hero() {
+export default function Hero(): React.JSX.Element {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const [state, setState] = useState<State>(idle);
 

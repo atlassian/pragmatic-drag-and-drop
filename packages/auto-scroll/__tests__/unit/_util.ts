@@ -611,10 +611,9 @@ export function getExpectedEvents(movement: AxisMovement): Event[] {
 		: [];
 }
 
-export const firePointer = (() => {
-	type TTarget = Element | Window | Document;
+export const firePointer: { down: (target: Element | Document | Window, input?: Partial<Input>) => void; up: (target: Element | Document | Window, input?: Partial<Input>) => void; move: (target: Element | Document | Window, input?: Partial<Input>) => void; cancel: (target: Element | Document | Window, input?: Partial<Input>) => void; } = (() => {
 	function makeDispatch(eventName: string) {
-		return function dispatch(target: TTarget, input: Partial<Input> = {}): void {
+		return function dispatch(target: Element | Document | Window, input: Partial<Input> = {}): void {
 			const inputWithDefaults = {
 				...getDefaultInput(),
 				...input,

@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, memo, useEffect, useRef, useState } from 'react';
+import { Fragment, memo, useEffect, useRef, useState, type NamedExoticComponent } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -113,7 +113,9 @@ const stateStyles: { [key in State['type']]: SerializedStyles | undefined } = {
 	'generate-safari-column-preview': undefined,
 };
 
-export const Column = memo(function Column({ column }: { column: ColumnType }) {
+export const Column: NamedExoticComponent<{
+    column: ColumnType;
+}> = memo(function Column({ column }: { column: ColumnType }) {
 	const columnId = column.columnId;
 	const columnRef = useRef<HTMLDivElement | null>(null);
 	const headerRef = useRef<HTMLDivElement | null>(null);

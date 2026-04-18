@@ -106,7 +106,7 @@ type ColumnProps = {
 	toggleSelectionInGroup: (userId: string) => void;
 };
 
-export const Column = memo(function Column({
+export const Column: React.NamedExoticComponent<ColumnProps> = memo(function Column({
 	column,
 	selectedUserIds,
 	isDraggingCard,

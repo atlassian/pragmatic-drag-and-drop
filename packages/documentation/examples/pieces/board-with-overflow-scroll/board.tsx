@@ -3,7 +3,7 @@
  * @jsx jsx
  */
 
-import { Fragment, memo, type ReactNode, useEffect, useRef } from 'react';
+import { Fragment, memo, type MemoExoticComponent, type ReactNode, useEffect, useRef } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -90,4 +90,5 @@ function Board({ children }: { children: ReactNode }): React.JSX.Element {
 	);
 }
 
-export default memo(Board);
+const _default_1: MemoExoticComponent<typeof Board> = memo(Board);
+export default _default_1;

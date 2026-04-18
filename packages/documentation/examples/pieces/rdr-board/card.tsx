@@ -6,6 +6,7 @@ import {
 	forwardRef,
 	Fragment,
 	memo,
+	type NamedExoticComponent,
 	type Ref,
 	useCallback,
 	useEffect,
@@ -273,7 +274,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 	);
 });
 
-export const Card = memo(function Card({ item }: { item: CardData }) {
+export const Card: NamedExoticComponent<{
+    item: CardData;
+}> = memo(function Card({ item }: { item: CardData }) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const { key } = item;
 	const [closestEdge, setClosestEdge] = useState<Edge | null>(null);

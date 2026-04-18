@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type ReactNode, type RefAttributes } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -50,7 +50,7 @@ export type FieldProps = {
 	icon: ReactNode;
 };
 
-export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
+export const Field: ForwardRefExoticComponent<FieldProps & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, FieldProps>(function Field(
 	{ children, icon },
 	ref,
 ) {

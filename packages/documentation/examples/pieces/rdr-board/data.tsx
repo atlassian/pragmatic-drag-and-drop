@@ -13,7 +13,11 @@ export type ColumnType = {
 };
 export type ColumnMap = { [columnId: string]: ColumnType };
 
-export function getInitialData() {
+export function getInitialData(): {
+    columnMap: ColumnMap;
+    orderedColumnIds: string[];
+    lastOperation: null;
+} {
 	const columnMap: ColumnMap = {
 		todo: {
 			title: 'To do',

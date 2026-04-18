@@ -2,7 +2,7 @@ import type { ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/exte
 
 import { type Person } from '../../data/people';
 
-const cardKey = Symbol('card');
+const cardKey: unique symbol = Symbol('card');
 export type TCard = {
 	cardId: string;
 	columnId: string;
@@ -21,7 +21,7 @@ export function isCard(data: Record<string | symbol, unknown>): data is TCard {
 	return data[cardKey] === true;
 }
 
-const columnDropTargetKey = Symbol('column-drop-target');
+const columnDropTargetKey: unique symbol = Symbol('column-drop-target');
 export type TColumnDropTarget = {
 	columnId: string;
 	[columnDropTargetKey]: true;
@@ -40,7 +40,7 @@ export function isColumnDropTarget(
 	return data[columnDropTargetKey] === true;
 }
 
-const cardDropTargetKey = Symbol('card-drop-target');
+const cardDropTargetKey: unique symbol = Symbol('card-drop-target');
 export type TCardDropTarget = {
 	cardId: string;
 	columnId: string;
@@ -68,7 +68,16 @@ export function isCardDropTarget(data: Record<string | symbol, unknown>): data i
 // not exporting directly. Can only be accessed through helpers
 const externalCardMediaType = 'application/x.card';
 
-export function getCardDataForExternal(person: Person) {
+export function getCardDataForExternal(person: Person): {
+    "application/x.card": string;
+    // bonus: data for external applications
+    "text/plain": string;
+    "text/uri-list": string;
+} | {
+    "application/x.card": string;
+    "text/plain": string;
+    "text/uri-list"?: undefined;
+} {
 	if (!isAndroid()) {
 		return {
 			[externalCardMediaType]: person.userId,

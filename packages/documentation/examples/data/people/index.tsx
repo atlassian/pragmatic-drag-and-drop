@@ -145,7 +145,11 @@ export function getData({
 }: {
 	columnCount: number;
 	itemsPerColumn: number;
-}) {
+}): {
+    columnMap: ColumnMap;
+    orderedColumnIds: string[];
+    lastOperation: null;
+} {
 	const columnMap: ColumnMap = {};
 
 	for (let i = 0; i < columnCount; i++) {
@@ -165,7 +169,10 @@ export function getData({
 	};
 }
 
-export function getBasicData() {
+export function getBasicData(): {
+    columnMap: ColumnMap;
+    orderedColumnIds: string[];
+} {
 	const columnMap: ColumnMap = {
 		confluence: {
 			title: 'Confluence',

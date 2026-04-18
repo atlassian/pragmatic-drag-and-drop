@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, type Context } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -21,9 +21,9 @@ type ListContextProps = {
 	}) => void;
 };
 
-export const ListContext = createContext<ListContextProps | null>(null);
+export const ListContext: Context<ListContextProps | null> = createContext<ListContextProps | null>(null);
 
-export function useListContext() {
+export function useListContext(): ListContextProps {
 	const listContext = useContext(ListContext);
 	invariant(listContext !== null);
 	return listContext;

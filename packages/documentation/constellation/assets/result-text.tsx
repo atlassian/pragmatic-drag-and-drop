@@ -3,8 +3,10 @@
  * @jsx jsx
  */
 
-// eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
+/* eslint-disable @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766 */
+// oxlint-disable-next-line typescript-eslint/consistent-type-imports
 import { css, jsx } from '@emotion/react';
+/* eslint-enable @atlaskit/ui-styling-standard/use-compiled */
 
 import { token } from '@atlaskit/tokens';
 
@@ -13,6 +15,6 @@ const stylesStyles = css({
 	fontWeight: token('font.weight.bold'),
 });
 
-export default function ResultText({ children }: { children: string }) {
+export default function ResultText({ children }: { children: string }): jsx.JSX.Element {
 	return <span css={stylesStyles}>{children}</span>;
 }

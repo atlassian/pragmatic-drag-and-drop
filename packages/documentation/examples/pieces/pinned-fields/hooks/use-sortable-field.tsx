@@ -54,7 +54,11 @@ export function useSortableField({
 	shouldHideNativeDragPreview = false,
 	shouldHideDropIndicatorForNoopTargets = true,
 	isSticky = true,
-}: UseSortableFieldArgs) {
+}: UseSortableFieldArgs): {
+    isHovering: boolean;
+    isDragging: boolean;
+    closestEdge: Edge | null;
+} {
 	const [isHovering, setIsHovering] = useState(false);
 	const [isDragging, setIsDragging] = useState(false);
 	const [closestEdge, setClosestEdge] = useState<Edge | null>(null);

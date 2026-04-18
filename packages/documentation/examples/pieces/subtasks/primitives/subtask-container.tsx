@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type HTMLAttributes, type ReactNode, type RefAttributes } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -27,7 +27,10 @@ type SubtaskContainerProps = HTMLAttributes<HTMLDivElement> & {
 	hasContainerPadding?: boolean;
 };
 
-export const SubtaskContainer = forwardRef<HTMLDivElement, SubtaskContainerProps>(
+export const SubtaskContainer: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
+    children: ReactNode;
+    hasContainerPadding?: boolean;
+} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, SubtaskContainerProps>(
 	function SubtaskContainer({ children, hasContainerPadding = false, ...props }, ref) {
 		return (
 			<div

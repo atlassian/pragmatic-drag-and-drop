@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type ForwardRefExoticComponent, type HTMLAttributes, type ReactNode, type RefAttributes } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -22,7 +22,9 @@ type SubtaskContainerProps = HTMLAttributes<HTMLDivElement> & {
 	children: ReactNode;
 };
 
-export const SubtaskContainer = forwardRef<HTMLDivElement, SubtaskContainerProps>(
+export const SubtaskContainer: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
+    children: ReactNode;
+} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, SubtaskContainerProps>(
 	function SubtaskContainer({ children, ...props }, ref) {
 		return (
 			<div ref={ref} css={subtaskContainerStyles} {...props}>

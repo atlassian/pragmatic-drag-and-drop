@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "totalInScope": 60,
+    "filesProcessed": 60,
+    "maxFilesCap": null,
+    "remainingOxcFailures": 0,
+    "importsPatchedCount": 0,
+    "unfixableByFixer": 0,
+    "filesNeedingManualReview": 4,
+    "eslintRemainingErrors": null,
+    "oxlintRemainingErrors": null,
+    "iterationsRun": 1,
+    "timestamp": "2026-04-18T07:12:21.058Z"
+  },
+  "manualReview": {
+    "platform/packages/pragmatic-drag-and-drop/auto-scroll/__tests__/unit/_util.ts": [
+      {
+        "code": 6196,
+        "message": "'TTarget' is declared but never used.",
+        "line": 615,
+        "likelyPreExisting": true
+      }
+    ],
+    "platform/packages/pragmatic-drag-and-drop/documentation/examples/pieces/hooks/use-sortable-field.tsx": [
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 8,
+        "likelyPreExisting": false
+      },
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 17,
+        "likelyPreExisting": false
+      }
+    ],
+    "platform/packages/pragmatic-drag-and-drop/documentation/examples/pieces/pinned-fields/hooks/use-sortable-field.tsx": [
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 8,
+        "likelyPreExisting": false
+      },
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 17,
+        "likelyPreExisting": false
+      }
+    ],
+    "platform/packages/pragmatic-drag-and-drop/documentation/examples/pieces/subtasks/hooks/use-sortable-field.tsx": [
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 8,
+        "likelyPreExisting": false
+      },
+      {
+        "code": 2300,
+        "message": "Duplicate identifier 'Edge'.",
+        "line": 17,
+        "likelyPreExisting": false
+      }
+    ]
+  },
+  "remainingIsodecViolations": []
+}

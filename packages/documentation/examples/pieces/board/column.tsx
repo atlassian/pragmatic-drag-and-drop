@@ -139,7 +139,9 @@ const isDraggingStyles = xcss({
 	opacity: 0.4,
 });
 
-export const Column = memo(function Column({ column }: { column: ColumnType }) {
+export const Column: React.NamedExoticComponent<{
+    column: ColumnType;
+}> = memo(function Column({ column }: { column: ColumnType }) {
 	const columnId = column.columnId;
 	const columnRef = useRef<HTMLDivElement | null>(null);
 	const columnInnerRef = useRef<HTMLDivElement | null>(null);

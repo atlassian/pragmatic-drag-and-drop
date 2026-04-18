@@ -39,4 +39,5 @@ function Board({ children }: { children: ReactNode }): React.JSX.Element {
 	);
 }
 
-export default memo(Board);
+const _default_1: React.MemoExoticComponent<typeof Board> = memo(Board);
+export default _default_1;

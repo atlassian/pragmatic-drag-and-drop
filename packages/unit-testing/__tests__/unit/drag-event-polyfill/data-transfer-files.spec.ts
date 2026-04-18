@@ -1,8 +1,8 @@
-const dataTransfer = new DataTransfer();
-const file1 = new File(['🕺💃'], '1.png', {
+const dataTransfer: DataTransfer = new DataTransfer();
+const file1: File = new File(['🕺💃'], '1.png', {
 	type: 'image/png',
 });
-const file2 = new File(['🕺💃'], '2.png', {
+const file2: File = new File(['🕺💃'], '2.png', {
 	type: 'image/png',
 });
 dataTransfer.items.add(file1);

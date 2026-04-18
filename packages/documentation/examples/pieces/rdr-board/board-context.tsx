@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, type Context } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -27,7 +27,7 @@ export type BoardContextProps = {
 	getSelectedCards: () => string[];
 };
 
-export const BoardContext = createContext<BoardContextProps | null>(null);
+export const BoardContext: Context<BoardContextProps | null> = createContext<BoardContextProps | null>(null);
 
 export function useBoardContext(): BoardContextProps {
 	const value = useContext(BoardContext);

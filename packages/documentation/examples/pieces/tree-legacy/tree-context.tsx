@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, type Context } from 'react';
 
 import {
 	attachInstruction,
@@ -21,7 +21,7 @@ export type TreeContextValue = {
 	}) => void;
 };
 
-export const TreeContext = createContext<TreeContextValue>({
+export const TreeContext: Context<TreeContextValue> = createContext<TreeContextValue>({
 	dispatch: () => {},
 	uniqueContextId: Symbol('uniqueId'),
 	getPathToItem: () => [],
@@ -36,7 +36,7 @@ export type DependencyContext = {
 	extractInstruction: typeof extractInstruction;
 };
 
-export const DependencyContext = createContext<DependencyContext>({
+export const DependencyContext: Context<DependencyContext> = createContext<DependencyContext>({
 	DropIndicator: DropIndicator,
 	attachInstruction: attachInstruction,
 	extractInstruction: extractInstruction,

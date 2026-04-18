@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, Fragment, memo, useEffect, useRef, useState } from 'react';
+import { forwardRef, Fragment, memo, useEffect, useRef, useState, type NamedExoticComponent } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -103,7 +103,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 	);
 });
 
-export const Card = memo(function Card({ item }: { item: Person }) {
+export const Card: NamedExoticComponent<{
+    item: Person;
+}> = memo(function Card({ item }: { item: Person }) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const { userId } = item;
 	const [state, setState] = useState<DraggableState>(idleState);

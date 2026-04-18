@@ -225,7 +225,9 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 	);
 });
 
-export const Card = memo(function Card({ item }: { item: Person }) {
+export const Card: React.NamedExoticComponent<{
+    item: Person;
+}> = memo(function Card({ item }: { item: Person }) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const { userId } = item;
 	const [closestEdge, setClosestEdge] = useState<Edge | null>(null);

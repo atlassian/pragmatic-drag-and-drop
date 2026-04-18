@@ -5,7 +5,7 @@ type PatternTableProps = {
 	description: string;
 };
 
-const PatternTable = ({ image, description }: PatternTableProps) => {
+const PatternTable = ({ image, description }: PatternTableProps): React.JSX.Element => {
 	return (
 		<table>
 			<tbody>

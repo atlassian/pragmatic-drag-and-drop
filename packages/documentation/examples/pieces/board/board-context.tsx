@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, type Context } from 'react';
 
 import invariant from 'tiny-invariant';
 
@@ -38,7 +38,7 @@ export type BoardContextValue = {
 	instanceId: symbol;
 };
 
-export const BoardContext = createContext<BoardContextValue | null>(null);
+export const BoardContext: Context<BoardContextValue | null> = createContext<BoardContextValue | null>(null);
 
 export function useBoardContext(): BoardContextValue {
 	const value = useContext(BoardContext);

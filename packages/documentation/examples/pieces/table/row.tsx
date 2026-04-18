@@ -2,7 +2,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, memo, useContext, useEffect, useRef, useState } from 'react';
+import { Fragment, memo, useContext, useEffect, useRef, useState, type NamedExoticComponent } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -66,7 +66,12 @@ type State =
  * Column rerenders still need to rerender every row. Both could be optimized
  * further, such as by using virtualization.
  */
-export const Row = memo(function Row({
+export const Row: NamedExoticComponent<{
+    item: Item;
+    index: number;
+    properties: (keyof Item)[];
+    amountOfRows: number;
+}> = memo(function Row({
 	item,
 	index,
 	properties,

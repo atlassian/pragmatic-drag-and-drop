@@ -71,10 +71,10 @@ export function useSortableField({
 	dragHandle = null,
 	customShouldHideDropIndicator,
 }: UseSortableFieldArgs): {
-    isHovering: boolean;
-    isDragging: boolean;
-    dragState: DragState;
-    closestEdge: Edge | null;
+	isHovering: boolean;
+	isDragging: boolean;
+	dragState: DragState;
+	closestEdge: Edge | null;
 } {
 	const [isHovering, setIsHovering] = useState(false);
 	const [dragState, setDragState] = useState<DragState>('idle');

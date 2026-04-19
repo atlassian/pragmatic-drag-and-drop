@@ -6,10 +6,10 @@ export type President = {
 };
 
 export const presidents: {
-    id: number;
-    name: string;
-    party: string;
-    term: string;
+	id: number;
+	name: string;
+	party: string;
+	term: string;
 }[] = [
 	{
 		id: 1,

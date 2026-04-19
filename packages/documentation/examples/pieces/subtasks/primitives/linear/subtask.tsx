@@ -2,7 +2,13 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type HTMLAttributes, type ReactNode, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type HTMLAttributes,
+	type ReactNode,
+	type RefAttributes,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
@@ -99,12 +105,14 @@ export type SubtaskProps = HTMLAttributes<HTMLDivElement> & {
 	isHovering?: boolean;
 };
 
-export const Subtask: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-    id: string;
-    title: string;
-    appearance?: SubtaskAppearance;
-    isHovering?: boolean;
-} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, SubtaskProps>(function Subtask(
+export const Subtask: ForwardRefExoticComponent<
+	HTMLAttributes<HTMLDivElement> & {
+		id: string;
+		title: string;
+		appearance?: SubtaskAppearance;
+		isHovering?: boolean;
+	} & RefAttributes<HTMLDivElement>
+> = forwardRef<HTMLDivElement, SubtaskProps>(function Subtask(
 	{ id, title, appearance = 'default', isHovering = false, children, ...props },
 	ref,
 ) {
@@ -145,12 +153,14 @@ const subtaskPreviewStyles = css({
 	borderRadius: 4,
 });
 
-export const SubtaskPreview: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-    id: string;
-    title: string;
-    appearance?: SubtaskAppearance;
-    isHovering?: boolean;
-} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, SubtaskProps>(function SubtaskPreview(
+export const SubtaskPreview: ForwardRefExoticComponent<
+	HTMLAttributes<HTMLDivElement> & {
+		id: string;
+		title: string;
+		appearance?: SubtaskAppearance;
+		isHovering?: boolean;
+	} & RefAttributes<HTMLDivElement>
+> = forwardRef<HTMLDivElement, SubtaskProps>(function SubtaskPreview(
 	{ id, title, appearance = 'default', isHovering = false, children, ...props },
 	ref,
 ) {

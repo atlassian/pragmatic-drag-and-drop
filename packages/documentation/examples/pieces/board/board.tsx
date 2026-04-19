@@ -34,5 +34,7 @@ const Board = forwardRef<HTMLDivElement, BoardProps>(({ children }: BoardProps, 
 	);
 });
 
-const _default_1: React.MemoExoticComponent<React.ForwardRefExoticComponent<BoardProps & React.RefAttributes<HTMLDivElement>>> = memo(Board);
+const _default_1: React.MemoExoticComponent<
+	React.ForwardRefExoticComponent<BoardProps & React.RefAttributes<HTMLDivElement>>
+> = memo(Board);
 export default _default_1;

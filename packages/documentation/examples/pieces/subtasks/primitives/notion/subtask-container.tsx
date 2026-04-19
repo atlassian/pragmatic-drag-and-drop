@@ -2,7 +2,13 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type HTMLAttributes, type ReactNode, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type HTMLAttributes,
+	type ReactNode,
+	type RefAttributes,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -46,31 +52,34 @@ function Heading({ children }: { children: ReactNode }) {
 	return <div css={headingStyles}>{children}</div>;
 }
 
-export const SubtaskContainer: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-    children: ReactNode;
-} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, SubtaskContainerProps>(
-	function SubtaskContainer({ children, ...props }, ref) {
-		return (
-			<div ref={ref} css={subtaskContainerStyles} {...props}>
-				{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
-				<div style={{ paddingLeft: 24 }}>
-					<div css={headingRowStyles}>
-						<Heading>
-							<EditorTextStyleIcon color="currentColor" label="" />
-							Name
-						</Heading>
-						<Heading>
-							<RecentIcon color="currentColor" label="" />
-							Date Created
-						</Heading>
-						<Heading>
-							<ChevronDownCircleIcon color="currentColor" label="" spacing="compact" size="small" />
-							Status
-						</Heading>
-					</div>
+export const SubtaskContainer: ForwardRefExoticComponent<
+	HTMLAttributes<HTMLDivElement> & {
+		children: ReactNode;
+	} & RefAttributes<HTMLDivElement>
+> = forwardRef<HTMLDivElement, SubtaskContainerProps>(function SubtaskContainer(
+	{ children, ...props },
+	ref,
+) {
+	return (
+		<div ref={ref} css={subtaskContainerStyles} {...props}>
+			{/* eslint-disable-next-line @atlaskit/ui-styling-standard/enforce-style-prop -- Ignored via go/DSP-18766 */}
+			<div style={{ paddingLeft: 24 }}>
+				<div css={headingRowStyles}>
+					<Heading>
+						<EditorTextStyleIcon color="currentColor" label="" />
+						Name
+					</Heading>
+					<Heading>
+						<RecentIcon color="currentColor" label="" />
+						Date Created
+					</Heading>
+					<Heading>
+						<ChevronDownCircleIcon color="currentColor" label="" spacing="compact" size="small" />
+						Status
+					</Heading>
 				</div>
-				{children}
 			</div>
-		);
-	},
-);
+			{children}
+		</div>
+	);
+});

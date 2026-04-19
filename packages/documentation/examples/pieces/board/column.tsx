@@ -140,7 +140,7 @@ const isDraggingStyles = xcss({
 });
 
 export const Column: React.NamedExoticComponent<{
-    column: ColumnType;
+	column: ColumnType;
 }> = memo(function Column({ column }: { column: ColumnType }) {
 	const columnId = column.columnId;
 	const columnRef = useRef<HTMLDivElement | null>(null);

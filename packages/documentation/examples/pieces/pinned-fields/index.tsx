@@ -2,7 +2,14 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type HTMLAttributes, type ReactNode, type Ref, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type HTMLAttributes,
+	type ReactNode,
+	type Ref,
+	type RefAttributes,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -97,14 +104,16 @@ export type FieldProps = HTMLAttributes<HTMLDivElement> & {
 	isDragging?: boolean;
 };
 
-export const Field: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-    label: ReactNode;
-    children: ReactNode;
-    isDisabled?: boolean;
-    closestEdge?: Edge | null;
-    className?: string;
-    isDragging?: boolean;
-} & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, FieldProps>(function Field(
+export const Field: ForwardRefExoticComponent<
+	HTMLAttributes<HTMLDivElement> & {
+		label: ReactNode;
+		children: ReactNode;
+		isDisabled?: boolean;
+		closestEdge?: Edge | null;
+		className?: string;
+		isDragging?: boolean;
+	} & RefAttributes<HTMLDivElement>
+> = forwardRef<HTMLDivElement, FieldProps>(function Field(
 	{
 		label,
 		children,
@@ -130,7 +139,9 @@ export const Field: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
 	);
 });
 
-export const PinnedFieldsList: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>> = forwardRef(function DroppableArea(
+export const PinnedFieldsList: ForwardRefExoticComponent<
+	HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>
+> = forwardRef(function DroppableArea(
 	{ children, ...props }: HTMLAttributes<HTMLDivElement>,
 	ref: Ref<HTMLDivElement>,
 ) {

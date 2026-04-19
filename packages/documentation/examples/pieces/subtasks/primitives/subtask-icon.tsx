@@ -37,9 +37,11 @@ export function SubtaskObjectIcon(): React.JSX.Element {
 	);
 }
 
-export default function SubtaskIcon({ isIconHidden = false }: {
-        isIconHidden?: boolean | undefined;
-    }): React.JSX.Element {
+export default function SubtaskIcon({
+	isIconHidden = false,
+}: {
+	isIconHidden?: boolean | undefined;
+}): React.JSX.Element {
 	return (
 		<div
 			style={{

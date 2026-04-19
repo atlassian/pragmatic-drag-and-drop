@@ -68,16 +68,18 @@ export function isCardDropTarget(data: Record<string | symbol, unknown>): data i
 // not exporting directly. Can only be accessed through helpers
 const externalCardMediaType = 'application/x.card';
 
-export function getCardDataForExternal(person: Person): {
-    "application/x.card": string;
-    // bonus: data for external applications
-    "text/plain": string;
-    "text/uri-list": string;
-} | {
-    "application/x.card": string;
-    "text/plain": string;
-    "text/uri-list"?: undefined;
-} {
+export function getCardDataForExternal(person: Person):
+	| {
+			'application/x.card': string;
+			// bonus: data for external applications
+			'text/plain': string;
+			'text/uri-list': string;
+	  }
+	| {
+			'application/x.card': string;
+			'text/plain': string;
+			'text/uri-list'?: undefined;
+	  } {
 	if (!isAndroid()) {
 		return {
 			[externalCardMediaType]: person.userId,

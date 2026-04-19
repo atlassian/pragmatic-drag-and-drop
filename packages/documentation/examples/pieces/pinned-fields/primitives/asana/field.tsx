@@ -2,7 +2,12 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type ReactNode, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type ReactNode,
+	type RefAttributes,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -50,19 +55,17 @@ export type FieldProps = {
 	icon: ReactNode;
 };
 
-export const Field: ForwardRefExoticComponent<FieldProps & RefAttributes<HTMLDivElement>> = forwardRef<HTMLDivElement, FieldProps>(function Field(
-	{ children, icon },
-	ref,
-) {
-	return (
-		<div ref={ref} css={fieldContainerStyles}>
-			<div css={fieldStyles}>
-				{icon}
-				{children}
+export const Field: ForwardRefExoticComponent<FieldProps & RefAttributes<HTMLDivElement>> =
+	forwardRef<HTMLDivElement, FieldProps>(function Field({ children, icon }, ref) {
+		return (
+			<div ref={ref} css={fieldContainerStyles}>
+				<div css={fieldStyles}>
+					{icon}
+					{children}
+				</div>
 			</div>
-		</div>
-	);
-});
+		);
+	});
 
 const fieldPreviewStyles = css({
 	borderColor: token('color.border.selected'),

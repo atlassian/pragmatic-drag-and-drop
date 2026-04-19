@@ -3,7 +3,14 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { memo, type NamedExoticComponent, type ReactNode, useEffect, useRef, useState } from 'react';
+import {
+	memo,
+	type NamedExoticComponent,
+	type ReactNode,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -70,7 +77,11 @@ const isStateEqual = (a: State, b: State): boolean => {
 	return aKeys.every((aKey, index) => aKey === bKeys[index]);
 };
 
-const Square: NamedExoticComponent<SquareProps> = memo(function Square({ pieces, location, children }: SquareProps) {
+const Square: NamedExoticComponent<SquareProps> = memo(function Square({
+	pieces,
+	location,
+	children,
+}: SquareProps) {
 	const ref = useRef<HTMLImageElement | null>(null);
 	const [state, setState] = useState<State>({ pieceSelected: false });
 

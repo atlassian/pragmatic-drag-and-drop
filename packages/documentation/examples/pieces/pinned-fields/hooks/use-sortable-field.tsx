@@ -55,9 +55,9 @@ export function useSortableField({
 	shouldHideDropIndicatorForNoopTargets = true,
 	isSticky = true,
 }: UseSortableFieldArgs): {
-    isHovering: boolean;
-    isDragging: boolean;
-    closestEdge: Edge | null;
+	isHovering: boolean;
+	isDragging: boolean;
+	closestEdge: Edge | null;
 } {
 	const [isHovering, setIsHovering] = useState(false);
 	const [isDragging, setIsDragging] = useState(false);

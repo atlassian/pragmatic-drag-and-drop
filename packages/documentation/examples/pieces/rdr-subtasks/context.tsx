@@ -21,7 +21,9 @@ type ListContextProps = {
 	}) => void;
 };
 
-export const ListContext: Context<ListContextProps | null> = createContext<ListContextProps | null>(null);
+export const ListContext: Context<ListContextProps | null> = createContext<ListContextProps | null>(
+	null,
+);
 
 export function useListContext(): ListContextProps {
 	const listContext = useContext(ListContext);

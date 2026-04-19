@@ -118,27 +118,30 @@ function SubtaskDragHandleTrigger({
 	);
 }
 
-export const SubtaskDragHandle: ForwardRefExoticComponent<SubtaskDragHandleProps & RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement, SubtaskDragHandleProps>(
-	function SubtaskDragHandle({ isHovering = false, dragState }, ref) {
-		return (
-			<DropdownMenu<HTMLButtonElement>
-				trigger={(triggerProps) => (
-					<SubtaskDragHandleTrigger
-						{...triggerProps}
-						isHovering={isHovering}
-						isIdle={dragState === 'idle'}
-					/>
-				)}
-			>
-				<DropdownItemGroup>
-					<DropdownItem>Edit</DropdownItem>
-					<DropdownItem>Share</DropdownItem>
-					<DropdownItem>Move</DropdownItem>
-					<DropdownItem>Clone</DropdownItem>
-					<DropdownItem>Delete</DropdownItem>
-					<DropdownItem>Report</DropdownItem>
-				</DropdownItemGroup>
-			</DropdownMenu>
-		);
-	},
-);
+export const SubtaskDragHandle: ForwardRefExoticComponent<
+	SubtaskDragHandleProps & RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, SubtaskDragHandleProps>(function SubtaskDragHandle(
+	{ isHovering = false, dragState },
+	ref,
+) {
+	return (
+		<DropdownMenu<HTMLButtonElement>
+			trigger={(triggerProps) => (
+				<SubtaskDragHandleTrigger
+					{...triggerProps}
+					isHovering={isHovering}
+					isIdle={dragState === 'idle'}
+				/>
+			)}
+		>
+			<DropdownItemGroup>
+				<DropdownItem>Edit</DropdownItem>
+				<DropdownItem>Share</DropdownItem>
+				<DropdownItem>Move</DropdownItem>
+				<DropdownItem>Clone</DropdownItem>
+				<DropdownItem>Delete</DropdownItem>
+				<DropdownItem>Report</DropdownItem>
+			</DropdownItemGroup>
+		</DropdownMenu>
+	);
+});

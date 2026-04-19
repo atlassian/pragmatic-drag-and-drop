@@ -4,7 +4,16 @@
  * @jsx jsx
  */
 
-import { Fragment, memo, useCallback, useContext, useEffect, useRef, useState, type NamedExoticComponent } from 'react';
+import {
+	Fragment,
+	memo,
+	useCallback,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+	type NamedExoticComponent,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -152,9 +161,9 @@ function delay({ waitMs: timeMs, fn }: { waitMs: number; fn: () => void }): () =
 }
 
 const TreeItem: NamedExoticComponent<{
-    item: TreeItemType;
-    level: number;
-    index: number;
+	item: TreeItemType;
+	level: number;
+	index: number;
 }> = memo(function TreeItem({
 	item,
 	level,

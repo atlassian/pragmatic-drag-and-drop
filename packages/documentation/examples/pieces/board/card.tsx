@@ -226,7 +226,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 });
 
 export const Card: React.NamedExoticComponent<{
-    item: Person;
+	item: Person;
 }> = memo(function Card({ item }: { item: Person }) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const { userId } = item;

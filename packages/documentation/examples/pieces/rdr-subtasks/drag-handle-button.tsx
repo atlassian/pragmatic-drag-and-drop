@@ -50,18 +50,21 @@ const selectedStyles = css({
 
 type DragHandleButtonProps = Omit<CustomTriggerProps, 'triggerRef'>;
 
-export const DragHandleButton: ForwardRefExoticComponent<DragHandleButtonProps & RefAttributes<HTMLButtonElement>> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(
-	function DragHandleButton({ isSelected, testId, ...props }, ref) {
-		return (
-			<FocusRing isInset>
-				<button
-					ref={ref}
-					css={[dragHandleButtonStyles, subtaskSpecificHandleStyles, isSelected && selectedStyles]}
-					{...props}
-				>
-					<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="" size="small" />
-				</button>
-			</FocusRing>
-		);
-	},
-);
+export const DragHandleButton: ForwardRefExoticComponent<
+	DragHandleButtonProps & RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, DragHandleButtonProps>(function DragHandleButton(
+	{ isSelected, testId, ...props },
+	ref,
+) {
+	return (
+		<FocusRing isInset>
+			<button
+				ref={ref}
+				css={[dragHandleButtonStyles, subtaskSpecificHandleStyles, isSelected && selectedStyles]}
+				{...props}
+			>
+				<DragHandleVerticalIcon color="currentColor" spacing="spacious" label="" size="small" />
+			</button>
+		</FocusRing>
+	);
+});

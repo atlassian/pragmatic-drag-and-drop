@@ -2,7 +2,15 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { forwardRef, type ForwardRefExoticComponent, type RefAttributes, type RefObject, useCallback, useImperativeHandle, useRef } from 'react';
+import {
+	forwardRef,
+	type ForwardRefExoticComponent,
+	type RefAttributes,
+	type RefObject,
+	useCallback,
+	useImperativeHandle,
+	useRef,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, keyframes } from '@emotion/react';
@@ -71,7 +79,10 @@ function createLine() {
 	return line;
 }
 
-const Lines: ForwardRefExoticComponent<RefAttributes<LineOverlayHandle>> = forwardRef<LineOverlayHandle, {}>(({}, ref) => {
+const Lines: ForwardRefExoticComponent<RefAttributes<LineOverlayHandle>> = forwardRef<
+	LineOverlayHandle,
+	{}
+>(({}, ref) => {
 	invariant(ref !== null && 'current' in ref, 'ref is a ref object');
 
 	const svgRef = useRef<SVGSVGElement>(null);

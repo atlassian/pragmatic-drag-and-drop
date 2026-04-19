@@ -8,7 +8,8 @@ export type ColumnContextProps = {
 	getNumCards: () => number;
 };
 
-export const ColumnContext: Context<ColumnContextProps | null> = createContext<ColumnContextProps | null>(null);
+export const ColumnContext: Context<ColumnContextProps | null> =
+	createContext<ColumnContextProps | null>(null);
 
 export function useColumnContext(): ColumnContextProps {
 	const value = useContext(ColumnContext);

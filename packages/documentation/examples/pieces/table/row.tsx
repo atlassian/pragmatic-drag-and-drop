@@ -2,7 +2,15 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
-import { Fragment, memo, useContext, useEffect, useRef, useState, type NamedExoticComponent } from 'react';
+import {
+	Fragment,
+	memo,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+	type NamedExoticComponent,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -67,10 +75,10 @@ type State =
  * further, such as by using virtualization.
  */
 export const Row: NamedExoticComponent<{
-    item: Item;
-    index: number;
-    properties: (keyof Item)[];
-    amountOfRows: number;
+	item: Item;
+	index: number;
+	properties: (keyof Item)[];
+	amountOfRows: number;
 }> = memo(function Row({
 	item,
 	index,

@@ -3,7 +3,14 @@
  * @jsx jsx
  */
 
-import { forwardRef, memo, type ForwardRefExoticComponent, type MemoExoticComponent, type ReactNode, type RefAttributes } from 'react';
+import {
+	forwardRef,
+	memo,
+	type ForwardRefExoticComponent,
+	type MemoExoticComponent,
+	type ReactNode,
+	type RefAttributes,
+} from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
@@ -31,5 +38,7 @@ const Board = forwardRef<HTMLDivElement, BoardProps>(({ children }: BoardProps, 
 	);
 });
 
-const _default_1: MemoExoticComponent<ForwardRefExoticComponent<BoardProps & RefAttributes<HTMLDivElement>>> = memo(Board);
+const _default_1: MemoExoticComponent<
+	ForwardRefExoticComponent<BoardProps & RefAttributes<HTMLDivElement>>
+> = memo(Board);
 export default _default_1;

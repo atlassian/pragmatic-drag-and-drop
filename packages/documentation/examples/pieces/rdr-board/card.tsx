@@ -275,7 +275,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 });
 
 export const Card: NamedExoticComponent<{
-    item: CardData;
+	item: CardData;
 }> = memo(function Card({ item }: { item: CardData }) {
 	const ref = useRef<HTMLDivElement | null>(null);
 	const { key } = item;

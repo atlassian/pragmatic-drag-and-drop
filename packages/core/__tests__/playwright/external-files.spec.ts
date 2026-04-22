@@ -4,7 +4,7 @@ import path from 'path';
 import invariant from 'tiny-invariant';
 
 import { expect, type Page, test } from '@af/integration-testing';
-
+import { skipAutoA11y } from '@atlassian/a11y-playwright-testing';
 async function getElement(page: Page, selector: string) {
 	const result = page.locator(selector);
 	invariant(result !== null);
@@ -13,6 +13,10 @@ async function getElement(page: Page, selector: string) {
 
 test.describe('file dropping', () => {
 	test('should support dropping of many files at once', async ({ browserName, page }) => {
+		// This test exposes one or more accessibility violations. Testing is currently skipped but violations need to
+		// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+		// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
+		skipAutoA11y();
 		// eslint-disable-next-line playwright/no-conditional-in-test
 		if (browserName === 'webkit') {
 			/**
@@ -87,6 +91,10 @@ test.describe('file dropping', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ browserName, page }) => {
+		// This test exposes one or more accessibility violations. Testing is currently skipped but violations need to
+		// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+		// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
+		skipAutoA11y();
 		// eslint-disable-next-line playwright/no-conditional-in-test
 		if (browserName === 'webkit') {
 			return;

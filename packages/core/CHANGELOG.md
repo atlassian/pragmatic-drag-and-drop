@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 1.8.1
+
+### Patch Changes
+
+- [`01bfb2823034b`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/01bfb2823034b) -
+  Expands automatic accessibility (a11y) Playwright test coverage for Platform
+
 ## 1.8.0
 
 ### Minor Changes

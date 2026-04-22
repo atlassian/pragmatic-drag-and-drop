@@ -395,16 +395,16 @@
     "@compiled/react" "^0.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^5.6.0":
-  version "5.6.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.6.0.tgz#c5fef2d7ead5546d1a1fe2043512590a40d5f216"
-  integrity sha512-ziP8yc5M10Wx51KTOAUb8gLVV92czY+yDYnENaBJ3X1phHeFIymyKGCP0KByO8xyySxm7XMoKy6XE79Ogdg57Q==
+"@atlaskit/motion@^5.7.0":
+  version "5.7.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-5.7.0.tgz#20f8b7ad513c0394c9e32037b29b61ef350b5876"
+  integrity sha512-IUo/ae574lz9zO01lVgrKEOzXsi43u5CRgLVUMpj/1vGD8sKyQpo0GyJ9qQ0GxxHWeENkH+0h0S847tGnHVDXA==
   dependencies:
     "@atlaskit/browser-apis" "^0.0.1"
     "@atlaskit/css" "^0.19.0"
     "@atlaskit/ds-lib" "^7.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/tokens" "^12.0.0"
+    "@atlaskit/tokens" "^13.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.20.0"
     bind-event-listener "^3.0.0"
@@ -627,18 +627,6 @@
   integrity sha512-dEWuTwtw7Dlqays+x701CI4PXQUh3LUQDlVJqFQd3xysP30dyz2/MJKI2fzPCDSFzxjqaJVXM4CKMQOqaQFtXw==
   dependencies:
     "@atlaskit/ds-lib" "^6.0.0"
-    "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@babel/runtime" "^7.0.0"
-    "@babel/traverse" "^7.23.2"
-    "@babel/types" "^7.20.0"
-    bind-event-listener "^3.0.0"
-
-"@atlaskit/tokens@^12.0.0":
-  version "12.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/tokens/-/tokens-12.0.0.tgz#1b7ef96df6d38fb1401890e9bda826d09b4c9bc4"
-  integrity sha512-Aa5wFR/pkXwYsdUyFhP/ubly8WVdEHDkiZBAUI3O2V7x6BHnJ7mlurddB7CvGDRE3KEOngck4pTmeHotJWFx/A==
-  dependencies:
-    "@atlaskit/ds-lib" "^7.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@babel/runtime" "^7.0.0"
     "@babel/traverse" "^7.23.2"

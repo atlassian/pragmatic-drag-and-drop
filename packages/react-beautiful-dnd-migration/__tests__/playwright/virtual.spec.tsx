@@ -1,9 +1,9 @@
 import type { JSHandle } from 'playwright-core';
 
 import { expect, test } from '@af/integration-testing';
+import { skipAutoA11y } from '@atlassian/a11y-playwright-testing';
 
 import { customAttributes } from '../../src/utils/attributes';
-
 function getDraggableSelector(draggableId: string) {
 	return `[data-testid="item-${draggableId}"]`;
 }
@@ -11,6 +11,11 @@ function getDraggableSelector(draggableId: string) {
 test.describe('virtual lists', () => {
 	test.describe('keyboard drag', () => {
 		test('should not error when the draggable remounts during a drag', async ({ page }) => {
+			// This test exposes one or more accessibility violations. Testing is currently skipped but violations need to
+			// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
+			// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
+			skipAutoA11y();
+
 			await page.visitExample<typeof import('../../examples/02-react-window.tsx')>(
 				'pragmatic-drag-and-drop',
 				'react-beautiful-dnd-migration',

@@ -123,6 +123,6 @@ test.describe('scrollJustEnoughIntoView', () => {
 			'core',
 			'scroll-just-enough-into-view',
 		);
-		await expect(page).toBeAccessible({ violationCount: 1 });
+		await expect(page).toBeAccessible();
 	});
 });

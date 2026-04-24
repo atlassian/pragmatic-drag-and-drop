@@ -36,7 +36,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^2.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^3.2.0",
     "@atlaskit/primitives": "^19.0.0",
-    "@atlaskit/theme": "^23.1.0",
+    "@atlaskit/theme": "^23.2.0",
     "@atlaskit/tokens": "^13.0.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",

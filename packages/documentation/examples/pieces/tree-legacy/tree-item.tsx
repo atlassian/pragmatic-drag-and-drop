@@ -120,7 +120,9 @@ const innerButtonStyles = css({
 
 const idStyles = css({
 	margin: 0,
-	color: token('color.text.disabled'),
+	// `color.text.subtlest` (not `color.text.disabled`) so the inline `<code>`
+	// labels (Draft, debug mode) meet WCAG AA contrast.
+	color: token('color.text.subtlest'),
 });
 
 const labelStyles = css({
@@ -135,7 +137,10 @@ const debugStyles = css({
 	position: 'absolute',
 	right: 'var(--grid)',
 	bottom: 0,
-	fontSize: '6px',
+	// Use the smallest design-system body font so the debug label is legible
+	// enough to satisfy the axe `color-contrast` rule and meets the
+	// `use-tokens-typography` lint rule.
+	font: token('font.body.small'),
 });
 
 const previewStyles = css({

@@ -91,12 +91,12 @@ test.describe('file dropping', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ browserName, page }) => {
-		// This test exposes one or more accessibility violations. Testing is currently skipped but violations need to
-		// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
-		// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
-		skipAutoA11y();
 		// eslint-disable-next-line playwright/no-conditional-in-test
 		if (browserName === 'webkit') {
+			// Without an actual page navigation the auto-a11y hook reports a
+			// `document-title` violation against the empty page. Suppress it
+			// for the early-return path only.
+			skipAutoA11y();
 			return;
 		}
 		await page.visitExample<typeof import('../../examples/file.tsx')>(
@@ -106,6 +106,6 @@ test.describe('file dropping', () => {
 		);
 		await page.locator('[data-drop-target-for-external]').waitFor({ state: 'visible' });
 
-		await expect(page).toBeAccessible({ violationCount: 1 });
+		await expect(page).toBeAccessible();
 	});
 });

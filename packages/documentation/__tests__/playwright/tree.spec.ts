@@ -1,13 +1,8 @@
 import invariant from 'tiny-invariant';
 
 import { expect, type Page, test } from '@af/integration-testing';
-import { skipAutoA11yFile } from '@atlassian/a11y-playwright-testing';
 
 import { indentPerLevel } from '../../examples/pieces/tree-legacy/constants';
-// This file exposes one or more accessibility violations. Testing is currently skipped but violations need to
-// be fixed in a timely manner or result in escalation. Once all violations have been fixed, you can remove
-// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
-skipAutoA11yFile();
 
 
 type TScenario = {
@@ -168,7 +163,7 @@ scenarios.forEach((scenario) => {
 		});
 
 		test('should capture and report a11y violations', async ({ page }) => {
-			await expect(page).toBeAccessible({ violationCount: 1 });
+			await expect(page).toBeAccessible();
 		});
 	});
 });

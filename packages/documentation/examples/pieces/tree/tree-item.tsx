@@ -115,7 +115,9 @@ const innerButtonStyles = css({
 
 const idStyles = css({
 	margin: 0,
-	color: token('color.text.disabled'),
+	// `color.text.subtlest` (not `color.text.disabled`) so the inline `<code>`
+	// `Draft` label meets WCAG AA contrast.
+	color: token('color.text.subtlest'),
 });
 
 const labelStyles = css({

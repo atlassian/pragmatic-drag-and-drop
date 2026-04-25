@@ -4,7 +4,6 @@ import { expect, type Page, test } from '@af/integration-testing';
 
 import { indentPerLevel } from '../../examples/pieces/tree-legacy/constants';
 
-
 type TScenario = {
 	name: string;
 	beforeEach: ({ page }: { page: Page }) => Promise<void>;

@@ -395,10 +395,10 @@
     "@compiled/react" "^0.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^6.0.0":
-  version "6.0.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-6.0.0.tgz#4b7b69cf26d2d4ba1e81beed6f22d77bf87d9230"
-  integrity sha512-hXzzeCadQ5ccMFVsGo2QIlNwSCWt3X8QrdgNc3ngrN3d30Q72MHDjvNebacjAD5Vnbcss8JbpaDxbZspPHTqZQ==
+"@atlaskit/motion@^6.1.0":
+  version "6.1.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/motion/-/motion-6.1.0.tgz#04727237925895fcf440b5c764ba1cb9a709f8ec"
+  integrity sha512-AAhYnbu9glSeSWEQelFsTDbop95/xlsOENGSe0DDK6Y3EjK/PbzI7+/KRUDU9QbUNDYOPSQPKlge7EE4t5vl7g==
   dependencies:
     "@atlaskit/browser-apis" "^0.0.1"
     "@atlaskit/css" "^0.19.0"

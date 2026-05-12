@@ -25,7 +25,6 @@ import Button from '@atlaskit/button';
 import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import { IconTile } from '@atlaskit/icon';
 import PullRequestIcon from '@atlaskit/icon/core/pull-request';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import StoryIcon from '@atlaskit/icon/core/story';
@@ -230,7 +229,11 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				</Inline>
 				<Inline spread="space-between" alignBlock="center">
 					<Inline space="space.050" alignBlock="center">
-						<IconTile appearance="greenBold" size="16" label="" icon={StoryIcon} />
+						<StoryIcon
+							label=""
+							size="medium"
+							color={token('color.icon.accent.green')}
+						/>
 						<Box>{key}</Box>
 					</Inline>
 					<Inline space="space.050" alignBlock="center">

@@ -229,11 +229,7 @@ const CardPrimitive = forwardRef<HTMLDivElement, CardPrimitiveProps>(function Ca
 				</Inline>
 				<Inline spread="space-between" alignBlock="center">
 					<Inline space="space.050" alignBlock="center">
-						<StoryIcon
-							label=""
-							size="medium"
-							color={token('color.icon.accent.green')}
-						/>
+						<StoryIcon label="" size="medium" color={token('color.icon.accent.green')} />
 						<Box>{key}</Box>
 					</Inline>
 					<Inline space="space.050" alignBlock="center">

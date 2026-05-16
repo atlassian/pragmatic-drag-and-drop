@@ -252,11 +252,7 @@ export function ListItem({ itemData }: { itemData: ItemData }): React.JSX.Elemen
 							<Checkbox isChecked={isChecked} onChange={onCheckboxChange} />
 						</Inline>
 						<Inline space="space.050" alignBlock="center">
-							<StoryIcon
-								label=""
-								size="medium"
-								color={token('color.icon.accent.green')}
-							/>
+							<StoryIcon label="" size="medium" color={token('color.icon.accent.green')} />
 							<Box xcss={subtlestTextStyles}>{itemData.id}</Box>
 							<Box xcss={itemLabelStyles}>{itemData.label}</Box>
 						</Inline>

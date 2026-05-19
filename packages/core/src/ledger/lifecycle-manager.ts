@@ -124,11 +124,12 @@ function start<DragType extends AllDragTypes>({
 			: event.target;
 
 		const nextDropTargets = getDropTargetsOver({
-			target,
-			input,
-			source: dragType.payload,
-			current: state.current.dropTargets,
-		});
+      target,
+      event,
+      input,
+      source: dragType.payload,
+      current: state.current.dropTargets,
+    });
 
 		if (nextDropTargets.length) {
 			// 🩸 must call `event.preventDefault()` to allow a browser drop to occur
@@ -308,7 +309,7 @@ function start<DragType extends AllDragTypes>({
 				// as we will have already removed the event listener
 
 				type: 'dragend',
-				listener(event) {
+				listener(event: DragEvent) {
 					// In firefox, the position of the "dragend" event can
 					// be a bit different to the last "dragover" event.
 					// Updating the input so we can get the best possible
@@ -374,6 +375,7 @@ function getStartLocation<DragType extends AllDragTypes>({
 		input,
 		source: dragType.payload,
 		target: event.target,
+		event,
 		current: [],
 	});
 	return {

@@ -59,15 +59,15 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^25.14.0":
-  version "25.14.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-25.14.0.tgz#271401983d32a3c8ecc915aa3d8c48bf0e384d7b"
-  integrity sha512-J0nJhNjrG1JADGEM6oCAYbAOvfD6lKJqyPR1DR8fwsNjiXNwLj5vCWLeXfGDHnZwaUyzkZrGoQXDf3qqt8cIHQ==
+"@atlaskit/avatar@^25.15.0":
+  version "25.15.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/avatar/-/avatar-25.15.1.tgz#5f4ec04d3553420eb56162d6edb928fa1e5745a9"
+  integrity sha512-tWTdjed8UHD/nBC5jBPcoevrNbsHqriM4kmD2Z8OPdPUsy2ouFhbywXqA6Xol0ED7Du8Kd/TbeuUmwMpfn7V7g==
   dependencies:
     "@atlaskit/analytics-next" "^11.2.0"
     "@atlaskit/css" "^0.19.0"
     "@atlaskit/ds-lib" "^7.0.0"
-    "@atlaskit/icon" "^34.3.0"
+    "@atlaskit/icon" "^35.0.0"
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/primitives" "^19.0.0"
     "@atlaskit/tokens" "^13.0.0"
@@ -130,10 +130,10 @@
     raf-schd "^4.0.3"
     refractor "^3.6.0"
 
-"@atlaskit/codemod-utils@^4.2.0":
-  version "4.2.4"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/codemod-utils/-/codemod-utils-4.2.4.tgz#995a8060486f35bf77b8114b863688e551641eb1"
-  integrity sha512-ETeLShTnEpLvsEhm0wmIlC7toRPy9hrMGbttdsiKzyUeGQQ3VqBxvOOPZNA6Uvi0660Jjd3lS7n5u7R/Ku0OHg==
+"@atlaskit/codemod-utils@^4.3.0":
+  version "4.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/codemod-utils/-/codemod-utils-4.3.0.tgz#001aaf8f355ebd4966cf5abfba23474e9e2741b1"
+  integrity sha512-q6LfGddXgUnfI+tjZcO5JSRkcl1+0g+m5cODSYQcFnE+MeRFC0NtAE+AIZ08LiBUjTsKFwPBj2P2tKN41OHM+g==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -246,21 +246,10 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.20.0"
 
-"@atlaskit/icon@^34.3.0":
-  version "34.3.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-34.3.0.tgz#cfd5565be74a78e137c88b6bfe357013ecd35a54"
-  integrity sha512-WJ3/CJlvaQF5UdlI2QwGo4JgjD62C590yklfnBkfwRh1mlWJrQUdIplRJKT/brnWop7y0TsGLAyOJ9GrDnDzDg==
-  dependencies:
-    "@atlaskit/platform-feature-flags" "^1.1.0"
-    "@atlaskit/tile" "^1.0.0"
-    "@atlaskit/tokens" "^13.0.0"
-    "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.20.0"
-
-"@atlaskit/icon@^34.5.0":
-  version "34.5.0"
-  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-34.5.0.tgz#177ade67bad7369fe4b4cf8c3b3bd6b28ce6d827"
-  integrity sha512-hfYPOJoneAA8ciarjaQFMpTxf40jf1/9ErmT2p0J4CSWO8dzaTrTnaSHNVpJU6la7QxttuymOxpdBmuOFlFLFw==
+"@atlaskit/icon@^35.0.0":
+  version "35.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/icon/-/icon-35.0.0.tgz#37170f45b25d6afb778e352ee2aeb38098c6d540"
+  integrity sha512-ZAojcCpI1FOpIwShMGi0GFNthCtqJ/b9yrpLiRTHAMEoSH9xi3ACNkeSUbAV33Zgp71M59EYNR/rhvCt+nSDEQ==
   dependencies:
     "@atlaskit/platform-feature-flags" "^1.1.0"
     "@atlaskit/tile" "^1.1.0"
@@ -454,6 +443,15 @@
   version "23.2.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-23.2.0.tgz#b15d35202252d8f6f7f9f0272c40323d98aaff24"
   integrity sha512-XRi0xXi9+4Oqmra/BMvm39LqZzG0du/6Is894pX3Rb+gW7F4q9e2Dxdy4DycyOGx55AVaNRVOidkTBfqNXP4Ug==
+  dependencies:
+    "@atlaskit/ds-lib" "^7.0.0"
+    "@atlaskit/tokens" "^13.0.0"
+    "@babel/runtime" "^7.0.0"
+
+"@atlaskit/theme@^24.0.0":
+  version "24.0.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@atlaskit/theme/-/theme-24.0.0.tgz#9117f322ba0e3139e1b8ed12bbb089bcbaa6b6f6"
+  integrity sha512-EWIhO4VGgMRODi0dEERXaba6u+Fn+6RPvGqNd8jfxhJ/9uNAg6gofz2x4DZnzV94iQTbqRraH7wTEdMqckGo0w==
   dependencies:
     "@atlaskit/ds-lib" "^7.0.0"
     "@atlaskit/tokens" "^13.0.0"
@@ -4632,6 +4630,11 @@ react@^18.2.0:
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
   dependencies:
     loose-envify "^1.1.0"
+
+react@^19.0.0:
+  version "19.2.6"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/react/-/react-19.2.6.tgz#3dadb8e12b2a7934c1d5317973e5dce1301f9a4d"
+  integrity sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==
 
 read-pkg-up@^8.0.0:
   version "8.0.0"

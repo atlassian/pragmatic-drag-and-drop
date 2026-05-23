@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 3.2.16
+
+### Patch Changes
+
+- [`72290778b16ca`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/72290778b16ca) -
+  Enrol mixed platform packages into the React Compiler with platform gating via
+  isReactCompilerActivePlatform
+
 ## 3.2.15
 
 ### Patch Changes

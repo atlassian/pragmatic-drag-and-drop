@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "An optional Pragmatic drag and drop package that enables rapid migration from react-beautiful-dnd to Pragmatic drag and drop",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -13,6 +13,25 @@
   "module": "dist/esm/index.js",
   "module:es2019": "dist/es2019/index.js",
   "types": "dist/types/index.d.ts",
+  "devDependencies": {
+    "@atlaskit/codemod-utils": "^4.3.0",
+    "@atlaskit/motion": "^6.2.0",
+    "@atlaskit/radio": "^8.6.0",
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/react-beautiful-dnd": "^13.1.4",
+    "@types/react-window": "^1.8.5",
+    "jscodeshift": "^17.0.0",
+    "raf-stub": "^2.0.1",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^12.2.0",
+    "react-dom": "^18.2.0",
+    "react-virtualized": "^9.22.6",
+    "react-window": "^1.8.8",
+    "stylelint": "^15.0.0",
+    "wait-for-expect": "^1.2.0"
+  },
   "sideEffects": [
     "*.compiled.css"
   ],
@@ -35,22 +54,5 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@atlaskit/codemod-utils": "^4.2.0",
-    "@atlaskit/motion": "^6.2.0",
-    "@atlaskit/radio": "^8.6.0",
-    "@testing-library/dom": "^10.1.0",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-window": "^1.8.5",
-    "jscodeshift": "^17.0.0",
-    "raf-stub": "^2.0.1",
-    "react-beautiful-dnd": "^12.2.0",
-    "react-virtualized": "^9.22.6",
-    "react-window": "^1.8.8",
-    "stylelint": "^15.0.0",
-    "wait-for-expect": "^1.2.0"
   }
 }

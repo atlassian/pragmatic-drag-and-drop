@@ -1,5 +1,19 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 2.2.11
+
+### Patch Changes
+
+- [`72290778b16ca`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/72290778b16ca) -
+  Enrol mixed platform packages into the React Compiler with platform gating via
+  isReactCompilerActivePlatform
+
+## 2.2.10
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 2.2.9
 
 ### Patch Changes

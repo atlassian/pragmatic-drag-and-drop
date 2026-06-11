@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@atlaskit/avatar": "^25.15.0",
-    "@atlaskit/badge": "^18.6.0",
+    "@atlaskit/badge": "^18.7.0",
     "@atlaskit/button": "^23.11.0",
     "@atlaskit/code": "^17.5.0",
     "@atlaskit/focus-ring": "^3.1.0",
@@ -37,7 +37,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^3.2.0",
     "@atlaskit/primitives": "^19.0.0",
     "@atlaskit/theme": "^25.0.0",
-    "@atlaskit/tokens": "^13.2.0",
+    "@atlaskit/tokens": "^13.3.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",
     "bind-event-listener": "^3.0.0",

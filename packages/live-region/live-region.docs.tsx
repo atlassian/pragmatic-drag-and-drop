@@ -52,7 +52,14 @@ const documentation: StructuredContentSource = {
 			accessibilityGuidelines: [
 				'Pairs with the rest of `@atlaskit/pragmatic-drag-and-drop-react-accessibility`. Use this when neither focus movement nor visible text already communicates the change to assistive tech.',
 			],
-			keywords: ['pragmatic-drag-and-drop', 'pdnd', 'live-region', 'a11y', 'announce', 'screen-reader'],
+			keywords: [
+				'pragmatic-drag-and-drop',
+				'pdnd',
+				'live-region',
+				'a11y',
+				'announce',
+				'screen-reader',
+			],
 			categories: ['drag-and-drop', 'accessibility', 'utilities'],
 			examples: [],
 		},

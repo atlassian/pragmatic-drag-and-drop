@@ -38,12 +38,13 @@ const documentation: StructuredContentSource = {
 				'Imported from `@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge`. Computes which of the `allowedEdges` of an element is closest to the pointer and stores the result against a private symbol in `userData`. Pair with `extractClosestEdge` in `onDrop` for type-safe lookup.',
 			status: 'general-availability',
 			signature:
-				"(userData: Record<string | symbol, unknown>, opts: { element: Element; input: Input; allowedEdges: Edge[] }) => Record<string | symbol, unknown>",
+				'(userData: Record<string | symbol, unknown>, opts: { element: Element; input: Input; allowedEdges: Edge[] }) => Record<string | symbol, unknown>',
 			parameters: [
 				{
 					name: 'userData',
 					type: 'Record<string | symbol, unknown>',
-					description: 'The data object you are returning from the drop target `getData`. Returned as a new object — non-mutating.',
+					description:
+						'The data object you are returning from the drop target `getData`. Returned as a new object — non-mutating.',
 				},
 				{
 					name: 'opts',
@@ -70,15 +71,16 @@ const documentation: StructuredContentSource = {
 			description:
 				'Imported from `@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge`. Reads the edge previously written by `attachClosestEdge`. Returns `null` if no edge was attached.',
 			status: 'general-availability',
-			signature: "(userData: Record<string | symbol, unknown>) => Edge | null",
+			signature: '(userData: Record<string | symbol, unknown>) => Edge | null',
 			parameters: [
 				{
 					name: 'userData',
 					type: 'Record<string | symbol, unknown>',
-					description: 'The `userData` produced by `attachClosestEdge`, typically read from the dropped target.',
+					description:
+						'The `userData` produced by `attachClosestEdge`, typically read from the dropped target.',
 				},
 			],
-			returns: { type: "Edge | null" },
+			returns: { type: 'Edge | null' },
 			usageGuidelines: [
 				'Use in `onDrag` or `onDrop` to decide whether to render the drop indicator above/below/left/right of the target.',
 			],
@@ -118,7 +120,7 @@ const documentation: StructuredContentSource = {
 			description:
 				'Imported from `@atlaskit/pragmatic-drag-and-drop-hitbox/list-item`. Reads the instruction previously written by `attachInstruction`. Returns `null` when no instruction is available (e.g. all operations were blocked).',
 			status: 'general-availability',
-			signature: "(userData: Record<string | symbol, unknown>) => Instruction | null",
+			signature: '(userData: Record<string | symbol, unknown>) => Instruction | null',
 			parameters: [{ name: 'userData', type: 'Record<string | symbol, unknown>' }],
 			returns: { type: 'Instruction | null' },
 			keywords: ['pdnd', 'hitbox', 'extractInstruction', 'reorder', 'list-item'],

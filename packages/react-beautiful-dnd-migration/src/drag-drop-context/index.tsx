@@ -66,6 +66,7 @@ function getOffset(args: { element: HTMLElement; mode: DroppableMode }) {
 	};
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function DragDropContext({
 	children,
 	dragHandleUsageInstructions = defaultDragHandleUsageInstructions,

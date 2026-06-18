@@ -59,6 +59,7 @@ export const defaultMessage = {
 type EventName = keyof typeof defaultMessage;
 type EventData<Event extends EventName> = Parameters<(typeof defaultMessage)[Event]>[0];
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getDefaultMessage<Event extends EventName>(
 	event: Event,
 	data: EventData<Event>,
@@ -67,6 +68,7 @@ export function getDefaultMessage<Event extends EventName>(
 	return defaultMessage[event](data);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getProvided<Event extends EventName>(
 	event: Event,
 	data: EventData<Event>,
@@ -122,6 +124,7 @@ export function getProvided<Event extends EventName>(
 	return { provided, getMessage };
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const defaultDragHandleUsageInstructions: string = `
   Press space bar to start a drag.
   When dragging you can use the arrow keys to move the item around and escape to cancel.

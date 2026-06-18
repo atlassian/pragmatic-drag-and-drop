@@ -38,6 +38,7 @@ export function findElement(...fragments: SelectorFragment[]): HTMLElement | nul
 	return document.querySelector(selector);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function findElementAll(...fragments: SelectorFragment[]): HTMLElement[] {
 	const selector = getSelector(...fragments);
 	return Array.from(document.querySelectorAll(selector));
@@ -46,6 +47,7 @@ export function findElementAll(...fragments: SelectorFragment[]): HTMLElement[] 
 /**
  * Queries an element, ensuring it exists.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getElement(...fragments: SelectorFragment[]): HTMLElement {
 	const result = findElement(...fragments);
 	rbdInvariant(result, 'There is a matching HTMLElement for selector ' + getSelector(...fragments));

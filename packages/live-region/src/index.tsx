@@ -90,6 +90,7 @@ export function announce(message: string): void {
 /**
  * Removes the created live region. If there is no live region this is a no-op.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function cleanup(): void {
 	tryClearTimer();
 	node?.remove();

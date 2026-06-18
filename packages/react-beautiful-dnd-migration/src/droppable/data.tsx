@@ -41,6 +41,7 @@ export function isDroppableData(data: Record<string | symbol, unknown>): data is
  *
  * The symbol allows us to quickly check if an object satisfies `DroppableData`.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useDroppableData({
 	contextId,
 	droppableId,

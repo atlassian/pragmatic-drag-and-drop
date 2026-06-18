@@ -26,7 +26,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^26.0.0",
     "@atlaskit/badge": "^19.0.0",
-    "@atlaskit/button": "^24.0.0",
+    "@atlaskit/button": "^24.1.0",
     "@atlaskit/code": "^18.0.0",
     "@atlaskit/focus-ring": "^4.0.0",
     "@atlaskit/heading": "^6.0.0",

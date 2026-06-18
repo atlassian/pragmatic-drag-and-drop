@@ -14,6 +14,7 @@ export function getDraggableDimensions(element: HTMLElement): DraggableDimension
 /**
  * Returns the captured dimensions of the item being dragged.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useDraggableDimensions(): DraggableDimensions | null {
 	const { getDragState } = useDragDropContext();
 	const dragState = getDragState();

@@ -90,4 +90,5 @@ export function DropIndicator({
 }
 
 // This default export is intended for usage with React.lazy
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default DropIndicator;

@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 2.0.1
+
+### Patch Changes
+
+- [`96e06cd0dc9cd`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/96e06cd0dc9cd) -
+  Some native drag previews in Safari were not rendering correctly when leveraging `[popover]` due
+  to an inconsistency with how Safari handles some of its top layer rendering. This has been fixed
+  by resetting some of the user agent properties to the same values as the non-popover path.
+
 ## 2.0.0
 
 ### Major Changes

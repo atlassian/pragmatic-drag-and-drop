@@ -294,6 +294,7 @@ function startDrag(
 	return nextState;
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function reducer(state: DraggableState, action: DraggableAction): DraggableState {
 	if (action.type === 'START_POINTER_DRAG') {
 		return startDrag(state, {

@@ -6,4 +6,5 @@ export const isAndroid: (this: unknown) => boolean = once(function isAndroid(): 
 	return navigator.userAgent.toLocaleLowerCase().includes('android');
 });
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const androidFallbackText = 'pdnd:android-fallback';

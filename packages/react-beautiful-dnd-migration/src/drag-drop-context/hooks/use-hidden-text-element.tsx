@@ -11,6 +11,7 @@ type UseHiddenTextElementArgs = {
 	text: string;
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default function useHiddenTextElement({ contextId, text }: UseHiddenTextElementArgs): void {
 	useEffect(() => {
 		const id = getHiddenTextElementId(contextId);

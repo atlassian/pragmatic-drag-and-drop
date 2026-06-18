@@ -8,6 +8,7 @@ const api = makeApi({ monitor: monitorForElements });
 
 export const autoScrollForElements: (args: ElementAutoScrollArgs<ElementDragType>) => CleanupFn =
 	api.autoScroll;
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const autoScrollWindowForElements: (
 	args?: WindowAutoScrollArgs<ElementDragType>,
 ) => CleanupFn = api.autoScrollWindow;

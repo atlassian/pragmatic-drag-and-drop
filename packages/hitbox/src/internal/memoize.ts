@@ -13,6 +13,7 @@ export function isShallowEqual(a: Record<string, unknown>, b: Record<string, unk
 /**
  * Used to store a stable object, which returns a new object only if one of the values has changed
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function stable<T extends TData>(isEqual: (a: T, b: T) => boolean = isShallowEqual) {
 	let cache: { value: T } | null = null;
 

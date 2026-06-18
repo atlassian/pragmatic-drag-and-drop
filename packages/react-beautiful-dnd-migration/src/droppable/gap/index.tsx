@@ -68,6 +68,7 @@ export function calculateGap({
 	return distance;
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getGapOffset({
 	element,
 	where,

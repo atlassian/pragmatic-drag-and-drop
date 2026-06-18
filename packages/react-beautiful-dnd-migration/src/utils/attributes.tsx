@@ -20,6 +20,7 @@ export const attributes = {
  * These attributes are not set by `react-beautiful-dnd`,
  * but they expose useful information for the migration layer.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const customAttributes = {
 	draggable: {
 		droppableId: 'data-rbd-draggable-droppable-id',
@@ -37,6 +38,7 @@ type LeafOf<Object extends Record<string, any>, Value = Object[keyof Object]> =
 
 type Attribute = LeafOf<typeof attributes> | LeafOf<typeof customAttributes>;
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getAttribute(element: HTMLElement, attribute: Attribute): string {
 	const value = element.getAttribute(attribute);
 	rbdInvariant(value !== null, `Expected '${attribute}' to be present`);
@@ -45,6 +47,7 @@ export function getAttribute(element: HTMLElement, attribute: Attribute): string
 
 type CleanUpFn = () => void;
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function setAttributes(
 	element: HTMLElement,
 	attributes: Partial<Record<Attribute, string>>,

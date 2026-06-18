@@ -329,9 +329,11 @@ const adapter = makeAdapter<ElementDragType>({
 
 export const dropTargetForElements: (args: DropTargetArgs<ElementDragType>) => CleanupFn =
 	adapter.dropTarget;
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const monitorForElements: (args: MonitorArgs<ElementDragType>) => CleanupFn =
 	adapter.monitor;
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function draggable(args: DraggableArgs): CleanupFn {
 	// Guardrail: warn if the drag handle is not contained in draggable element
 	if (process.env.NODE_ENV !== 'production') {

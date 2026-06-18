@@ -17,10 +17,12 @@ export function markAndGetEngagement(element: Element): EngagementHistoryEntry {
 	return fresh;
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function markEngagement(element: Element): void {
 	requested.add(element);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function clearUnusedEngagements(fn: () => void): void {
 	// make sure previous engagement requests don't linger
 	requested.clear();
@@ -39,6 +41,7 @@ export function clearUnusedEngagements(fn: () => void): void {
 	requested.clear();
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function clearEngagementHistory(): void {
 	ledger.clear();
 }

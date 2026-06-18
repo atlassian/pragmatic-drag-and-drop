@@ -54,6 +54,7 @@ function getDraggingStyle({
  * Returns the styles which should be provided to the draggable via the
  * `draggableProps` API.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getDraggableProvidedStyle({
 	draggableDimensions,
 	draggableState,

@@ -53,6 +53,7 @@ export const getOverlap: ({ current, max, change }: GetRemainderArgs) => Positio
 	};
 })();
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const canPartiallyScroll = ({
 	max: rawMax,
 	current,
@@ -94,6 +95,7 @@ export const canPartiallyScroll = ({
 	return false;
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const canScrollWindow = (viewport: Viewport, change: Position): boolean =>
 	canPartiallyScroll({
 		current: viewport.scroll.current,
@@ -101,6 +103,7 @@ export const canScrollWindow = (viewport: Viewport, change: Position): boolean =
 		change,
 	});
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const getWindowOverlap = (viewport: Viewport, change: Position): Position | null => {
 	if (!canScrollWindow(viewport, change)) {
 		return null;
@@ -116,6 +119,7 @@ export const getWindowOverlap = (viewport: Viewport, change: Position): Position
 	});
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const canScrollScrollable = (scrollable: Scrollable, change: Position): boolean => {
 	return canPartiallyScroll({
 		current: scrollable.scroll.current,
@@ -124,6 +128,7 @@ export const canScrollScrollable = (scrollable: Scrollable, change: Position): b
 	});
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const getScrollableOverlap = (scrollable: Scrollable, change: Position): Position | null => {
 	if (!canScrollScrollable(scrollable, change)) {
 		return null;

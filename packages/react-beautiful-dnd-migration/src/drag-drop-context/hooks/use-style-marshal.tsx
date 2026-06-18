@@ -81,6 +81,7 @@ function createStyleManager({ contextId, nonce }: ContextIdAndNonce): CleanupFn 
 	};
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default function useStyleMarshal({ contextId, nonce }: ContextIdAndNonce): void {
 	useLayoutEffect(() => {
 		return createStyleManager({ contextId, nonce });

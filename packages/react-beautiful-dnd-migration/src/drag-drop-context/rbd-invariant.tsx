@@ -14,6 +14,7 @@ export class RbdInvariant extends Error {
 
 // A copy-paste of tiny-invariant but with a custom error type
 // Throw an error if the condition fails
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function rbdInvariant(condition: unknown, message?: string): asserts condition {
 	if (condition) {
 		return;

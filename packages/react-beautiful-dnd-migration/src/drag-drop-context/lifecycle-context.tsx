@@ -106,6 +106,7 @@ type MonitorForLifecycle = (args: Partial<LifecycleResponders>) => CleanupFn;
 
 const LifecycleContext = createContext<MonitorForLifecycle | null>(null);
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function LifecycleContextProvider({
 	children,
 	lifecycle,
@@ -139,6 +140,7 @@ export function LifecycleContextProvider({
 	);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useMonitorForLifecycle(): MonitorForLifecycle {
 	const monitorForLifecycle = useContext(LifecycleContext);
 	rbdInvariant(

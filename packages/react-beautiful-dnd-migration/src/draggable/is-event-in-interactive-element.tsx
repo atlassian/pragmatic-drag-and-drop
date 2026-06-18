@@ -23,6 +23,7 @@ export const interactiveTagNames: TagNameMap = {
 	audio: true,
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function isAnInteractiveElement(parent: Element, current: Element | null): boolean {
 	if (current == null) {
 		return false;
@@ -57,6 +58,7 @@ export function isAnInteractiveElement(parent: Element, current: Element | null)
 	return isAnInteractiveElement(parent, current.parentElement);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default function isEventInInteractiveElement(draggable: Element, event: Event): boolean {
 	const target: EventTarget | null = event.target;
 

@@ -21,6 +21,7 @@ export const DroppableContextProvider: Provider<DroppableContextProps | null> =
 /**
  * Intended for use by `<Draggable>` instances.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useDroppableContext(): DroppableContextProps {
 	const value = useContext(DroppableContext);
 	rbdInvariant(value, 'Missing <Droppable /> parent');
@@ -33,6 +34,7 @@ export function useDroppableContext(): DroppableContextProps {
  *
  * Intended for use only by `<Droppable>` instances.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useParentDroppableId(): string | null {
 	const parentDroppable = useContext(DroppableContext);
 	if (!parentDroppable) {

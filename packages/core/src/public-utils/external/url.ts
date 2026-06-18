@@ -17,6 +17,7 @@ export function containsURLs({ source }: ContainsSource): boolean {
 	return source.types.includes(URLMediaType) || source.types.includes(firefoxURLType);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getURLs({ source }: ContainsSource): string[] {
 	const standard: string | null = source.getStringData(URLMediaType);
 

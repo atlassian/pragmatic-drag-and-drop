@@ -19,6 +19,7 @@ export const idleState: DroppableState = {
 	isDraggingOver: false,
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function reducer(state: DroppableState, action: DroppableAction): DroppableState {
 	if (action.type === 'DRAG_START') {
 		const { droppableId, start } = action.payload;

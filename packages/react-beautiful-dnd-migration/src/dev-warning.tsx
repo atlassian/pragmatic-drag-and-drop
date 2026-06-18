@@ -55,5 +55,7 @@ export const log: Log =
 				};
 			})();
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const warning: (message: string) => void = log.bind(null, 'warn');
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const error: (message: string) => void = log.bind(null, 'error');

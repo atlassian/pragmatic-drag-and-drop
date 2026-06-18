@@ -104,6 +104,7 @@ export const createAutoScroller = (): {
 	return { start, updateInput, stop };
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const autoScroller: {
 	start: ({ input, behavior }: { input: Input; behavior?: ScrollBehavior }) => void;
 	updateInput: ({ input }: { input: Input }) => void;

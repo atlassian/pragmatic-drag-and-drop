@@ -168,4 +168,5 @@ export function Line({
 }
 
 // For React.lazy
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default Line;

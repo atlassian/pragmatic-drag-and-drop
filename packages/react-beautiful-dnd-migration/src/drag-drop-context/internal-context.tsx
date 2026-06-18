@@ -31,6 +31,7 @@ export function useDragDropContext(): DragDropContextValue {
 	return value;
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function DragDropContextProvider({
 	children,
 	contextId,

@@ -7,4 +7,5 @@ export const presetStrokeColors: { [TKey in Appearance]: CSSColor } = {
 	warning: token('color.border.warning'),
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const presetStrokeWidth: 'var(--ds-border-width-selected)' = token('border.width.selected');

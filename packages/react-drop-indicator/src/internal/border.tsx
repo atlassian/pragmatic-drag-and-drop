@@ -53,4 +53,5 @@ export function Border({
 }
 
 // For React.lazy
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default Border;

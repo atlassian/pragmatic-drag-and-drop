@@ -11,8 +11,23 @@ import type { CSSProperties } from 'react';
  * - `color: CanvasText` + `background-color: Canvas` → system theme colors
  *
  * This object neutralizes those defaults so the popover behaves like a plain
- * positioned element. `width` and `height` (UA default: `fit-content`) are not
- * reset here because consumers set their own dimensions.
+ * positioned `<div>`, matching the sizing of the legacy (non-popover)
+ * fallback container exactly.
+ *
+ * **Width and height (`auto`)**
+ *
+ * `width` and `height` override the spec user agent value of `fit-content`
+ * with `auto`.
+ *
+ * _Why?_
+ *
+ * - When a `[popover]` is sized with `fit-content` and contains a flex
+ *   container, Safari collapses any flex item that uses `overflow: auto`
+ *   to `0px`.
+ * - Setting the popover's `width` and `height` to `auto` skips the `fit-content`
+ *   pass and avoids the bug in Safari
+ * - Chromium and Firefox tolerate `fit-content` here, but `auto` is safe
+ *   everywhere and matches our non-popover path
  */
 export const popoverResetUserAgentStyles: CSSProperties = {
 	inset: 'unset',
@@ -22,4 +37,6 @@ export const popoverResetUserAgentStyles: CSSProperties = {
 	overflow: 'visible',
 	color: 'inherit',
 	background: 'transparent',
+	width: 'auto',
+	height: 'auto',
 };

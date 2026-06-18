@@ -23,4 +23,5 @@ export const getDistanceThresholds = (container: Rect, axis: Axis): DistanceThre
 	return thresholds;
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default getDistanceThresholds;

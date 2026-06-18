@@ -51,6 +51,7 @@ export function isDraggableData(data: Record<string | symbol, unknown>): data is
  *
  * The symbol allows us to quickly check if an object satisfies `DraggableData`.
  */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function useDraggableData({
 	draggableId,
 	droppableId,

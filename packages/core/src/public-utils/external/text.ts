@@ -7,6 +7,7 @@ export function containsText({ source }: ContainsSource): boolean {
 }
 
 /* Get the plain text that a user is dragging */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getText({ source }: ContainsSource): string | null {
 	return source.getStringData(textMediaType);
 }

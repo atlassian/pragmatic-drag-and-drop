@@ -185,6 +185,7 @@ export function dropTargetForTextSelection(
 	adapter.registerUsage();
 })();
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function monitorForTextSelection(
 	args: StripPreviewEvent<Parameters<typeof adapter.monitor>[0]>,
 ): CleanupFn {

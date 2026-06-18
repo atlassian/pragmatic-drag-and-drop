@@ -23,6 +23,7 @@ export function isEnteringWindowInSafari({ dragEnter }: { dragEnter: DragEvent }
 	return dragEnter.hasOwnProperty(symbols.isEnteringWindow);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function isLeavingWindowInSafari({ dragLeave }: { dragLeave: DragEvent }): boolean {
 	if (!isSafari()) {
 		return false;

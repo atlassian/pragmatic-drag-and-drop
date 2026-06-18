@@ -80,10 +80,10 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/button@^24.0.0":
-  version "24.0.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-24.0.0.tgz#f413ea7e48e3217e5b1fa1dc403a6342b6c1d276"
-  integrity sha512-EoJnDhT+vjpXY6V91fPdFL2/J+gzd3vA+KEOVE1DPnluegiCkhmk9ATqmGxRq8jfEJ4p5aLYIBsU0AuNOmi+Xw==
+"@atlaskit/button@^24.1.0":
+  version "24.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-24.1.0.tgz#0b19e4eb998e51c75b8e2778983a2f2485aa2d9e"
+  integrity sha512-1VobXcSgZicZ9OrFew7C9aUR4/moxS5tf87fMVRKjKG7+OpHW7XLfRayYA8Q8Q3xJuRKJsNJqdseHw8TA+6YrQ==
   dependencies:
     "@atlaskit/analytics-next" "^12.0.0"
     "@atlaskit/css" "^1.0.0"
@@ -216,6 +216,20 @@
   version "7.0.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-7.0.0.tgz#74b70d4cb09172f11f67af6157763762519e9037"
   integrity sha512-srYVcHtKpVWeucYIv0EOVvFQ4Ag7dAyonU+JcITzlNOo4mXjhDzT084YSL3UhalAPXn1j4jDXRgJUC+hJif5yQ==
+  dependencies:
+    "@atlaskit/browser-apis" "^1.0.0"
+    "@atlaskit/css" "^1.0.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/platform-feature-flags" "^2.0.0"
+    "@atlaskit/tokens" "^14.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/motion@^7.1.0":
+  version "7.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-7.1.0.tgz#98c628c0b42cd33e02f1101474d93cad7659535e"
+  integrity sha512-Q6xLthZWXp65plif/Ry93ew6IqCm6Ktz/v+KbKs3PxNVpgh3TQEWPMWF8e6kwmX8W9yNE+vDH4ult4ey/a4wTw==
   dependencies:
     "@atlaskit/browser-apis" "^1.0.0"
     "@atlaskit/css" "^1.0.0"

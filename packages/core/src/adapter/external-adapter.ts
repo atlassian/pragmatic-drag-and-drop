@@ -37,12 +37,14 @@ export function isAnAvailableType({ type, value }: { type: string; value: string
 	return true;
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getAvailableTypes(transfer: DataTransfer): NativeMediaType[] {
 	return Array.from(transfer.types).filter((type) =>
 		isAnAvailableType({ type, value: transfer.getData(type) }),
 	);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getAvailableItems(dataTransfer: DataTransfer): DataTransferItem[] {
 	// item.kind is 'string' | 'file'
 	// For 'string' item.type is the mimeType (eg 'text/plain')
@@ -190,6 +192,7 @@ const adapter: {
 type StripEventsForDropTargets<T> = Omit<T, 'onGenerateDragPreview' | 'onDragStart'>;
 type StripEventsForMonitors<T> = Omit<T, 'onGenerateDragPreview'>;
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function dropTargetForExternal(
 	args: StripEventsForDropTargets<Parameters<typeof adapter.dropTarget>[0]>,
 ): CleanupFn {
@@ -197,6 +200,7 @@ export function dropTargetForExternal(
 	return adapter.dropTarget(args);
 }
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function monitorForExternal(
 	args: StripEventsForMonitors<Parameters<typeof adapter.monitor>[0]>,
 ): CleanupFn {

@@ -40,4 +40,5 @@ export const getValue = ({
 	return Math.max(dampenValueByTime(scroll, dragStartTime), minScroll);
 };
 
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export default getValue;

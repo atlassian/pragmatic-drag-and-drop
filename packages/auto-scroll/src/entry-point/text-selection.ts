@@ -9,6 +9,7 @@ const api = makeApi({ monitor: monitorForTextSelection });
 export const autoScrollForTextSelection: (
 	args: ElementAutoScrollArgs<TextSelectionDragType>,
 ) => CleanupFn = api.autoScroll;
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export const autoScrollWindowForTextSelection: (
 	args?: WindowAutoScrollArgs<TextSelectionDragType>,
 ) => CleanupFn = api.autoScrollWindow;

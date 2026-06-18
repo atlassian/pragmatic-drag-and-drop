@@ -5,6 +5,7 @@ export function containsFiles({ source }: ContainsSource): boolean {
 }
 
 /** Obtain an array of the dragged `File`s */
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function getFiles({ source }: ContainsSource): File[] {
 	return (
 		source.items

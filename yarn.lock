@@ -17,7 +17,7 @@
   dependencies:
     tslib "^2.0.0"
 
-"@atlaskit/analytics-next@^12.1.0":
+"@atlaskit/analytics-next@^12.1.0", "@atlaskit/analytics-next@^12.2.0":
   version "12.2.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/analytics-next/-/@atlaskit/analytics-next-12.2.0.tgz#4287b934cb1c155176c9dfe38a527f045510b92a"
   integrity sha512-YS/VogB0RkZUh8wFIOzXhXo67+Z/OwhMLJMf8v6D06o4YfdEIRpa4I56Zxy8A2DPWqqU5JN4q3g697oy7NdnTA==
@@ -274,7 +274,7 @@
     "@atlaskit/theme" "^26.1.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/primitives@^20.1.0", "@atlaskit/primitives@^20.2.0", "@atlaskit/primitives@^20.3.0":
+"@atlaskit/primitives@^20.1.0", "@atlaskit/primitives@^20.2.0":
   version "20.3.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-20.3.0.tgz#e35df5c7c4aaf6e4769222502c75ce72113d37a5"
   integrity sha512-cCkkpUlCs6hrCuD/MPNWjQ33TckIS1NfngEYie2Sfx2raxh3ej8U/iJRW1J3sQOuJ/sVyONUGkzGdsEBOeJMjg==
@@ -286,6 +286,26 @@
     "@atlaskit/interaction-context" "^4.0.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/tokens" "^15.3.0"
+    "@atlaskit/visually-hidden" "^4.1.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^0.20.0"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    tiny-invariant "^1.2.0"
+
+"@atlaskit/primitives@^20.4.0":
+  version "20.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-20.4.0.tgz#a61e6d001dfe962e2185c41c7e9b3c4d39020d83"
+  integrity sha512-IthZxsi2SfqabV8hPmI3Uc/TBX38RScFOEoS5nxJAlqwW9lPibYkjfwfs06laqxx65pQN3AffEw15IVBWjW1og==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.2.0"
+    "@atlaskit/app-provider" "^5.1.0"
+    "@atlaskit/css" "^1.0.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/interaction-context" "^4.0.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^15.4.0"
     "@atlaskit/visually-hidden" "^4.1.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.20.0"

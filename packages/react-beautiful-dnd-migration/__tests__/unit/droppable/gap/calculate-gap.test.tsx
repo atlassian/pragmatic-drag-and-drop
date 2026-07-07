@@ -50,13 +50,13 @@ const rectMap: Record<string, DOMRect> = {
 	'1': DOMRect.fromRect({ x: 0, y: 60, width: 100, height: 40 }),
 };
 
-jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (
-	this: HTMLElement,
-) {
-	const testId = this.getAttribute('data-testid');
-	invariant(typeof testId === 'string');
-	return rectMap[testId];
-});
+jest
+	.spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+	.mockImplementation(function (this: HTMLElement) {
+		const testId = this.getAttribute('data-testid');
+		invariant(typeof testId === 'string');
+		return rectMap[testId];
+	});
 
 const getComputedStyle = jest.spyOn(window, 'getComputedStyle');
 

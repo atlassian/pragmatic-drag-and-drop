@@ -1,3 +1,4 @@
+/* eslint-disable @atlaskit/design-system/no-deprecated-imports, react/no-deprecated -- Preserve existing legacy tree example while focus-ring usage is reviewed separately. */
 /**
  * @jsxRuntime classic
  * @jsx jsx

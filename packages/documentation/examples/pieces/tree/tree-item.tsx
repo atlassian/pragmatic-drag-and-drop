@@ -1,4 +1,4 @@
-/* eslint-disable @atlaskit/design-system/no-html-button */
+/* eslint-disable @atlaskit/design-system/no-deprecated-imports, @atlaskit/design-system/no-html-button -- Preserve existing tree example while focus-ring usage is reviewed separately. */
 /**
  * @jsxRuntime classic
  * @jsx jsx

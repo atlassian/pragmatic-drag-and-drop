@@ -108,10 +108,11 @@ const FunctionPropsTable = ({
 					<h3 css={headerStyles}>
 						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						<code css={codeStyles}>{propName}</code>
-						{required && defaultValue === undefined && (
-							// eslint-disable-next-line @atlaskit/design-system/no-html-code
-							<code css={requiredLabelStyles}>required</code>
-						)}
+						{required &&
+							defaultValue === undefined && (
+								// eslint-disable-next-line @atlaskit/design-system/no-html-code
+								<code css={requiredLabelStyles}>required</code>
+							)}
 						{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
 						{deprecated && <code css={deprecatedLabelStyles}>deprecated</code>}
 					</h3>

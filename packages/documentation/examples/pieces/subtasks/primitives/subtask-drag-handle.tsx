@@ -1,3 +1,4 @@
+/* eslint-disable @atlaskit/design-system/no-deprecated-imports -- Preserve existing example behavior while focus-ring usage is reviewed separately. */
 /**
  * @jsxRuntime classic
  * @jsx jsx

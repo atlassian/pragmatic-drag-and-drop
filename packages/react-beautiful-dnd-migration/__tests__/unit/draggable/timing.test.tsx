@@ -24,16 +24,16 @@ function getRect({ x = 0, y = 0, width = 0, height = 0 }: DOMRectInit): DOMRect 
 	};
 }
 
-jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (
-	this: HTMLElement,
-) {
-	return getRect({
-		x: 0,
-		y: 0,
-		width: parseFloat(this.style.width),
-		height: parseFloat(this.style.height),
+jest
+	.spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+	.mockImplementation(function (this: HTMLElement) {
+		return getRect({
+			x: 0,
+			y: 0,
+			width: parseFloat(this.style.width),
+			height: parseFloat(this.style.height),
+		});
 	});
-});
 
 it('should use dimensions changed in onBeforeCapture', () => {
 	const onBeforeCapture = jest.fn(({ draggableId }: { draggableId: string }) => {

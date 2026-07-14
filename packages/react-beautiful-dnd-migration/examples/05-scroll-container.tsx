@@ -1,7 +1,6 @@
 /**
  * @jsxRuntime classic
  * @jsx jsx
- * @jsxFrag
  */
 import React, { useCallback, useMemo, useState } from 'react';
 
@@ -112,7 +111,7 @@ export function App(): React.JSX.Element {
 	}, []);
 
 	return (
-		<>
+		<React.Fragment>
 			<div
 				id="scroll-container"
 				style={{
@@ -133,7 +132,7 @@ export function App(): React.JSX.Element {
 				</DragDropContext>
 			</div>
 			<Button onClick={handleScrollToBottom}>Scroll to bottom</Button>
-		</>
+		</React.Fragment>
 	);
 }
 

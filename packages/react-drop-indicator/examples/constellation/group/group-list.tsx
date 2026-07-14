@@ -1,4 +1,3 @@
-/* eslint-disable @atlaskit/design-system/use-primitives */
 /**
  * @jsxRuntime classic
  * @jsx jsx

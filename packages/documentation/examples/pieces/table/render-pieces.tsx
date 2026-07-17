@@ -45,8 +45,8 @@ export function getProperty(value: keyof Item): string {
 }
 
 const statusMap: { [key in Status]: ReactElement } = {
-	todo: <Lozenge appearance="new">Todo</Lozenge>,
-	'in-progress': <Lozenge appearance="inprogress">In Progress</Lozenge>,
+	todo: <Lozenge appearance="discovery">Todo</Lozenge>,
+	'in-progress': <Lozenge appearance="information">In Progress</Lozenge>,
 	done: <Lozenge appearance="success">Done</Lozenge>,
 };
 

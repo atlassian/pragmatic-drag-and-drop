@@ -17,7 +17,6 @@
         "emitDeclarationOnly": true,
         "esModuleInterop": true,
         "experimentalDecorators": true,
-        "downlevelIteration": true,
         "importHelpers": true,
         "jsx": "react",
         "moduleResolution": "bundler",

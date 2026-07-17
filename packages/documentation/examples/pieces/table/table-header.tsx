@@ -473,7 +473,7 @@ const previewStyles = xcss({
 });
 
 const previewHeaderStyles = xcss({
-	fontWeight: token('font.weight.bold'),
+	fontWeight: 'font.weight.bold',
 	borderBottom: `${token('border.width.selected')} solid ${token('color.border')}`,
 	lineHeight: '32px',
 });

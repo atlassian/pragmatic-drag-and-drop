@@ -61,7 +61,7 @@ const FileDropZone = () => {
 	return (
 		<div onDragOver={onDragOver} onDrop={onDrop} data-testid="drop-zone" css={fileDropZoneStyles}>
 			<p>
-				<Badge appearance="primary">{items.length}</Badge> items dropped.
+				<Badge appearance="informationBold">{items.length}</Badge> items dropped.
 			</p>
 			{items.map((item, index) => (
 				<ItemInfo key={index} kind={item.kind} type={item.type} file={item.getAsFile()} />

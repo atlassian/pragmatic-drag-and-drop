@@ -126,7 +126,8 @@ function CurrentlyDragging() {
 			{state.type === 'dragging-external' ? (
 				<Fragment>
 					<div>
-						<Lozenge appearance="new">External</Lozenge> - drag started from outside this window
+						<Lozenge appearance="discovery">External</Lozenge> - drag started from outside this
+						window
 					</div>
 					{state.payload.types.length} data types being dragged
 					<ul>
@@ -138,7 +139,7 @@ function CurrentlyDragging() {
 			) : state.type === 'dragging-text-selection' ? (
 				<Fragment>
 					<div>
-						<Lozenge appearance="new">Internal (text selection)</Lozenge>
+						<Lozenge appearance="discovery">Internal (text selection)</Lozenge>
 					</div>
 					<h3>Plain</h3>
 					{/* eslint-disable-next-line @atlaskit/design-system/no-html-code */}
@@ -150,7 +151,7 @@ function CurrentlyDragging() {
 			) : state.type === 'dragging-controlled' ? (
 				<Fragment>
 					<div>
-						<Lozenge appearance="new">Internal (controlled)</Lozenge>
+						<Lozenge appearance="discovery">Internal (controlled)</Lozenge>
 					</div>
 					Data: <pre>{JSON.stringify(state.payload.data)}</pre>
 				</Fragment>

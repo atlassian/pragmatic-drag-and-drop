@@ -112,7 +112,7 @@ const durationOptions: OptionsPropType = [
 		label: (
 			<OptionLabel description={<>Equal to 700ms</>}>
 				<span>Large</span>
-				<Lozenge appearance="inprogress">Current</Lozenge>
+				<Lozenge appearance="information">Current</Lozenge>
 			</OptionLabel>
 		),
 	},
@@ -176,7 +176,7 @@ const easingOptions: OptionsPropType = [
 				}
 			>
 				<span>Linear</span>
-				<Lozenge appearance="removed">Not @atlaskit/motion</Lozenge>
+				<Lozenge appearance="danger">Not @atlaskit/motion</Lozenge>
 			</OptionLabel>
 		),
 	},
@@ -192,8 +192,8 @@ const easingOptions: OptionsPropType = [
 				}
 			>
 				<span>Browser default</span>
-				<Lozenge appearance="inprogress">Current</Lozenge>
-				<Lozenge appearance="removed">Not @atlaskit/motion</Lozenge>
+				<Lozenge appearance="information">Current</Lozenge>
+				<Lozenge appearance="danger">Not @atlaskit/motion</Lozenge>
 			</OptionLabel>
 		),
 	},

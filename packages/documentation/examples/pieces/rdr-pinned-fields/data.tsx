@@ -10,7 +10,7 @@ import { jsx } from '@emotion/react';
 import Avatar from '@atlaskit/avatar';
 import Badge from '@atlaskit/badge';
 import { Date } from '@atlaskit/date';
-import { SimpleTag } from '@atlaskit/tag';
+import Tag from '@atlaskit/tag';
 import TagGroup from '@atlaskit/tag-group';
 
 import { FieldContentWithIcon } from './field';
@@ -65,8 +65,8 @@ export const defaultItems: ItemData[] = [
 		label: 'Labels',
 		content: (
 			<TagGroup>
-				<SimpleTag text="jira" />
-				<SimpleTag text="work-item-view" />
+				<Tag text="jira" isRemovable={false} />
+				<Tag text="work-item-view" isRemovable={false} />
 			</TagGroup>
 		),
 	},

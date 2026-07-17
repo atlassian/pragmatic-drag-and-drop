@@ -150,7 +150,7 @@ export const Subtask: ForwardRefExoticComponent<
 			<SubtaskGroup>
 				<Badge>{1}</Badge>
 				<Avatar size="small" />
-				<Lozenge appearance="default">Todo</Lozenge>
+				<Lozenge appearance="neutral">Todo</Lozenge>
 				{elemAfter}
 			</SubtaskGroup>
 		</div>

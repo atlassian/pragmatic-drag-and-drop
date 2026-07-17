@@ -55,8 +55,8 @@ function BacklogHeader() {
 				<Inline space="space.100" alignBlock="center">
 					<Inline space="space.050">
 						<Badge>0d</Badge>
-						<Badge appearance="primary">0d</Badge>
-						<Badge appearance="added">0d</Badge>
+						<Badge appearance="informationBold">0d</Badge>
+						<Badge appearance="success">0d</Badge>
 					</Inline>
 					<Button>Complete sprint</Button>
 					<IconButton icon={MoreIcon} label="more actions" />

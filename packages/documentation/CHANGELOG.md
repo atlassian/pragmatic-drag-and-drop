@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-docs
 
+## 2.0.1
+
+### Patch Changes
+
+- [`72302be55bf7a`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/72302be55bf7a) -
+  Internal changes to how styles are applied
+
 ## 2.0.0
 
 ### Major Changes

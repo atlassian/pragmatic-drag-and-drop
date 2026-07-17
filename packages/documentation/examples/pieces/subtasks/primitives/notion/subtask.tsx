@@ -142,7 +142,7 @@ export const Subtask: ForwardRefExoticComponent<
 				</Cell>
 				<Cell>June 14, 2023 3:48 PM</Cell>
 				<Cell>
-					<Lozenge appearance="inprogress">In progress</Lozenge>
+					<Lozenge appearance="information">In progress</Lozenge>
 				</Cell>
 				{children}
 			</div>

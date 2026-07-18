@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-react-accessibility",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "An optional package for Pragmatic drag and drop containing react components to assist with setting up accessible experiences",
   "author": "Atlassian Pty Ltd",
   "license": "Apache-2.0",
@@ -31,7 +31,7 @@
     "@atlaskit/focus-ring": "^4.2.0",
     "@atlaskit/icon": "^37.0.0",
     "@atlaskit/platform-feature-flags": "^2.0.0",
-    "@atlaskit/primitives": "^21.0.0",
+    "@atlaskit/primitives": "^22.0.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
     "@atlaskit/tokens": "^16.0.0",
     "@babel/runtime": "^7.0.0",

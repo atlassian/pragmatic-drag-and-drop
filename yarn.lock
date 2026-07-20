@@ -261,17 +261,17 @@
     "@compiled/react" "^0.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^7.3.0":
-  version "7.3.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-7.3.0.tgz#0ca42d3a257eaf79b9cba982cc319eaa6589b3d7"
-  integrity sha512-kt+efHeZJSbShAkCscmU1bphaA1fwm3akp4bkpoHUsJ+j6/34+UXtZYqMNTWxfpGj6to6ZY/erQe2GXZgtihxQ==
+"@atlaskit/motion@^7.4.0":
+  version "7.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-7.4.0.tgz#7505adfe96d974f4710ca3b42167fcf34571b4b1"
+  integrity sha512-PS4E/CHBX0xk4oVeZi3dorPbz68nCj/Kpsgz3NhpjXodY4Qj+kHWRuuPEwtWwS+lvpNrSlr7CY58HeQ2l8aeIQ==
   dependencies:
     "@atlaskit/browser-apis" "^1.1.0"
     "@atlaskit/css" "^1.0.0"
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.0.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@atlaskit/tokens" "^15.5.0"
+    "@atlaskit/tokens" "^16.0.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^0.20.0"
     bind-event-listener "^3.0.0"

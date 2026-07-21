@@ -26,9 +26,9 @@
     "@atlaskit/pragmatic-drag-and-drop": "^2.0.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.0.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^16.0.0",
+    "@atlaskit/tokens": "^16.1.0",
     "@babel/runtime": "^7.0.0",
-    "@compiled/react": "^0.20.0"
+    "@compiled/react": "^0.22.2"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0"

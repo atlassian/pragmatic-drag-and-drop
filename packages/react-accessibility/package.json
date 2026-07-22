@@ -30,10 +30,10 @@
   "dependencies": {
     "@atlaskit/focus-ring": "^4.2.0",
     "@atlaskit/icon": "^37.1.0",
-    "@atlaskit/platform-feature-flags": "^2.0.0",
-    "@atlaskit/primitives": "^22.0.0",
+    "@atlaskit/platform-feature-flags": "^2.1.0",
+    "@atlaskit/primitives": "^22.1.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^16.1.0",
+    "@atlaskit/tokens": "^16.2.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

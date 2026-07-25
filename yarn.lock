@@ -411,10 +411,10 @@
     bind-event-listener "^3.0.0"
     tiny-invariant "^1.2.0"
 
-"@atlaskit/primitives@^22.1.0":
-  version "22.1.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-22.1.0.tgz#d870024f5395e06dd87fcc5dcdf97489d2ec6665"
-  integrity sha512-Qr7rGgbljHNBL8v27ohzSvDvM9OYKGEKbNLMtSO8VUZaxHV3NbydIq958nkJkoFL8+Zr0lkJyxGqW6HcIHisSw==
+"@atlaskit/primitives@^22.2.0":
+  version "22.2.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-22.2.0.tgz#8f23ea6abaa57b93c0eab58cafdb0082ee7d91b5"
+  integrity sha512-OUrhN09wEwvmtDAuHBPdf8lZoMFwkhvzRHkT6EIocM2NjXG/NHIUePl+IfmVCDcmO6dULbW+HVy2yG7B8s1Z0Q==
   dependencies:
     "@atlaskit/analytics-next" "^12.3.0"
     "@atlaskit/app-provider" "^5.1.0"
@@ -422,10 +422,10 @@
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/interaction-context" "^4.0.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@atlaskit/tokens" "^16.2.0"
+    "@atlaskit/tokens" "^16.3.0"
     "@atlaskit/visually-hidden" "^4.2.0"
     "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^0.22.2"
+    "@compiled/react" "^1.0.0"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"
     bind-event-listener "^3.0.0"
@@ -578,19 +578,6 @@
   dependencies:
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.0.0"
-    "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@babel/runtime" "^7.0.0"
-    "@babel/traverse" "^7.23.2"
-    "@babel/types" "^7.20.0"
-    bind-event-listener "^3.0.0"
-
-"@atlaskit/tokens@^16.2.0":
-  version "16.2.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-16.2.0.tgz#c569c1231577f0862dd5b7a5d9b4d74ee172d936"
-  integrity sha512-Rs0/uC6VuRobQQ/MsVpZQWAjFxAu6MdYcaOy/hmSHtFCq0bRxxT6BCSDWKrGolp4tB+Y9cGK+JQCvdhx2LLeFQ==
-  dependencies:
-    "@atlaskit/ds-lib" "^8.0.0"
-    "@atlaskit/platform-feature-flags" "^2.1.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@babel/runtime" "^7.0.0"
     "@babel/traverse" "^7.23.2"

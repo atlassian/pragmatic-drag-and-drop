@@ -137,7 +137,7 @@ export const Subtask: ForwardRefExoticComponent<
 				<span>{title}</span>
 				<SubtaskGroup>
 					<time css={subtaskTimeStyles}>25 Apr</time>
-					<Avatar size="xsmall" />
+					<Avatar size="xxsmall" />
 				</SubtaskGroup>
 			</div>
 			{children}

@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@atlaskit/focus-ring": "^4.2.0",
-    "@atlaskit/icon": "^37.1.0",
+    "@atlaskit/icon": "^37.2.0",
     "@atlaskit/platform-feature-flags": "^2.1.0",
     "@atlaskit/primitives": "^22.2.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",

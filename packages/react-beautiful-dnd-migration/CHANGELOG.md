@@ -1,5 +1,18 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 3.2.0
+
+### Minor Changes
+
+- [`63844188fce2c`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/63844188fce2c) -
+  Add a `./types` entry point to `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration`
+  that re-exports the react-beautiful-dnd types, and point leftover rbd type-only imports at it.
+
+  The rbd→pdnd runtime migration left type-only imports on `react-beautiful-dnd`; the migration
+  layer only re-exported those types from its (prohibited-barrel) root, so consumers had no
+  non-barrel path for them. The new `./types` subpath provides one. Type-only change; no runtime or
+  API impact, no feature gate.
+
 ## 3.1.1
 
 ### Patch Changes

@@ -77,10 +77,10 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.0"
 
-"@atlaskit/badge@^20.0.0":
-  version "20.0.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/badge/-/@atlaskit/badge-20.0.0.tgz#94843fe80800486b2df34c0bef45798ee87b5260"
-  integrity sha512-RX2iP4dgF2lcVc1eAFBYg5UJZ00sqaPn0nQpBv0t8WRzwCQerj+DJvm7CFbPXOhRjB/QrAE87r087QuWiNdKOw==
+"@atlaskit/badge@^21.0.0":
+  version "21.0.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/badge/-/@atlaskit/badge-21.0.0.tgz#fd9178596001f711cd5be3ef9ea7ccb2af68793b"
+  integrity sha512-cOakv22vJe6fTBPnJEbZhtvV2nmgSQKJWxQ/sF2ewU5jOpBwNiqLmfkYrahZk6K0ujroTI2GXj1mTBGCQk8+LA==
   dependencies:
     "@atlaskit/platform-feature-flags" "^2.1.0"
     "@atlaskit/primitives" "^22.2.0"

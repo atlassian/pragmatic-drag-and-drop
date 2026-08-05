@@ -1,18 +1,7 @@
 {
   "extends": "../../tsconfig.json",
-  "include": [
-    "__tests__/**/*.ts",
-    "__tests__/**/*.tsx",
-    "examples/**/*.ts",
-    "examples/**/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/drag-event-polyfill.ts",
-    "**/stories.ts",
-    "**/stories.tsx",
-    "**/stories/*.ts",
-    "**/stories/*.tsx",
-    "**/stories/**/*.ts",
-    "**/stories/**/*.tsx"
-  ]
+  "compilerOptions": {
+    "disableReferencedProjectLoad": true,
+    "disableSolutionSearching": true
+  }
 }

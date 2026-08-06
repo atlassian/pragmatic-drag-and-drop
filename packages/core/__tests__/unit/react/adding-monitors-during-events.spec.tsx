@@ -2,8 +2,9 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 
 // Using '@testing-library/react' rather than '@testing-library/dom'
 // so that events are correctly wrapped in `act()`
-import { fireEvent } from '@testing-library/react';
-import ReactDOM from 'react-dom';
+import { act, fireEvent } from '@testing-library/react';
+import { flushSync } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { combine } from '../../../src/entry-point/combine';
 import { draggable, monitorForElements } from '../../../src/entry-point/element/adapter';
@@ -61,7 +62,10 @@ test('no double calls for created in effects', () => {
 		return <div ref={ref}>Drag me</div>;
 	}
 
-	ReactDOM.render(<App />, container);
+	const root = createRoot(container);
+	act(() => {
+		root.render(<App />);
+	});
 
 	// initial render
 	expect(ordered).toEqual(['render:isDragging=false', 'effect:isDragging=false']);
@@ -86,7 +90,9 @@ test('no double calls for created in effects', () => {
 		// `onDragStart` is _not_ called by the new monitor 💃
 	]);
 
-	ReactDOM.unmountComponentAtNode(container);
+	act(() => {
+		root.unmount();
+	});
 	cleanup();
 });
 
@@ -124,7 +130,7 @@ test('no double calls for created in flushed effects', () => {
 						// the new monitor would not be executed for the current event
 						// So this test passed before the protection was added to only iterate
 						// over active monitors
-						ReactDOM.flushSync(() => {
+						flushSync(() => {
 							setIsDragging(true);
 						});
 					},
@@ -141,7 +147,10 @@ test('no double calls for created in flushed effects', () => {
 		return <div ref={ref}>Drag me</div>;
 	}
 
-	ReactDOM.render(<App />, container);
+	const root = createRoot(container);
+	act(() => {
+		root.render(<App />);
+	});
 
 	// initial render
 	expect(ordered).toEqual(['render:isDragging=false', 'effect:isDragging=false']);
@@ -166,6 +175,8 @@ test('no double calls for created in flushed effects', () => {
 		// `onDragStart` is _not_ called by the new monitor 💃
 	]);
 
-	ReactDOM.unmountComponentAtNode(container);
+	act(() => {
+		root.unmount();
+	});
 	cleanup();
 });

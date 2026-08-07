@@ -24,7 +24,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^26.4.0",
+    "@atlaskit/avatar": "^27.0.0",
     "@atlaskit/badge": "^21.0.0",
     "@atlaskit/button": "^25.0.0",
     "@atlaskit/code": "^18.2.0",
@@ -36,7 +36,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^4.1.0",
     "@atlaskit/primitives": "^22.2.0",
-    "@atlaskit/theme": "^27.0.0",
+    "@atlaskit/theme": "^28.0.0",
     "@atlaskit/tokens": "^16.4.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",

@@ -26,7 +26,7 @@ function getCardOrder(page: Page, columnId: string): Promise<(string | null)[]> 
 
 test.describe('board', () => {
 	test('should allow sorting columns', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>(
+		await page.visitExample<typeof import('../../examples/board.vr.ap.tsx')>(
 			'pragmatic-drag-and-drop',
 			'documentation',
 			'board',
@@ -47,7 +47,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow sorting tasks in a column', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>(
+		await page.visitExample<typeof import('../../examples/board.vr.ap.tsx')>(
 			'pragmatic-drag-and-drop',
 			'documentation',
 			'board',
@@ -73,7 +73,7 @@ test.describe('board', () => {
 	});
 
 	test('should allow moving tasks between columns', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>(
+		await page.visitExample<typeof import('../../examples/board.vr.ap.tsx')>(
 			'pragmatic-drag-and-drop',
 			'documentation',
 			'board',
@@ -102,7 +102,7 @@ test.describe('board', () => {
 	});
 
 	test('should capture and report a11y violations', async ({ page }) => {
-		await page.visitExample<typeof import('../../examples/board.tsx')>(
+		await page.visitExample<typeof import('../../examples/board.vr.ap.tsx')>(
 			'pragmatic-drag-and-drop',
 			'documentation',
 			'board',

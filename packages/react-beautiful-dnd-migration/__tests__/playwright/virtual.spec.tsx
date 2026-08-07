@@ -16,7 +16,7 @@ test.describe('virtual lists', () => {
 			// the next line and associated import. For more information, see go/afm-a11y-tooling:playwright
 			skipAutoA11y();
 
-			await page.visitExample<typeof import('../../examples/02-react-window.tsx')>(
+			await page.visitExample<typeof import('../../examples/02-react-window.vr.ap.tsx')>(
 				'pragmatic-drag-and-drop',
 				'react-beautiful-dnd-migration',
 				'react-window',

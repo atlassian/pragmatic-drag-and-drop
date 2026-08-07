@@ -8,7 +8,7 @@ import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-e
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import Board from '../../examples/01-board';
+import Board from '../../examples/01-board.vr.ap';
 import { customAttributes } from '../../src/utils/attributes';
 
 import { setElementFromPoint } from './_util';

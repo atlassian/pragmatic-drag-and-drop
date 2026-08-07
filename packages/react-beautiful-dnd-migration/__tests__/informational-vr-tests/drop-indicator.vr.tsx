@@ -9,9 +9,9 @@ import {
 	type SnapshotTestOptions,
 } from '@af/visual-regression';
 
-import BoardExample from '../../examples/01-board';
-import ReactWindowExample from '../../examples/02-react-window';
-import ReactVirtualizedExample from '../../examples/03-react-virtualized';
+import BoardExample from '../../examples/01-board.vr.ap';
+import ReactWindowExample from '../../examples/02-react-window.vr.ap';
+import ReactVirtualizedExample from '../../examples/03-react-virtualized.vr.ap';
 
 const variants: SnapshotTestOptions<Hooks>['variants'] = [
 	{

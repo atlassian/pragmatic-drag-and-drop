@@ -8,7 +8,7 @@ import { supportsPopover } from '../../../util/supports-popover';
 import type { GetOffsetFn } from './types';
 
 /** A function to remove the element that has been added to the `container`.
- * @example () => ReactDOM.unmountComponentAtNode(container)
+ * @example () => root.unmount()
  */
 type CleanupFn = () => void;
 
@@ -35,8 +35,9 @@ function defaultOffset(): Position {
  *  onGenerateDragPreview: ({ nativeSetDragImage }) => {
  *    setCustomNativeDragPreview({
  *      render: ({ container }) => {
- *        ReactDOM.render(<Preview item={item} />, container);
- *        return () => ReactDOM.unmountComponentAtNode(container);
+ *        const root = createRoot(container);
+ *        root.render(<Preview item={item} />);
+ *        return () => root.unmount();
  *      },
  *      nativeSetDragImage,
  *    });

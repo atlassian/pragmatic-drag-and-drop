@@ -5,7 +5,7 @@ import {
 	type SnapshotTestOptions,
 } from '@af/visual-regression';
 
-import ScrollContainerExample from '../../examples/05-scroll-container';
+import ScrollContainerExample from '../../examples/05-scroll-container.vr.ap';
 
 const variants: SnapshotTestOptions<Hooks>['variants'] = [
 	{

@@ -5,10 +5,10 @@
  */
 {
   "testExamples": [
-    "01-board.tsx",
-    "02-react-window.tsx",
-    "03-react-virtualized.tsx",
-    "05-scroll-container.tsx",
+    "01-board.vr.ap.tsx",
+    "02-react-window.vr.ap.tsx",
+    "03-react-virtualized.vr.ap.tsx",
+    "05-scroll-container.vr.ap.tsx",
     "column.tsx"
   ]
 }

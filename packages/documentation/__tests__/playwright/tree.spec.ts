@@ -13,7 +13,7 @@ const scenarios: TScenario[] = [
 	{
 		name: 'tree',
 		beforeEach: async ({ page }: { page: Page }) => {
-			await page.visitExample<typeof import('../../examples/tree.tsx')>(
+			await page.visitExample<typeof import('../../examples/tree.vr.ap.tsx')>(
 				'pragmatic-drag-and-drop',
 				'documentation',
 				'tree',

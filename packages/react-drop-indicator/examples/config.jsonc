@@ -5,9 +5,9 @@
  */
 {
   "testExamples": [
-    "00-closest-edge.tsx",
-    "01-gap.tsx",
+    "00-closest-edge.vr.ap.tsx",
+    "01-gap.vr.ap.tsx",
     "02-box-without-terminal.tsx",
-    "11-tree-item.tsx"
+    "11-tree-item.vr.ap.tsx"
   ]
 }

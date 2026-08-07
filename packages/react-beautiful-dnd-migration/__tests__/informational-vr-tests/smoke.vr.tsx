@@ -8,7 +8,7 @@ import {
 	type SnapshotTestOptions,
 } from '@af/visual-regression';
 
-import BoardExample from '../../examples/01-board';
+import BoardExample from '../../examples/01-board.vr.ap';
 
 const variants: SnapshotTestOptions<Hooks>['variants'] = [
 	{

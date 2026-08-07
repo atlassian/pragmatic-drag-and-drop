@@ -5,7 +5,7 @@ import { replaceRaf } from 'raf-stub';
 
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import VirtualBoardExample from '../../../examples/02-react-window';
+import VirtualBoardExample from '../../../examples/02-react-window.vr.ap';
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import { hasDropIndicator } from '../_util';
 import { Board } from '../_utils/board';

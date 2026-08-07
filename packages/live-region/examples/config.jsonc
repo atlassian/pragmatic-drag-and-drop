@@ -5,7 +5,7 @@
  */
 {
   "testExamples": [
-    "00-basic.tsx"
+    "00-basic.vr.ap.tsx"
   ],
   "exampleDependencies": [
     "@emotion/react",

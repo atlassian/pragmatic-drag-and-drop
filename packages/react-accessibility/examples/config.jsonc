@@ -5,8 +5,8 @@
  */
 {
   "testExamples": [
-    "drag-handle-button-small.tsx",
-    "drag-handle-button.tsx"
+    "drag-handle-button-small.vr.ap.tsx",
+    "drag-handle-button.vr.ap.tsx"
   ],
   "exampleDependencies": [
     "@atlaskit/ds-lib"

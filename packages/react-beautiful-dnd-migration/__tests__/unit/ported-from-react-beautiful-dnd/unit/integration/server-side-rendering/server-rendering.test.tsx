@@ -2,13 +2,6 @@
  * @jest-environment node
  */
 
-/* eslint-disable
-  @atlaskit/design-system/no-to-match-snapshot,
-  @atlaskit/design-system/no-unsafe-inline-snapshot
-  -- TODO(IND-4952): existing snapshot tests will be removed in a follow-up cleanup PR.
-  See https://hello.atlassian.net/wiki/spaces/afm/pages/7146174189/LDR+Unit+Tests+-+Ban+Snapshot+tests+in+Platform
-  and raise concerns in https://atlassian.enterprise.slack.com/archives/C0BD4K40BLH
-*/
 import React from 'react';
 
 import { renderToStaticMarkup, renderToString } from 'react-dom/server';
@@ -50,7 +43,7 @@ it('should support rendering to a string', async () => {
 	const result: string = renderToString(<App />);
 
 	expect(result).toEqual(expect.any(String));
-	expect(result).toMatchSnapshot();
+	expect(result).not.toBeNull();
 	expectConsoleNotCalled();
 });
 
@@ -58,7 +51,7 @@ it('should support rendering to static markup', async () => {
 	const result: string = renderToStaticMarkup(<App />);
 
 	expect(result).toEqual(expect.any(String));
-	expect(result).toMatchSnapshot();
+	expect(result).not.toBeNull();
 	expectConsoleNotCalled();
 });
 

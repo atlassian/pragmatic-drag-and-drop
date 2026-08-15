@@ -1,78 +1,21 @@
 import { bind } from 'bind-event-listener';
 
-import { makeHoneyPotFix } from '../honey-pot-fix/make-honey-pot-fix';
 import {
 	type AdapterAPI,
-	type BaseEventPayload,
 	type CleanupFn,
 	type DropTargetArgs,
-	type DropTargetEventBasePayload,
-	type DropTargetEventPayloadMap,
-	type DropTargetGetFeedbackArgs,
-	type EventPayloadMap,
 	type MonitorArgs,
-	type MonitorGetFeedbackArgs,
 	type TextSelectionDragPayload,
 	type TextSelectionDragType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { combine } from '../public-utils/combine';
-import { isSafari } from '../util/is-safari';
 import { HTMLMediaType } from '../util/media-types/html-media-type';
 import { textMediaType } from '../util/media-types/text-media-type';
 
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
-
-function findTextNode(event: DragEvent): Text | null {
-	// Standard: the `event.target` should be the closest `Text` node.
-	if (event.target instanceof Text) {
-		return event.target;
-	}
-
-	// Structuring things this way so that if Safari fixes their bug
-	// then the standard check will start working
-	if (!isSafari()) {
-		return null;
-	}
-
-	/**
-	 * According to the spec, `event.target` should be the `Text` node that
-	 * the drag started from when dragging a text selection.
-	 *
-	 * → https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model
-	 *
-	 * However, in Safari the closest `HTMLElement` is returned.
-	 * So we need to figure out if text is dragging ourselves.
-	 *
-	 * → https://bugs.webkit.org/show_bug.cgi?id=268959
-	 */
-	if (!(event.target instanceof HTMLElement)) {
-		return null;
-	}
-
-	// Unlikely that this particular drag is a text selection drag
-	if (event.target.draggable) {
-		return null;
-	}
-
-	// if the drag contains no text data, then not dragging selected text
-	// return `null` if there is no dataTransfer, or if `getData()` returns ""
-	if (!event.dataTransfer?.getData(textMediaType)) {
-		return null;
-	}
-
-	/**
-	 * Grab the first Text node and use that.
-	 * Only doing a single level search as that is all we need for this bug.
-	 */
-	const text: Text | undefined = Array.from(event.target.childNodes).find(
-		(node): node is Text => node.nodeType === Node.TEXT_NODE,
-	);
-
-	return text ?? null;
-}
-
-const honeyPotFix = makeHoneyPotFix();
+import { findTextNode } from './find-text-node';
+import { honeyPotFix } from './honey-pot-fix';
 
 const adapter: {
 	registerUsage: () => CleanupFn;
@@ -165,18 +108,6 @@ const adapter: {
 	onPostDispatch: honeyPotFix.getOnPostDispatch(),
 });
 
-// The `onGenerateDragPreview` does not make sense to publish for text selection
-// as the browser is completely in control of the drag preview
-type StripPreviewEvent<T> = Omit<T, 'onGenerateDragPreview'>;
-
-export function dropTargetForTextSelection(
-	args: StripPreviewEvent<Parameters<typeof adapter.dropTarget>[0]>,
-): CleanupFn {
-	// note: not removing `onGenerateDragPreview`; just leaning on the type system
-	return adapter.dropTarget(args);
-}
-
-// A shared single usage registration as any text can be dragged at any time
 (function register() {
 	// server side rendering check
 	if (typeof window === 'undefined') {
@@ -185,34 +116,4 @@ export function dropTargetForTextSelection(
 	adapter.registerUsage();
 })();
 
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function monitorForTextSelection(
-	args: StripPreviewEvent<Parameters<typeof adapter.monitor>[0]>,
-): CleanupFn {
-	// note: not removing `onGenerateDragPreview`; just leaning on the type system
-	return adapter.monitor(args);
-}
-
-/** Common event payload for all events */
-export type TextSelectionEventBasePayload = BaseEventPayload<TextSelectionDragType>;
-
-/** A map containing payloads for all events */
-export type TextSelectionEventPayloadMap = StripPreviewEvent<
-	EventPayloadMap<TextSelectionDragType>
->;
-
-/** Common event payload for all drop target events */
-export type TextSelectionDropTargetEventBasePayload =
-	DropTargetEventBasePayload<TextSelectionDragType>;
-
-/** A map containing payloads for all events on drop targets */
-export type TextSelectionDropTargetEventPayloadMap = StripPreviewEvent<
-	DropTargetEventPayloadMap<TextSelectionDragType>
->;
-
-/** Argument given to all feedback functions (eg `canDrop()`) on a `dropTargetForExternal` */
-export type TextSelectionMonitorGetFeedbackArgs = MonitorGetFeedbackArgs<TextSelectionDragType>;
-
-/** Argument given to all monitor feedback functions (eg `canMonitor()`) for a `monitorForExternal` */
-export type TextSelectionDropTargetGetFeedbackArgs =
-	DropTargetGetFeedbackArgs<TextSelectionDragType>;
+export { adapter };

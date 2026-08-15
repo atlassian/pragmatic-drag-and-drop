@@ -29,6 +29,10 @@ import { URLMediaType } from '../util/media-types/url-media-type';
 
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
 
+// Payload for the draggable being dragged
+// eslint-disable-next-line @atlaskit/volt-strict-mode/no-re-exports
+export type { ElementDragPayload } from '../internal-types';
+
 type DraggableGetFeedbackArgs = {
 	/**
 	 * The user input as a drag is trying to start (the `initial` input)

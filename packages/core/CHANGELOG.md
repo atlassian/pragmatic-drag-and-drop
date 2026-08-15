@@ -1,5 +1,28 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 3.0.0
+
+### Major Changes
+
+- [`11be7aaf18beb`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/11be7aaf18beb) -
+  Add direct export paths for existing APIs, aligning the package with Volt entry-point standards.
+  Legacy entry points are preserved as deprecated compatibility shims to support incremental
+  migration.
+
+  Before:
+
+  ```ts
+  import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+  import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+  ```
+
+  After:
+
+  ```ts
+  import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external';
+  import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
+  ```
+
 ## 2.0.2
 
 ### Patch Changes

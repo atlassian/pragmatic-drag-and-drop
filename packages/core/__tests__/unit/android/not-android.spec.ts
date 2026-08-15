@@ -8,7 +8,7 @@ import {
 	dropTargetForExternal,
 	monitorForExternal,
 } from '../../../src/entry-point/external/adapter';
-import { getHTML } from '../../../src/public-utils/external/html';
+import { getHTML } from '../../../src/public-utils/external/get-html';
 import { androidFallbackText } from '../../../src/util/android';
 import { textMediaType } from '../../../src/util/media-types/text-media-type';
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from '../_util';

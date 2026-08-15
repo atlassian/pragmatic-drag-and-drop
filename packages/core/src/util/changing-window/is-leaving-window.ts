@@ -1,8 +1,8 @@
 import { isFirefox } from '../is-firefox';
 import { isSafari } from '../is-safari';
 
-import { isLeavingWindowInSafari } from './count-events-for-safari';
 import { isFromAnotherWindow } from './is-from-another-window';
+import { isLeavingWindowInSafari } from './is-leaving-window-in-safari';
 
 export function isLeavingWindow({ dragLeave }: { dragLeave: DragEvent }): boolean {
 	const { type, relatedTarget } = dragLeave;

@@ -13,56 +13,18 @@ import {
 	type ExternalDragType,
 	type MonitorArgs,
 	type MonitorGetFeedbackArgs,
-	type NativeMediaType,
 } from '../internal-types';
 import { makeAdapter } from '../make-adapter/make-adapter';
-import { androidFallbackText } from '../util/android';
 import { isEnteringWindow } from '../util/changing-window/is-entering-window';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';
-import { textMediaType } from '../util/media-types/text-media-type';
 
-import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
-
-export function isAnAvailableType({ type, value }: { type: string; value: string }): boolean {
-	// We don't want to expose our private elementAdapter key / value
-	if (type === elementAdapterNativeDataKey) {
-		return false;
-	}
-	// Not exposing "text/plain" if it contains the android fallback text
-	// We _could_ add an `isAndroid()` check, but it's probably safest
-	// to trim this data out, regardless of what OS we see it on.
-	if (type === textMediaType && value === androidFallbackText) {
-		return false;
-	}
-	return true;
-}
-
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function getAvailableTypes(transfer: DataTransfer): NativeMediaType[] {
-	return Array.from(transfer.types).filter((type) =>
-		isAnAvailableType({ type, value: transfer.getData(type) }),
-	);
-}
-
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function getAvailableItems(dataTransfer: DataTransfer): DataTransferItem[] {
-	// item.kind is 'string' | 'file'
-	// For 'string' item.type is the mimeType (eg 'text/plain')
-	// For 'file' item.type is the file type (eg 'image/jpg')
-
-	return Array.from(dataTransfer.items).filter(
-		(item) =>
-			item.kind === 'file' ||
-			isAnAvailableType({
-				type: item.type,
-				value: dataTransfer.getData(item.type),
-			}),
-	);
-}
+import { getAvailableItems } from './get-available-items';
+import { getAvailableTypes } from './get-available-types';
+import { isAnAvailableType } from './is-an-available-type';
 
 let didDragStartLocally: boolean = false;
 
-const adapter: {
+export const adapter: {
 	registerUsage: () => CleanupFn;
 	dropTarget: (args: DropTargetArgs<ExternalDragType>) => CleanupFn;
 	monitor: (args: MonitorArgs<ExternalDragType>) => CleanupFn;
@@ -178,7 +140,7 @@ const adapter: {
 	},
 });
 
-/**
+export /**
  * Some events don't make sense for the external adapter
  *
  * `onGenerateDragPreview`
@@ -190,23 +152,28 @@ const adapter: {
  * don't need `onDragStart`
  */
 type StripEventsForDropTargets<T> = Omit<T, 'onGenerateDragPreview' | 'onDragStart'>;
-type StripEventsForMonitors<T> = Omit<T, 'onGenerateDragPreview'>;
 
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function dropTargetForExternal(
-	args: StripEventsForDropTargets<Parameters<typeof adapter.dropTarget>[0]>,
-): CleanupFn {
-	// not removing unused events, just leaning on the type system
-	return adapter.dropTarget(args);
-}
+export type StripEventsForMonitors<T> = Omit<T, 'onGenerateDragPreview'>;
 
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function monitorForExternal(
-	args: StripEventsForMonitors<Parameters<typeof adapter.monitor>[0]>,
-): CleanupFn {
-	// not removing unused events, just leaning on the type system
-	return adapter.monitor(args);
-}
+/** Common event payload for all events */
+export type ExternalEventBasePayload = BaseEventPayload<ExternalDragType>;
+
+/** A map containing payloads for all events */
+export type ExternalEventPayloadMap = StripEventsForMonitors<EventPayloadMap<ExternalDragType>>;
+
+/** Common event payload for all drop target events */
+export type ExternalDropTargetEventBasePayload = DropTargetEventBasePayload<ExternalDragType>;
+
+/** A map containing payloads for all events on drop targets */
+export type ExternalDropTargetEventPayloadMap = StripEventsForDropTargets<
+	DropTargetEventPayloadMap<ExternalDragType>
+>;
+
+/** Arguments given to all feedback functions (eg `canDrop()`) on a `dropTargetForExternal` */
+export type ExternalDropTargetGetFeedbackArgs = DropTargetGetFeedbackArgs<ExternalDragType>;
+
+/** Arguments given to all monitor feedback functions (eg `canMonitor()`) for a `monitorForExternal` */
+export type ExternalMonitorGetFeedbackArgs = MonitorGetFeedbackArgs<ExternalDragType>;
 
 (function startup() {
 	// server side rendering check
@@ -282,23 +249,3 @@ export function monitorForExternal(
 		options: { capture: true },
 	});
 })();
-
-/** Common event payload for all events */
-export type ExternalEventBasePayload = BaseEventPayload<ExternalDragType>;
-
-/** A map containing payloads for all events */
-export type ExternalEventPayloadMap = StripEventsForMonitors<EventPayloadMap<ExternalDragType>>;
-
-/** Common event payload for all drop target events */
-export type ExternalDropTargetEventBasePayload = DropTargetEventBasePayload<ExternalDragType>;
-
-/** A map containing payloads for all events on drop targets */
-export type ExternalDropTargetEventPayloadMap = StripEventsForDropTargets<
-	DropTargetEventPayloadMap<ExternalDragType>
->;
-
-/** Arguments given to all feedback functions (eg `canDrop()`) on a `dropTargetForExternal` */
-export type ExternalDropTargetGetFeedbackArgs = DropTargetGetFeedbackArgs<ExternalDragType>;
-
-/** Arguments given to all monitor feedback functions (eg `canMonitor()`) for a `monitorForExternal` */
-export type ExternalMonitorGetFeedbackArgs = MonitorGetFeedbackArgs<ExternalDragType>;

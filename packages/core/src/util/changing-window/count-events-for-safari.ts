@@ -8,28 +8,15 @@ import { isSafari } from '../is-safari';
  *  Unfortunately in Safari `event.relatedTarget` is *always* set to `null`
  *  Safari bug: https://bugs.webkit.org/show_bug.cgi?id=242627
  *  To work around this we count "dragenter" and "dragleave" events */
-
 // Using symbols for event properties so we don't clash with
 // anything on the `event` object
-const symbols = {
+export const symbols: {
+	isLeavingWindow: symbol;
+	isEnteringWindow: symbol;
+} = {
 	isLeavingWindow: Symbol('leaving'),
 	isEnteringWindow: Symbol('entering'),
 };
-
-export function isEnteringWindowInSafari({ dragEnter }: { dragEnter: DragEvent }): boolean {
-	if (!isSafari()) {
-		return false;
-	}
-	return dragEnter.hasOwnProperty(symbols.isEnteringWindow);
-}
-
-// eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
-export function isLeavingWindowInSafari({ dragLeave }: { dragLeave: DragEvent }): boolean {
-	if (!isSafari()) {
-		return false;
-	}
-	return dragLeave.hasOwnProperty(symbols.isLeavingWindow);
-}
 
 (function fixSafari() {
 	// Don't do anything when server side rendering

@@ -1,9 +1,6 @@
-import {
-	attachInstruction,
-	extractInstruction,
-	type Instruction,
-	type Operation,
-} from '../../src/list-item';
+import { attachInstruction } from '../../src/attach-instruction-2';
+import { extractInstruction } from '../../src/extract-instruction-2';
+import type { Instruction, Operation } from '../../src/list-item';
 
 import { between, getDefaultInput, getElements, getRect } from './_util';
 

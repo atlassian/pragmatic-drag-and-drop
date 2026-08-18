@@ -1,5 +1,21 @@
 # @atlaskit/pragmatic-drag-and-drop-hitbox
 
+## 2.1.0
+
+### Minor Changes
+
+- [`29fd54df69593`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/29fd54df69593) -
+  Imports from the package root are deprecated and will be removed in a future release. Migrate to
+  dedicated entry-point imports to reduce upgrade friction. Recommended imports:
+  - `import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge'`
+  - `import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge'`
+  - `import { attachInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item/attach-instruction'`
+  - `import { extractInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item/extract-instruction'`
+  - `import { attachInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item/attach-instruction'`
+  - `import { extractInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item/extract-instruction'`
+  - `import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge'`
+  - `import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index'`
+
 ## 2.0.1
 
 ### Patch Changes

@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^3.0.0",
-    "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.0.0",
+    "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.0.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
     "@atlaskit/tokens": "^16.7.0",

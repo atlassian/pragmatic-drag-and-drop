@@ -1,5 +1,16 @@
 # @atlaskit/pragmatic-drag-and-drop-flourish
 
+## 3.1.0
+
+### Minor Changes
+
+- [`0075efb228821`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/0075efb228821) -
+  Autofix: barrel removal (imports + exports)
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 3.0.3
 
 ### Patch Changes

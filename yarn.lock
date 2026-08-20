@@ -42,6 +42,19 @@
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
 
+"@atlaskit/app-provider@^5.3.0":
+  version "5.3.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/app-provider/-/@atlaskit/app-provider-5.3.0.tgz#7cc97e1186c24821e0c21bb9d4506c69be6efb41"
+  integrity sha512-Et2Cu1J5hJ0J1s9MOUwkoFX4M8d3ja5lqGMHRVUgKj21605OiLrH7bT+i/eDfCv4qHGPcVh1chH88XfdlpfVMg==
+  dependencies:
+    "@atlaskit/browser-apis" "^1.2.0"
+    "@atlaskit/css" "^1.0.0"
+    "@atlaskit/platform-feature-flags" "^2.1.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^16.4.0"
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^3.0.0"
+
 "@atlaskit/atlassian-context@^1.0.0":
   version "1.0.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/atlassian-context/-/@atlaskit/atlassian-context-1.0.0.tgz#08cc7ce0561be67e7ede8d0e1f39a2a14ac66a3d"
@@ -255,10 +268,10 @@
     "@compiled/react" "^1.0.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^8.1.0":
-  version "8.1.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-8.1.0.tgz#c0a3023d925e1d3a21c70307f110bf0f1f33f19d"
-  integrity sha512-vAXZB/Vad26D3PMF+7QtNd9vaQiFTQutHc7+7sDLVgPzJwMTvHRXoZgvMrViK8BWr7K6aOttuAezTq9z9of2CA==
+"@atlaskit/motion@^8.2.0":
+  version "8.2.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-8.2.0.tgz#b8cf39c69a1be09e8495929ac04955d72e6ad02d"
+  integrity sha512-9Mmr+ynsjY/xJQx4t7CpNp+H3jBnRIKk8cueLG6cVMHu3HRnvcgHYhF8ZEVrCOuzPYmnHA/adr7nbpQ4oee0HA==
   dependencies:
     "@atlaskit/browser-apis" "^1.2.0"
     "@atlaskit/css" "^1.0.0"
@@ -329,6 +342,26 @@
     "@atlaskit/visually-hidden" "^4.2.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.0"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    tiny-invariant "^1.2.0"
+
+"@atlaskit/primitives@^22.3.0":
+  version "22.3.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-22.3.0.tgz#f844337579f782f60b3ef6e1199e8a8e2fcee5c4"
+  integrity sha512-i5cT4C3OEYPcs1P4AxRjtmmFCVu5sKtf39aMOq3JyYZICXN7i6Qk2wexWmBvWnjRr54wFsm1EociTVdA0oblsQ==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.3.0"
+    "@atlaskit/app-provider" "^5.3.0"
+    "@atlaskit/css" "^1.0.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/interaction-context" "^4.0.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^16.7.0"
+    "@atlaskit/visually-hidden" "^4.2.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
     "@emotion/react" "^11.7.1"
     "@emotion/serialize" "^1.1.0"
     bind-event-listener "^3.0.0"

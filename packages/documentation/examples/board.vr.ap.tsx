@@ -3,13 +3,13 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import invariant from 'tiny-invariant';
 
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
-import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
 import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 import { type ColumnMap, type ColumnType, getBasicData, type Person } from './data/people';
 import Board from './pieces/board/board';

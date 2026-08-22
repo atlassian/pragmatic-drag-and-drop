@@ -1,4 +1,4 @@
-import { monitorForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/text-selection/adapter';
+import { monitorForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-text-selection';
 import type { TextSelectionDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { makeApi } from '../../unsafe-overflow/make-api';

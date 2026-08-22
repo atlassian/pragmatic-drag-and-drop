@@ -8,10 +8,12 @@ import React, { type CSSProperties, Fragment, memo, useEffect, useRef, useState 
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { ButtonItem, MenuGroup, Section } from '@atlaskit/menu';
-import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
-import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
+import ButtonItem from '@atlaskit/menu/button-item';
+import MenuGroup from '@atlaskit/menu/menu-group';
+import Section from '@atlaskit/menu/section';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
+import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
 import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { token } from '@atlaskit/tokens';
 

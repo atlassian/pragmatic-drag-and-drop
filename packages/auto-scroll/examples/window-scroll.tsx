@@ -9,11 +9,11 @@ import React, { Fragment, useEffect, useRef } from 'react';
 import { css, Global, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 

@@ -1,6 +1,6 @@
 import { replaceRaf, type Stub } from 'raf-stub';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { autoScroller } from '../../src';

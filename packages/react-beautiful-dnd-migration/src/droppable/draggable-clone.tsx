@@ -12,8 +12,8 @@ import type {
 } from 'react-beautiful-dnd';
 import { createPortal } from 'react-dom';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 
 import { getHiddenTextElementId } from '../drag-drop-context/hooks/use-hidden-text-element';
 import { useDragDropContext } from '../drag-drop-context/internal-context';

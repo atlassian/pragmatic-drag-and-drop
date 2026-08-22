@@ -2,19 +2,19 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import Heading from '@atlaskit/heading';
+import Heading from '@atlaskit/heading/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
-import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	dropTargetForElements,
-	type ElementDragPayload,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 

@@ -2,11 +2,11 @@ import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
 import { replaceRaf } from 'raf-stub';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';

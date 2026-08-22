@@ -1,11 +1,11 @@
 import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';

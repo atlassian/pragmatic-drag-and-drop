@@ -2,11 +2,11 @@ import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { unsafeOverflowAutoScrollForElements } from '../../../src/entry-point/unsafe-overflow/element';

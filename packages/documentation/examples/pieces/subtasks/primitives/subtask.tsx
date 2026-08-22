@@ -13,9 +13,9 @@ import {
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
-import Avatar from '@atlaskit/avatar';
-import Badge from '@atlaskit/badge';
-import Lozenge from '@atlaskit/lozenge';
+import Avatar from '@atlaskit/avatar/avatar';
+import Badge from '@atlaskit/badge/badge';
+import Lozenge from '@atlaskit/lozenge/lozenge';
 import { token } from '@atlaskit/tokens';
 
 import SubtaskIcon from './subtask-icon';

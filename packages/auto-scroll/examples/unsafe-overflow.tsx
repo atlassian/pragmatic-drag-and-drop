@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { autoScrollForElements } from '../src/entry-point/element';
 import { unsafeOverflowAutoScrollForElements } from '../src/entry-point/unsafe-overflow/element';

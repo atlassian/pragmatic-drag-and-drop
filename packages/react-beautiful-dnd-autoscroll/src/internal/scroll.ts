@@ -1,4 +1,4 @@
-import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/private/get-element-from-point-without-honey-pot';
+import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/get-element-from-point-without-honey-pot';
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { getClosestScrollableElement } from './get-closest-scrollable-element';

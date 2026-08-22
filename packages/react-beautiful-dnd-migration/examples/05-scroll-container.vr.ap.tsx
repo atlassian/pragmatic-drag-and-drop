@@ -8,8 +8,8 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import type { DropResult } from 'react-beautiful-dnd';
 
-import Button from '@atlaskit/button/new';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+import Button from '@atlaskit/button/default/button';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 import { token } from '@atlaskit/tokens';
 
 import { ExampleWrapper, useDependency } from './pieces/example-wrapper';

@@ -1,5 +1,5 @@
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { once } from '@atlaskit/pragmatic-drag-and-drop/once';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { once } from '@atlaskit/pragmatic-drag-and-drop/utils/once';
 import type {
 	AllDragTypes,
 	BaseEventPayload,

@@ -14,33 +14,33 @@ import { useVirtualizer, type VirtualItem } from '@tanstack/react-virtual';
 import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import Avatar from '@atlaskit/avatar';
-import Badge from '@atlaskit/badge';
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import Avatar from '@atlaskit/avatar/avatar';
+import Badge from '@atlaskit/badge/badge';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import Lozenge from '@atlaskit/lozenge';
+import Lozenge from '@atlaskit/lozenge/lozenge';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish/trigger-post-move-flash';
-import {
-	attachClosestEdge,
-	type Edge,
-	extractClosestEdge,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
 import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-	type ElementDragPayload,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
-import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, Inline, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';

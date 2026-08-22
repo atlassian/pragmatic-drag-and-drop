@@ -9,11 +9,11 @@ import React, { useCallback, useReducer } from 'react';
 import { css, jsx } from '@emotion/react';
 
 import ButtonGroup from '@atlaskit/button/button-group';
-import { IconButton } from '@atlaskit/button/new';
+import IconButton from '@atlaskit/button/icon/button';
 import ArrowDownIcon from '@atlaskit/icon/core/arrow-down';
 import ArrowUpIcon from '@atlaskit/icon/core/arrow-up';
 import { token } from '@atlaskit/tokens';
-import Tooltip from '@atlaskit/tooltip';
+import Tooltip from '@atlaskit/tooltip/Tooltip';
 
 import { announce } from '../src';
 

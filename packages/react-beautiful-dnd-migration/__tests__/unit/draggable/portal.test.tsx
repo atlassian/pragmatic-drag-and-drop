@@ -12,7 +12,7 @@ import type {
 } from 'react-beautiful-dnd';
 import ReactDOM from 'react-dom';
 
-import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { setElementFromPoint } from '../_util';

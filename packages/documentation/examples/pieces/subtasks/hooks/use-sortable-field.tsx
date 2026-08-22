@@ -3,17 +3,15 @@ import { type RefObject, useEffect, useState } from 'react';
 import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import {
-	attachClosestEdge,
-	type Edge,
-	extractClosestEdge,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 
 type UseSortableFieldArgs = {
 	id: string;

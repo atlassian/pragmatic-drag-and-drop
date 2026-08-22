@@ -7,8 +7,8 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { replaceRaf } from 'raf-stub';
 import type { DraggableProvided, DroppableProvided, DropResult } from 'react-beautiful-dnd';
 
-import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../src';
 import { setElementFromPoint } from '../../../_util';

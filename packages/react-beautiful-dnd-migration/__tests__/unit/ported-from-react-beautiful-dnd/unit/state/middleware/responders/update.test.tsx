@@ -5,7 +5,7 @@ import React from 'react';
 
 import { fireEvent, render } from '@testing-library/react';
 
-import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../../../src';
 import { setElementFromPoint } from '../../../../../_util';

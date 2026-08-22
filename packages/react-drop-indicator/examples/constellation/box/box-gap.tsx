@@ -5,8 +5,8 @@
 
 import { css, jsx } from '@compiled/react';
 
-import { Code } from '@atlaskit/code';
-import Heading from '@atlaskit/heading';
+import Code from '@atlaskit/code/code';
+import Heading from '@atlaskit/heading/heading';
 import { Stack, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 

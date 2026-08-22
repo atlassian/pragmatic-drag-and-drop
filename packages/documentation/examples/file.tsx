@@ -9,17 +9,16 @@ import { css, jsx } from '@emotion/react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button/new';
+import Button from '@atlaskit/button/default/button';
 import ImageIcon from '@atlaskit/icon/core/image';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import {
-	dropTargetForExternal,
-	monitorForExternal,
-} from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
-import { containsFiles, getFiles } from '@atlaskit/pragmatic-drag-and-drop/external/file';
-import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external';
+import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external';
+import { containsFiles } from '@atlaskit/pragmatic-drag-and-drop/utils/contains-files';
+import { getFiles } from '@atlaskit/pragmatic-drag-and-drop/utils/get-files';
+import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
 import { token } from '@atlaskit/tokens';
 
 import { GlobalStyles } from './util/global-styles';

@@ -9,7 +9,7 @@ import { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from '
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
-import FocusRing from '@atlaskit/focus-ring';
+import FocusRing from '@atlaskit/focus-ring/focus-ring';
 import { token } from '@atlaskit/tokens';
 
 import type { DragHandleButtonProps } from './types';

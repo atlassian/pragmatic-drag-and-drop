@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { getReorderDestinationIndex } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/get-reorder-destination-index';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 
 import { type ColumnMap, type ColumnType, getBasicData, type Person } from './data/people';
 import Board from './pieces/board-with-multi-drag/board';

@@ -17,25 +17,25 @@ import {
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import {
-	attachClosestEdge,
-	type Edge,
-	extractClosestEdge,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
 import { announce } from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 const itemStyles = css({
 	display: 'flex',

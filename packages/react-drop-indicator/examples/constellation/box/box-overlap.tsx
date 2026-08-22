@@ -5,7 +5,7 @@
 
 import { css, jsx } from '@compiled/react';
 
-import { Code } from '@atlaskit/code';
+import Code from '@atlaskit/code/code';
 import ArrowLeftIcon from '@atlaskit/icon/core/arrow-left';
 import { Inline, Text } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';

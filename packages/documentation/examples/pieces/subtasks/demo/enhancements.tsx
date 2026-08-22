@@ -8,13 +8,15 @@ import { type ReactNode, useCallback, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
 
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
-import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 import { token } from '@atlaskit/tokens';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';

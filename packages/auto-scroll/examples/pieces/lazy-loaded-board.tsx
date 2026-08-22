@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Flex, Inline, Stack, xcss } from '@atlaskit/primitives';
 

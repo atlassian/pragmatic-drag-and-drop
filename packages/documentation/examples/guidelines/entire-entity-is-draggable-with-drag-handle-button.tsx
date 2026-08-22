@@ -3,11 +3,13 @@ import React, { Fragment, type Ref, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
-import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
-import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Grid, xcss } from '@atlaskit/primitives';
 import { token } from '@atlaskit/tokens';

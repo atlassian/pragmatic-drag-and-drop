@@ -20,28 +20,30 @@ import { css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import Button from '@atlaskit/button';
-import DropdownMenu, { DropdownItem, DropdownItemGroup } from '@atlaskit/dropdown-menu';
+import Button from '@atlaskit/button/button';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import FocusRing from '@atlaskit/focus-ring';
+import FocusRing from '@atlaskit/focus-ring/focus-ring';
 import ChevronDownIcon from '@atlaskit/icon/core/chevron-down';
 import ChevronRightIcon from '@atlaskit/icon/core/chevron-right';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
-import { ModalTransition } from '@atlaskit/modal-dialog';
+import ModalTransition from '@atlaskit/modal-dialog/modal-transition';
 import {
 	type Instruction,
 	type ItemMode,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementDropTargetEventBasePayload,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/element/pointer-outside-of-preview';
-import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { token } from '@atlaskit/tokens';
 

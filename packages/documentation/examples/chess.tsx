@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 
 import { isPieceType, pieceLookup, type PieceType } from './pieces/chess/piece';
 import Square from './pieces/chess/square';

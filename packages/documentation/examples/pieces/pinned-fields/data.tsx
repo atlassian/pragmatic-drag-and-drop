@@ -7,11 +7,11 @@ import type { ReactNode } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { jsx } from '@emotion/react';
 
-import Avatar from '@atlaskit/avatar';
-import Badge from '@atlaskit/badge';
+import Avatar from '@atlaskit/avatar/avatar';
+import Badge from '@atlaskit/badge/badge';
 import { Date } from '@atlaskit/date';
-import Tag from '@atlaskit/tag';
-import TagGroup from '@atlaskit/tag-group';
+import Tag from '@atlaskit/tag/removable-tag';
+import TagGroup from '@atlaskit/tag-group/tag-group';
 
 import MajorPriorityIcon from './major-priority-icon';
 

@@ -1,4 +1,4 @@
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import type { ElementDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { makeApi } from '../../unsafe-overflow/make-api';

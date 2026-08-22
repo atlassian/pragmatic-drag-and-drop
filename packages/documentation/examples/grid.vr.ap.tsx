@@ -10,12 +10,12 @@ import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { token } from '@atlaskit/tokens';
 
 import battery from './icons/battery.png';

@@ -9,10 +9,13 @@ import type {
 } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { draggable, monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview';
-import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/private/get-element-from-point-without-honey-pot';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import {
+	draggable,
+	monitorForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
+import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/get-element-from-point-without-honey-pot';
 
 import { getHiddenTextElementId } from '../drag-drop-context/hooks/use-hidden-text-element';
 import { useDragDropContext } from '../drag-drop-context/internal-context';

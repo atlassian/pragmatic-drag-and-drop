@@ -8,11 +8,15 @@ import { Fragment, type ReactNode } from 'react';
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
-import Code from '@atlaskit/code/inline';
-import Lozenge from '@atlaskit/lozenge';
+import Code from '@atlaskit/code/code';
+import Lozenge from '@atlaskit/lozenge/lozenge';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
-import Tabs, { TabPanel as AkTabPanel, Tab, TabList, type TabPanelProps } from '@atlaskit/tabs';
+import Tabs from '@atlaskit/tabs/tabs';
+import AkTabPanel from '@atlaskit/tabs/tab-panel';
+import Tab from '@atlaskit/tabs/tab';
+import TabList from '@atlaskit/tabs/tab-list';
+import type { TabPanelProps } from '@atlaskit/tabs/types';
 import { token } from '@atlaskit/tokens';
 
 import AsanaFields from './pieces/pinned-fields/experience/asana';

@@ -1,9 +1,7 @@
 import { createContext, type Context } from 'react';
 
-import {
-	attachInstruction,
-	extractInstruction,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+import { attachInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item/attach-instruction';
+import { extractInstruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item/extract-instruction';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/tree-item';
 
 import type { TreeAction, TreeItem } from '../../data/tree-legacy';

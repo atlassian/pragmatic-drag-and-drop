@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 
-import Button from '@atlaskit/button/new';
+import Button from '@atlaskit/button/default/button';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 

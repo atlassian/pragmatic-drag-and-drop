@@ -3,7 +3,7 @@ import React, { type ReactNode, type RefObject, useEffect, useRef } from 'react'
 import invariant from 'tiny-invariant';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 
 import { useSortableField } from '../../hooks/use-sortable-field';
 import { DropIndicator } from '../primitives/asana/drop-indicator';

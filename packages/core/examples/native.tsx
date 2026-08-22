@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import Lozenge from '@atlaskit/lozenge';
+import Lozenge from '@atlaskit/lozenge/lozenge';
 import { token } from '@atlaskit/tokens';
 
 import { combine } from '../src/entry-point/combine';

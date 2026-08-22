@@ -9,9 +9,9 @@ import type {
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
-import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 
 import { useDragDropContext } from '../drag-drop-context/internal-context';
 import { useMonitorForLifecycle } from '../drag-drop-context/lifecycle-context';

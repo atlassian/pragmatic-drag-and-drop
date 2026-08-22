@@ -8,12 +8,11 @@ import { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from '
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
 
-import DropdownMenu, {
-	type CustomTriggerProps,
-	DropdownItem,
-	DropdownItemGroup,
-} from '@atlaskit/dropdown-menu';
-import FocusRing from '@atlaskit/focus-ring';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import type { CustomTriggerProps } from '@atlaskit/dropdown-menu/types';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
+import FocusRing from '@atlaskit/focus-ring/focus-ring';
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import { token } from '@atlaskit/tokens';
 

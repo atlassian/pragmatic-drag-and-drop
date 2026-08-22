@@ -2,11 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/prevent-unhandled';
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 type UseToplevelWiringArgs<DataItem> = {
 	initialData: DataItem[];

@@ -18,29 +18,26 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import { IconButton } from '@atlaskit/button/new';
-import DropdownMenu, {
-	type CustomTriggerProps,
-	DropdownItem,
-	DropdownItemGroup,
-} from '@atlaskit/dropdown-menu';
-import Heading from '@atlaskit/heading';
+import IconButton from '@atlaskit/button/icon/button';
+import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
+import type { CustomTriggerProps } from '@atlaskit/dropdown-menu/types';
+import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
+import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
+import Heading from '@atlaskit/heading/heading';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/durations';
-import {
-	attachClosestEdge,
-	type Edge,
-	extractClosestEdge,
-} from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
+import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
+import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/combine';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/element/preserve-offset-on-source';
-import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/element/set-custom-native-drag-preview';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/utils/preserve-offset-on-source';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 import { token } from '@atlaskit/tokens';
 
 import { cardGap } from '../../util/constants';

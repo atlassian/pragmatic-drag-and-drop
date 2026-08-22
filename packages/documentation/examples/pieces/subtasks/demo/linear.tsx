@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';

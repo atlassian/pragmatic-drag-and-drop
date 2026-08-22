@@ -9,7 +9,7 @@ import React, { useCallback, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import type { DropResult } from 'react-beautiful-dnd';
 
-import Button from '@atlaskit/button/new';
+import Button from '@atlaskit/button/default/button';
 
 import { clearColumn, getInitialData, moveCard, reorderCard, reorderColumn } from './data/tasks';
 import { ExampleWrapper, useDependency } from './pieces/example-wrapper';

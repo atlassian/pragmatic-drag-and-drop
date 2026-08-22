@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
-import { fg } from '@atlaskit/platform-feature-flags';
+import { fg } from '@atlaskit/platform-feature-flags/fg';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, xcss } from '@atlaskit/primitives';
 

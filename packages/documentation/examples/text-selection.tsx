@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import { jsx } from '@emotion/react';
 import { bindAll } from 'bind-event-listener';
 
-import Button from '@atlaskit/button/new';
+import Button from '@atlaskit/button/default/button';
 import { Stack } from '@atlaskit/primitives/compiled';
 
 export default function TextSelection(): React.JSX.Element {

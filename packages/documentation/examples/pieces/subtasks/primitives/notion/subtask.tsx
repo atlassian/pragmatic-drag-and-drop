@@ -16,7 +16,7 @@ import {
 import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
-import Lozenge from '@atlaskit/lozenge';
+import Lozenge from '@atlaskit/lozenge/lozenge';
 import { token } from '@atlaskit/tokens';
 
 import { type DragState } from '../../../hooks/use-sortable-field';

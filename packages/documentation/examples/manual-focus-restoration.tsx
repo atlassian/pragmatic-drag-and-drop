@@ -10,13 +10,13 @@ import React, {
 
 import invariant from 'tiny-invariant';
 
-import Avatar from '@atlaskit/avatar';
-import Button from '@atlaskit/button/new';
+import Avatar from '@atlaskit/avatar/avatar';
+import Button from '@atlaskit/button/default/button';
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 

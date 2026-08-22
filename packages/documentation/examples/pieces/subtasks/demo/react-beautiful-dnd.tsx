@@ -7,7 +7,7 @@ import {
 	type OnDragEndResponder,
 } from 'react-beautiful-dnd';
 
-import { reorder } from '@atlaskit/pragmatic-drag-and-drop/reorder';
+import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 import { initialData } from '../data';
 import { Subtask, type SubtaskProps } from '../primitives/subtask';

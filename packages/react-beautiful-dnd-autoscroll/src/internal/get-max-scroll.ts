@@ -1,6 +1,6 @@
 import type { Position } from 'css-box-model';
 
-import { subtract } from './position';
+import { subtract } from './subtract';
 
 type Args = {
 	scrollHeight: number;

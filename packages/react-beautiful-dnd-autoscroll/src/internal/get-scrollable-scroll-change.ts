@@ -2,7 +2,7 @@
 
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import { canScrollScrollable } from './can-scroll';
+import { canScrollScrollable } from './can-scroll-scrollable';
 import getScroll from './get-scroll';
 import type { Scrollable } from './types';
 

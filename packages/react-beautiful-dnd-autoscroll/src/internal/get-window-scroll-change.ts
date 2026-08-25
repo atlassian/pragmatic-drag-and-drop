@@ -2,7 +2,7 @@
 
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
-import { canScrollWindow } from './can-scroll';
+import { canScrollWindow } from './can-scroll-window';
 import getScroll from './get-scroll';
 import type { Viewport } from './types';
 

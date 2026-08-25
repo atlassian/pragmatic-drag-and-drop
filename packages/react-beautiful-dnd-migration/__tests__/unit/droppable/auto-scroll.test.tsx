@@ -3,7 +3,7 @@ import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react';
 import { replaceRaf } from 'raf-stub';
 
-import { autoScroller } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll';
+import { autoScroller } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll/auto-scroller';
 
 import { DragDropContext, Draggable, Droppable } from '../../../src';
 import { setElementFromPoint } from '../_util';

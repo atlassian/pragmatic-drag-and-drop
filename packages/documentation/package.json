@@ -33,7 +33,7 @@
     "@atlaskit/icon": "^37.5.0",
     "@atlaskit/pragmatic-drag-and-drop": "^3.0.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.1.0",
-    "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.0.0",
+    "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^4.1.0",
     "@atlaskit/primitives": "^22.4.0",
     "@atlaskit/theme": "^28.1.0",

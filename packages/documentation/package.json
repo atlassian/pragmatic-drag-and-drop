@@ -20,7 +20,9 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
+    "@atlaskit/motion": "^8.5.0",
     "@atlaskit/platform-feature-flags": "^2.1.0",
+    "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "^3.1.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
@@ -28,16 +30,20 @@
     "@atlaskit/badge": "^21.1.0",
     "@atlaskit/button": "^25.2.0",
     "@atlaskit/code": "^19.1.0",
+    "@atlaskit/dropdown-menu": "^18.2.0",
+    "@atlaskit/ds-lib": "^8.0.0",
     "@atlaskit/focus-ring": "^5.1.0",
     "@atlaskit/heading": "^7.1.0",
     "@atlaskit/icon": "^37.5.0",
+    "@atlaskit/lozenge": "^15.3.0",
     "@atlaskit/pragmatic-drag-and-drop": "^3.0.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^2.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.1.0",
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^4.1.0",
     "@atlaskit/primitives": "^22.4.0",
+    "@atlaskit/radio": "^10.1.0",
     "@atlaskit/theme": "^28.1.0",
-    "@atlaskit/tokens": "^16.8.0",
+    "@atlaskit/tokens": "^16.9.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",
     "bind-event-listener": "^3.0.0",

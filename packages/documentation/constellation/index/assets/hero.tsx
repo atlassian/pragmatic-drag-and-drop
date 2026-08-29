@@ -5,7 +5,8 @@ import invariant from 'tiny-invariant';
 
 import LinkButton from '@atlaskit/button/link';
 import ShortcutIcon from '@atlaskit/icon/core/link-external';
-import { durations, easeInOut } from '@atlaskit/motion';
+import { durations } from '@atlaskit/motion/utils/durations';
+import { easeInOut } from '@atlaskit/motion/curves';
 import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';

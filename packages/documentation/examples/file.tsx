@@ -12,7 +12,7 @@ import invariant from 'tiny-invariant';
 import Button from '@atlaskit/button/default/button';
 import ImageIcon from '@atlaskit/icon/core/image';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { durations } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/utils/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external';
 import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external';

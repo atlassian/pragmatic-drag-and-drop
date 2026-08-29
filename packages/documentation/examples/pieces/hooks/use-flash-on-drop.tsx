@@ -3,7 +3,7 @@ import { type RefObject, useCallback, useEffect } from 'react';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { durations } from '@atlaskit/motion';
+import { durations } from '@atlaskit/motion/utils/durations';
 import { token } from '@atlaskit/tokens';
 
 export function useFlashOnDrop({

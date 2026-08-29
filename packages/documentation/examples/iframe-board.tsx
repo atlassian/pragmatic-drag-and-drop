@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { durations } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/utils/durations';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Anchor, Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 import { useThemeObserver } from '@atlaskit/tokens/use-theme-observer';

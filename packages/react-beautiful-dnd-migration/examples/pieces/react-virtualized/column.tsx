@@ -11,7 +11,7 @@ import { List, type ListRowProps } from 'react-virtualized';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { durations } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/utils/durations';
 import { token } from '@atlaskit/tokens';
 
 import type { ColumnType } from '../../data/tasks';

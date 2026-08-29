@@ -4,7 +4,8 @@ import invariant from 'tiny-invariant';
 
 import Code from '@atlaskit/code/code';
 import Lozenge from '@atlaskit/lozenge/lozenge';
-import { type Durations, durations, easeIn, easeInOut, easeOut } from '@atlaskit/motion';
+import { type Durations, durations } from '@atlaskit/motion/utils/durations';
+import { easeIn, easeInOut, easeOut } from '@atlaskit/motion/curves';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Inline, Stack, xcss } from '@atlaskit/primitives';
 import RadioGroup from '@atlaskit/radio/radio-group';

@@ -3,7 +3,8 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
-import { durations, easeInOut } from '@atlaskit/motion';
+import { durations } from '@atlaskit/motion/utils/durations';
+import { easeInOut } from '@atlaskit/motion/curves';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,

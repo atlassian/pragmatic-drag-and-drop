@@ -9,7 +9,7 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import { easeInOut } from '@atlaskit/motion/curves';
-import { durations } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/utils/durations';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,

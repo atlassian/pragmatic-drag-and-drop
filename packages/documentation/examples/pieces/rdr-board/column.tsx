@@ -26,7 +26,7 @@ import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group'
 import Heading from '@atlaskit/heading/heading';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { durations } from '@atlaskit/motion/durations';
+import { durations } from '@atlaskit/motion/utils/durations';
 import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';

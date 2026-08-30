@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-unit-testing",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "An optional package for Pragmatic drag and drop with helpers for unit testing",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

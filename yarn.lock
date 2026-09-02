@@ -74,10 +74,10 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^27.3.0":
-  version "27.3.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/avatar/-/@atlaskit/avatar-27.3.0.tgz#e783563b77de415d0a57555f84bc1d95a33d65f1"
-  integrity sha512-obGM8Dbo+Hba6CFceyyGNj2w+F2E1hdbrNdeFXqWDUGjvS6eARD2rtecQCSNnIogcluWvRt+oJlBuiNkjrr2Tw==
+"@atlaskit/avatar@^28.0.0":
+  version "28.0.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/avatar/-/@atlaskit/avatar-28.0.0.tgz#f49c4ad680a9811165c1d6ea8fe3b19c4d9a40ee"
+  integrity sha512-SIM/LPvv1BjPNViTYMzzuvWjfUPJiZk/6c8dIilaRoSuXAeKoKue/AY4/CanfBUBlfZ6sm9Tm7SOkGaeQyHhew==
   dependencies:
     "@atlaskit/analytics-next" "^12.5.0"
     "@atlaskit/css" "^1.1.0"
@@ -86,7 +86,7 @@
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/primitives" "^22.5.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@atlaskit/tokens" "^16.10.0"
+    "@atlaskit/tokens" "^16.11.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 

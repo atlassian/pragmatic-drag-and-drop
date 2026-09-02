@@ -6,7 +6,6 @@ import React, { memo } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
-import { findDOMNode } from 'react-dom';
 import { List, type ListRowProps } from 'react-virtualized';
 import invariant from 'tiny-invariant';
 
@@ -17,6 +16,13 @@ import { token } from '@atlaskit/tokens';
 import type { ColumnType } from '../../data/tasks';
 import { Card, CardInner } from '../card';
 import { useDependency } from '../example-wrapper';
+
+type ReactVirtualizedListProps = React.ComponentProps<typeof List> & {
+	elementRef?: React.Ref<HTMLElement>;
+};
+
+// react-virtualized forwards this prop from List to Grid at runtime, but its types do not expose it.
+const ReactVirtualizedList = List as unknown as React.ComponentType<ReactVirtualizedListProps>;
 
 const columnStyles = css({
 	display: 'flex',
@@ -95,24 +101,12 @@ export const Column: React.MemoExoticComponent<
 								}
 
 								return (
-									<List
+									<ReactVirtualizedList
 										height={440}
 										rowCount={itemCount}
 										rowHeight={({ index }) => (index === itemCount - 1 ? 72 : 64)}
+										elementRef={provided.innerRef}
 										width={250}
-										ref={(ref) => {
-											// react-virtualized has no way to get the list's ref
-											// So we use the `ReactDOM.findDOMNode(ref)` escape hatch to get the ref
-											if (ref) {
-												// DSP-10519 TODO: ReactDOM.findDOMNode is deprecated in React18, consider using alternative solution
-												// https://react.dev/reference/react-dom/findDOMNode#alternatives
-												// eslint-disable-next-line react/no-find-dom-node
-												const whatHasMyLifeComeTo = findDOMNode(ref);
-												if (whatHasMyLifeComeTo instanceof HTMLElement) {
-													provided.innerRef(whatHasMyLifeComeTo);
-												}
-											}
-										}}
 										style={style}
 										rowRenderer={({ index, style }: ListRowProps) => {
 											const item = column.items[index];

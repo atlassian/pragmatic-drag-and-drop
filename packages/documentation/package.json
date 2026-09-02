@@ -26,7 +26,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^27.3.0",
+    "@atlaskit/avatar": "^28.0.0",
     "@atlaskit/badge": "^21.2.0",
     "@atlaskit/button": "^25.3.0",
     "@atlaskit/code": "^19.2.0",

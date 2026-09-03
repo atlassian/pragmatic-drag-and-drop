@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 3.4.1
+
+### Patch Changes
+
+- [`6b274793c70be`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/6b274793c70be) -
+  Experimental React 19 peer dependency support. Test coverage is partial.
+
 ## 3.4.0
 
 ### Minor Changes

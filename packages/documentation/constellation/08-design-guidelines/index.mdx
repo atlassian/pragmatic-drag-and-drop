@@ -304,6 +304,27 @@ Implement with
 [native drag previews](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews),
 or use the [Figma kit (Atlassian only)](https://go.atlassian.com/pdnd-01) in designs.
 
+### Closing layers
+
+When a drag starts, you should consider whether any open layers (eg [popups](/components/popup))
+should remain open during the drag interaction. Generally you do want layers to remain open as that
+is the web platform default behavior. Keeping layers open allows users to drag into and out of
+layers. Sometimes it might yield a better experience to manually close layers when a drag is
+starting.
+
+> If using the Atlassian Design System, we automatically close all [tooltips](/components/tooltip)
+> when any drag starts, but we don't automatically close any other layers.
+
+Generally, it is recommended that an open layer attached to an entity being dragged should be closed
+when the drag starts. So if you have a [dropdown menu](/components/dropdown-menu) on a card, and the
+card starts to drag, you should close the dropdown menu.
+
+If you are relying on automatic
+[native drag preview generation](/components/pragmatic-drag-and-drop/core-package/adapters/element/drag-previews),
+then it is helpful to immediately close layers in the
+[`onGenerateDragPreview`](/components/pragmatic-drag-and-drop/core-package/events#event-ongeneratedragpreview)
+event.
+
 ## While dragging
 
 **Make it clear what the result will be**

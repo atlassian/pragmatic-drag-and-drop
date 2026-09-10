@@ -62,7 +62,12 @@ it('should position the center of the drag preview user the users pointer', asyn
 	ordered.length = 0;
 	// setDragImage not called until the next microtask for framework compatibility
 	await 'microtask';
-	expect(setImageMock).nthCalledWith(1, pointerToContainer, rect.width / 2, rect.height / 2);
+	expect(setImageMock).toHaveBeenNthCalledWith(
+		1,
+		pointerToContainer,
+		rect.width / 2,
+		rect.height / 2,
+	);
 
 	// @ts-expect-error
 	requestAnimationFrame.step();

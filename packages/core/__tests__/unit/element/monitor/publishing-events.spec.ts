@@ -162,9 +162,9 @@ it('should only call canMonitor() at the start of a drag for mounted monitors', 
 	// doing a few drag operations to see that `canMonitor` is only called once per operation
 	for (let i = 0; i < 5; i++) {
 		// lifting in [A]
-		expect(canMonitor).toBeCalledTimes(0);
+		expect(canMonitor).toHaveBeenCalledTimes(0);
 		fireEvent.dragStart(A);
-		expect(canMonitor).toBeCalledTimes(1);
+		expect(canMonitor).toHaveBeenCalledTimes(1);
 		canMonitor.mockClear();
 		expect(ordered).toEqual(['monitor:preview']);
 		ordered.length = 0;
@@ -192,7 +192,7 @@ it('should only call canMonitor() at the start of a drag for mounted monitors', 
 		expect(ordered).toEqual(['monitor:drop']);
 		ordered.length = 0;
 
-		expect(canMonitor).toBeCalledTimes(0);
+		expect(canMonitor).toHaveBeenCalledTimes(0);
 	}
 
 	cleanup();

@@ -88,7 +88,7 @@ it('should preserve the cursor position offset on the custom drag preview', asyn
 
 	// setDragImage not called until the next microtask for framework compatibility
 	await 'microtask';
-	expect(setImageMock).nthCalledWith(1, pointerToContainer, 150, 10);
+	expect(setImageMock).toHaveBeenNthCalledWith(1, pointerToContainer, 150, 10);
 
 	// @ts-expect-error
 	requestAnimationFrame.step();
@@ -158,7 +158,7 @@ it('should keep the cursor position inside the drag preview when the preview is 
 	// setDragImage not called until the next microtask for framework compatibility
 	await 'microtask';
 	// assert that the offset will be the dimensions of the preview and not more
-	expect(setImageMock).nthCalledWith(1, pointerToContainer, 100, 20);
+	expect(setImageMock).toHaveBeenNthCalledWith(1, pointerToContainer, 100, 20);
 
 	// @ts-expect-error
 	requestAnimationFrame.step();

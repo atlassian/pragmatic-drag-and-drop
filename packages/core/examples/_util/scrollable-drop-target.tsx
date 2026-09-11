@@ -6,7 +6,7 @@ import { cssMap } from '@atlaskit/css';
 import { Box } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
-import { dropTargetForElements } from '../../src/entry-point/element/adapter';
+import { dropTargetForElements } from '../../src/adapter/element-adapter';
 
 const styles = cssMap({
 	// `<Box>` (compiled) is used so that `tabIndex={0}` is allowed under the

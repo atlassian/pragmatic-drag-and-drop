@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/entry-point/combine';
-import { dropTargetForTextSelection } from '../../../src/entry-point/text-selection/adapter';
-import { type Position } from '../../../src/entry-point/types';
+import { combine } from '../../../src/public-utils/combine';
+import { dropTargetForTextSelection } from '../../../src/adapter/drop-target-for-text-selection';
+import { type Position } from '../../../src/internal-types';
 import { appendToBody, firePointer, getBubbleOrderedTree, nativeDrag, reset } from '../_util';
 
 import { findHoneyPot, getHoneyPot } from './_util';

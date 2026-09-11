@@ -1,7 +1,7 @@
-import { combine } from '../../src/entry-point/combine';
-import { draggable } from '../../src/entry-point/element/adapter';
-import { monitorForExternal } from '../../src/entry-point/external/adapter';
-import { monitorForTextSelection } from '../../src/entry-point/text-selection/adapter';
+import { combine } from '../../src/public-utils/combine';
+import { draggable } from '../../src/adapter/element-adapter';
+import { monitorForExternal } from '../../src/adapter/monitor-for-external';
+import { monitorForTextSelection } from '../../src/adapter/monitor-for-text-selection';
 
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from './_util';
 

@@ -1,14 +1,14 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../src/entry-point/combine';
+import { combine } from '../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementEventPayloadMap,
 	monitorForElements,
-} from '../../../src/entry-point/element/adapter';
-import { type DragLocationHistory, type DropTargetRecord } from '../../../src/entry-point/types';
+} from '../../../src/adapter/element-adapter';
+import { type DragLocationHistory, type DropTargetRecord } from '../../../src/internal-types';
 import { appendToBody, getBubbleOrderedTree, getDefaultInput, reset } from '../_util';
 
 afterEach(reset);

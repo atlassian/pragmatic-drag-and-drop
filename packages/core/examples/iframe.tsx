@@ -5,10 +5,11 @@ import invariant from 'tiny-invariant';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
-import { combine } from '../src/entry-point/combine';
-import { draggable } from '../src/entry-point/element/adapter';
-import { dropTargetForExternal } from '../src/entry-point/external/adapter';
-import { containsText, getText } from '../src/entry-point/external/text';
+import { combine } from '../src/public-utils/combine';
+import { draggable } from '../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
+import { containsText } from '../src/public-utils/external/contains-text';
+import { getText } from '../src/public-utils/external/get-text';
 
 const appStyles = xcss({
 	userSelect: 'none',

@@ -1,9 +1,9 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../src/entry-point/combine';
-import { draggable, dropTargetForElements } from '../../../../src/entry-point/element/adapter';
-import type { DropTargetAllowedDropEffect } from '../../../../src/entry-point/types';
+import { combine } from '../../../../src/public-utils/combine';
+import { draggable, dropTargetForElements } from '../../../../src/adapter/element-adapter';
+import type { DropTargetAllowedDropEffect } from '../../../../src/internal-types';
 import { appendToBody, getBubbleOrderedTree, getElements, reset } from '../../_util';
 
 afterEach(reset);

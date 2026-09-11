@@ -10,7 +10,7 @@ import invariant from 'tiny-invariant';
 
 import { token } from '@atlaskit/tokens';
 
-import { draggable } from '../src/entry-point/element/adapter';
+import { draggable } from '../src/adapter/element-adapter';
 import { scrollJustEnoughIntoView } from '../src/public-utils/element/scroll-just-enough-into-view';
 
 import { GlobalStyles } from './_util/global-styles';

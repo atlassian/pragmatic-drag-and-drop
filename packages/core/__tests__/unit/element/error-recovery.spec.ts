@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/entry-point/combine';
-import { draggable } from '../../../src/entry-point/element/adapter';
+import { combine } from '../../../src/public-utils/combine';
+import { draggable } from '../../../src/adapter/element-adapter';
 import { appendToBody, getElements, reset } from '../_util';
 
 afterEach(reset);

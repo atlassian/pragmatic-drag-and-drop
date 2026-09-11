@@ -1,5 +1,5 @@
-import { dropTargetForElements } from '../../../../src/entry-point/element/adapter';
-import { dropTargetForExternal } from '../../../../src/entry-point/external/adapter';
+import { dropTargetForElements } from '../../../../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../../../../src/adapter/drop-target-for-external';
 import { getElements, reset } from '../../_util';
 
 const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});

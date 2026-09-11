@@ -1,10 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
-import {
-	draggable,
-	type ElementEventPayloadMap,
-} from '../../../../src/entry-point/element/adapter';
+import { combine } from '../../../../src/public-utils/combine';
+import { draggable, type ElementEventPayloadMap } from '../../../../src/adapter/element-adapter';
 import { appendToBody, getEmptyHistory, reset, setElementFromPoint } from '../../_util';
 
 afterEach(reset);

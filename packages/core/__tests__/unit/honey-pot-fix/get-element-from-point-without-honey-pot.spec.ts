@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/entry-point/combine';
-import { draggable, dropTargetForElements } from '../../../src/entry-point/element/adapter';
-import { getElementFromPointWithoutHoneypot } from '../../../src/entry-point/private/get-element-from-point-without-honey-pot';
+import { combine } from '../../../src/public-utils/combine';
+import { draggable, dropTargetForElements } from '../../../src/adapter/element-adapter';
+import { getElementFromPointWithoutHoneypot } from '../../../src/honey-pot-fix/get-element-from-point-without-honey-pot';
 import {
 	appendToBody,
 	firePointer,

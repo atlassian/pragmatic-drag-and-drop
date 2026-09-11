@@ -1,12 +1,12 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementMonitorGetFeedbackArgs,
 	monitorForElements,
-} from '../../../../src/entry-point/element/adapter';
+} from '../../../../src/adapter/element-adapter';
 import { appendToBody, getDefaultInput, getElements, reset, userEvent } from '../../_util';
 
 afterEach(reset);

@@ -1,11 +1,9 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
-import {
-	dropTargetForTextSelection,
-	monitorForTextSelection,
-} from '../../../../src/entry-point/text-selection/adapter';
-import { type CleanupFn } from '../../../../src/entry-point/types';
+import { combine } from '../../../../src/public-utils/combine';
+import { dropTargetForTextSelection } from '../../../../src/adapter/drop-target-for-text-selection';
+import { monitorForTextSelection } from '../../../../src/adapter/monitor-for-text-selection';
+import { type CleanupFn } from '../../../../src/internal-types';
 import { appendToBody, getElements, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

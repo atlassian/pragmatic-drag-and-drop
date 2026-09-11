@@ -2,17 +2,14 @@ import { fireEvent } from '@testing-library/dom';
 import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../src/entry-point/combine';
-import {
-	dropTargetForExternal,
-	type ExternalDragPayload,
-	monitorForExternal,
-	type NativeMediaType,
-} from '../../../../src/entry-point/external/adapter';
-import { getFiles } from '../../../../src/entry-point/external/file';
-import { getHTML } from '../../../../src/entry-point/external/html';
-import { getText } from '../../../../src/entry-point/external/text';
-import { getURLs } from '../../../../src/entry-point/external/url';
+import { combine } from '../../../../src/public-utils/combine';
+import { dropTargetForExternal } from '../../../../src/adapter/drop-target-for-external';
+import { type ExternalDragPayload, type NativeMediaType } from '../../../../src/internal-types';
+import { monitorForExternal } from '../../../../src/adapter/monitor-for-external';
+import { getFiles } from '../../../../src/public-utils/external/get-files';
+import { getHTML } from '../../../../src/public-utils/external/get-html';
+import { getText } from '../../../../src/public-utils/external/get-text';
+import { getURLs } from '../../../../src/public-utils/external/get-ur-ls';
 import {
 	addItemsToEvent,
 	appendToBody,

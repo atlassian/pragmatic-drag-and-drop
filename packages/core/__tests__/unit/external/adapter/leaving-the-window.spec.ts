@@ -1,8 +1,6 @@
-import { combine } from '../../../../src/entry-point/combine';
-import {
-	dropTargetForExternal,
-	monitorForExternal,
-} from '../../../../src/entry-point/external/adapter';
+import { combine } from '../../../../src/public-utils/combine';
+import { dropTargetForExternal } from '../../../../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../../../../src/adapter/monitor-for-external';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset, userEvent } from '../../_util';
 
 afterEach(reset);

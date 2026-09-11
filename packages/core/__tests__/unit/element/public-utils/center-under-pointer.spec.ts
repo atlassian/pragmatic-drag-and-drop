@@ -1,13 +1,10 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../src/entry-point/combine';
-import {
-	draggable,
-	type ElementEventPayloadMap,
-} from '../../../../src/entry-point/element/adapter';
-import { centerUnderPointer } from '../../../../src/entry-point/element/center-under-pointer';
-import { setCustomNativeDragPreview } from '../../../../src/entry-point/element/set-custom-native-drag-preview';
+import { combine } from '../../../../src/public-utils/combine';
+import { draggable, type ElementEventPayloadMap } from '../../../../src/adapter/element-adapter';
+import { centerUnderPointer } from '../../../../src/public-utils/element/custom-native-drag-preview/center-under-pointer';
+import { setCustomNativeDragPreview } from '../../../../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
 import { appendToBody, getElements, getRect, reset, setBoundingClientRect } from '../../_util';
 
 /**

@@ -11,10 +11,12 @@ import invariant from 'tiny-invariant';
 import { Box, Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../src/entry-point/combine';
-import { dropTargetForExternal, monitorForExternal } from '../src/entry-point/external/adapter';
-import { containsURLs, getURLs } from '../src/entry-point/external/url';
-import { preventUnhandled } from '../src/entry-point/prevent-unhandled';
+import { combine } from '../src/public-utils/combine';
+import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../src/adapter/monitor-for-external';
+import { containsURLs } from '../src/public-utils/external/contains-ur-ls';
+import { getURLs } from '../src/public-utils/external/get-ur-ls';
+import { preventUnhandled } from '../src/public-utils/prevent-unhandled';
 
 import { GlobalStyles } from './_util/global-styles';
 

@@ -12,27 +12,20 @@ import invariant from 'tiny-invariant';
 import Lozenge from '@atlaskit/lozenge/lozenge';
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../src/entry-point/combine';
-import {
-	dropTargetForElements,
-	type ElementDragPayload,
-	monitorForElements,
-} from '../src/entry-point/element/adapter';
-import {
-	dropTargetForExternal,
-	type ExternalDragPayload,
-	monitorForExternal,
-} from '../src/entry-point/external/adapter';
-import { getFiles } from '../src/entry-point/external/file';
-import { getHTML } from '../src/entry-point/external/html';
-import { getText } from '../src/entry-point/external/text';
-import { getURLs } from '../src/entry-point/external/url';
-import { preventUnhandled } from '../src/entry-point/prevent-unhandled';
-import {
-	dropTargetForTextSelection,
-	monitorForTextSelection,
-	type TextSelectionDragPayload,
-} from '../src/entry-point/text-selection/adapter';
+import { combine } from '../src/public-utils/combine';
+import { dropTargetForElements, monitorForElements } from '../src/adapter/element-adapter';
+import { type ElementDragPayload } from '../src/internal-types';
+import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
+import { type ExternalDragPayload } from '../src/internal-types';
+import { monitorForExternal } from '../src/adapter/monitor-for-external';
+import { getFiles } from '../src/public-utils/external/get-files';
+import { getHTML } from '../src/public-utils/external/get-html';
+import { getText } from '../src/public-utils/external/get-text';
+import { getURLs } from '../src/public-utils/external/get-ur-ls';
+import { preventUnhandled } from '../src/public-utils/prevent-unhandled';
+import { dropTargetForTextSelection } from '../src/adapter/drop-target-for-text-selection';
+import { monitorForTextSelection } from '../src/adapter/monitor-for-text-selection';
+import { type TextSelectionDragPayload } from '../src/internal-types';
 
 import { GlobalStyles } from './_util/global-styles';
 import { Content } from './native/content';

@@ -1,4 +1,4 @@
-import { combine } from '../../../src/entry-point/combine';
+import { combine } from '../../../src/public-utils/combine';
 
 it('should call all combined functions', () => {
 	const ordered: string[] = [];

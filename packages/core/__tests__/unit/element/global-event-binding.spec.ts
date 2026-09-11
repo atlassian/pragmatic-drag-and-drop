@@ -2,7 +2,7 @@
 // add it's own "error" event listeners when other events are being fired
 // This file uses vanilla event firing so that we are in total control
 
-import { combine } from '../../../src/entry-point/combine';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, getElements } from '../_util';
 
 // The initiating "dragstart" event listener is added to the `document` for the element event listener

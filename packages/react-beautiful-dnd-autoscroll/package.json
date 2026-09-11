@@ -15,8 +15,8 @@
   "sideEffects": false,
   "exports": {
     ".": "./src/index.ts",
-    "./create-auto-scroller": "./src/createAutoScroller.tsx",
-    "./auto-scroller": "./src/autoScroller.tsx"
+    "./auto-scroller": "./src/autoScroller.tsx",
+    "./create-auto-scroller": "./src/createAutoScroller.tsx"
   },
   "dependencies": {
     "@atlaskit/pragmatic-drag-and-drop": "^3.1.0",

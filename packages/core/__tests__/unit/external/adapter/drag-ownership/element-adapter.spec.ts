@@ -3,12 +3,10 @@ import { fireEvent } from '@testing-library/dom';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { elementAdapterNativeDataKey } from '../../../../../src/adapter/element-adapter-native-data-key';
-import { combine } from '../../../../../src/entry-point/combine';
-import { draggable, dropTargetForElements } from '../../../../../src/entry-point/element/adapter';
-import {
-	dropTargetForExternal,
-	monitorForExternal,
-} from '../../../../../src/entry-point/external/adapter';
+import { combine } from '../../../../../src/public-utils/combine';
+import { draggable, dropTargetForElements } from '../../../../../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../../../../../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
 import { appendToBody, getBubbleOrderedTree, getElements, reset, userEvent } from '../../../_util';
 
 // This file exposes one or more accessibility violations. Testing is currently skipped but violations need to

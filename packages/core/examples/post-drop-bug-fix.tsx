@@ -15,9 +15,9 @@ import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '../src/entry-point/element/adapter';
-import { dropTargetForExternal } from '../src/entry-point/external/adapter';
-import { dropTargetForTextSelection } from '../src/entry-point/text-selection/adapter';
+} from '../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
+import { dropTargetForTextSelection } from '../src/adapter/drop-target-for-text-selection';
 import { combine } from '../src/public-utils/combine';
 import { reorder } from '../src/public-utils/reorder';
 

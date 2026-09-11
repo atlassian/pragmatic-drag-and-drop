@@ -1,6 +1,6 @@
-import { combine } from '../../../../src/entry-point/combine';
-import { draggable } from '../../../../src/entry-point/element/adapter';
-import { formatURLsForExternal } from '../../../../src/entry-point/element/format-urls-for-external';
+import { combine } from '../../../../src/public-utils/combine';
+import { draggable } from '../../../../src/adapter/element-adapter';
+import { formatURLsForExternal } from '../../../../src/public-utils/element/format-urls-for-external';
 import { appendToBody, getElements, reset } from '../../_util';
 
 afterEach(reset);

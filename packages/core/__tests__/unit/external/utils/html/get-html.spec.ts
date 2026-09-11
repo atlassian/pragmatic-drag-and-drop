@@ -1,13 +1,11 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../../src/entry-point/combine';
-import {
-	dropTargetForExternal,
-	type ExternalEventBasePayload,
-	monitorForExternal,
-} from '../../../../../src/entry-point/external/adapter';
-import { getHTML } from '../../../../../src/entry-point/external/html';
+import { combine } from '../../../../../src/public-utils/combine';
+import { dropTargetForExternal } from '../../../../../src/adapter/drop-target-for-external';
+import { type ExternalEventBasePayload } from '../../../../../src/adapter/external-adapter-types';
+import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
+import { getHTML } from '../../../../../src/public-utils/external/get-html';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset } from '../../../_util';
 
 afterEach(reset);

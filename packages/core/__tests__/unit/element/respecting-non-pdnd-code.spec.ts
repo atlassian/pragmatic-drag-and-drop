@@ -3,8 +3,8 @@ import { bind, bindAll } from 'bind-event-listener';
 
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import { combine } from '../../../src/entry-point/combine';
-import { draggable, monitorForElements } from '../../../src/entry-point/element/adapter';
+import { combine } from '../../../src/public-utils/combine';
+import { draggable, monitorForElements } from '../../../src/adapter/element-adapter';
 import {
 	addItemsToEvent,
 	appendToBody,

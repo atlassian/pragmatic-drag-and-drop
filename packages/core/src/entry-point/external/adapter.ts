@@ -11,16 +11,11 @@ export { monitorForExternal } from '../../adapter/monitor-for-external';
  * @deprecated Use `import { ExternalEventBasePayload, ExternalEventPayloadMap, ExternalDropTargetEventBasePayload, ExternalDropTargetEventPayloadMap, ExternalMonitorGetFeedbackArgs, ExternalDropTargetGetFeedbackArgs, NativeMediaType, ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/adapter/external-adapter-types'` instead.
  */
 export type {
-	// Base events
 	ExternalEventBasePayload,
 	ExternalEventPayloadMap,
-	// Drop target events
 	ExternalDropTargetEventBasePayload,
 	ExternalDropTargetEventPayloadMap,
-	// Feedback types
 	ExternalMonitorGetFeedbackArgs,
 	ExternalDropTargetGetFeedbackArgs,
-	// The data that is being dragged
-	NativeMediaType,
-	ExternalDragPayload,
 } from '../../adapter/external-adapter-types';
+export type { NativeMediaType, ExternalDragPayload } from '../../internal-types';

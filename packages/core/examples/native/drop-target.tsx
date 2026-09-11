@@ -10,13 +10,14 @@ import invariant from 'tiny-invariant';
 
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../../src/entry-point/combine';
-import { dropTargetForElements, monitorForElements } from '../../src/entry-point/element/adapter';
-import { dropTargetForExternal, monitorForExternal } from '../../src/entry-point/external/adapter';
-import { getHTML } from '../../src/entry-point/external/html';
-import { getText } from '../../src/entry-point/external/text';
-import { getURLs } from '../../src/entry-point/external/url';
-import { preventUnhandled } from '../../src/entry-point/prevent-unhandled';
+import { combine } from '../../src/public-utils/combine';
+import { dropTargetForElements, monitorForElements } from '../../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../../src/adapter/monitor-for-external';
+import { getHTML } from '../../src/public-utils/external/get-html';
+import { getText } from '../../src/public-utils/external/get-text';
+import { getURLs } from '../../src/public-utils/external/get-ur-ls';
+import { preventUnhandled } from '../../src/public-utils/prevent-unhandled';
 
 const dropTargetStyles = css({
 	display: 'flex',

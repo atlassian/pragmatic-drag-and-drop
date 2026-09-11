@@ -12,11 +12,11 @@ import invariant from 'tiny-invariant';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Stack, xcss } from '@atlaskit/primitives';
 
-import { draggable } from '../src/entry-point/element/adapter';
-import { centerUnderPointer } from '../src/entry-point/element/center-under-pointer';
-import { pointerOutsideOfPreview } from '../src/entry-point/element/pointer-outside-of-preview';
-import { preserveOffsetOnSource } from '../src/entry-point/element/preserve-offset-on-source';
-import { setCustomNativeDragPreview } from '../src/entry-point/element/set-custom-native-drag-preview';
+import { draggable } from '../src/adapter/element-adapter';
+import { centerUnderPointer } from '../src/public-utils/element/custom-native-drag-preview/center-under-pointer';
+import { pointerOutsideOfPreview } from '../src/public-utils/element/custom-native-drag-preview/pointer-outside-of-preview';
+import { preserveOffsetOnSource } from '../src/public-utils/element/custom-native-drag-preview/preserve-offset-on-source';
+import { setCustomNativeDragPreview } from '../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
 
 function FakeText() {
 	return (

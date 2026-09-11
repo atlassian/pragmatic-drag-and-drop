@@ -1,11 +1,11 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '../../../../src/entry-point/element/adapter';
+} from '../../../../src/adapter/element-adapter';
 import { appendToBody, getBubbleOrderedTree, getElements, reset } from '../../_util';
 
 afterEach(reset);

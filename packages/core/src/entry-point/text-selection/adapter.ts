@@ -12,15 +12,11 @@ export { monitorForTextSelection } from '../../adapter/monitor-for-text-selectio
  * @deprecated Use `import { TextSelectionEventBasePayload, TextSelectionEventPayloadMap, TextSelectionDropTargetEventBasePayload, TextSelectionDropTargetEventPayloadMap, TextSelectionMonitorGetFeedbackArgs, TextSelectionDropTargetGetFeedbackArgs, TextSelectionDragPayload } from '@atlaskit/pragmatic-drag-and-drop/adapter/text-selection-adapter-types'` instead.
  */
 export type {
-	// Event types
 	TextSelectionEventBasePayload,
 	TextSelectionEventPayloadMap,
-	// Drop targets
 	TextSelectionDropTargetEventBasePayload,
 	TextSelectionDropTargetEventPayloadMap,
-	// Feedback types
 	TextSelectionMonitorGetFeedbackArgs,
 	TextSelectionDropTargetGetFeedbackArgs,
-	// Payload for the text selection being dragged
-	TextSelectionDragPayload,
 } from '../../adapter/text-selection-adapter-types';
+export type { TextSelectionDragPayload } from '../../internal-types';

@@ -10,10 +10,12 @@ import invariant from 'tiny-invariant';
 
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../src/entry-point/combine';
-import { dropTargetForExternal, monitorForExternal } from '../src/entry-point/external/adapter';
-import { containsFiles, getFiles } from '../src/entry-point/external/file';
-import { preventUnhandled } from '../src/entry-point/prevent-unhandled';
+import { combine } from '../src/public-utils/combine';
+import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../src/adapter/monitor-for-external';
+import { containsFiles } from '../src/public-utils/external/contains-files';
+import { getFiles } from '../src/public-utils/external/get-files';
+import { preventUnhandled } from '../src/public-utils/prevent-unhandled';
 
 import { GlobalStyles } from './_util/global-styles';
 

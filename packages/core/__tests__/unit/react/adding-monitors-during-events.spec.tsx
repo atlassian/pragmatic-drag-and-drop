@@ -6,8 +6,8 @@ import { act, fireEvent } from '@testing-library/react';
 import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 
-import { combine } from '../../../src/entry-point/combine';
-import { draggable, monitorForElements } from '../../../src/entry-point/element/adapter';
+import { combine } from '../../../src/public-utils/combine';
+import { draggable, monitorForElements } from '../../../src/adapter/element-adapter';
 import { appendToBody, getElements, reset } from '../_util';
 
 afterEach(reset);

@@ -4,7 +4,7 @@
 
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import { combine } from '../../../../src/entry-point/combine';
+import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from '../../_util';
 
 let addEventListener = jest.spyOn(window, 'addEventListener');

@@ -1,13 +1,13 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementEventPayloadMap,
 	monitorForElements,
-} from '../../../../src/entry-point/element/adapter';
-import { type DragLocation, type Input } from '../../../../src/entry-point/types';
+} from '../../../../src/adapter/element-adapter';
+import { type DragLocation, type Input } from '../../../../src/internal-types';
 import { appendToBody, getBubbleOrderedTree, getDefaultInput, reset, userEvent } from '../../_util';
 
 afterEach(reset);

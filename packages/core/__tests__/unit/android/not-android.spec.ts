@@ -2,12 +2,10 @@ import { fireEvent } from '@testing-library/dom';
 import { bind } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../src/entry-point/combine';
-import { draggable } from '../../../src/entry-point/element/adapter';
-import {
-	dropTargetForExternal,
-	monitorForExternal,
-} from '../../../src/entry-point/external/adapter';
+import { combine } from '../../../src/public-utils/combine';
+import { draggable } from '../../../src/adapter/element-adapter';
+import { dropTargetForExternal } from '../../../src/adapter/drop-target-for-external';
+import { monitorForExternal } from '../../../src/adapter/monitor-for-external';
 import { getHTML } from '../../../src/public-utils/external/get-html';
 import { androidFallbackText } from '../../../src/util/android';
 import { textMediaType } from '../../../src/util/media-types/text-media-type';

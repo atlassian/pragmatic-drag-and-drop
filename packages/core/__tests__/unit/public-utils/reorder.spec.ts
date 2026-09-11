@@ -1,4 +1,4 @@
-import { reorder } from '../../../src/entry-point/reorder';
+import { reorder } from '../../../src/public-utils/reorder';
 
 it('should reorder a list', () => {
 	expect(

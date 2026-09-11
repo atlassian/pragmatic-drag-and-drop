@@ -9,7 +9,7 @@ import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
-} from '../src/entry-point/element/adapter';
+} from '../src/adapter/element-adapter';
 import { combine } from '../src/public-utils/combine';
 
 const interactiveStyles = xcss({

@@ -1,14 +1,14 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../../src/entry-point/combine';
-import {
-	dropTargetForExternal,
-	type ExternalEventBasePayload,
-	monitorForExternal,
-} from '../../../../../src/entry-point/external/adapter';
-import { containsText, getText } from '../../../../../src/entry-point/external/text';
-import { containsURLs, getURLs } from '../../../../../src/entry-point/external/url';
+import { combine } from '../../../../../src/public-utils/combine';
+import { dropTargetForExternal } from '../../../../../src/adapter/drop-target-for-external';
+import { type ExternalEventBasePayload } from '../../../../../src/adapter/external-adapter-types';
+import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
+import { containsText } from '../../../../../src/public-utils/external/contains-text';
+import { getText } from '../../../../../src/public-utils/external/get-text';
+import { containsURLs } from '../../../../../src/public-utils/external/contains-ur-ls';
+import { getURLs } from '../../../../../src/public-utils/external/get-ur-ls';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset } from '../../../_util';
 
 afterEach(reset);

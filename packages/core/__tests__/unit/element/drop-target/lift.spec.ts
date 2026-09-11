@@ -1,13 +1,12 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/entry-point/combine';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
-	// ElementDropTargetArgs,
 	type ElementDropTargetEventPayloadMap,
-} from '../../../../src/entry-point/element/adapter';
-import { type DropTargetRecord, type Input } from '../../../../src/entry-point/types';
+} from '../../../../src/adapter/element-adapter';
+import { type DropTargetRecord, type Input } from '../../../../src/internal-types';
 import {
 	appendToBody,
 	getDefaultInput,

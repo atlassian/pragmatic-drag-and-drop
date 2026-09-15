@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-hitbox
 
+## 2.2.1
+
+### Patch Changes
+
+- [`cf6a13a455065`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/cf6a13a455065) -
+  Import closest-edge types directly from their existing definition module.
+
 ## 2.2.0
 
 ### Minor Changes

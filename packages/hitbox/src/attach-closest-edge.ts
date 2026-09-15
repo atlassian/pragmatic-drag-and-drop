@@ -1,7 +1,7 @@
 import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { uniqueKey } from './closest-edge';
-import type { Edge } from './closest-edge';
+import type { Edge } from './types';
 
 const getDistanceToEdge: {
 	[TKey in Edge]: (rect: DOMRect, client: Position) => number;

@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-flourish",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "An optional Pragmatic drag and drop package for adding visual flourish to drag and drop experiences",
   "author": "Atlassian Pty Ltd",
   "license": "Apache-2.0",
@@ -18,8 +18,8 @@
     "./trigger-post-move-flash": "./src/trigger-post-move-flash.tsx"
   },
   "dependencies": {
-    "@atlaskit/motion": "^8.6.0",
-    "@atlaskit/tokens": "^16.12.0",
+    "@atlaskit/motion": "^8.7.0",
+    "@atlaskit/tokens": "^17.0.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {

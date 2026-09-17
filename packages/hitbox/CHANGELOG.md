@@ -1,5 +1,13 @@
 # @atlaskit/pragmatic-drag-and-drop-hitbox
 
+## 2.2.2
+
+### Patch Changes
+
+- [`eb738ba92ec47`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/eb738ba92ec47) -
+  Deprecated exports from the legacy `closest-edge` entry point. Import `attachClosestEdge`,
+  `extractClosestEdge`, and `Edge` from their dedicated entry points instead.
+
 ## 2.2.1
 
 ### Patch Changes

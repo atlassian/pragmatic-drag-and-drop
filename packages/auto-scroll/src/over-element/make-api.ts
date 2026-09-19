@@ -1,15 +1,14 @@
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
-import { once } from '@atlaskit/pragmatic-drag-and-drop/utils/once';
 import type {
 	AllDragTypes,
 	BaseEventPayload,
 	CleanupFn,
 	MonitorArgs,
 } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { once } from '@atlaskit/pragmatic-drag-and-drop/utils/once';
 
 import type { ElementAutoScrollArgs, WindowAutoScrollArgs } from '../internal-types';
 import { getScheduler } from '../shared/scheduler';
-
 import { addScrollableAttribute } from './data-attributes';
 import { tryScroll } from './try-scroll';
 

@@ -1,5 +1,5 @@
-import { combine } from '../../../../src/public-utils/combine';
 import { draggable } from '../../../../src/adapter/element-adapter';
+import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, reset, setElementFromPoint } from '../../_util';
 
 afterEach(reset);

@@ -10,7 +10,6 @@ import {
 import { maxZIndex } from '../util/max-z-index';
 import { popoverResetUserAgentStyles } from '../util/popover-reset-styles';
 import { supportsPopover } from '../util/supports-popover';
-
 import { honeyPotDataAttribute } from './honey-pot-data-attribute';
 
 const honeyPotSize: number = 2;

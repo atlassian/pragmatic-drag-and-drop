@@ -10,7 +10,6 @@ import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import Board from '../../examples/01-board.vr.ap';
 import { customAttributes } from '../../src/utils/attributes';
-
 import { setElementFromPoint } from './_util';
 
 // This file exposes one or more accessibility violations. Testing is currently skipped but violations need to

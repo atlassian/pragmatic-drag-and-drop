@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/utils/center-under-pointer'` instead.
  */
+
 export { centerUnderPointer } from '../../public-utils/element/custom-native-drag-preview/center-under-pointer';

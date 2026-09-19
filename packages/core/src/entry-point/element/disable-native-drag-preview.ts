@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview'` instead.
  */
+
 export { disableNativeDragPreview } from '../../public-utils/element/disable-native-drag-preview';

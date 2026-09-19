@@ -8,7 +8,6 @@ import React, { Fragment } from 'react';
 import { css, jsx } from '@emotion/react';
 
 import { GlobalStyles } from '../_util/global-styles';
-
 import { ActivityLog } from './activity-log';
 import { Content } from './content';
 import { DropTarget } from './drop-target';

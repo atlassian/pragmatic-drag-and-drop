@@ -3,7 +3,6 @@ import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { attachInstruction } from '../../src/attach-instruction';
 import { extractInstruction } from '../../src/extract-instruction';
 import type { Instruction } from '../../src/tree-item';
-
 import { getDefaultInput, getElements, getRect } from './_util';
 
 const rect = getRect({

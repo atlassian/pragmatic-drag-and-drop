@@ -7,7 +7,6 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { Box, Flex, Stack, xcss } from '@atlaskit/primitives';
 
 import { autoScrollWindowForElements } from '../../src/entry-point/element';
-
 import { BoardContext } from './board-context';
 import { Card } from './card';
 

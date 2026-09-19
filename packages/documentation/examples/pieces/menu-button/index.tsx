@@ -9,9 +9,9 @@ import { css, jsx } from '@emotion/react';
 
 import Button from '@atlaskit/button/button';
 import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
-import type { CustomTriggerProps } from '@atlaskit/dropdown-menu/types';
 import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
 import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
+import type { CustomTriggerProps } from '@atlaskit/dropdown-menu/types';
 import MoreIcon from '@atlaskit/icon/core/show-more-horizontal';
 
 import { usePreventScrollingFromArrowKeys } from '../hooks/use-prevent-scrolling-from-arrow-keys';

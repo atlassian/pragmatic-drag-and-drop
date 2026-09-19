@@ -2,6 +2,7 @@
 /**
  * @deprecated Use `import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external'` instead.
  */
+
 export { dropTargetForExternal } from '../../adapter/drop-target-for-external';
 /**
  * @deprecated Use `import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external'` instead.

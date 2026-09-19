@@ -7,7 +7,6 @@ import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { DragDropContext, Draggable, Droppable } from '../../src';
 import { useMonitorForLifecycle } from '../../src/drag-drop-context/lifecycle-context';
-
 import { setElementFromPoint } from './_util';
 import {
 	keyboard,

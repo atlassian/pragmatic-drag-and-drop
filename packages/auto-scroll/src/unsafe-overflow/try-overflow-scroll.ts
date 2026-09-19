@@ -2,7 +2,6 @@ import type { AllDragTypes, Input } from '@atlaskit/pragmatic-drag-and-drop/type
 
 import { type ElementGetFeedbackArgs } from '../internal-types';
 import { getInternalConfig } from '../shared/configuration';
-
 import { getScrollBy } from './get-scroll-by';
 import { type UnsafeOverflowAutoScrollArgs } from './types';
 

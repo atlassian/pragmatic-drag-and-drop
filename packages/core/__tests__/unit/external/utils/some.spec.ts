@@ -1,16 +1,16 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { dropTargetForExternal } from '../../../../src/adapter/drop-target-for-external';
 import { type ExternalEventBasePayload } from '../../../../src/adapter/external-adapter-types';
 import { monitorForExternal } from '../../../../src/adapter/monitor-for-external';
+import { combine } from '../../../../src/public-utils/combine';
 import { containsHTML } from '../../../../src/public-utils/external/contains-html';
-import { getHTML } from '../../../../src/public-utils/external/get-html';
-import { some } from '../../../../src/public-utils/external/some';
 import { containsText } from '../../../../src/public-utils/external/contains-text';
+import { getHTML } from '../../../../src/public-utils/external/get-html';
 import { getText } from '../../../../src/public-utils/external/get-text';
 import { getURLs } from '../../../../src/public-utils/external/get-ur-ls';
+import { some } from '../../../../src/public-utils/external/some';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

@@ -20,7 +20,6 @@ import invariant from 'tiny-invariant';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../src';
 import { setElementFromPoint } from '../../../_util';
-
 import { mouse, simpleLift } from './_utils/controls';
 
 const sloppyClickThreshold = 5;

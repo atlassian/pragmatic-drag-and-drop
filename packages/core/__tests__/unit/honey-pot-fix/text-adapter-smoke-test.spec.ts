@@ -1,10 +1,9 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import { dropTargetForTextSelection } from '../../../src/adapter/drop-target-for-text-selection';
 import { type Position } from '../../../src/internal-types';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, firePointer, getBubbleOrderedTree, nativeDrag, reset } from '../_util';
-
 import { findHoneyPot, getHoneyPot } from './_util';
 
 // The text adapter behaviour should be exactly the same as the element

@@ -14,7 +14,6 @@ import type {
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../src';
-
 import { keyboard, mouse } from './_utils/controls';
 
 HTMLElement.prototype.scrollIntoView = jest.fn();

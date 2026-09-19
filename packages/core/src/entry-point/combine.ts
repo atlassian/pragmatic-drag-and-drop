@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine'` instead.
  */
+
 export { combine } from '../public-utils/combine';

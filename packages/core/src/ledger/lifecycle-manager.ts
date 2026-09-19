@@ -13,7 +13,6 @@ import {
 import { isLeavingWindow } from '../util/changing-window/is-leaving-window';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';
 import { getInput } from '../util/get-input';
-
 import { makeDispatch } from './dispatch-consumer-event';
 
 const globalState = {

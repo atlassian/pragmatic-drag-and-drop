@@ -1,6 +1,7 @@
 // This file extends the portal test(s) from `react-beautiful-dnd`
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { fireEvent, render } from '@testing-library/react';
 import type {
@@ -10,7 +11,6 @@ import type {
 	DragUpdate,
 	DropResult,
 } from 'react-beautiful-dnd';
-import ReactDOM from 'react-dom';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';

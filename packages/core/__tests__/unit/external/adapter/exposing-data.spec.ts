@@ -2,10 +2,10 @@ import { fireEvent } from '@testing-library/dom';
 import { bindAll } from 'bind-event-listener';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { dropTargetForExternal } from '../../../../src/adapter/drop-target-for-external';
-import { type ExternalDragPayload, type NativeMediaType } from '../../../../src/internal-types';
 import { monitorForExternal } from '../../../../src/adapter/monitor-for-external';
+import { type ExternalDragPayload, type NativeMediaType } from '../../../../src/internal-types';
+import { combine } from '../../../../src/public-utils/combine';
 import { getFiles } from '../../../../src/public-utils/external/get-files';
 import { getHTML } from '../../../../src/public-utils/external/get-html';
 import { getText } from '../../../../src/public-utils/external/get-text';

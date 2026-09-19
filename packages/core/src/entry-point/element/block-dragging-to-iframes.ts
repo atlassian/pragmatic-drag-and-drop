@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { blockDraggingToIFrames } from '@atlaskit/pragmatic-drag-and-drop/utils/block-dragging-to-iframes'` instead.
  */
+
 export { blockDraggingToIFrames } from '../../public-utils/element/block-dragging-to-iframes';

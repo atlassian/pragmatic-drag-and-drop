@@ -1,13 +1,13 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 
 // Using '@testing-library/react' rather than '@testing-library/dom'
 // so that events are correctly wrapped in `act()`
 import { act, fireEvent } from '@testing-library/react';
-import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 
-import { combine } from '../../../src/public-utils/combine';
 import { draggable, monitorForElements } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, getElements, reset } from '../_util';
 
 afterEach(reset);

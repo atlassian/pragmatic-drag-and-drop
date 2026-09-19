@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../../src/adapter/element-adapter';
 import { type Input } from '../../../../src/internal-types';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	appendToBody,
 	getBubbleOrderedTree,

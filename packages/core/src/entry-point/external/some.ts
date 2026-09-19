@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { some } from '@atlaskit/pragmatic-drag-and-drop/utils/some'` instead.
  */
+
 export { some } from '../../public-utils/external/some';

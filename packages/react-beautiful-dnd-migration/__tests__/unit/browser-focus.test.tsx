@@ -6,7 +6,6 @@ import { replaceRaf } from 'raf-stub';
 import BoardExample from '../../examples/01-board.vr.ap';
 import ReactWindowBoardExample from '../../examples/02-react-window.vr.ap';
 import { customAttributes } from '../../src/utils/attributes';
-
 import {
 	keyboard,
 	mouse,

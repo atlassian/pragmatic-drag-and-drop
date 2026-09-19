@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 import { bindAll } from 'bind-event-listener';
 
-import { combine } from '../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, getElements, reset, userEvent } from '../_util';
 
 afterEach(reset);

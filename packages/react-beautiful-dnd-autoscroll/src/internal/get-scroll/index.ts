@@ -9,7 +9,6 @@ import { horizontal, vertical } from '../constants';
 import { isEqual } from '../is-equal';
 import { origin } from '../position';
 import type { Spacing } from '../types';
-
 import getScrollOnAxis from './get-scroll-on-axis';
 
 // will replace -0 and replace with +0

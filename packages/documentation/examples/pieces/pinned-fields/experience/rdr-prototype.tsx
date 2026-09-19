@@ -3,10 +3,10 @@
  * @jsx jsx
  */
 import { Fragment, type ReactNode, useCallback, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
-import ReactDOM from 'react-dom';
 
 import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
 import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';

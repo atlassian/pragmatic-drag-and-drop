@@ -1,5 +1,4 @@
 import { type CleanupFn } from '../internal-types';
-
 import { adapter } from './external-adapter';
 import type { StripEventsForDropTargets } from './external-adapter-types';
 

@@ -17,7 +17,6 @@ import {
 import { makeAdapter } from '../make-adapter/make-adapter';
 import { isEnteringWindow } from '../util/changing-window/is-entering-window';
 import { getBindingsForBrokenDrags } from '../util/detect-broken-drag';
-
 import { getAvailableItems } from './get-available-items';
 import { getAvailableTypes } from './get-available-types';
 import { isAnAvailableType } from './is-an-available-type';

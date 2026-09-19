@@ -7,19 +7,18 @@ import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/utils/durations';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external';
 import {
 	dropTargetForElements,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
-import { dropTargetForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-external';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
 import { getPeopleFromPosition, getPersonFromPosition, type Person } from '../../data/people';
-
 import { Card } from './card';
 import {
 	dropHandledExternallyLocalStorageKey,

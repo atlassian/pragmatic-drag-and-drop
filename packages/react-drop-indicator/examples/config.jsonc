@@ -4,10 +4,10 @@
  * They are defined here so the hashing algorithm doesn't need to search test files for example usage each time
  */
 {
-  "testExamples": [
-    "00-closest-edge.vr.ap.tsx",
-    "01-gap.vr.ap.tsx",
-    "02-box-without-terminal.tsx",
-    "11-tree-item.vr.ap.tsx"
-  ]
+	"testExamples": [
+		"00-closest-edge.vr.ap.tsx",
+		"01-gap.vr.ap.tsx",
+		"02-box-without-terminal.tsx",
+		"11-tree-item.vr.ap.tsx",
+	],
 }

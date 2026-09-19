@@ -1,7 +1,6 @@
 import type { DroppableId } from 'react-beautiful-dnd';
 
 import type { DroppableRegistry } from '../drag-drop-context/droppable-registry';
-
 import { attributes, customAttributes, getAttribute } from './attributes';
 import { findElementAll } from './find-element';
 

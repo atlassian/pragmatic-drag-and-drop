@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled'` instead.
  */
+
 export { preventUnhandled } from '../public-utils/prevent-unhandled';

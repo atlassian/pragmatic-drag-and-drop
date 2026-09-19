@@ -1,7 +1,6 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
@@ -9,6 +8,7 @@ import {
 	monitorForElements,
 } from '../../../src/adapter/element-adapter';
 import { type DragLocationHistory, type DropTargetRecord } from '../../../src/internal-types';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, getBubbleOrderedTree, getDefaultInput, reset } from '../_util';
 
 afterEach(reset);

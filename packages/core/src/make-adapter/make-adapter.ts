@@ -9,7 +9,6 @@ import {
 } from '../internal-types';
 import { lifecycle } from '../ledger/lifecycle-manager';
 import { register } from '../ledger/usage-ledger';
-
 import { makeDropTarget } from './make-drop-target';
 import { makeMonitor } from './make-monitor';
 

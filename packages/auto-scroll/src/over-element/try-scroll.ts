@@ -10,7 +10,6 @@ import {
 } from '../internal-types';
 import { getInternalConfig } from '../shared/configuration';
 import { markAndGetEngagement } from '../shared/engagement-history';
-
 import { selector } from './data-attributes';
 import { getScrollBy } from './get-scroll-by';
 

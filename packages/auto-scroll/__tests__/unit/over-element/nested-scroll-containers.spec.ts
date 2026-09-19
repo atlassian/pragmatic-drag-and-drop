@@ -1,11 +1,11 @@
 import { bind } from 'bind-event-listener';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';

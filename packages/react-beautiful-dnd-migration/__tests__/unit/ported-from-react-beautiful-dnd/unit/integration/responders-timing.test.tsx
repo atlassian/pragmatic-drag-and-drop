@@ -9,7 +9,6 @@ import invariant from 'tiny-invariant';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../src';
 import { setElementFromPoint } from '../../../_util';
-
 import { keyboard, mouse } from './_utils/controls';
 
 /**

@@ -1,6 +1,6 @@
 import React, { Fragment, type Ref, useEffect, useRef, useState } from 'react';
-
 import { createPortal } from 'react-dom';
+
 import invariant from 'tiny-invariant';
 
 import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';

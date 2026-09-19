@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import { preventUnhandled } from '../../../src/public-utils/prevent-unhandled';
 import { appendToBody, getElements, reset, userEvent } from '../_util';
 

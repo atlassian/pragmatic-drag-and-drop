@@ -4,7 +4,6 @@ import { axisLookup } from '../shared/axis';
 // So we can be sure that the 'insideEdge' calculations
 // line up perfectly with the 'over element' edge calculations
 import { getOverElementHitbox } from '../shared/get-over-element-hitbox';
-
 import { type HitboxSpacing } from './types';
 
 function makeGetHitbox({ axis, side }: { axis: Axis; side: Side }) {

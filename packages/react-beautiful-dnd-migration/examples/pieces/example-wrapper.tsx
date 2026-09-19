@@ -21,7 +21,6 @@ import RadioGroup from '@atlaskit/radio/radio-group';
 import type { OptionsPropType } from '@atlaskit/radio/types';
 
 import * as migration from '../../src';
-
 import { GlobalStyles } from './global-styles';
 
 type SwitcherProps = {

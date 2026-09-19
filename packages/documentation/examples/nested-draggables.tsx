@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import { durations } from '@atlaskit/motion/utils/durations';
 import { easeInOut } from '@atlaskit/motion/curves';
+import { durations } from '@atlaskit/motion/utils/durations';
 import {
 	draggable,
 	dropTargetForElements,

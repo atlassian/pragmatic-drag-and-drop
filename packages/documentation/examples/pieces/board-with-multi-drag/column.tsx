@@ -1,29 +1,28 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-
 import { createPortal } from 'react-dom';
+
 import invariant from 'tiny-invariant';
 
 import Heading from '@atlaskit/heading/heading';
 import { easeInOut } from '@atlaskit/motion/curves';
 import { durations } from '@atlaskit/motion/utils/durations';
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
-import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/utils/center-under-pointer';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, type XCSS, xcss } from '@atlaskit/primitives';
 
 import { type ColumnType } from '../../data/people';
 import { columnGap } from '../../util/constants';
-
 import { Card } from './card';
 
 const columnStyles = xcss({

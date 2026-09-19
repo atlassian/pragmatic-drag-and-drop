@@ -16,14 +16,13 @@ import {
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	dropTargetForElements,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { canMove, type coord, isCoord, isEqualCoord, type PieceRecord } from '../../chess';
-
 import { isPieceType } from './piece';
 
 interface SquareProps {

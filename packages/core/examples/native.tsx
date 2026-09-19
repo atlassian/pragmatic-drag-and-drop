@@ -12,21 +12,20 @@ import invariant from 'tiny-invariant';
 import Lozenge from '@atlaskit/lozenge/lozenge';
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../src/public-utils/combine';
-import { dropTargetForElements, monitorForElements } from '../src/adapter/element-adapter';
-import { type ElementDragPayload } from '../src/internal-types';
 import { dropTargetForExternal } from '../src/adapter/drop-target-for-external';
-import { type ExternalDragPayload } from '../src/internal-types';
+import { dropTargetForTextSelection } from '../src/adapter/drop-target-for-text-selection';
+import { dropTargetForElements, monitorForElements } from '../src/adapter/element-adapter';
 import { monitorForExternal } from '../src/adapter/monitor-for-external';
+import { monitorForTextSelection } from '../src/adapter/monitor-for-text-selection';
+import { type ElementDragPayload } from '../src/internal-types';
+import { type ExternalDragPayload } from '../src/internal-types';
+import { type TextSelectionDragPayload } from '../src/internal-types';
+import { combine } from '../src/public-utils/combine';
 import { getFiles } from '../src/public-utils/external/get-files';
 import { getHTML } from '../src/public-utils/external/get-html';
 import { getText } from '../src/public-utils/external/get-text';
 import { getURLs } from '../src/public-utils/external/get-ur-ls';
 import { preventUnhandled } from '../src/public-utils/prevent-unhandled';
-import { dropTargetForTextSelection } from '../src/adapter/drop-target-for-text-selection';
-import { monitorForTextSelection } from '../src/adapter/monitor-for-text-selection';
-import { type TextSelectionDragPayload } from '../src/internal-types';
-
 import { GlobalStyles } from './_util/global-styles';
 import { Content } from './native/content';
 

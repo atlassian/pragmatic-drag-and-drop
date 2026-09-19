@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder'` instead.
  */
+
 export { reorder } from '../public-utils/reorder';

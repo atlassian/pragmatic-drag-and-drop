@@ -13,9 +13,8 @@ import { Stack } from '@atlaskit/primitives/compiled';
 import { token } from '@atlaskit/tokens';
 
 import { draggable } from '../../src/adapter/element-adapter';
-import { scrollJustEnoughIntoView } from '../../src/public-utils/element/scroll-just-enough-into-view';
 import { setCustomNativeDragPreview } from '../../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
-
+import { scrollJustEnoughIntoView } from '../../src/public-utils/element/scroll-just-enough-into-view';
 import avatarUrl from './avatar.png';
 
 const cardStyles = css({

@@ -1,12 +1,12 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementEventPayloadMap,
 	monitorForElements,
 } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, getBubbleOrderedTree, getElements, reset, userEvent } from '../_util';
 
 afterEach(reset);

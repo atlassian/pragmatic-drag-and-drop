@@ -3,10 +3,10 @@
  * @jsx jsx
  */
 import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, keyframes } from '@emotion/react';
-import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';

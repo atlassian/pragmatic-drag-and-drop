@@ -5,9 +5,9 @@ import invariant from 'tiny-invariant';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
 import { reorderWithEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/util/reorder-with-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { type ColumnMap, type ColumnType, getData, type Person } from './data/people';
 import Board from './pieces/board-with-overflow-scroll/board';

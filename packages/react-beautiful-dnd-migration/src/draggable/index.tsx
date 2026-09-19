@@ -9,13 +9,13 @@ import type {
 } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/get-element-from-point-without-honey-pot';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 
 import { getHiddenTextElementId } from '../drag-drop-context/hooks/use-hidden-text-element';
 import { useDragDropContext } from '../drag-drop-context/internal-context';
@@ -31,7 +31,6 @@ import { findDragHandle } from '../utils/find-drag-handle';
 import { findDropIndicator } from '../utils/find-drop-indicator';
 import { findPlaceholder } from '../utils/find-placeholder';
 import { useStable } from '../utils/use-stable';
-
 import { isDraggableData, useDraggableData } from './data';
 import { getDraggableProvidedStyle } from './get-draggable-provided-style';
 import isEventInInteractiveElement, {

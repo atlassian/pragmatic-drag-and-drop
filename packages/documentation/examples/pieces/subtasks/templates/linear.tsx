@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { SubtaskContainer } from '../primitives/linear/subtask-container';
-
 import { SubtasksBaseTemplate, type SubtasksBaseTemplateProps } from './_base';
 
 type LinearTemplateProps = Omit<SubtasksBaseTemplateProps, 'Wrapper'>;

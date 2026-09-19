@@ -16,7 +16,6 @@ import { token } from '@atlaskit/tokens';
 import type { Appearance } from '../src/internal-types';
 import Line from '../src/internal/line';
 import { presetStrokeColors } from '../src/presets';
-
 import { List, type Orientation } from './internal/list';
 
 const orientationFromEdge: { [TKey in Edge]: Orientation } = {

@@ -2,11 +2,10 @@ import React, { type ReactElement, useCallback, useEffect, useRef } from 'react'
 
 import { bind } from 'bind-event-listener';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { error, warning } from '../dev-warning';
-
 import { cancelPointerDrag } from './cancel-drag';
 import { RbdInvariant } from './rbd-invariant';
 import type { DragController } from './types';

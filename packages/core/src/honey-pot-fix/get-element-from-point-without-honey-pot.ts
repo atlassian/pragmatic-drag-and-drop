@@ -1,5 +1,4 @@
 import { type Position } from '../internal-types';
-
 import { isHoneyPotElement } from './is-honey-pot-element';
 
 export function getElementFromPointWithoutHoneypot(client: Position): Element | null {

@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { draggable, monitorForElements } from '../../../../src/adapter/element-adapter';
 import { type CleanupFn } from '../../../../src/internal-types';
+import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, getElements, reset } from '../../_util';
 
 afterEach(reset);

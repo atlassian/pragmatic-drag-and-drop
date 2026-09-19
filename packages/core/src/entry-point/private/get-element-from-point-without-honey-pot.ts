@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/get-element-from-point-without-honey-pot'` instead.
  */
+
 export { getElementFromPointWithoutHoneypot } from '../../honey-pot-fix/get-element-from-point-without-honey-pot';

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 import type {
 	DroppableId,
@@ -6,12 +7,11 @@ import type {
 	DroppableProvided,
 	DroppableStateSnapshot,
 } from 'react-beautiful-dnd';
-import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { useDragDropContext } from '../drag-drop-context/internal-context';
 import { useMonitorForLifecycle } from '../drag-drop-context/lifecycle-context';
@@ -19,7 +19,6 @@ import { isDraggableData } from '../draggable/data';
 import { useLayoutEffect } from '../hooks/use-isomorphic-layout-effect';
 import { attributes, customAttributes, setAttributes } from '../utils/attributes';
 import { useStable } from '../utils/use-stable';
-
 import { useDroppableData } from './data';
 import { DraggableClone } from './draggable-clone';
 import { DropIndicator } from './drop-indicator';

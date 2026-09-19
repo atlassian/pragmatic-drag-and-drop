@@ -1,11 +1,11 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements,
 } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import {
 	appendToBody,
 	firePointer,
@@ -15,7 +15,6 @@ import {
 	setElementFromPointWithPath,
 	userEvent,
 } from '../_util';
-
 import { findHoneyPot, getHoneyPot } from './_util';
 
 it('should keep the honey pot even if the adapter is unmounted during the drag', () => {

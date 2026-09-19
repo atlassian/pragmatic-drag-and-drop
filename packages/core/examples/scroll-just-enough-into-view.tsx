@@ -12,7 +12,6 @@ import { token } from '@atlaskit/tokens';
 
 import { draggable } from '../src/adapter/element-adapter';
 import { scrollJustEnoughIntoView } from '../src/public-utils/element/scroll-just-enough-into-view';
-
 import { GlobalStyles } from './_util/global-styles';
 import { ScrollableDropTarget } from './_util/scrollable-drop-target';
 

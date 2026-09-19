@@ -3,7 +3,6 @@ import type { Direction } from 'react-beautiful-dnd';
 import { rbdInvariant } from '../../drag-drop-context/rbd-invariant';
 import { customAttributes, getAttribute } from '../../utils/attributes';
 import { getElementByDraggableLocation } from '../../utils/get-element-by-draggable-location';
-
 import { getDistance } from './get-distance';
 
 function getDroppableId(element: HTMLElement) {

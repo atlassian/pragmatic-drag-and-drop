@@ -26,7 +26,6 @@ import { androidFallbackText, isAndroid } from '../util/android';
 import { getInput } from '../util/get-input';
 import { textMediaType } from '../util/media-types/text-media-type';
 import { URLMediaType } from '../util/media-types/url-media-type';
-
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
 
 // Payload for the draggable being dragged

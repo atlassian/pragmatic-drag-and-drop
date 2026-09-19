@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-
 import ReactDOM from 'react-dom';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';

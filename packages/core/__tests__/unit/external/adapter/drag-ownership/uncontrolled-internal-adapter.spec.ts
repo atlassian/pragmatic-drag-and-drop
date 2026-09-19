@@ -1,8 +1,8 @@
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import { combine } from '../../../../../src/public-utils/combine';
 import { draggable } from '../../../../../src/adapter/element-adapter';
 import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
+import { combine } from '../../../../../src/public-utils/combine';
 import { appendToBody, getBubbleOrderedTree, getElements, nativeDrag, reset } from '../../../_util';
 
 // This file exposes one or more accessibility violations. Testing is currently skipped but violations need to

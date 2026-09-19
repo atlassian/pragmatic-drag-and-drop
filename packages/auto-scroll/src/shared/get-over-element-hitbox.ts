@@ -1,5 +1,4 @@
 import type { Axis, Edge, InternalConfig, Side } from '../internal-types';
-
 import { axisLookup } from './axis';
 import { mainAxisSideLookup } from './side';
 

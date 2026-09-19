@@ -3,7 +3,6 @@ import { getRect } from 'css-box-model';
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import type { Viewport } from '../types';
-
 import getMaxWindowScroll from './get-max-window-scroll';
 import getWindowScroll from './get-window-scroll';
 

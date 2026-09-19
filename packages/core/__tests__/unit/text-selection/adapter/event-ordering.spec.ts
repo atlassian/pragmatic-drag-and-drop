@@ -1,10 +1,10 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { dropTargetForTextSelection } from '../../../../src/adapter/drop-target-for-text-selection';
 import { monitorForTextSelection } from '../../../../src/adapter/monitor-for-text-selection';
-import { type TextSelectionDragPayload } from '../../../../src/internal-types';
 import { type TextSelectionEventBasePayload } from '../../../../src/adapter/text-selection-adapter-types';
+import { type TextSelectionDragPayload } from '../../../../src/internal-types';
+import { combine } from '../../../../src/public-utils/combine';
 import {
 	appendToBody,
 	getBubbleOrderedTree,

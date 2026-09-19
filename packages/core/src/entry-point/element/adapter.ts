@@ -2,6 +2,7 @@
 /**
  * @deprecated Use `import { draggable, dropTargetForElements, monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter'` instead.
  */
+
 export {
 	draggable,
 	dropTargetForElements,

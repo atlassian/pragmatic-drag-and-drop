@@ -3,7 +3,6 @@
 import config from '../../config';
 import { minScroll } from '../../constants';
 import { getPercentage } from '../../get-percentage';
-
 import type { DistanceThresholds } from './get-distance-thresholds';
 
 export const getValueFromDistance = (

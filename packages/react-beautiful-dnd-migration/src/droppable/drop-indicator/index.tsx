@@ -17,7 +17,6 @@ import { useDragDropContext } from '../../drag-drop-context/internal-context';
 import { useMonitorForLifecycle } from '../../drag-drop-context/lifecycle-context';
 import { rbdInvariant } from '../../drag-drop-context/rbd-invariant';
 import { customAttributes } from '../../utils/attributes';
-
 import { directionMapping, lineOffset, lineThickness } from './constants';
 import { getIndicatorSizeAndOffset } from './get-dimensions';
 import type { IndicatorSizeAndOffset } from './types';

@@ -1,9 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../src/adapter/element-adapter';
+import { combine } from '../../../src/public-utils/combine';
 import { appendToBody, firePointer, getElements, reset, userEvent } from '../_util';
-
 import { findHoneyPot } from './_util';
 
 afterEach(reset);

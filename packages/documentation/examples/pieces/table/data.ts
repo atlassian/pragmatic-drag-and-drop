@@ -1,5 +1,4 @@
 import { getPerson } from '../../data/people';
-
 import type { Item, Status } from './types';
 
 const status: Status[] = ['todo', 'in-progress', 'done'];

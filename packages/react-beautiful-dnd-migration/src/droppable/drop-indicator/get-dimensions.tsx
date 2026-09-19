@@ -7,7 +7,6 @@ import { findPlaceholder } from '../../utils/find-placeholder';
 import { getClosestPositionedElement } from '../../utils/get-closest-positioned-element';
 import { getElementByDraggableLocation } from '../../utils/get-element-by-draggable-location';
 import { getGapOffset } from '../gap';
-
 import { directionMapping, lineOffset } from './constants';
 import type { IndicatorSizeAndOffset } from './types';
 

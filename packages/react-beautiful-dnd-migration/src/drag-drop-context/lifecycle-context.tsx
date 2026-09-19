@@ -15,7 +15,6 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import type { CleanupFn } from '../internal-types';
 import { batchUpdatesForReact16 } from '../utils/batch-updates-for-react-16';
-
 import type { DroppableRegistryEntry } from './droppable-registry';
 import { rbdInvariant } from './rbd-invariant';
 

@@ -1,5 +1,5 @@
-import { combine } from '../../../../../src/public-utils/combine';
 import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
+import { combine } from '../../../../../src/public-utils/combine';
 import { appendToBody, getElements, nativeDrag, reset } from '../../../_util';
 
 afterEach(reset);

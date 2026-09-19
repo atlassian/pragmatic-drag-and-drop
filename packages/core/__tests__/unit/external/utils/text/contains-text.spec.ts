@@ -1,9 +1,9 @@
 import invariant from 'tiny-invariant';
 
-import { combine } from '../../../../../src/public-utils/combine';
 import { dropTargetForExternal } from '../../../../../src/adapter/drop-target-for-external';
 import { type ExternalEventBasePayload } from '../../../../../src/adapter/external-adapter-types';
 import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';
+import { combine } from '../../../../../src/public-utils/combine';
 import { containsText } from '../../../../../src/public-utils/external/contains-text';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset } from '../../../_util';
 

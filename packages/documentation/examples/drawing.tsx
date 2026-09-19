@@ -3,6 +3,7 @@
  * @jsxRuntime classic
  * @jsx jsx
  */
+
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
@@ -14,8 +15,8 @@ import Button from '@atlaskit/button/default/button';
 import FocusRing from '@atlaskit/focus-ring/focus-ring';
 import CheckIcon from '@atlaskit/icon/core/check-mark';
 import TrashIcon from '@atlaskit/icon/core/delete';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
 import { Inline } from '@atlaskit/primitives/compiled';

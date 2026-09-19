@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-
 import { createPortal } from 'react-dom';
+
 import invariant from 'tiny-invariant';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';

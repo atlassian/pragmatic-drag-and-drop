@@ -1,15 +1,15 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-
 import { createPortal } from 'react-dom';
+
 import invariant from 'tiny-invariant';
 
-import { durations } from '@atlaskit/motion/utils/durations';
 import { easeInOut } from '@atlaskit/motion/curves';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
+import { durations } from '@atlaskit/motion/utils/durations';
 import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/utils/preserve-offset-on-source';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss

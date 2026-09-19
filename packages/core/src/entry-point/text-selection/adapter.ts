@@ -2,6 +2,7 @@
 /**
  * @deprecated Use `import { dropTargetForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/adapter/drop-target-for-text-selection'` instead.
  */
+
 export { dropTargetForTextSelection } from '../../adapter/drop-target-for-text-selection';
 /**
  * @deprecated Use `import { monitorForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-text-selection'` instead.

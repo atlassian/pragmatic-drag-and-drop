@@ -1,7 +1,6 @@
 import type { DraggingStyle, NotDraggingStyle } from 'react-beautiful-dnd';
 
 import type { DraggableDimensions } from '../hooks/use-captured-dimensions';
-
 import { zIndex } from './constants';
 import type { DraggablePreviewOffset, DraggableState } from './state';
 

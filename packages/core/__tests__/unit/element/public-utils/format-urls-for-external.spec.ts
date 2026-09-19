@@ -1,5 +1,5 @@
-import { combine } from '../../../../src/public-utils/combine';
 import { draggable } from '../../../../src/adapter/element-adapter';
+import { combine } from '../../../../src/public-utils/combine';
 import { formatURLsForExternal } from '../../../../src/public-utils/element/format-urls-for-external';
 import { appendToBody, getElements, reset } from '../../_util';
 

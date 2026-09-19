@@ -1,5 +1,4 @@
 import { type Input } from '../../../internal-types';
-
 import type { GetOffsetFn } from './types';
 
 export function preserveOffsetOnSource({

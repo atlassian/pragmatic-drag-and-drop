@@ -6,7 +6,6 @@ import type { DragDropContextProps, DragUpdate, DropResult } from 'react-beautif
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
 import { DragDropContext, Draggable, Droppable } from '../../src';
-
 import { setElementFromPoint } from './_util';
 import {
 	keyboard,

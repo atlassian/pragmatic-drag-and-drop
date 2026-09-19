@@ -1,5 +1,5 @@
-import { combine } from '../../../../src/public-utils/combine';
 import { monitorForTextSelection } from '../../../../src/adapter/monitor-for-text-selection';
+import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, getElements, getFirstTextNode, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

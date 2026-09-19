@@ -1,5 +1,4 @@
 import { textMediaType } from '../../util/media-types/text-media-type';
-
 import { type ContainsSource } from './native-types';
 
 /* Get the plain text that a user is dragging */

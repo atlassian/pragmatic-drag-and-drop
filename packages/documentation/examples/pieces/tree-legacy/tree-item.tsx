@@ -14,10 +14,10 @@ import {
 	useState,
 	type NamedExoticComponent,
 } from 'react';
+import ReactDOM from 'react-dom';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx } from '@emotion/react';
-import ReactDOM from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import Button from '@atlaskit/button/button';
@@ -35,20 +35,19 @@ import {
 	type Instruction,
 	type ItemMode,
 } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 	type ElementDropTargetEventBasePayload,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
-import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { token } from '@atlaskit/tokens';
 
 import { type TreeItem as TreeItemType } from '../../data/tree-legacy';
-
 import { indentPerLevel } from './constants';
 import { MoveDialog } from './move-dialog';
 import { DependencyContext, TreeContext } from './tree-context';

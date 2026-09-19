@@ -11,9 +11,9 @@ import invariant from 'tiny-invariant';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
 
-import { combine } from '../src/public-utils/combine';
 import { dropTargetForTextSelection } from '../src/adapter/drop-target-for-text-selection';
 import { monitorForTextSelection } from '../src/adapter/monitor-for-text-selection';
+import { combine } from '../src/public-utils/combine';
 
 type DropTargetState = 'idle' | 'potential' | 'over';
 

@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { preserveOffsetOnSource } from '@atlaskit/pragmatic-drag-and-drop/utils/preserve-offset-on-source'` instead.
  */
+
 export { preserveOffsetOnSource } from '../../public-utils/element/custom-native-drag-preview/preserve-offset-on-source';

@@ -4,7 +4,6 @@ import { isSafari } from '../../../util/is-safari';
 import { maxZIndex } from '../../../util/max-z-index';
 import { popoverResetUserAgentStyles } from '../../../util/popover-reset-styles';
 import { supportsPopover } from '../../../util/supports-popover';
-
 import type { GetOffsetFn } from './types';
 
 /** A function to remove the element that has been added to the `container`.

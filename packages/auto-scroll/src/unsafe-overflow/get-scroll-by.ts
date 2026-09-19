@@ -7,7 +7,6 @@ import { markAndGetEngagement } from '../shared/engagement-history';
 import { getScrollChange } from '../shared/get-scroll-change';
 import { isAxisAllowed } from '../shared/is-axis-allowed';
 import { isWithin } from '../shared/is-within';
-
 import { getHitbox } from './hitbox';
 import {
 	type HitboxSpacing,

@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 import { bind, bindAll } from 'bind-event-listener';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { monitorForExternal } from '../../../../src/adapter/monitor-for-external';
+import { combine } from '../../../../src/public-utils/combine';
 import { getText } from '../../../../src/public-utils/external/get-text';
 import { appendToBody, getBubbleOrderedTree, nativeDrag, reset } from '../../_util';
 

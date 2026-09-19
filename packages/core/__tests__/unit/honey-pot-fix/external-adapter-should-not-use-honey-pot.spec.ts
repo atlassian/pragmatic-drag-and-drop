@@ -2,7 +2,6 @@ import { fireEvent } from '@testing-library/dom';
 
 import { monitorForExternal } from '../../../src/adapter/monitor-for-external';
 import { nativeDrag, reset } from '../_util';
-
 import { findHoneyPot } from './_util';
 
 afterEach(reset);

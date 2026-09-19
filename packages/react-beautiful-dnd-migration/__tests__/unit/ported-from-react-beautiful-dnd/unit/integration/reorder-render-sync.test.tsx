@@ -12,7 +12,6 @@ import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../src';
 import { setElementFromPoint } from '../../../_util';
-
 import { keyboard, mouse, simpleLift } from './_utils/controls';
 
 const extractClosestEdge = jest.spyOn(closestEdge, 'extractClosestEdge');

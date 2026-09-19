@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { keyframes } from '@emotion/react';
-import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';

@@ -3,15 +3,15 @@
  * @jsx jsx
  */
 import { Fragment, useEffect, useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 // eslint-disable-next-line @atlaskit/ui-styling-standard/use-compiled -- Ignored via go/DSP-18766
 import { css, jsx, type SerializedStyles } from '@emotion/react';
-import ReactDOM from 'react-dom';
 
-import { combine } from '../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../src/adapter/element-adapter';
-import { setCustomNativeDragPreview } from '../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
+import { combine } from '../src/public-utils/combine';
 import { preserveOffsetOnSource } from '../src/public-utils/element/custom-native-drag-preview/preserve-offset-on-source';
+import { setCustomNativeDragPreview } from '../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
 
 type CardDragState = 'idle' | 'preview' | 'dragging';
 

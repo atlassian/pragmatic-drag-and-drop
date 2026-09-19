@@ -1,6 +1,5 @@
 import { isAndroid } from '../../../util/android';
 import { isSafariOnIOS } from '../../../util/is-safari-on-ios';
-
 import { centerUnderPointer } from './center-under-pointer';
 import type { GetOffsetFn } from './types';
 

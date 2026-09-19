@@ -1,8 +1,7 @@
-import { combine } from '../../src/public-utils/combine';
 import { draggable } from '../../src/adapter/element-adapter';
 import { monitorForExternal } from '../../src/adapter/monitor-for-external';
 import { monitorForTextSelection } from '../../src/adapter/monitor-for-text-selection';
-
+import { combine } from '../../src/public-utils/combine';
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from './_util';
 
 const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});

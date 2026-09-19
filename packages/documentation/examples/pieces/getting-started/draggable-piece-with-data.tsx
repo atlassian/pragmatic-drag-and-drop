@@ -12,7 +12,6 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-ada
 
 import king from '../../icons/king.png';
 import pawn from '../../icons/pawn.png';
-
 import { type Coord } from './chessboard-drop-target';
 
 export type PieceType = 'king' | 'pawn';

@@ -1,5 +1,4 @@
 import { type CleanupFn } from '../internal-types';
-
 import { adapter } from './text-selection-adapter';
 import type { StripPreviewEvent } from './text-selection-adapter-types';
 

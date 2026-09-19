@@ -1,8 +1,8 @@
 import { createEvent, fireEvent } from '@testing-library/dom';
 import { bind, bindAll } from 'bind-event-listener';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { monitorForTextSelection } from '../../../../src/adapter/monitor-for-text-selection';
+import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, getElements, nativeDrag, reset } from '../../_util';
 
 afterEach(reset);

@@ -3,7 +3,6 @@ import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
 import { attachClosestEdge } from '../../src/attach-closest-edge';
 import { extractClosestEdge } from '../../src/extract-closest-edge';
 import type { Edge } from '../../src/types';
-
 import { between, getDefaultInput, getElements, getRect } from './_util';
 
 const rect = getRect({

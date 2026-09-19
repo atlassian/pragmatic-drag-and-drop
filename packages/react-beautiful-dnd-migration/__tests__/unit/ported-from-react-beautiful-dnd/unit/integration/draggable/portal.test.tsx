@@ -2,10 +2,10 @@
 // <https://github.com/atlassian/react-beautiful-dnd/blob/v13.1.1/test/unit/integration/draggable/portal.spec.js>
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { render } from '@testing-library/react';
 import type { DraggableProvided, DraggableStateSnapshot } from 'react-beautiful-dnd';
-import ReactDOM from 'react-dom';
 
 import { setElementFromPoint } from '../../../../_util';
 import App, { type Item } from '../_utils/app';

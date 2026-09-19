@@ -3,7 +3,6 @@
 import type { Rect } from 'css-box-model';
 
 import type { Axis, Spacing } from '../../types';
-
 import getDistanceThresholds from './get-distance-thresholds';
 import getValue from './get-value';
 

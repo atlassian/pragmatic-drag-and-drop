@@ -6,7 +6,6 @@ import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 import { autoScroller } from '../../src/autoScroller';
 import config from '../../src/internal/config';
 import { minScroll } from '../../src/internal/constants';
-
 import { getDefaultInput, getRect } from './_util';
 
 // This file exposes one or more accessibility violations. Testing is currently skipped but violations need to

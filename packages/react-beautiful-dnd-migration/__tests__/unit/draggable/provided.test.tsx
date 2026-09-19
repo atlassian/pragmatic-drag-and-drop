@@ -1,5 +1,4 @@
 import { notDraggingStyle } from '../../../src/draggable/get-draggable-provided-style';
-
 import { defaultItems, renderApp } from './_utils';
 
 describe('<Draggable> provided', () => {

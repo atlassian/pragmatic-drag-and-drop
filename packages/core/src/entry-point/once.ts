@@ -2,4 +2,5 @@
 /**
  * @deprecated Use `import { once } from '@atlaskit/pragmatic-drag-and-drop/utils/once'` instead.
  */
+
 export { once } from '../public-utils/once';

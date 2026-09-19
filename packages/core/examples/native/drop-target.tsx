@@ -10,10 +10,10 @@ import invariant from 'tiny-invariant';
 
 import { token } from '@atlaskit/tokens';
 
-import { combine } from '../../src/public-utils/combine';
-import { dropTargetForElements, monitorForElements } from '../../src/adapter/element-adapter';
 import { dropTargetForExternal } from '../../src/adapter/drop-target-for-external';
+import { dropTargetForElements, monitorForElements } from '../../src/adapter/element-adapter';
 import { monitorForExternal } from '../../src/adapter/monitor-for-external';
+import { combine } from '../../src/public-utils/combine';
 import { getHTML } from '../../src/public-utils/external/get-html';
 import { getText } from '../../src/public-utils/external/get-text';
 import { getURLs } from '../../src/public-utils/external/get-ur-ls';

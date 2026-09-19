@@ -1,8 +1,8 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { combine } from '../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../src/adapter/element-adapter';
 import { getElementFromPointWithoutHoneypot } from '../../../src/honey-pot-fix/get-element-from-point-without-honey-pot';
+import { combine } from '../../../src/public-utils/combine';
 import {
 	appendToBody,
 	firePointer,
@@ -11,7 +11,6 @@ import {
 	reset,
 	setElementFromPointWithPath,
 } from '../_util';
-
 import { findHoneyPot, getHoneyPot } from './_util';
 
 afterEach(reset);

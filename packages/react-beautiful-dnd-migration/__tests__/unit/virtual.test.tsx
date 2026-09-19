@@ -9,7 +9,6 @@ import type {
 } from 'react-beautiful-dnd';
 
 import { DragDropContext, Draggable, Droppable } from '../../src';
-
 import { getPlaceholder } from './_util';
 import { setup } from './_utils/setup';
 import {

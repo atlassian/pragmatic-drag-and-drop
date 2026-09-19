@@ -20,7 +20,6 @@ import { rbdInvariant } from '../drag-drop-context/rbd-invariant';
 import { directionMapping } from '../droppable/drop-indicator/constants';
 import type { DraggableDimensions } from '../hooks/use-captured-dimensions';
 import type { Action } from '../internal-types';
-
 import { keyboardPreviewCrossAxisOffset } from './constants';
 
 type DraggableIdleState = {

@@ -1,6 +1,5 @@
 import { androidFallbackText } from '../util/android';
 import { textMediaType } from '../util/media-types/text-media-type';
-
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
 
 export function isAnAvailableType({ type, value }: { type: string; value: string }): boolean {

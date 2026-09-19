@@ -1,5 +1,4 @@
 import { once } from '../public-utils/once';
-
 import { isSafari } from './is-safari';
 
 // Using `once` as the value won't change in a browser

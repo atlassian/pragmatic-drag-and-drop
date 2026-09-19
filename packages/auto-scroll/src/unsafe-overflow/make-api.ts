@@ -6,7 +6,6 @@ import type {
 } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 import { getScheduler } from '../shared/scheduler';
-
 import { tryOverflowScrollElements } from './try-overflow-scroll';
 import { type UnsafeOverflowAutoScrollArgs } from './types';
 

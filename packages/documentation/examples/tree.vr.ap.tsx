@@ -21,12 +21,12 @@ import { triggerPostMoveFlash } from '@atlaskit/pragmatic-drag-and-drop-flourish
 import { type Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/list-item';
 import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { GroupDropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/group';
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	dropTargetForElements,
 	type ElementDropTargetEventBasePayload,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { token } from '@atlaskit/tokens';
 
 import {

@@ -1,10 +1,10 @@
 import { bind } from 'bind-event-listener';
 
-import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import {
@@ -19,7 +19,6 @@ import {
 	stepScrollBy,
 	userEvent,
 } from '../_util';
-
 import { getHoneyPot } from './_util';
 
 jest.useFakeTimers();

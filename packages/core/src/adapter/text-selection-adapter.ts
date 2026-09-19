@@ -12,7 +12,6 @@ import { makeAdapter } from '../make-adapter/make-adapter';
 import { combine } from '../public-utils/combine';
 import { HTMLMediaType } from '../util/media-types/html-media-type';
 import { textMediaType } from '../util/media-types/text-media-type';
-
 import { elementAdapterNativeDataKey } from './element-adapter-native-data-key';
 import { findTextNode } from './find-text-node';
 import { honeyPotFix } from './honey-pot-fix';

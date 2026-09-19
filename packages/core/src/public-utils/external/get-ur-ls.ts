@@ -1,5 +1,4 @@
 import { URLMediaType } from '../../util/media-types/url-media-type';
-
 import { type ContainsSource } from './native-types';
 import { firefoxURLType } from './url';
 

@@ -1,6 +1,5 @@
 import { isFirefox } from '../is-firefox';
 import { isSafari } from '../is-safari';
-
 import { isEnteringWindowInSafari } from './is-entering-window-in-safari';
 import { isFromAnotherWindow } from './is-from-another-window';
 

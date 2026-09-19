@@ -2,10 +2,10 @@ import { fireEvent } from '@testing-library/dom';
 
 import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
 
-import { combine } from '../../../../src/public-utils/combine';
 import { draggable, dropTargetForElements } from '../../../../src/adapter/element-adapter';
-import { blockDraggingToIFrames } from '../../../../src/public-utils/element/block-dragging-to-iframes';
 import { type CleanupFn } from '../../../../src/internal-types';
+import { combine } from '../../../../src/public-utils/combine';
+import { blockDraggingToIFrames } from '../../../../src/public-utils/element/block-dragging-to-iframes';
 import { appendToBody, getElements, reset, userEvent } from '../../_util';
 
 // This file exposes one or more accessibility violations. Testing is currently skipped but violations need to

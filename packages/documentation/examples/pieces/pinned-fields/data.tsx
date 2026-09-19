@@ -10,12 +10,11 @@ import { jsx } from '@emotion/react';
 import Avatar from '@atlaskit/avatar/avatar';
 import Badge from '@atlaskit/badge/badge';
 import { Date } from '@atlaskit/date';
-import Tag from '@atlaskit/tag/removable-tag';
 import TagGroup from '@atlaskit/tag-group/tag-group';
-
-import MajorPriorityIcon from './major-priority-icon';
+import Tag from '@atlaskit/tag/removable-tag';
 
 import { FieldContentWithIcon } from './index';
+import MajorPriorityIcon from './major-priority-icon';
 
 export type DataItem = {
 	id: string;

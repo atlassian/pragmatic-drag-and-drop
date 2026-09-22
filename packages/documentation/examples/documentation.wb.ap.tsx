@@ -29,7 +29,8 @@ import VirtualListExample from './virtual-list';
 
 export const BoardWithMultiDrag: WorkbenchExample = wb(BoardWithMultiDragExample);
 export const BoardWithOverflowScroll: WorkbenchExample = wb(BoardWithOverflowScrollExample);
-export const BoardVr: WorkbenchExample = wb(BoardVrExample);
+// Named "Board" to match the Workbench URL used by existing integration tests.
+export const Board: WorkbenchExample = wb(BoardVrExample);
 export const Chess: WorkbenchExample = wb(ChessExample);
 export const Deferred: WorkbenchExample = wb(DeferredExample);
 export const DragHandleButton: WorkbenchExample = wb(DragHandleButtonExample);
@@ -51,5 +52,6 @@ export const Resizing: WorkbenchExample = wb(ResizingExample);
 export const TableVr: WorkbenchExample = wb(TableVrExample);
 export const TextSelection: WorkbenchExample = wb(TextSelectionExample);
 export const TreeLegacy: WorkbenchExample = wb(TreeLegacyExample);
-export const TreeVr: WorkbenchExample = wb(TreeVrExample);
+// Named "Tree" to match the Workbench URL used by existing integration tests.
+export const Tree: WorkbenchExample = wb(TreeVrExample);
 export const VirtualList: WorkbenchExample = wb(VirtualListExample);

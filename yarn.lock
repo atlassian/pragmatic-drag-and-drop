@@ -132,6 +132,29 @@
     "@compiled/react" "^1.0.2"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/button@^25.4.0":
+  version "25.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.4.0.tgz#a1b82f2c6fc2d905e659643dfcb3f9a313e94ded"
+  integrity sha512-Ijayyy1K4IUyewRh58+fJvjwUkCbtPpb4c8/zFkgPlagZ1Xwor+pwqALZf7bI2Bl3+YWIOxWsMmqAGIniJoArQ==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.5.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/focus-ring" "^5.2.0"
+    "@atlaskit/icon" "^37.7.0"
+    "@atlaskit/interaction-context" "^4.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/primitives" "^22.5.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/spinner" "^20.4.0"
+    "@atlaskit/theme" "^28.2.0"
+    "@atlaskit/tokens" "^18.2.0"
+    "@atlaskit/tooltip" "^24.3.0"
+    "@atlaskit/visually-hidden" "^4.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/code@^19.2.0":
   version "19.2.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/code/-/@atlaskit/code-19.2.0.tgz#d9951d6f1dcd9e4cf71954900dabeb80a8e155e6"

@@ -9,7 +9,8 @@ import ScrollContainerVrExample from './05-scroll-container.vr.ap';
 
 export const VerticalList: WorkbenchExample = wb(VerticalListExample);
 export const BoardVr: WorkbenchExample = wb(BoardVrExample);
-export const ReactWindowVr: WorkbenchExample = wb(ReactWindowVrExample);
+// Named "ReactWindow" to match the Workbench URL used by existing integration tests.
+export const ReactWindow: WorkbenchExample = wb(ReactWindowVrExample);
 export const ReactVirtualizedVr: WorkbenchExample = wb(ReactVirtualizedVrExample);
 export const MultiContext: WorkbenchExample = wb(MultiContextExample);
 export const ScrollContainerVr: WorkbenchExample = wb(ScrollContainerVrExample);

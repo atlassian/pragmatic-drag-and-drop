@@ -18,7 +18,7 @@ async function generateSVGDataURIs() {
 
 			const signedSource = createSignedArtifact(
 				source,
-				'yarn workspace @atlaskit/pragmatic-drag-and-drop-docs codegen',
+				'afm workspace @atlaskit/pragmatic-drag-and-drop-docs codegen',
 				'This exists to workaround CodeSandbox issues with importing SVGs',
 			);
 

@@ -1,5 +1,19 @@
 # @atlaskit/pragmatic-drag-and-drop
 
+## 4.0.0
+
+### Major Changes
+
+- [`0c7c7be927bde`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/0c7c7be927bde) -
+  Remove deprecated Volt re-export shims from public package entry points. Consumers should import
+  from the replacement subpaths or implementation entry points instead.
+
+### Patch Changes
+
+- [`fe698b4d726b8`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/fe698b4d726b8) -
+  Restore legacy source entry points still required by Atlaskit documentation loaders and pragmatic
+  drag and drop tests after the deprecated re-export cleanup.
+
 ## 3.1.0
 
 ### Minor Changes

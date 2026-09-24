@@ -1,5 +1,3 @@
-/* eslint-disable @repo/internal/deprecations/deprecation-ticket-required -- VOLTC-139 tracks removal of these deprecated re-export shims. */
-
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
 
 export type Operation = 'reorder-before' | 'reorder-after' | 'combine';

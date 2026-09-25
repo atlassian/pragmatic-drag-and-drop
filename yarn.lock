@@ -102,6 +102,17 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 
+"@atlaskit/badge@^22.0.0":
+  version "22.0.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/badge/-/@atlaskit/badge-22.0.0.tgz#3b4913a9844b7bdfb54fc86b5ca92cc485544243"
+  integrity sha512-KPIxx69KuKHAjWDT1ePVrAmUChpm8DfmEuPulPQR1qhzngoUswzbu+4nEmqGneKfrDMlNnMDYAuRkqYvYasd9w==
+  dependencies:
+    "@atlaskit/primitives" "^22.5.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.0.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+
 "@atlaskit/browser-apis@^1.2.0":
   version "1.2.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/browser-apis/-/@atlaskit/browser-apis-1.2.0.tgz#c48e4e64f9c4f020a0e2006db80ee20d1a8e7eca"

@@ -8,7 +8,7 @@ import type { TreeAction, TreeItem } from '../../data/tree';
 
 export type TreeContextValue = {
 	dispatch: (action: TreeAction) => void;
-	uniqueContextId: Symbol;
+	uniqueContextId: symbol;
 	getPathToItem: (itemId: string) => string[];
 	getMoveTargets: ({ itemId }: { itemId: string }) => TreeItem[];
 	getChildrenOfItem: (itemId: string) => TreeItem[];
@@ -28,6 +28,7 @@ export const TreeContext: Context<TreeContextValue> = createContext<TreeContextV
 	registerTreeItem: () => {},
 });
 
+// oxlint-disable-next-line eslint/no-redeclare
 export type DependencyContext = {
 	DropIndicator: typeof DropIndicator;
 	attachInstruction: typeof attachInstruction;

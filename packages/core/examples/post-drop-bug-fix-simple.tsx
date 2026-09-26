@@ -57,6 +57,7 @@ const isOverCardStyles = xcss({
 	backgroundColor: 'color.background.accent.blue.subtle',
 });
 
+// oxlint-disable-next-line eslint/no-redeclare
 function Card({ cardId }: { cardId: string }) {
 	const [counts, setCounts] = useState<{
 		dragstart: number;

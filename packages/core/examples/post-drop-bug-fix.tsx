@@ -94,6 +94,7 @@ const isOverCardStyles = css({
 	background: token('color.interaction.hovered'),
 });
 
+// oxlint-disable-next-line eslint/no-redeclare
 function Card({
 	cardId,
 	isSticky,

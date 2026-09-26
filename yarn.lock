@@ -74,10 +74,10 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/avatar@^29.0.0":
-  version "29.0.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/avatar/-/@atlaskit/avatar-29.0.0.tgz#bd594fb44368f5d113ddfb5f316caa5a09d90a41"
-  integrity sha512-JXl0lADs4V0pE2gHgcqu+nw6FSqqlHnw0xhAVky4UVqCPt/TpGLeMs5lvcYHXpxnbgnnEnBSt05310RXWXpQfw==
+"@atlaskit/avatar@^29.1.0":
+  version "29.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/avatar/-/@atlaskit/avatar-29.1.0.tgz#ca8dfb07160d2c82e7f2a9f331225f76301223c8"
+  integrity sha512-BXIkgbujLz6TJMKVwOwdPgREUr7l/KW+BLFq4DWp7E/HQJPBrFQmogqRnu/72JwE/mA2FGct46eqOnL6ioMIKQ==
   dependencies:
     "@atlaskit/analytics-next" "^12.5.0"
     "@atlaskit/css" "^1.1.0"

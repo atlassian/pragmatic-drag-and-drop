@@ -386,6 +386,7 @@ export type DropTargetAPI<DragType extends AllDragTypes> = {
 	getIsOver: (args: {
 		source: DragType['payload'];
 		target: EventTarget | null;
+		event: Event;
 		input: Input;
 		current: DropTargetRecord[];
 	}) => DropTargetRecord[];

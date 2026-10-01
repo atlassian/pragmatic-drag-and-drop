@@ -77,16 +77,18 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 		source,
 		target,
 		input,
+		event,
 		result = [],
 	}: {
 		source: DragType['payload'];
 		target: EventTarget | null;
 		input: Input;
+		event: Event | undefined;
 		result?: DropTargetRecord[];
 	}): DropTargetRecord[] {
-		if (target == null) {
-			return result;
-		}
+		if (event === undefined) {
+      return result;
+    }
 
 		if (!(target instanceof Element)) {
 			// For "text-selection" drags, the original `target`
@@ -95,6 +97,7 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 			if (target instanceof Node) {
 				return getActualDropTargets({
 					source,
+					event,
 					target: target.parentElement,
 					input,
 					result,
@@ -134,6 +137,7 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 				source,
 				target: args.element.parentElement,
 				input,
+				event,
 				result,
 			});
 		}
@@ -155,6 +159,7 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 			source,
 			target: args.element.parentElement,
 			input,
+			event,
 			// Using bubble ordering. Same ordering as `event.getPath()`
 			result: [...result, record],
 		});
@@ -240,16 +245,19 @@ export function makeDropTarget<DragType extends AllDragTypes>({
 		source,
 		target,
 		input,
+		event,
 		current,
 	}: {
 		source: DragType['payload'];
 		target: EventTarget | null;
 		input: Input;
+		event: Event | undefined;
 		current: DropTargetRecord[];
 	}): DropTargetRecord[] {
 		const actual: DropTargetRecord[] = getActualDropTargets({
 			source,
 			target,
+			event,
 			input,
 		});
 

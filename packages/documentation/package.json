@@ -20,7 +20,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@atlaskit/motion": "^9.0.0",
+    "@atlaskit/motion": "^9.1.0",
     "@atlaskit/platform-feature-flags": "^2.2.0",
     "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "^3.2.0",
     "@babel/runtime": "^7.0.0"

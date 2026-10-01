@@ -404,6 +404,21 @@
     "@compiled/react" "^1.0.2"
     bind-event-listener "^3.0.0"
 
+"@atlaskit/motion@^9.1.0":
+  version "9.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-9.1.0.tgz#105daeb3fba1f83276c3261dc6e216e9fa229076"
+  integrity sha512-7F0aWad1PKnn/lRPnvGtcyrgIOnsfiB+gTBv7uQFPieNGC6NlLfKXcPEFt9EnAgGiFD+CJedn3AEXGATU9t8BA==
+  dependencies:
+    "@atlaskit/browser-apis" "^1.2.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.1.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    bind-event-listener "^3.0.0"
+
 "@atlaskit/platform-feature-flags@^2.0.0":
   version "2.0.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/platform-feature-flags/-/@atlaskit/platform-feature-flags-2.0.0.tgz#20aadfa85043cb82a9b1236ddd5fbf1d5446212f"

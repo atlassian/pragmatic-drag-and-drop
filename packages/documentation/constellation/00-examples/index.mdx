@@ -6,6 +6,7 @@ order: 0
 import { Stack, Inline } from '@atlaskit/primitives';
 import SectionMessage from '@atlaskit/section-message';
 import { LinkButton } from '@atlaskit/button/new';
+import { token } from '@atlaskit/tokens';
 
 import ListExample from '../../examples/list';
 import BoardExample from '../../examples/board';
@@ -43,7 +44,13 @@ not leverage any other Atlassian Design System outputs.
 	<img
 		src="/images/pdnd-standalone-simple-example.png"
 		alt="Simple list example"
-		style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+		style={{
+			maxWidth: '400px',
+			borderWidth: token('border.width'),
+			borderStyle: 'solid',
+			borderColor: token('color.border.discovery'),
+			borderRadius: token('radius.small'),
+		}}
 	/>
 </a>
 
@@ -179,7 +186,13 @@ experience.
 	<img
 		src="/images/pdnd-standalone-jira-sidebar.png"
 		alt="Drag and drop into and out of iframes"
-		style="max-width:200px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+		style={{
+			maxWidth: '200px',
+			borderWidth: token('border.width'),
+			borderStyle: 'solid',
+			borderColor: token('color.border.discovery'),
+			borderRadius: token('radius.small'),
+		}}
 	/>
 </a>
 
@@ -273,7 +286,13 @@ iframe example is hosted on another site.
 		<img
 			src="/images/pdnd-iframe-example.png"
 			alt="Drag and drop into and out of iframes"
-			style="max-width:400px; border:var(--ds-border-width) solid var(--ds-border-discovery); border-radius:var(--ds-border-radius)"
+			style={{
+				maxWidth: '400px',
+				borderWidth: token('border.width'),
+				borderStyle: 'solid',
+				borderColor: token('color.border.discovery'),
+				borderRadius: token('radius.small'),
+			}}
 		/>
 	</a>
 	<Inline space="space.100">

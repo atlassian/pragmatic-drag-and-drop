@@ -159,7 +159,7 @@ function noop(){};
 function Item({isDraggingEnabled}: {isDraggingEnabled: boolean}) {
   const ref = useRef();
 
-  useEffect({
+  useEffect(() => {
     // when disabled, don't make the element draggable
     // this will allow a parent draggable to still be dragged
     if(!isDraggingEnabled) {

@@ -1,4 +1,5 @@
-import { createTransformer, type API, type FileInfo, type Options } from '@atlaskit/codemod-utils';
+import type { API, FileInfo, Options } from '@atlaskit/codemod-utils';
+import { createTransformer } from '@atlaskit/codemod-utils/utils';
 
 import { updateImports } from './migrations/update-imports';
 import { warnAboutReactBeautifulDndNext } from './migrations/warn-about-react-beautiful-dnd-next';

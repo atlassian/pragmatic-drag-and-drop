@@ -1,6 +1,6 @@
 import type { Collection, JSCodeshift } from 'jscodeshift';
 
-import { addCommentBefore } from '@atlaskit/codemod-utils';
+import { addCommentBefore } from '@atlaskit/codemod-utils/support';
 
 export const warningMessageForReactBeautifulDndNext =
 	'`react-beautiful-dnd-next` is not supported by the migration layer.';

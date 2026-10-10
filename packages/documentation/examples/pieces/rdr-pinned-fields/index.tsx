@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Stack } from '@atlaskit/primitives/compiled';
+import { Stack } from '@atlaskit/primitives/compiled/stack';
 
 import { FieldsContainer } from './container';
 import { defaultDetailsItems, defaultItems } from './data';

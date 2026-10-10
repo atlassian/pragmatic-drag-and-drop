@@ -9,7 +9,9 @@ import { css, jsx } from '@compiled/react';
 
 import Code from '@atlaskit/code/code';
 import Heading from '@atlaskit/heading/heading';
-import { Box, Inline, Stack } from '@atlaskit/primitives/compiled';
+import { Box } from '@atlaskit/primitives/compiled/box';
+import { Inline } from '@atlaskit/primitives/compiled/inline';
+import { Stack } from '@atlaskit/primitives/compiled/stack';
 import { token } from '@atlaskit/tokens';
 
 import Border from '../src/internal/border';

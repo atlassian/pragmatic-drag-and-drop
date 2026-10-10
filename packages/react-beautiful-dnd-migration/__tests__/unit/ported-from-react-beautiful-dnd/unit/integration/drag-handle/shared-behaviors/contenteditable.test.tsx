@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { type DraggableProvided, type DraggableStateSnapshot } from '../../../../../../../src';
 import { setup } from '../../../../../_utils/setup';

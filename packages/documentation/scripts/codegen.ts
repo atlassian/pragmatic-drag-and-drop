@@ -3,7 +3,7 @@ import path from 'path';
 
 import glob from 'fast-glob';
 
-import { createSignedArtifact } from '@atlassian/codegen';
+import { createSignedArtifact } from '@atlassian/codegen/signed-artifact';
 
 async function generateSVGDataURIs() {
 	const imageFolder = path.resolve(__dirname, '../examples/data/people/images');

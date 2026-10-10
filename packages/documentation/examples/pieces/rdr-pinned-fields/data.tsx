@@ -9,7 +9,7 @@ import { jsx } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar/avatar';
 import Badge from '@atlaskit/badge/badge';
-import { Date } from '@atlaskit/date';
+import { Date } from '@atlaskit/date/date';
 import TagGroup from '@atlaskit/tag-group/tag-group';
 import Tag from '@atlaskit/tag/removable-tag';
 

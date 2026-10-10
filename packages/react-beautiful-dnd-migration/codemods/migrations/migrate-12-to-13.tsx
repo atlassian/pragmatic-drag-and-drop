@@ -1,6 +1,6 @@
 import type { ASTNode, ASTPath, Collection, JSCodeshift, JSXElement } from 'jscodeshift';
 
-import { addCommentBefore, getJSXAttributesByName } from '@atlaskit/codemod-utils';
+import { addCommentBefore, getJSXAttributesByName } from '@atlaskit/codemod-utils/support';
 
 import { forEachRbdElementInFile } from '../utils';
 

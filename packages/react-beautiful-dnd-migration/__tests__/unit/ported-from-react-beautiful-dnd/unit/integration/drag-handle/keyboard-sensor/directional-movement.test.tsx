@@ -5,7 +5,7 @@ import React from 'react';
 
 import { createEvent, fireEvent, render } from '@testing-library/react';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import App from '../../_utils/app';
 import { keyboard, simpleLift } from '../../_utils/controls';

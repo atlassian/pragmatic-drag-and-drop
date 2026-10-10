@@ -1,6 +1,6 @@
 jest.autoMockOff();
 
-import { createTransformer } from '@atlaskit/codemod-utils';
+import { createTransformer } from '@atlaskit/codemod-utils/utils';
 
 import {
 	unsupportedPropMessages,

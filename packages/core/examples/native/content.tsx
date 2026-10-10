@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import Link from '@atlaskit/link/link';
-import { Stack } from '@atlaskit/primitives/compiled';
+import { Stack } from '@atlaskit/primitives/compiled/stack';
 import { token } from '@atlaskit/tokens';
 
 import { draggable } from '../../src/adapter/element-adapter';

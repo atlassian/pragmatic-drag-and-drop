@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/dom';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import * as liveRegion from '../../src';
 import { announceDelay } from '../../src/constants';

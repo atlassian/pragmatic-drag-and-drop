@@ -3,7 +3,7 @@ import React from 'react';
 import { act, createEvent, fireEvent, render } from '@testing-library/react';
 import { replaceRaf } from 'raf-stub';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import VirtualBoardExample from '../../../examples/02-react-window.vr.ap';
 import { DragDropContext, Draggable, Droppable } from '../../../src';

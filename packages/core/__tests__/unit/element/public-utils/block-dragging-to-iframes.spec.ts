@@ -1,6 +1,6 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { draggable, dropTargetForElements } from '../../../../src/adapter/element-adapter';
 import { type CleanupFn } from '../../../../src/internal-types';

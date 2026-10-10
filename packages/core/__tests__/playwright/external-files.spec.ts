@@ -4,7 +4,7 @@ import path from 'path';
 import invariant from 'tiny-invariant';
 
 import { expect, type Page, test } from '@af/integration-testing';
-import { skipAutoA11y } from '@atlassian/a11y-playwright-testing';
+import { skipAutoA11y } from '@atlassian/a11y-playwright-testing/skip-decorator';
 async function getElement(page: Page, selector: string) {
 	const result = page.locator(selector);
 	invariant(result !== null);

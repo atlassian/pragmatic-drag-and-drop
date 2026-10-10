@@ -1,7 +1,7 @@
 import type { JSHandle } from 'playwright-core';
 
 import { expect, test } from '@af/integration-testing';
-import { skipAutoA11y } from '@atlassian/a11y-playwright-testing';
+import { skipAutoA11y } from '@atlassian/a11y-playwright-testing/skip-decorator';
 
 import { customAttributes } from '../../src/utils/attributes';
 function getDraggableSelector(draggableId: string) {

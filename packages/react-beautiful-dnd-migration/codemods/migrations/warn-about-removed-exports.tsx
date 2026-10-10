@@ -1,6 +1,6 @@
 import { type Collection, type default as core } from 'jscodeshift';
 
-import { addCommentBefore } from '@atlaskit/codemod-utils';
+import { addCommentBefore } from '@atlaskit/codemod-utils/support';
 
 import { getImportDeclarationsForRbd } from '../utils';
 

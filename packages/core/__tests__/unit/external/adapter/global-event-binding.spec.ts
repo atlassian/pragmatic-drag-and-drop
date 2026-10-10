@@ -2,7 +2,7 @@
 // add it's own "error" event listeners when other events are being fired
 // This file uses vanilla event firing so that we are in total control
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { combine } from '../../../../src/public-utils/combine';
 import { appendToBody, getElements, nativeDrag, reset, userEvent } from '../../_util';

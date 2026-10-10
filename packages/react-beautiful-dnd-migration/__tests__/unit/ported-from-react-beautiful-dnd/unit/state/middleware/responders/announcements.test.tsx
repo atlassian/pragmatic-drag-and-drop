@@ -4,7 +4,7 @@ import { fireEvent, render, type RenderResult } from '@testing-library/react';
 import type { DragStart, DragUpdate, ResponderProvided } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import * as liveRegion from '../../../../../../../src/drag-drop-context/live-region';
 import * as screenReader from '../../../../../../../src/drag-drop-context/screen-reader';

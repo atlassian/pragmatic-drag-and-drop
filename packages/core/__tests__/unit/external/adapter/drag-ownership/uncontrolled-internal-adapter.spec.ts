@@ -1,4 +1,4 @@
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { draggable } from '../../../../../src/adapter/element-adapter';
 import { monitorForExternal } from '../../../../../src/adapter/monitor-for-external';

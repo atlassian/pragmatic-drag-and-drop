@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Code from '@atlaskit/code/code';
-import { Inline } from '@atlaskit/primitives/compiled';
+import { Inline } from '@atlaskit/primitives/compiled/inline';
 
 import { DropIndicator } from '../../../src/list-item';
 import { Item } from '../simple-item';

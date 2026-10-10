@@ -1,4 +1,5 @@
-import { createTransformer, type API, type FileInfo, type Options } from '@atlaskit/codemod-utils';
+import type { API, FileInfo, Options } from '@atlaskit/codemod-utils';
+import { createTransformer } from '@atlaskit/codemod-utils/utils';
 
 import { migrations } from './0.1.0-adoption-from-rbd-13';
 import { migrate12to13 } from './migrations/migrate-12-to-13';

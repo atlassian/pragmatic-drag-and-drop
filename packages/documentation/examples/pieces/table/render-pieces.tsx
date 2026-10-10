@@ -9,7 +9,7 @@ import { css, jsx } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar/avatar';
 import Lozenge from '@atlaskit/lozenge/lozenge';
-import { Inline } from '@atlaskit/primitives/compiled';
+import { Inline } from '@atlaskit/primitives/compiled/inline';
 
 import type { Item, Status } from './types';
 

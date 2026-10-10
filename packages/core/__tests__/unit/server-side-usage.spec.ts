@@ -5,7 +5,7 @@
 
 // 0. Turning file into a module so that we can do a top level `window.close()`
 // Need to do an `import` or an `export` for this file to be treated as a module
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 export {};
 

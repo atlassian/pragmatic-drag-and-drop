@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import type { DragStart, DragUpdate, Responders } from 'react-beautiful-dnd';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { DragDropContext, Draggable, Droppable } from '../../src';
 import { useMonitorForLifecycle } from '../../src/drag-drop-context/lifecycle-context';

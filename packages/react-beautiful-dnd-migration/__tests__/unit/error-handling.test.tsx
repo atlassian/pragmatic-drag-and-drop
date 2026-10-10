@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import type { DragDropContextProps, DragUpdate, DropResult } from 'react-beautiful-dnd';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { DragDropContext, Draggable, Droppable } from '../../src';
 import { withWarn } from './ported-from-react-beautiful-dnd/_utils/console';

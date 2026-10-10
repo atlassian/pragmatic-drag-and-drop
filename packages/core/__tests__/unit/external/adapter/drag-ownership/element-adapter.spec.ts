@@ -1,6 +1,6 @@
 import { fireEvent } from '@testing-library/dom';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { dropTargetForExternal } from '../../../../../src/adapter/drop-target-for-external';
 import { draggable, dropTargetForElements } from '../../../../../src/adapter/element-adapter';

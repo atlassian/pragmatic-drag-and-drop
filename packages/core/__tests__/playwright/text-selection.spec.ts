@@ -1,5 +1,5 @@
 import { expect, test } from '@af/integration-testing';
-import { skipAutoA11y } from '@atlassian/a11y-playwright-testing';
+import { skipAutoA11y } from '@atlassian/a11y-playwright-testing/skip-decorator';
 test.describe('text selection', () => {
 	test('dragging text selection', async ({ page, browserName }) => {
 		// This test exposes one or more accessibility violations. Testing is currently skipped but violations need to

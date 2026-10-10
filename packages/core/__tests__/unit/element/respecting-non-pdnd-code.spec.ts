@@ -1,7 +1,7 @@
 import { createEvent, fireEvent } from '@testing-library/dom';
 import { bind, bindAll } from 'bind-event-listener';
 
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { draggable, monitorForElements } from '../../../src/adapter/element-adapter';
 import { combine } from '../../../src/public-utils/combine';

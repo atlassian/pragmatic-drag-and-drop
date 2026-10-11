@@ -1,4 +1,4 @@
-import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { attachClosestEdge } from '../../src/attach-closest-edge';
 import { extractClosestEdge } from '../../src/extract-closest-edge';

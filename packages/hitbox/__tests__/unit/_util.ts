@@ -1,4 +1,4 @@
-import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 export function getDefaultInput(overrides: Partial<Input> = {}): Input {
 	const defaults: Input = {

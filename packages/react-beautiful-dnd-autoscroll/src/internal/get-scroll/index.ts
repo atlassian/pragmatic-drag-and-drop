@@ -2,7 +2,7 @@
 
 import type { Rect } from 'css-box-model';
 
-import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { apply } from '../apply';
 import { horizontal, vertical } from '../constants';

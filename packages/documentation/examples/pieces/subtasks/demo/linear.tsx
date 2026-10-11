@@ -10,7 +10,7 @@ import invariant from 'tiny-invariant';
 
 import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { useFlashOnDrop } from '../../hooks/use-flash-on-drop';
 import { type DragState, useSortableField } from '../../hooks/use-sortable-field';

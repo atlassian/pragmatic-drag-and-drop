@@ -5,7 +5,7 @@ import {
 	draggable,
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';

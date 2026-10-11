@@ -1,5 +1,5 @@
 import { monitorForExternal } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-external';
-import type { ExternalDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { ExternalDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { makeApi } from '../../unsafe-overflow/make-api';
 import type { UnsafeOverflowAutoScrollArgs } from '../../unsafe-overflow/types';

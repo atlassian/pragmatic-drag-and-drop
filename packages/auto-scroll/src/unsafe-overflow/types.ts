@@ -1,4 +1,4 @@
-import type { AllDragTypes } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { AllDragTypes } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { type Edge, type ElementAutoScrollArgs, type Spacing } from '../internal-types';
 

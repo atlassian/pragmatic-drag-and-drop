@@ -1,4 +1,4 @@
-import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { scroll } from './internal/scroll';
 import { type ScrollBehavior } from './internal/types';

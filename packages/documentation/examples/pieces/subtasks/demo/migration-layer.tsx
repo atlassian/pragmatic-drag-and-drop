@@ -1,11 +1,9 @@
 import React, { useCallback, useState } from 'react';
 
-import {
-	DragDropContext,
-	Draggable,
-	Droppable,
-	type OnDragEndResponder,
-} from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration';
+import type { OnDragEndResponder } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration';
+import { DragDropContext } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/drag-drop-context';
+import { Draggable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/draggable';
+import { Droppable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/droppable';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 
 import { initialData } from '../data';

@@ -3,7 +3,7 @@ import type {
 	BaseEventPayload,
 	CleanupFn,
 	MonitorArgs,
-} from '@atlaskit/pragmatic-drag-and-drop/types';
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { once } from '@atlaskit/pragmatic-drag-and-drop/utils/once';
 

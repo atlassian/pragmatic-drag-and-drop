@@ -1,7 +1,7 @@
 import type { DraggableLocation } from 'react-beautiful-dnd';
 
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
-import type { DragLocation } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { DragLocation } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { type DraggableData, isDraggableData } from '../draggable/data';
 import { type DroppableData, isDroppableData } from '../droppable/data';

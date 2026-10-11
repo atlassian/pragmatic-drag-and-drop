@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 import { autoScroller } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll/auto-scroller';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
 
 import { isDraggableData } from '../../draggable/data';

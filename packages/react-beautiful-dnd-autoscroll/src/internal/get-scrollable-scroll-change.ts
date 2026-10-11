@@ -1,6 +1,6 @@
 // Source: https://github.com/atlassian/react-beautiful-dnd
 
-import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { canScrollScrollable } from './can-scroll-scrollable';
 import getScroll from './get-scroll';

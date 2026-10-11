@@ -1,4 +1,4 @@
-import type { Input } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { createAutoScroller } from './createAutoScroller';
 import { type ScrollBehavior } from './internal/types';

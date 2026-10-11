@@ -1,5 +1,8 @@
 import { monitorForTextSelection } from '@atlaskit/pragmatic-drag-and-drop/adapter/monitor-for-text-selection';
-import type { TextSelectionDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type {
+	TextSelectionDragType,
+	CleanupFn,
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { makeApi } from '../../unsafe-overflow/make-api';
 import type { UnsafeOverflowAutoScrollArgs } from '../../unsafe-overflow/types';

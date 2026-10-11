@@ -1,4 +1,4 @@
-import { type Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import type { Axis, Edge, EngagementHistoryEntry, InternalConfig } from '../internal-types';
 import { axisLookup } from './axis';

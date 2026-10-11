@@ -36,7 +36,7 @@ import {
 	dropTargetForElements,
 	monitorForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';

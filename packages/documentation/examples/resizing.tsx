@@ -12,7 +12,7 @@ import ButtonItem from '@atlaskit/menu/button-item';
 import MenuGroup from '@atlaskit/menu/menu-group';
 import Section from '@atlaskit/menu/section';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
 import { token } from '@atlaskit/tokens';

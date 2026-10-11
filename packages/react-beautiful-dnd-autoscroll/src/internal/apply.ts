@@ -1,6 +1,6 @@
 // Source: https://github.com/atlassian/react-beautiful-dnd
 
-import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 // used to apply any function to both values of a point
 // eg: const floor = apply(Math.floor)(point);

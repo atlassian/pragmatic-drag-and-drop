@@ -1,5 +1,5 @@
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { ElementDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { ElementDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import type { ElementAutoScrollArgs, WindowAutoScrollArgs } from '../internal-types';
 import { makeApi } from '../over-element/make-api';

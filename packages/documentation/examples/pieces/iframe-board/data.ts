@@ -1,4 +1,4 @@
-import type { ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/external/adapter';
+import type { ExternalDragPayload } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { type Person } from '../../data/people';
 

@@ -1,4 +1,4 @@
-import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Input, Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { uniqueKey } from './closest-edge';
 import type { Edge } from './types';

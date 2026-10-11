@@ -1,4 +1,4 @@
-import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 export const dataAttribute = 'data-auto-scrollable';
 // eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports

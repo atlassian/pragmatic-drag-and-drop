@@ -1,10 +1,8 @@
 import React from 'react';
 
-import {
-	DragDropContext,
-	Draggable,
-	Droppable,
-} from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration';
+import { DragDropContext } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/drag-drop-context';
+import { Draggable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/draggable';
+import { Droppable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/droppable';
 
 import { DroppableAreaOverlay } from '../primitives/droppable-area-overlay';
 import PinnedFieldsReactBeautifulDndTemplate from '../templates/react-beautiful-dnd';

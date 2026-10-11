@@ -1,4 +1,8 @@
-import type { AllDragTypes, Input, Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type {
+	AllDragTypes,
+	Input,
+	Position,
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import type { AllowedAxis, Axis, Edge, InternalConfig, Spacing } from '../internal-types';
 import { canScrollOnEdge } from '../shared/can-scroll-on-edge';

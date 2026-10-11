@@ -3,7 +3,7 @@ import type {
 	BaseEventPayload,
 	CleanupFn,
 	MonitorArgs,
-} from '@atlaskit/pragmatic-drag-and-drop/types';
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { getScheduler } from '../shared/scheduler';
 import { tryOverflowScrollElements } from './try-overflow-scroll';

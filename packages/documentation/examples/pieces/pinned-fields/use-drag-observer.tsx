@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
-import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { DragLocationHistory } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 type DragObserverState =
 	| {

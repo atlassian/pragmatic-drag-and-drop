@@ -1,5 +1,5 @@
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
-import type { ElementDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { ElementDragType, CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { makeApi } from '../../unsafe-overflow/make-api';
 import type { UnsafeOverflowAutoScrollArgs } from '../../unsafe-overflow/types';

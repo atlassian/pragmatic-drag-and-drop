@@ -1,14 +1,14 @@
 import { fireEvent } from '@testing-library/dom';
 import invariant from 'tiny-invariant';
 
-import {
-	type CleanupFn,
-	type DragLocation,
-	type DragLocationHistory,
-	type DropTargetRecord,
-	type Input,
-	type Position,
-} from '@atlaskit/pragmatic-drag-and-drop/types';
+import type {
+	CleanupFn,
+	DragLocation,
+	DragLocationHistory,
+	DropTargetRecord,
+	Input,
+	Position,
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { type Axis, type Edge } from '../../src/internal-types';
 

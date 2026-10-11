@@ -1,7 +1,7 @@
 import type { DroppableId } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
-import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { CleanupFn } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { attributes, customAttributes } from '../../src/utils/attributes';
 

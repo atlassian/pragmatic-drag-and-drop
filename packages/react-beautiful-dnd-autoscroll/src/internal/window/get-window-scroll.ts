@@ -1,4 +1,4 @@
-import type { Position } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 // The browsers update document.documentElement.scrollTop and window.pageYOffset
 // differently as the window scrolls.

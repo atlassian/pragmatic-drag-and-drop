@@ -1,10 +1,10 @@
 import { getElementFromPointWithoutHoneypot } from '@atlaskit/pragmatic-drag-and-drop/get-element-from-point-without-honey-pot';
-import {
-	type AllDragTypes,
-	type BaseEventPayload,
-	type CleanupFn,
-	type MonitorArgs,
-} from '@atlaskit/pragmatic-drag-and-drop/types';
+import type {
+	AllDragTypes,
+	BaseEventPayload,
+	CleanupFn,
+	MonitorArgs,
+} from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import { clearEngagementHistory, clearUnusedEngagements } from './engagement-history';
 

@@ -1,4 +1,4 @@
-import type { AllDragTypes, Input } from '@atlaskit/pragmatic-drag-and-drop/types';
+import type { AllDragTypes, Input } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 
 import {
 	type AllowedAxis,

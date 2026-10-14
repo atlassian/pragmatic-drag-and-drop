@@ -419,17 +419,17 @@
     "@compiled/react" "^1.0.2"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/motion@^9.3.0":
-  version "9.3.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-9.3.0.tgz#55734e64fbd7e00a7135ac9ac6e0a64bf498984c"
-  integrity sha512-Xssn8HYz+3aDZ++VowXupDmyG6eKixrdStIta/aM9yPtG0YSk0umv5YhvxodzbHBiYti5tLY2FpJ9+Vp/WY5dw==
+"@atlaskit/motion@^9.4.0":
+  version "9.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-9.4.0.tgz#61ac56336b13cc584c47be9e47d690306f5ea2ae"
+  integrity sha512-mLeuJ3esJKCEx1UweV6laA/bJtJr11Z1ch7+jfvUGp1XZt5OWXg40T0CsFS46z/4xLg75w78h69FLw5MCQZWEQ==
   dependencies:
     "@atlaskit/browser-apis" "^1.2.0"
     "@atlaskit/css" "^1.1.0"
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@atlaskit/tokens" "^20.2.0"
+    "@atlaskit/tokens" "^20.4.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
     bind-event-listener "^3.0.0"
@@ -755,10 +755,10 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/tokens@^20.2.0":
-  version "20.2.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.2.0.tgz#a89be82ace207f60ce9158ffb2c663ff38bd49be"
-  integrity sha512-HPYhktNwqc3SQrkKfFZO572yan1tOFCM6IFG3VnerTnboaDG1dSKJV//2tPUnW8WwVL2dhGQ91ff/ozigrVvTg==
+"@atlaskit/tokens@^20.4.0":
+  version "20.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.4.0.tgz#f6f4b0102326b4c89306fc385a0922adf10ef5c7"
+  integrity sha512-7rfXuK9VMY45EOJwaRt3ZNV+8PGEnuv2p04zqtQW6lCrywUNKuOZYgjSvSqJ39y/mqOD6NrHKYszem3aDdSYcw==
   dependencies:
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
@@ -768,10 +768,10 @@
     "@babel/types" "^7.20.0"
     bind-event-listener "^3.0.0"
 
-"@atlaskit/tokens@^20.4.0":
-  version "20.4.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.4.0.tgz#f6f4b0102326b4c89306fc385a0922adf10ef5c7"
-  integrity sha512-7rfXuK9VMY45EOJwaRt3ZNV+8PGEnuv2p04zqtQW6lCrywUNKuOZYgjSvSqJ39y/mqOD6NrHKYszem3aDdSYcw==
+"@atlaskit/tokens@^20.5.0":
+  version "20.5.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.5.0.tgz#04dc1045db92eaccd90428a71b368dccf1a5bac4"
+  integrity sha512-jP95Ouads8NDBLQyKmzcD6LIKaCVriiUydCIuZzrWAJHQONFX9+WjAyCx874lDStOWeDWTM4cHVtcd+lE2LXUA==
   dependencies:
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"

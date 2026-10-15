@@ -17,6 +17,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
+    "@atlaskit/icon": "^38.0.0",
     "@emotion/react": "^11.7.1",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^16.3.0",

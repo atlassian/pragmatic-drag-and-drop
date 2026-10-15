@@ -13,6 +13,7 @@
   "module:es2019": "dist/es2019/index.js",
   "types": "dist/types/index.d.ts",
   "devDependencies": {
+    "@atlaskit/icon": "^38.0.0",
     "@testing-library/react": "^16.3.0",
     "react": "^19.0.0",
     "react-dom": "^18.2.0",
@@ -26,7 +27,7 @@
     "@atlaskit/pragmatic-drag-and-drop": "^4.0.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^3.0.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^20.5.0",
+    "@atlaskit/tokens": "^20.6.0",
     "@babel/runtime": "^7.0.0",
     "@compiled/react": "^1.0.2"
   },

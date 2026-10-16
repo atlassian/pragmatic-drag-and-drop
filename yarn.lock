@@ -41,6 +41,18 @@
     prop-types "^15.5.10"
     use-memo-one "^1.1.1"
 
+"@atlaskit/analytics-next@^12.6.0":
+  version "12.6.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/analytics-next/-/@atlaskit/analytics-next-12.6.0.tgz#c0922333f4a93621ca80c22853d9afd1efda17e9"
+  integrity sha512-QFECDwLBbNx9IRsBQMiQlw6r/sx+DcVs9hkJxRgPe3yakTdPBZMzSqD0b4R2tsFNlNxSKSkeJCF92S20v7suqg==
+  dependencies:
+    "@atlaskit/analytics-next-stable-react-context" "1.0.1"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@babel/runtime" "^7.0.0"
+    prop-types "^15.5.10"
+    use-memo-one "^1.1.1"
+
 "@atlaskit/app-provider@^5.4.0":
   version "5.4.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/app-provider/-/@atlaskit/app-provider-5.4.0.tgz#859d8a8a88facdadd92c71a89f3d87be57a7debb"
@@ -77,6 +89,19 @@
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/tokens" "^20.0.0"
+    "@babel/runtime" "^7.0.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/app-provider@^8.1.0":
+  version "8.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/app-provider/-/@atlaskit/app-provider-8.1.0.tgz#eefd73c61c17e789007ec2149b6794d6c3f5c09f"
+  integrity sha512-vbLcxy8ptMdSZxoloSe3jXNi217+Ig22PnZDEU/yiZeAObxCKTUWF7UzSt04bMg9kAAqbxNOHoBIMeBSDa2pEw==
+  dependencies:
+    "@atlaskit/browser-apis" "^1.2.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.4.0"
     "@babel/runtime" "^7.0.0"
     bind-event-listener "^3.0.0"
 
@@ -552,6 +577,26 @@
     "@atlaskit/interaction-context" "^4.1.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/tokens" "^16.10.0"
+    "@atlaskit/visually-hidden" "^4.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    "@emotion/react" "^11.7.1"
+    "@emotion/serialize" "^1.1.0"
+    bind-event-listener "^3.0.0"
+    tiny-invariant "^1.2.0"
+
+"@atlaskit/primitives@^22.6.0":
+  version "22.6.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/primitives/-/@atlaskit/primitives-22.6.0.tgz#2df51de2cd8225012691499ce3a8e6d9b2fbb063"
+  integrity sha512-JbyV5dfS55LCMRduAOr5IknbifEg0iONY1PjnM9jTMRFOqApprhvSsxLNshICb4SXwd+yzAZXijOnnNgKtrY5g==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.6.0"
+    "@atlaskit/app-provider" "^8.1.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/interaction-context" "^4.1.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.6.0"
     "@atlaskit/visually-hidden" "^4.4.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"

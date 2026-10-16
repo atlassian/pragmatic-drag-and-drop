@@ -66,7 +66,7 @@
     "@atlaskit/css": "^1.1.0",
     "@atlaskit/link": "^5.1.0",
     "@atlaskit/lozenge": "^17.0.0",
-    "@atlaskit/primitives": "^22.5.0",
+    "@atlaskit/primitives": "^22.6.0",
     "@atlaskit/tokens": "^20.6.0",
     "@emotion/react": "^11.7.1",
     "@testing-library/dom": "^10.1.0",

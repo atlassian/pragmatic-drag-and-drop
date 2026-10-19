@@ -19,7 +19,7 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-ada
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { disableNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/disable-native-drag-preview';
 import { preventUnhandled } from '@atlaskit/pragmatic-drag-and-drop/utils/prevent-unhandled';
-import { Inline } from '@atlaskit/primitives/compiled';
+import { Inline } from '@atlaskit/primitives/compiled/inline';
 import { token } from '@atlaskit/tokens';
 
 const containerStyles = css({

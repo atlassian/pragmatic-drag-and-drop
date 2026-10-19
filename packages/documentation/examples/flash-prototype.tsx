@@ -3,7 +3,7 @@ import React, { type ReactNode, useCallback, useState } from 'react';
 import invariant from 'tiny-invariant';
 
 import Code from '@atlaskit/code/code';
-import Lozenge from '@atlaskit/lozenge/lozenge';
+import Lozenge from '@atlaskit/lozenge/new/lozenge';
 import { easeIn, easeInOut, easeOut } from '@atlaskit/motion/curves';
 import { type Durations, durations } from '@atlaskit/motion/utils/durations';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss

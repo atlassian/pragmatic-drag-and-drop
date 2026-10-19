@@ -7,7 +7,7 @@ import {
 	dropTargetForElements,
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { unsafeOverflowAutoScrollForElements } from '../../../src/entry-point/unsafe-overflow/element';
 import { type Axis, type Edge, type Side } from '../../../src/internal-types';

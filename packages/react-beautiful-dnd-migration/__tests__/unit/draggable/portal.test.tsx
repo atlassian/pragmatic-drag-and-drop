@@ -13,7 +13,7 @@ import type {
 } from 'react-beautiful-dnd';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { setElementFromPoint } from '../_util';
 import App, { type Item } from '../ported-from-react-beautiful-dnd/unit/integration/_utils/app';

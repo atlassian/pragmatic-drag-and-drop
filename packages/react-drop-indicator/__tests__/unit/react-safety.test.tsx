@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { doesRenderWithSsr } from '@atlassian/ssr-tests';
+import { doesSsrRenderOnly as doesRenderWithSsr } from '@atlassian/ssr-tests/ssr-tests';
 
 import { DropIndicator as Border } from '../../src/border';
 import { DropIndicator as Box } from '../../src/box';

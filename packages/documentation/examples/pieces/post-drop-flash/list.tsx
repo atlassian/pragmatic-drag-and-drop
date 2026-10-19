@@ -19,7 +19,7 @@ import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
 import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-import Lozenge from '@atlaskit/lozenge/lozenge';
+import Lozenge from '@atlaskit/lozenge/new/lozenge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge';
 import { attachClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/attach-closest-edge';
 import { extractClosestEdge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
@@ -37,7 +37,15 @@ import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Box, Grid, Inline, Stack, xcss } from '@atlaskit/primitives';
+import { Box } from '@atlaskit/primitives/box';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Grid } from '@atlaskit/primitives/grid';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Inline } from '@atlaskit/primitives/inline';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Stack } from '@atlaskit/primitives/stack';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { xcss } from '@atlaskit/primitives/xcss/xcss';
 import { token } from '@atlaskit/tokens';
 
 type ItemPosition = 'first' | 'last' | 'middle' | 'only';

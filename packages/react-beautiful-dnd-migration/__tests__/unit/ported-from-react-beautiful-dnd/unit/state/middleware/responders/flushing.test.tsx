@@ -7,7 +7,7 @@ import { fireEvent, render } from '@testing-library/react';
 import type { DragDropContextProps, DropResult } from 'react-beautiful-dnd';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { DragDropContext, Draggable, Droppable } from '../../../../../../../src';
 import { getPlaceholder, setElementFromPoint } from '../../../../../_util';

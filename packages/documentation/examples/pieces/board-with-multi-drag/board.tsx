@@ -4,7 +4,11 @@ import invariant from 'tiny-invariant';
 
 import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Box, Flex, xcss } from '@atlaskit/primitives';
+import { Box } from '@atlaskit/primitives/box';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Flex } from '@atlaskit/primitives/components/flex';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { xcss } from '@atlaskit/primitives/xcss/xcss';
 
 import { GlobalStyles } from '../../util/global-styles';
 

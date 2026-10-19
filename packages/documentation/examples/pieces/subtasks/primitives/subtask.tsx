@@ -15,7 +15,7 @@ import { css, jsx, type SerializedStyles } from '@emotion/react';
 
 import Avatar from '@atlaskit/avatar/avatar';
 import Badge from '@atlaskit/badge/badge';
-import Lozenge from '@atlaskit/lozenge/lozenge';
+import Lozenge from '@atlaskit/lozenge/new/lozenge';
 import { token } from '@atlaskit/tokens';
 
 import SubtaskIcon from './subtask-icon';

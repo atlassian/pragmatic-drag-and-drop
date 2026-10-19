@@ -6,7 +6,7 @@ import invariant from 'tiny-invariant';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-hitbox/types';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import Board from '../../examples/01-board.vr.ap';
 import { customAttributes } from '../../src/utils/attributes';

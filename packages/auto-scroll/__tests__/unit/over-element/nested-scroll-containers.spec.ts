@@ -6,7 +6,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { autoScrollForElements } from '../../../src/entry-point/element';
 import { isWithin } from '../../../src/shared/is-within'; // this internal util is helpful for what we are trying to do

@@ -14,7 +14,13 @@ import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-ada
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Box, Grid, Stack, xcss } from '@atlaskit/primitives';
+import { Box } from '@atlaskit/primitives/box';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Grid } from '@atlaskit/primitives/grid';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Stack } from '@atlaskit/primitives/stack';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { xcss } from '@atlaskit/primitives/xcss/xcss';
 import { token } from '@atlaskit/tokens';
 
 import { ActionMenu } from './shared/action-menu';

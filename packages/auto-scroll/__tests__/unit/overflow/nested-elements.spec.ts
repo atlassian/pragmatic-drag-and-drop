@@ -7,7 +7,7 @@ import {
 } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import type { Position } from '@atlaskit/pragmatic-drag-and-drop/internal-types';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
-import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing';
+import { skipAutoA11yFile } from '@atlassian/a11y-jest-testing/skip-file-decorator';
 
 import { unsafeOverflowAutoScrollForElements } from '../../../src/entry-point/unsafe-overflow/element';
 import { isWithin } from '../../../src/shared/is-within';

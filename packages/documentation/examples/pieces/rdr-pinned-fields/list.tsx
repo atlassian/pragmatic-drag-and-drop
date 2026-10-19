@@ -8,7 +8,9 @@ import * as liveRegion from '@atlaskit/pragmatic-drag-and-drop-live-region';
 import { monitorForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Stack, xcss } from '@atlaskit/primitives';
+import { Stack } from '@atlaskit/primitives/stack';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { xcss } from '@atlaskit/primitives/xcss/xcss';
 
 import { ListContext } from './context';
 import type { ItemData } from './data';

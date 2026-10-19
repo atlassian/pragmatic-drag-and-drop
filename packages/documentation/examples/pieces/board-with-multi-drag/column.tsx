@@ -19,7 +19,13 @@ import { centerUnderPointer } from '@atlaskit/pragmatic-drag-and-drop/utils/cent
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Box, Inline, Stack, type XCSS, xcss } from '@atlaskit/primitives';
+import { Box } from '@atlaskit/primitives/box';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Inline } from '@atlaskit/primitives/inline';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Stack } from '@atlaskit/primitives/stack';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { type XCSS, xcss } from '@atlaskit/primitives/xcss/xcss';
 
 import { type ColumnType } from '../../data/people';
 import { columnGap } from '../../util/constants';

@@ -16,7 +16,13 @@ import type { ElementDragPayload } from '@atlaskit/pragmatic-drag-and-drop/inter
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { reorder } from '@atlaskit/pragmatic-drag-and-drop/utils/reorder';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
-import { Box, Inline, Stack, xcss } from '@atlaskit/primitives';
+import { Box } from '@atlaskit/primitives/box';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Inline } from '@atlaskit/primitives/inline';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { Stack } from '@atlaskit/primitives/stack';
+// eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
+import { xcss } from '@atlaskit/primitives/xcss/xcss';
 
 import { getPeopleFromPosition, getPersonFromPosition, type Person } from '../../data/people';
 import { Card } from './card';

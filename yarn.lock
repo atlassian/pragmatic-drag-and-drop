@@ -169,6 +169,29 @@
     "@compiled/react" "^1.0.2"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/button@^25.5.0":
+  version "25.5.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.5.0.tgz#f969508c6cf3520fe4b87e21e23fe41243227f03"
+  integrity sha512-iqRexVMZmD7CovRXeFjz/5FnRtT8X4eN2j5rmKNwAlEo+n6k29nIakS7lbItGJDoB2jsHXk/T4Khg2h49LAB9A==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.6.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/focus-ring" "^6.0.0"
+    "@atlaskit/icon" "^38.0.0"
+    "@atlaskit/interaction-context" "^4.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/primitives" "^22.6.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/spinner" "^20.4.0"
+    "@atlaskit/theme" "^28.2.0"
+    "@atlaskit/tokens" "^20.6.0"
+    "@atlaskit/tooltip" "^24.4.0"
+    "@atlaskit/visually-hidden" "^4.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/checkbox@^19.3.0":
   version "19.3.1"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/checkbox/-/@atlaskit/checkbox-19.3.1.tgz#4dad6de25d63a1a87cf759cae35c71e09f33fe98"
@@ -883,6 +906,26 @@
     "@atlaskit/theme" "^28.2.0"
     "@atlaskit/tokens" "^16.10.0"
     "@atlaskit/top-layer" "^4.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tooltip@^24.4.0":
+  version "24.4.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tooltip/-/@atlaskit/tooltip-24.4.0.tgz#3ff132c92d140f8a29e4088780c03f067d7bc644"
+  integrity sha512-/rIZFHvtSEIOutxw1j/hIO/lSRLOWOL3ong5lP+Tzdf61I5JZ7jOm/IKSX6+Yo+2zj94vDW+eYgZyYtB//0xvQ==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.5.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/layering" "^6.0.0"
+    "@atlaskit/motion" "^9.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/popper" "^9.4.0"
+    "@atlaskit/portal" "^7.0.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/theme" "^28.2.0"
+    "@atlaskit/tokens" "^20.1.0"
+    "@atlaskit/top-layer" "^6.1.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
     bind-event-listener "^3.0.0"

@@ -14,6 +14,7 @@
   "module:es2019": "dist/es2019/index.js",
   "types": "dist/types/index.d.ts",
   "devDependencies": {
+    "@atlaskit/button": "^25.5.0",
     "@atlaskit/codemod-utils": "^5.1.0",
     "@atlaskit/motion": "^9.4.0",
     "@atlaskit/radio": "^10.2.0",

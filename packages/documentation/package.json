@@ -28,7 +28,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^30.0.0",
     "@atlaskit/badge": "^22.0.0",
-    "@atlaskit/button": "^25.5.0",
+    "@atlaskit/button": "^25.6.0",
     "@atlaskit/checkbox": "^19.3.0",
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/date": "^3.2.0",

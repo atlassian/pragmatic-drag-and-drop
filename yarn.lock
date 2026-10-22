@@ -183,10 +183,10 @@
     "@compiled/react" "^1.0.2"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/button@^25.5.0":
-  version "25.5.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.5.0.tgz#f969508c6cf3520fe4b87e21e23fe41243227f03"
-  integrity sha512-iqRexVMZmD7CovRXeFjz/5FnRtT8X4eN2j5rmKNwAlEo+n6k29nIakS7lbItGJDoB2jsHXk/T4Khg2h49LAB9A==
+"@atlaskit/button@^25.6.0":
+  version "25.6.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.6.0.tgz#94187143f957be4c4d973baa363414519dd47948"
+  integrity sha512-RClugtt7Et7h+wObUWnZ0CNpegfo8LXweahA5Yk5fYCD+M1ZbT1djirPM6XRgTjvQyjez+hvINcDq7NxeTa0zg==
   dependencies:
     "@atlaskit/analytics-next" "^12.6.0"
     "@atlaskit/css" "^1.1.0"

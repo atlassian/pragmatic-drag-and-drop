@@ -34,7 +34,7 @@
     "@atlaskit/platform-feature-flags": "^2.2.0",
     "@atlaskit/primitives": "^22.6.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^20.6.0",
+    "@atlaskit/tokens": "^20.7.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

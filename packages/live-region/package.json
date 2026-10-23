@@ -19,7 +19,7 @@
   "devDependencies": {
     "@atlaskit/button": "^25.6.0",
     "@atlaskit/icon": "^38.0.0",
-    "@atlaskit/tokens": "^20.6.0",
+    "@atlaskit/tokens": "^20.7.0",
     "@atlaskit/tooltip": "^24.4.0",
     "@emotion/react": "^11.7.1",
     "@testing-library/dom": "^10.1.0",

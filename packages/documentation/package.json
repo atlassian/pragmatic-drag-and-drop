@@ -56,7 +56,7 @@
     "@atlaskit/tag": "^17.0.0",
     "@atlaskit/tag-group": "^13.4.0",
     "@atlaskit/theme": "^28.2.0",
-    "@atlaskit/tokens": "^20.6.0",
+    "@atlaskit/tokens": "^20.7.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",
     "bind-event-listener": "^3.0.0",

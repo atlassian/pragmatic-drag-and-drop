@@ -25,8 +25,7 @@
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",
-    "raf-stub": "^2.0.1",
-    "wait-for-expect": "^1.2.0"
+    "raf-stub": "^2.0.1"
   },
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"
 }

@@ -32,8 +32,6 @@
     "@atlaskit/pragmatic-drag-and-drop": "^4.0.0",
     "@babel/runtime": "^7.0.0"
   },
-  "devDependencies": {
-    "wait-for-expect": "^1.2.0"
-  },
+  "devDependencies": {},
   "homepage": "https://atlassian.design/components/pragmatic-drag-and-drop/"
 }

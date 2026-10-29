@@ -16,7 +16,7 @@
   "devDependencies": {
     "@atlaskit/button": "^25.6.0",
     "@atlaskit/codemod-utils": "^5.1.0",
-    "@atlaskit/motion": "^9.4.0",
+    "@atlaskit/motion": "^9.5.0",
     "@atlaskit/radio": "^10.2.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/react": "^16.3.0",
@@ -30,8 +30,7 @@
     "react-dom": "^19.0.0",
     "react-virtualized": "^9.22.6",
     "react-window": "^1.8.8",
-    "stylelint": "^15.0.0",
-    "wait-for-expect": "^1.2.0"
+    "stylelint": "^15.0.0"
   },
   "sideEffects": [
     "*.compiled.css"
@@ -48,7 +47,7 @@
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^3.0.0",
     "@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-autoscroll": "^3.2.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^20.7.0",
+    "@atlaskit/tokens": "^20.8.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1",
     "bind-event-listener": "^3.0.0",

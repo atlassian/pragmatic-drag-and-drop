@@ -18,8 +18,7 @@
     "@atlaskit/ds-lib": "^8.0.0",
     "@testing-library/react": "^16.3.0",
     "react": "^19.0.0",
-    "react-dom": "^18.2.0",
-    "wait-for-expect": "^1.2.0"
+    "react-dom": "^18.2.0"
   },
   "sideEffects": [
     "*.compiled.css"
@@ -34,7 +33,7 @@
     "@atlaskit/platform-feature-flags": "^2.2.0",
     "@atlaskit/primitives": "^22.6.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^20.7.0",
+    "@atlaskit/tokens": "^20.8.0",
     "@babel/runtime": "^7.0.0",
     "@emotion/react": "^11.7.1"
   },

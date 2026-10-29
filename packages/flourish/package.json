@@ -18,8 +18,8 @@
     "./trigger-post-move-flash": "./src/trigger-post-move-flash.tsx"
   },
   "dependencies": {
-    "@atlaskit/motion": "^9.4.0",
-    "@atlaskit/tokens": "^20.7.0",
+    "@atlaskit/motion": "^9.5.0",
+    "@atlaskit/tokens": "^20.8.0",
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
@@ -27,7 +27,6 @@
     "@atlaskit/primitives": "^22.6.0",
     "@testing-library/react": "^16.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "wait-for-expect": "^1.2.0"
+    "react-dom": "^18.2.0"
   }
 }

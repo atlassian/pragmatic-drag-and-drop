@@ -23,25 +23,20 @@ const fileStyles = css({
 	padding: 'calc(var(--grid) * 6) calc(var(--grid) * 4)',
 	alignItems: 'center',
 	justifyContent: 'center',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('elevation.surface.sunken'),
 	borderRadius: 'var(--border-radius)',
 	// Use `color.text.subtlest` (not `color.text.disabled`) so the placeholder
 	// label meets WCAG AA contrast against the sunken background.
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	color: token('color.text.subtlest'),
 	fontSize: '1.4rem',
 });
 
 const overStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('color.background.selected.hovered'),
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	color: token('color.text.selected'),
 });
 
 const potentialStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('color.background.discovery'),
 });
 

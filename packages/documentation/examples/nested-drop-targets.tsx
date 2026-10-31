@@ -25,7 +25,7 @@ const dropTargetStyles = xcss({
 	borderColor: 'color.border.bold',
 	padding: 'space.100',
 	transitionProperty: 'background-color',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values
 	transitionDuration: `${durations.medium}ms`,
 	transitionTimingFunction: easeInOut,
 	backgroundColor: 'elevation.surface',

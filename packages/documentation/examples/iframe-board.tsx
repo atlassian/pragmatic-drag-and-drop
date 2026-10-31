@@ -21,7 +21,7 @@ const containerStyles = xcss({ height: '100%', paddingBottom: 'space.200' });
 const iframeStyles = xcss({ border: 'none', width: '250px' });
 
 const logoStyles = xcss({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values
 	transition: `all ${durations.medium}ms ${easeInOut}`,
 	display: 'inline-block',
 	filter: 'grayscale(1)',

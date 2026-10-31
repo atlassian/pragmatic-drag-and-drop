@@ -48,7 +48,6 @@ const listItemContainerStyles = xcss({
 		// @ts-expect-error
 		'--action-opacity': 1,
 	},
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':last-of-type': {
 		borderWidth: '0',
 	},

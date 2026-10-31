@@ -46,7 +46,6 @@ const overStyles = css({
 });
 
 const potentialStyles = css({
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values -- Ignored via go/DSP-18766
 	background: token('color.background.discovery'),
 });
 

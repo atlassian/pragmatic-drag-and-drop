@@ -195,7 +195,6 @@ const bigTitleStyles = css({
 
 const sectionStyles = xcss({
 	paddingBlock: 'space.800',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766
 	':first-of-type': {
 		border: 'none',
 	},

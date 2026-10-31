@@ -40,7 +40,7 @@
     "@atlaskit/icon": "^38.0.0",
     "@atlaskit/lozenge": "^17.0.0",
     "@atlaskit/menu": "^11.0.0",
-    "@atlaskit/modal-dialog": "^17.1.0",
+    "@atlaskit/modal-dialog": "^17.2.0",
     "@atlaskit/pragmatic-drag-and-drop": "^4.0.0",
     "@atlaskit/pragmatic-drag-and-drop-flourish": "^3.2.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^3.0.0",

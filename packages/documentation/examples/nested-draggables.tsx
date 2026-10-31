@@ -117,7 +117,7 @@ const dropTargetStyles = xcss({
 	borderStyle: 'solid',
 	backgroundColor: 'color.background.discovery',
 	transitionProperty: 'background-color, border-color',
-	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-values, @atlaskit/ui-styling-standard/no-imported-style-values
+	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-imported-style-values
 	transitionDuration: `${durations.medium}ms`,
 	transitionTimingFunction: easeInOut,
 });

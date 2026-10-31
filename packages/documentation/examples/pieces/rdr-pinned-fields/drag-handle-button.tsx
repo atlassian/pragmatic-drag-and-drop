@@ -18,7 +18,6 @@ const dragHandleButtonStyles = css({
 	padding: 0,
 	border: 'none',
 	background: 'transparent',
-	// eslint-disable-next-line @atlaskit/design-system/no-unsafe-design-token-usage
 	borderRadius: token('radius.small', '3px'),
 	opacity: 'var(--action-opacity)',
 	color: token('color.icon.subtle'),

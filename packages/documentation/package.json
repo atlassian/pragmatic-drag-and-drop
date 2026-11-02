@@ -20,7 +20,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@atlaskit/motion": "^9.5.0",
+    "@atlaskit/motion": "^9.6.0",
     "@atlaskit/platform-feature-flags": "^2.2.0",
     "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "^3.2.0",
     "@babel/runtime": "^7.0.0"
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^30.0.0",
     "@atlaskit/badge": "^22.0.0",
-    "@atlaskit/button": "^25.6.0",
+    "@atlaskit/button": "^25.7.0",
     "@atlaskit/checkbox": "^19.3.0",
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/date": "^3.2.0",
@@ -56,7 +56,7 @@
     "@atlaskit/tag": "^17.0.0",
     "@atlaskit/tag-group": "^13.4.0",
     "@atlaskit/theme": "^28.2.0",
-    "@atlaskit/tokens": "^20.8.0",
+    "@atlaskit/tokens": "^20.9.0",
     "@emotion/react": "^11.7.1",
     "@tanstack/react-virtual": "3.0.0-beta.60",
     "bind-event-listener": "^3.0.0",

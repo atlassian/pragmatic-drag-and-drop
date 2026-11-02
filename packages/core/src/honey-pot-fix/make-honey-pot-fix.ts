@@ -149,6 +149,7 @@ function mountHoneyPot({ initial }: { initial: Position }): FinishHoneyPotFn {
 	// "manual" means no light dismiss — we manage the lifecycle ourselves.
 	// Falls back to position:fixed + maxZIndex when the popover API is not available.
 	if (supportsPopover()) {
+		// eslint-disable-next-line @atlaskit/design-system/no-native-popover-or-dialog -- paints above the page during a drag; it never takes Escape or closes on an outside press
 		element.setAttribute('popover', 'manual');
 	}
 

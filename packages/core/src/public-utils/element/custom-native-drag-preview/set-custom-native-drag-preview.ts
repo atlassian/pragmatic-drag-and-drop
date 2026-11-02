@@ -64,6 +64,7 @@ export function setCustomNativeDragPreview({
 	// Note: the popover attribute must be set before the element is in the DOM.
 	// `.showPopover()` is called further below after the element is appended to the body.
 	if (supportsPopover()) {
+		// eslint-disable-next-line @atlaskit/design-system/no-native-popover-or-dialog -- paints the drag preview above the page; it never takes Escape or closes on an outside press
 		container.setAttribute('popover', 'manual');
 	}
 

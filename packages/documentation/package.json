@@ -26,7 +26,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
-    "@atlaskit/avatar": "^30.0.0",
+    "@atlaskit/avatar": "^30.1.0",
     "@atlaskit/badge": "^22.0.0",
     "@atlaskit/button": "^25.7.0",
     "@atlaskit/checkbox": "^19.3.0",
@@ -53,7 +53,7 @@
     "@atlaskit/radio": "^10.2.0",
     "@atlaskit/select": "^23.1.0",
     "@atlaskit/tabs": "^21.3.0",
-    "@atlaskit/tag": "^17.0.0",
+    "@atlaskit/tag": "^17.1.0",
     "@atlaskit/tag-group": "^13.4.0",
     "@atlaskit/theme": "^28.2.0",
     "@atlaskit/tokens": "^20.9.0",

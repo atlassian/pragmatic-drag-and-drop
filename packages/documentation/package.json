@@ -32,7 +32,7 @@
     "@atlaskit/checkbox": "^19.3.0",
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/date": "^3.2.0",
-    "@atlaskit/dropdown-menu": "^21.0.0",
+    "@atlaskit/dropdown-menu": "^21.1.0",
     "@atlaskit/ds-lib": "^8.0.0",
     "@atlaskit/focus-ring": "^6.0.0",
     "@atlaskit/form": "^18.3.0",

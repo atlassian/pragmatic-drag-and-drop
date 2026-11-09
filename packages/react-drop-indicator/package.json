@@ -16,7 +16,7 @@
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/heading": "^8.0.0",
     "@atlaskit/icon": "^38.0.0",
-    "@atlaskit/primitives": "^22.6.0",
+    "@atlaskit/primitives": "^22.7.0",
     "@testing-library/react": "^16.3.0",
     "react": "^19.0.0",
     "react-dom": "^18.2.0",
@@ -29,7 +29,7 @@
     "@atlaskit/pragmatic-drag-and-drop": "^4.0.0",
     "@atlaskit/pragmatic-drag-and-drop-hitbox": "^3.0.0",
     "@atlaskit/react-compiler-gating": "^0.2.0",
-    "@atlaskit/tokens": "^20.9.0",
+    "@atlaskit/tokens": "^20.10.0",
     "@babel/runtime": "^7.0.0",
     "@compiled/react": "^1.0.2"
   },

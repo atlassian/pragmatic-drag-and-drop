@@ -323,10 +323,10 @@
     "@compiled/react" "^1.0.2"
     date-fns "^2.17.0"
 
-"@atlaskit/dropdown-menu@^21.1.0":
-  version "21.1.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/dropdown-menu/-/@atlaskit/dropdown-menu-21.1.0.tgz#535f5aa69f87d26cf540e71fe5012a5c20b40bee"
-  integrity sha512-3N5GjC+c3x2ylg5puEVW/t26N92KjEQJRzyT1BDI8RcojrFIEFgIpHS65TzVKdLUA5TH0+Na/fshTRETAXJYRQ==
+"@atlaskit/dropdown-menu@^21.3.0":
+  version "21.3.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/dropdown-menu/-/@atlaskit/dropdown-menu-21.3.0.tgz#1fe8c55e13080bde51f39e82b1b5922df9372c98"
+  integrity sha512-k4JaXlR07jqPvGexxLci8ELYOjDEBIMUi0XYQSFlKYGFsR8bHLdDy3Mm69DPdXT4X2GW1E2sIjORJzFGfusEAw==
   dependencies:
     "@atlaskit/button" "^25.7.0"
     "@atlaskit/css" "^1.1.0"
@@ -336,11 +336,11 @@
     "@atlaskit/menu" "^11.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/popup" "^10.2.0"
-    "@atlaskit/primitives" "^22.6.0"
+    "@atlaskit/primitives" "^22.7.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/spinner" "^20.4.0"
     "@atlaskit/theme" "^28.2.0"
-    "@atlaskit/tokens" "^20.9.0"
+    "@atlaskit/tokens" "^20.11.0"
     "@atlaskit/top-layer" "^7.1.0"
     "@atlaskit/visually-hidden" "^4.4.0"
     "@babel/runtime" "^7.0.0"
@@ -1159,6 +1159,19 @@
   version "20.10.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.10.0.tgz#ce6ad6f2a38cccc486787b4753b34ab887dc9539"
   integrity sha512-r2flizclwpZyZss7CQ509lnvLxrdN8cyUjbAd9Bo2V1ITIaU/twWVbvsGJWApSIgZTBwTLOKRC5jTlzOYld8vw==
+  dependencies:
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tokens@^20.11.0":
+  version "20.11.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.11.0.tgz#7e8282a498a1bd199e83f2f8ac218e6fedc17fd1"
+  integrity sha512-YoSiuI9SRm0DWCmEGomCw8cst85zWjK7BJTGve9iaJ/7gtw0fh1iIK3XMRh9gd/gozFeU6OxcrSRHXfWKOyGOQ==
   dependencies:
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"

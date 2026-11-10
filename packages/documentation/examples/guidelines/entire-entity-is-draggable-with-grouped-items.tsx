@@ -4,9 +4,9 @@ import { createPortal } from 'react-dom';
 import invariant from 'tiny-invariant';
 
 import IconButton from '@atlaskit/button/icon/button';
-import DropdownMenu from '@atlaskit/dropdown-menu/dropdown-menu';
-import DropdownItem from '@atlaskit/dropdown-menu/dropdown-menu-item';
-import DropdownItemGroup from '@atlaskit/dropdown-menu/dropdown-menu-item-group';
+import { DropdownItem } from '@atlaskit/dropdown-menu/dropdown-item';
+import { DropdownItemGroup } from '@atlaskit/dropdown-menu/dropdown-item-group';
+import { DropdownMenu } from '@atlaskit/dropdown-menu/dropdown-menu';
 import ChevronRightIcon from '@atlaskit/icon/core/chevron-right';
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import EditorMoreIcon from '@atlaskit/icon/core/show-more-horizontal';

@@ -256,6 +256,29 @@
     "@compiled/react" "^1.0.2"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/button@^25.8.0":
+  version "25.8.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.8.0.tgz#7e50f19b6fd3e215118656391af66a0d495b87fc"
+  integrity sha512-+/lzhD3E8vFas/IUvYo6nzO9eHTpGgsLCLq+9Wn+h2NEcjtmIgMjHdNLRRFAUmYoGk5pmArVYZm6k6/AqnACYA==
+  dependencies:
+    "@atlaskit/analytics-next" "^12.6.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/focus-ring" "^6.0.0"
+    "@atlaskit/icon" "^38.0.0"
+    "@atlaskit/interaction-context" "^4.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/primitives" "^22.7.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/spinner" "^20.4.0"
+    "@atlaskit/theme" "^28.2.0"
+    "@atlaskit/tokens" "^20.11.0"
+    "@atlaskit/tooltip" "^24.4.0"
+    "@atlaskit/visually-hidden" "^4.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/checkbox@^19.3.0":
   version "19.3.1"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/checkbox/-/@atlaskit/checkbox-19.3.1.tgz#4dad6de25d63a1a87cf759cae35c71e09f33fe98"
@@ -567,6 +590,21 @@
     raf-schd "^4.0.3"
     react-focus-lock "^2.9.5"
     react-scrolllock "^5.0.1"
+
+"@atlaskit/motion@^10.0.0":
+  version "10.0.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/motion/-/@atlaskit/motion-10.0.0.tgz#a1b2e5ecd187bf204072aa3226eba9e176002642"
+  integrity sha512-vZG8M/7OF+kRHBpJt5HfkAmVDGsYusFq07k1Ei0q4AnCiZ9OZUOiRFZHh2akvp3678lnD5cBhx4RRKI3tNShQA==
+  dependencies:
+    "@atlaskit/browser-apis" "^1.2.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.11.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+    bind-event-listener "^3.0.0"
 
 "@atlaskit/motion@^8.6.0":
   version "8.6.0"
@@ -909,30 +947,29 @@
     scheduler "0.23.2"
     uuid "^11.1.1"
 
-"@atlaskit/select@^23.1.0":
-  version "23.1.3"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/select/-/@atlaskit/select-23.1.3.tgz#7cc95e506bc9ff0071744ab07e39ce59b7e804c2"
-  integrity sha512-+6ExzBfxmTeKG1bqzrlwD2hudw32AxcVeEV0VGb/VzTvo5qgHsF9h9gs87ILBRR2uEn/C0mt+nTAx0ddrHOzhw==
+"@atlaskit/select@^23.2.0":
+  version "23.2.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/select/-/@atlaskit/select-23.2.0.tgz#546340c4db0b19c2fae5683bd463f0a33fa0b4ac"
+  integrity sha512-vVqr0c0S4LtudQaqC7SXznCy18wtGMi6zWGl7WZPSHZjuFN12L5fcql8EYUtunSS+vyo+b36VilQb3g/yu8eSg==
   dependencies:
     "@atlaskit/analytics-next" "^12.6.0"
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/icon" "^38.0.0"
-    "@atlaskit/layering" "^6.0.0"
+    "@atlaskit/layering" "^6.1.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/popper" "^9.4.0"
-    "@atlaskit/primitives" "^22.6.0"
+    "@atlaskit/primitives" "^22.7.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/react-select" "^4.12.0"
     "@atlaskit/theme" "^28.2.0"
-    "@atlaskit/tokens" "^20.6.0"
-    "@atlaskit/top-layer" "^6.2.0"
+    "@atlaskit/tokens" "^20.11.0"
+    "@atlaskit/top-layer" "^7.1.0"
     "@atlaskit/visually-hidden" "^4.4.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
     "@popperjs/core" "^2.11.8"
     bind-event-listener "^3.0.0"
     react-focus-lock "^2.9.5"
-    react-popper "^2.3.0"
     shallow-equal "^3.1.0"
 
 "@atlaskit/skeleton@^4.4.0":

@@ -1,5 +1,11 @@
 # @atlaskit/pragmatic-drag-and-drop-flourish
 
+## 3.2.5
+
+### Patch Changes
+
+- Updated dependencies
+
 ## 3.2.4
 
 ### Patch Changes

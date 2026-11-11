@@ -1,6 +1,6 @@
 {
   "name": "@atlaskit/pragmatic-drag-and-drop-docs",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "This package holds the documentation for Pragmatic drag and drop in one place. It is not intended to be consumed directly by consumers. The package is used by other tools for sharing examples",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -20,7 +20,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@atlaskit/motion": "^9.6.0",
+    "@atlaskit/motion": "^10.0.0",
     "@atlaskit/platform-feature-flags": "^2.2.0",
     "@atlaskit/pragmatic-drag-and-drop-auto-scroll": "^3.2.0",
     "@babel/runtime": "^7.0.0"
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@atlaskit/avatar": "^30.1.0",
     "@atlaskit/badge": "^22.0.0",
-    "@atlaskit/button": "^25.7.0",
+    "@atlaskit/button": "^25.8.0",
     "@atlaskit/checkbox": "^19.3.0",
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/date": "^3.2.0",
@@ -51,7 +51,7 @@
     "@atlaskit/pragmatic-drag-and-drop-react-drop-indicator": "^4.2.0",
     "@atlaskit/primitives": "^22.7.0",
     "@atlaskit/radio": "^10.2.0",
-    "@atlaskit/select": "^23.1.0",
+    "@atlaskit/select": "^23.2.0",
     "@atlaskit/tabs": "^21.3.0",
     "@atlaskit/tag": "^17.1.0",
     "@atlaskit/tag-group": "^13.4.0",

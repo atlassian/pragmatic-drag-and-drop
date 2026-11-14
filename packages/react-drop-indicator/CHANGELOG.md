@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-indicator
 
+## 4.3.0
+
+### Minor Changes
+
+- [`80eb7034f7061`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/80eb7034f7061) -
+  Add an optional `colors` prop to all drop indicators. The default `standard` scheme preserves
+  existing colors; `dedicated` opts into dedicated drop indicator and drop target tokens. Export the
+  `Colors` type from the `/types` entry point.
+
 ## 4.2.4
 
 ### Patch Changes

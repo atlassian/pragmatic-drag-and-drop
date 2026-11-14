@@ -5,6 +5,7 @@
  */
 {
 	"testExamples": [
+		"colors.vr.ap.tsx",
 		"00-closest-edge.vr.ap.tsx",
 		"01-gap.vr.ap.tsx",
 		"02-box-without-terminal.tsx",

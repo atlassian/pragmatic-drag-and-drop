@@ -9,6 +9,7 @@ export {
 
 import { DropIndicator as Border } from './border';
 import { DropIndicator as Line } from './box';
+import type { Colors } from './types';
 
 const axisLookup = {
 	vertical: {
@@ -25,10 +26,13 @@ type LineProps = ComponentProps<typeof Line>;
 
 export function DropIndicator({
 	instruction,
+	colors = 'standard',
 	lineGap,
 	lineType,
 }: {
 	instruction: Instruction;
+	/** Token roles to use. Defaults to `standard`. */
+	colors?: Colors;
 	lineGap?: LineProps['gap'];
 	lineType?: LineProps['type'];
 }): ReactNode {
@@ -36,14 +40,24 @@ export function DropIndicator({
 	const axis = axisLookup[instruction.axis];
 
 	if (instruction.operation === 'combine') {
-		return <Border appearance={appearance} />;
+		return <Border appearance={appearance} colors={colors} />;
 	}
 
 	if (instruction.operation === 'reorder-before') {
-		return <Line edge={axis.start} appearance={appearance} gap={lineGap} type={lineType} />;
+		return (
+			<Line
+				edge={axis.start}
+				appearance={appearance}
+				colors={colors}
+				gap={lineGap}
+				type={lineType}
+			/>
+		);
 	}
 	if (instruction.operation === 'reorder-after') {
-		return <Line edge={axis.end} appearance={appearance} gap={lineGap} type={lineType} />;
+		return (
+			<Line edge={axis.end} appearance={appearance} colors={colors} gap={lineGap} type={lineType} />
+		);
 	}
 
 	return null;

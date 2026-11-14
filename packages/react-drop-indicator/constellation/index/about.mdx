@@ -18,6 +18,7 @@ import { ListItemVerticalExample } from '../../examples/constellation/list-item/
 import { ListItemHorizontalExample } from '../../examples/constellation/list-item/list-item-horizontal';
 import { BorderShowcaseExample } from '../../examples/constellation/border/border-showcase';
 import { GroupExample } from '../../examples/constellation/group/group-list';
+import ColorsExample from '../../examples/colors.vr.ap';
 
 This package contains `react` components to display hitbox information, which is usually generated
 by our optional [hitbox package](/components/pragmatic-drag-and-drop/optional-packages/hitbox). You
@@ -62,6 +63,35 @@ any problems, please raise an issue on
 [Github](https://github.com/atlassian/pragmatic-drag-and-drop) and we can look into it.
 
 </SectionMessage>
+
+## Colors
+
+All indicators accept an optional `colors` prop. It selects the token roles without changing the
+indicator's position, dimensions, or behavior:
+
+| `colors`               | Default stroke               | Warning stroke                       | Active group background        |
+| ---------------------- | ---------------------------- | ------------------------------------ | ------------------------------ |
+| `"standard"` (default) | `color.border.selected`      | `color.border.warning`               | `color.background.information` |
+| `"dedicated"`          | `color.border.dropindicator` | `color.border.dropindicator.warning` | `color.background.droptarget`  |
+
+Omitting `colors` preserves the existing styling. The `appearance` prop and blocked instructions
+still select default or warning feedback within the chosen color scheme.
+
+```tsx
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
+import type { Colors } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/types';
+
+const colors: Colors = 'dedicated';
+
+<DropIndicator edge="bottom" colors={colors} />;
+```
+
+Choose the color scheme in your application. The package does not evaluate feature flags. Before
+opting in, make sure your theme provides the dedicated drag-and-drop tokens. Custom themes that
+override the standard roles must also override the corresponding drag-and-drop roles to preserve
+those custom colors.
+
+<Example Component={ColorsExample} appearance="showcase-only" />
 
 ## `position: relative`
 
@@ -119,6 +149,7 @@ This drop indicator will internally render either a [box drop indicator](#box) f
   [See hitbox for details on instructions](/components/pragmatic-drag-and-drop/optional-packages/hitbox#list-item)
 - `lineGap`: the gap between list items ([see box > gap](#gap))
 - `lineType`: the variant of lines to be used ([see box > type](#type))
+- `colors`: the token roles to use ([see colors](#colors))
 
 #### Vertical list
 
@@ -243,7 +274,8 @@ export function Item() {
 
 ### Appearance
 
-The drop indicator can be a `"standard"` (blue) line or a `"warning"` (yellow) line.
+The `appearance` prop accepts `"default"` or `"warning"`. The [color scheme](#colors) determines
+which tokens provide those colors.
 
 <Example Component={AppearanceExample} appearance="showcase-only" />
 
@@ -291,6 +323,7 @@ with the other drop indicators, this component will be rendered relative to the 
 #### Props
 
 - `appearance`: `'default' | 'warning'`: used to control the color of the border
+- `colors`: the token roles to use ([see colors](#colors))
 - `indent`: can be used to indent the border (needed for `tree-item`s).
 
 <Example Component={BorderShowcaseExample} appearance="showcase-only" />
@@ -298,7 +331,7 @@ with the other drop indicators, this component will be rendered relative to the 
 ## Group
 
 Our group drop indicator is helpful to indicate that you are over a group of items. It is currently
-limited in the amount of control it provides.
+limited in the amount of control it provides. Use `colors` to select its [color scheme](#colors).
 
 Unlike all other drop indicators:
 
@@ -364,6 +397,8 @@ The usage of tree item is no longer encouraged. Please now use our more flexible
 
 A drop indicator used to visualize a
 [tree item hitbox `Instruction`](/components/pragmatic-drag-and-drop/optional-packages/hitbox).
+
+Use `colors` to select the [color scheme](#colors) for all tree instructions.
 
 - A line is used to indicate reordering
 - A border is used to indicate that an item will be made a child (`"make-child"`)

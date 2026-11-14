@@ -1,9 +1,9 @@
 import React from 'react';
 
 import type { Appearance, CSSSize } from './internal-types';
+import { getStrokeColor } from './internal/get-stroke-color';
 import { Line } from './internal/line';
-import { presetStrokeColors } from './presets';
-import type { Edge } from './types';
+import type { Colors, Edge } from './types';
 
 export type DropIndicatorProps = {
 	/**
@@ -32,6 +32,9 @@ export type DropIndicatorProps = {
 	 * This will control what color the indicator is set to
 	 */
 	appearance?: Appearance;
+
+	/** Token roles to use. Defaults to `standard`. */
+	colors?: Colors;
 
 	/**
 	 * Which style of indicator should be used
@@ -73,6 +76,7 @@ export type DropIndicatorProps = {
  */
 export function DropIndicator({
 	appearance = 'default',
+	colors = 'standard',
 	edge,
 	gap,
 	indent,
@@ -82,7 +86,7 @@ export function DropIndicator({
 		<Line
 			edge={edge}
 			gap={gap}
-			strokeColor={presetStrokeColors[appearance]}
+			strokeColor={getStrokeColor(appearance, colors)}
 			type={type}
 			indent={indent}
 		/>

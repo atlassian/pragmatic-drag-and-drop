@@ -462,6 +462,17 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 
+"@atlaskit/icon@^38.1.0":
+  version "38.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/icon/-/@atlaskit/icon-38.1.0.tgz#bb47033b501651e8d2f100bc524f8f3213fcd0e7"
+  integrity sha512-KwcVdTnnbfQkjNT5iQlC9ZUtK2xTMHi8g3/sVI3JMKhGzrOZBPqhTE3d5WzzVfw/cxZXKkhkhrjUnCWioHBscg==
+  dependencies:
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tile" "^5.0.0"
+    "@atlaskit/tokens" "^20.12.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+
 "@atlaskit/interaction-context@^4.0.0":
   version "4.0.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/interaction-context/-/@atlaskit/interaction-context-4.0.0.tgz#19a0a63308283a33be1f5c1a7244b9dfdd049f37"
@@ -1209,6 +1220,19 @@
   version "20.11.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.11.0.tgz#7e8282a498a1bd199e83f2f8ac218e6fedc17fd1"
   integrity sha512-YoSiuI9SRm0DWCmEGomCw8cst85zWjK7BJTGve9iaJ/7gtw0fh1iIK3XMRh9gd/gozFeU6OxcrSRHXfWKOyGOQ==
+  dependencies:
+    "@atlaskit/ds-lib" "^8.0.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^3.0.0"
+
+"@atlaskit/tokens@^20.12.0":
+  version "20.12.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/tokens/-/@atlaskit/tokens-20.12.0.tgz#4692a82e2cc853ac607843efc3328dd6fc37f6bc"
+  integrity sha512-Z2CRo5p3H/Ydcf4pwnxHGjDPw4EAMGG0Kr0ZszAlsRpEXNernNIo3RT0SjUmIwrUbjLWAz8hEA8i5QQKG23P4Q==
   dependencies:
     "@atlaskit/ds-lib" "^8.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"

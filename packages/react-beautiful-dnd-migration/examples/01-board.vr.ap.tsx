@@ -87,9 +87,17 @@ function BoardExample() {
 	);
 }
 
-export default function (): React.JSX.Element {
+export default function StandardColors(): React.JSX.Element {
 	return (
-		<ExampleWrapper>
+		<ExampleWrapper colors="standard">
+			<BoardExample />
+		</ExampleWrapper>
+	);
+}
+
+export function DedicatedColors(): React.JSX.Element {
+	return (
+		<ExampleWrapper colors="dedicated">
 			<BoardExample />
 		</ExampleWrapper>
 	);

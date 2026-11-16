@@ -1,6 +1,25 @@
-import type { DraggableId, DraggableLocation, MovementMode } from 'react-beautiful-dnd';
+import type { ReactNode } from 'react';
+
+import type {
+	DraggableId,
+	DraggableLocation,
+	DragDropContextProps as RbdDragDropContextProps,
+	MovementMode,
+} from 'react-beautiful-dnd';
 
 import type { DraggableDimensions } from '../hooks/use-captured-dimensions';
+
+/** The token roles used to color the adapter's drop indicators. */
+export type Colors = 'standard' | 'dedicated';
+
+export type DragDropContextProps = RbdDragDropContextProps & {
+	children?: ReactNode;
+	/**
+	 * Token roles for all drop indicators in this context. Defaults to `standard`,
+	 * preserving existing colors. Use `dedicated` to opt into drag and drop tokens.
+	 */
+	colors?: Colors;
+};
 
 export type DragState =
 	| { isDragging: false }

@@ -2,9 +2,11 @@ import React, { createContext, type ReactNode, useContext, useMemo } from 'react
 
 import type { DroppableRegistry } from './droppable-registry';
 import { rbdInvariant } from './rbd-invariant';
-import type { DragState, StartKeyboardDrag } from './types';
+import type { Colors, DragState, StartKeyboardDrag } from './types';
 
 type DragDropContextValue = {
+	colors: Colors;
+
 	/**
 	 * A stringified number used to uniquely identify each context instance.
 	 * This allows each <DragDropContext /> to be isolated from each other.
@@ -34,12 +36,14 @@ export function useDragDropContext(): DragDropContextValue {
 // eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function DragDropContextProvider({
 	children,
+	colors,
 	contextId,
 	getDragState,
 	startKeyboardDrag,
 	droppableRegistry,
 }: {
 	children: ReactNode;
+	colors: Colors;
 	contextId: string;
 	getDragState(): DragState;
 	startKeyboardDrag: StartKeyboardDrag;
@@ -47,12 +51,13 @@ export function DragDropContextProvider({
 }): React.JSX.Element {
 	const value: DragDropContextValue = useMemo(() => {
 		return {
+			colors,
 			contextId,
 			getDragState,
 			startKeyboardDrag,
 			droppableRegistry,
 		};
-	}, [contextId, getDragState, startKeyboardDrag, droppableRegistry]);
+	}, [colors, contextId, getDragState, startKeyboardDrag, droppableRegistry]);
 
 	return <DragDropContext.Provider value={value}>{children}</DragDropContext.Provider>;
 }

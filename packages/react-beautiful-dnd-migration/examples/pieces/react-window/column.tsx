@@ -15,7 +15,7 @@ import { token } from '@atlaskit/tokens';
 
 import type { ColumnType, Item } from '../../data/tasks';
 import { Card, CardInner } from '../card';
-import { useDependency } from '../example-wrapper';
+import { useDependency, useExampleColors } from '../example-wrapper';
 
 const columnStyles = css({
 	display: 'flex',
@@ -115,6 +115,7 @@ export const Column: React.MemoExoticComponent<
 	({ column, droppableId, index }: ColumnProps) => React.JSX.Element
 > = memo(({ column, droppableId, index }: ColumnProps): React.JSX.Element => {
 	const { Draggable, Droppable } = useDependency();
+	const colors = useExampleColors();
 
 	const columnId = column.columnId;
 
@@ -151,6 +152,10 @@ export const Column: React.MemoExoticComponent<
 
 								if (snapshot.isDraggingOver) {
 									style.background = token('color.background.selected.hovered');
+								}
+
+								if (colors === 'dedicated' && snapshot.isDraggingOver) {
+									style.background = token('color.background.droptarget');
 								}
 
 								return (

@@ -1,3 +1,5 @@
+export type { Colors, DragDropContextProps } from '../drag-drop-context/types';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 export type {
 	Announce,
@@ -23,7 +25,6 @@ export type {
 	DisplacementGroups,
 	DisplacementMap,
 	DragActions,
-	DragDropContextProps,
 	DragImpact,
 	DragPositions,
 	DragStart,

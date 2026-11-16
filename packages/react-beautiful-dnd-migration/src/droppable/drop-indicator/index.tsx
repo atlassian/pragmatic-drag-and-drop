@@ -48,6 +48,10 @@ const baseStyles = css({
 	scrollMarginBottom: scrollMarginTop + lineOffset,
 });
 
+const dedicatedColorStyles = css({
+	background: token('color.border.dropindicator'),
+});
+
 /**
  * For virtual lists, the indicator might not be a sibling of the contents.
  * This can lead to issues like wrapping.
@@ -110,7 +114,7 @@ const dropIndicatorData = {
 };
 
 export const DropIndicator = ({ direction, mode }: DropIndicatorProps): React.JSX.Element => {
-	const { contextId, getDragState } = useDragDropContext();
+	const { colors, contextId, getDragState } = useDragDropContext();
 
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -232,6 +236,7 @@ export const DropIndicator = ({ direction, mode }: DropIndicatorProps): React.JS
 			ref={ref}
 			css={[
 				baseStyles,
+				colors === 'dedicated' && dedicatedColorStyles,
 				directionStyles[direction],
 				isVirtual && virtualStyles,
 				isHidden && visuallyHiddenStyles,

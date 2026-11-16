@@ -6,13 +6,14 @@
 
 import React from 'react';
 
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import type { DroppableId, DroppableMode, DroppableProvided } from 'react-beautiful-dnd';
 import invariant from 'tiny-invariant';
 
 import * as closestEdge from '@atlaskit/pragmatic-drag-and-drop-hitbox/closest-edge/extract-closest-edge';
 
 import { DragDropContext, Draggable, Droppable } from '../../../src';
+import type { Colors } from '../../../src/entry-points/types';
 import { attributes, customAttributes } from '../../../src/utils/attributes';
 import { getDroppable, getPlaceholder, setElementFromPoint } from '../_util';
 import {
@@ -34,9 +35,17 @@ const columns = [
 	{ id: 'C', items: [] },
 ];
 
-function Board({ mode = 'standard', columnSpy }: { mode?: DroppableMode; columnSpy?: jest.Mock }) {
+function Board({
+	mode = 'standard',
+	columnSpy,
+	colors,
+}: {
+	mode?: DroppableMode;
+	columnSpy?: jest.Mock;
+	colors?: Colors;
+}) {
 	return (
-		<DragDropContext onDragEnd={() => {}}>
+		<DragDropContext onDragEnd={() => {}} colors={colors}>
 			<Droppable droppableId="board" type="column">
 				{(provided) => (
 					<div ref={provided.innerRef} {...provided.droppableProps}>
@@ -101,6 +110,76 @@ function findDropIndicator(droppableId: DroppableId, container: HTMLElement): HT
 function hasDropIndicator(droppableId: DroppableId, container: HTMLElement): boolean {
 	return Boolean(findDropIndicator(droppableId, container));
 }
+
+describe.each<DroppableMode>(['standard', 'virtual'])('color schemes in %s lists', (mode) => {
+	it.each([undefined, 'standard', 'dedicated'] as const)(
+		'uses the expected token with colors=%s',
+		(colors) => {
+			const { container } = render(<Board mode={mode} colors={colors} />);
+			const handle = screen.getByText('Item A0');
+			setElementFromPoint(handle);
+			mouse.lift(handle);
+			fireEvent.dragEnter(getDroppable('B', container));
+
+			const indicator = findDropIndicator('B', container);
+			invariant(indicator);
+			const background = window.getComputedStyle(indicator).background;
+			if (colors === 'dedicated') {
+				expect(background).toMatch(/^var\(--ds-border-dropindicator(?:,|\))/);
+			} else {
+				expect(background).toMatch(/^var\(--ds-border-brand(?:,|\))/);
+			}
+		},
+	);
+
+	it('keeps the chosen scheme local to each drag and drop context', () => {
+		const standard = render(<Board mode={mode} colors="standard" />);
+		const dedicated = render(<Board mode={mode} colors="dedicated" />);
+
+		for (const [board, expected] of [
+			[standard, /^var\(--ds-border-brand(?:,|\))/],
+			[dedicated, /^var\(--ds-border-dropindicator(?:,|\))/],
+		] as const) {
+			const handle = within(board.container).getByText('Item A0');
+			setElementFromPoint(handle);
+			mouse.lift(handle);
+			fireEvent.dragEnter(getDroppable('B', board.container));
+
+			const indicator = findDropIndicator('B', board.container);
+			invariant(indicator);
+			expect(window.getComputedStyle(indicator).background).toMatch(expected);
+			mouse.cancel(handle);
+		}
+	});
+
+	it('can opt in and roll back during a drag without replacing or moving the indicator', () => {
+		const { container, rerender } = render(<Board mode={mode} />);
+		const handle = screen.getByText('Item A0');
+		setElementFromPoint(handle);
+		mouse.lift(handle);
+		fireEvent.dragEnter(getDroppable('B', container));
+
+		const indicator = findDropIndicator('B', container);
+		invariant(indicator);
+		const geometry = indicator.style.cssText;
+
+		rerender(<Board mode={mode} colors="dedicated" />);
+		expect(findDropIndicator('B', container)).toBe(indicator);
+		expect(window.getComputedStyle(indicator).background).toMatch(
+			/^var\(--ds-border-dropindicator(?:,|\))/,
+		);
+		expect(indicator.style.cssText).toBe(geometry);
+		expect(isDragging(handle)).toBe(true);
+
+		rerender(<Board mode={mode} />);
+		expect(findDropIndicator('B', container)).toBe(indicator);
+		expect(window.getComputedStyle(indicator).background).toMatch(
+			/^var\(--ds-border-brand(?:,|\))/,
+		);
+		expect(indicator.style.cssText).toBe(geometry);
+		expect(isDragging(handle)).toBe(true);
+	});
+});
 
 it('should not render a drop indicator at rest', () => {
 	const { container } = render(<Board />);

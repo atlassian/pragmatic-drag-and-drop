@@ -28,8 +28,8 @@ This package does not currently support React 19.
 
 </SectionMessage>
 
-This package exposes the same exports and types of `react-beautiful-dnd@13` and uses
-`@atlaskit/pragmatic-drag-and-drop` to power those exports.
+This package provides the `react-beautiful-dnd@13` API and uses `@atlaskit/pragmatic-drag-and-drop`
+to power those exports.
 
 At a high level, all you need to do is swap your imports of `react-beautiful-dnd` in your code to
 `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` and your drag and drop
@@ -59,6 +59,45 @@ To use `@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration` you sho
    2. For major version 13, select `adoption-from-rbd-13`
 
 3. Acknowledge and remove the comments left by the codemod.
+
+## Choose drop indicator colors
+
+`DragDropContext` accepts an optional `colors` prop that applies to all drop indicators in that
+context:
+
+| `colors`               | Indicator token              |
+| ---------------------- | ---------------------------- |
+| `"standard"` (default) | `color.border.brand`         |
+| `"dedicated"`          | `color.border.dropindicator` |
+
+Omitting `colors` preserves the existing appearance. Opting in changes the token role without
+changing the indicator's position, dimensions, or drag and drop behavior.
+
+```tsx
+import { DragDropContext } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration';
+import type {
+	Colors,
+	DragDropContextProps,
+} from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/types';
+
+const colors: Colors = 'dedicated';
+
+export function Board({ children, onDragEnd }: DragDropContextProps) {
+	return (
+		<DragDropContext colors={colors} onDragEnd={onDragEnd}>
+			{children}
+		</DragDropContext>
+	);
+}
+```
+
+Choose the color scheme in your application. The package does not evaluate feature flags. Before
+opting in, make sure your theme provides `color.border.dropindicator`. Custom themes that override
+`color.border.brand` must also provide the dedicated role to preserve their custom indicator color.
+
+Destination backgrounds remain controlled by your application. When opting in, use
+`color.background.droptarget` for the active destination and keep its styling aligned with the
+indicator's color scheme.
 
 ## Troubleshooting
 

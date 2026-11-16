@@ -1,16 +1,7 @@
-import React, {
-	type ReactElement,
-	type ReactNode,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-} from 'react';
+import React, { type ReactElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import type {
 	BeforeCapture,
-	DragDropContextProps,
 	DraggableLocation,
 	DragStart,
 	DragUpdate,
@@ -39,7 +30,7 @@ import { LifecycleContextProvider, useLifecycle } from './lifecycle-context';
 import { announce } from './live-region';
 import { rbdInvariant } from './rbd-invariant';
 import { defaultDragHandleUsageInstructions, getProvided } from './screen-reader';
-import type { DragController, DragState } from './types';
+import type { DragController, DragDropContextProps, DragState } from './types';
 import { useScheduler } from './use-scheduler';
 
 /**
@@ -68,6 +59,7 @@ function getOffset(args: { element: HTMLElement; mode: DroppableMode }) {
 // eslint-disable-next-line @atlaskit/volt-strict-mode/no-multiple-exports
 export function DragDropContext({
 	children,
+	colors = 'standard',
 	dragHandleUsageInstructions = defaultDragHandleUsageInstructions,
 	nonce,
 	onBeforeCapture,
@@ -75,7 +67,7 @@ export function DragDropContext({
 	onDragStart,
 	onDragUpdate,
 	onDragEnd,
-}: DragDropContextProps & { children?: ReactNode }): ReactElement {
+}: DragDropContextProps): ReactElement {
 	const [contextId] = useState<string>(getContextId);
 	useHiddenTextElement({ contextId, text: dragHandleUsageInstructions });
 
@@ -488,6 +480,7 @@ export function DragDropContext({
 		<ErrorBoundary contextId={contextId} dragController={dragController}>
 			<LifecycleContextProvider lifecycle={lifecycle}>
 				<DragDropContextProvider
+					colors={colors}
 					contextId={contextId}
 					getDragState={getDragState}
 					startKeyboardDrag={startKeyboardDrag}

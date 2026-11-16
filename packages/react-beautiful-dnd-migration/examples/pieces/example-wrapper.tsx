@@ -21,13 +21,18 @@ import RadioGroup from '@atlaskit/radio/radio-group';
 import type { OptionsPropType } from '@atlaskit/radio/types';
 
 import * as migration from '../../src';
+import type { Colors } from '../../src/entry-points/types';
 import { GlobalStyles } from './global-styles';
 
 type SwitcherProps = {
 	children: ReactNode;
+	colors?: Colors;
 };
 
-const DependencyContext = createContext<Library>('migration');
+const ExampleContext = createContext<{ library: Library; colors: Colors }>({
+	library: 'migration',
+	colors: 'standard',
+});
 
 type Library = 'migration' | 'rbd';
 
@@ -41,7 +46,10 @@ const wrapperStyles = css({
 	gap: 'calc(3 * var(--grid))',
 });
 
-export function ExampleWrapper({ children }: SwitcherProps): React.JSX.Element {
+export function ExampleWrapper({
+	children,
+	colors = 'standard',
+}: SwitcherProps): React.JSX.Element {
 	const [library, setLibrary] = useState<Library>('migration');
 
 	const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +57,7 @@ export function ExampleWrapper({ children }: SwitcherProps): React.JSX.Element {
 	}, []);
 
 	return (
-		<DependencyContext.Provider value={library}>
+		<ExampleContext.Provider value={{ library, colors }}>
 			<GlobalStyles />
 			<div css={wrapperStyles}>
 				<div>
@@ -57,7 +65,7 @@ export function ExampleWrapper({ children }: SwitcherProps): React.JSX.Element {
 				</div>
 				<div>{children}</div>
 			</div>
-		</DependencyContext.Provider>
+		</ExampleContext.Provider>
 	);
 }
 
@@ -67,13 +75,26 @@ type Components = {
 	Droppable: ComponentType<DroppableProps>;
 };
 
+function MigrationDragDropContext(props: DragDropContextProps): React.JSX.Element {
+	const colors = useExampleColors();
+	return <migration.DragDropContext {...props} colors={colors} />;
+}
+
 const componentMap: Record<Library, Components> = {
-	migration,
+	migration: {
+		DragDropContext: MigrationDragDropContext,
+		Draggable: migration.Draggable,
+		Droppable: migration.Droppable,
+	},
 	rbd,
 };
 
 export function useDependency(): Components {
-	const library = useContext(DependencyContext);
+	const { library } = useContext(ExampleContext);
 
 	return componentMap[library];
+}
+
+export function useExampleColors(): Colors {
+	return useContext(ExampleContext).colors;
 }

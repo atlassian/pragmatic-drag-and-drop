@@ -1,3 +1,5 @@
+export type { DragDropContextProps } from './drag-drop-context/types';
+
 export { DragDropContext } from './drag-drop-context';
 export { Draggable } from './draggable';
 export { Droppable } from './droppable';
@@ -28,7 +30,6 @@ export type {
 	DisplacementGroups,
 	DisplacementMap,
 	DragActions,
-	DragDropContextProps,
 	DragImpact,
 	DragPositions,
 	DragStart,

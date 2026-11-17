@@ -1,5 +1,14 @@
 # @atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration
 
+## 3.5.0
+
+### Minor Changes
+
+- [`df862b90e171d`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/df862b90e171d) -
+  Add an optional `colors` prop to `DragDropContext`. The default, `standard`, preserves existing
+  indicator colors. Use `dedicated` to opt into `color.border.dropindicator` for all indicators in
+  the context.
+
 ## 3.4.5
 
 ### Patch Changes

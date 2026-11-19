@@ -335,7 +335,7 @@ operation.
 There are two signals you can use to indicate drop placement:
 
 1. Drop indicator (a line)
-2. Background color (`color.background.selected.hovered`)
+2. Background color (`color.background.droptarget.hovered`)
 
 ### Drop indicator
 
@@ -383,17 +383,29 @@ draggable item starts in a droppable area, when there are multiple possible drop
 
 ![dragging over a populated column, where a line and background color change is being displayed](./images/design-board-background-and-line.png)
 
-A background color change to communicate that dropping is possible should only be applied when a
-user can perform a drop operation. Sometimes an entity (eg a column) only allows dropping on a
-subset of that entity. Only the subset that allows dropping should have a background color change,
-and only when the user is dragging over that subset. We don't want to have a situation where a
-background color changes, but when the user drops, nothing happens.
+Apply drag feedback only to eligible drop destinations. Sometimes an entity (for example, a column)
+only allows dropping on a subset of that entity. Limit available and entered destination fills to
+that subset, and show the entered appearance only while the dragged item is over it. Keep accepting
+feedback off ineligible destinations so the appearance accurately communicates where a drop can
+succeed.
+
+When an experience highlights all available destinations during a drag, use
+`color.background.droptarget` for those eligible destinations. Use
+`color.background.droptarget.hovered` for the current receiving destination, according to the
+experience’s targeting rules. Here, hovered means drag-over; ordinary pointer hover does not
+activate this state.
+
+When the dragged item leaves, restore the available appearance if the destination remains eligible.
+Clear drag feedback when the operation completes or is canceled. For keyboard dragging, show
+equivalent feedback for the current destination and keep actual keyboard focus identifiable
+independently. Keep blocked and destructive feedback distinct from accepting destinations, and
+preserve the maintained combine and nested-group treatments below.
 
 Background color change animation details:
 
 | Property         | Value                                                                              |
 | ---------------- | ---------------------------------------------------------------------------------- |
-| Background color | `"color.background.selected.hovered"`                                              |
+| Background color | `"color.background.droptarget.hovered"`                                            |
 | Easing           | `cubic-bezier(0.15, 1.0, 0.3, 1.0)` (`import {easeInOut} from '@atlaskit/motion'`) |
 | Duration         | `350ms` (`import {mediumDurationMs} from '@atlaskit/motion'`)                      |
 

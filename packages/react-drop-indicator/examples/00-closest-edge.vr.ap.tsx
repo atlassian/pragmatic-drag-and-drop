@@ -1,6 +1,7 @@
 import React from 'react';
 
-import type { Edge } from '../src/types';
+import type { Edge } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/types';
+
 import Card from './internal/card';
 import Layout from './internal/layout';
 

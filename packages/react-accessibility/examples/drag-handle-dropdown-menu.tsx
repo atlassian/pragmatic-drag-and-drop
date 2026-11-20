@@ -5,8 +5,7 @@ import { DropdownItemGroup } from '@atlaskit/dropdown-menu/dropdown-item-group';
 import { DropdownMenu } from '@atlaskit/dropdown-menu/dropdown-menu';
 // eslint-disable-next-line @atlaskit/design-system/no-banned-imports
 import mergeRefs from '@atlaskit/ds-lib/merge-refs';
-
-import { DragHandleButton } from '../src/drag-handle-button';
+import { DragHandleButton } from '@atlaskit/pragmatic-drag-and-drop-react-accessibility/drag-handle-button';
 
 export default function DragHandleDropdownMenuExample(): React.JSX.Element {
 	// This ref can be used to set your `dragHandle` when calling `draggable()`

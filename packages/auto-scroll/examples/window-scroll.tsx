@@ -10,6 +10,7 @@ import React, { Fragment, useEffect, useRef } from 'react';
 import { css, Global, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
+import { autoScrollWindowForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
 import {
 	draggable,
 	dropTargetForElements,
@@ -19,8 +20,6 @@ import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 import { Box } from '@atlaskit/primitives/box';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { xcss } from '@atlaskit/primitives/xcss/xcss';
-
-import { autoScrollWindowForElements } from '../src/entry-point/element';
 
 const globalStyles = css({
 	// eslint-disable-next-line @atlaskit/ui-styling-standard/no-unsafe-selectors -- Ignored via go/DSP-18766

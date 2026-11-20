@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/border';
 import { Stack } from '@atlaskit/primitives/compiled/stack';
 
-import { DropIndicator } from '../../../src/border';
 import { Item } from '../simple-item';
 
 export function BorderShowcaseExample(): React.JSX.Element {

@@ -15,7 +15,7 @@
   "devDependencies": {
     "@atlaskit/code": "^20.0.0",
     "@atlaskit/heading": "^8.0.0",
-    "@atlaskit/icon": "^38.1.0",
+    "@atlaskit/icon": "^38.2.0",
     "@atlaskit/primitives": "^22.8.0",
     "@testing-library/react": "^16.3.0",
     "react": "^19.0.0",

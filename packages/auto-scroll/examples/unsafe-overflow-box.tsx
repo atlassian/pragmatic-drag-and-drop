@@ -2,14 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
+import { unsafeOverflowAutoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box } from '@atlaskit/primitives/box';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { xcss } from '@atlaskit/primitives/xcss/xcss';
-
-import { unsafeOverflowAutoScrollForElements } from '../src/entry-point/unsafe-overflow/element';
 
 function getHugeContent(): string {
 	return Array.from({ length: 10000 }, (_, index) => `index:${index}`).join(' ');

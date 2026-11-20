@@ -17,11 +17,13 @@ import { css, jsx } from '@emotion/react';
 import * as rbd from 'react-beautiful-dnd';
 import type { DragDropContextProps, DraggableProps, DroppableProps } from 'react-beautiful-dnd';
 
+import { DragDropContext as MigrationDragDropContextBase } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/drag-drop-context';
+import { Draggable as MigrationDraggable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/draggable';
+import { Droppable as MigrationDroppable } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/droppable';
+import type { Colors } from '@atlaskit/pragmatic-drag-and-drop-react-beautiful-dnd-migration/types';
 import RadioGroup from '@atlaskit/radio/radio-group';
 import type { OptionsPropType } from '@atlaskit/radio/types';
 
-import * as migration from '../../src';
-import type { Colors } from '../../src/entry-points/types';
 import { GlobalStyles } from './global-styles';
 
 type SwitcherProps = {
@@ -77,14 +79,14 @@ type Components = {
 
 function MigrationDragDropContext(props: DragDropContextProps): React.JSX.Element {
 	const colors = useExampleColors();
-	return <migration.DragDropContext {...props} colors={colors} />;
+	return <MigrationDragDropContextBase {...props} colors={colors} />;
 }
 
 const componentMap: Record<Library, Components> = {
 	migration: {
 		DragDropContext: MigrationDragDropContext,
-		Draggable: migration.Draggable,
-		Droppable: migration.Droppable,
+		Draggable: MigrationDraggable,
+		Droppable: MigrationDroppable,
 	},
 	rbd,
 };

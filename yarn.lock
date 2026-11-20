@@ -227,29 +227,6 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/button@^25.6.0":
-  version "25.6.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.6.0.tgz#94187143f957be4c4d973baa363414519dd47948"
-  integrity sha512-RClugtt7Et7h+wObUWnZ0CNpegfo8LXweahA5Yk5fYCD+M1ZbT1djirPM6XRgTjvQyjez+hvINcDq7NxeTa0zg==
-  dependencies:
-    "@atlaskit/analytics-next" "^12.6.0"
-    "@atlaskit/css" "^1.1.0"
-    "@atlaskit/ds-lib" "^8.0.0"
-    "@atlaskit/focus-ring" "^6.0.0"
-    "@atlaskit/icon" "^38.0.0"
-    "@atlaskit/interaction-context" "^4.1.0"
-    "@atlaskit/platform-feature-flags" "^2.2.0"
-    "@atlaskit/primitives" "^22.6.0"
-    "@atlaskit/react-compiler-gating" "^0.2.0"
-    "@atlaskit/spinner" "^20.4.0"
-    "@atlaskit/theme" "^28.2.0"
-    "@atlaskit/tokens" "^20.6.0"
-    "@atlaskit/tooltip" "^24.4.0"
-    "@atlaskit/visually-hidden" "^4.4.0"
-    "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^1.0.2"
-    "@emotion/react" "^11.7.1"
-
 "@atlaskit/button@^25.8.0":
   version "25.8.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/button/-/@atlaskit/button-25.8.0.tgz#7e50f19b6fd3e215118656391af66a0d495b87fc"
@@ -476,6 +453,17 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 
+"@atlaskit/icon@^38.2.0":
+  version "38.2.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/icon/-/@atlaskit/icon-38.2.0.tgz#ae6fe6eb3f752c4f4624fa83cded21b53e767e14"
+  integrity sha512-GBMMtiXerWB8TRg/NVKpu/FDEeWuOub2jik6sDp5V9ORzZstOlZO5hcyEINrm1+iYuuHWc4oM2Ht86LOVEZ2qA==
+  dependencies:
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tile" "^5.0.0"
+    "@atlaskit/tokens" "^20.14.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^1.0.2"
+
 "@atlaskit/interaction-context@^4.0.0":
   version "4.0.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/interaction-context/-/@atlaskit/interaction-context-4.0.0.tgz#19a0a63308283a33be1f5c1a7244b9dfdd049f37"
@@ -577,32 +565,33 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 
-"@atlaskit/modal-dialog@^17.2.0":
-  version "17.2.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/modal-dialog/-/@atlaskit/modal-dialog-17.2.0.tgz#e0eed3687786d9ca2e11d8e1fe4123a9908d67bc"
-  integrity sha512-aedxAirRMTB5v0Oy/QRKbBa08J1Xi0Bp1QULH9qUZR86HUkyqLqweoqhzu7ZwRQ7S2lxy4Q/4CC1S8oDss/wLw==
+"@atlaskit/modal-dialog@^17.3.0":
+  version "17.3.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/modal-dialog/-/@atlaskit/modal-dialog-17.3.0.tgz#3ac6b79ea3c367587731ccbaecc8aa9591f28f98"
+  integrity sha512-87Vqx2q11i25sf6iibg0ObXg1gS+M/WIKO+RV3aOg+bzryBEsDEM2f4rk1tRa22tnTsKMKVqxHiYaofQ+Tc42A==
   dependencies:
     "@atlaskit/analytics-next" "^12.6.0"
     "@atlaskit/blanket" "^16.4.0"
-    "@atlaskit/button" "^25.6.0"
+    "@atlaskit/button" "^25.8.0"
     "@atlaskit/css" "^1.1.0"
-    "@atlaskit/ds-lib" "^8.0.0"
-    "@atlaskit/icon" "^38.0.0"
+    "@atlaskit/ds-lib" "^9.0.0"
+    "@atlaskit/icon" "^38.2.0"
     "@atlaskit/layering" "^6.1.0"
-    "@atlaskit/motion" "^9.5.0"
+    "@atlaskit/motion" "^10.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
     "@atlaskit/portal" "^7.1.0"
     "@atlaskit/pragmatic-drag-and-drop" "^4.0.0"
-    "@atlaskit/primitives" "^22.6.0"
+    "@atlaskit/primitives" "^22.8.0"
     "@atlaskit/react-compiler-gating" "^0.2.0"
     "@atlaskit/theme" "^28.2.0"
-    "@atlaskit/tokens" "^20.8.0"
-    "@atlaskit/top-layer" "^7.1.0"
+    "@atlaskit/tokens" "^20.14.0"
+    "@atlaskit/top-layer" "^8.1.0"
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
     bind-event-listener "^3.0.0"
     raf-schd "^4.0.3"
     react-focus-lock "^2.9.5"
+    react-intl "^7.0.0"
     react-scrolllock "^5.0.1"
 
 "@atlaskit/motion@^10.0.0":
@@ -2375,6 +2364,58 @@
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@floating-ui/utils/-/utils-0.2.12.tgz#afefe785949f16ac4cdd1e695935a321572dd56a"
   integrity sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==
 
+"@formatjs/ecma402-abstract@2.3.6":
+  version "2.3.6"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/ecma402-abstract/-/ecma402-abstract-2.3.6.tgz#d6ca9d3579054fe1e1a0a0b5e872e0d64922e4e1"
+  integrity sha512-HJnTFeRM2kVFVr5gr5kH1XP6K0JcJtE7Lzvtr3FS/so5f1kpsqqqxy5JF+FRaO6H2qmcMfAUIox7AJteieRtVw==
+  dependencies:
+    "@formatjs/fast-memoize" "2.2.7"
+    "@formatjs/intl-localematcher" "0.6.2"
+    decimal.js "^10.4.3"
+    tslib "^2.8.0"
+
+"@formatjs/fast-memoize@2.2.7":
+  version "2.2.7"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/fast-memoize/-/fast-memoize-2.2.7.tgz#707f9ddaeb522a32f6715bb7950b0831f4cc7b15"
+  integrity sha512-Yabmi9nSvyOMrlSeGGWDiH7rf3a7sIwplbvo/dlz9WCIjzIQAfy1RMf4S0X3yG724n5Ghu2GmEl5NJIV6O9sZQ==
+  dependencies:
+    tslib "^2.8.0"
+
+"@formatjs/icu-messageformat-parser@2.11.4":
+  version "2.11.4"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/icu-messageformat-parser/-/icu-messageformat-parser-2.11.4.tgz#63bd2cd82d08ae2bef55adeeb86486df68826f32"
+  integrity sha512-7kR78cRrPNB4fjGFZg3Rmj5aah8rQj9KPzuLsmcSn4ipLXQvC04keycTI1F7kJYDwIXtT2+7IDEto842CfZBtw==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.6"
+    "@formatjs/icu-skeleton-parser" "1.8.16"
+    tslib "^2.8.0"
+
+"@formatjs/icu-skeleton-parser@1.8.16":
+  version "1.8.16"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/icu-skeleton-parser/-/icu-skeleton-parser-1.8.16.tgz#13f81f6845c7cf6599623006aacaf7d6b4ad2970"
+  integrity sha512-H13E9Xl+PxBd8D5/6TVUluSpxGNvFSlN/b3coUp0e0JpuWXXnQDiavIpY3NnvSp4xhEMoXyyBvVfdFX8jglOHQ==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.6"
+    tslib "^2.8.0"
+
+"@formatjs/intl-localematcher@0.6.2":
+  version "0.6.2"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/intl-localematcher/-/intl-localematcher-0.6.2.tgz#e9ebe0b4082d7d48e5b2d753579fb7ece4eaefea"
+  integrity sha512-XOMO2Hupl0wdd172Y06h6kLpBz6Dv+J4okPLl4LPtzbr8f66WbIoy4ev98EBuZ6ZK4h5ydTN6XneT4QVpD7cdA==
+  dependencies:
+    tslib "^2.8.0"
+
+"@formatjs/intl@3.1.8":
+  version "3.1.8"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@formatjs/intl/-/intl-3.1.8.tgz#17f4a5721f32cd077ab04949be558f9f767c39f5"
+  integrity sha512-LWXgwI5zTMatvR8w8kCNh/priDTOF/ZssokMBHJ7ZWXFoYLVOYo0EJERD9Eajv+xsfQO1QkuAt77KWQ1OI4mOQ==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.6"
+    "@formatjs/fast-memoize" "2.2.7"
+    "@formatjs/icu-messageformat-parser" "2.11.4"
+    intl-messageformat "10.7.18"
+    tslib "^2.8.0"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -2792,6 +2833,13 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/hoist-non-react-statics@^3.3.1":
+  version "3.3.7"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.7.tgz#306e3a3a73828522efa1341159da4846e7573a6c"
+  integrity sha512-PQTyIulDkIDro8P+IHbKCsw7U2xxBYflVzW/FgWdCAePD9xGSidgA76/GeJ6lBKoblyhf9pBY763gbrN+1dI8g==
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.6"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.6.tgz#7739c232a1fee9b4d3ce8985f314c0c6d33549d7"
@@ -2892,6 +2940,13 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/react@16 || 17 || 18 || 19":
+  version "19.3.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/@types/react/-/react-19.3.0.tgz#3b3ce8d8c1627fb5ccd4dadd57ef445c5a153b77"
+  integrity sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==
+  dependencies:
+    csstype "^3.2.2"
 
 "@types/scheduler@*":
   version "0.23.0"
@@ -3502,6 +3557,11 @@ csstype@^3.0.2:
   resolved "https://packages.atlassian.com/api/npm/npm-remote/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
+csstype@^3.2.2:
+  version "3.2.4"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/csstype/-/csstype-3.2.4.tgz#e3c565add00793c36f089cc14b70d04d784daa19"
+  integrity sha512-PoKaoPzQapnEoqUSnHx1u6W6ku8CVEgKsnpmmzU3m1nwkidpPBQ8V/Zq2+bWNrsOKoKLwTGdbx6xF7BXP1zLVQ==
+
 csstype@^3.2.3:
   version "3.2.3"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/csstype/-/csstype-3.2.3.tgz#ec48c0f3e993e50648c86da559e2610995cf989a"
@@ -3552,6 +3612,11 @@ decimal.js@^10.4.2:
   version "10.4.3"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/decimal.js/-/decimal.js-10.4.3.tgz#1044092884d245d1b7f65725fa4ad4c6f781cc23"
   integrity sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==
+
+decimal.js@^10.4.3:
+  version "10.6.0"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/decimal.js/-/decimal.js-10.6.0.tgz#e649a43e3ab953a72192ff5983865e509f37ed9a"
+  integrity sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==
 
 dedent@^1.0.0:
   version "1.5.1"
@@ -4279,6 +4344,16 @@ ini@^1.3.5:
   version "1.3.8"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/ini/-/ini-1.3.8.tgz#a29da425b48806f34767a4efce397269af28432c"
   integrity sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==
+
+intl-messageformat@10.7.18:
+  version "10.7.18"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/intl-messageformat/-/intl-messageformat-10.7.18.tgz#51a6f387afbca9b0f881b2ec081566db8c540b0d"
+  integrity sha512-m3Ofv/X/tV8Y3tHXLohcuVuhWKo7BBq62cqY15etqmLxg2DZ34AGGgQDeR+SCta2+zICb1NX83af0GJmbQ1++g==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.6"
+    "@formatjs/fast-memoize" "2.2.7"
+    "@formatjs/icu-messageformat-parser" "2.11.4"
+    tslib "^2.8.0"
 
 is-alphabetical@^1.0.0:
   version "1.0.4"
@@ -5652,6 +5727,20 @@ react-focus-lock@^2.9.5:
     use-callback-ref "^1.3.3"
     use-sidecar "^1.1.3"
 
+react-intl@^7.0.0:
+  version "7.1.14"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/react-intl/-/react-intl-7.1.14.tgz#5500f76b0bb35694a7bec418b1adf1533dad6752"
+  integrity sha512-VE/0Wi/lHJlBC7APQpCzLUdIt3GB5B0GZrRW8Q+ACbkHI4j+Wwgg9J1TniN6zmLHmPH5gxXcMy+fkSPfw5p1WQ==
+  dependencies:
+    "@formatjs/ecma402-abstract" "2.3.6"
+    "@formatjs/icu-messageformat-parser" "2.11.4"
+    "@formatjs/intl" "3.1.8"
+    "@types/hoist-non-react-statics" "^3.3.1"
+    "@types/react" "16 || 17 || 18 || 19"
+    hoist-non-react-statics "^3.3.2"
+    intl-messageformat "10.7.18"
+    tslib "^2.8.0"
+
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -6283,6 +6372,11 @@ tslib@^2.0.3:
   version "2.8.1"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
+
+tslib@^2.8.0:
+  version "2.9.1"
+  resolved "https://packages.atlassian.com/api/npm/npm-remote/tslib/-/tslib-2.9.1.tgz#8986213ba2f17f38ba39a7c43d0e565a9134ff5f"
+  integrity sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==
 
 tsx@^4.23.1:
   version "4.23.1"

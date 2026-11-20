@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { autoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/element';
+import { unsafeOverflowAutoScrollForElements } from '@atlaskit/pragmatic-drag-and-drop-auto-scroll/unsafe-overflow/element';
 import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 
-import { autoScrollForElements } from '../src/entry-point/element';
-import { unsafeOverflowAutoScrollForElements } from '../src/entry-point/unsafe-overflow/element';
 import { Board } from './pieces/board';
 import { BoardContext, type TBoardContext } from './pieces/board-context';
 

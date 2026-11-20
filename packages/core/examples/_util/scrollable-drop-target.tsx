@@ -3,10 +3,9 @@ import React, { type ReactNode, useEffect, useRef } from 'react';
 import invariant from 'tiny-invariant';
 
 import { cssMap } from '@atlaskit/css';
+import { dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { Box } from '@atlaskit/primitives/compiled/box';
 import { token } from '@atlaskit/tokens';
-
-import { dropTargetForElements } from '../../src/adapter/element-adapter';
 
 const styles = cssMap({
 	// `<Box>` (compiled) is used so that `tabIndex={0}` is allowed under the

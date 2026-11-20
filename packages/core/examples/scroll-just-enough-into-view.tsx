@@ -8,10 +8,10 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { scrollJustEnoughIntoView } from '@atlaskit/pragmatic-drag-and-drop/utils/scroll-just-enough-into-view';
 import { token } from '@atlaskit/tokens';
 
-import { draggable } from '../src/adapter/element-adapter';
-import { scrollJustEnoughIntoView } from '../src/public-utils/element/scroll-just-enough-into-view';
 import { GlobalStyles } from './_util/global-styles';
 import { ScrollableDropTarget } from './_util/scrollable-drop-target';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Code from '@atlaskit/code/code';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/list-item';
 import { Stack } from '@atlaskit/primitives/compiled/stack';
 
-import { DropIndicator } from '../../../src/list-item';
 import { Item } from '../simple-item';
 
 export function ListItemVerticalExample(): React.JSX.Element {

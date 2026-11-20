@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { announce, cleanup } from '../src';
+import { announce, cleanup } from '@atlaskit/pragmatic-drag-and-drop-live-region';
 
 export default function BasicExample(): React.JSX.Element {
 	useEffect(() => {

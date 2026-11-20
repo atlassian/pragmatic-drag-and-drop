@@ -7,11 +7,11 @@ import { css, jsx } from '@compiled/react';
 
 import Code from '@atlaskit/code/code';
 import Heading from '@atlaskit/heading/heading';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 import { Stack } from '@atlaskit/primitives/compiled/stack';
 import { Text } from '@atlaskit/primitives/compiled/text';
 import { token } from '@atlaskit/tokens';
 
-import { DropIndicator } from '../../../src/box';
 import { Item } from '../simple-item';
 
 const verticalStyles = css({

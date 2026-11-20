@@ -3,13 +3,15 @@
  * @jsx jsx
  */
 
-import type { ReactElement, ReactNode } from 'react';
+import type { JSX, ReactElement, ReactNode } from 'react';
 
 import { css, jsx } from '@compiled/react';
 
+import {
+	DropIndicator as defaultDropIndicator,
+	type DropIndicatorProps,
+} from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/box';
 import { token } from '@atlaskit/tokens';
-
-import { DropIndicator as defaultDropIndicator, type DropIndicatorProps } from '../../src/box';
 
 type CardProps = {
 	children: ReactNode;

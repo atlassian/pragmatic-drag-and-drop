@@ -9,12 +9,12 @@ import { css, jsx } from '@emotion/react';
 import invariant from 'tiny-invariant';
 
 import Link from '@atlaskit/link/link';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { scrollJustEnoughIntoView } from '@atlaskit/pragmatic-drag-and-drop/utils/scroll-just-enough-into-view';
+import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
 import { Stack } from '@atlaskit/primitives/compiled/stack';
 import { token } from '@atlaskit/tokens';
 
-import { draggable } from '../../src/adapter/element-adapter';
-import { setCustomNativeDragPreview } from '../../src/public-utils/element/custom-native-drag-preview/set-custom-native-drag-preview';
-import { scrollJustEnoughIntoView } from '../../src/public-utils/element/scroll-just-enough-into-view';
 import avatarUrl from './avatar.png';
 
 const cardStyles = css({

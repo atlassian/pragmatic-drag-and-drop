@@ -3,14 +3,13 @@
  * @jsx jsx
  */
 
-import type { CSSProperties } from 'react';
+import type { CSSProperties, JSX } from 'react';
 
 import { css, jsx } from '@compiled/react';
 
 import type { Instruction } from '@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item';
+import { DropIndicator } from '@atlaskit/pragmatic-drag-and-drop-react-drop-indicator/tree-item';
 import { token } from '@atlaskit/tokens';
-
-import { DropIndicator } from '../../src/tree-item';
 
 const itemStyles = css({
 	display: 'flex',

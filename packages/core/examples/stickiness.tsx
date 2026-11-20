@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import invariant from 'tiny-invariant';
 
+import {
+	draggable,
+	dropTargetForElements,
+} from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
+import { combine } from '@atlaskit/pragmatic-drag-and-drop/utils/combine';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { Box } from '@atlaskit/primitives/box';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
@@ -10,9 +15,6 @@ import { Inline } from '@atlaskit/primitives/inline';
 import { Stack } from '@atlaskit/primitives/stack';
 // eslint-disable-next-line @atlaskit/design-system/no-emotion-primitives -- to be migrated to @atlaskit/primitives/compiled – go/akcss
 import { xcss } from '@atlaskit/primitives/xcss/xcss';
-
-import { draggable, dropTargetForElements } from '../src/adapter/element-adapter';
-import { combine } from '../src/public-utils/combine';
 
 type ItemData = {
 	id: string;

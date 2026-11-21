@@ -31,7 +31,7 @@
     "@atlaskit/react-compiler-gating": "^0.2.0",
     "@atlaskit/tokens": "^20.14.0",
     "@babel/runtime": "^7.0.0",
-    "@compiled/react": "^1.0.2"
+    "@compiled/react": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0 || ^19.0.0"

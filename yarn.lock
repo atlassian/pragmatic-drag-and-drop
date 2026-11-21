@@ -2106,6 +2106,13 @@
   dependencies:
     csstype "^3.2.3"
 
+"@compiled/react@^2.0.0":
+  version "2.0.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@compiled/react/-/@compiled/react-2.0.0.tgz#98ccfd0f5cdb27dd56be734ffd80c94dc0226996"
+  integrity sha512-dYLzz9K1tlDklC9/00c0b0HdyL3JPYyW42CwiPPrufS083ZKd6kgq6wfyh6M2VvsoVVQWl+e1Zag4qS+lO2yYA==
+  dependencies:
+    csstype "^3.2.3"
+
 "@csstools/css-parser-algorithms@^2.3.1":
   version "2.7.1"
   resolved "https://packages.atlassian.com/api/npm/npm-remote/@csstools/css-parser-algorithms/-/css-parser-algorithms-2.7.1.tgz#6d93a8f7d8aeb7cd9ed0868f946e46f021b6aa70"

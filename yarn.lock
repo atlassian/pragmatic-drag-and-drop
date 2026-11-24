@@ -317,15 +317,15 @@
     "@compiled/react" "^1.0.2"
     date-fns "^2.17.0"
 
-"@atlaskit/dropdown-menu@^22.0.0":
-  version "22.0.0"
-  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/dropdown-menu/-/@atlaskit/dropdown-menu-22.0.0.tgz#54f1bbdad48bdd500051c997fa77421a178d9ef1"
-  integrity sha512-PMjqd9xERdwNICXGnXQfNnfe5DIQF/so49PPoArDVRnzDv+AFSxAhxIKBu38Ajw5WXibXk/P1xRXwz59bYPBSA==
+"@atlaskit/dropdown-menu@^22.1.0":
+  version "22.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/dropdown-menu/-/@atlaskit/dropdown-menu-22.1.0.tgz#44dfc61859131e84e645ab1a33114b598d0da652"
+  integrity sha512-IuJ80qMmcLfm62ZvtbemTdPg4CZhIrAanhWG8e2cw0KUOIC+/qH8McPi62AQDZJy2Qrd04RhBVHAzDfbEqyk/w==
   dependencies:
     "@atlaskit/button" "^25.8.0"
     "@atlaskit/css" "^1.1.0"
     "@atlaskit/ds-lib" "^9.0.0"
-    "@atlaskit/icon" "^38.1.0"
+    "@atlaskit/icon" "^38.2.0"
     "@atlaskit/layering" "^6.1.0"
     "@atlaskit/menu" "^11.0.0"
     "@atlaskit/platform-feature-flags" "^2.2.0"
@@ -338,7 +338,7 @@
     "@atlaskit/top-layer" "^8.1.0"
     "@atlaskit/visually-hidden" "^4.4.0"
     "@babel/runtime" "^7.0.0"
-    "@compiled/react" "^1.0.2"
+    "@compiled/react" "^2.0.0"
     bind-event-listener "^3.0.0"
 
 "@atlaskit/ds-lib@^8.0.0":

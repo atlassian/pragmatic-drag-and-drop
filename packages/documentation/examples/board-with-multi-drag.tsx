@@ -157,13 +157,12 @@ const multiDragReorder = ({
 		selectedUserIds,
 	});
 
-	const orderedSelectedItems = orderedSelectedUserIds.map(
-		(id) =>
-			getHomeColumn({
-				columnMap: data.columnMap,
-				orderedColumnIds: data.orderedColumnIds,
-				userId: id,
-			}).items.find((i) => i.userId === id)!,
+	const orderedSelectedItems = orderedSelectedUserIds.map((id) =>
+		getHomeColumn({
+			columnMap: data.columnMap,
+			orderedColumnIds: data.orderedColumnIds,
+			userId: id,
+		}).items.find((i) => i.userId === id)!,
 	);
 
 	// 3. Insert them back in at the correct index

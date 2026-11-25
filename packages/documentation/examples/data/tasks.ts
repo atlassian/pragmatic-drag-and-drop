@@ -10,12 +10,9 @@ export type ColumnType = {
 export type ColumnMap = { [columnId: string]: ColumnType };
 
 function getItems({ count, startColumnId }: { count: number; startColumnId: string }): Item[] {
-	return Array.from(
-		{ length: count },
-		(_, index): Item => ({
-			itemId: `${startColumnId}${index}`,
-		}),
-	);
+	return Array.from({ length: count }, (_, index): Item => ({
+		itemId: `${startColumnId}${index}`,
+	}));
 }
 
 export function getInitialData(): {

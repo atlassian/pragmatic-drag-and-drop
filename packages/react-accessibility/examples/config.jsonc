@@ -4,6 +4,10 @@
  * They are defined here so the hashing algorithm doesn't need to search test files for example usage each time
  */
 {
-	"testExamples": ["drag-handle-button-small.vr.ap.tsx", "drag-handle-button.vr.ap.tsx"],
+	"testExamples": [
+		"drag-handle-button-small.vr.ap.tsx",
+		"drag-handle-button.vr.ap.tsx",
+		"drag-handle-dropdown-menu.tsx",
+	],
 	"exampleDependencies": ["@atlaskit/ds-lib"],
 }

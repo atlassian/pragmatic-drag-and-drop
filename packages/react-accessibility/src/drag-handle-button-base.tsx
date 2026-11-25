@@ -28,6 +28,14 @@ const buttonStyles = css({
 	display: 'flex',
 });
 
+/**
+ * As `@atlaskit/ds-lib/is-safari`, which this public package cannot use.
+ */
+function isSafari(): boolean {
+	const userAgent = typeof navigator === 'undefined' ? '' : navigator.userAgent.toLowerCase();
+	return userAgent.includes('safari') && !userAgent.includes('chrome');
+}
+
 export type DragHandleButtonAppearance = 'default' | 'subtle' | 'selected';
 
 const buttonAppearanceStyles: Record<DragHandleButtonAppearance, SerializedStyles> = {
@@ -92,6 +100,9 @@ export const DragHandleButtonBase: ForwardRefExoticComponent<
 				css={[buttonStyles, buttonAppearanceStyles[appearance]]}
 				data-testid={testId}
 				type={type}
+				// Safari does not focus a button on a click. As in `Pressable`, a `tabIndex` lets the click
+				// focus the handle, as in Chrome.
+				tabIndex={isSafari() ? 0 : undefined}
 				{...buttonProps}
 			>
 				{children}

@@ -31,12 +31,9 @@ it('should have a resting snapshot', () => {
 
 it('should be provided with its rubric', () => {
 	const watcher = jest.fn();
-	const items = Array.from(
-		{ length: 3 },
-		(v, k): Item => ({
-			id: `${k}`,
-		}),
-	);
+	const items = Array.from({ length: 3 }, (v, k): Item => ({
+		id: `${k}`,
+	}));
 	const renderItem: RenderItem = renderItemAndSpy(watcher);
 
 	render(<App renderItem={renderItem} items={items} />);

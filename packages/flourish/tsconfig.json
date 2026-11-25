@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "disableReferencedProjectLoad": true,
-    "disableSolutionSearching": true
+    "disableSolutionSearching": true,
+    "noUncheckedIndexedAccess": true
   }
 }

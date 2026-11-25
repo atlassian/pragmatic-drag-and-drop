@@ -1,5 +1,12 @@
 # @atlaskit/pragmatic-drag-and-drop-react-accessibility
 
+## 3.2.5
+
+### Patch Changes
+
+- [`09b5b3b2a22ca`](https://bitbucket.org/atlassian/atlassian-frontend-monorepo/commits/09b5b3b2a22ca) -
+  In Safari, a click now focuses `DragHandleButton`, as in Chrome.
+
 ## 3.2.4
 
 ### Patch Changes

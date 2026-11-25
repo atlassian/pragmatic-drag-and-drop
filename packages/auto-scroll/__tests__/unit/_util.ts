@@ -321,12 +321,10 @@ export function setupNestedScrollContainers(bubbleOrdered: BasicElementArgs[]): 
 	type Item = { args: BasicElementArgs; element: HTMLElement };
 
 	// Making all elements first so we can link everything correctly.
-	const items: Item[] = bubbleOrdered.map(
-		(args): Item => ({
-			args,
-			element: document.createElement('div'),
-		}),
-	);
+	const items: Item[] = bubbleOrdered.map((args): Item => ({
+		args,
+		element: document.createElement('div'),
+	}));
 
 	for (let i = 0; i < items.length; i++) {
 		const item = items[i];

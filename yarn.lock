@@ -565,6 +565,21 @@
     "@babel/runtime" "^7.0.0"
     "@compiled/react" "^1.0.2"
 
+"@atlaskit/menu@^11.1.0":
+  version "11.1.0"
+  resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/menu/-/@atlaskit/menu-11.1.0.tgz#0f95c46789b2b3b9f0f47038fd0cb1f7fe3f64b5"
+  integrity sha512-EKCYncwjV8R/tEv7NvUsHpzsT2jinLCZ8ccCV9WVywhKTzpbntR+m4MWPij/jI/G+H6QbK+Pzqkm68BDmlUF/Q==
+  dependencies:
+    "@atlaskit/app-provider" "^8.3.0"
+    "@atlaskit/css" "^1.1.0"
+    "@atlaskit/interaction-context" "^4.1.0"
+    "@atlaskit/platform-feature-flags" "^2.2.0"
+    "@atlaskit/primitives" "^22.8.0"
+    "@atlaskit/react-compiler-gating" "^0.2.0"
+    "@atlaskit/tokens" "^20.14.0"
+    "@babel/runtime" "^7.0.0"
+    "@compiled/react" "^2.0.0"
+
 "@atlaskit/modal-dialog@^17.3.0":
   version "17.3.0"
   resolved "https://packages.atlassian.com/api/npm/atlassian-npm/@atlaskit/modal-dialog/-/@atlaskit/modal-dialog-17.3.0.tgz#3ac6b79ea3c367587731ccbaecc8aa9591f28f98"

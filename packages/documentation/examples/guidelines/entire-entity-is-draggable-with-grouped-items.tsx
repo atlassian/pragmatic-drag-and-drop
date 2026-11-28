@@ -10,6 +10,7 @@ import { DropdownMenu } from '@atlaskit/dropdown-menu/dropdown-menu';
 import ChevronRightIcon from '@atlaskit/icon/core/chevron-right';
 import DragHandleVerticalIcon from '@atlaskit/icon/core/drag-handle-vertical';
 import EditorMoreIcon from '@atlaskit/icon/core/show-more-horizontal';
+import { fg } from '@atlaskit/platform-feature-flags/fg';
 import { draggable } from '@atlaskit/pragmatic-drag-and-drop/adapter/element-adapter';
 import { pointerOutsideOfPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/pointer-outside-of-preview';
 import { setCustomNativeDragPreview } from '@atlaskit/pragmatic-drag-and-drop/utils/set-custom-native-drag-preview';
@@ -49,12 +50,14 @@ function GroupedActionMenu() {
 							{...triggerProps}
 							ref={triggerRef}
 							elemAfter={
-								<ChevronRightIcon
-									spacing="spacious"
-									color={token('color.icon.subtle')}
-									label=""
-									size="small"
-								/>
+								fg('platform-dst-new-menu') ? undefined : (
+									<ChevronRightIcon
+										spacing="spacious"
+										color={token('color.icon.subtle')}
+										label=""
+										size="small"
+									/>
+								)
 							}
 						>
 							<span>Move</span>
